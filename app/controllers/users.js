@@ -9,11 +9,11 @@ app.get('/:userId', util.isLoggedIn, function (req, res) {
         res.status(200).json({});
         return;
     }
-    User.findOne({_id: userId}, function (err, aUser) {
-        if (err || !aUser) {
+    User.findOne({_id: userId}, function (err, obj) {
+        if (err || !obj) {
             res.status(403).json({});
         } else {
-            res.status(200).json(aUser);
+            res.status(200).json(obj);
         }
     });
 
@@ -22,12 +22,12 @@ app.get('/:userId', util.isLoggedIn, function (req, res) {
 app.delete('/:userId', util.isAdmin, function (req, res) {
     var userId = req.params.userId;
     if (!userId) {
-        res.status(403).json({});
+        res.status(500).json({});
         return;
     }
-    User.findOneAndRemove({_id: userId}, function (err, aUser) {
-        if (err || !aUser) {
-            res.status(403).json({});
+    User.findOneAndRemove({_id: userId}, function (err, obj) {
+        if (err || !obj) {
+            res.status(500).json({});
         } else {
             res.status(200).json('{}');
         }
@@ -35,11 +35,11 @@ app.delete('/:userId', util.isAdmin, function (req, res) {
 });
 
 app.get('/', util.isLoggedIn, function (req, res) {
-    User.find({}, function (err, aUsers) {
+    User.find({}, function (err, obj) {
         if (err) {
             res.status(200).json([]);
         } else {
-            res.status(200).json(aUsers);
+            res.status(200).json(obj);
         }
     });
 
