@@ -6,7 +6,7 @@ var User = require('../app/models/user');
 // load the auth variables
 var configAuth = require('./auth'); // use this one for testing
 
-module.exports = function (passport) {
+module.exports = function (passport, configFBPassport) {
 
     // =========================================================================
     // passport session setup ==================================================
@@ -29,7 +29,7 @@ module.exports = function (passport) {
     // =========================================================================
     // FACEBOOK ================================================================
     // =========================================================================
-    var fbStrategy = configAuth.facebookAuth;
+    var fbStrategy = configAuth[configFBPassport];
     fbStrategy.passReqToCallback = true;  // allows us to pass in the req from our route (lets us check if a user is logged in or not)
     passport.use(new FacebookStrategy(fbStrategy,
         function (req, token, refreshToken, profile, done) {

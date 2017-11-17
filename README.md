@@ -10,8 +10,11 @@ Prediction game using MEAN stack
 2. Launch: `node server.js`
 3. Visit: `http://localhost:3000`
 
-## Add admin user in localhost
+## Add admin user
 1. Run mongo shell: `mongo.exe`
 2. Switch to Prediga DB: `use prediga`
 3. Find user: `db.users.find({"name": "Gilad Keinan"})`
 4. Update roles: `db.users.update({"name": "Gilad Keinan"}, { $set: {"roles": ["admin"]}})` 
+
+## Using Test Users
+1. nhrkrkbdms_1510943227@tfbnw.net / qwerasdfzxcv

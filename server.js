@@ -15,11 +15,13 @@ var session = require('express-session');
 
 // configuration ===============================================================
 var configDB = port !== 3000 ? process.env.MONGODB_URI : 'mongodb://localhost:27017/prediga';
+
 mongoose.connect(configDB, function (err) {
     if (err) console.log('Unable to connect to DB ' + err);
     else console.log('Connection to DB successful')
 }); // connect to our database
-require('./config/passport')(passport); // pass passport for configuration
+var configFBPassport = port !== 3000 ? 'facebookAuth' : 'facebookAuth-Test';
+require('./config/passport')(passport, configFBPassport); // pass passport for configuration
 
 // set up our express application
 app.use(morgan('dev')); // log every request to the console
