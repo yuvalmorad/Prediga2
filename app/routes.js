@@ -1,11 +1,11 @@
+var util = require('./utils/util.js');
+
 module.exports = function (app, passport) {
     app.use('/api/users', require('./controllers/users.js'));
-
 
     /**
      * Authentications APIs
      */
-    var util = require('./utils/util.js');
     app.get('/profile', util.isLoggedIn, function (req, res) {
         res.render('profile.ejs', {
             user: req.user

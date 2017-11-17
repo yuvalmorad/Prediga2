@@ -19,10 +19,10 @@ app.get('/:userId', util.isLoggedIn, function (req, res) {
 
 });
 
-app.delete('/:userId', util.isLoggedIn, function (req, res) {
+app.delete('/:userId', util.isAdmin, function (req, res) {
     var userId = req.params.userId;
     if (!userId) {
-        res.status(200).json({});
+        res.status(403).json({});
         return;
     }
     User.findOneAndRemove({_id: userId}, function (err, aUser) {
