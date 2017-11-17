@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
 <head>
-    <title>Node Authentication</title>
+    <title>PrediGa v2.0</title>
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
     <style>
@@ -27,17 +27,17 @@
 
                 <!-- check if the user has this token (is the user authenticated with this social account) -->
                 <% if (user.token) { %>
-                <p>
-                    <strong>id</strong>: <%= user.profileId %><br>
-                    <strong>token</strong>: <%= user.token %><br>
-                    <strong>email</strong>: <%= user.email %><br>
-                    <strong>name</strong>: <%= user.name %><br>
-                    <strong>photo</strong>: <img src="<%= user.photo %>"></img><br>
-                </p>
+                    <p>
+                        <strong>id</strong>: <%= user.profileId %><br>
+                        <strong>token</strong>: <%= user.token %><br>
+                        <strong>email</strong>: <%= user.email %><br>
+                        <strong>name</strong>: <%= user.name %><br>
+                        <strong>photo</strong>: <img src="<%= user.photo %>"></img><br>
+                    </p>
 
-                <a href="/unlink/facebook" class="btn btn-primary">Unlink</a>
+                    <a href="/unlink/facebook" class="btn btn-primary">Unlink</a>
                 <% } else { %>
-                <a href="/connect/facebook" class="btn btn-primary">Connect Facebook</a>
+                     <a href="/connect/facebook" class="btn btn-primary">Connect Facebook</a>
                 <% } %>
 
             </div>

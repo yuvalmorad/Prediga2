@@ -1,6 +1,12 @@
 module.exports = function (app, passport) {
+    app.use('/api/users', require('./controllers/users.js'));
 
-    app.get('/profile', isLoggedIn, function (req, res) {
+
+    /**
+     * Authentications APIs
+     */
+    var util = require('./utils/util.js');
+    app.get('/profile', util.isLoggedIn, function (req, res) {
         res.render('profile.ejs', {
             user: req.user
         });
@@ -27,18 +33,11 @@ module.exports = function (app, passport) {
             failureRedirect: '/'
         }));
 
-    app.get('/unlink/facebook', isLoggedIn, function (req, res) {
+    app.get('/unlink/facebook', util.isLoggedIn, function (req, res) {
         var user = req.user;
-        user.facebook.token = undefined;
+        user.token = undefined;
         user.save(function (err) {
             res.redirect('/profile');
         });
     });
 };
-
-function isLoggedIn(req, res, next) {
-    if (req.isAuthenticated())
-        return next();
-
-    res.redirect('/');
-}
