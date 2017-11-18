@@ -9,4 +9,11 @@ var matchSchema = mongoose.Schema({
     type: String
 });
 
+matchSchema.options.toJSON = {
+    transform: function(doc, ret, options) {
+        delete ret.__v;
+        return ret;
+    }
+};
+
 module.exports = mongoose.model('Match', matchSchema);

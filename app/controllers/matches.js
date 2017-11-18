@@ -7,12 +7,12 @@ var Q = require('q');
 app.get('/:matchId', util.isLoggedIn, function (req, res) {
     var matchId = req.params.matchId;
     if (!matchId) {
-        res.status(200).json({});
+        res.status(200).json('provide matchId');
         return;
     }
     Match.findOne({_id: matchId}, function (err, obj) {
-        if (err || !obj) {
-            res.status(403).json({});
+        if (err) {
+            res.status(403).json(err.message);
         } else {
             res.status(200).json(obj);
         }
@@ -22,14 +22,14 @@ app.get('/:matchId', util.isLoggedIn, function (req, res) {
 app.delete('/:matchId', util.isAdmin, function (req, res) {
     var matchId = req.params.matchId;
     if (!matchId) {
-        res.status(403).json({});
+        res.status(403).json('provide matchId');
         return;
     }
     Match.findOneAndRemove({_id: matchId}, function (err, obj) {
-        if (err || !obj) {
-            res.status(403).json({});
+        if (err) {
+            res.status(403).json(err.message);
         } else {
-            res.status(200).json('{}');
+            res.status(200).json(obj);
         }
     });
 });
@@ -50,12 +50,12 @@ app.get('/', util.isLoggedIn, function (req, res) {
 app.post('/', util.isAdmin, function (req, res) {
     var matches = req.body.matches;
     if (!matches || !Array.isArray(matches)) {
-        res.status(500).json({});
+        res.status(500).json('provide matches as payload');
         return;
     }
 
     createMatches(matches).then(function (obj) {
-        res.status(200).json(matches);
+        res.status(200).json(obj);
     });
 });
 
@@ -67,9 +67,13 @@ function createMatches(matches) {
                 upsert: true,
                 setDefaultsOnInsert: true
             }, function (err, obj) {
-                itemsProcessed++;
-                if (itemsProcessed === matches.length) {
-                    deferred.resolve({});
+                if (err) {
+                    deferred.resolve(err.message);
+                } else {
+                    itemsProcessed++;
+                    if (itemsProcessed === matches.length) {
+                        deferred.resolve(matches);
+                    }
                 }
             }
         );

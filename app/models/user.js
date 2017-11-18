@@ -12,6 +12,13 @@ var userSchema = mongoose.Schema({
     roles: Array
 });
 
+userSchema.options.toJSON = {
+    transform: function(doc, ret, options) {
+        delete ret.__v;
+        return ret;
+    }
+};
+
 // generating a hash
 userSchema.methods.generateHash = function(password) {
     return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);

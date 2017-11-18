@@ -6,6 +6,8 @@ module.exports = function (app, passport) {
      ********************************************* */
     app.use('/api/users', require('./controllers/users.js'));
     app.use('/api/matches', require('./controllers/matches.js'));
+    app.use('/api/teams', require('./controllers/teams.js'));
+    app.use('/api/matchPredictions', require('./controllers/matchPredictions.js'));
 
     /********************************************
      * Authentications APIs
