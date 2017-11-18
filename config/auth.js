@@ -1,8 +1,8 @@
 module.exports = {
 
     'facebookAuth': {
-        'clientID': '2602886083085853', // your App ID
-        'clientSecret': 'd3aac3a44a7a1014e2cbaded1984d931', // your App Secret
+        'clientID': process.env.FACEBOOK_AUTH_APP_ID, // your App ID
+        'clientSecret': process.env.FACEBOOK_AUTH_SECRET, // your App Secret
         'callbackURL': 'https://prediga2.herokuapp.com/auth/facebook/callback',
         'profileFields': ['id', 'displayName', 'name', 'gender', 'email', 'photos']
     },
