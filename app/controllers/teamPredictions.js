@@ -1,12 +1,12 @@
 var express = require('express');
 var app = express.Router();
-var MatchPrediction = require('../models/matchPrediction');
-var Match = require('../models/match');
+var TeamPrediction = require('../models/teamPrediction');
+var Team = require('../models/team');
 var util = require('../utils/util.js');
 var Q = require('q');
 
 app.get('/allForAdmin', util.isAdmin, function (req, res) {
-    MatchPrediction.find({}, function (err, obj) {
+    TeamPrediction.find({}, function (err, obj) {
         res.status(200).json(obj);
     });
 });
@@ -24,14 +24,14 @@ app.get('/', util.isLoggedIn, function (req, res) {
 
     // permit to show all
     if (isSameUser) {
-        MatchPrediction.find({userId: user._id}, function (err, obj) {
+        TeamPrediction.find({userId: user._id}, function (err, obj) {
             if (err) {
-                res.status(403).json(err.message);
+                res.status(403).json('error');
             } else {
                 res.status(200).json(obj);
             }
         });
-    } else { // show only prediction until kickofftime
+    } else { // show only prediction until deadline
         getOtherUsersPredictions(userId).then(function (obj) {
             res.status(200).json(obj);
         });
@@ -42,20 +42,20 @@ function getOtherUsersPredictions(userId) {
     var deferred = Q.defer();
     var now = new Date();
 
-    // 1. get all matches until kickofftime
-    Match.find({kickofftime: {$lt: now}}, function (err, obj) {
+    // 1. get all team until deadline
+    Team.find({deadline: {$lt: now}}, function (err, obj) {
         var itemsProcessed = 0;
         var result = [];
         if (!obj || obj.length < 1) {
             deferred.resolve([]);
         }
         // 2. for each match get other's user predictions.
-        obj.forEach(function (aMatch) {
+        obj.forEach(function (aTeam) {
             if (userId) {
                 // get for one user
-                MatchPrediction.findOne({matchId: aMatch._id, userId: userId}, function (err, aMatchPrediction) {
-                    if (aMatchPrediction) {
-                        result.push(aMatchPrediction);
+                TeamPrediction.findOne({teamId: aTeam._id, userId: userId}, function (err, aTeamPrediction) {
+                    if (aTeamPrediction) {
+                        result.push(aTeamPrediction);
                     }
 
                     itemsProcessed++;
@@ -65,9 +65,9 @@ function getOtherUsersPredictions(userId) {
                 });
             } else {
                 // get for all users
-                MatchPrediction.find({matchId: aMatch._id}, function (err, aMatchPredictions) {
-                    if (aMatchPredictions && aMatchPredictions.length > 0) {
-                        result = result.concat(aMatchPredictions);
+                TeamPrediction.find({teamId: aTeam._id}, function (err, aTeamPrediction) {
+                    if (aTeamPrediction && aTeamPrediction.length > 0) {
+                        result = result.concat(aTeamPrediction);
                     }
 
                     itemsProcessed++;
@@ -88,7 +88,7 @@ app.delete('/:id', util.isAdmin, function (req, res) {
         res.status(403).json({});
         return;
     }
-    MatchPrediction.findOneAndRemove({_id: id}, function (err, obj) {
+    TeamPrediction.findOneAndRemove({_id: id}, function (err, obj) {
         if (err) {
             res.status(403).json('error');
         } else {
@@ -98,28 +98,28 @@ app.delete('/:id', util.isAdmin, function (req, res) {
 });
 
 app.post('/', util.isLoggedIn, function (req, res) {
-    var matchPredictions = req.body.matchPredictions;
+    var teamPredictions = req.body.teamPredictions;
     var userId = req.user._id;
-    if (!matchPredictions || !Array.isArray(matchPredictions)) {
+    if (!teamPredictions || !Array.isArray(teamPredictions)) {
         res.status(500).json({});
         return;
     }
 
-    createMatchPredictions(matchPredictions, userId).then(function (obj) {
+    createMatchPredictions(teamPredictions, userId).then(function (obj) {
         res.status(200).json(obj);
     });
 });
 
-function createMatchPredictions(matchPredictions, userId) {
+function createMatchPredictions(teamPredictions, userId) {
     var deferred = Q.defer();
     var now = new Date();
     var itemsProcessed = 0;
-    matchPredictions.forEach(function (matchPrediction) {
+    teamPredictions.forEach(function (teamPrediction) {
         // we can update only if the kickofftime is not passed
-        Match.findOne({kickofftime: {$gte: now}, _id: matchPrediction.matchId}, function (err, obj) {
+        Team.findOne({deadline: {$gte: now}, _id: teamPrediction.teamId}, function (err, obj) {
             if (obj) {
-                matchPrediction.userId = userId;
-                MatchPrediction.findOneAndUpdate({matchId: matchPrediction.matchId, userId: userId}, matchPrediction, {
+                teamPrediction.userId = userId;
+                TeamPrediction.findOneAndUpdate({teamId: teamPrediction.teamId, userId: userId}, teamPrediction, {
                         upsert: true,
                         setDefaultsOnInsert: true
                     }, function (err, obj) {
@@ -127,7 +127,7 @@ function createMatchPredictions(matchPredictions, userId) {
                             deferred.resolve('error');
                         } else {
                             itemsProcessed++;
-                            if (itemsProcessed === matchPredictions.length) {
+                            if (itemsProcessed === teamPredictions.length) {
                                 deferred.resolve(obj);
                             }
                         }

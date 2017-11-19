@@ -8,6 +8,12 @@ module.exports = function (app, passport) {
     app.use('/api/matches', require('./controllers/matches.js'));
     app.use('/api/teams', require('./controllers/teams.js'));
     app.use('/api/matchPredictions', require('./controllers/matchPredictions.js'));
+    app.use('/api/teamPredictions', require('./controllers/teamPredictions.js'));
+    app.use('/api/predictionScoreConfiguration', require('./controllers/predictionScoreConfiguration.js'));
+    app.use('/api/matchResult', require('./controllers/matchResult.js'));
+    app.use('/api/teamResult', require('./controllers/teamResult.js'));
+    app.use('/api/userScore', require('./controllers/userScore.js'));
+    app.use('/api/usersLeaderboard', require('./controllers/usersLeaderboard.js'));
 
     /********************************************
      * Authentications APIs

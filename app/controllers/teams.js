@@ -12,7 +12,7 @@ app.get('/:teamId', util.isLoggedIn, function (req, res) {
     }
     Team.findOne({_id: teamId}, function (err, obj) {
         if (err) {
-            res.status(403).json(err.message);
+            res.status(403).json('error');
         } else {
             res.status(200).json(obj);
         }
@@ -27,7 +27,7 @@ app.delete('/:teamId', util.isAdmin, function (req, res) {
     }
     Team.findOneAndRemove({_id: teamId}, function (err, obj) {
         if (err) {
-            res.status(403).json(err.message);
+            res.status(403).json('error');
         } else {
             res.status(200).json(obj);
         }

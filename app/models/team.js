@@ -4,7 +4,7 @@ var mongoose = require('mongoose');
 // define the schema for our teams model
 var teamSchema = mongoose.Schema({
     deadline: Date,
-    type: String
+    type: String // winner, runnerUp, *
 });
 
 teamSchema.options.toJSON = {
