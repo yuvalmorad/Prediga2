@@ -1,0 +1,133 @@
+{
+  "matches": [
+    {
+      "team1": "Russia",
+      "team2": "A2",
+      "kickofftime": "2018-06-14T15:00:00Z",
+      "type": "groupStage",
+      "league": "WorldCup2018"
+    }
+  ],
+  "teams": [
+    {
+      "type": "1st",
+      "title": "1st place",
+      "deadline": "2018-07-15T15:00:00Z",
+      "league": "WorldCup2018"
+    },
+    {
+      "type": "2nd",
+      "title": "2nd place",
+      "deadline": "2018-07-15T15:00:00Z",
+      "league": "WorldCup2018"
+    },
+    {
+      "type": "3rd",
+      "title": "3st place",
+      "deadline": "2018-07-14T14:00:00Z",
+      "league": "WorldCup2018"
+    },
+    {
+      "type": "4th",
+      "title": "24th place",
+      "deadline": "2018-07-14T14:00:00Z",
+      "league": "WorldCup2018"
+    },
+    {
+      "type": "A1",
+      "title": "1st place Group A",
+      "deadline": "2018-06-25T14:00:00Z",
+      "league": "WorldCup2018"
+    },
+    {
+      "type": "A2",
+      "title": "2nd place Group A",
+      "deadline": "2018-07-25T14:00:00Z",
+      "league": "WorldCup2018"
+    },
+    {
+      "type": "B1",
+      "title": "1st place Group B",
+      "deadline": "2018-06-25T18:00:00Z",
+      "league": "WorldCup2018"
+    },
+    {
+      "type": "B2",
+      "title": "2nd place Group B",
+      "deadline": "2018-06-25T18:00:00Z",
+      "league": "WorldCup2018"
+    },
+    {
+      "type": "C1",
+      "title": "1st place Group C",
+      "deadline": "2018-06-26T14:00:00Z",
+      "league": "WorldCup2018"
+    },
+    {
+      "type": "C2",
+      "title": "2nd place Group C",
+      "deadline": "2018-07-26T14:00:00Z",
+      "league": "WorldCup2018"
+    },
+    {
+      "type": "D1",
+      "title": "1st place Group D",
+      "deadline": "2018-06-26T18:00:00Z",
+      "league": "WorldCup2018"
+    },
+    {
+      "type": "D2",
+      "title": "2nd place Group D",
+      "deadline": "2018-06-26T18:00:00Z",
+      "league": "WorldCup2018"
+    },
+    {
+      "type": "E1",
+      "title": "1st place Group E",
+      "deadline": "2018-06-27T18:00:00Z",
+      "league": "WorldCup2018"
+    },
+    {
+      "type": "E2",
+      "title": "2nd place Group E",
+      "deadline": "2018-07-26T18:00:00Z",
+      "league": "WorldCup2018"
+    },
+    {
+      "type": "F1",
+      "title": "1st place Group F",
+      "deadline": "2018-06-27T14:00:00Z",
+      "league": "WorldCup2018"
+    },
+    {
+      "type": "F2",
+      "title": "2nd place Group F",
+      "deadline": "2018-06-27T14:00:00Z",
+      "league": "WorldCup2018"
+    },
+    {
+      "type": "G1",
+      "title": "1st place Group G",
+      "deadline": "2018-06-28T18:00:00Z",
+      "league": "WorldCup2018"
+    },
+    {
+      "type": "G2",
+      "title": "2nd place Group G",
+      "deadline": "2018-07-28T18:00:00Z",
+      "league": "WorldCup2018"
+    },
+    {
+      "type": "H1",
+      "title": "1st place Group H",
+      "deadline": "2018-06-28T14:00:00Z",
+      "league": "WorldCup2018"
+    },
+    {
+      "type": "H2",
+      "title": "2nd place Group H",
+      "deadline": "2018-06-28T14:00:00Z",
+      "league": "WorldCup2018"
+    }
+  ]
+}

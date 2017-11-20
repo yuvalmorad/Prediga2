@@ -2,8 +2,13 @@ var Q = require('q');
 var UserScore = require('../models/userScore');
 var UsersLeaderboard = require('../models/usersLeaderboard');
 var User = require('../models/user');
+var Match = require('../models/match');
+var Team = require('../models/team');
+var PredictionScoreConfiguration = require('../models/predictionScoreConfiguration');
 
 module.exports = {
+    okResponse: {"status": "OK"},
+    errorResponse: {"status": "Error", "message": "{0}"},
     isLoggedIn: function (req, res, next) {
         if (req.isAuthenticated()) {
             return next();
@@ -47,7 +52,7 @@ module.exports = {
                 // 2. for each user, get all user's score
                 users.forEach(function (aUser) {
                     UserScore.find({userId: aUser._id}, function (err, userScores) {
-                        if (userScores) {
+                        if (userScores && userScores.length > 0) {
                             var aggregrateScore = {
                                 userId: aUser._id,
                                 score: 0,
@@ -77,7 +82,10 @@ module.exports = {
                                 );
                             });
                         } else {
-                            deferred.resolve({});
+                            // remove leaderboard for this user because there are no scores.
+                            UsersLeaderboard.remove({userId: aUser._id}, function (err) {
+                                deferred.resolve({});
+                            });
                         }
                     });
                 });
@@ -95,12 +103,73 @@ module.exports = {
     convertTeamTypeToConfigScore: function (type, configuration) {
         if (!type) {
             return configuration.teamInGroup;
-        } else if (type === 'winner') {
+        } else if (type === '1st') {
             return configuration.teamWinner;
-        } else if (type === 'runnerUp') {
+        } else if (type === '2nd') {
             return configuration.teamRunnerUp;
+        } else if (type === '3rd') {
+            return configuration.teamThird;
+        } else if (type === '4th') {
+            return configuration.teamForth;
         } else {
             return configuration.teamInGroup;
         }
+    },
+    createMatches: function (matches) {
+        var deferred = Q.defer();
+        var itemsProcessed = 0;
+        matches.forEach(function (match) {
+            Match.findOneAndUpdate({team1: match.team1, team2: match.team2}, match, {
+                    upsert: true,
+                    setDefaultsOnInsert: true
+                }, function (err, obj) {
+                    if (err) {
+                        deferred.resolve(util.errorResponse.format(err.message));
+                    } else {
+                        itemsProcessed++;
+                        if (itemsProcessed === matches.length) {
+                            deferred.resolve(matches);
+                        }
+                    }
+                }
+            );
+        });
+        return deferred.promise;
+    },
+    createTeams: function (teams) {
+        var deferred = Q.defer();
+        var itemsProcessed = 0;
+        teams.forEach(function (team) {
+            Team.findOneAndUpdate({type: team.type, title: team.title}, team, {
+                    upsert: true,
+                    setDefaultsOnInsert: true
+                }, function (err, obj) {
+                    if (err) {
+                        deferred.resolve(err.message);
+                    } else {
+                        itemsProcessed++;
+                        if (itemsProcessed === teams.length) {
+                            deferred.resolve(teams);
+                        }
+                    }
+                }
+            );
+        });
+        return deferred.promise;
+    },
+    createConfiguration: function (predictionScoreConfiguration) {
+        var deferred = Q.defer();
+        PredictionScoreConfiguration.findOneAndUpdate({}, predictionScoreConfiguration, {
+                upsert: true,
+                setDefaultsOnInsert: true
+            }, function (err, obj) {
+                if (err) {
+                    deferred.resolve(util.errorResponse.format('error'));
+                } else {
+                    deferred.resolve(predictionScoreConfiguration);
+                }
+            }
+        );
+        return deferred.promise;
     }
 };

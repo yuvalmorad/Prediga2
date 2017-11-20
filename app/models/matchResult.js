@@ -12,7 +12,7 @@ var matchResultSchema = mongoose.Schema({
 });
 
 matchResultSchema.options.toJSON = {
-    transform: function(doc, ret, options) {
+    transform: function (doc, ret, options) {
         delete ret.__v;
         return ret;
     }

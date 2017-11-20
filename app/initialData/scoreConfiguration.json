@@ -1,0 +1,14 @@
+{
+  "predictionScoreConfiguration": {
+    "winner": 4,
+    "team1Goals": 2,
+    "team2Goals": 2,
+    "goalDiff": 2,
+    "firstToScore": 2,
+    "teamInGroup": 4,
+    "teamWinner": 20,
+    "teamRunnerUp": 15,
+    "teamThird": 10,
+    "teamForth": 10
+  }
+}

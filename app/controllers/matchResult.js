@@ -15,12 +15,12 @@ app.get('/', util.isLoggedIn, function (req, res) {
 app.get('/:matchId', util.isLoggedIn, function (req, res) {
     var matchId = req.params.matchId;
     if (!matchId) {
-        res.status(200).json('provide matchId');
+        res.status(500).json(util.errorResponse.format('provide matchId'));
         return;
     }
     MatchResult.findOne({matchId: matchId}, function (err, obj) {
         if (err || !obj) {
-            res.status(403).json('no match result');
+            res.status(403).json(util.errorResponse.format('no match result'));
         } else {
             res.status(200).json(obj);
         }
@@ -30,17 +30,17 @@ app.get('/:matchId', util.isLoggedIn, function (req, res) {
 app.post('/', util.isAdmin, function (req, res) {
     var matchResult = req.body.matchResult;
     if (!matchResult) {
-        res.status(500).json({});
+        res.status(500).json(util.errorResponse.format('provide matchResult'));
         return;
     }
 
     updateMatchResult(matchResult).then(function (obj) {
         if (typeof(obj) === "undefined") {
-            res.status(500).json({});
+            res.status(500).json(util.errorResponse.format('error'));
         } else {
             updateMatchScore(matchResult).then(function (obj2) {
                 util.updateLeaderboard().then(function (obj3) {
-                    res.status(200).json('success');
+                    res.status(200).json(util.okResponse);
                 });
             });
         }
@@ -56,7 +56,7 @@ function updateMatchResult(matchResult) {
             if (err) {
                 deferred.resolve(undefined);
             } else {
-                deferred.resolve(obj);
+                deferred.resolve(matchResult);
             }
         }
     );
@@ -104,4 +104,5 @@ function updateMatchScore(matchResult) {
     });
     return deferred.promise;
 }
+
 module.exports = app;

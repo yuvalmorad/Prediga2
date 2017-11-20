@@ -6,11 +6,12 @@ var matchSchema = mongoose.Schema({
     team1: String,
     team2: String,
     kickofftime: Date,
-    type: String
+    type: String,
+    league: String
 });
 
 matchSchema.options.toJSON = {
-    transform: function(doc, ret, options) {
+    transform: function (doc, ret, options) {
         delete ret.__v;
         return ret;
     }

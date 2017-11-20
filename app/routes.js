@@ -1,6 +1,9 @@
 var util = require('./utils/util.js');
 
 module.exports = function (app, passport) {
+    // update initial data
+    var initialData = require('../app/utils/updateInitialConfiguration');
+    initialData.loadAll();
     /********************************************
      * All routes mapping
      ********************************************* */

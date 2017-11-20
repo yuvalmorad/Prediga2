@@ -13,7 +13,7 @@ var matchPredictionSchema = mongoose.Schema({
 });
 
 matchPredictionSchema.options.toJSON = {
-    transform: function(doc, ret, options) {
+    transform: function (doc, ret, options) {
         delete ret.__v;
         return ret;
     }

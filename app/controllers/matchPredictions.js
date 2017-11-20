@@ -26,7 +26,7 @@ app.get('/', util.isLoggedIn, function (req, res) {
     if (isSameUser) {
         MatchPrediction.find({userId: user._id}, function (err, obj) {
             if (err) {
-                res.status(403).json(err.message);
+                res.status(403).json(util.errorResponse.format(err.message));
             } else {
                 res.status(200).json(obj);
             }
@@ -85,14 +85,14 @@ function getOtherUsersPredictions(userId) {
 app.delete('/:id', util.isAdmin, function (req, res) {
     var id = req.params.id;
     if (!id) {
-        res.status(403).json({});
+        res.status(403).json(util.errorResponse.format('provide id'));
         return;
     }
     MatchPrediction.findOneAndRemove({_id: id}, function (err, obj) {
         if (err) {
-            res.status(403).json('error');
+            res.status(403).json(util.errorResponse.format('error'));
         } else {
-            res.status(200).json(obj);
+            res.status(200).json(util.okResponse);
         }
     });
 });
@@ -101,7 +101,7 @@ app.post('/', util.isLoggedIn, function (req, res) {
     var matchPredictions = req.body.matchPredictions;
     var userId = req.user._id;
     if (!matchPredictions || !Array.isArray(matchPredictions)) {
-        res.status(500).json({});
+        res.status(500).json(util.errorResponse.format('provide array of matchPredictions'));
         return;
     }
 
@@ -124,18 +124,18 @@ function createMatchPredictions(matchPredictions, userId) {
                         setDefaultsOnInsert: true
                     }, function (err, obj) {
                         if (err) {
-                            deferred.resolve('error');
+                            deferred.resolve(util.errorResponse.format('error'));
                         } else {
                             itemsProcessed++;
                             if (itemsProcessed === matchPredictions.length) {
-                                deferred.resolve(obj);
+                                deferred.resolve(matchPredictions);
                             }
                         }
                     }
                 );
             } else {
                 // match cannot be updated.
-                deferred.resolve('error');
+                deferred.resolve(util.errorResponse.format('error'));
             }
         });
 

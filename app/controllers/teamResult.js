@@ -15,12 +15,12 @@ app.get('/', util.isLoggedIn, function (req, res) {
 app.get('/:teamId', util.isLoggedIn, function (req, res) {
     var teamId = req.params.teamId;
     if (!teamId) {
-        res.status(200).json('provide teamId');
+        res.status(500).json(util.errorResponse.format('provide teamId'));
         return;
     }
     TeamResult.findOne({teamId: teamId}, function (err, obj) {
         if (err || !obj) {
-            res.status(403).json('no team result');
+            res.status(403).json(util.errorResponse.format('no team result'));
         } else {
             res.status(200).json(obj);
         }
@@ -30,17 +30,17 @@ app.get('/:teamId', util.isLoggedIn, function (req, res) {
 app.post('/', util.isAdmin, function (req, res) {
     var teamResult = req.body.teamResult;
     if (!teamResult) {
-        res.status(500).json({});
+        res.status(500).json(util.errorResponse.format('provide teamResult'));
         return;
     }
 
     updateTeamResult(teamResult).then(function (obj) {
         if (typeof(obj) === "undefined") {
-            res.status(500).json({});
+            res.status(500).json(util.errorResponse.format('error'));
         } else {
             updateTeamScore(teamResult).then(function (obj2) {
                 util.updateLeaderboard().then(function (obj3) {
-                    res.status(200).json('success');
+                    res.status(200).json(util.okResponse);
                 });
             });
         }
@@ -54,9 +54,9 @@ function updateTeamResult(teamResult) {
             setDefaultsOnInsert: true
         }, function (err, obj) {
             if (err) {
-                deferred.resolve('error');
+                deferred.resolve(util.errorResponse.format('error'));
             } else {
-                deferred.resolve(obj);
+                deferred.resolve(teamResult);
             }
         }
     );
@@ -86,13 +86,13 @@ function updateTeamScore(teamResult) {
                         util.updateScore(userScore).then(function (res) {
                             itemsProcessed++;
                             if (itemsProcessed === aTeamPredictions.length) {
-                                deferred.resolve({});
+                                deferred.resolve(teamResult);
                             }
                         });
                     });
 
                 } else {
-                    deferred.resolve({});
+                    deferred.resolve(teamResult);
                 }
             });
         }
