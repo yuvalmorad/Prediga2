@@ -17,6 +17,5 @@ Prediction game using MEAN stack
 4. Update roles: `db.users.update({"name": "Gilad Keinan"}, { $set: {"roles": ["admin"]}})` 
 
 ## Using Test Users
-user1
 - email: `nhrkrkbdms_1510943227@tfbnw.net`
 - password: `qwerasdfzxcv`
