@@ -1,0 +1,29 @@
+[
+  {
+    "id": "1",
+    "name": "Gilad Kienan",
+    "image": "facebook_gilad.jpg",
+    "points": 20,
+    "strikes": 2,
+    "predictions": 8,
+    "trend": -5
+  },
+  {
+    "id": "2",
+    "name": "Shachar Witkovsky",
+    "image": "facebook_shachar.jpg",
+    "points": 80,
+    "strikes": 3,
+    "predictions": 23,
+    "trend": 2
+  },
+  {
+    "id": "3",
+    "name": "some name",
+    "image": "facebook_shachar.jpg",
+    "points": 30,
+    "strikes": 5,
+    "predictions": 14,
+    "trend": 0
+  }
+]

@@ -1,0 +1,98 @@
+[
+  {
+    "id": "game_1",
+    "leagueName": "Israel Premier League",
+    "date": 1510100760047,
+    "team1Id": "team_1",
+    "team2Id": "team_2",
+    "status": "PRE_GAME",
+
+    "userPrediction_outcome": 0,
+    "userPrediction_team1Scores": 3,
+    "userPrediction_team2Scores": 4,
+    "userPrediction_diffScores": 2,
+    "userPrediction_firstScore": 0,
+
+    "othersPredictions_team1WinCount": 10,
+    "othersPredictions_team2WinCount": 2,
+    "othersPredictions_drawCount": 5,
+
+    "team1MutualFriends": ["facebook_shachar.jpg", "facebook_gilad.jpg"],
+    "team2MutualFriends": ["facebook_gilad.jpg"]
+  },
+  {
+    "id": "game_2",
+    "leagueName": "Israel Premier League",
+    "date": 1501100660047,
+    "team1Id": "team_4",
+    "team2Id": "team_1",
+    "status": "PRE_GAME",
+
+    "userPrediction_outcome": 2,
+    "userPrediction_team1Scores": 2,
+    "userPrediction_team2Scores": 5,
+    "userPrediction_diffScores": 3,
+    "userPrediction_firstScore": 0,
+
+    "othersPredictions_team1WinCount": 4,
+    "othersPredictions_team2WinCount": 2,
+    "othersPredictions_drawCount": 1,
+
+    "team1MutualFriends": ["facebook_gilad.jpg", "facebook_shachar.jpg", "facebook_gilad.jpg"],
+    "team2MutualFriends": ["facebook_gilad.jpg"]
+  },
+  {
+    "id": "game_3",
+    "leagueName": "Israel Premier League",
+    "date": 1513100990047,
+    "team1Id": "team_2",
+    "team2Id": "team_3",
+    "status": "CLOSED_GAME",
+
+    "userPrediction_outcome": 1,
+    "userPrediction_team1Scores": 5,
+    "userPrediction_team2Scores": 2,
+    "userPrediction_diffScores": 1,
+    "userPrediction_firstScore": 2,
+
+    "othersPredictions_team1WinCount": 10,
+    "othersPredictions_team2WinCount": 2,
+    "othersPredictions_drawCount": 5,
+
+    "team1MutualFriends": ["facebook_shachar.jpg", "facebook_gilad.jpg"],
+    "team2MutualFriends": ["facebook_gilad.jpg"],
+
+    "results_outcome": 0,
+    "results_team1Scores": 2,
+    "results_team2Scores": 1,
+    "results_diffScores": 1,
+    "results_firstScore": 0
+  },
+  {
+    "id": "game_4",
+    "leagueName": "Israel Premier League",
+    "date": 1511100150047,
+    "team1Id": "team_3",
+    "team2Id": "team_4",
+    "status": "POST_GAME",
+
+    "userPrediction_outcome": 2,
+    "userPrediction_team1Scores": 5,
+    "userPrediction_team2Scores": 4,
+    "userPrediction_diffScores": 2,
+    "userPrediction_firstScore": 0,
+
+    "othersPredictions_team1WinCount": 3,
+    "othersPredictions_team2WinCount": 6,
+    "othersPredictions_drawCount": 8,
+
+    "team1MutualFriends": ["facebook_gilad.jpg", "facebook_shachar.jpg", "facebook_gilad.jpg"],
+    "team2MutualFriends": ["facebook_gilad.jpg"],
+
+    "results_outcome": 2,
+    "results_team1Scores": 3,
+    "results_team2Scores": 4,
+    "results_diffScores": 2,
+    "results_firstScore": 0
+  }
+]

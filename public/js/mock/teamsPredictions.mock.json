@@ -1,0 +1,21 @@
+[
+  {
+    "rank": "1"
+  },
+  {
+    "id": "team_1",
+    "wins": 28,
+    "draws": 3,
+    "losts": 2,
+    "leaguePoints": 92,
+    "rank": 2
+  },
+  {
+    "id": "team_3",
+    "wins": 20,
+    "draws": 1,
+    "losts": 6,
+    "leaguePoints": 42,
+    "rank": 3
+  }
+]

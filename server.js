@@ -28,6 +28,7 @@ app.use(morgan('dev')); // log every request to the console
 app.use(cookieParser()); // read cookies (needed for auth)
 app.use(bodyParser.json()); // get information from html forms
 app.use(bodyParser.urlencoded({extended: true}));
+app.use(express.static(__dirname + '/public'));
 
 app.set('view engine', 'ejs'); // set up ejs for templating
 
@@ -46,7 +47,7 @@ app.use(flash()); // use connect-flash for flash messages stored in session
 require('./app/routes.js')(app, passport); // load our routes and pass in our app and fully configured passport
 
 app.get('*', function (req, res) {
-    res.sendfile('./public/index.html'); // load the single view file (angular will handle the page changes on the front-end)
+    res.sendfile(__dirname + '/public/index.html'); // load the single view file (angular will handle the page changes on the front-end)
 });
 
 // launch ======================================================================
