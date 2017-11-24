@@ -15,7 +15,7 @@ var session = require('express-session');
 
 // configuration ===============================================================
 var configDB = port !== 3000 ? process.env.MONGODB_URI : 'mongodb://localhost:27017/prediga';
-var clientFolder = port !== 3000 ? (__dirname + "/public") : (__dirname + "/build");
+var clientFolder = port === 3000 ? (__dirname + "/public") : (__dirname + "/build");
 
 mongoose.connect(configDB, function (err) {
     if (err) console.log('Unable to connect to DB ' + err);
