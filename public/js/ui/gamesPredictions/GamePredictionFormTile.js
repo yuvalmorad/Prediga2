@@ -93,6 +93,7 @@ component.GamePredictionFormTile = (function(){
                     re("div", {className: "first"},
                         team1MutualFriends
                     ),
+                    re("div", {className: "form-title"},"Friends"),
                     re("div", {className: "second"},
                         team2MutualFriends
                     )

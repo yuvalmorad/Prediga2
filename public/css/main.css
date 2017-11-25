@@ -458,9 +458,12 @@ body {
     color: #898989;
 }
 
+.game-prediction-tile .form-row-title,
+.game-prediction-tile .form-title {
+    font-weight: 300;
+}
 .game-prediction-tile .form-row-title {
     text-align: center;
-    font-weight: 300;
     margin-bottom: 0.5rem;
 }
 
@@ -475,6 +478,17 @@ body {
     margin-bottom: 1rem;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+}
+
+.game-prediction-tile .mutual-friends .first,
+.game-prediction-tile .mutual-friends .second {
+    flex: 1;
+}
+
+.game-prediction-tile .mutual-friends .second {
+    display: flex;
+    justify-content: flex-end;
 }
 
 .game-prediction-tile .mutual-friends img{
