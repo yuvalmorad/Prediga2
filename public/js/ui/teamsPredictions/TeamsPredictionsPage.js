@@ -15,32 +15,7 @@ component.TeamsPredictionsPage = (function(){
         },
 
         render: function() {
-            var teams = this.props.teamsPredictions.teams,
-                tiles = [],
-                i;
-
-            /*for (i = 0; i < NUM_OF_TEAMS; i++) {
-                var currentRank = i + 1;
-                var team = teams.filter(function(team){
-                    return team.rank === currentRank;
-                })[0];
-
-                if (team) {
-                    tiles.push({
-                        rank: currentRank,
-                        selectedTeam: team
-                    });
-                } else {
-                    //no team of this rank in teams predictions
-                    tiles.push({
-                        rank: currentRank
-                    })
-                }
-            }
-
-            var tilesElement = tiles.map(function(tile, index){
-                return re(TeamPredictionTile, {selectedTeam: tile.selectedTeam, rank: tile.rank, key: "teamPrediction" + index})
-            });*/
+            var teams = this.props.teamsPredictions.teams;
 
             var tilesElement = teams.map(function(team, index){
                 return re(TeamPredictionTile, {team: team, key: "teamPrediction" + index})

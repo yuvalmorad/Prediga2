@@ -181,6 +181,49 @@ body {
     color: #009fff;
 }
 
+/* -------  Input Number -------*/
+
+.input-number {
+    background-color: #CDCDCD;
+    border-radius: 4px;
+    display: flex;
+    box-sizing: border-box;
+    height: 32px;
+    align-items: center;
+}
+
+.input-number button {
+    background: transparent;
+    border: none;
+    font-size: 1.75rem;
+    color: #fff;
+    font-weight: bold;
+    width: 30px;
+    padding: 0;
+    line-height: 30px;
+    margin-bottom: 1px;
+}
+
+.input-number .number {
+    width: 40px;
+    background-color: #fff;
+    color: #000;
+    border-radius: 4px;
+    text-align: center;
+    font-size: 1.375rem;
+    font-weight: bold;
+    height: 30px;
+    line-height: 30px;
+}
+
+.input-number.win .number {
+    background-color: #7ED321;
+}
+
+.input-number.lost .number {
+    background-color: #9B9B9B;
+}
+
 /* -------  Radio Button -------*/
 
 
@@ -507,47 +550,6 @@ body {
     border: 2px solid #fff;
     box-sizing: border-box;
     position: relative;
-}
-
-.game-prediction-tile .input-number {
-    background-color: #CDCDCD;
-    border-radius: 4px;
-    display: flex;
-    box-sizing: border-box;
-    height: 32px;
-    align-items: center;
-}
-
-.game-prediction-tile .input-number button {
-    background: transparent;
-    border: none;
-    font-size: 1.75rem;
-    color: #fff;
-    font-weight: bold;
-    width: 30px;
-    padding: 0;
-    line-height: 30px;
-    margin-bottom: 1px;
-}
-
-.game-prediction-tile .input-number .number {
-    width: 40px;
-    background-color: #fff;
-    color: #000;
-    border-radius: 4px;
-    text-align: center;
-    font-size: 1.375rem;
-    font-weight: bold;
-    height: 30px;
-    line-height: 30px;
-}
-
-.game-prediction-tile .input-number.win .number {
-    background-color: #7ED321;
-}
-
-.game-prediction-tile .input-number.lost .number {
-    background-color: #9B9B9B;
 }
 
 /* -------  Fonts -------*/
