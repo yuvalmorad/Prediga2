@@ -69,9 +69,18 @@ component.GamePredictionFormTile = (function(){
                     ]}
                 ),
                 re("div", {className: "goals-predictions"},
-                    re(InputNumber, {isDisabled: isFormDisabled, points: points["team1Scores"], num: userPredictionTeam1Scores, onChange: this.onInputNumberChanged.bind(this, "userPrediction_team1Scores")}),
-                    re(InputNumber, {label: "Diff", isDisabled: isFormDisabled, points: points["diffScores"], num: userPredictionDiffScores, onChange: this.onInputNumberChanged.bind(this, "userPrediction_diffScores")}),
-                    re(InputNumber, {isDisabled: isFormDisabled, position: "right", points: points["team2Scores"], num: userPredictionTeam2Scores, onChange: this.onInputNumberChanged.bind(this, "userPrediction_team2Scores")})
+                    re("div", {},
+                        re("div", {className: "form-row-title"}, "Goals"),
+                        re(InputNumber, {isDisabled: isFormDisabled, points: points["team1Scores"], num: userPredictionTeam1Scores, onChange: this.onInputNumberChanged.bind(this, "userPrediction_team1Scores")})
+                    ),
+                    re("div", {},
+                        re("div", {className: "form-row-title"}, "Diff"),
+                        re(InputNumber, {isDisabled: isFormDisabled, points: points["diffScores"], num: userPredictionDiffScores, onChange: this.onInputNumberChanged.bind(this, "userPrediction_diffScores")})
+                    ),
+                    re("div", {},
+                        re("div", {className: "form-row-title"}, "Goals"),
+                        re(InputNumber, {isDisabled: isFormDisabled, points: points["team2Scores"], num: userPredictionTeam2Scores, onChange: this.onInputNumberChanged.bind(this, "userPrediction_team2Scores")})
+                    )
                 ),
                 re("div", {className: "form-row-title"}, "First to Score"),
                 re(RadioGroup, {className: "first-score", points: points["firstScore"], onChange: this.onRadioGroupChanged, id: game.id + "1", name: "firstScore", isDisabled: isFormDisabled, inputs: [
