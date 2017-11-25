@@ -14,7 +14,7 @@ component.TileDialogContainer = (function(){
             var componentElement;
 
             if (props.isShowTileDialog) {
-                componentElement = re(component[props.componentName], {id: props.tileDialogId});
+                componentElement = re(component[props.componentName], props.componentProps);
             } else {
                 className += " hide";
             }
@@ -29,7 +29,7 @@ component.TileDialogContainer = (function(){
         return {
             isShowTileDialog: state.general.isShowTileDialog,
             componentName: state.general.tileDailogComponentName,
-            tileDialogId: state.general.tileDialogId
+            componentProps: state.general.tileDialogComponentProps
         }
     }
 

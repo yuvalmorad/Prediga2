@@ -5,7 +5,7 @@ component.TeamPredictionTileDialog = (function(){
         TeamPredictionFormTile = component.TeamPredictionFormTile;
 
     var TeamPredictionTileDialog = function(props) {
-        var rank = props.id,
+        var rank = props.rank,
             selectedTeam = props.teams.filter(function(team){return team.rank === rank})[0],
             borderColor = "gray",
             team,

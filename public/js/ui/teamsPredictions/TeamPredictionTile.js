@@ -13,7 +13,7 @@ component.TeamPredictionTile = (function(){
             borderColor = team.color;
         }
 
-        return re(Tile, {borderLeftColor: borderColor, borderRightColor: borderColor, className: "team-prediction-tile", componentToOpen: "TeamPredictionTileDialog", id: selectedTeam.rank},
+        return re(Tile, {borderLeftColor: borderColor, borderRightColor: borderColor, className: "team-prediction-tile", dialogComponent: "TeamPredictionTileDialog", dialogComponentProps: {rank: selectedTeam.rank}},
             re(TeamPredictionMainTile, {team: team, teamRecords: selectedTeam})
         );
     }
