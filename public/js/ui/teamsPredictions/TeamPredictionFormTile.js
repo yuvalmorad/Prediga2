@@ -1,5 +1,6 @@
 component.TeamPredictionFormTile = (function(){
     var connect = ReactRedux.connect;
+    var ImagesPagination = component.ImagesPagination;
 
     var TeamPredictionFormTile = React.createClass({
 
@@ -13,22 +14,27 @@ component.TeamPredictionFormTile = (function(){
         render: function() {
             var that = this,
                 props = this.props,
+                teams = LEAGUE.teams,
                 teamSelected = props.team,
                 teamSelectedId = teamSelected ? teamSelected.id : null,
-                teams = LEAGUE.teams,
-                teamsElements = Object.keys(teams).map(function(teamId){
-                    var logo = teams[teamId].logoGray;
-
-                    if (teamSelectedId) {
-                        if (teamSelectedId === teamId) {
-                            logo = teams[teamId].logo;
-                        }
+                items = Object.keys(teams).map(function(teamId){
+                    var team = teams[teamId];
+                    var isSelected = false;
+                    if (teamSelectedId && teamSelectedId === teamId) {
+                        isSelected = true;
                     }
-                    return re("img", {onClick: that.onTeamSelected.bind(that, teamId), key: teamId, src: "../images/teamsLogo/" + logo});
+
+                    return {
+                        isSelected: isSelected,
+                        logo: team.logo,
+                        logoGray: team.logoGray,
+                        title: team.shortName,
+                        id: team.id
+                    }
                 });
 
             return re("div", {className: "team-prediction-form"},
-                teamsElements
+                re(ImagesPagination, {items: items})
             );
         }
     });

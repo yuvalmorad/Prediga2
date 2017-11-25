@@ -181,6 +181,12 @@ body {
     color: #009fff;
 }
 
+/* -------  images pagination -------*/
+
+.images-pagination .item {
+    display: inline-block;
+}
+
 /* -------  Input Number -------*/
 
 .input-number {
