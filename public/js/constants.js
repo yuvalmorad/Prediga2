@@ -36,7 +36,8 @@ var LEAGUES = (function(){
                     shortName: "MTA",
                     logo: "maccabi_tel_aviv.png",
                     logoGray: "maccabi_tel_aviv_gray.png",
-                    color: "yellow"
+                    color: "yellow",
+                    secondColor: "blue"
                 },
                 {
                     id: "team_2",
@@ -44,7 +45,8 @@ var LEAGUES = (function(){
                     shortName: "HBS",
                     logo: "Hapoel_Beer_Sheva.png",
                     logoGray: "Hapoel_Beer_Shev_gray.png",
-                    color: "red"
+                    color: "red",
+                    secondColor: "#fff"
                 },
                 {
                     id: "team_3",
@@ -52,7 +54,8 @@ var LEAGUES = (function(){
                     shortName: "BJ",
                     logo: "beitar_jerusalem.png",
                     logoGray: "beitar_jerusalem_gray.png",
-                    color: "black"
+                    color: "black",
+                    secondColor: "yellow"
                 },
                 {
                     id: "team_4",
@@ -60,7 +63,8 @@ var LEAGUES = (function(){
                     shortName: "MH",
                     logo: "maccabi_haifa.png",
                     logoGray: "maccabi_haifa_gray.png",
-                    color: "green"
+                    color: "green",
+                    secondColor: "#fff"
                 }
             ])
         }

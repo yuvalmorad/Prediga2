@@ -3,7 +3,7 @@ a, u {
     text-decoration: none;
 }
 
-input {
+input, button {
     outline: none;
 }
 
@@ -183,57 +183,36 @@ body {
 
 /* -------  Radio Button -------*/
 
+
 .radio-button {
-    position: relative;
-}
-
-.radio-button label {
-    display: block;
-    width: 0.75rem;
-    height: 0.75rem;
-    position: relative;
-    z-index: 4;
-    padding-left: 1rem;
-    margin-right: -1rem;
-}
-
-.radio-button.right label {
-    padding-left: 0;
-    margin-right: 0;
-    padding-right: 3.5rem;
-    margin-left: -3.5rem;
-}
-
-.radio-button label.points {
-    color: #6ECE1A;
-}
-
-.radio-button.right label.points {
-    padding-right: 0.75rem;
-    margin-left: -0.75rem;
-}
-
-.radio-button .checked {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 0.75rem;
-    height: 0.75rem;
-    border: 1px solid #a09e9f;
-    z-index: 1;
-    box-sizing: border-box;
-}
-
-.radio-button input[type="radio"] {
-    visibility: hidden;
-    position: absolute;
-}
-
-.radio-button input[type="radio"]:checked ~ .checked{
     border: none;
+    background-color: #CDCDCD;
+    color: #fff;
+    padding: 1px;
+    flex: 1;
 }
 
+.radio-button.left,
+.radio-button.left > div{
+    border-radius: 4px 0 0 4px;
+}
 
+.radio-button.right,
+.radio-button.right > div{
+    border-radius: 0 4px 4px 0;
+}
+
+.radio-button > div {
+    padding: 0.5rem 0;
+    display: inline-block;
+    background-color: transparent;
+    width: 100%;
+    font-weight: bold;
+}
+
+.radio-button.selected > div {
+    border-radius: 4px;
+}
 
 /* -------  Tile Dialog -------*/
 
@@ -247,7 +226,7 @@ body {
 }
 
 .tile-dialog-container .tile {
-    height: 20rem;
+    height: 24rem;
     position: relative;
     top: 50%;
     transform: translateY(-50%);
@@ -469,20 +448,33 @@ body {
     color: #000;
 }
 
+/* -------  game prediction form tile -------*/
+
 .game-prediction-tile .game-form {
     height: 14rem;
-    padding: 1rem;
+    padding: 0 1rem;
     box-sizing: border-box;
+    font-size: 0.625rem;
+    color: #898989;
 }
 
-.game-prediction-tile .game-form > div {
+.game-prediction-tile .form-row-title {
+    text-align: center;
+    font-weight: 300;
+    margin-bottom: 0.5rem;
+}
+
+.game-prediction-tile .game-outcome,
+.game-prediction-tile .first-score {
+    display: flex;
+    margin-bottom: 1rem;
+}
+
+.game-prediction-tile .goals-predictions,
+.game-prediction-tile .mutual-friends {
     margin-bottom: 1rem;
     display: flex;
     justify-content: space-between;
-}
-
-.game-prediction-tile .game-form > div:last-child {
-    margin-bottom: 0;
 }
 
 .game-prediction-tile .mutual-friends img{
