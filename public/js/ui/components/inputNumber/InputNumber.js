@@ -10,11 +10,22 @@ component.InputNumber = (function(){
 
         render: function(){
             var props = this.props;
-            var points = props.points; //TODO show points?
+            var points = props.points;
+            var hasPoints = points !== undefined;
             var num = props.num;
             var isDisabled = props.isDisabled;
+            var className = "input-number";
 
-            return re("div", {className: "input-number"},
+            if (hasPoints) {
+                if (points > 0) {
+                    className += " win";
+                } else {
+                    className += " lost";
+                }
+
+            }
+
+            return re("div", {className: className},
                 re("button", {onClick: this.onIncrement, disabled: isDisabled},
                     re("span", {}, "+")
                 ),

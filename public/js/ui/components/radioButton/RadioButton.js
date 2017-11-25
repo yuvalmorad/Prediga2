@@ -7,7 +7,8 @@ component.RadioButton = (function(){
             onClicked = props.onClicked,
             text = props.text,
             isDisabled = props.isDisabled,
-            points = props.points, //TODO need to show points?
+            points = props.points,
+            hasPoints = points !== undefined,
             className = "radio-button";
 
         if (isChecked) {
@@ -20,8 +21,16 @@ component.RadioButton = (function(){
             className += " right"
         }
 
+        if (hasPoints && isChecked) {
+            if (points > 0) {
+                className += " win";
+            } else if (points === 0){
+                className += " lost";
+            }
+        }
+
         return re("button", {className: className, onClick: onClicked, disabled: isDisabled},
-            re("div", {style: {backgroundColor: isChecked ? bgColor : "", color: isChecked ? textColor : ""}}, text)
+            re("div", {style: {backgroundColor: isChecked && !hasPoints ? bgColor : "", color: isChecked && !hasPoints ? textColor : ""}}, text)
         );
     }
 })();

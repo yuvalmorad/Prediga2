@@ -208,10 +208,19 @@ body {
     background-color: transparent;
     width: 100%;
     font-weight: bold;
+    font-size: 0.625rem;
 }
 
 .radio-button.selected > div {
     border-radius: 4px;
+}
+
+.radio-button.win > div {
+    background-color: #7ED321;
+}
+
+.radio-button.lost > div {
+    background-color: #9B9B9B;
 }
 
 /* -------  Tile Dialog -------*/
@@ -531,6 +540,14 @@ body {
     font-weight: bold;
     height: 30px;
     line-height: 30px;
+}
+
+.game-prediction-tile .input-number.win .number {
+    background-color: #7ED321;
+}
+
+.game-prediction-tile .input-number.lost .number {
+    background-color: #9B9B9B;
 }
 
 /* -------  Fonts -------*/

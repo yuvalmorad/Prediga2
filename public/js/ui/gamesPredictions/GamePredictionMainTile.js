@@ -25,7 +25,7 @@ component.GamePredictionMainTile = (function(){
 
             gameDate = re("div", {className: "final-game"}, "FINAL");
             gamePoints = re("div", {key: 2, className: "game-points"}, points);
-            graphParts = [{color: "#19e019", amount: points}, {color: COLORS.DRAW_COLOR, amount: maxPoints - points}];
+            graphParts = [{color: "#7ED321", amount: points}, {color: COLORS.DRAW_COLOR, amount: maxPoints - points}];
         }
 
         return re("div", {className: "main"},
