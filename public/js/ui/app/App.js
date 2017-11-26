@@ -4,7 +4,8 @@ component.App = (function(){
         SiteHeader = component.SiteHeader,
         SiteNavigation = component.SiteNavigation,
         TileDialogContainer = component.TileDialogContainer,
-        Loading = component.Loading;
+        Loading = component.Loading,
+        connect = ReactRedux.connect;
 
     var pages = routePages.getPages().map(function(page, index){
         var Component;
@@ -17,7 +18,7 @@ component.App = (function(){
         return re(Component, {exact: !!page.exact, path: page.path, component: page.component, key: index});
     });
 
-    return function(){
+    var App = function(props) {
         var path = routerHistory.location.pathname;
         var currentPage = routePages.getPageByPath(path);
         var title = currentPage.title;
@@ -33,14 +34,23 @@ component.App = (function(){
             pageClassName += " hasSiteNavigation";
         }
 
-        return re("div", {className: "main"},
+        return re("div", {className: "main" + (props.isShowTileDialog ? " no-scroll" : "")},
             re(SiteHeader, {title: title, hide: hideSiteHeader}),
-            re("div", {className: pageClassName }, pages),
+            re("div", {className: pageClassName}, pages),
             re(SiteNavigation, {hide: hideSiteNavigation}),
             re(TileDialogContainer, {}),
             re(Loading, {})
         )
+    };
+
+    function mapStateToProps(state){
+        return {
+            isShowTileDialog: state.general.isShowTileDialog
+        }
     }
+
+    return connect(mapStateToProps)(App);
+
 })();
 
 
