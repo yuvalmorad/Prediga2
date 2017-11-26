@@ -22,7 +22,7 @@ component.GamesPredictionsPage = (function(){
                 return re(GamePredictionTile, {game: game, key: game.id});
             });
 
-            return re("div", { className: "content" },
+            return re("div", { className: "content" + (this.props.isShowTileDialog ? " no-scroll" : "") },
                 tiles
             );
         }
@@ -30,7 +30,8 @@ component.GamesPredictionsPage = (function(){
 
     function mapStateToProps(state){
         return {
-            gamesPredictions: state.gamesPredictions
+            gamesPredictions: state.gamesPredictions,
+            isShowTileDialog: state.general.isShowTileDialog
         }
     }
 

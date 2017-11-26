@@ -64,7 +64,7 @@ body {
     overflow-y: auto;
 }
 
-.main.no-scroll .page > .content {
+.page > .content.no-scroll {
     overflow-y: hidden;
 }
 

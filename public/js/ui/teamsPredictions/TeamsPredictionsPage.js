@@ -21,7 +21,7 @@ component.TeamsPredictionsPage = (function(){
                 return re(TeamPredictionTile, {team: team, key: "teamPrediction" + index})
             });
 
-            return re("div", { className: "content" },
+            return re("div", { className: "content" + (this.props.isShowTileDialog ? " no-scroll" : "") },
                 tilesElement
             );
         }
@@ -29,7 +29,8 @@ component.TeamsPredictionsPage = (function(){
 
     function mapStateToProps(state){
         return {
-            teamsPredictions: state.teamsPredictions
+            teamsPredictions: state.teamsPredictions,
+            isShowTileDialog: state.general.isShowTileDialog
         }
     }
 
