@@ -28,7 +28,8 @@ component.TeamPredictionFormTile = (function(){
                         isSelected: isSelected,
                         logo: team.logo,
                         logoGray: team.logoGray,
-                        title: team.shortName,
+                        name: team.name,
+                        shortName: team.shortName,
                         id: team.id
                     }
                 });

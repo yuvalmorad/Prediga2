@@ -183,8 +183,71 @@ body {
 
 /* -------  images pagination -------*/
 
+.images-pagination-container {
+    overflow: hidden;
+    position: relative;
+}
+
+.images-pagination .button-area {
+    position: absolute;
+    height: 5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #fff;
+    z-index: 3;
+}
+
+.images-pagination .button-area.left {
+    left: 0;
+    box-shadow: 10px 0 36px 19px rgba(255, 255, 255, 0.88);
+}
+
+.images-pagination .button-area.right {
+    right: 0;
+    box-shadow: -10px 0 36px 19px rgba(255, 255, 255, 0.88);
+}
+
+.images-pagination .button-area button {
+    background: transparent;
+    border: none;
+    font-size: 2rem;
+    color: #c5c5c5;
+    padding: 0;
+    line-height: 5rem;
+}
+
+.images-pagination .scroll {
+    width: 100000px;
+}
+
+.images-pagination .scroll.animate {
+    transition-duration: 0.3s;
+}
+
 .images-pagination .item {
     display: inline-block;
+}
+
+.images-pagination .item img{
+    width: 3.5rem;
+    height: 3.5rem;
+}
+
+.images-pagination .item .title {
+    text-align: center;
+    color: #898989;
+    font-size: 0.75rem;
+}
+
+.images-pagination .item.selected .title {
+    color: #000;
+}
+
+.images-pagination > .title {
+    text-align: center;
+    margin-top: 1rem;
+    font-size: 0.75rem;
+    color: #898989;
 }
 
 /* -------  Input Number -------*/
@@ -394,15 +457,8 @@ body {
 /* -------  team prediction tile -------*/
 
 .team-prediction-form {
-    text-align: center;
     padding: 0.5rem;
     box-sizing: border-box;
-}
-
-.team-prediction-form img {
-    width: 3rem;
-    height: 3rem;
-    margin: 0 1rem;
 }
 
 /* -------  game prediction tile -------*/
@@ -610,3 +666,5 @@ body {
 .icon-lifebuoy:before { content: '\e800'; } /* '' */
 .icon-credit-card:before { content: '\e801'; } /* '' */
 .icon-trophy:before { content: '\e804'; } /* '' */
+.icon-right-open:before { content: '\e802'; } /* '' */
+.icon-left-open:before { content: '\e803'; } /* '' */
