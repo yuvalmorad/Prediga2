@@ -12,6 +12,11 @@ component.TeamPredictionTileDialog = (function(){
                 selectedTeam = props.teams.filter(function(team){return team.rank === rank})[0],
                 selectedTeamCopy = Object.assign({}, selectedTeam);
 
+            if (selectedTeam.id === undefined) {
+                var firstTeamKeyId = Object.keys(LEAGUE.teams)[0];
+                selectedTeamCopy.id = firstTeamKeyId;
+            }
+
             return {
                 selectedTeam: selectedTeamCopy
             };
@@ -53,7 +58,7 @@ component.TeamPredictionTileDialog = (function(){
             }
 
             return re(TileDialog, {borderLeftColor: borderColor, borderRightColor: borderColor, className: "team-prediction-tile"},
-                re(TeamPredictionMainTile, {team: team, teamRecords: selectedTeam}),
+                re(TeamPredictionMainTile, {team: team, teamRecords: selectedTeam, fixedDescription: LEAGUE.name}),
                 re(TeamPredictionFormTile, {team: team, rank: rank, onSelectedTeamChanged: this.onSelectedTeamChanged})
             );
         }

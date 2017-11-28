@@ -350,13 +350,6 @@ body {
     background: rgba(0, 0, 0, 0.51);
 }
 
-.tile-dialog-container .tile {
-    height: 24rem;
-    position: relative;
-    top: 50%;
-    transform: translateY(-50%);
-}
-
 /* -------  Tile -------*/
 
 .tile {
@@ -372,6 +365,13 @@ body {
     margin: 0 auto 0.5rem auto;
     transition: height 0.3s cubic-bezier(0.39, 0.58, 0.57, 1);
     border-radius: 4px;
+}
+
+.tile-dialog-container .tile {
+    height: 24rem;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 .tile .main {
@@ -459,6 +459,9 @@ body {
 
 
 /* -------  team prediction tile -------*/
+.tile-dialog-container .team-prediction-tile.tile {
+    height: 16rem;
+}
 
 .team-prediction-form {
     padding: 0.5rem;
