@@ -4,23 +4,35 @@ component.TeamPredictionTileDialog = (function(){
         TeamPredictionMainTile = component.TeamPredictionMainTile,
         TeamPredictionFormTile = component.TeamPredictionFormTile;
 
-    var TeamPredictionTileDialog = function(props) {
-        var rank = props.rank,
-            selectedTeam = props.teams.filter(function(team){return team.rank === rank})[0],
-            borderColor = "gray",
-            team,
-            teamId = selectedTeam.id;
+    var TeamPredictionTileDialog = React.createClass({
 
-        if (teamId) {
-            team = LEAGUE.teams[teamId];
-            borderColor = team.color;
+        componentDidMount: function() {
+            this.props.onDialogSave(this.onDialogSave);
+        },
+
+        onDialogSave: function() {
+            //TODO
+        },
+
+        render: function() {
+            var props = this.props,
+                rank = props.rank,
+                selectedTeam = props.teams.filter(function(team){return team.rank === rank})[0],
+                borderColor = "gray",
+                team,
+                teamId = selectedTeam.id;
+
+            if (teamId) {
+                team = LEAGUE.teams[teamId];
+                borderColor = team.color;
+            }
+
+            return re(TileDialog, {borderLeftColor: borderColor, borderRightColor: borderColor, className: "team-prediction-tile"},
+                re(TeamPredictionMainTile, {team: team, teamRecords: selectedTeam}),
+                re(TeamPredictionFormTile, {team: team, rank: rank})
+            );
         }
-
-        return re(TileDialog, {borderLeftColor: borderColor, borderRightColor: borderColor, className: "team-prediction-tile"},
-            re(TeamPredictionMainTile, {team: team, teamRecords: selectedTeam}),
-            re(TeamPredictionFormTile, {team: team, rank: rank})
-        );
-    };
+    });
 
     function mapStateToProps(state){
         return {

@@ -5,7 +5,14 @@ component.TileDialogContainer = (function(){
         onTileDialogClicked: function(e) {
             if (e.target.classList.contains("tile-dialog-container")) {
                 this.props.closeTileDialog();
+                if (this.onDialogSave) {
+                    this.onDialogSave();
+                }
             }
+        },
+
+        assignDialogSaveFun: function(onDialogSaveFunc) {
+            this.onDialogSave = onDialogSaveFunc;
         },
 
         render: function() {
@@ -14,7 +21,9 @@ component.TileDialogContainer = (function(){
             var componentElement;
 
             if (props.isShowTileDialog) {
-                componentElement = re(component[props.componentName], props.componentProps);
+                var componentProps = props.componentProps;
+                componentProps.onDialogSave = this.assignDialogSaveFun;
+                componentElement = re(component[props.componentName], componentProps);
             } else {
                 className += " hide";
             }

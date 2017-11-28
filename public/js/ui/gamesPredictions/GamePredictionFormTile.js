@@ -1,5 +1,4 @@
 component.GamePredictionFormTile = (function(){
-    var connect = ReactRedux.connect;
     var RadioGroup = component.RadioGroup;
     var InputNumber = component.InputNumber;
 
@@ -14,14 +13,14 @@ component.GamePredictionFormTile = (function(){
         });
     }
 
-    var GamePredictionFormTile = React.createClass({
+    return React.createClass({
         onRadioGroupChanged: function(groupName, radioIndex) {
             var game = {
                 id: this.props.game.id
             };
             game["userPrediction_" + groupName] = radioIndex;
 
-            this.props.updateGame(game);
+            this.props.updateGameForm(game);
         },
 
         onInputNumberChanged: function(propertyName, num) {
@@ -30,7 +29,7 @@ component.GamePredictionFormTile = (function(){
             };
             game[propertyName] = num;
 
-            this.props.updateGame(game);
+            this.props.updateGameForm(game);
         },
 
         render: function() {
@@ -101,20 +100,6 @@ component.GamePredictionFormTile = (function(){
             );
         }
     });
-
-    function mapStateToProps(state){
-        return {
-
-        }
-    }
-
-    function mapDispatchToProps(dispatch) {
-        return {
-            updateGame: function(game){dispatch(action.gamesPredictions.updateGame(game))}
-        }
-    }
-
-    return connect(mapStateToProps, mapDispatchToProps)(GamePredictionFormTile);
 })();
 
 
