@@ -6,18 +6,43 @@ component.TeamPredictionTileDialog = (function(){
 
     var TeamPredictionTileDialog = React.createClass({
 
+        getInitialState: function() {
+            var props = this.props,
+                rank = props.rank,
+                selectedTeam = props.teams.filter(function(team){return team.rank === rank})[0],
+                selectedTeamCopy = Object.assign({}, selectedTeam);
+
+            return {
+                selectedTeam: selectedTeamCopy
+            };
+        },
+
         componentDidMount: function() {
             this.props.onDialogSave(this.onDialogSave);
         },
 
+        onSelectedTeamChanged: function(teamId) {
+            this.setState({
+                selectedTeam: {
+                    rank: this.state.selectedTeam.rank,
+                    id: teamId
+                }
+            });
+        },
+
         onDialogSave: function() {
-            //TODO
+            var selectedTeam = this.state.selectedTeam;
+            this.props.updateTeamSelected({
+                rank: selectedTeam.rank,
+                id: selectedTeam.id
+            });
         },
 
         render: function() {
             var props = this.props,
+                state = this.state,
                 rank = props.rank,
-                selectedTeam = props.teams.filter(function(team){return team.rank === rank})[0],
+                selectedTeam = state.selectedTeam,
                 borderColor = "gray",
                 team,
                 teamId = selectedTeam.id;
@@ -29,7 +54,7 @@ component.TeamPredictionTileDialog = (function(){
 
             return re(TileDialog, {borderLeftColor: borderColor, borderRightColor: borderColor, className: "team-prediction-tile"},
                 re(TeamPredictionMainTile, {team: team, teamRecords: selectedTeam}),
-                re(TeamPredictionFormTile, {team: team, rank: rank})
+                re(TeamPredictionFormTile, {team: team, rank: rank, onSelectedTeamChanged: this.onSelectedTeamChanged})
             );
         }
     });
@@ -40,7 +65,13 @@ component.TeamPredictionTileDialog = (function(){
         }
     }
 
-    return connect(mapStateToProps)(TeamPredictionTileDialog);
+    function mapDispatchToProps(dispatch) {
+        return {
+            updateTeamSelected: function(team){dispatch(action.teamsPredictions.updateTeamSelected(team))}
+        }
+    }
+
+    return connect(mapStateToProps, mapDispatchToProps)(TeamPredictionTileDialog);
 })();
 
 
