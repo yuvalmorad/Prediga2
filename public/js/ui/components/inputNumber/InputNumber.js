@@ -22,15 +22,18 @@ component.InputNumber = (function(){
                 } else {
                     className += " lost";
                 }
-
+            } else if (isDisabled) {
+                className += " disabled";
             }
 
+
+
             return re("div", {className: className},
-                re("button", {onClick: this.onIncrement, disabled: isDisabled},
+                re("button", {onClick: this.onIncrement, className: isDisabled ? "hide" : ""},
                     re("span", {}, "+")
                 ),
                 re("div", {className: "number"}, num),
-                re("button", {onClick: this.onDecrement, disabled: isDisabled},
+                re("button", {onClick: this.onDecrement, className: isDisabled ? "hide" : ""},
                     re("span", {}, "-")
                 )
             );

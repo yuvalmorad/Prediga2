@@ -289,6 +289,10 @@ body {
     line-height: 30px;
 }
 
+.input-number.disabled .number {
+    border: 1px solid #CDCDCD;
+}
+
 .input-number.win .number {
     background-color: #7ED321;
 }

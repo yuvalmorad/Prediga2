@@ -29,7 +29,7 @@ component.RadioButton = (function(){
             }
         }
 
-        return re("button", {className: className, onClick: onClicked, disabled: isDisabled},
+        return re("button", {className: className, onClick: onClicked, disabled: isDisabled, style: {visibility: (isDisabled && !isChecked) ? "hidden" : ""}},
             re("div", {style: {backgroundColor: isChecked && !hasPoints ? bgColor : "", color: isChecked && !hasPoints ? textColor : ""}}, text)
         );
     }
