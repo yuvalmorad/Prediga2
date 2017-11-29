@@ -354,6 +354,33 @@ body {
     background: rgba(0, 0, 0, 0.51);
 }
 
+.tile-dialog-container .dialog-button {
+    height: calc((100% - 24rem)/2);
+    position: relative;
+}
+
+.tile-dialog-container.TeamPredictionTileDialog .dialog-button {
+    height: calc((100% - 16rem)/2);
+}
+
+.tile-dialog-container .dialog-button button {
+    background: transparent;
+    border: transparent;
+    color: #fff;
+    font-size: 1.3125rem;
+    height: 100%;
+    width: 100%;
+}
+
+.tile-dialog-container .dialog-button button:active {
+    color: #009fff;
+}
+
+.tile-dialog-container .tile {
+    height: 24rem;
+    margin: 0 auto;
+}
+
 /* -------  Tile -------*/
 
 .tile {
@@ -367,15 +394,7 @@ body {
     overflow: hidden;
     max-width: 700px;
     margin: 0 auto 0.5rem auto;
-    transition: height 0.3s cubic-bezier(0.39, 0.58, 0.57, 1);
     border-radius: 4px;
-}
-
-.tile-dialog-container .tile {
-    height: 24rem;
-    position: relative;
-    top: 50%;
-    transform: translateY(-50%);
 }
 
 .tile .main {
