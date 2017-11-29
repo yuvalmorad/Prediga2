@@ -17,12 +17,14 @@ component.TeamsPredictionsPage = (function(){
         render: function() {
             var teams = this.props.teamsPredictions.teams;
 
-            var tilesElement = teams.map(function(team, index){
+            var tiles = teams.map(function(team, index){
                 return re(TeamPredictionTile, {team: team, key: "teamPrediction" + index})
             });
 
-            return re("div", { className: "content" + (this.props.isShowTileDialog ? " no-scroll" : "") },
-                tilesElement
+            return re("div", { className: "content" },
+                re("div", {className: "tiles" + (this.props.isShowTileDialog ? " no-scroll" : "")},
+                    tiles
+                )
             );
         }
     });

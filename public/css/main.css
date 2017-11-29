@@ -57,6 +57,10 @@ body {
 }
 
 .page > .content {
+    height: 100%;
+}
+
+.page > .content > .tiles{
     padding: 0.5rem;
     height: 100%;
     box-sizing: border-box;
@@ -64,8 +68,16 @@ body {
     overflow-y: auto;
 }
 
-.page > .content.no-scroll {
+.page > .content > .tiles.no-scroll {
     overflow-y: hidden;
+}
+
+.content > .tiles-header {
+    height: 2rem;
+}
+
+.page > .content.hasTilesHeader > .tiles {
+    height: calc(100% - 2rem);
 }
 
 /* -------  Login Page -------*/
@@ -491,7 +503,28 @@ body {
     box-sizing: border-box;
 }
 
-/* -------  game prediction tile -------*/
+/* -------  game prediction -------*/
+
+.games-prediction-page .tiles-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #3B7ADB;
+    font-size: 0.875rem;
+}
+
+.games-prediction-page .tiles-header button {
+    background: transparent;
+    border: none;
+    font-size: 1rem;
+    padding: 0;
+    color: #3B7ADB;
+    line-height: 2rem;
+}
+
+.games-prediction-page .tiles-header button[disabled] {
+    color: #cac6c6;
+}
 
 .game-prediction-tile .main > .left,
 .game-prediction-tile .main > .right {

@@ -13,13 +13,14 @@ component.GamePredictionMainTile = (function(){
             gameDate,
             graphParts,
             date = game.date,
+            time = game.time,
             dateStr,
             gamePoints;
 
         if (game.status === GAME.STATUS.PRE_GAME || game.status === GAME.STATUS.CLOSED_GAME) {
             //PRE GAME
             var dateObj = new Date(date);
-            dateStr = dateObj.getDate() + "." + (dateObj.getMonth() + 1) + " - " + dateObj.getHours() + ":" + dateObj.getMinutes();
+            dateStr = dateObj.getDate() + "." + (dateObj.getMonth() + 1) + " - " + time;
             gameDate = re("div", {}, dateStr + (game.status === GAME.STATUS.CLOSED_GAME ? " (Closed)" : ""));
             graphParts = [{color: team1.color, amount: game.othersPredictions_team1WinCount}, {color: COLORS.DRAW_COLOR, amount: game.othersPredictions_drawCount}, {color: team2.color, amount: game.othersPredictions_team2WinCount}];
 
