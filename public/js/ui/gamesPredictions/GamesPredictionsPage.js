@@ -43,7 +43,7 @@ component.GamesPredictionsPage = (function(){
             var closestDateIndex = gameDates.length ? gameDates.length - 1 : 0;
 
             var index;
-            for (index = 0; index < gameDates.length; index++) {
+            for (index = 0; index < gameDates.length; index++) {//assume are sorted
                 var gameDate = gameDates[index];
                 if (isBetweenDates(currentDate, gameDate.from, gameDate.to) || currentDate < new Date(gameDate.from).getTime()) {
                     closestDateIndex = index;
