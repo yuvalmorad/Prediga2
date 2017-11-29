@@ -22,23 +22,36 @@ component.GamesPredictionsPage = (function(){
             }
 
             return {
-                currentPageIndex: 0
+                offsetPageIndex: 0
             };
         },
 
         onPreviousPage: function() {
-            this.setState({currentPageIndex: this.state.currentPageIndex - 1});
+            this.setState({offsetPageIndex: this.state.offsetPageIndex - 1});
         },
 
         onNextPage: function() {
-            this.setState({currentPageIndex: this.state.currentPageIndex + 1});
+            this.setState({offsetPageIndex: this.state.offsetPageIndex + 1});
         },
 
         render: function() {
             var props = this.props;
             var games = props.games;
+            var currentDate = new Date().getTime();
             var gameDates = props.gameDates;
-            var currentPageIndex = this.state.currentPageIndex;
+            var offsetPageIndex = this.state.offsetPageIndex;
+            var closestDateIndex = gameDates.length ? gameDates.length - 1 : 0;
+
+            var index;
+            for (index = 0; index < gameDates.length; index++) {
+                var gameDate = gameDates[index];
+                if (isBetweenDates(currentDate, gameDate.from, gameDate.to) || currentDate < new Date(gameDate.from).getTime()) {
+                    closestDateIndex = index;
+                    break;
+                }
+            }
+
+            var currentPageIndex = closestDateIndex + offsetPageIndex;
             var currentDatePage = gameDates[currentPageIndex];
 
             var tilesInPage = games.filter(function(game){
@@ -51,9 +64,9 @@ component.GamesPredictionsPage = (function(){
 
             return re("div", { className: "games-prediction-page content hasTilesHeader"},
                 re("div", {className: "tiles-header"},
-                    re("button", {className: "icon-left-open", onClick: this.onPreviousPage, disabled: this.state.currentPageIndex === 0}),
+                    re("button", {className: "icon-left-open", onClick: this.onPreviousPage, disabled: currentPageIndex === 0}),
                     re("div", {className: "title"}, currentDatePage ? getDate(currentDatePage.from) + " - " + getDate(currentDatePage.to) : "" ),
-                    re("button", {className: "icon-right-open", onClick: this.onNextPage, disabled: this.state.currentPageIndex === this.props.gameDates.length - 1})
+                    re("button", {className: "icon-right-open", onClick: this.onNextPage, disabled: currentPageIndex === this.props.gameDates.length - 1})
                 ),
                 re("div", {className: "tiles" + (props.isShowTileDialog ? " no-scroll" : "")},
                     tilesInPage
