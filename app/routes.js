@@ -40,8 +40,8 @@ module.exports = function (app, passport) {
 
     app.get('/auth/facebook/callback',
         passport.authenticate('facebook', {
-            successRedirect: '/profile',
-            failureRedirect: '/'
+            successRedirect: '/',
+            failureRedirect: '/login'
         }));
 
     app.get('/connect/facebook',
@@ -52,15 +52,15 @@ module.exports = function (app, passport) {
 
     app.get('/connect/facebook/callback',
         passport.authorize('facebook', {
-            successRedirect: '/profile',
-            failureRedirect: '/'
+            successRedirect: '/',
+            failureRedirect: '/login'
         }));
 
     app.get('/unlink/facebook', util.isLoggedIn, function (req, res) {
         var user = req.user;
         user.token = undefined;
         user.save(function (err) {
-            res.redirect('/profile');
+            res.redirect('/');
         });
     });
 };

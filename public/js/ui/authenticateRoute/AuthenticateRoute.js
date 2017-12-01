@@ -7,11 +7,11 @@ component.AuthenticateRoute = (function () {
         var props = Object.assign({}, _props);
         delete props.component;
         props.render = function (componentProps) {
-            if (localStorage.getItem('user')) {
+            //if (localStorage.getItem('user')) {
                 return re(Component, componentProps);
-            } else {
-                return re(Redirect, {to: "/login", state: {from: componentProps.location}});
-            }
+            //} else {
+            //    return re(Redirect, {to: "/login", state: {from: componentProps.location}});
+            //}
         };
 
         return re(Route, props);

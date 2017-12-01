@@ -4,8 +4,7 @@ component.LoginPage = (function(){
     function LoginPage(props) {
         return re("div", { className: "login-page" },
                     re("div", {className: "login-buttons"},
-                        re("button", {className: "facebook-login", onClick: props.login}, "Login with Facebook")
-                        //,re("a", {className: "register-account"}, "Need an Account ?")
+                        re("a", {className: "facebook-login", href: "/auth/facebook"}, "Login with Facebook")
                     )
         );
 
