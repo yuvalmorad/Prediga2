@@ -24,7 +24,9 @@ component.LeaderBoardPage = (function(){
             });
 
             return re("div", { className: "content" },
-                tiles
+                re("div", {className: "tiles"},
+                    tiles
+                )
             );
         }
     });

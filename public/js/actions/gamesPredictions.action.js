@@ -35,15 +35,15 @@ action.gamesPredictions = (function(){
     function loadGames() {
         return function(dispatch){
             dispatch(request());
-            service.gamesPredictions.getAll().then(function(games){
-                dispatch(success(games));
+            service.gamesPredictions.getAll().then(function(res){
+                dispatch(success(res.games, res.gameDates));
             }, function(error){
                 dispatch(failure(error));
-            })
+            });
         };
 
         function request() { return { type: gamesPredictions.LOAD_GAMES_REQUEST} }
-        function success(games) { return { type: gamesPredictions.LOAD_GAMES_SUCCESS, games: games } }
+        function success(games, gameDates) { return { type: gamesPredictions.LOAD_GAMES_SUCCESS, games: games, gameDates: gameDates } }
         function failure(error) { return { type: gamesPredictions.LOAD_GAMES_FAILURE, error: error} }
     }
 

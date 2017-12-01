@@ -15,46 +15,24 @@ component.TeamsPredictionsPage = (function(){
         },
 
         render: function() {
-            var teams = this.props.teamsPredictions.teams,
-                tiles = [],
-                i;
+            var teams = this.props.teamsPredictions.teams;
 
-            /*for (i = 0; i < NUM_OF_TEAMS; i++) {
-                var currentRank = i + 1;
-                var team = teams.filter(function(team){
-                    return team.rank === currentRank;
-                })[0];
-
-                if (team) {
-                    tiles.push({
-                        rank: currentRank,
-                        selectedTeam: team
-                    });
-                } else {
-                    //no team of this rank in teams predictions
-                    tiles.push({
-                        rank: currentRank
-                    })
-                }
-            }
-
-            var tilesElement = tiles.map(function(tile, index){
-                return re(TeamPredictionTile, {selectedTeam: tile.selectedTeam, rank: tile.rank, key: "teamPrediction" + index})
-            });*/
-
-            var tilesElement = teams.map(function(team, index){
+            var tiles = teams.map(function(team, index){
                 return re(TeamPredictionTile, {team: team, key: "teamPrediction" + index})
             });
 
             return re("div", { className: "content" },
-                tilesElement
+                re("div", {className: "tiles" + (this.props.isShowTileDialog ? " no-scroll" : "")},
+                    tiles
+                )
             );
         }
     });
 
     function mapStateToProps(state){
         return {
-            teamsPredictions: state.teamsPredictions
+            teamsPredictions: state.teamsPredictions,
+            isShowTileDialog: state.general.isShowTileDialog
         }
     }
 

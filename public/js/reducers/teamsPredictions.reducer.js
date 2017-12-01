@@ -21,7 +21,7 @@ reducer.teamsPredictions = (function() {
 
         if (index === undefined) {
             //no team with such rank -> create new one
-            newTeams.push(Object.assign({}, teamToUpdate));
+            newTeams.push(Object.assign({}, teamToUpdate)); //TODO remove
         } else {
             //update selected team
             newTeams[index] = Object.assign({}, teamToUpdate);

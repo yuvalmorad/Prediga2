@@ -27,9 +27,9 @@ reducer.general = (function() {
             case REMOVE_UPDATING:
                 return Object.assign({}, state, {isUpdating: false});
             case OPEN_TILE_DIALOG:
-                return Object.assign({}, state, {isShowTileDialog: true, tileDailogComponentName: action.componentName, tileDialogId: action.tileDialogId});
+                return Object.assign({}, state, {isShowTileDialog: true, tileDailogComponentName: action.componentName, tileDialogComponentProps: action.componentProps});
             case CLOSE_TILE_DIALOG:
-                return Object.assign({}, state, {isShowTileDialog: false, tileDailogComponentName: null, tileDialogId: null});
+                return Object.assign({}, state, {isShowTileDialog: false, tileDailogComponentName: null, tileDialogComponentProps: null});
             default:
                 return state
         }

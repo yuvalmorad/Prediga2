@@ -1,5 +1,4 @@
 component.GamePredictionFormTile = (function(){
-    var connect = ReactRedux.connect;
     var RadioGroup = component.RadioGroup;
     var InputNumber = component.InputNumber;
 
@@ -14,14 +13,14 @@ component.GamePredictionFormTile = (function(){
         });
     }
 
-    var GamePredictionFormTile = React.createClass({
+    return React.createClass({
         onRadioGroupChanged: function(groupName, radioIndex) {
             var game = {
                 id: this.props.game.id
             };
             game["userPrediction_" + groupName] = radioIndex;
 
-            this.props.updateGame(game);
+            this.props.updateGameForm(game);
         },
 
         onInputNumberChanged: function(propertyName, num) {
@@ -30,7 +29,7 @@ component.GamePredictionFormTile = (function(){
             };
             game[propertyName] = num;
 
-            this.props.updateGame(game);
+            this.props.updateGameForm(game);
         },
 
         render: function() {
@@ -40,8 +39,12 @@ component.GamePredictionFormTile = (function(){
                 team1 = teams[game.team1Id],
                 team2 = teams[game.team2Id],
                 isFormDisabled = game.status !== GAME.STATUS.PRE_GAME,
+                team1Name = team1.name,
+                team2Name = team2.name,
                 team1Color = team1.color,
                 team2Color = team2.color,
+                team1SecondColor = team1.secondColor,
+                team2SecondColor = team2.secondColor,
                 team1MutualFriends = mapToMutualFriends(game.team1MutualFriends),
                 team2MutualFriends = mapToMutualFriends(game.team2MutualFriends, true),
                 userPredictionOutcome = game.userPrediction_outcome,
@@ -57,27 +60,39 @@ component.GamePredictionFormTile = (function(){
             }
 
             return re("div", {className: "game-form"},
-                re(RadioGroup, {className: "game-outcome", points: points["outcome"], onChange: this.onRadioGroupChanged, id: game.id + "0", hasLabelSelected: true, name: "outcome", isDisabled: isFormDisabled, inputs: [
-                        {color: team1Color, isChecked: userPredictionOutcome === 0},
-                        {color: COLORS.DRAW_COLOR, isChecked: userPredictionOutcome === 1},
-                        {color: team2Color, isChecked: userPredictionOutcome === 2}
+                re("div", {className: "form-row-title"}, "Game Outcome"),
+                re(RadioGroup, {className: "game-outcome", points: points["outcome"], onChange: this.onRadioGroupChanged, id: game.id + "0", name: "outcome", isDisabled: isFormDisabled, inputs: [
+                        {bgColor: team1Color, textColor: team1SecondColor, text: team1Name, isChecked: userPredictionOutcome === 0},
+                        {bgColor: COLORS.DRAW_COLOR, text: "Draw", isChecked: userPredictionOutcome === 1},
+                        {bgColor: team2Color, textColor: team2SecondColor, text: team2Name, isChecked: userPredictionOutcome === 2}
                     ]}
                 ),
                 re("div", {className: "goals-predictions"},
-                    re(InputNumber, {isDisabled: isFormDisabled, points: points["team1Scores"], num: userPredictionTeam1Scores, onChange: this.onInputNumberChanged.bind(this, "userPrediction_team1Scores")}),
-                    re(InputNumber, {label: "Diff", isDisabled: isFormDisabled, points: points["diffScores"], num: userPredictionDiffScores, onChange: this.onInputNumberChanged.bind(this, "userPrediction_diffScores")}),
-                    re(InputNumber, {isDisabled: isFormDisabled, position: "right", points: points["team2Scores"], num: userPredictionTeam2Scores, onChange: this.onInputNumberChanged.bind(this, "userPrediction_team2Scores")})
+                    re("div", {},
+                        re("div", {className: "form-row-title"}, "Goals"),
+                        re(InputNumber, {isDisabled: isFormDisabled, points: points["team1Scores"], num: userPredictionTeam1Scores, onChange: this.onInputNumberChanged.bind(this, "userPrediction_team1Scores")})
+                    ),
+                    re("div", {},
+                        re("div", {className: "form-row-title"}, "Diff"),
+                        re(InputNumber, {isDisabled: isFormDisabled, points: points["diffScores"], num: userPredictionDiffScores, onChange: this.onInputNumberChanged.bind(this, "userPrediction_diffScores")})
+                    ),
+                    re("div", {},
+                        re("div", {className: "form-row-title"}, "Goals"),
+                        re(InputNumber, {isDisabled: isFormDisabled, points: points["team2Scores"], num: userPredictionTeam2Scores, onChange: this.onInputNumberChanged.bind(this, "userPrediction_team2Scores")})
+                    )
                 ),
+                re("div", {className: "form-row-title"}, "First to Score"),
                 re(RadioGroup, {className: "first-score", points: points["firstScore"], onChange: this.onRadioGroupChanged, id: game.id + "1", name: "firstScore", isDisabled: isFormDisabled, inputs: [
-                        {color: team1Color, isChecked: userPredictionFirstScore === 0},
-                        {label: "First to Score"},
-                        {color: team2Color, isChecked: userPredictionFirstScore === 2}
+                        {bgColor: team1Color, textColor: team1SecondColor, text: team1Name, isChecked: userPredictionFirstScore === 0},
+                        {bgColor: COLORS.DRAW_COLOR, text: "None", isChecked: userPredictionFirstScore === 1},
+                        {bgColor: team2Color, textColor: team2SecondColor, text: team1Name, isChecked: userPredictionFirstScore === 2}
                     ]}
                 ),
                 re("div", {className: "mutual-friends"},
                     re("div", {className: "first"},
                         team1MutualFriends
                     ),
+                    re("div", {className: "form-title"},"Friends"),
                     re("div", {className: "second"},
                         team2MutualFriends
                     )
@@ -85,20 +100,6 @@ component.GamePredictionFormTile = (function(){
             );
         }
     });
-
-    function mapStateToProps(state){
-        return {
-
-        }
-    }
-
-    function mapDispatchToProps(dispatch) {
-        return {
-            updateGame: function(game){dispatch(action.gamesPredictions.updateGame(game))}
-        }
-    }
-
-    return connect(mapStateToProps, mapDispatchToProps)(GamePredictionFormTile);
 })();
 
 

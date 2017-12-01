@@ -3,7 +3,7 @@ a, u {
     text-decoration: none;
 }
 
-input {
+input, button {
     outline: none;
 }
 
@@ -57,11 +57,27 @@ body {
 }
 
 .page > .content {
+    height: 100%;
+}
+
+.page > .content > .tiles{
     padding: 0.5rem;
     height: 100%;
     box-sizing: border-box;
     background-color: #d4d4d4;
     overflow-y: auto;
+}
+
+.page > .content > .tiles.no-scroll {
+    overflow-y: hidden;
+}
+
+.content > .tiles-header {
+    height: 2rem;
+}
+
+.page > .content.hasTilesHeader > .tiles {
+    height: calc(100% - 2rem);
 }
 
 /* -------  Login Page -------*/
@@ -181,59 +197,163 @@ body {
     color: #009fff;
 }
 
+/* -------  images pagination -------*/
+
+.images-pagination-container {
+    overflow: hidden;
+    position: relative;
+}
+
+.images-pagination .button-area {
+    position: absolute;
+    height: 5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #fff;
+    z-index: 3;
+}
+
+.images-pagination .button-area.left {
+    left: 0;
+    box-shadow: 10px 0 36px 19px rgba(255, 255, 255, 0.88);
+}
+
+.images-pagination .button-area.right {
+    right: 0;
+    box-shadow: -10px 0 36px 19px rgba(255, 255, 255, 0.88);
+}
+
+.images-pagination .button-area button {
+    background: transparent;
+    border: none;
+    font-size: 2rem;
+    color: #c5c5c5;
+    padding: 0;
+    line-height: 5rem;
+}
+
+.images-pagination .scroll {
+    width: 100000px;
+}
+
+.images-pagination .scroll.animate {
+    transition-duration: 0.3s;
+}
+
+.images-pagination .item {
+    display: inline-block;
+}
+
+.images-pagination .item img{
+    width: 3.5rem;
+    height: 3.5rem;
+}
+
+.images-pagination .item .title {
+    text-align: center;
+    color: #898989;
+    font-size: 0.75rem;
+}
+
+.images-pagination .item.selected .title {
+    color: #000;
+}
+
+.images-pagination > .title {
+    text-align: center;
+    margin-top: 1rem;
+    font-size: 0.75rem;
+    color: #898989;
+}
+
+/* -------  Input Number -------*/
+
+.input-number {
+    background-color: #CDCDCD;
+    border-radius: 4px;
+    display: flex;
+    box-sizing: border-box;
+    height: 32px;
+    align-items: center;
+}
+
+.input-number button {
+    background: transparent;
+    border: none;
+    font-size: 1.75rem;
+    color: #fff;
+    font-weight: bold;
+    width: 30px;
+    padding: 0;
+    line-height: 30px;
+    margin-bottom: 1px;
+}
+
+.input-number .number {
+    width: 40px;
+    background-color: #fff;
+    color: #000;
+    border-radius: 4px;
+    text-align: center;
+    font-size: 1.375rem;
+    font-weight: bold;
+    height: 30px;
+    line-height: 30px;
+}
+
+.input-number.disabled .number {
+    border: 1px solid #CDCDCD;
+}
+
+.input-number.win .number {
+    background-color: #7ED321;
+}
+
+.input-number.lost .number {
+    background-color: #9B9B9B;
+}
+
 /* -------  Radio Button -------*/
 
+
 .radio-button {
-    position: relative;
-}
-
-.radio-button label {
-    display: block;
-    width: 0.75rem;
-    height: 0.75rem;
-    position: relative;
-    z-index: 4;
-    padding-left: 1rem;
-    margin-right: -1rem;
-}
-
-.radio-button.right label {
-    padding-left: 0;
-    margin-right: 0;
-    padding-right: 3.5rem;
-    margin-left: -3.5rem;
-}
-
-.radio-button label.points {
-    color: #6ECE1A;
-}
-
-.radio-button.right label.points {
-    padding-right: 0.75rem;
-    margin-left: -0.75rem;
-}
-
-.radio-button .checked {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 0.75rem;
-    height: 0.75rem;
-    border: 1px solid #a09e9f;
-    z-index: 1;
-    box-sizing: border-box;
-}
-
-.radio-button input[type="radio"] {
-    visibility: hidden;
-    position: absolute;
-}
-
-.radio-button input[type="radio"]:checked ~ .checked{
     border: none;
+    background-color: #CDCDCD;
+    color: #fff;
+    padding: 1px;
+    flex: 1;
 }
 
+.radio-button.left,
+.radio-button.left > div{
+    border-radius: 4px 0 0 4px;
+}
 
+.radio-button.right,
+.radio-button.right > div{
+    border-radius: 0 4px 4px 0;
+}
+
+.radio-button > div {
+    padding: 0.5rem 0;
+    display: inline-block;
+    background-color: transparent;
+    width: 100%;
+    font-weight: bold;
+    font-size: 0.625rem;
+}
+
+.radio-button.selected > div {
+    border-radius: 4px;
+}
+
+.radio-button.win > div {
+    background-color: #7ED321;
+}
+
+.radio-button.lost > div {
+    background-color: #9B9B9B;
+}
 
 /* -------  Tile Dialog -------*/
 
@@ -246,11 +366,31 @@ body {
     background: rgba(0, 0, 0, 0.51);
 }
 
-.tile-dialog-container .tile {
-    height: 20rem;
+.tile-dialog-container .dialog-button {
+    height: calc((100% - 24rem)/2);
     position: relative;
-    top: 50%;
-    transform: translateY(-50%);
+}
+
+.tile-dialog-container.TeamPredictionTileDialog .dialog-button {
+    height: calc((100% - 16rem)/2);
+}
+
+.tile-dialog-container .dialog-button button {
+    background: transparent;
+    border: transparent;
+    color: #fff;
+    font-size: 1.3125rem;
+    height: 100%;
+    width: 100%;
+}
+
+.tile-dialog-container .dialog-button button:active {
+    color: #009fff;
+}
+
+.tile-dialog-container .tile {
+    height: 24rem;
+    margin: 0 auto;
 }
 
 /* -------  Tile -------*/
@@ -266,7 +406,6 @@ body {
     overflow: hidden;
     max-width: 700px;
     margin: 0 auto 0.5rem auto;
-    transition: height 0.3s cubic-bezier(0.39, 0.58, 0.57, 1);
     border-radius: 4px;
 }
 
@@ -355,20 +494,37 @@ body {
 
 
 /* -------  team prediction tile -------*/
+.tile-dialog-container .team-prediction-tile.tile {
+    height: 16rem;
+}
 
 .team-prediction-form {
-    text-align: center;
     padding: 0.5rem;
     box-sizing: border-box;
 }
 
-.team-prediction-form img {
-    width: 3rem;
-    height: 3rem;
-    margin: 0 1rem;
+/* -------  game prediction -------*/
+
+.games-prediction-page .tiles-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #3B7ADB;
+    font-size: 0.875rem;
 }
 
-/* -------  game prediction tile -------*/
+.games-prediction-page .tiles-header button {
+    background: transparent;
+    border: none;
+    font-size: 1rem;
+    padding: 0;
+    color: #3B7ADB;
+    line-height: 2rem;
+}
+
+.games-prediction-page .tiles-header button[disabled] {
+    color: #cac6c6;
+}
 
 .game-prediction-tile .main > .left,
 .game-prediction-tile .main > .right {
@@ -469,20 +625,47 @@ body {
     color: #000;
 }
 
+/* -------  game prediction form tile -------*/
+
 .game-prediction-tile .game-form {
     height: 14rem;
-    padding: 1rem;
+    padding: 0 1rem;
     box-sizing: border-box;
+    font-size: 0.625rem;
+    color: #898989;
 }
 
-.game-prediction-tile .game-form > div {
+.game-prediction-tile .form-row-title,
+.game-prediction-tile .form-title {
+    font-weight: 300;
+}
+.game-prediction-tile .form-row-title {
+    text-align: center;
+    margin-bottom: 0.5rem;
+}
+
+.game-prediction-tile .game-outcome,
+.game-prediction-tile .first-score {
+    display: flex;
+    margin-bottom: 1rem;
+}
+
+.game-prediction-tile .goals-predictions,
+.game-prediction-tile .mutual-friends {
     margin-bottom: 1rem;
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
-.game-prediction-tile .game-form > div:last-child {
-    margin-bottom: 0;
+.game-prediction-tile .mutual-friends .first,
+.game-prediction-tile .mutual-friends .second {
+    flex: 1;
+}
+
+.game-prediction-tile .mutual-friends .second {
+    display: flex;
+    justify-content: flex-end;
 }
 
 .game-prediction-tile .mutual-friends img{
@@ -492,37 +675,6 @@ body {
     border: 2px solid #fff;
     box-sizing: border-box;
     position: relative;
-}
-
-.game-prediction-tile .goals-predictions .input-number:nth-child(2) {
-    margin-left: 30px;
-}
-
-.game-prediction-tile .goals-predictions .input-number:nth-child(2) label {
-    width: 30px;
-    display: inline-block;
-    text-align: center;
-}
-
-.game-prediction-tile .goals-predictions .input-number label.points {
-    color: #6ECE1A;
-    padding-right: 0.4rem;
-    margin-left: -0.4rem;
-}
-
-.game-prediction-tile .input-number input {
-    width: 2rem;
-    height: 2rem;
-    border: 1px solid #a09e9f;
-    box-sizing: border-box;
-    font-weight: bold;
-    text-align: center;
-    font-size: 1.2rem;
-    background: transparent;
-}
-
-.game-prediction-tile .input-number input:disabled {
-    color: #888888;
 }
 
 /* -------  Fonts -------*/
@@ -577,3 +729,5 @@ body {
 .icon-lifebuoy:before { content: '\e800'; } /* '' */
 .icon-credit-card:before { content: '\e801'; } /* '' */
 .icon-trophy:before { content: '\e804'; } /* '' */
+.icon-right-open:before { content: '\e802'; } /* '' */
+.icon-left-open:before { content: '\e803'; } /* '' */

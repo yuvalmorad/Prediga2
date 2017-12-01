@@ -2,10 +2,20 @@ component.TileDialogContainer = (function(){
     var connect = ReactRedux.connect;
 
     var TileDialogContainer = React.createClass({
-        onTileDialogClicked: function(e) {
-            if (e.target.classList.contains("tile-dialog-container")) {
-                this.props.closeTileDialog();
+
+        onCancel: function() {
+            this.props.closeTileDialog();
+        },
+
+        onSave: function() {
+            this.props.closeTileDialog();
+            if (this.onDialogSave) {
+                this.onDialogSave();
             }
+        },
+
+        assignDialogSaveFun: function(onDialogSaveFunc) {
+            this.onDialogSave = onDialogSaveFunc;
         },
 
         render: function() {
@@ -14,13 +24,22 @@ component.TileDialogContainer = (function(){
             var componentElement;
 
             if (props.isShowTileDialog) {
-                componentElement = re(component[props.componentName], {id: props.tileDialogId});
+                var componentProps = props.componentProps;
+                componentProps.onDialogSave = this.assignDialogSaveFun;
+                componentElement = re(component[props.componentName], componentProps);
+                className +=  (" " + props.componentName);
             } else {
                 className += " hide";
             }
 
-            return re("div", { className: className, onClick: this.onTileDialogClicked},
-                componentElement
+            return re("div", { className: className},
+                re("div", {className: "dialog-button"},
+                    re("button", {onClick: this.onCancel}, "Cancel")
+                ),
+                componentElement,
+                re("div", {className: "dialog-button"},
+                    re("button", {onClick: this.onSave}, "Save")
+                )
             )
         }
     });
@@ -29,7 +48,7 @@ component.TileDialogContainer = (function(){
         return {
             isShowTileDialog: state.general.isShowTileDialog,
             componentName: state.general.tileDailogComponentName,
-            tileDialogId: state.general.tileDialogId
+            componentProps: state.general.tileDialogComponentProps
         }
     }
 

@@ -3,7 +3,7 @@ component.Tile = (function(){
 
     var Tile = React.createClass({
         onTileClicked: function(e) {
-            this.props.openTileDialog(this.props.componentToOpen, this.props.id);
+            this.props.openTileDialog(this.props.dialogComponent, this.props.dialogComponentProps);
         },
 
         render: function() {
@@ -32,7 +32,7 @@ component.Tile = (function(){
 
     function mapDispatchToProps(dispatch) {
         return {
-            openTileDialog: function(componentName, tileDialogId){dispatch(action.general.openTileDialog(componentName, tileDialogId))}
+            openTileDialog: function(componentName, componentProps){dispatch(action.general.openTileDialog(componentName, componentProps))}
         }
     }
 

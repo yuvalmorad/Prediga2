@@ -34,11 +34,11 @@ action.general = (function(){
             }
         },
 
-        openTileDialog: function(componentName, tileDialogId) {
+        openTileDialog: function(componentName, componentProps) {
             return {
                 type: general.OPEN_TILE_DIALOG,
                 componentName: componentName,
-                tileDialogId: tileDialogId
+                componentProps: componentProps
             }
         },
 

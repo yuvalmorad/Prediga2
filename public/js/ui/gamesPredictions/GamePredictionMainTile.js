@@ -6,18 +6,26 @@ component.GamePredictionMainTile = (function(){
             teams = LEAGUE.teams,
             team1 = teams[game.team1Id],
             team2 = teams[game.team2Id],
+            userPredictionOutcome = game.userPrediction_outcome,
+            resultsOutcome = game.results_outcome,
+            team1Logo,
+            team2Logo,
             gameDate,
             graphParts,
             date = game.date,
+            time = game.time,
             dateStr,
             gamePoints;
 
         if (game.status === GAME.STATUS.PRE_GAME || game.status === GAME.STATUS.CLOSED_GAME) {
             //PRE GAME
             var dateObj = new Date(date);
-            dateStr = dateObj.getDate() + "." + (dateObj.getMonth() + 1) + " - " + dateObj.getHours() + ":" + dateObj.getMinutes();
+            dateStr = dateObj.getDate() + "." + (dateObj.getMonth() + 1) + " - " + time;
             gameDate = re("div", {}, dateStr + (game.status === GAME.STATUS.CLOSED_GAME ? " (Closed)" : ""));
             graphParts = [{color: team1.color, amount: game.othersPredictions_team1WinCount}, {color: COLORS.DRAW_COLOR, amount: game.othersPredictions_drawCount}, {color: team2.color, amount: game.othersPredictions_team2WinCount}];
+
+            team1Logo = userPredictionOutcome === 0 ? team1.logo : team1.logoGray;
+            team2Logo = userPredictionOutcome === 2 ? team2.logo : team2.logoGray;
         } else if (game.status === GAME.STATUS.POST_GAME){
             //POST GAME
             var points = utils.general.sumObject( utils.general.calculatePoints(game));
@@ -25,12 +33,15 @@ component.GamePredictionMainTile = (function(){
 
             gameDate = re("div", {className: "final-game"}, "FINAL");
             gamePoints = re("div", {key: 2, className: "game-points"}, points);
-            graphParts = [{color: "#19e019", amount: points}, {color: COLORS.DRAW_COLOR, amount: maxPoints - points}];
+            graphParts = [{color: "#7ED321", amount: points}, {color: COLORS.DRAW_COLOR, amount: maxPoints - points}];
+
+            team1Logo = resultsOutcome === 0 ? team1.logo : team1.logoGray;
+            team2Logo = resultsOutcome === 2 ? team2.logo : team2.logoGray;
         }
 
         return re("div", {className: "main"},
                     re("div", {className: "left"},
-                        re("div", {className: "team-logo", style: {backgroundImage: "url(../images/teamsLogo/" + team1.logo + ")"}}),
+                        re("div", {className: "team-logo", style: {backgroundImage: "url(../images/teamsLogo/" + team1Logo + ")"}}),
                         re("div", {className: "team-name"}, team1.shortName)
                     ),
                     re("div", {className: "center"},
@@ -48,7 +59,7 @@ component.GamePredictionMainTile = (function(){
                         )
                     ),
                     re("div", {className: "right"},
-                        re("div", {className: "team-logo", style: {backgroundImage: "url(../images/teamsLogo/" + team2.logo + ")"}}),
+                        re("div", {className: "team-logo", style: {backgroundImage: "url(../images/teamsLogo/" + team2Logo + ")"}}),
                         re("div", {className: "team-name"}, team2.shortName)
                     )
                 );

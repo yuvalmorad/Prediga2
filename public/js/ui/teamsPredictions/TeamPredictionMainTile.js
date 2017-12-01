@@ -15,7 +15,7 @@ component.TeamPredictionMainTile = (function(){
             return re(BaseMainTile, {
                 imageSrc: "../images/teamsLogo/" + team.logo,
                 title: team.name,
-                description: wins + " Wins, " + draws + " Draws, " + losts + " Losts",
+                description: props.fixedDescription || (wins + " Wins, " + draws + " Draws, " + losts + " Losts"),
                 rank: rank,
                 points: points
             });

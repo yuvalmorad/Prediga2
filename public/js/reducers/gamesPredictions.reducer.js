@@ -9,7 +9,8 @@ reducer.gamesPredictions = (function() {
         UPDATE_GAME_FAILURE = gamesPredictionsAction.UPDATE_GAME_FAILURE;
 
     var initialState = {
-        games: []
+        games: [],
+        gameDates: []
     };
 
     function updateGame(games, gameToUpdate) {
@@ -35,7 +36,7 @@ reducer.gamesPredictions = (function() {
             case LOAD_GAMES_REQUEST:
                 return Object.assign({}, state, {isLoadingGames: true});
             case LOAD_GAMES_SUCCESS:
-                return Object.assign({}, state, {games: action.games, isLoadingGames: false});
+                return Object.assign({}, state, {games: action.games, gameDates: action.gameDates, isLoadingGames: false});
             case LOAD_GAMES_FAILURE:
                 return Object.assign({}, state, {isLoadingGames: false});
             case UPDATE_GAME:

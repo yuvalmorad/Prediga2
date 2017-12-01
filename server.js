@@ -15,6 +15,7 @@ var session = require('express-session');
 
 // configuration ===============================================================
 var configDB = port !== 3000 ? process.env.MONGODB_URI : 'mongodb://localhost:27017/prediga';
+var clientFolder = port === 3000 ? (__dirname + "/public") : (__dirname + "/build");
 
 mongoose.connect(configDB, function (err) {
     if (err) console.log('Unable to connect to DB ' + err);
@@ -28,7 +29,7 @@ app.use(morgan('dev')); // log every request to the console
 app.use(cookieParser()); // read cookies (needed for auth)
 app.use(bodyParser.json()); // get information from html forms
 app.use(bodyParser.urlencoded({extended: true}));
-app.use(express.static(__dirname + '/public'));
+app.use(express.static(clientFolder));
 
 app.set('view engine', 'ejs'); // set up ejs for templating
 
@@ -47,7 +48,7 @@ app.use(flash()); // use connect-flash for flash messages stored in session
 require('./app/routes.js')(app, passport); // load our routes and pass in our app and fully configured passport
 
 app.get('*', function (req, res) {
-    res.sendfile(__dirname + '/public/index.html'); // load the single view file (angular will handle the page changes on the front-end)
+    res.sendfile(clientFolder + '/index.html'); // load the single view file (angular will handle the page changes on the front-end)
 });
 
 // launch ======================================================================
