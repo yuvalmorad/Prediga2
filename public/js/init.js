@@ -7,6 +7,6 @@ var service = {};
 var utils = {};
 
 var httpInstnace = axios.create({
-    baseURL: '/api',
+    baseURL: '/',
     timeout: 5000
 });
