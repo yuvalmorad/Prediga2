@@ -4,6 +4,6 @@ service.leaderBoard = (function() {
     };
 
     function getAll() {
-        return httpInstnace.get("/leaderBoard");
+        return httpInstnace.get("/api/usersLeaderboard");
     }
 })();

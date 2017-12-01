@@ -1,5 +1,5 @@
 # PrediGa v2.0
-Prediction game using MEAN stack
+Prediction game using MongoDB, ExpressJS, NodeJS, ReactJS
 
 ## Prerequisites
 1. Install mongodb: `https://docs.mongodb.com/manual/installation/`

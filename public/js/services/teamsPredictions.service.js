@@ -5,11 +5,11 @@ service.teamsPredictions = (function() {
     };
 
     function getAll() {
-        return httpInstnace.get("/teamsPredictions");
+        return httpInstnace.get("/api/teams");
     }
 
-    function updateTeamSelected(game) {
-        return httpInstnace.put("/teamsPredictions/updateTeamSelected", game);
+    function updateTeamSelected(teams) {
+        return httpInstnace.post("/api/teamPredictions", teams);
     }
 
 })();
