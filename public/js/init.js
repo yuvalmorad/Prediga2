@@ -7,6 +7,6 @@ var service = {};
 var utils = {};
 
 var httpInstnace = axios.create({
-    baseURL: 'http://localhost:3000/'
-    //timeout: 1000,
+    baseURL: '/api',
+    timeout: 5000
 });

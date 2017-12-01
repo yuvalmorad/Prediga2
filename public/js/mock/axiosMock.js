@@ -1,4 +1,4 @@
-window.axios = (function(axiosOriginal){
+/*window.axios = (function(axiosOriginal){
     var REQUEST_TIMEOUT = 200;
     var axios = {
         put: request,
@@ -48,6 +48,4 @@ window.axios = (function(axiosOriginal){
         }
     };
 
-})(window.axios);
-
-
+})(window.axios);*/

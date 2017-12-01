@@ -5,82 +5,35 @@ var Match = require('../models/match');
 var util = require('../utils/util.js');
 var Q = require('q');
 
-app.get('/allForAdmin', util.isAdmin, function (req, res) {
-    MatchPrediction.find({}, function (err, obj) {
+app.get('/:userId', util.isLoggedIn, function (req, res) {
+    var userId = req.params.userId;
+    if (!userId) {
+        res.status(403).json(util.errorResponse.format('provide userId'));
+        return;
+    }
+
+    MatchPrediction.find({userId: userId}, function (err, obj) {
         res.status(200).json(obj);
     });
 });
 
-app.get('/all', util.isLoggedIn, function (req, res) {
-    getOtherUsersPredictions().then(function (obj) {
+app.get('/:matchId', util.isLoggedIn, function (req, res) {
+    var matchId = req.params.matchId;
+    if (!matchId) {
+        res.status(403).json(util.errorResponse.format('provide matchId'));
+        return;
+    }
+
+    MatchPrediction.find({matchId: aMatch._id}, function (err, obj) {
         res.status(200).json(obj);
     });
 });
 
 app.get('/', util.isLoggedIn, function (req, res) {
-    var user = req.user;
-    var userId = req.query.userId;
-    var isSameUser = user._id === userId || typeof(userId) === 'undefined';
-
-    // permit to show all
-    if (isSameUser) {
-        MatchPrediction.find({userId: user._id}, function (err, obj) {
-            if (err) {
-                res.status(403).json(util.errorResponse.format(err.message));
-            } else {
-                res.status(200).json(obj);
-            }
-        });
-    } else { // show only prediction until kickofftime
-        getOtherUsersPredictions(userId).then(function (obj) {
-            res.status(200).json(obj);
-        });
-    }
-});
-
-function getOtherUsersPredictions(userId) {
-    var deferred = Q.defer();
-    var now = new Date();
-
-    // 1. get all matches until kickofftime
-    Match.find({kickofftime: {$lt: now}}, function (err, obj) {
-        var itemsProcessed = 0;
-        var result = [];
-        if (!obj || obj.length < 1) {
-            deferred.resolve([]);
-        }
-        // 2. for each match get other's user predictions.
-        obj.forEach(function (aMatch) {
-            if (userId) {
-                // get for one user
-                MatchPrediction.findOne({matchId: aMatch._id, userId: userId}, function (err, aMatchPrediction) {
-                    if (aMatchPrediction) {
-                        result.push(aMatchPrediction);
-                    }
-
-                    itemsProcessed++;
-                    if (itemsProcessed === obj.length) {
-                        deferred.resolve(result);
-                    }
-                });
-            } else {
-                // get for all users
-                MatchPrediction.find({matchId: aMatch._id}, function (err, aMatchPredictions) {
-                    if (aMatchPredictions && aMatchPredictions.length > 0) {
-                        result = result.concat(aMatchPredictions);
-                    }
-
-                    itemsProcessed++;
-                    if (itemsProcessed === obj.length) {
-                        deferred.resolve(result);
-                    }
-                });
-            }
-
-        });
+    MatchPrediction.find({}, function (err, obj) {
+        res.status(200).json(obj);
     });
-    return deferred.promise;
-}
+});
 
 app.delete('/:id', util.isAdmin, function (req, res) {
     var id = req.params.id;

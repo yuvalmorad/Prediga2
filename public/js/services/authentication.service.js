@@ -1,24 +1,18 @@
-service.authentication = (function() {
+service.authentication = (function () {
     return {
         login: login,
-        logout: logout,
-        register: register
+        logout: logout
     };
 
-    function login(username, password) {
-        return httpInstnace.put("/login", {username: username, password: password}).then(function(){
-            localStorage.setItem('user', JSON.stringify({name: "Shachar"}));
+    function login() {
+        return httpInstnace.get("/auth/facebook", {}).then(function (oResult) {
+            localStorage.setItem('user', oResult);
         });
     }
 
     function logout() {
-        localStorage.removeItem('user');
-    }
-
-    function register() {
-        return httpInstnace.put("/register").then(function(){
-            return {name: "Shachar"};
+        return httpInstnace.get("/logout", {}).then(function (oResult) {
+            localStorage.removeItem('user');
         });
     }
-
 })();

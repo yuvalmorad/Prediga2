@@ -26,6 +26,7 @@ reducer.authentication = (function() {
             case LOGIN_FAILURE:
                 return {};
             case LOGOUT:
+                loggedIn: false
                 return {};
             default:
                 return state
