@@ -13,7 +13,7 @@ app.get('/:matchId', util.isLoggedIn, function (req, res) {
         if (err) {
             res.status(403).json(util.errorResponse.format(err.message));
         } else {
-            res.status(200).json(util.okResponse);
+            res.status(200).json(obj);
         }
     });
 });
@@ -28,7 +28,7 @@ app.delete('/:matchId', util.isAdmin, function (req, res) {
         if (err) {
             res.status(403).json(util.errorResponse.format(err.message));
         } else {
-            res.status(200).json(util.okResponse);
+            res.status(200).json(obj);
         }
     });
 });

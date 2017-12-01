@@ -1,10 +1,515 @@
 {
   "matches": [
     {
+      "_id": "5a21a7c1a3f89181074e9762",
       "team1": "Russia",
+      "team2": "Saudi Arabia",
+      "kickofftime": "2018-06-14T15:00:00.000Z",
+      "type": "Group A",
+      "league": "WorldCup2018"
+    },
+    {
+      "_id": "5a21a7c1a3f89181074e9763",
+      "team1": "Egypt",
+      "team2": "Uruguay",
+      "kickofftime": "2018-06-15T12:00:00.000Z",
+      "type": "Group A",
+      "league": "WorldCup2018"
+    },
+    {
+      "_id": "5a21a7c1a3f89181074e9764",
+      "team1": "Russia",
+      "team2": "Egypt",
+      "kickofftime": "2018-06-19T18:00:00.000Z",
+      "type": "Group A",
+      "league": "WorldCup2018"
+    },
+    {
+      "_id": "5a21a7c1a3f89181074e9765",
+      "team1": "Uruguay",
+      "team2": "Saudi Arabia",
+      "kickofftime": "2018-06-20T15:00:00.000Z",
+      "type": "Group A",
+      "league": "WorldCup2018"
+    },
+    {
+      "_id": "5a21a7c1a3f89181074e9766",
+      "team1": "Uruguay",
+      "team2": "Russia",
+      "kickofftime": "2018-06-25T14:00:00.000Z",
+      "type": "Group A",
+      "league": "WorldCup2018"
+    },
+    {
+      "_id": "5a21a7c1a3f89181074e9767",
+      "team1": "Saudi Arabia",
+      "team2": "Egypt",
+      "kickofftime": "2018-06-25T14:00:00.000Z",
+      "type": "Group A",
+      "league": "WorldCup2018"
+    },
+    {
+      "_id": "5a21a7c1a3f89181074e9768",
+      "team1": "Morocco",
+      "team2": "Iran",
+      "kickofftime": "2018-06-15T15:00:00.000Z",
+      "type": "Group B",
+      "league": "WorldCup2018"
+    },
+    {
+      "_id": "5a21a7c1a3f89181074e9769",
+      "team1": "Portugal",
+      "team2": "Spain",
+      "kickofftime": "2018-06-15T18:00:00.000Z",
+      "type": "Group B",
+      "league": "WorldCup2018"
+    },
+    {
+      "_id": "5a21a7c1a3f89181074e976a",
+      "team1": "Portugal",
+      "team2": "Morocco",
+      "kickofftime": "2018-06-20T12:00:00.000Z",
+      "type": "Group B",
+      "league": "WorldCup2018"
+    },
+    {
+      "_id": "5a21a7c1a3f89181074e976b",
+      "team1": "Iran",
+      "team2": "Spain",
+      "kickofftime": "2018-06-20T18:00:00.000Z",
+      "type": "Group B",
+      "league": "WorldCup2018"
+    },
+    {
+      "_id": "5a21a7c1a3f89181074e976c",
+      "team1": "Iran",
+      "team2": "Portugal",
+      "kickofftime": "2018-06-25T18:00:00.000Z",
+      "type": "Group B",
+      "league": "WorldCup2018"
+    },
+    {
+      "_id": "5a21a7c1a3f89181074e976d",
+      "team1": "Spain",
+      "team2": "Morocco",
+      "kickofftime": "2018-06-25T18:00:00.000Z",
+      "type": "Group B",
+      "league": "WorldCup2018"
+    },
+    {
+      "_id": "5a21a7c1a3f89181074e976e",
+      "team1": "France",
+      "team2": "Australia",
+      "kickofftime": "2018-06-16T10:00:00.000Z",
+      "type": "Group C",
+      "league": "WorldCup2018"
+    },
+    {
+      "_id": "5a21a7c1a3f89181074e976f",
+      "team1": "Peru",
+      "team2": "Denmark",
+      "kickofftime": "2018-06-16T16:00:00.000Z",
+      "type": "Group C",
+      "league": "WorldCup2018"
+    },
+    {
+      "_id": "5a21a7c1a3f89181074e9770",
+      "team1": "France",
+      "team2": "Peru",
+      "kickofftime": "2018-06-21T12:00:00.000Z",
+      "type": "Group C",
+      "league": "WorldCup2018"
+    },
+    {
+      "_id": "5a21a7c1a3f89181074e9771",
+      "team1": "Denmark",
+      "team2": "Australia",
+      "kickofftime": "2018-06-21T15:00:00.000Z",
+      "type": "Group C",
+      "league": "WorldCup2018"
+    },
+    {
+      "_id": "5a21a7c1a3f89181074e9772",
+      "team1": "Denmark",
+      "team2": "France",
+      "kickofftime": "2018-06-26T14:00:00.000Z",
+      "type": "Group C",
+      "league": "WorldCup2018"
+    },
+    {
+      "_id": "5a21a7c1a3f89181074e9773",
+      "team1": "Australia",
+      "team2": "Peru",
+      "kickofftime": "2018-06-26T14:00:00.000Z",
+      "type": "Group C",
+      "league": "WorldCup2018"
+    },
+    {
+      "_id": "5a21a7c1a3f89181074e9774",
+      "team1": "Argentina",
+      "team2": "Iceland",
+      "kickofftime": "2018-06-16T13:00:00.000Z",
+      "type": "Group D",
+      "league": "WorldCup2018"
+    },
+    {
+      "_id": "5a21a7c1a3f89181074e9775",
+      "team1": "Croatia",
+      "team2": "Nigeria",
+      "kickofftime": "2018-06-16T19:00:00.000Z",
+      "type": "Group D",
+      "league": "WorldCup2018"
+    },
+    {
+      "_id": "5a21a7c1a3f89181074e9776",
+      "team1": "Argentina",
+      "team2": "Croatia",
+      "kickofftime": "2018-06-21T18:00:00.000Z",
+      "type": "Group D",
+      "league": "WorldCup2018"
+    },
+    {
+      "_id": "5a21a7c1a3f89181074e9777",
+      "team1": "Nigeria",
+      "team2": "Iceland",
+      "kickofftime": "2018-06-22T15:00:00.000Z",
+      "type": "Group D",
+      "league": "WorldCup2018"
+    },
+    {
+      "_id": "5a21a7c1a3f89181074e9778",
+      "team1": "Nigeria",
+      "team2": "Argentina",
+      "kickofftime": "2018-06-26T18:00:00.000Z",
+      "type": "Group D",
+      "league": "WorldCup2018"
+    },
+    {
+      "_id": "5a21a7c1a3f89181074e9779",
+      "team1": "Iceland",
+      "team2": "Croatia",
+      "kickofftime": "2018-06-26T18:00:00.000Z",
+      "type": "Group D",
+      "league": "WorldCup2018"
+    },
+    {
+      "_id": "5a21a7c1a3f89181074e977a",
+      "team1": "Costa Rica",
+      "team2": "Serbia",
+      "kickofftime": "2018-06-17T12:00:00.000Z",
+      "type": "Group E",
+      "league": "WorldCup2018"
+    },
+    {
+      "_id": "5a21a7c1a3f89181074e977b",
+      "team1": "Brazil",
+      "team2": "Switzerland",
+      "kickofftime": "2018-06-17T18:00:00.000Z",
+      "type": "Group E",
+      "league": "WorldCup2018"
+    },
+    {
+      "_id": "5a21a7c1a3f89181074e977c",
+      "team1": "Brazil",
+      "team2": "Costa Rica",
+      "kickofftime": "2018-06-22T12:00:00.000Z",
+      "type": "Group E",
+      "league": "WorldCup2018"
+    },
+    {
+      "_id": "5a21a7c1a3f89181074e977d",
+      "team1": "Serbia",
+      "team2": "Switzerland",
+      "kickofftime": "2018-06-22T18:00:00.000Z",
+      "type": "Group E",
+      "league": "WorldCup2018"
+    },
+    {
+      "_id": "5a21a7c1a3f89181074e977e",
+      "team1": "Serbia",
+      "team2": "Brazil",
+      "kickofftime": "2018-06-27T18:00:00.000Z",
+      "type": "Group E",
+      "league": "WorldCup2018"
+    },
+    {
+      "_id": "5a21a7c1a3f89181074e977f",
+      "team1": "Switzerland",
+      "team2": "Costa Rica",
+      "kickofftime": "2018-06-27T18:00:00.000Z",
+      "type": "Group E",
+      "league": "WorldCup2018"
+    },
+    {
+      "_id": "5a21a7c1a3f89181074e9780",
+      "team1": "Germany",
+      "team2": "Mexico",
+      "kickofftime": "2018-06-17T15:00:00.000Z",
+      "type": "Group F",
+      "league": "WorldCup2018"
+    },
+    {
+      "_id": "5a21a7c1a3f89181074e9781",
+      "team1": "Sweden",
+      "team2": "South Korea",
+      "kickofftime": "2018-06-18T12:00:00.000Z",
+      "type": "Group F",
+      "league": "WorldCup2018"
+    },
+    {
+      "_id": "5a21a7c1a3f89181074e9782",
+      "team1": "Germany",
+      "team2": "Sweden",
+      "kickofftime": "2018-06-23T15:00:00.000Z",
+      "type": "Group F",
+      "league": "WorldCup2018"
+    },
+    {
+      "_id": "5a21a7c1a3f89181074e9783",
+      "team1": "South Korea",
+      "team2": "Mexico",
+      "kickofftime": "2018-06-23T18:00:00.000Z",
+      "type": "Group F",
+      "league": "WorldCup2018"
+    },
+    {
+      "_id": "5a21a7c1a3f89181074e9784",
+      "team1": "South Korea",
+      "team2": "Germany",
+      "kickofftime": "2018-06-27T14:00:00.000Z",
+      "type": "Group F",
+      "league": "WorldCup2018"
+    },
+    {
+      "_id": "5a21a7c1a3f89181074e9785",
+      "team1": "Mexico",
+      "team2": "Sweden",
+      "kickofftime": "2018-06-27T14:00:00.000Z",
+      "type": "Group F",
+      "league": "WorldCup2018"
+    },
+    {
+      "_id": "5a21a7c1a3f89181074e9786",
+      "team1": "Belgium",
+      "team2": "Panama",
+      "kickofftime": "2018-06-18T15:00:00.000Z",
+      "type": "Group G",
+      "league": "WorldCup2018"
+    },
+    {
+      "_id": "5a21a7c1a3f89181074e9787",
+      "team1": "Tunisia",
+      "team2": "England",
+      "kickofftime": "2018-06-18T18:00:00.000Z",
+      "type": "Group G",
+      "league": "WorldCup2018"
+    },
+    {
+      "_id": "5a21a7c1a3f89181074e9788",
+      "team1": "Belgium",
+      "team2": "Tunisia",
+      "kickofftime": "2018-06-23T12:00:00.000Z",
+      "type": "Group G",
+      "league": "WorldCup2018"
+    },
+    {
+      "_id": "5a21a7c1a3f89181074e9789",
+      "team1": "England",
+      "team2": "Panama",
+      "kickofftime": "2018-06-24T12:00:00.000Z",
+      "type": "Group G",
+      "league": "WorldCup2018"
+    },
+    {
+      "_id": "5a21a7c1a3f89181074e978a",
+      "team1": "England",
+      "team2": "Belgium",
+      "kickofftime": "2018-06-28T18:00:00.000Z",
+      "type": "Group G",
+      "league": "WorldCup2018"
+    },
+    {
+      "_id": "5a21a7c1a3f89181074e978b",
+      "team1": "Panama",
+      "team2": "Tunisia",
+      "kickofftime": "2018-06-28T18:00:00.000Z",
+      "type": "Group G",
+      "league": "WorldCup2018"
+    },
+    {
+      "_id": "5a21a7c1a3f89181074e978c",
+      "team1": "Poland",
+      "team2": "Senegal",
+      "kickofftime": "2018-06-19T12:00:00.000Z",
+      "type": "Group H",
+      "league": "WorldCup2018"
+    },
+    {
+      "_id": "5a21a7c1a3f89181074e978d",
+      "team1": "Colombia",
+      "team2": "Japan",
+      "kickofftime": "2018-06-19T15:00:00.000Z",
+      "type": "Group H",
+      "league": "WorldCup2018"
+    },
+    {
+      "_id": "5a21a7c1a3f89181074e978e",
+      "team1": "Japan",
+      "team2": "Senegal",
+      "kickofftime": "2018-06-24T15:00:00.000Z",
+      "type": "Group H",
+      "league": "WorldCup2018"
+    },
+    {
+      "_id": "5a21a7c1a3f89181074e978f",
+      "team1": "Poland",
+      "team2": "Colombia",
+      "kickofftime": "2018-06-24T18:00:00.000Z",
+      "type": "Group H",
+      "league": "WorldCup2018"
+    },
+    {
+      "_id": "5a21a7c1a3f89181074e9790",
+      "team1": "Japan",
+      "team2": "Poland",
+      "kickofftime": "2018-06-28T12:00:00.000Z",
+      "type": "Group H",
+      "league": "WorldCup2018"
+    },
+    {
+      "_id": "5a21a7c1a3f89181074e9791",
+      "team1": "Senegal",
+      "team2": "Colombia",
+      "kickofftime": "2018-06-28T12:00:00.000Z",
+      "type": "Group H",
+      "league": "WorldCup2018"
+    },
+    {
+      "_id": "5a21a7c1a3f89181074e9792",
+      "team1": "C1",
+      "team2": "D2",
+      "kickofftime": "2018-06-30T14:00:00.000Z",
+      "type": "Round of 16",
+      "league": "WorldCup2018"
+    },
+    {
+      "_id": "5a21a7c1a3f89181074e9793",
+      "team1": "A1",
+      "team2": "B2",
+      "kickofftime": "2018-06-30T18:00:00.000Z",
+      "type": "Round of 16",
+      "league": "WorldCup2018"
+    },
+    {
+      "_id": "5a21a7c1a3f89181074e9794",
+      "team1": "B1",
       "team2": "A2",
-      "kickofftime": "2018-06-14T15:00:00Z",
-      "type": "groupStage",
+      "kickofftime": "2018-07-01T14:00:00.000Z",
+      "type": "Round of 16",
+      "league": "WorldCup2018"
+    },
+    {
+      "_id": "5a21a7c1a3f89181074e9795",
+      "team1": "D1",
+      "team2": "C2",
+      "kickofftime": "2018-07-01T18:00:00.000Z",
+      "type": "Round of 16",
+      "league": "WorldCup2018"
+    },
+    {
+      "_id": "5a21a7c1a3f89181074e9796",
+      "team1": "E1",
+      "team2": "F2",
+      "kickofftime": "2018-07-02T14:00:00.000Z",
+      "type": "Round of 16",
+      "league": "WorldCup2018"
+    },
+    {
+      "_id": "5a21a7c1a3f89181074e9797",
+      "team1": "G1",
+      "team2": "H2",
+      "kickofftime": "2018-07-02T18:00:00.000Z",
+      "type": "Round of 16",
+      "league": "WorldCup2018"
+    },
+    {
+      "_id": "5a21a7c1a3f89181074e9798",
+      "team1": "F1",
+      "team2": "E2",
+      "kickofftime": "2018-07-03T14:00:00.000Z",
+      "type": "Round of 16",
+      "league": "WorldCup2018"
+    },
+    {
+      "_id": "5a21a7c1a3f89181074e9799",
+      "team1": "H1",
+      "team2": "G2",
+      "kickofftime": "2018-07-03T18:00:00.000Z",
+      "type": "Round of 16",
+      "league": "WorldCup2018"
+    },
+    {
+      "_id": "5a21a7c1a3f89181074e9800",
+      "team1": "W49",
+      "team2": "W50",
+      "kickofftime": "2018-07-06T14:00:00.000Z",
+      "type": "Quarter Finals",
+      "league": "WorldCup2018"
+    },
+    {
+      "_id": "5a21a7c1a3f89181074e9801",
+      "team1": "W53",
+      "team2": "W54",
+      "kickofftime": "2018-07-06T18:00:00.000Z",
+      "type": "Quarter Finals",
+      "league": "WorldCup2018"
+    },
+    {
+      "_id": "5a21a7c1a3f89181074e9802",
+      "team1": "W55",
+      "team2": "W56",
+      "kickofftime": "2018-07-07T14:00:00.000Z",
+      "type": "Quarter Finals",
+      "league": "WorldCup2018"
+    },
+    {
+      "_id": "5a21a7c1a3f89181074e9803",
+      "team1": "W51",
+      "team2": "W52",
+      "kickofftime": "2018-07-07T18:00:00.000Z",
+      "type": "Quarter Finals",
+      "league": "WorldCup2018"
+    },
+    {
+      "_id": "5a21a7c1a3f89181074e9804",
+      "team1": "W57",
+      "team2": "W58",
+      "kickofftime": "2018-07-10T18:00:00.000Z",
+      "type": "Semi Finals",
+      "league": "WorldCup2018"
+    },
+    {
+      "_id": "5a21a7c1a3f89181074e9805",
+      "team1": "W59",
+      "team2": "W60",
+      "kickofftime": "2018-07-11T18:00:00.000Z",
+      "type": "Semi Finals",
+      "league": "WorldCup2018"
+    },
+    {
+      "_id": "5a21a7c1a3f89181074e9806",
+      "team1": "L61",
+      "team2": "L62",
+      "kickofftime": "2018-07-14T14:00:00.000Z",
+      "type": "3rd Place Playoff",
+      "league": "WorldCup2018"
+    },
+    {
+      "_id": "5a21a7c1a3f89181074e9807",
+      "team1": "W61",
+      "team2": "W62",
+      "kickofftime": "2018-07-15T15:00:00.000Z",
+      "type": "Final",
       "league": "WorldCup2018"
     }
   ],

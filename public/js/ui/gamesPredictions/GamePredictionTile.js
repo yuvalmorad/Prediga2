@@ -11,8 +11,8 @@ component.GamePredictionTile = (function(){
             var props = this.props,
                 teams = LEAGUE.teams,
                 game = props.game,
-                team1 = teams[game.team1Id],
-                team2 = teams[game.team2Id];
+                team1 = teams[game.team1],
+                team2 = teams[game.team2];
 
             return re(Tile, {borderLeftColor: team1.color, borderRightColor: team2.color, className: "game-prediction-tile", dialogComponent: "GamePredictionTileDialog", dialogComponentProps:{id: game.id}},
                 re(GamePredictionMainTile, {game: game})

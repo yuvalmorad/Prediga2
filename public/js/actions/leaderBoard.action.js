@@ -10,8 +10,8 @@ action.leaderBoard = (function(){
     function loadLeaderBoard() {
         return function(dispatch){
             dispatch(request());
-            service.leaderBoard.getAll().then(function(users){
-                dispatch(success(users));
+            service.leaderBoard.getAll().then(function(res){
+                dispatch(success(res.data));
             }, function(error){
                 dispatch(failure(error));
             })

@@ -8,7 +8,7 @@ component.GamePredictionTileDialog = (function(){
 
         getInitialState: function() {
             var props = this.props,
-                game = props.games.filter(function(game){return game.id === props.id})[0],
+                game = props.matches.filter(function(game){return game.id === props.id})[0],
                 gameCopy = Object.assign({}, game);
 
             return {
@@ -33,8 +33,8 @@ component.GamePredictionTileDialog = (function(){
             var teams = LEAGUE.teams,
                 state = this.state,
                 game = state.game,
-                team1 = teams[game.team1Id],
-                team2 = teams[game.team2Id];
+                team1 = teams[game.team1],
+                team2 = teams[game.team2];
 
             return re(TileDialog, {borderLeftColor: team1.color, borderRightColor: team2.color, className: "game-prediction-tile"},
                 re(GamePredictionMainTile, {game: game}),
@@ -45,7 +45,7 @@ component.GamePredictionTileDialog = (function(){
 
     function mapStateToProps(state){
         return {
-            games: state.gamesPredictions.games
+            matches: state.gamesPredictions.matches
         }
     }
 

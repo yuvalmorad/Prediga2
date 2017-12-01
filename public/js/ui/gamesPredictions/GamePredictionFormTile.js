@@ -3,6 +3,9 @@ component.GamePredictionFormTile = (function(){
     var InputNumber = component.InputNumber;
 
     function mapToMutualFriends(arr, reverse) {
+        if (!arr){
+            return;
+        }
         return arr.map(function(src, index){
             var transform = 0.75;
             var style = {
@@ -36,8 +39,8 @@ component.GamePredictionFormTile = (function(){
             var props = this.props,
                 game = props.game,
                 teams = LEAGUE.teams,
-                team1 = teams[game.team1Id],
-                team2 = teams[game.team2Id],
+                team1 = teams[game.team1],
+                team2 = teams[game.team2],
                 isFormDisabled = game.status !== GAME.STATUS.PRE_GAME,
                 team1Name = team1.name,
                 team2Name = team2.name,

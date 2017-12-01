@@ -26,23 +26,23 @@ var LEAGUES = (function(){
     }
 
     return {
-        ISREAL_PREMIER_LEAGUE: {
-            name: "Israeli Premier League",
-            logo: "israel_league.jpg",
+        WORLD_CUP_18: {
+            name: "World Cup 2018",
+            //logo: "israel_league.jpg",
             teams: mapTeamsById([
                 {
-                    id: "team_1",
-                    name: "Maccabi Tel Aviv",
-                    shortName: "MTA",
+                    id: "Russia",
+                    name: "Russia",
+                    shortName: "RU",
                     logo: "maccabi_tel_aviv.png",
                     logoGray: "maccabi_tel_aviv_gray.png",
                     color: "yellow",
                     secondColor: "blue"
                 },
                 {
-                    id: "team_2",
-                    name: "Hapoel Beer Sheva",
-                    shortName: "HBS",
+                    id: "A2",
+                    name: "A2",
+                    shortName: "A2",
                     logo: "Hapoel_Beer_Sheva.png",
                     logoGray: "Hapoel_Beer_Shev_gray.png",
                     color: "red",
@@ -71,5 +71,5 @@ var LEAGUES = (function(){
     }
 })();
 
-var LEAGUE = LEAGUES.ISREAL_PREMIER_LEAGUE;
+var LEAGUE = LEAGUES.WORLD_CUP_18;
 

@@ -4,8 +4,8 @@ component.GamePredictionMainTile = (function(){
     return  function(props) {
         var game = props.game,
             teams = LEAGUE.teams,
-            team1 = teams[game.team1Id],
-            team2 = teams[game.team2Id],
+            team1 = teams[game.team1],
+            team2 = teams[game.team2],
             userPredictionOutcome = game.userPrediction_outcome,
             resultsOutcome = game.results_outcome,
             team1Logo,

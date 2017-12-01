@@ -9,7 +9,7 @@ component.LeaderBoardMainTile = (function(){
             strikes = user.strikes,
             predictions = user.predictions,
             rank = user.rank,
-            points = user.points;
+            score = user.score;
 
         return re(BaseMainTile, {
             imageSrc: "../images/facebook/" + image,
@@ -17,7 +17,7 @@ component.LeaderBoardMainTile = (function(){
             title: name,
             description: strikes + " Strikes, " + predictions + " Predictions",
             rank: rank,
-            points: points
+            points: score
         });
     };
 })();

@@ -36,14 +36,14 @@ action.gamesPredictions = (function(){
         return function(dispatch){
             dispatch(request());
             service.gamesPredictions.getAll().then(function(res){
-                dispatch(success(res.games, res.gameDates));
+                dispatch(success(res.data));
             }, function(error){
                 dispatch(failure(error));
             });
         };
 
         function request() { return { type: gamesPredictions.LOAD_GAMES_REQUEST} }
-        function success(games, gameDates) { return { type: gamesPredictions.LOAD_GAMES_SUCCESS, games: games, gameDates: gameDates } }
+        function success(matches) { return { type: gamesPredictions.LOAD_GAMES_SUCCESS, matches: matches } }
         function failure(error) { return { type: gamesPredictions.LOAD_GAMES_FAILURE, error: error} }
     }
 

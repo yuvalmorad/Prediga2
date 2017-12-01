@@ -29,8 +29,8 @@ action.teamsPredictions = (function(){
     function loadTeams() {
         return function(dispatch){
             dispatch(request());
-            service.teamsPredictions.getAll().then(function(teams){
-                dispatch(success(teams));
+            service.teamsPredictions.getAll().then(function(res){
+                dispatch(success(res.data));
             }, function(error){
                 dispatch(failure(error));
             })

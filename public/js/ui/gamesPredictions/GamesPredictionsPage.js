@@ -36,9 +36,9 @@ component.GamesPredictionsPage = (function(){
 
         render: function() {
             var props = this.props;
-            var games = props.games;
+            var matches = props.matches;
             var currentDate = new Date().getTime();
-            var gameDates = props.gameDates;
+            /*var gameDates = props.gameDates;
             var offsetPageIndex = this.state.offsetPageIndex;
             var closestDateIndex = gameDates.length ? gameDates.length - 1 : 0;
 
@@ -49,24 +49,24 @@ component.GamesPredictionsPage = (function(){
                     closestDateIndex = index;
                     break;
                 }
-            }
+            }*/
 
-            var currentPageIndex = closestDateIndex + offsetPageIndex;
-            var currentDatePage = gameDates[currentPageIndex];
+            var currentPageIndex = 0;  // closestDateIndex + offsetPageIndex;
+            var currentDatePage = 0; //gameDates[currentPageIndex];
 
-            var tilesInPage = games.filter(function(game){
-                return isBetweenDates(game.date, currentDatePage.from, currentDatePage.to);
+            var tilesInPage = matches.filter(function(match){
+                return true //isBetweenDates(match.date, currentDatePage.from, currentDatePage.to);
             }).sort(function(game1, game2){ //TODO sort also by time
                 return game1.date - game2.date;
-            }).map(function(game){
-                return re(GamePredictionTile, {game: game, key: game.id});
+            }).map(function(match){
+                return re(GamePredictionTile, {game: match, key: match.id});
             });
 
             return re("div", { className: "games-prediction-page content hasTilesHeader"},
                 re("div", {className: "tiles-header"},
                     re("button", {className: "icon-left-open", onClick: this.onPreviousPage, disabled: currentPageIndex === 0}),
                     re("div", {className: "title"}, currentDatePage ? getDate(currentDatePage.from) + " - " + getDate(currentDatePage.to) : "" ),
-                    re("button", {className: "icon-right-open", onClick: this.onNextPage, disabled: currentPageIndex === this.props.gameDates.length - 1})
+                    re("button", {className: "icon-right-open", onClick: this.onNextPage, disabled: currentPageIndex === this.props.matches.length - 1})
                 ),
                 re("div", {className: "tiles" + (props.isShowTileDialog ? " no-scroll" : "")},
                     tilesInPage
@@ -77,8 +77,7 @@ component.GamesPredictionsPage = (function(){
 
     function mapStateToProps(state){
         return {
-            games: state.gamesPredictions.games,
-            gameDates: state.gamesPredictions.gameDates,
+            matches: state.gamesPredictions.matches,
             isShowTileDialog: state.general.isShowTileDialog
         }
     }

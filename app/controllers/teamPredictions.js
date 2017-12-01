@@ -5,82 +5,26 @@ var Team = require('../models/team');
 var util = require('../utils/util.js');
 var Q = require('q');
 
-app.get('/allForAdmin', util.isAdmin, function (req, res) {
-    TeamPrediction.find({}, function (err, obj) {
-        res.status(200).json(obj);
-    });
-});
-
-app.get('/all', util.isLoggedIn, function (req, res) {
-    getOtherUsersPredictions().then(function (obj) {
-        res.status(200).json(obj);
-    });
-});
-
 app.get('/', util.isLoggedIn, function (req, res) {
-    var user = req.user;
-    var userId = req.query.userId;
-    var isSameUser = user._id === userId || typeof(userId) === 'undefined';
-
-    // permit to show all
-    if (isSameUser) {
-        TeamPrediction.find({userId: user._id}, function (err, obj) {
-            if (err) {
-                res.status(403).json(util.errorResponse.format('error'));
-            } else {
-                res.status(200).json(obj);
-            }
-        });
-    } else { // show only prediction until deadline
-        getOtherUsersPredictions(userId).then(function (obj) {
+    TeamPrediction.find({}, function (err, obj) {
+        if (err) {
+            res.status(403).json(util.errorResponse.format('error'));
+        } else {
             res.status(200).json(obj);
-        });
-    }
+        }
+    });
 });
 
-function getOtherUsersPredictions(userId) {
-    var deferred = Q.defer();
-    var now = new Date();
-
-    // 1. get all team until deadline
-    Team.find({deadline: {$lt: now}}, function (err, obj) {
-        var itemsProcessed = 0;
-        var result = [];
-        if (!obj || obj.length < 1) {
-            deferred.resolve([]);
+app.get('/:userId', util.isLoggedIn, function (req, res) {
+    var userId = req.query.userId;
+    TeamPrediction.find({userId: userId}, function (err, obj) {
+        if (err) {
+            res.status(403).json(util.errorResponse.format('error'));
+        } else {
+            res.status(200).json(obj);
         }
-        // 2. for each match get other's user predictions.
-        obj.forEach(function (aTeam) {
-            if (userId) {
-                // get for one user
-                TeamPrediction.findOne({teamId: aTeam._id, userId: userId}, function (err, aTeamPrediction) {
-                    if (aTeamPrediction) {
-                        result.push(aTeamPrediction);
-                    }
-
-                    itemsProcessed++;
-                    if (itemsProcessed === obj.length) {
-                        deferred.resolve(result);
-                    }
-                });
-            } else {
-                // get for all users
-                TeamPrediction.find({teamId: aTeam._id}, function (err, aTeamPrediction) {
-                    if (aTeamPrediction && aTeamPrediction.length > 0) {
-                        result = result.concat(aTeamPrediction);
-                    }
-
-                    itemsProcessed++;
-                    if (itemsProcessed === obj.length) {
-                        deferred.resolve(result);
-                    }
-                });
-            }
-
-        });
     });
-    return deferred.promise;
-}
+});
 
 app.delete('/:id', util.isAdmin, function (req, res) {
     var id = req.params.id;
