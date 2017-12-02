@@ -7,7 +7,8 @@ var matchSchema = mongoose.Schema({
     team2: String,
     kickofftime: Date,
     type: String,
-    league: String
+    league: String,
+    status: String
 });
 
 matchSchema.options.toJSON = {

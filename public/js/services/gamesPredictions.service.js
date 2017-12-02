@@ -6,12 +6,12 @@ service.gamesPredictions = (function() {
 
     // get all match predictions
     function getAll() {
-        return httpInstnace.get("/api/matches");
+        return httpInstnace.get("/api/matchesUI");
     }
 
-    // updates all games
-    function updateGame(games) {
-        return httpInstnace.post("/api/matchPredictions", games);
+    // updates user predictions (array)
+    function updateGame(userPredictions) {
+        return httpInstnace.post("/api/matchPredictions", userPredictions);
     }
 
 })();

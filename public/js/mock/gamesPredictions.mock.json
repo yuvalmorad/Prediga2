@@ -4,28 +4,52 @@
     {"from": "1/28/2017", "to": "2/5/2017"},
     {"from": "2/10/2017", "to": "2/18/2017"}
   ],
-  "games": [
+  "matches": [
     {
-      "id": "game_1",
-      "leagueName": "Israel Premier League",
-      "date": "1/29/2017",
-      "time": "20:00",
-      "team1Id": "team_1",
-      "team2Id": "team_2",
+      "_id": "5a21a7c1a3f89181074e9762",
+      "team1": "Russia",
+      "team2": "Saudi Arabia",
+      "kickofftime": "2018-06-14T15:00:00.000Z",
+      "type": "Group A",
+      "league": "WorldCup2018",
       "status": "PRE_GAME",
-
-      "userPrediction_outcome": 0,
-      "userPrediction_team1Scores": 3,
-      "userPrediction_team2Scores": 4,
-      "userPrediction_diffScores": 2,
-      "userPrediction_firstScore": 0,
-
-      "othersPredictions_team1WinCount": 10,
-      "othersPredictions_team2WinCount": 2,
-      "othersPredictions_drawCount": 5,
-
-      "team1MutualFriends": ["facebook_shachar.jpg", "facebook_gilad.jpg"],
-      "team2MutualFriends": ["facebook_gilad.jpg", "facebook_shachar.jpg"]
+      "userPrediction": {
+        "_id": "aaaaa",
+        "winner": "Russia",
+        "team1Goals": 0,
+        "team2Goals": 1,
+        "goalDiff": 2,
+        "firstToScore": "Russia"
+      },
+      "othersPredictions": {
+        "team1": [
+          {
+            "_id": "abvaca",
+            "profileId": "aaaa",
+            "email": "someEmail",
+            "name": "aa",
+            "photo": "facebook_shachar.jpg"
+          }
+        ],
+        "team2": [
+          {
+            "_id": "abvacb",
+            "profileId": "bbbb",
+            "email": "someEmail",
+            "name": "bb",
+            "photo": "facebook_shachar.jpg"
+          }
+        ],
+        "draw": [
+          {
+            "_id": "abvacc",
+            "profileId": "cccc",
+            "email": "someEmail",
+            "name": "cc",
+            "photo": "facebook_shachar.jpg"
+          }
+        ]
+      }
     },
     {
       "id": "game_2",

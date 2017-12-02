@@ -24,7 +24,7 @@ app.get('/:matchId', util.isLoggedIn, function (req, res) {
         return;
     }
 
-    MatchPrediction.find({matchId: aMatch._id}, function (err, obj) {
+    MatchPrediction.find({matchId: matchId}, function (err, obj) {
         res.status(200).json(obj);
     });
 });

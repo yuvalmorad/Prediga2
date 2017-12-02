@@ -6,7 +6,8 @@ var teamSchema = mongoose.Schema({
     deadline: Date,
     title: String,
     type: String, // `winner`, `runnerUp`
-    league: String
+    league: String,
+    options: Array
 });
 
 teamSchema.options.toJSON = {
