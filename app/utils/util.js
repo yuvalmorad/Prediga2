@@ -119,7 +119,7 @@ module.exports = {
         var deferred = Q.defer();
         var itemsProcessed = 0;
         matches.forEach(function (match) {
-            Match.findOneAndUpdate({team1: match.team1, team2: match.team2}, match, {
+            Match.findOneAndUpdate({_id: match._id}, match, {
                     upsert: true,
                     setDefaultsOnInsert: true
                 }, function (err, obj) {
@@ -140,7 +140,7 @@ module.exports = {
         var deferred = Q.defer();
         var itemsProcessed = 0;
         teams.forEach(function (team) {
-            Team.findOneAndUpdate({type: team.type, title: team.title}, team, {
+            Team.findOneAndUpdate({_id: team._id}, team, {
                     upsert: true,
                     setDefaultsOnInsert: true
                 }, function (err, obj) {
