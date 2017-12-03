@@ -1,0 +1,93 @@
+{
+  "matches": [
+    {
+      "_id": "6a21a7c1a3f89181074e9762",
+      "team1": "Maccabi Ironi Petah Tikva",
+      "team2": "FC Ashdod",
+      "kickofftime": "2017-12-16T14:00:00.000Z",
+      "type": "Round 14",
+      "league": "IsraeliLeague18",
+      "status": "PRE_GAME"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9763",
+      "team1": "Bnei Sakhnin",
+      "team2": "Hapoel Akko",
+      "kickofftime": "2017-12-16T16:00:00.000Z",
+      "type": "Round 14",
+      "league": "IsraeliLeague18",
+      "status": "PRE_GAME"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9764",
+      "team1": "Hapoel Ironi Ashkelon",
+      "team2": "Hapoel Haifa",
+      "kickofftime": "2017-12-16T16:15:00.000Z",
+      "type": "Round 14",
+      "league": "IsraeliLeague18",
+      "status": "PRE_GAME"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9765",
+      "team1": "Maccabi Haifa",
+      "team2": "Bnei Yehuda Tel Aviv",
+      "kickofftime": "2017-12-16T16:30:00.000Z",
+      "type": "Round 14",
+      "league": "IsraeliLeague18",
+      "status": "PRE_GAME"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9766",
+      "team1": "Hapoel Kiryat Shmona",
+      "team2": "Hapoel Raanana",
+      "kickofftime": "2017-12-17T17:00:00.000Z",
+      "type": "Round 14",
+      "league": "IsraeliLeague18",
+      "status": "PRE_GAME"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9767",
+      "team1": "Maccabi Netanya",
+      "team2": "Hapoel Beer Sheva",
+      "kickofftime": "2017-12-17T18:30:00.000Z",
+      "type": "Round 14",
+      "league": "IsraeliLeague18",
+      "status": "PRE_GAME"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9768",
+      "team1": "Beitar Jerusalem",
+      "team2": "Maccabi Tel Aviv",
+      "kickofftime": "2017-12-17T19:00:00.000Z",
+      "type": "Round 14",
+      "league": "IsraeliLeague18",
+      "status": "PRE_GAME"
+    }
+  ],
+  "teams": [
+    {
+      "_id": "5a1342399017dfc4e2faf4a8",
+      "title": "1st place",
+      "type": "1st",
+      "deadline": "2018-03-01T00:00:00.000Z",
+      "league": "IsraeliLeague18",
+      "options": []
+    },
+    {
+      "_id": "5a1342399017dfc4e2faf4a9",
+      "title": "2nd place",
+      "type": "2nd",
+      "deadline": "2018-03-01T00:00:00.000Z",
+      "league": "IsraeliLeague18",
+      "options": []
+    },
+    {
+      "_id": "5a1342399017dfc4e2faf4b0",
+      "title": "3st place",
+      "type": "3rd",
+      "deadline": "2018-03-01T00:00:00.000Z",
+      "league": "IsraeliLeague18",
+      "options": []
+    }
+  ]
+}

@@ -579,37 +579,42 @@
   ],
   "teams": [
     {
-      "type": "1st",
+      "_id": "5a1342399017dfc4e2faf494",
       "title": "1st place",
-      "deadline": "2018-07-15T15:00:00Z",
+      "type": "1st",
+      "deadline": "2018-06-14T15:00:00.000Z",
       "league": "WorldCup2018",
       "options": []
     },
     {
-      "type": "2nd",
+      "_id": "5a1342399017dfc4e2faf495",
       "title": "2nd place",
-      "deadline": "2018-07-15T15:00:00Z",
+      "type": "2nd",
+      "deadline": "2018-06-14T15:00:00.000Z",
       "league": "WorldCup2018",
       "options": []
     },
     {
-      "type": "3rd",
+      "_id": "5a1342399017dfc4e2faf496",
       "title": "3st place",
-      "deadline": "2018-07-14T14:00:00Z",
+      "type": "3rd",
+      "deadline": "2018-06-14T15:00:00.000Z",
       "league": "WorldCup2018",
       "options": []
     },
     {
-      "type": "4th",
+      "_id": "5a1342399017dfc4e2faf497",
       "title": "24th place",
-      "deadline": "2018-07-14T14:00:00Z",
+      "type": "4th",
+      "deadline": "2018-07-14T14:00:00.000Z",
       "league": "WorldCup2018",
       "options": []
     },
     {
-      "type": "A1",
+      "_id": "5a1342399017dfc4e2faf498",
       "title": "1st place Group A",
-      "deadline": "2018-06-25T14:00:00Z",
+      "type": "A1",
+      "deadline": "2018-06-14T15:00:00.000Z",
       "league": "WorldCup2018",
       "options": [
         "Russia",
@@ -619,9 +624,10 @@
       ]
     },
     {
-      "type": "A2",
+      "_id": "5a1342399017dfc4e2faf499",
       "title": "2nd place Group A",
-      "deadline": "2018-07-25T14:00:00Z",
+      "type": "A2",
+      "deadline": "2018-06-14T15:00:00.000Z",
       "league": "WorldCup2018",
       "options": [
         "Russia",
@@ -631,9 +637,10 @@
       ]
     },
     {
-      "type": "B1",
+      "_id": "5a1342399017dfc4e2faf49a",
       "title": "1st place Group B",
-      "deadline": "2018-06-25T18:00:00Z",
+      "type": "B1",
+      "deadline": "2018-06-14T15:00:00.000Z",
       "league": "WorldCup2018",
       "options": [
         "Portugal",
@@ -643,9 +650,10 @@
       ]
     },
     {
-      "type": "B2",
+      "_id": "5a1342399017dfc4e2faf49b",
       "title": "2nd place Group B",
-      "deadline": "2018-06-25T18:00:00Z",
+      "type": "B2",
+      "deadline": "2018-06-14T15:00:00.000Z",
       "league": "WorldCup2018",
       "options": [
         "Portugal",
@@ -655,9 +663,10 @@
       ]
     },
     {
-      "type": "C1",
+      "_id": "5a1342399017dfc4e2faf49c",
       "title": "1st place Group C",
-      "deadline": "2018-06-26T14:00:00Z",
+      "type": "C1",
+      "deadline": "2018-06-14T15:00:00.000Z",
       "league": "WorldCup2018",
       "options": [
         "France",
@@ -667,9 +676,10 @@
       ]
     },
     {
-      "type": "C2",
+      "_id": "5a1342399017dfc4e2faf49d",
       "title": "2nd place Group C",
-      "deadline": "2018-07-26T14:00:00Z",
+      "type": "C2",
+      "deadline": "2018-06-14T15:00:00.000Z",
       "league": "WorldCup2018",
       "options": [
         "France",
@@ -679,9 +689,10 @@
       ]
     },
     {
-      "type": "D1",
+      "_id": "5a1342399017dfc4e2faf49e",
       "title": "1st place Group D",
-      "deadline": "2018-06-26T18:00:00Z",
+      "type": "D1",
+      "deadline": "2018-06-14T15:00:00.000Z",
       "league": "WorldCup2018",
       "options": [
         "Argentina",
@@ -691,9 +702,10 @@
       ]
     },
     {
-      "type": "D2",
+      "_id": "5a1342399017dfc4e2faf49f",
       "title": "2nd place Group D",
-      "deadline": "2018-06-26T18:00:00Z",
+      "type": "D2",
+      "deadline": "2018-06-14T15:00:00.000Z",
       "league": "WorldCup2018",
       "options": [
         "Argentina",
@@ -703,9 +715,10 @@
       ]
     },
     {
-      "type": "E1",
+      "_id": "5a1342399017dfc4e2faf4a0",
       "title": "1st place Group E",
-      "deadline": "2018-06-27T18:00:00Z",
+      "type": "E1",
+      "deadline": "2018-06-14T15:00:00.000Z",
       "league": "WorldCup2018",
       "options": [
         "Brazil",
@@ -715,9 +728,10 @@
       ]
     },
     {
-      "type": "E2",
+      "_id": "5a1342399017dfc4e2faf4a1",
       "title": "2nd place Group E",
-      "deadline": "2018-07-26T18:00:00Z",
+      "type": "E2",
+      "deadline": "2018-06-14T15:00:00.000Z",
       "league": "WorldCup2018",
       "options": [
         "Brazil",
@@ -727,9 +741,10 @@
       ]
     },
     {
-      "type": "F1",
+      "_id": "5a1342399017dfc4e2faf4a2",
       "title": "1st place Group F",
-      "deadline": "2018-06-27T14:00:00Z",
+      "type": "F1",
+      "deadline": "2018-06-14T15:00:00.000Z",
       "league": "WorldCup2018",
       "options": [
         "Germany",
@@ -739,9 +754,10 @@
       ]
     },
     {
-      "type": "F2",
+      "_id": "5a1342399017dfc4e2faf4a3",
       "title": "2nd place Group F",
-      "deadline": "2018-06-27T14:00:00Z",
+      "type": "F2",
+      "deadline": "2018-06-14T15:00:00.000Z",
       "league": "WorldCup2018",
       "options": [
         "Germany",
@@ -751,9 +767,10 @@
       ]
     },
     {
-      "type": "G1",
+      "_id": "5a1342399017dfc4e2faf4a4",
       "title": "1st place Group G",
-      "deadline": "2018-06-28T18:00:00Z",
+      "type": "G1",
+      "deadline": "2018-06-14T15:00:00.000Z",
       "league": "WorldCup2018",
       "options": [
         "Belgium",
@@ -763,9 +780,10 @@
       ]
     },
     {
-      "type": "G2",
+      "_id": "5a1342399017dfc4e2faf4a5",
       "title": "2nd place Group G",
-      "deadline": "2018-07-28T18:00:00Z",
+      "type": "G2",
+      "deadline": "2018-06-14T15:00:00.000Z",
       "league": "WorldCup2018",
       "options": [
         "Belgium",
@@ -775,9 +793,10 @@
       ]
     },
     {
-      "type": "H1",
+      "_id": "5a1342399017dfc4e2faf4a6",
       "title": "1st place Group H",
-      "deadline": "2018-06-28T14:00:00Z",
+      "type": "H1",
+      "deadline": "2018-06-14T15:00:00.000Z",
       "league": "WorldCup2018",
       "options": [
         "Poland",
@@ -787,9 +806,10 @@
       ]
     },
     {
-      "type": "H2",
+      "_id": "5a1342399017dfc4e2faf4a7",
       "title": "2nd place Group H",
-      "deadline": "2018-06-28T14:00:00Z",
+      "type": "H2",
+      "deadline": "2018-06-14T15:00:00.000Z",
       "league": "WorldCup2018",
       "options": [
         "Poland",
