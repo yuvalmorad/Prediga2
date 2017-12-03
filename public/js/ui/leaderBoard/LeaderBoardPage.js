@@ -20,7 +20,7 @@ component.LeaderBoardPage = (function(){
                 return user2.points - user1.points;
             }).map(function(_user, index){
                 var user = Object.assign({}, _user, {rank: index + 1});
-                return re(LeaderBoardTile, {user: user, key: user.id});
+                return re(LeaderBoardTile, {user: user, key: user._id});
             });
 
             return re("div", { className: "content" },

@@ -4,7 +4,7 @@ component.TeamPredictionFormTile = (function(){
     return function(props) {
         var teams = LEAGUE.teams,
             teamSelected = props.team,
-            teamSelectedId = teamSelected ? teamSelected.id : null,
+            teamSelectedId = teamSelected ? teamSelected._id : null,
             items = Object.keys(teams).map(function(teamId){
                 var team = teams[teamId];
                 var isSelected = false;
@@ -18,7 +18,7 @@ component.TeamPredictionFormTile = (function(){
                     logoGray: team.logoGray,
                     name: team.name,
                     shortName: team.shortName,
-                    id: team.id
+                    _id: team._id
                 }
             });
 

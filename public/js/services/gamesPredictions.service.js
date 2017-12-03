@@ -10,8 +10,8 @@ service.gamesPredictions = (function() {
     }
 
     // updates user predictions (array)
-    function updateGame(userPredictions) {
-        return httpInstnace.post("/api/matchPredictions", userPredictions);
+    function updateGame(prediction) {
+        return httpInstnace.post("/api/matchPredictions", {matchPredictions: [prediction]});
     }
 
 })();

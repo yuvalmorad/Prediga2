@@ -1,9 +1,19 @@
 utils.general = (function(){
     return {
+        findItemInArrBy: findItemInArrBy,
         calculatePoints: calculatePoints,
         getMaxPoints: getMaxPoints,
         sumObject: sumObject
     };
+
+    function findItemInArrBy(arr, property, val) {
+        var i;
+        for (i = 0; i < arr.length; i++) {
+            if (arr[i][property] === val) {
+                return arr[i]
+            }
+        }
+    }
 
     function calculatePoints(game) {
         var res = {};

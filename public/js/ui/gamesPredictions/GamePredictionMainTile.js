@@ -3,10 +3,11 @@ component.GamePredictionMainTile = (function(){
 
     return  function(props) {
         var game = props.game,
+            prediction = props.prediction,
+            predictionWinner = prediction && prediction.winner,
             teams = LEAGUE.teams,
             team1 = teams[game.team1] || {},
             team2 = teams[game.team2] || {},
-            userPredictionOutcome = game.userPrediction_outcome,
             resultsOutcome = game.results_outcome,
             team1LogoClass = "team-logo",
             team2LogoClass = "team-logo",
@@ -27,11 +28,11 @@ component.GamePredictionMainTile = (function(){
             gameDate = re("div", {}, dateStr + (game.status === GAME.STATUS.CLOSED_GAME ? " (Closed)" : ""));
             graphParts = [{color: team1.color, amount: game.othersPredictions_team1WinCount}, {color: COLORS.DRAW_COLOR, amount: game.othersPredictions_drawCount}, {color: team2.color, amount: game.othersPredictions_team2WinCount}];
 
-            if ( userPredictionOutcome !== 0) {
+            if ( predictionWinner !== game.team1) {
                 team1LogoClass += " grayed";
             }
 
-            if ( userPredictionOutcome !== 2) {
+            if ( predictionWinner !== game.team2) {
                 team2LogoClass += " grayed";
             }
         } else if (game.status === GAME.STATUS.POST_GAME){
@@ -54,7 +55,7 @@ component.GamePredictionMainTile = (function(){
 
         return re("div", {className: "main"},
                     re("div", {className: "left"},
-                        re("div", {className: team1LogoClass, style: {backgroundImage: "url(../images/teamsLogo/" + team1.name + ".png)"}}),
+                        re("div", {className: team1LogoClass, style: {backgroundImage: "url('../images/teamsLogo/" + team1.name + ".png')"}}),
                         re("div", {className: "team-name"}, team1.shortName)
                     ),
                     re("div", {className: "center"},
@@ -72,7 +73,7 @@ component.GamePredictionMainTile = (function(){
                         )
                     ),
                     re("div", {className: "right"},
-                        re("div", {className: team2LogoClass, style: {backgroundImage: "url(../images/teamsLogo/" + team2.name + ".png)"}}),
+                        re("div", {className: team2LogoClass, style: {backgroundImage: "url('../images/teamsLogo/" + team2.name + ".png')"}}),
                         re("div", {className: "team-name"}, team2.shortName)
                     )
                 );

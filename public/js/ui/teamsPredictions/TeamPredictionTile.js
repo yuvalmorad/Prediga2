@@ -12,7 +12,7 @@ component.TeamPredictionTile = (function(){
                 selectedTeam = props.team,
                 borderColor = "gray",
                 team,
-                teamId = selectedTeam.id;
+                teamId = selectedTeam._id;
 
             if (teamId) {
                 team = LEAGUE.teams[teamId];

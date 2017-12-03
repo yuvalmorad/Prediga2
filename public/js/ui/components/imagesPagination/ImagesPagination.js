@@ -22,7 +22,7 @@ component.ImagesPagination = (function(){
         },
 
         updateSelectedTeam: function(index) {
-            this.props.onSelectedTeamChanged(this.props.items[index].id);
+            this.props.onSelectedTeamChanged(this.props.items[index]._id);
             this.setState({animate: true});
         },
 
@@ -61,7 +61,7 @@ component.ImagesPagination = (function(){
                 var logo = item.logo;
                 var logoGray = item.logoGray;
                 var shortName = item.shortName;
-                var id = item.id;
+                var id = item._id;
                 var src = isSelected ? logo : logoGray;
 
                 if (isSelected) {

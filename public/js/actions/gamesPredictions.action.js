@@ -12,11 +12,11 @@ action.gamesPredictions = (function(){
         updateGame: updateGame
     };
 
-    function updateGame(game) {
+    function updateGame(prediction) {
         return function(dispatch){
-            dispatch(updateGameState(game));
+            dispatch(updateGameState(prediction));
             dispatch(action.general.setUpdating());
-            service.gamesPredictions.updateGame(game).then(function(){
+            service.gamesPredictions.updateGame(prediction).then(function(){
                 //dispatch(success());
                 dispatch(action.general.removeUpdating());
                 console.log("success");
@@ -27,7 +27,7 @@ action.gamesPredictions = (function(){
             });
         };
 
-        function updateGameState() { return { type: gamesPredictions.UPDATE_GAME, game: game} }
+        function updateGameState() { return { type: gamesPredictions.UPDATE_GAME, prediction: prediction} }
         //function success() { return { type: gamesPredictions.UPDATE_GAME_SUCCESS} }
         //function failure(error) { return { type: gamesPredictions.UPDATE_GAME_FAILURE, error: error} }
     }
@@ -36,14 +36,15 @@ action.gamesPredictions = (function(){
         return function(dispatch){
             dispatch(request());
             service.gamesPredictions.getAll().then(function(res){
-                dispatch(success(res.data));
+                var data = res.data;
+                dispatch(success(data.matches, data.predictions, data.users));
             }, function(error){
                 dispatch(failure(error));
             });
         };
 
         function request() { return { type: gamesPredictions.LOAD_GAMES_REQUEST} }
-        function success(matches) { return { type: gamesPredictions.LOAD_GAMES_SUCCESS, matches: matches } }
+        function success(matches, predictions, users) { return { type: gamesPredictions.LOAD_GAMES_SUCCESS, matches: matches, predictions: predictions, users: users } }
         function failure(error) { return { type: gamesPredictions.LOAD_GAMES_FAILURE, error: error} }
     }
 

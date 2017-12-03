@@ -8,11 +8,14 @@ component.GamePredictionTileDialog = (function(){
 
         getInitialState: function() {
             var props = this.props,
-                game = props.matches.filter(function(game){return game._id === props.id})[0],
-                gameCopy = Object.assign({}, game);
+                matchId = props._id,
+                game = props.matches.filter(function(game){return game._id === matchId})[0],
+                prediction = utils.general.findItemInArrBy(props.predictions, "matchId", matchId),
+                predictionCopy = Object.assign({}, prediction);
 
             return {
-                game: gameCopy
+                game: game,
+                prediction: predictionCopy
             };
         },
 
@@ -21,37 +24,39 @@ component.GamePredictionTileDialog = (function(){
         },
 
         onDialogSave: function() {
-            this.props.updateGame(this.state.game);
+            this.props.updateGame(this.state.prediction);
         },
 
-        updateGameForm: function(gameToUpdate) {
-            var game = Object.assign({}, this.state.game, gameToUpdate);
-            this.setState({game: game});
+        updateGameForm: function(predictionToUpdate) {
+            var prediction = Object.assign({}, this.state.prediction, predictionToUpdate);
+            this.setState({prediction: prediction});
         },
 
         render: function() {
             var teams = LEAGUE.teams,
                 state = this.state,
                 game = state.game,
+                prediction = state.prediction,
                 team1 = teams[game.team1],
                 team2 = teams[game.team2];
 
             return re(TileDialog, {borderLeftColor: team1.color, borderRightColor: team2.color, className: "game-prediction-tile"},
-                re(GamePredictionMainTile, {game: game}),
-                re(GamePredictionFormTile, {game: game, updateGameForm: this.updateGameForm})
+                re(GamePredictionMainTile, {game: game, prediction: prediction}),
+                re(GamePredictionFormTile, {game: game, prediction: prediction, updateGameForm: this.updateGameForm})
             );
         }
     });
 
     function mapStateToProps(state){
         return {
-            matches: state.gamesPredictions.matches
+            matches: state.gamesPredictions.matches,
+            predictions: state.gamesPredictions.predictions
         }
     }
 
     function mapDispatchToProps(dispatch) {
         return {
-            updateGame: function(game){dispatch(action.gamesPredictions.updateGame(game))}
+            updateGame: function(prediction){dispatch(action.gamesPredictions.updateGame(prediction))}
         }
     }
 

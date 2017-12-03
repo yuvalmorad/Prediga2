@@ -9,21 +9,23 @@ reducer.gamesPredictions = (function() {
         UPDATE_GAME_FAILURE = gamesPredictionsAction.UPDATE_GAME_FAILURE;
 
     var initialState = {
-        matches: []
+        matches: [],
+        predictions: [],
+        users: []
     };
 
-    function updateGame(games, gameToUpdate) {
-        var newGames = games.slice();
+    function updateGame(predictions, predictionToUpdate) {
+        var newPredictions = predictions.slice();
         var index;
-        newGames.forEach(function(game, _index){
-            if (game.id === gameToUpdate.id) {
+        newPredictions.forEach(function(prediction, _index){
+            if (prediction._id === predictionToUpdate._id) {
                 index = _index;
             }
         });
 
-        newGames[index] = Object.assign({}, newGames[index], gameToUpdate);
+        newPredictions[index] = Object.assign({}, newPredictions[index], predictionToUpdate);
 
-        return newGames;
+        return newPredictions;
     }
 
     return function gamesPredictions(state, action){
@@ -35,11 +37,11 @@ reducer.gamesPredictions = (function() {
             case LOAD_GAMES_REQUEST:
                 return Object.assign({}, state, {isLoadingGames: true});
             case LOAD_GAMES_SUCCESS:
-                return Object.assign({}, state, {matches: action.matches, isLoadingGames: false});
+                return Object.assign({}, state, {matches: action.matches, predictions: action.predictions, users: action.users, isLoadingGames: false});
             case LOAD_GAMES_FAILURE:
                 return Object.assign({}, state, {isLoadingGames: false});
             case UPDATE_GAME:
-                return Object.assign({}, state, {matches: updateGame(state.matches, action.game)});
+                return Object.assign({}, state, {predictions: updateGame(state.predictions, action.prediction)});
             /*case UPDATE_GAME_SUCCESS:
                 return Object.assign({}, state, {isUpdatingGame: false});
             case UPDATE_GAME_FAILURE:

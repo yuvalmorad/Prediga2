@@ -37,6 +37,8 @@ component.GamesPredictionsPage = (function(){
         render: function() {
             var props = this.props;
             var matches = props.matches;
+            var predictions = props.predictions;
+
             var currentDate = new Date().getTime();
             /*var gameDates = props.gameDates;
             var offsetPageIndex = this.state.offsetPageIndex;
@@ -54,12 +56,14 @@ component.GamesPredictionsPage = (function(){
             var currentPageIndex = 0;  // closestDateIndex + offsetPageIndex;
             var currentDatePage = 0; //gameDates[currentPageIndex];
 
-            var tilesInPage = matches.filter(function(match){
-                return true //isBetweenDates(match.date, currentDatePage.from, currentDatePage.to);
+            var tilesInPage = matches.filter(function(match, index){
+                return true;//return index === 0; //isBetweenDates(match.date, currentDatePage.from, currentDatePage.to);
             }).sort(function(game1, game2){ //TODO sort also by time
                 return game1.date - game2.date;
             }).map(function(match){
-                return re(GamePredictionTile, {game: match, key: match.id});
+                var matchId = match._id;
+                var prediction = utils.general.findItemInArrBy(predictions, "matchId", matchId);
+                return re(GamePredictionTile, {game: match, prediction: prediction, key: matchId});
             });
 
             return re("div", { className: "games-prediction-page content hasTilesHeader"},
@@ -78,6 +82,7 @@ component.GamesPredictionsPage = (function(){
     function mapStateToProps(state){
         return {
             matches: state.gamesPredictions.matches,
+            predictions: state.gamesPredictions.predictions,
             isShowTileDialog: state.general.isShowTileDialog
         }
     }

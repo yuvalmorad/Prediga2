@@ -17,27 +17,24 @@ component.GamePredictionFormTile = (function(){
     }
 
     return React.createClass({
-        onRadioGroupChanged: function(groupName, radioIndex) {
-            var game = {
-                id: this.props.game.id
-            };
-            game["userPrediction_" + groupName] = radioIndex;
+        onRadioGroupChanged: function(groupName, radioName) {
+            var prediction = {};
+            prediction[groupName] = radioName;
 
-            this.props.updateGameForm(game);
+            this.props.updateGameForm(prediction);
         },
 
         onInputNumberChanged: function(propertyName, num) {
-            var game = {
-                id: this.props.game.id
-            };
-            game[propertyName] = num;
+            var prediction = {};
+            prediction[propertyName] = num;
 
-            this.props.updateGameForm(game);
+            this.props.updateGameForm(prediction);
         },
 
         render: function() {
             var props = this.props,
                 game = props.game,
+                prediction = props.prediction,
                 teams = LEAGUE.teams,
                 team1 = teams[game.team1],
                 team2 = teams[game.team2],
@@ -50,45 +47,45 @@ component.GamePredictionFormTile = (function(){
                 team2SecondColor = team2.secondColor,
                 team1MutualFriends = mapToMutualFriends(game.team1MutualFriends),
                 team2MutualFriends = mapToMutualFriends(game.team2MutualFriends, true),
-                userPredictionOutcome = game.userPrediction_outcome,
-                userPredictionFirstScore = game.userPrediction_firstScore,
-                userPredictionTeam1Scores = game.userPrediction_team1Scores,
-                userPredictionTeam2Scores = game.userPrediction_team2Scores,
-                userPredictionDiffScores = game.userPrediction_diffScores,
+
+                predictionOutcome = prediction && prediction.winner,
+                predictionFirstToScore = prediction && prediction.firstToScore,
+                predictionTeam1Goals = prediction && prediction.team1Goals,
+                predictionTeam2Goals = prediction && prediction.team2Goals,
+                predictionGoalDiff = prediction && prediction.goalDiff,
                 points = {};
 
-
             if (game.status === GAME.STATUS.POST_GAME){
-                points = utils.general.calculatePoints(game);
+                points = utils.general.calculatePoints(game); //TODO
             }
 
             return re("div", {className: "game-form"},
                 re("div", {className: "form-row-title"}, "Game Outcome"),
-                re(RadioGroup, {className: "game-outcome", points: points["outcome"], onChange: this.onRadioGroupChanged, id: game.id + "0", name: "outcome", isDisabled: isFormDisabled, inputs: [
-                        {bgColor: team1Color, textColor: team1SecondColor, text: team1Name, isChecked: userPredictionOutcome === 0},
-                        {bgColor: COLORS.DRAW_COLOR, text: "Draw", isChecked: userPredictionOutcome === 1},
-                        {bgColor: team2Color, textColor: team2SecondColor, text: team2Name, isChecked: userPredictionOutcome === 2}
+                re(RadioGroup, {className: "game-outcome", points: points["outcome"], onChange: this.onRadioGroupChanged, _id: game._id + "0", name: "winner", isDisabled: isFormDisabled, inputs: [
+                        {bgColor: team1Color, textColor: team1SecondColor, text: team1Name, name: team1Name, res: predictionOutcome},
+                        {bgColor: COLORS.DRAW_COLOR, text: "Draw", name: "draw", res: predictionOutcome},
+                        {bgColor: team2Color, textColor: team2SecondColor, text: team2Name, name: team2Name, res: predictionOutcome}
                     ]}
                 ),
                 re("div", {className: "goals-predictions"},
                     re("div", {},
                         re("div", {className: "form-row-title"}, "Goals"),
-                        re(InputNumber, {isDisabled: isFormDisabled, points: points["team1Scores"], num: userPredictionTeam1Scores, onChange: this.onInputNumberChanged.bind(this, "userPrediction_team1Scores")})
+                        re(InputNumber, {isDisabled: isFormDisabled, points: points["team1Scores"], num: predictionTeam1Goals, onChange: this.onInputNumberChanged.bind(this, "team1Goals")})
                     ),
                     re("div", {},
                         re("div", {className: "form-row-title"}, "Diff"),
-                        re(InputNumber, {isDisabled: isFormDisabled, points: points["diffScores"], num: userPredictionDiffScores, onChange: this.onInputNumberChanged.bind(this, "userPrediction_diffScores")})
+                        re(InputNumber, {isDisabled: isFormDisabled, points: points["diffScores"], num: predictionGoalDiff, onChange: this.onInputNumberChanged.bind(this, "goalDiff")})
                     ),
                     re("div", {},
                         re("div", {className: "form-row-title"}, "Goals"),
-                        re(InputNumber, {isDisabled: isFormDisabled, points: points["team2Scores"], num: userPredictionTeam2Scores, onChange: this.onInputNumberChanged.bind(this, "userPrediction_team2Scores")})
+                        re(InputNumber, {isDisabled: isFormDisabled, points: points["team2Scores"], num: predictionTeam2Goals, onChange: this.onInputNumberChanged.bind(this, "team2Goals")})
                     )
                 ),
                 re("div", {className: "form-row-title"}, "First to Score"),
-                re(RadioGroup, {className: "first-score", points: points["firstScore"], onChange: this.onRadioGroupChanged, id: game.id + "1", name: "firstScore", isDisabled: isFormDisabled, inputs: [
-                        {bgColor: team1Color, textColor: team1SecondColor, text: team1Name, isChecked: userPredictionFirstScore === 0},
-                        {bgColor: COLORS.DRAW_COLOR, text: "None", isChecked: userPredictionFirstScore === 1},
-                        {bgColor: team2Color, textColor: team2SecondColor, text: team1Name, isChecked: userPredictionFirstScore === 2}
+                re(RadioGroup, {className: "first-score", points: points["firstScore"], onChange: this.onRadioGroupChanged, _id: game._id + "1", name: "firstToScore", isDisabled: isFormDisabled, inputs: [
+                        {bgColor: team1Color, textColor: team1SecondColor, text: team1Name, name: team1Name, res: predictionFirstToScore},
+                        {bgColor: COLORS.DRAW_COLOR, text: "None", name: "none", res: predictionFirstToScore},
+                        {bgColor: team2Color, textColor: team2SecondColor, text: team2Name, name: team2Name, res: predictionFirstToScore}
                     ]}
                 ),
                 re("div", {className: "mutual-friends"},

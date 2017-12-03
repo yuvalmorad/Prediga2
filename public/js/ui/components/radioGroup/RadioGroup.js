@@ -1,8 +1,8 @@
 component.RadioGroup = (function(){
     var RadioButton = component.RadioButton;
     return React.createClass({
-        onRadioClicked: function(groupName, radioIndex) {
-            this.props.onChange(groupName, radioIndex);
+        onRadioClicked: function(groupName, radioName) {
+            this.props.onChange(groupName, radioName);
         },
 
         render: function(){
@@ -13,9 +13,9 @@ component.RadioGroup = (function(){
                 return re(RadioButton,  {
                                             bgColor: input.bgColor,
                                             textColor: input.textColor,
-                                            key: "radio_" + props.id + "_" + index,
-                                            onClicked: that.onRadioClicked.bind(that, props.name, index),
-                                            isChecked: input.isChecked || false,
+                                            key: "radio_" + props._id + "_" + index,
+                                            onClicked: that.onRadioClicked.bind(that, props.name, input.name),
+                                            isChecked: input.name === input.res,
                                             text: input.text,
                                             points: props.points,
                                             pos: index,
