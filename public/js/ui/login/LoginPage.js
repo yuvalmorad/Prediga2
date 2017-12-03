@@ -1,16 +1,15 @@
 component.LoginPage = (function(){
-    var connect = ReactRedux.connect;
+    //var connect = ReactRedux.connect;
 
-    function LoginPage(props) {
+    return function LoginPage(props) {
         return re("div", { className: "login-page" },
                     re("div", {className: "login-buttons"},
                         re("a", {className: "facebook-login", href: "/auth/facebook"}, "Login with Facebook")
                     )
         );
+    };
 
-    }
-
-    function mapStateToProps(state){
+    /*function mapStateToProps(state){
         return {
 
         }
@@ -22,7 +21,7 @@ component.LoginPage = (function(){
         }
     }
 
-    return connect(mapStateToProps, mapDispatchToProps)(LoginPage);
+    return connect(mapStateToProps, mapDispatchToProps)(LoginPage);*/
 })();
 
 

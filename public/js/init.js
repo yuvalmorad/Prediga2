@@ -1,4 +1,6 @@
 window.re = React.createElement;
+window.routerHistory = History.createBrowserHistory();
+
 var store;
 var component = {};
 var reducer = {};
@@ -10,3 +12,4 @@ var httpInstnace = axios.create({
     baseURL: '/',
     timeout: 5000
 });
+
