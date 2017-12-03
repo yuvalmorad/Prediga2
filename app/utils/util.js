@@ -100,21 +100,6 @@ module.exports = {
             return 0;
         }
     },
-    convertTeamTypeToConfigScore: function (type, configuration) {
-        if (!type) {
-            return configuration.teamInGroup;
-        } else if (type === '1st') {
-            return configuration.teamWinner;
-        } else if (type === '2nd') {
-            return configuration.teamRunnerUp;
-        } else if (type === '3rd') {
-            return configuration.teamThird;
-        } else if (type === '4th') {
-            return configuration.teamForth;
-        } else {
-            return configuration.teamInGroup;
-        }
-    },
     createMatches: function (matches) {
         var deferred = Q.defer();
         var itemsProcessed = 0;

@@ -75,7 +75,7 @@ function updateTeamScore(teamResult) {
                     var itemsProcessed = 0;
                     aTeamPredictions.forEach(function (userPrediction) {
                         var score = 0;
-                        score += util.calculateResult(userPrediction.team, teamResult.team, util.convertTeamTypeToConfigScore(teamResult.type, configuration[0]));
+                        score += util.calculateResult(userPrediction.team, teamResult.team, convertTeamTypeToConfigScore(teamResult.type, configuration[0]));
                         var userScore = {
                             userId: userPrediction.userId,
                             gameId: userPrediction.teamId,
@@ -98,6 +98,22 @@ function updateTeamScore(teamResult) {
         }
     });
     return deferred.promise;
+}
+
+function convertTeamTypeToConfigScore(type, configuration) {
+    if (!type) {
+        return configuration.teamInGroup;
+    } else if (type === '1st') {
+        return configuration.teamWinner;
+    } else if (type === '2nd') {
+        return configuration.teamRunnerUp;
+    } else if (type === '3rd') {
+        return configuration.teamThird;
+    } else if (type === '4th') {
+        return configuration.teamForth;
+    } else {
+        return configuration.teamInGroup;
+    }
 }
 
 module.exports = app;
