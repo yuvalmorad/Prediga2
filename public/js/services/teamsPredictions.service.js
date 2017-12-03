@@ -5,7 +5,7 @@ service.teamsPredictions = (function() {
     };
 
     function getAll() {
-        return httpInstnace.get("/api/teams");
+        return httpInstnace.get("/api/teamsUI");
     }
 
     function updateTeamSelected(teams) {

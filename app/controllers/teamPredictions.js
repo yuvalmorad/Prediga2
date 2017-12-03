@@ -60,8 +60,8 @@ function createMatchPredictions(teamPredictions, userId) {
     var itemsProcessed = 0;
     teamPredictions.forEach(function (teamPrediction) {
         // we can update only if the kickofftime is not passed
-        Team.findOne({deadline: {$gte: now}, _id: teamPrediction.teamId}, function (err, obj) {
-            if (obj) {
+        Team.findOne({deadline: {$gte: now}, _id: teamPrediction.teamId}, function (err, aTeam) {
+            if (aTeam) {
                 teamPrediction.userId = userId;
                 TeamPrediction.findOneAndUpdate({teamId: teamPrediction.teamId, userId: userId}, teamPrediction, {
                         upsert: true,

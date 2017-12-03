@@ -1,14 +1,14 @@
 var express = require('express');
 var app = express.Router();
-var Match = require('../models/match');
-var MatchPrediction = require('../models/matchPrediction');
+var Team = require('../models/team');
+var TeamPrediction = require('../models/teamPrediction');
 var util = require('../utils/util.js');
 var User = require('../models/user');
 var Q = require('q');
 
 app.get('/', util.isLoggedIn, function (req, res) {
-    getData().then(function (matchesCombined) {
-        res.status(200).json(matchesCombined);
+    getData().then(function (teamsCombined) {
+        res.status(200).json(teamsCombined);
     });
 });
 
@@ -16,10 +16,10 @@ function getData() {
     var deferred = Q.defer();
     var result = {};
 
-    Match.find({}, function (err, allMatches) {
-        result["matches"] = allMatches;
+    Team.find({}, function (err, allTeams) {
+        result["teams"] = allTeams;
 
-        MatchPrediction.find({}, function (err, allPredictions) {
+        TeamPrediction.find({}, function (err, allPredictions) {
             result["predictions"] = allPredictions;
 
             User.find({}, function (err, allUsers) {

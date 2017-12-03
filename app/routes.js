@@ -11,6 +11,7 @@ module.exports = function (app, passport) {
     app.use('/api/matches', require('./controllers/matches.js'));
     app.use('/api/matchesUI', require('./controllers/matchesUI.js'));
     app.use('/api/teams', require('./controllers/teams.js'));
+    app.use('/api/teamsUI', require('./controllers/teamsUI.js'));
     app.use('/api/matchPredictions', require('./controllers/matchPredictions.js'));
     app.use('/api/teamPredictions', require('./controllers/teamPredictions.js'));
     app.use('/api/predictionScoreConfiguration', require('./controllers/predictionScoreConfiguration.js'));

@@ -69,8 +69,16 @@ function createMatchPredictions(matchPredictions, userId) {
     var itemsProcessed = 0;
     matchPredictions.forEach(function (matchPrediction) {
         // we can update only if the kickofftime is not passed
-        Match.findOne({kickofftime: {$gte: now}, _id: matchPrediction.matchId}, function (err, obj) {
-            if (obj) {
+        Match.findOne({kickofftime: {$gte: now}, _id: matchPrediction.matchId}, function (err, aMatch) {
+            if (aMatch) {
+                // validation:
+                if (((matchPrediction.winner !== aMatch.team1) && (matchPrediction.winner !== aMatch.team2)) ||
+                    ((matchPrediction.firstToScore !== aMatch.team1) && (matchPrediction.firstToScore !== aMatch.team2)) ||
+                    matchPrediction.team1Goals < 0 || matchPrediction.team2Goals < 0 || matchPrediction.goalDiff < 0) {
+                    deferred.resolve(util.errorResponse.format('error'));
+                    return;
+                }
+
                 matchPrediction.userId = userId;
                 MatchPrediction.findOneAndUpdate({matchId: matchPrediction.matchId, userId: userId}, matchPrediction, {
                         upsert: true,
