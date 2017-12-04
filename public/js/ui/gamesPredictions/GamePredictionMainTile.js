@@ -17,14 +17,14 @@ component.GamePredictionMainTile = (function(){
             dateStr,
             gamePoints;
 
-        if (kickofftime.indexOf("Z")) {
-            kickofftime = kickofftime.substr(0, kickofftime.indexOf("Z"));
-        }
-
         if (game.status === GAME.STATUS.PRE_GAME || game.status === GAME.STATUS.CLOSED_GAME) {
             //PRE GAME
             var dateObj = new Date(kickofftime);
-            dateStr = dateObj.getDate() + "." + (dateObj.getMonth() + 1);
+            var minutes = dateObj.getMinutes();
+            if (minutes.toString().length === 1) {
+                minutes = "0" + minutes;
+            }
+            dateStr = dateObj.getDate() + "." + (dateObj.getMonth() + 1) + " " + dateObj.getHours() + ":" + minutes;
             gameDate = re("div", {}, dateStr + (game.status === GAME.STATUS.CLOSED_GAME ? " (Closed)" : ""));
             graphParts = [{color: team1.color, amount: game.othersPredictions_team1WinCount}, {color: COLORS.DRAW_COLOR, amount: game.othersPredictions_drawCount}, {color: team2.color, amount: game.othersPredictions_team2WinCount}];
 

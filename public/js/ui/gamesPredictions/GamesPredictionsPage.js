@@ -9,9 +9,41 @@ component.GamesPredictionsPage = (function(){
         return dateObj.getDate() + "." + (dateObj.getMonth() + 1);
     }
 
-    function isBetweenDates(date, from, to) {
-        var dateObj = new Date(date);
-        return dateObj >= new Date(from) && dateObj <= new Date(to);
+    function isOnSameDay(date1, date2) {
+        return date1.getFullYear() === date2.getFullYear() &&
+        date1.getMonth() === date2.getMonth() &&
+        date1.getDate() === date2.getDate();
+    }
+
+    function findClosestDate(matches, currentDate, offsetPageIndex) { //TODO
+        var matchesDates = [],
+            lastDate,
+            i,
+            closestDateIndex;
+
+        matches.forEach(function(match){
+            var currentMatchDate = new Date(match.kickofftime);
+            if (!lastDate || !isOnSameDay(lastDate, currentMatchDate)) {
+                lastDate = currentMatchDate;
+                matchesDates.push(lastDate)
+            }
+        });
+
+        for (i = 0; i < matchesDates.length; i++) {
+            var matchDate = matchesDates[i];
+            if (currentDate < matchDate) {
+                closestDateIndex = i;
+                break;
+            }
+        }
+
+
+
+        if (closestDateIndex === undefined && matches.length) {
+            closestDate = new Date(matches[matches.length -1].kickofftime);
+        }
+
+        return closestDate;
     }
 
     var GamesPredictionsPage = React.createClass({
@@ -39,7 +71,23 @@ component.GamesPredictionsPage = (function(){
             var matches = props.matches;
             var predictions = props.predictions;
 
-            var currentDate = new Date().getTime();
+            matches.sort(function(game1, game2){ //TODO sort also by time
+                return new Date(game1.kickofftime) - new Date(game2.kickofftime);
+            });
+
+            var currentDate = new Date();
+            var closestDate = findClosestDate(matches, currentDate, this.state.offsetPageIndex);
+
+
+
+            var tilesInPage = matches.filter(function(match, index){
+                return isInDate(match.kickofftime, closestDate);
+            }).map(function(match){
+                var matchId = match._id;
+                var prediction = utils.general.findItemInArrBy(predictions, "matchId", matchId);
+                return re(GamePredictionTile, {game: match, prediction: prediction, key: matchId});
+            });
+
             /*var gameDates = props.gameDates;
             var offsetPageIndex = this.state.offsetPageIndex;
             var closestDateIndex = gameDates.length ? gameDates.length - 1 : 0;
@@ -53,7 +101,7 @@ component.GamesPredictionsPage = (function(){
                 }
             }*/
 
-            var currentPageIndex = 0;  // closestDateIndex + offsetPageIndex;
+           /* var currentPageIndex = 0;  // closestDateIndex + offsetPageIndex;
             var currentDatePage = 0; //gameDates[currentPageIndex];
 
             var tilesInPage = matches.filter(function(match, index){
@@ -64,7 +112,7 @@ component.GamesPredictionsPage = (function(){
                 var matchId = match._id;
                 var prediction = utils.general.findItemInArrBy(predictions, "matchId", matchId);
                 return re(GamePredictionTile, {game: match, prediction: prediction, key: matchId});
-            });
+            });*/
 
             return re("div", { className: "games-prediction-page content hasTilesHeader"},
                 re("div", {className: "tiles-header"},
