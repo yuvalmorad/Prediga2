@@ -69,7 +69,7 @@ function createMatchPredictions(teamPredictions, userId) {
                     new: true
                 });
             } else {
-                return Promise.reject('genral error');
+                return Promise.reject('general error');
             }
         });
     });

@@ -75,7 +75,7 @@ function createMatchPredictions(matchPredictions, userId) {
                 if (((matchPrediction.winner !== aMatch.team1) && (matchPrediction.winner !== aMatch.team2) && (matchPrediction.winner !== "draw")) ||
                     ((matchPrediction.firstToScore !== aMatch.team1) && (matchPrediction.firstToScore !== aMatch.team2) && matchPrediction.firstToScore !== "none") ||
                     matchPrediction.team1Goals < 0 || matchPrediction.team2Goals < 0 || matchPrediction.goalDiff < 0) {
-                    return Promise.reject('genral error');
+                    return Promise.reject('general error');
                 }
 
                 matchPrediction.userId = userId;
@@ -85,7 +85,7 @@ function createMatchPredictions(matchPredictions, userId) {
                     new: true
                 });
             } else {
-                return Promise.reject('genral error');
+                return Promise.reject('general error');
             }
         });
     });
