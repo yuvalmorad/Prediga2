@@ -12,25 +12,6 @@ reducer.teamsPredictions = (function() {
         users: []
     };
 
-    function updateTeamSelected(predictions, predictionToUpdate) {
-        var newTeams = predictions.slice();
-        var index;
-        newTeams.forEach(function(team, _index){
-            if (team._id === predictionToUpdate._id) {
-                index = _index;
-            }
-        });
-
-        if (index === undefined) {
-            //new prediction
-            newTeams.push(predictionToUpdate);
-        } else {
-            newTeams[index] = Object.assign({}, newTeams[index], predictionToUpdate); //TODO remove Object.assign?
-        }
-
-        return newTeams;
-    }
-
     return function teamsPredictions(state, action){
         if (state === undefined) {
             state = initialState;
@@ -44,7 +25,7 @@ reducer.teamsPredictions = (function() {
             case LOAD_TEAMS_FAILURE:
                 return Object.assign({}, state, {isLoadingTeams: false});
             case UPDATE_TEAM_SELECTED:
-                return Object.assign({}, state, {predictions: updateTeamSelected(state.predictions, action.prediction)});
+                return Object.assign({}, state, {predictions: utils.general.updateOrCreateObject(state.predictions, action.prediction)});
             default:
                 return state
         }

@@ -14,25 +14,6 @@ reducer.gamesPredictions = (function() {
         users: []
     };
 
-    function updateGame(predictions, predictionToUpdate) {
-        var newPredictions = predictions.slice();
-        var index;
-        newPredictions.forEach(function(prediction, _index){
-            if (prediction._id === predictionToUpdate._id) {
-                index = _index;
-            }
-        });
-
-        if (index === undefined) {
-            //new prediction
-            newPredictions.push(predictionToUpdate);
-        } else {
-            newPredictions[index] = Object.assign({}, newPredictions[index], predictionToUpdate); //TODO remove Object.assign?
-        }
-
-        return newPredictions;
-    }
-
     return function gamesPredictions(state, action){
         if (state === undefined) {
             state = initialState;
@@ -46,7 +27,7 @@ reducer.gamesPredictions = (function() {
             case LOAD_GAMES_FAILURE:
                 return Object.assign({}, state, {isLoadingGames: false});
             case UPDATE_GAME:
-                return Object.assign({}, state, {predictions: updateGame(state.predictions, action.prediction)});
+                return Object.assign({}, state, {predictions: utils.general.updateOrCreateObject(state.predictions, action.prediction)});
             /*case UPDATE_GAME_SUCCESS:
                 return Object.assign({}, state, {isUpdatingGame: false});
             case UPDATE_GAME_FAILURE:

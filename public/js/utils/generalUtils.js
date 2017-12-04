@@ -3,8 +3,29 @@ utils.general = (function(){
         findItemInArrBy: findItemInArrBy,
         calculatePoints: calculatePoints,
         getMaxPoints: getMaxPoints,
-        sumObject: sumObject
+        sumObject: sumObject,
+        updateOrCreateObject: updateOrCreateObject
     };
+
+    function updateOrCreateObject(arr, objectToUpdate) {
+        var newArr = arr.slice();
+        var index, i;
+        for (i = 0; i < newArr.length; i++) {
+            if (newArr[i]._id === objectToUpdate._id) {
+                index = i;
+                break;
+            }
+        }
+
+        if (index === undefined) {
+            //new prediction
+            newArr.push(objectToUpdate);
+        } else {
+            newArr[index] = Object.assign({}, newArr[index], objectToUpdate); //TODO remove Object.assign?
+        }
+
+        return newArr;
+    }
 
     function findItemInArrBy(arr, property, val) {
         var i;
