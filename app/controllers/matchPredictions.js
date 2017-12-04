@@ -72,8 +72,8 @@ function createMatchPredictions(matchPredictions, userId) {
         Match.findOne({kickofftime: {$gte: now}, _id: matchPrediction.matchId}, function (err, aMatch) {
             if (aMatch) {
                 // validation:
-                if (((matchPrediction.winner !== aMatch.team1) && (matchPrediction.winner !== aMatch.team2)) ||
-                    ((matchPrediction.firstToScore !== aMatch.team1) && (matchPrediction.firstToScore !== aMatch.team2)) ||
+                if (((matchPrediction.winner !== aMatch.team1) && (matchPrediction.winner !== aMatch.team2) && (matchPrediction.winner !== "draw")) ||
+                    ((matchPrediction.firstToScore !== aMatch.team1) && (matchPrediction.firstToScore !== aMatch.team2) && matchPrediction.firstToScore !== "none") ||
                     matchPrediction.team1Goals < 0 || matchPrediction.team2Goals < 0 || matchPrediction.goalDiff < 0) {
                     deferred.resolve(util.errorResponse.format('error'));
                     return;
