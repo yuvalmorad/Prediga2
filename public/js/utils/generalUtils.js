@@ -21,7 +21,7 @@ utils.general = (function(){
             //new prediction
             newArr.push(objectToUpdate);
         } else {
-            newArr[index] = Object.assign({}, newArr[index], objectToUpdate); //TODO remove Object.assign?
+            newArr[index] = objectToUpdate;
         }
 
         return newArr;
