@@ -60,48 +60,36 @@ app.post('/', util.isLoggedIn, function (req, res) {
 
     createMatchPredictions(matchPredictions, userId).then(function (obj) {
         res.status(200).json(obj);
+    }, function(msg){
+        res.status(500).json({error: msg});
     });
 });
 
 function createMatchPredictions(matchPredictions, userId) {
-    var deferred = Q.defer();
     var now = new Date();
-    var itemsProcessed = 0;
-    matchPredictions.forEach(function (matchPrediction) {
+    var promises = matchPredictions.map(function (matchPrediction) {
         // we can update only if the kickofftime is not passed
-        Match.findOne({kickofftime: {$gte: now}, _id: matchPrediction.matchId}, function (err, aMatch) {
+        return Match.findOne({kickofftime: {$gte: now}, _id: matchPrediction.matchId}).then(function(aMatch){
             if (aMatch) {
                 // validation:
                 if (((matchPrediction.winner !== aMatch.team1) && (matchPrediction.winner !== aMatch.team2) && (matchPrediction.winner !== "draw")) ||
                     ((matchPrediction.firstToScore !== aMatch.team1) && (matchPrediction.firstToScore !== aMatch.team2) && matchPrediction.firstToScore !== "none") ||
                     matchPrediction.team1Goals < 0 || matchPrediction.team2Goals < 0 || matchPrediction.goalDiff < 0) {
-                    deferred.resolve(util.errorResponse.format('error'));
-                    return;
+                    return Promise.reject('genral error');
                 }
 
                 matchPrediction.userId = userId;
-                MatchPrediction.findOneAndUpdate({matchId: matchPrediction.matchId, userId: userId}, matchPrediction, {
-                        upsert: true,
-                        setDefaultsOnInsert: true
-                    }, function (err, obj) {
-                        if (err) {
-                            deferred.resolve(util.errorResponse.format('error'));
-                        } else {
-                            itemsProcessed++;
-                            if (itemsProcessed === matchPredictions.length) {
-                                deferred.resolve(matchPredictions);
-                            }
-                        }
-                    }
-                );
+                return MatchPrediction.findOneAndUpdate({matchId: matchPrediction.matchId, userId: userId}, matchPrediction, {
+                    upsert: true,
+                    setDefaultsOnInsert: true
+                });
             } else {
-                // match cannot be updated.
-                deferred.resolve(util.errorResponse.format('error'));
+                return Promise.reject('genral error');
             }
         });
-
     });
-    return deferred.promise;
+
+    return Promise.all(promises);
 }
 
 module.exports = app;

@@ -1,18 +1,18 @@
 component.InputNumber = (function(){
     return React.createClass({
         onIncrement: function() {
-            this.props.onChange(this.props.num + 1);
+            this.props.onChange((this.props.num || 0) + 1);
         },
 
         onDecrement: function() {
-            this.props.onChange(this.props.num - 1);
+            this.props.onChange((this.props.num || 0) - 1);
         },
 
         render: function(){
             var props = this.props;
             var points = props.points;
             var hasPoints = points !== undefined;
-            var num = props.num;
+            var num = props.num || 0;
             var isDisabled = props.isDisabled;
             var className = "input-number";
 

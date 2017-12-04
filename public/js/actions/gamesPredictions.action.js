@@ -14,14 +14,12 @@ action.gamesPredictions = (function(){
 
     function updateGame(prediction) {
         return function(dispatch){
-            dispatch(updateGameState(prediction));
             dispatch(action.general.setUpdating());
-            service.gamesPredictions.updateGame(prediction).then(function(){
-                //dispatch(success());
+            service.gamesPredictions.updateGame(prediction).then(function(predictionRes){
+                dispatch(updateGameState(predictionRes));
                 dispatch(action.general.removeUpdating());
                 console.log("success");
             }, function(error){
-                //dispatch(failure(error));
                 dispatch(action.general.removeUpdating());
                 console.log("error");
             });

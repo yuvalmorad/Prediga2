@@ -23,7 +23,12 @@ reducer.gamesPredictions = (function() {
             }
         });
 
-        newPredictions[index] = Object.assign({}, newPredictions[index], predictionToUpdate);
+        if (index === undefined) {
+            //new prediction
+            newPredictions.push(predictionToUpdate);
+        } else {
+            newPredictions[index] = Object.assign({}, newPredictions[index], predictionToUpdate);
+        }
 
         return newPredictions;
     }

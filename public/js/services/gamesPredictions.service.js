@@ -11,7 +11,9 @@ service.gamesPredictions = (function() {
 
     // updates user predictions (array)
     function updateGame(prediction) {
-        return httpInstnace.post("/api/matchPredictions", {matchPredictions: [prediction]});
+        return httpInstnace.post("/api/matchPredictions", {matchPredictions: [prediction]}).then(function(predictions){
+            return predictions && predictions[0];
+        });
     }
 
 })();

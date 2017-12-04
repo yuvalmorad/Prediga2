@@ -4,6 +4,10 @@ module.exports = function (app, passport) {
     // update initial data
     var initialData = require('../app/utils/updateInitialConfiguration');
     initialData.loadAll();
+
+    var mongoose = require('mongoose');
+    mongoose.Promise = Promise;
+
     /********************************************
      * All routes mapping
      ********************************************* */

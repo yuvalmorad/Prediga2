@@ -11,7 +11,7 @@ component.GamePredictionTileDialog = (function(){
                 matchId = props._id,
                 game = props.matches.filter(function(game){return game._id === matchId})[0],
                 prediction = utils.general.findItemInArrBy(props.predictions, "matchId", matchId),
-                predictionCopy = Object.assign({}, prediction);
+                predictionCopy = Object.assign({}, prediction, {matchId: matchId});
 
             return {
                 game: game,
