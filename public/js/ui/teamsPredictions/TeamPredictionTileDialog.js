@@ -8,17 +8,16 @@ component.TeamPredictionTileDialog = (function(){
 
         getInitialState: function() {
             var props = this.props,
-                rank = props.rank,
-                selectedTeam = props.teams.filter(function(team){return team.rank === rank})[0],
-                selectedTeamCopy = Object.assign({}, selectedTeam);
+                prediction = props.prediction,
+                team = props.team,
+                predictionCopy = Object.assign({}, prediction, {teamId: team._id});
 
-            if (selectedTeam._id === undefined) {
-                var firstTeamKeyId = Object.keys(LEAGUE.teams)[0];
-                selectedTeamCopy._id = firstTeamKeyId;
+            if (!predictionCopy.team) {
+                predictionCopy.team = team.options.length ? team.options[0] : Object.keys(LEAGUE.teams)[0];
             }
 
             return {
-                selectedTeam: selectedTeamCopy
+                prediction: predictionCopy
             };
         },
 
@@ -26,47 +25,39 @@ component.TeamPredictionTileDialog = (function(){
             this.props.onDialogSave(this.onDialogSave);
         },
 
-        onSelectedTeamChanged: function(teamId) {
+        onSelectedTeamChanged: function(teamName) {
             this.setState({
-                selectedTeam: {
-                    rank: this.state.selectedTeam.rank,
-                    _id: teamId
-                }
+                prediction: Object.assign({}, this.state.prediction, {team: teamName})
             });
         },
 
         onDialogSave: function() {
-            var selectedTeam = this.state.selectedTeam;
-            this.props.updateTeamSelected({
-                rank: selectedTeam.rank,
-                _id: selectedTeam._id
-            });
+            this.props.updateTeamSelected(this.state.prediction);
         },
 
         render: function() {
             var props = this.props,
                 state = this.state,
-                rank = props.rank,
-                selectedTeam = state.selectedTeam,
-                borderColor = "gray",
-                team,
-                teamId = selectedTeam._id;
+                prediction = state.prediction,
+                team = props.team,
+                selectedTeam,
+                borderColor = "gray";
 
-            if (teamId) {
-                team = LEAGUE.teams[teamId];
-                borderColor = team.color;
+            if (prediction && prediction.team) {
+                selectedTeam = LEAGUE.teams[prediction.team];
+                borderColor = selectedTeam.color;
             }
 
             return re(TileDialog, {borderLeftColor: borderColor, borderRightColor: borderColor, className: "team-prediction-tile"},
-                re(TeamPredictionMainTile, {team: team, teamRecords: selectedTeam, fixedDescription: LEAGUE.name}),
-                re(TeamPredictionFormTile, {team: team, rank: rank, onSelectedTeamChanged: this.onSelectedTeamChanged})
+                re(TeamPredictionMainTile, {team: team, selectedTeam: selectedTeam, fixedDescription: LEAGUE.name}),
+                re(TeamPredictionFormTile, {team: team, selectedTeam: selectedTeam, onSelectedTeamChanged: this.onSelectedTeamChanged})
             );
         }
     });
 
     function mapStateToProps(state){
         return {
-            teams: state.teamsPredictions.teams
+            /*teams: state.teamsPredictions.teams*/
         }
     }
 

@@ -81,7 +81,8 @@ function createMatchPredictions(matchPredictions, userId) {
                 matchPrediction.userId = userId;
                 return MatchPrediction.findOneAndUpdate({matchId: matchPrediction.matchId, userId: userId}, matchPrediction, {
                     upsert: true,
-                    setDefaultsOnInsert: true
+                    setDefaultsOnInsert: true,
+                    new: true
                 });
             } else {
                 return Promise.reject('genral error');

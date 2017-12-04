@@ -4,7 +4,7 @@ window.axios = (function(axiosOriginal){
 
     axiosMethodsList.forEach(function(method) {
         axios[method] = function() {
-            return axiosOriginal[this].apply(axiosOriginal, arguments).catch(function(e){
+            return axiosOriginal[this.toString()].apply(axiosOriginal, arguments).catch(function(e){
                 if (e.response.status === 401) {
                     window.routerHistory.push('/login');
                 }

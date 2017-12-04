@@ -27,7 +27,7 @@ reducer.gamesPredictions = (function() {
             //new prediction
             newPredictions.push(predictionToUpdate);
         } else {
-            newPredictions[index] = Object.assign({}, newPredictions[index], predictionToUpdate);
+            newPredictions[index] = Object.assign({}, newPredictions[index], predictionToUpdate); //TODO remove Object.assign?
         }
 
         return newPredictions;

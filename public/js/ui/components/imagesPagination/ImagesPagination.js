@@ -3,7 +3,7 @@ component.ImagesPagination = (function(){
         getInitialState: function() {
             return {
                 containerWidth: 0,
-                itemWidth: 56,
+                itemWidth: 42,
                 spaceBetweenItems: 32,
                 animate: false
             }
@@ -22,7 +22,7 @@ component.ImagesPagination = (function(){
         },
 
         updateSelectedTeam: function(index) {
-            this.props.onSelectedTeamChanged(this.props.items[index]._id);
+            this.props.onSelectedTeamChanged(this.props.items[index].name);
             this.setState({animate: true});
         },
 
@@ -58,18 +58,15 @@ component.ImagesPagination = (function(){
 
             var itemsElements = items.map(function(item, index){
                 var isSelected = item.isSelected;
-                var logo = item.logo;
-                var logoGray = item.logoGray;
                 var shortName = item.shortName;
-                var id = item._id;
-                var src = isSelected ? logo : logoGray;
+                var name = item.name;
 
                 if (isSelected) {
                     currentIndex = index;
                 }
 
-                return re("div", {key: id, className: "item" + (isSelected ? " selected" : ""), style: {marginRight: spaceBetweenItems}},
-                    re("img", {src: "../images/teamsLogo/" + src, style: {width: itemWidth, height: itemWidth}}),
+                return re("div", {key: name, className: "item" + (isSelected ? " selected" : ""), style: {marginRight: spaceBetweenItems}},
+                    re("img", {src: "../images/teamsLogo/" + name + ".png", style: {width: itemWidth, height: 28}}),
                     re("div", {className: "title"}, shortName)
                 );
             });

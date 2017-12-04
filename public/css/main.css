@@ -259,6 +259,14 @@ body {
     color: #000;
 }
 
+.images-pagination .item img {
+    filter: grayscale(100%);
+}
+
+.images-pagination .item.selected img {
+    filter: grayscale(0);
+}
+
 .images-pagination > .title {
     text-align: center;
     margin-top: 1rem;

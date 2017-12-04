@@ -25,7 +25,7 @@ action.gamesPredictions = (function(){
             });
         };
 
-        function updateGameState() { return { type: gamesPredictions.UPDATE_GAME, prediction: prediction} }
+        function updateGameState(predictionRes) { return { type: gamesPredictions.UPDATE_GAME, prediction: predictionRes} }
         //function success() { return { type: gamesPredictions.UPDATE_GAME_SUCCESS} }
         //function failure(error) { return { type: gamesPredictions.UPDATE_GAME_FAILURE, error: error} }
     }

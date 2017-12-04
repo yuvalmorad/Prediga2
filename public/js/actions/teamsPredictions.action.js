@@ -10,11 +10,11 @@ action.teamsPredictions = (function(){
         updateTeamSelected: updateTeamSelected
     };
 
-    function updateTeamSelected(team) {
+    function updateTeamSelected(prediction) {
         return function(dispatch){
-            dispatch(updateTeamsState(team));
             dispatch(action.general.setUpdating());
-            service.teamsPredictions.updateTeamSelected(team).then(function(){
+            service.teamsPredictions.updateTeamSelected(prediction).then(function(predictionRes){
+                dispatch(updateTeamsState(predictionRes));
                 dispatch(action.general.removeUpdating());
                 console.log("success");
             }, function(error){
@@ -23,21 +23,22 @@ action.teamsPredictions = (function(){
             });
         };
 
-        function updateTeamsState(team) { return { type: teamsPredictions.UPDATE_TEAM_SELECTED, team: team} }
+        function updateTeamsState(predictionRes) { return { type: teamsPredictions.UPDATE_TEAM_SELECTED, prediction: predictionRes} }
     }
 
     function loadTeams() {
         return function(dispatch){
             dispatch(request());
             service.teamsPredictions.getAll().then(function(res){
-                dispatch(success(res.data));
+                var data = res.data;
+                dispatch(success(data.teams, data.predictions, data.users));
             }, function(error){
                 dispatch(failure(error));
             })
         };
 
         function request() { return { type: teamsPredictions.LOAD_TEAMS_REQUEST} }
-        function success(teams) { return { type: teamsPredictions.LOAD_TEAMS_SUCCESS, teams: teams } }
+        function success(teams, predictions, users) { return { type: teamsPredictions.LOAD_TEAMS_SUCCESS, teams: teams, predictions: predictions, users: users } }
         function failure(error) { return { type: teamsPredictions.LOAD_TEAMS_FAILURE, error: error} }
     }
 

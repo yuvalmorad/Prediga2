@@ -51,40 +51,30 @@ app.post('/', util.isLoggedIn, function (req, res) {
 
     createMatchPredictions(teamPredictions, userId).then(function (obj) {
         res.status(200).json(obj);
+    }, function(msg){
+        res.status(500).json({error: msg});
     });
 });
 
 function createMatchPredictions(teamPredictions, userId) {
-    var deferred = Q.defer();
     var now = new Date();
-    var itemsProcessed = 0;
-    teamPredictions.forEach(function (teamPrediction) {
+    var promises = teamPredictions.map(function (teamPrediction) {
         // we can update only if the kickofftime is not passed
-        Team.findOne({deadline: {$gte: now}, _id: teamPrediction.teamId}, function (err, aTeam) {
-            if (aTeam) {
+        return Team.findOne({deadline: {$gte: now}, _id: teamPrediction.teamId}).then(function(aMatch){
+            if (aMatch) {
                 teamPrediction.userId = userId;
-                TeamPrediction.findOneAndUpdate({teamId: teamPrediction.teamId, userId: userId}, teamPrediction, {
-                        upsert: true,
-                        setDefaultsOnInsert: true
-                    }, function (err, obj) {
-                        if (err) {
-                            deferred.resolve(util.errorResponse.format('error'));
-                        } else {
-                            itemsProcessed++;
-                            if (itemsProcessed === teamPredictions.length) {
-                                deferred.resolve(teamPredictions);
-                            }
-                        }
-                    }
-                );
+                return TeamPrediction.findOneAndUpdate({teamId: teamPrediction.teamId, userId: userId}, teamPrediction, {
+                    upsert: true,
+                    setDefaultsOnInsert: true,
+                    new: true
+                });
             } else {
-                // match cannot be updated.
-                deferred.resolve(util.errorResponse.format('error'));
+                return Promise.reject('genral error');
             }
         });
-
     });
-    return deferred.promise;
+
+    return Promise.all(promises);
 }
 
 module.exports = app;

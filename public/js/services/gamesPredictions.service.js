@@ -4,16 +4,13 @@ service.gamesPredictions = (function() {
         updateGame: updateGame
     };
 
-    // get all match predictions
     function getAll() {
         return httpInstnace.get("/api/matchesUI");
     }
 
-    // updates user predictions (array)
     function updateGame(prediction) {
         return httpInstnace.post("/api/matchPredictions", {matchPredictions: [prediction]}).then(function(predictions){
-            return predictions && predictions[0];
+            return predictions && predictions.data && predictions.data[0];
         });
     }
-
 })();

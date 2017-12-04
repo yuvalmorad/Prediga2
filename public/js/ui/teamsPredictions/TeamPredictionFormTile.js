@@ -2,23 +2,31 @@ component.TeamPredictionFormTile = (function(){
     var ImagesPagination = component.ImagesPagination;
 
     return function(props) {
-        var teams = LEAGUE.teams,
-            teamSelected = props.team,
-            teamSelectedId = teamSelected ? teamSelected._id : null,
-            items = Object.keys(teams).map(function(teamId){
-                var team = teams[teamId];
+        var teamsOptions,
+            selectedTeam = props.selectedTeam,
+            team = props.team;
+
+        if (team.options.length) {
+            teamsOptions = team.options.map(function(teamOptionName){
+               return LEAGUE.teams[teamOptionName];
+            });
+        } else {
+            teamsOptions = Object.keys(LEAGUE.teams).map(function(teamName){
+                return LEAGUE.teams[teamName];
+            });
+        }
+
+        var items = teamsOptions.map(function(teamOption){
                 var isSelected = false;
-                if (teamSelectedId && teamSelectedId === teamId) {
+                var teamName = teamOption.name;
+                if (selectedTeam && selectedTeam.name === teamName) {
                     isSelected = true;
                 }
 
                 return {
                     isSelected: isSelected,
-                    logo: team.logo,
-                    logoGray: team.logoGray,
-                    name: team.name,
-                    shortName: team.shortName,
-                    _id: team._id
+                    name: teamName,
+                    shortName: teamOption.shortName
                 }
             });
 

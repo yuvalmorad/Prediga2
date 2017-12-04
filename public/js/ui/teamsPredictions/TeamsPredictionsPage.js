@@ -15,10 +15,13 @@ component.TeamsPredictionsPage = (function(){
         },
 
         render: function() {
-            var teams = this.props.teamsPredictions.teams;
+            var teams = this.props.teams,
+                predictions = this.props.predictions;
 
-            var tiles = teams.map(function(team, index){
-                return re(TeamPredictionTile, {team: team, key: "teamPrediction" + index})
+            var tiles = teams.map(function(team){
+                var teamId = team._id;
+                var prediction = utils.general.findItemInArrBy(predictions, "teamId", teamId);
+                return re(TeamPredictionTile, {team: team, prediction: prediction, key: teamId})
             });
 
             return re("div", { className: "content" },
@@ -31,7 +34,8 @@ component.TeamsPredictionsPage = (function(){
 
     function mapStateToProps(state){
         return {
-            teamsPredictions: state.teamsPredictions,
+            teams: state.teamsPredictions.teams,
+            predictions: state.teamsPredictions.predictions,
             isShowTileDialog: state.general.isShowTileDialog
         }
     }

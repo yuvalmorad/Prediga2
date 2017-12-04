@@ -7,24 +7,25 @@ reducer.teamsPredictions = (function() {
         UPDATE_TEAM_SELECTED = teamsPredictionsAction.UPDATE_TEAM_SELECTED;
 
     var initialState = {
-        teams: []
+        teams: [],
+        predictions: [],
+        users: []
     };
 
-    function updateTeamSelected(teams, teamToUpdate) {
-        var newTeams = teams.slice();
+    function updateTeamSelected(predictions, predictionToUpdate) {
+        var newTeams = predictions.slice();
         var index;
         newTeams.forEach(function(team, _index){
-            if (team.rank === teamToUpdate.rank) {
+            if (team._id === predictionToUpdate._id) {
                 index = _index;
             }
         });
 
         if (index === undefined) {
-            //no team with such rank -> create new one
-            newTeams.push(Object.assign({}, teamToUpdate)); //TODO remove
+            //new prediction
+            newTeams.push(predictionToUpdate);
         } else {
-            //update selected team
-            newTeams[index] = Object.assign({}, teamToUpdate);
+            newTeams[index] = Object.assign({}, newTeams[index], predictionToUpdate); //TODO remove Object.assign?
         }
 
         return newTeams;
@@ -39,11 +40,11 @@ reducer.teamsPredictions = (function() {
             case LOAD_TEAMS_REQUEST:
                 return Object.assign({}, state, {isLoadingTeams: true});
             case LOAD_TEAMS_SUCCESS:
-                return Object.assign({}, state, {teams: action.teams, isLoadingTeams: false});
+                return Object.assign({}, state, {teams: action.teams, predictions: action.predictions, users: action.users, isLoadingTeams: false});
             case LOAD_TEAMS_FAILURE:
                 return Object.assign({}, state, {isLoadingTeams: false});
             case UPDATE_TEAM_SELECTED:
-                return Object.assign({}, state, {teams: updateTeamSelected(state.teams, action.team)});
+                return Object.assign({}, state, {predictions: updateTeamSelected(state.predictions, action.prediction)});
             default:
                 return state
         }
