@@ -49,19 +49,19 @@ app.post('/', util.isLoggedIn, function (req, res) {
         return;
     }
 
-    createMatchPredictions(teamPredictions, userId).then(function (obj) {
+    creaTeamPredictions(teamPredictions, userId).then(function (obj) {
         res.status(200).json(obj);
     }, function(msg){
         res.status(500).json({error: msg});
     });
 });
 
-function createMatchPredictions(teamPredictions, userId) {
+function creaTeamPredictions(teamPredictions, userId) {
     var now = new Date();
     var promises = teamPredictions.map(function (teamPrediction) {
         // we can update only if the kickofftime is not passed
-        return Team.findOne({deadline: {$gte: now}, _id: teamPrediction.teamId}).then(function(aMatch){
-            if (aMatch) {
+        return Team.findOne({deadline: {$gte: now}, _id: teamPrediction.teamId}).then(function(aTeam){
+            if (aTeam) {
                 teamPrediction.userId = userId;
                 return TeamPrediction.findOneAndUpdate({teamId: teamPrediction.teamId, userId: userId}, teamPrediction, {
                     upsert: true,
