@@ -11,6 +11,7 @@ module.exports = {
     errorResponse: {"status": "Error", "message": "{0}"},
     isLoggedIn: function (req, res, next) {
         if (req.isAuthenticated()) {
+            res.header('userId', req.user.id);
             return next();
         } else {
             res.status(401).json({});
