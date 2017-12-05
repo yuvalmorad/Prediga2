@@ -13,10 +13,13 @@ component.GamePredictionTile = (function(){
                 prediction = props.prediction,
                 result = props.result,
                 teams = LEAGUE.teams,
-                team1 = teams[game.team1] || {},
-                team2 = teams[game.team2] || {};
+                team1 = teams[game.team1],
+                team2 = teams[game.team2],
+                borderLeftColor = team1 ? team1.color : "",
+                borderRightColor = team2 ? team2.color : "",
+                disableOpen = !team1 || !team2;
 
-            return re(Tile, {borderLeftColor: team1.color, borderRightColor: team2.color, className: "game-prediction-tile", dialogComponent: "GamePredictionTileDialog", dialogComponentProps:{_id: game._id}},
+            return re(Tile, {disableOpen: disableOpen, borderLeftColor: borderLeftColor, borderRightColor: borderRightColor, className: "game-prediction-tile", dialogComponent: "GamePredictionTileDialog", dialogComponentProps:{_id: game._id}},
                 re(GamePredictionMainTile, {game: game, prediction: prediction, result: result})
             );
         }
