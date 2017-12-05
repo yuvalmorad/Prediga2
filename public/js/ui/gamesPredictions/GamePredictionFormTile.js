@@ -85,7 +85,7 @@ component.GamePredictionFormTile = (function(){
                     )
                 ),
                 re("div", {className: "form-row-title"}, "First to Score"),
-                re(RadioGroup, {className: "first-score", points: points[GAME.BET_TYPES.FIRST_TO_SCORE], onChange: this.onRadioGroupChanged, _id: game._id + "1", name: GAME.BET_TYPES.FIRST_TO_SCORE.key, isDisabled: isFormDisabled, inputs: [
+                re(RadioGroup, {className: "first-score", points: points[GAME.BET_TYPES.FIRST_TO_SCORE.key], onChange: this.onRadioGroupChanged, _id: game._id + "1", name: GAME.BET_TYPES.FIRST_TO_SCORE.key, isDisabled: isFormDisabled, inputs: [
                         {bgColor: team1Color, textColor: team1SecondColor, text: team1Name, name: team1Name, res: predictionFirstToScore},
                         {bgColor: COLORS.DRAW_COLOR, text: "None", name: "none", res: predictionFirstToScore},
                         {bgColor: team2Color, textColor: team2SecondColor, text: team2Name, name: team2Name, res: predictionFirstToScore}

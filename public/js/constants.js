@@ -6,11 +6,11 @@ var GAME = {
     },
 
     BET_TYPES: {
-        WINNER: {key: "winner", points: 1},
-        TEAM1_GOALS: {key: "team1Goals", points: 1},
-        TEAM2_GOALS: {key: "team2Goals", points: 1},
-        GOAL_DIFF: {key: "goalDiff", points: 1},
-        FIRST_TO_SCORE: {key: "firstToScore", points: 1}
+        WINNER: {key: "winner", points: 4},
+        TEAM1_GOALS: {key: "team1Goals", points: 2},
+        TEAM2_GOALS: {key: "team2Goals", points: 2},
+        GOAL_DIFF: {key: "goalDiff", points: 2},
+        FIRST_TO_SCORE: {key: "firstToScore", points: 2}
     }
 };
 
