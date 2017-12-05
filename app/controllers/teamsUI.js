@@ -4,6 +4,7 @@ var Team = require('../models/team');
 var TeamPrediction = require('../models/teamPrediction');
 var util = require('../utils/util.js');
 var User = require('../models/user');
+var TeamResult = require('../models/teamResult');
 var Q = require('q');
 
 app.get('/', util.isLoggedIn, function (req, res) {
@@ -13,23 +14,19 @@ app.get('/', util.isLoggedIn, function (req, res) {
 });
 
 function getData() {
-    var deferred = Q.defer();
-    var result = {};
-
-    Team.find({}, function (err, allTeams) {
-        result["teams"] = allTeams;
-
-        TeamPrediction.find({}, function (err, allPredictions) {
-            result["predictions"] = allPredictions;
-
-            User.find({}, function (err, allUsers) {
-                result["users"] = allUsers;
-                deferred.resolve(result);
-            });
-        });
-
+    return Promise.all([
+        Team.find({}),
+        TeamPrediction.find({}),
+        User.find({}),
+        TeamResult.find({})
+    ]).then(function(arr){
+        return {
+            teams: arr[0],
+            predictions: arr[1],
+            users: arr[2],
+            results: arr[3]
+        }
     });
-    return deferred.promise;
 }
 
 module.exports = app;

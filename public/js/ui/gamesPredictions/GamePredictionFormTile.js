@@ -39,7 +39,7 @@ component.GamePredictionFormTile = (function(){
                 teams = LEAGUE.teams,
                 team1 = teams[game.team1],
                 team2 = teams[game.team2],
-                isFormDisabled = game.status !== GAME.STATUS.PRE_GAME,
+                isFormDisabled = false,
                 team1Name = team1.name,
                 team2Name = team2.name,
                 team1Color = team1.color,
@@ -59,6 +59,7 @@ component.GamePredictionFormTile = (function(){
             if (result) {//(game.status === GAME.STATUS.POST_GAME){ //TODO
                 //POST_GAME
                 points = utils.general.calculatePoints(prediction, result); //TODO
+                isFormDisabled = true;
             }
 
             return re("div", {className: "game-form"},

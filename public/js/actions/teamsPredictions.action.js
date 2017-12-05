@@ -1,9 +1,7 @@
 action.teamsPredictions = (function(){
 
     var teamsPredictions = {
-        LOAD_TEAMS_REQUEST: "LOAD_TEAMS_REQUEST",
         LOAD_TEAMS_SUCCESS: "LOAD_TEAMS_SUCCESS",
-        LOAD_TEAMS_FAILURE: "LOAD_TEAMS_FAILURE",
         loadTeams: loadTeams,
 
         UPDATE_TEAM_SELECTED: "UPDATE_TEAM_SELECTED",
@@ -14,7 +12,6 @@ action.teamsPredictions = (function(){
         return function(dispatch){
             dispatch(action.general.setUpdating());
             service.teamsPredictions.updateTeamSelected(prediction).then(function(predictionRes){
-                dispatch(action.authentication.setUserId(res.headers.userid));
                 dispatch(updateTeamsState(predictionRes));
                 dispatch(action.general.removeUpdating());
                 console.log("success");
@@ -29,18 +26,16 @@ action.teamsPredictions = (function(){
 
     function loadTeams() {
         return function(dispatch){
-            dispatch(request());
             service.teamsPredictions.getAll().then(function(res){
+                dispatch(action.authentication.setUserId(res.headers.userid));
                 var data = res.data;
-                dispatch(success(data.teams, data.predictions, data.users));
+                dispatch(success(data.teams, data.predictions, data.users, data.results));
             }, function(error){
-                dispatch(failure(error));
+
             })
         };
 
-        function request() { return { type: teamsPredictions.LOAD_TEAMS_REQUEST} }
-        function success(teams, predictions, users) { return { type: teamsPredictions.LOAD_TEAMS_SUCCESS, teams: teams, predictions: predictions, users: users } }
-        function failure(error) { return { type: teamsPredictions.LOAD_TEAMS_FAILURE, error: error} }
+        function success(teams, predictions, users, results) { return { type: teamsPredictions.LOAD_TEAMS_SUCCESS, teams: teams, predictions: predictions, users: users, results: results } }
     }
 
     return teamsPredictions;

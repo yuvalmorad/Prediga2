@@ -1,14 +1,10 @@
 action.gamesPredictions = (function(){
 
     var gamesPredictions = {
-        LOAD_GAMES_REQUEST: "LOAD_GAMES_REQUEST",
         LOAD_GAMES_SUCCESS: "LOAD_GAMES_SUCCESS",
-        LOAD_GAMES_FAILURE: "LOAD_GAMES_FAILURE",
         loadGames: loadGames,
 
         UPDATE_GAME: "UPDATE_GAME",
-        UPDATE_GAME_SUCCESS: "UPDATE_GAME_SUCCESS",
-        UPDATE_GAME_FAILURE: "UPDATE_GAME_FAILURE",
         updateGame: updateGame
     };
 
@@ -32,7 +28,6 @@ action.gamesPredictions = (function(){
 
     function loadGames() {
         return function(dispatch){
-            dispatch(request());
             service.gamesPredictions.getAll().then(function(res){
                 var userId = res.headers.userid;
                 var data = res.data;
@@ -47,13 +42,11 @@ action.gamesPredictions = (function(){
 
                 dispatch(success(data.matches, userPredictions, otherPredictions, data.users, data.results));
             }, function(error){
-                dispatch(failure(error));
+
             });
         };
 
-        function request() { return { type: gamesPredictions.LOAD_GAMES_REQUEST} }
         function success(matches, userPredictions, otherPredictions, users, results) { return { type: gamesPredictions.LOAD_GAMES_SUCCESS, matches: matches, userPredictions: userPredictions, otherPredictions: otherPredictions, users: users, results: results } }
-        function failure(error) { return { type: gamesPredictions.LOAD_GAMES_FAILURE, error: error} }
     }
 
     return gamesPredictions;
