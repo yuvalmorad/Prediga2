@@ -11,6 +11,7 @@ action.leaderBoard = (function(){
         return function(dispatch){
             dispatch(request());
             service.leaderBoard.getAll().then(function(res){
+                dispatch(action.authentication.setUserId(res.headers.userid));
                 dispatch(success(res.data));
             }, function(error){
                 dispatch(failure(error));

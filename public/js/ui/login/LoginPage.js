@@ -1,6 +1,4 @@
 component.LoginPage = (function(){
-    //var connect = ReactRedux.connect;
-
     return function LoginPage(props) {
         return re("div", { className: "login-page" },
                     re("div", {className: "login-buttons"},
@@ -8,20 +6,6 @@ component.LoginPage = (function(){
                     )
         );
     };
-
-    /*function mapStateToProps(state){
-        return {
-
-        }
-    }
-
-    function mapDispatchToProps(dispatch) {
-        return {
-            login: function(){dispatch(action.authentication.login())}
-        }
-    }
-
-    return connect(mapStateToProps, mapDispatchToProps)(LoginPage);*/
 })();
 
 

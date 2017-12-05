@@ -71,7 +71,7 @@ component.GamesPredictionsPage = (function(){
         render: function() {
             var props = this.props;
             var matches = props.matches;
-            var predictions = props.predictions;
+            var userPredictions = props.userPredictions;
             var offsetPageIndex = this.state.offsetPageIndex;
 
             matches.sort(function(game1, game2){
@@ -87,7 +87,7 @@ component.GamesPredictionsPage = (function(){
                 return isOnSameDay(new Date(match.kickofftime), closestDate);
             }).map(function(match){
                 var matchId = match._id;
-                var prediction = utils.general.findItemInArrBy(predictions, "matchId", matchId);
+                var prediction = utils.general.findItemInArrBy(userPredictions, "matchId", matchId);
                 return re(GamePredictionTile, {game: match, prediction: prediction, key: matchId});
             });
 
@@ -107,7 +107,7 @@ component.GamesPredictionsPage = (function(){
     function mapStateToProps(state){
         return {
             matches: state.gamesPredictions.matches,
-            predictions: state.gamesPredictions.predictions,
+            userPredictions: state.gamesPredictions.userPredictions,
             isShowTileDialog: state.general.isShowTileDialog
         }
     }

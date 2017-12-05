@@ -14,6 +14,7 @@ action.teamsPredictions = (function(){
         return function(dispatch){
             dispatch(action.general.setUpdating());
             service.teamsPredictions.updateTeamSelected(prediction).then(function(predictionRes){
+                dispatch(action.authentication.setUserId(res.headers.userid));
                 dispatch(updateTeamsState(predictionRes));
                 dispatch(action.general.removeUpdating());
                 console.log("success");

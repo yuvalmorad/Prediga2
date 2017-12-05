@@ -10,7 +10,7 @@ component.GamePredictionTileDialog = (function(){
             var props = this.props,
                 matchId = props._id,
                 game = props.matches.filter(function(game){return game._id === matchId})[0],
-                prediction = utils.general.findItemInArrBy(props.predictions, "matchId", matchId),
+                prediction = utils.general.findItemInArrBy(props.userPredictions, "matchId", matchId),
                 predictionCopy = Object.assign({}, prediction, {matchId: matchId});
 
             return {
@@ -50,7 +50,7 @@ component.GamePredictionTileDialog = (function(){
     function mapStateToProps(state){
         return {
             matches: state.gamesPredictions.matches,
-            predictions: state.gamesPredictions.predictions
+            userPredictions: state.gamesPredictions.userPredictions
         }
     }
 

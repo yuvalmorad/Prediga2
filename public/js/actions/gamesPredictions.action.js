@@ -26,23 +26,33 @@ action.gamesPredictions = (function(){
         };
 
         function updateGameState(predictionRes) { return { type: gamesPredictions.UPDATE_GAME, prediction: predictionRes} }
-        //function success() { return { type: gamesPredictions.UPDATE_GAME_SUCCESS} }
-        //function failure(error) { return { type: gamesPredictions.UPDATE_GAME_FAILURE, error: error} }
     }
+
+
 
     function loadGames() {
         return function(dispatch){
             dispatch(request());
             service.gamesPredictions.getAll().then(function(res){
+                var userId = res.headers.userid;
                 var data = res.data;
-                dispatch(success(data.matches, data.predictions, data.users));
+                dispatch(action.authentication.setUserId(userId));
+
+                var userPredictions = data.predictions.filter(function(prediction){
+                    return prediction.userId === userId;
+                });
+                var otherPredictions = data.predictions.filter(function(prediction){
+                    return prediction.userId !== userId;
+                });
+
+                dispatch(success(data.matches, userPredictions, otherPredictions, data.users));
             }, function(error){
                 dispatch(failure(error));
             });
         };
 
         function request() { return { type: gamesPredictions.LOAD_GAMES_REQUEST} }
-        function success(matches, predictions, users) { return { type: gamesPredictions.LOAD_GAMES_SUCCESS, matches: matches, predictions: predictions, users: users } }
+        function success(matches, userPredictions, otherPredictions, users) { return { type: gamesPredictions.LOAD_GAMES_SUCCESS, matches: matches, userPredictions: userPredictions, otherPredictions: otherPredictions, users: users } }
         function failure(error) { return { type: gamesPredictions.LOAD_GAMES_FAILURE, error: error} }
     }
 
