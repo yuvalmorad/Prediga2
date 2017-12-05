@@ -35,6 +35,7 @@ component.GamePredictionFormTile = (function(){
             var props = this.props,
                 game = props.game,
                 prediction = props.prediction,
+                result = props.result,
                 teams = LEAGUE.teams,
                 team1 = teams[game.team1],
                 team2 = teams[game.team2],
@@ -45,44 +46,45 @@ component.GamePredictionFormTile = (function(){
                 team2Color = team2.color,
                 team1SecondColor = team1.secondColor,
                 team2SecondColor = team2.secondColor,
-                team1MutualFriends = mapToMutualFriends(game.team1MutualFriends),
-                team2MutualFriends = mapToMutualFriends(game.team2MutualFriends, true),
+                team1MutualFriends,// = mapToMutualFriends(game.team1MutualFriends), //TODO
+                team2MutualFriends,// = mapToMutualFriends(game.team2MutualFriends, true), //TODO
 
-                predictionOutcome = prediction && prediction.winner,
-                predictionFirstToScore = prediction && prediction.firstToScore,
-                predictionTeam1Goals = prediction && prediction.team1Goals,
-                predictionTeam2Goals = prediction && prediction.team2Goals,
-                predictionGoalDiff = prediction && prediction.goalDiff,
+                predictionWinner = prediction && prediction[GAME.BET_TYPES.WINNER.key],
+                predictionFirstToScore = prediction && prediction[GAME.BET_TYPES.FIRST_TO_SCORE.key],
+                predictionTeam1Goals = prediction && prediction[GAME.BET_TYPES.TEAM1_GOALS.key],
+                predictionTeam2Goals = prediction && prediction[GAME.BET_TYPES.TEAM2_GOALS.key],
+                predictionGoalDiff = prediction && prediction[GAME.BET_TYPES.GOAL_DIFF.key],
                 points = {};
 
-            if (game.status === GAME.STATUS.POST_GAME){
-                points = utils.general.calculatePoints(game); //TODO
+            if (result) {//(game.status === GAME.STATUS.POST_GAME){ //TODO
+                //POST_GAME
+                points = utils.general.calculatePoints(prediction, result); //TODO
             }
 
             return re("div", {className: "game-form"},
                 re("div", {className: "form-row-title"}, "Game Outcome"),
-                re(RadioGroup, {className: "game-outcome", points: points["outcome"], onChange: this.onRadioGroupChanged, _id: game._id + "0", name: "winner", isDisabled: isFormDisabled, inputs: [
-                        {bgColor: team1Color, textColor: team1SecondColor, text: team1Name, name: team1Name, res: predictionOutcome},
-                        {bgColor: COLORS.DRAW_COLOR, text: "Draw", name: "draw", res: predictionOutcome},
-                        {bgColor: team2Color, textColor: team2SecondColor, text: team2Name, name: team2Name, res: predictionOutcome}
+                re(RadioGroup, {className: "game-outcome", points: points[GAME.BET_TYPES.WINNER.key], onChange: this.onRadioGroupChanged, _id: game._id + "0", name: GAME.BET_TYPES.WINNER.key, isDisabled: isFormDisabled, inputs: [
+                        {bgColor: team1Color, textColor: team1SecondColor, text: team1Name, name: team1Name, res: predictionWinner},
+                        {bgColor: COLORS.DRAW_COLOR, text: "Draw", name: "draw", res: predictionWinner},
+                        {bgColor: team2Color, textColor: team2SecondColor, text: team2Name, name: team2Name, res: predictionWinner}
                     ]}
                 ),
                 re("div", {className: "goals-predictions"},
                     re("div", {},
                         re("div", {className: "form-row-title"}, "Goals"),
-                        re(InputNumber, {isDisabled: isFormDisabled, points: points["team1Scores"], num: predictionTeam1Goals, onChange: this.onInputNumberChanged.bind(this, "team1Goals")})
+                        re(InputNumber, {isDisabled: isFormDisabled, points: points[GAME.BET_TYPES.TEAM1_GOALS.key], num: predictionTeam1Goals, onChange: this.onInputNumberChanged.bind(this, GAME.BET_TYPES.TEAM1_GOALS.key)})
                     ),
                     re("div", {},
                         re("div", {className: "form-row-title"}, "Diff"),
-                        re(InputNumber, {isDisabled: isFormDisabled, points: points["diffScores"], num: predictionGoalDiff, onChange: this.onInputNumberChanged.bind(this, "goalDiff")})
+                        re(InputNumber, {isDisabled: isFormDisabled, points: points[GAME.BET_TYPES.GOAL_DIFF.key], num: predictionGoalDiff, onChange: this.onInputNumberChanged.bind(this, GAME.BET_TYPES.GOAL_DIFF.key)})
                     ),
                     re("div", {},
                         re("div", {className: "form-row-title"}, "Goals"),
-                        re(InputNumber, {isDisabled: isFormDisabled, points: points["team2Scores"], num: predictionTeam2Goals, onChange: this.onInputNumberChanged.bind(this, "team2Goals")})
+                        re(InputNumber, {isDisabled: isFormDisabled, points: points[GAME.BET_TYPES.TEAM2_GOALS.key], num: predictionTeam2Goals, onChange: this.onInputNumberChanged.bind(this, GAME.BET_TYPES.TEAM2_GOALS.key)})
                     )
                 ),
                 re("div", {className: "form-row-title"}, "First to Score"),
-                re(RadioGroup, {className: "first-score", points: points["firstScore"], onChange: this.onRadioGroupChanged, _id: game._id + "1", name: "firstToScore", isDisabled: isFormDisabled, inputs: [
+                re(RadioGroup, {className: "first-score", points: points[GAME.BET_TYPES.FIRST_TO_SCORE], onChange: this.onRadioGroupChanged, _id: game._id + "1", name: GAME.BET_TYPES.FIRST_TO_SCORE.key, isDisabled: isFormDisabled, inputs: [
                         {bgColor: team1Color, textColor: team1SecondColor, text: team1Name, name: team1Name, res: predictionFirstToScore},
                         {bgColor: COLORS.DRAW_COLOR, text: "None", name: "none", res: predictionFirstToScore},
                         {bgColor: team2Color, textColor: team2SecondColor, text: team2Name, name: team2Name, res: predictionFirstToScore}

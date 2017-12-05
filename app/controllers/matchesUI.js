@@ -24,7 +24,7 @@ function getData() {
             matches: arr[0],
             predictions: arr[1],
             users: arr[2],
-            matchResult: arr[3]
+            results: arr[3]
         }
     });
 }

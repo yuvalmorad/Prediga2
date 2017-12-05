@@ -45,14 +45,14 @@ action.gamesPredictions = (function(){
                     return prediction.userId !== userId;
                 });
 
-                dispatch(success(data.matches, userPredictions, otherPredictions, data.users));
+                dispatch(success(data.matches, userPredictions, otherPredictions, data.users, data.results));
             }, function(error){
                 dispatch(failure(error));
             });
         };
 
         function request() { return { type: gamesPredictions.LOAD_GAMES_REQUEST} }
-        function success(matches, userPredictions, otherPredictions, users) { return { type: gamesPredictions.LOAD_GAMES_SUCCESS, matches: matches, userPredictions: userPredictions, otherPredictions: otherPredictions, users: users } }
+        function success(matches, userPredictions, otherPredictions, users, results) { return { type: gamesPredictions.LOAD_GAMES_SUCCESS, matches: matches, userPredictions: userPredictions, otherPredictions: otherPredictions, users: users, results: results } }
         function failure(error) { return { type: gamesPredictions.LOAD_GAMES_FAILURE, error: error} }
     }
 

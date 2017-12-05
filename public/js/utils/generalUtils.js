@@ -2,8 +2,8 @@ utils.general = (function(){
     return {
         findItemInArrBy: findItemInArrBy,
         calculatePoints: calculatePoints,
-        getMaxPoints: getMaxPoints,
         sumObject: sumObject,
+        getMaxPoints: getMaxPoints,
         updateOrCreateObject: updateOrCreateObject
     };
 
@@ -36,13 +36,14 @@ utils.general = (function(){
         }
     }
 
-    function calculatePoints(game) {
+    function calculatePoints(prediction, result) {
+        prediction = prediction || {};
         var res = {};
-        Object.keys(POINTS).forEach(function(key){
-            var resultsKey = "results_" + key;
-            var userPredictionKey = "userPrediction_" + key;
-
-            res[key] = (game[resultsKey] === game[userPredictionKey] ? POINTS[key] : 0);
+        Object.keys(GAME.BET_TYPES).forEach(function(typeKey){
+            var betType = GAME.BET_TYPES[typeKey];
+            var key = betType.key;
+            var points = betType.points;
+            res[key] = (prediction[key] === result[key] ? points : 0);
         });
 
         return res;
@@ -55,6 +56,9 @@ utils.general = (function(){
     }
 
     function getMaxPoints() {
-        return sumObject(POINTS);
+        return Object.keys(GAME.BET_TYPES).reduce(function(res, typeKey){
+            var points = GAME.BET_TYPES[typeKey].points;
+            return res + points;
+        }, 0);
     }
 })();

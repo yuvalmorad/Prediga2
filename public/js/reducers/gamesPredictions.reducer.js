@@ -4,13 +4,14 @@ reducer.gamesPredictions = (function() {
         LOAD_GAMES_REQUEST = gamesPredictionsAction.LOAD_GAMES_REQUEST,
         LOAD_GAMES_SUCCESS = gamesPredictionsAction.LOAD_GAMES_SUCCESS,
         LOAD_GAMES_FAILURE = gamesPredictionsAction.LOAD_GAMES_FAILURE,
-        UPDATE_GAME = gamesPredictionsAction.UPDATE_GAME
+        UPDATE_GAME = gamesPredictionsAction.UPDATE_GAME;
 
     var initialState = {
         matches: [],
         userPredictions: [],
         otherPredictions: [],
-        users: []
+        users: [],
+        results: []
     };
 
     return function gamesPredictions(state, action){
@@ -22,7 +23,7 @@ reducer.gamesPredictions = (function() {
             case LOAD_GAMES_REQUEST:
                 return Object.assign({}, state, {isLoadingGames: true});
             case LOAD_GAMES_SUCCESS:
-                return Object.assign({}, state, {matches: action.matches, userPredictions: action.userPredictions, otherPredictions: action.otherPredictions, users: action.users, isLoadingGames: false});
+                return Object.assign({}, state, {matches: action.matches, userPredictions: action.userPredictions, otherPredictions: action.otherPredictions, users: action.users, results: action.results, isLoadingGames: false});
             case LOAD_GAMES_FAILURE:
                 return Object.assign({}, state, {isLoadingGames: false});
             case UPDATE_GAME:

@@ -72,6 +72,7 @@ component.GamesPredictionsPage = (function(){
             var props = this.props;
             var matches = props.matches;
             var userPredictions = props.userPredictions;
+            var results = props.results;
             var offsetPageIndex = this.state.offsetPageIndex;
 
             matches.sort(function(game1, game2){
@@ -88,7 +89,8 @@ component.GamesPredictionsPage = (function(){
             }).map(function(match){
                 var matchId = match._id;
                 var prediction = utils.general.findItemInArrBy(userPredictions, "matchId", matchId);
-                return re(GamePredictionTile, {game: match, prediction: prediction, key: matchId});
+                var result = utils.general.findItemInArrBy(results, "matchId", matchId);
+                return re(GamePredictionTile, {game: match, prediction: prediction, result: result, key: matchId});
             });
 
             return re("div", { className: "games-prediction-page content hasTilesHeader"},
@@ -108,6 +110,7 @@ component.GamesPredictionsPage = (function(){
         return {
             matches: state.gamesPredictions.matches,
             userPredictions: state.gamesPredictions.userPredictions,
+            results: state.gamesPredictions.results,
             isShowTileDialog: state.general.isShowTileDialog
         }
     }
