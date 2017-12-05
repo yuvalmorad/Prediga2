@@ -4,6 +4,7 @@ var Match = require('../models/match');
 var MatchPrediction = require('../models/matchPrediction');
 var util = require('../utils/util.js');
 var User = require('../models/user');
+var MatchResult = require('../models/matchResult');
 var Q = require('q');
 
 app.get('/', util.isLoggedIn, function (req, res) {
@@ -16,20 +17,19 @@ function getData() {
     var deferred = Q.defer();
     var result = {};
 
-    Match.find({}, function (err, allMatches) {
-        result["matches"] = allMatches;
-
-        MatchPrediction.find({}, function (err, allPredictions) {
-            result["predictions"] = allPredictions;
-
-            User.find({}, function (err, allUsers) {
-                result["users"] = allUsers;
-                deferred.resolve(result);
-            });
-        });
-
+    return Promise.all([
+            Match.find({}),
+            MatchPrediction.find({}),
+            User.find({}),
+            MatchResult.find({})
+    ]).then(function(arr){
+        return {
+            matches: arr[0],
+            predictions: arr[1],
+            users: arr[2],
+            matchResult: arr[3]
+        }
     });
-    return deferred.promise;
 }
 
 module.exports = app;
