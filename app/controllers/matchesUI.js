@@ -14,9 +14,6 @@ app.get('/', util.isLoggedIn, function (req, res) {
 });
 
 function getData() {
-    var deferred = Q.defer();
-    var result = {};
-
     return Promise.all([
             Match.find({}),
             MatchPrediction.find({}),
