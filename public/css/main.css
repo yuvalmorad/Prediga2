@@ -444,7 +444,6 @@ body {
 
 .tile .main.base .name-wrapper {
     margin-left: 0.75rem;
-    margin-top: 0.75rem;
 }
 
 .tile .main.base .name {
@@ -468,8 +467,8 @@ body {
 }
 
 .tile .main.base .image-wrapper img {
-    width: 3.5rem;
-    height: 3.5rem;
+    height: 1.75rem;
+    width: 2.625rem;
 }
 
 .tile .main.base .trend {
