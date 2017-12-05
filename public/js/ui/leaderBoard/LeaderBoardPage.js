@@ -15,12 +15,13 @@ component.LeaderBoardPage = (function(){
         },
 
         render: function() {
-            var users = this.props.leaderBoard.users;
-            var tiles = users.sort(function(user1, user2){
-                return user2.points - user1.points;
-            }).map(function(_user, index){
-                var user = Object.assign({}, _user, {rank: index + 1});
-                return re(LeaderBoardTile, {user: user, key: user._id});
+            var leaders = this.props.leaders;
+            var users = this.props.users;
+            var tiles = leaders.sort(function(leader1, leader2){
+                return leader1.points - leader2.points;
+            }).map(function(leader, index){
+                var user = utils.general.findItemInArrBy(users, "_id", leader.userId);
+                return re(LeaderBoardTile, {user: user, score: leader.score, rank: index + 1, key: user._id});
             });
 
             return re("div", { className: "content" },
@@ -33,7 +34,8 @@ component.LeaderBoardPage = (function(){
 
     function mapStateToProps(state){
         return {
-            leaderBoard: state.leaderBoard
+            leaders: state.leaderBoard.leaders,
+            users: state.leaderBoard.users
         }
     }
 

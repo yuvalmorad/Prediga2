@@ -8,14 +8,15 @@ action.leaderBoard = (function(){
     function loadLeaderBoard() {
         return function(dispatch){
             service.leaderBoard.getAll().then(function(res){
+                var data = res.data;
                 dispatch(action.authentication.setUserId(res.headers.userid));
-                dispatch(success(res.data));
+                dispatch(success(data.leaderboard, data.users));
             }, function(error){
 
             })
         };
 
-        function success(users) { return { type: leaderBoard.LOAD_LEADER_BOARD_SUCCESS, users: users } }
+        function success(leaders, users) { return { type: leaderBoard.LOAD_LEADER_BOARD_SUCCESS, leaders: leaders, users: users } }
     }
 
     return leaderBoard;

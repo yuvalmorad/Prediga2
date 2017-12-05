@@ -497,8 +497,9 @@ body {
 
 .leader-board-tile .main.base .image-wrapper img {
     border-radius: 50%;
+    height: 2.5rem;
+    width: 2.5rem;
 }
-
 
 /* -------  team prediction tile -------*/
 .tile-dialog-container .team-prediction-tile.tile {
