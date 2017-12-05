@@ -10,8 +10,14 @@ component.GamePredictionMainTile = (function(){
             resultTeam1Goals,
             resultTeam2Goals,
             teams = LEAGUE.teams,
-            team1 = teams[game.team1] || {},
-            team2 = teams[game.team2] || {},
+            team1 = teams[game.team1],
+            team2 = teams[game.team2],
+            team1Logo = team1 ? "url('../images/teamsLogo/" + team1.name + ".png')" : "",
+            team2Logo = team2 ? "url('../images/teamsLogo/" + team2.name + ".png')" : "",
+            team1ShortName = team1 ? team1.shortName : "",
+            team2ShortName = team2 ? team2.shortName : "",
+            team1Color = team1 ? team1.color : "",
+            team2Color = team2 ? team2.color : "",
             team1LogoClass = "team-logo",
             team2LogoClass = "team-logo",
             gameDate,
@@ -29,7 +35,7 @@ component.GamePredictionMainTile = (function(){
             }
             dateStr = dateObj.getDate() + "." + (dateObj.getMonth() + 1) + " " + dateObj.getHours() + ":" + minutes;
             gameDate = re("div", {}, dateStr + (game.status === GAME.STATUS.CLOSED_GAME ? " (Closed)" : ""));
-            graphParts = [{color: team1.color, amount: game.othersPredictions_team1WinCount}, {color: COLORS.DRAW_COLOR, amount: game.othersPredictions_drawCount}, {color: team2.color, amount: game.othersPredictions_team2WinCount}]; //TODO
+            graphParts = [{color: team1Color, amount: game.othersPredictions_team1WinCount}, {color: COLORS.DRAW_COLOR, amount: game.othersPredictions_drawCount}, {color: team2Color, amount: game.othersPredictions_team2WinCount}]; //TODO
 
             if (predictionWinner !== game.team1) {
                 team1LogoClass += " grayed";
@@ -62,8 +68,8 @@ component.GamePredictionMainTile = (function(){
 
         return re("div", {className: "main"},
                     re("div", {className: "left"},
-                        re("div", {className: team1LogoClass, style: {backgroundImage: "url('../images/teamsLogo/" + team1.name + ".png')"}}),
-                        re("div", {className: "team-name"}, team1.shortName)
+                        re("div", {className: team1LogoClass, style: {backgroundImage: team1Logo}}),
+                        re("div", {className: "team-name"}, team1ShortName)
                     ),
                     re("div", {className: "center"},
                         re("div", {className: "league-name"}, game.league),
@@ -80,8 +86,8 @@ component.GamePredictionMainTile = (function(){
                         )
                     ),
                     re("div", {className: "right"},
-                        re("div", {className: team2LogoClass, style: {backgroundImage: "url('../images/teamsLogo/" + team2.name + ".png')"}}),
-                        re("div", {className: "team-name"}, team2.shortName)
+                        re("div", {className: team2LogoClass, style: {backgroundImage: team2Logo}}),
+                        re("div", {className: "team-name"}, team2ShortName)
                     )
                 );
     }
