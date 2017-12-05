@@ -4,8 +4,10 @@ component.GamesPredictionsPage = (function(){
 
     var isGamesPredictionsRequestSent = false;
 
-    function getDate(date) {
-        return date.getDate() + "." + (date.getMonth() + 1);
+    function getTitleDate(date) {
+        var daysOfWeak = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+        var dayOfWeek = daysOfWeak[date.getDay()];
+        return dayOfWeek + " " + date.getDate() + "." + (date.getMonth() + 1);
     }
 
     function isOnSameDay(date1, date2) {
@@ -96,7 +98,7 @@ component.GamesPredictionsPage = (function(){
             return re("div", { className: "games-prediction-page content hasTilesHeader"},
                 re("div", {className: "tiles-header"},
                     re("button", {className: "icon-left-open", onClick: this.onPreviousPage, disabled: closestDateIndex === 0}),
-                    re("div", {className: "title"}, closestDate ? getDate(closestDate) : ""),
+                    re("div", {className: "title"}, closestDate ? getTitleDate(closestDate) : ""),
                     re("button", {className: "icon-right-open", onClick: this.onNextPage, disabled: closestDateIndex === pagesByDates.length - 1})
                 ),
                 re("div", {className: "tiles" + (props.isShowTileDialog ? " no-scroll" : "")},
