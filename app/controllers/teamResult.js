@@ -111,6 +111,10 @@ function convertTeamTypeToConfigScore(type, configuration) {
         return configuration.teamThird;
     } else if (type === '4th') {
         return configuration.teamForth;
+    } else if (type === 'last') {
+        return configuration.teamLast;
+    } else if (type === '2nd last') {
+        return configuration.team2ndLast;
     } else {
         return configuration.teamInGroup;
     }

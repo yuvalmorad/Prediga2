@@ -12,7 +12,9 @@ var predictionScoreConfiguration = mongoose.Schema({
     teamWinner: Number,
     teamRunnerUp: Number,
     teamThird: Number,
-    teamForth: Number
+    teamForth: Number,
+    teamLast: Number,
+    team2ndLast: Number
 });
 
 predictionScoreConfiguration.options.toJSON = {

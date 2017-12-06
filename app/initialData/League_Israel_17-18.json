@@ -88,6 +88,30 @@
       "deadline": "2018-03-01T00:00:00.000Z",
       "league": "IsraeliLeague18",
       "options": []
+    },
+    {
+      "_id": "5a1342399017dfc4e2faf4b1",
+      "title": "3th place",
+      "type": "4th",
+      "deadline": "2018-03-01T00:00:00.000Z",
+      "league": "IsraeliLeague18",
+      "options": []
+    },
+    {
+      "_id": "5a1342399017dfc4e2faf4b2",
+      "title": "2nd last",
+      "type": "2nd last",
+      "deadline": "2018-03-01T00:00:00.000Z",
+      "league": "IsraeliLeague18",
+      "options": []
+    },
+    {
+      "_id": "5a1342399017dfc4e2faf4b3",
+      "title": "Last place",
+      "type": "last",
+      "deadline": "2018-03-01T00:00:00.000Z",
+      "league": "IsraeliLeague18",
+      "options": []
     }
   ]
 }

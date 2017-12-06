@@ -72,7 +72,7 @@ component.GamePredictionMainTile = (function(){
                         re("div", {className: "team-name"}, team1ShortName)
                     ),
                     re("div", {className: "center"},
-                        re("div", {className: "league-name"}, game.league),
+                        re("div", {className: "league-name"}, game.league + ' ' +game.type),
                         re("div", {className: "game-date"},
                             gameDate
                         ),

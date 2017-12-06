@@ -57,15 +57,15 @@ module.exports = {
                             var aggregrateScore = {
                                 userId: aUser._id,
                                 score: 0,
-                                strike: 0
+                                strikes: 0
                             };
                             var itemsProcessed = 0;
                             userScores.forEach(function (aUserScore) {
                                 if (aUserScore.score) {
                                     aggregrateScore.score += aUserScore.score;
                                 }
-                                if (aUserScore.strike) {
-                                    aggregrateScore.strike += aUserScore.strike;
+                                if (aUserScore.strikes) {
+                                    aggregrateScore.strikes += aUserScore.strikes;
                                 }
 
                                 UsersLeaderboard.findOneAndUpdate({userId: aUser._id}, aggregrateScore, {

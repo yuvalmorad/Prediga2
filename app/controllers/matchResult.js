@@ -80,7 +80,7 @@ function updateMatchScore(matchResult) {
                         score += util.calculateResult(userPrediction.team2Goals, matchResult.team2Goals, configuration[0].team2Goals);
                         score += util.calculateResult(userPrediction.goalDiff, matchResult.goalDiff, configuration[0].goalDiff);
                         score += util.calculateResult(userPrediction.firstToScore, matchResult.firstToScore, configuration[0].firstToScore);
-                        var isStrike = score === (configuration.winner + configuration.team1Goals + configuration.team2Goals + configuration.goalDiff + configuration.firstToScore);
+                        var isStrike = score === (configuration[0].winner + configuration[0].team1Goals + configuration[0].team2Goals + configuration[0].goalDiff + configuration[0].firstToScore);
                         var userScore = {
                             userId: userPrediction.userId,
                             gameId: userPrediction.matchId,
