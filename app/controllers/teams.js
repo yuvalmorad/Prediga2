@@ -1,6 +1,7 @@
 var express = require('express');
 var app = express.Router();
 var Team = require('../models/team');
+var TeamService = require('../services/teamService');
 var util = require('../utils/util.js');
 
 app.get('/:teamId', util.isLoggedIn, function (req, res) {
@@ -46,7 +47,7 @@ app.post('/', util.isAdmin, function (req, res) {
         return;
     }
 
-    util.createTeams(teams).then(function (obj) {
+    TeamService.createTeams(teams).then(function (obj) {
         res.status(200).json(obj);
     });
 });

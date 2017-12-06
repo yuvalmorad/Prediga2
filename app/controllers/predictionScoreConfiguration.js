@@ -1,6 +1,7 @@
 var express = require('express');
 var app = express.Router();
 var PredictionScoreConfiguration = require('../models/predictionScoreConfiguration');
+var PredictionScoreConfigurationService = require('../services/predictionScoreConfigurationService');
 var util = require('../utils/util.js');
 
 app.get('/', util.isLoggedIn, function (req, res) {
@@ -20,7 +21,7 @@ app.post('/', util.isAdmin, function (req, res) {
         return;
     }
 
-    util.createConfiguration(predictionScoreConfiguration).then(function (obj) {
+    PredictionScoreConfigurationService.createConfiguration(predictionScoreConfiguration).then(function (obj) {
         res.status(200).json(obj);
     });
 });

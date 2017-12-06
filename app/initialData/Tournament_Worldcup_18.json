@@ -577,6 +577,8 @@
       "status": "PRE_GAME"
     }
   ],
+  "matchResults": [
+  ],
   "teams": [
     {
       "_id": "5a1342399017dfc4e2faf494",
@@ -818,5 +820,7 @@
         "Japan"
       ]
     }
+  ],
+  "teamResults": [
   ]
 }

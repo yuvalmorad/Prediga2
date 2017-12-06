@@ -2,6 +2,7 @@ var express = require('express');
 var app = express.Router();
 var Match = require('../models/match');
 var util = require('../utils/util.js');
+var MatchService = require('../services/matchService');
 
 app.get('/:matchId', util.isLoggedIn, function (req, res) {
     var matchId = req.params.matchId;
@@ -53,7 +54,7 @@ app.post('/', util.isAdmin, function (req, res) {
         return;
     }
 
-    util.createMatches(matches).then(function (obj) {
+    MatchService.createMatches(matches).then(function (obj) {
         res.status(200).json(obj);
     });
 });
