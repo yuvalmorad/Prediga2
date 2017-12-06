@@ -16,11 +16,11 @@ component.TeamsPredictionsPage = (function(){
 
         render: function() {
             var teams = this.props.teams,
-                predictions = this.props.predictions;
+                userPredictions = this.props.userPredictions;
 
             var tiles = teams.map(function(team){
                 var teamId = team._id;
-                var prediction = utils.general.findItemInArrBy(predictions, "teamId", teamId);
+                var prediction = utils.general.findItemInArrBy(userPredictions, "teamId", teamId);
                 return re(TeamPredictionTile, {team: team, prediction: prediction, key: teamId})
             });
 
@@ -35,7 +35,7 @@ component.TeamsPredictionsPage = (function(){
     function mapStateToProps(state){
         return {
             teams: state.teamsPredictions.teams,
-            predictions: state.teamsPredictions.predictions,
+            userPredictions: state.teamsPredictions.userPredictions,
             isShowTileDialog: state.general.isShowTileDialog
         }
     }

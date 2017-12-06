@@ -27,15 +27,24 @@ action.teamsPredictions = (function(){
     function loadTeams() {
         return function(dispatch){
             service.teamsPredictions.getAll().then(function(res){
-                dispatch(action.authentication.setUserId(res.headers.userid));
+                var userId = res.headers.userid;
                 var data = res.data;
-                dispatch(success(data.teams, data.predictions, data.users, data.results));
+                dispatch(action.authentication.setUserId(userId));
+
+                var userPredictions = data.predictions.filter(function(prediction){
+                    return prediction.userId === userId;
+                });
+                var otherPredictions = data.predictions.filter(function(prediction){
+                    return prediction.userId !== userId;
+                });
+
+                dispatch(success(data.teams, userPredictions, otherPredictions, data.users, data.results));
             }, function(error){
 
             })
         };
 
-        function success(teams, predictions, users, results) { return { type: teamsPredictions.LOAD_TEAMS_SUCCESS, teams: teams, predictions: predictions, users: users, results: results } }
+        function success(teams, userPredictions, otherPredictions, users, results) { return { type: teamsPredictions.LOAD_TEAMS_SUCCESS, teams: teams, userPredictions: userPredictions, otherPredictions: otherPredictions, users: users, results: results } }
     }
 
     return teamsPredictions;

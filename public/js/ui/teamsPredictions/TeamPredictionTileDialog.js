@@ -63,7 +63,7 @@ component.TeamPredictionTileDialog = (function(){
 
     function mapDispatchToProps(dispatch) {
         return {
-            updateTeamSelected: function(team){dispatch(action.teamsPredictions.updateTeamSelected(team))}
+            updateTeamSelected: function(prediction){dispatch(action.teamsPredictions.updateTeamSelected(prediction))}
         }
     }
 
