@@ -17,11 +17,18 @@ component.LeaderBoardPage = (function(){
         render: function() {
             var leaders = this.props.leaders;
             var users = this.props.users;
-            var tiles = leaders.sort(function(leader1, leader2){
-                return leader1.points - leader2.points;
-            }).map(function(leader, index){
-                var user = utils.general.findItemInArrBy(users, "_id", leader.userId);
-                return re(LeaderBoardTile, {user: user, score: leader.score, rank: index + 1, key: user._id});
+            var tiles = users.map(function(user){
+                var leader = utils.general.findItemInArrBy(leaders, "userId", user._id);
+                return {
+                    user: user,
+                    score: leader ? leader.score || 0 : 0
+                }
+            }).sort(function(obj1, obj2){
+                return obj2.score - obj1.score;
+            }).map(function(obj, index){
+                var user = obj.user;
+                var score = obj.score;
+                return re(LeaderBoardTile, {user: user, score: score, rank: index + 1, key: user._id});
             });
 
             return re("div", { className: "content" },

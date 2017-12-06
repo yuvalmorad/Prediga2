@@ -40,7 +40,7 @@ component.BaseMainTile = (function(){
             ),
             re("div", {className: "right"},
                 re("div", {className: "rank"}, rank),
-                re("div", {className: "points"}, points ? points : "")
+                re("div", {className: "points"}, points !== undefined ? points : "")
             )
         );
     };
