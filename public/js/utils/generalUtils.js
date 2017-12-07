@@ -63,7 +63,7 @@ utils.general = (function(){
 
     function findItemsInArrBy(arr, property, val) {
         return arr.filter(function(item){
-            item[property] === val;
+            return item[property] === val;
         });
     }
 
