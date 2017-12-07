@@ -413,12 +413,26 @@ body {
     max-width: 700px;
     margin: 0 auto 0.5rem auto;
     border-radius: 4px;
-
 }
 
 .tile .main {
     height: 8rem;
     display: flex;
+}
+
+.tiles-group-title {
+    text-align: center;
+    background: #63a8d2;
+    color: #fff;
+    padding: 0.3rem 0;
+    font-size: 0.75rem;
+    margin-bottom: 0.2rem;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    border-color: #929292;
+    border-style: solid;
+    border-width: 1px;
+    border-bottom: 0;
 }
 
 /* -------  base main tile -------*/
@@ -516,7 +530,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    color: #3B7ADB;
+    color: #009fff;
     font-size: 0.875rem;
 }
 
@@ -525,7 +539,7 @@ body {
     border: none;
     font-size: 1rem;
     padding: 0 0.5rem;
-    color: #3B7ADB;
+    color: #009fff;
     line-height: 2rem;
 }
 

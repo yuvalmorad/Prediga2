@@ -16,35 +16,61 @@ component.GamesPredictionsPage = (function(){
         date1.getDate() === date2.getDate();
     }
 
-    function getPagesByDates(matches) {
-        var pagesByDates = [],
-            lastDate;
+    function getPagesByTypes(matches) {
+        var pages = {};
 
         matches.forEach(function(match){
-            var currentMatchDate = new Date(match.kickofftime);
-            if (!lastDate || !isOnSameDay(lastDate, currentMatchDate)) {
-                lastDate = currentMatchDate;
-                pagesByDates.push(lastDate)
+            var type = match.type;
+            if (!pages[type]) {
+                //create page
+                pages[type] = {
+                    type: type,
+                    groups: [] //each group: {date: new Date() by same day, matches: []}
+                }
             }
+
+            var groupFound = null;
+            var currentMatchDate = new Date(match.kickofftime);
+
+            pages[type].groups.forEach(function(group){
+                if (isOnSameDay(group.date, currentMatchDate)) {
+                    groupFound = group;
+                }
+            });
+
+            if (!groupFound) {
+                //create group
+                var length = pages[type].groups.push({
+                    date: currentMatchDate,
+                    matches: []
+                });
+
+                groupFound = pages[type].groups[length - 1];
+            }
+
+            groupFound.matches.push(match);
         });
 
-        return pagesByDates;
+        return Object.keys(pages).map(function(pageType){return pages[pageType]}).sort(function(page1, page2){
+            return page1.groups[0].date - page2.groups[0].date
+        });
     }
 
-    function findClosestDateIndex(pagesByDates, currentDate) {
+    function findClosestPagesIndex(pages, currentDate) {
         var closestDateIndex,
             i;
 
-        for (i = 0; i < pagesByDates.length; i++) {
-            var matchDate = pagesByDates[i];
-            if (currentDate < matchDate) {
+        for (i = 0; i < pages.length; i++) {
+
+            var date = pages[i].groups[0].date;
+            if (currentDate < date) {
                 closestDateIndex = i;
                 break;
             }
         }
 
-        if (closestDateIndex === undefined && pagesByDates.length) {
-            closestDateIndex = pagesByDates.length - 1;
+        if (closestDateIndex === undefined && pages.length) {
+            closestDateIndex = pages.length - 1;
         }
 
         return closestDateIndex;
@@ -71,35 +97,51 @@ component.GamesPredictionsPage = (function(){
         },
 
         render: function() {
-            var props = this.props;
-            var matches = props.matches;
-            var userPredictions = props.userPredictions;
-            var results = props.results;
-            var offsetPageIndex = this.state.offsetPageIndex;
+            var props = this.props,
+                matches = props.matches,
+                userPredictions = props.userPredictions,
+                results = props.results,
+                offsetPageIndex = this.state.offsetPageIndex,
+                pages = [],
+                tilesInPage = [],
+                closestIndex,
+                closestPage;
 
-            matches.sort(function(game1, game2){
-                return new Date(game1.kickofftime) - new Date(game2.kickofftime);
-            });
+            if (matches.length) {
+                matches.sort(function (game1, game2) {
+                    return new Date(game1.kickofftime) - new Date(game2.kickofftime);
+                });
 
-            var currentDate = new Date();
-            var pagesByDates = getPagesByDates(matches);
-            var closestDateIndex = findClosestDateIndex(pagesByDates, currentDate) + offsetPageIndex;
-            var closestDate = pagesByDates[closestDateIndex];
+                var currentDate = new Date();
+                pages = getPagesByTypes(matches);
+                closestIndex = findClosestPagesIndex(pages, currentDate) + offsetPageIndex;
+                closestPage = pages[closestIndex];
 
-            var tilesInPage = matches.filter(function(match, index){
-                return isOnSameDay(new Date(match.kickofftime), closestDate);
-            }).map(function(match){
-                var matchId = match._id;
-                var prediction = utils.general.findItemInArrBy(userPredictions, "matchId", matchId);
-                var result = utils.general.findItemInArrBy(results, "matchId", matchId);
-                return re(GamePredictionTile, {game: match, prediction: prediction, result: result, key: matchId});
-            });
+                tilesInPage = closestPage.groups.map(function (group, groupIndex) {
+                    var tilesInGroup = group.matches.map(function (match) {
+                        var matchId = match._id;
+                        var prediction = utils.general.findItemInArrBy(userPredictions, "matchId", matchId);
+                        var result = utils.general.findItemInArrBy(results, "matchId", matchId);
+                        return re(GamePredictionTile, {
+                            game: match,
+                            prediction: prediction,
+                            result: result,
+                            key: matchId
+                        });
+                    });
+
+                    tilesInGroup.unshift(re("div", {className: "tiles-group-title", key: "tilesGroup" + groupIndex}, getTitleDate(group.date)));
+                    return tilesInGroup;
+                });
+
+                tilesInPage = [].concat.apply([], tilesInPage);
+            }
 
             return re("div", { className: "games-prediction-page content hasTilesHeader"},
                 re("div", {className: "tiles-header"},
-                    re("button", {className: "icon-left-open", onClick: this.onPreviousPage, disabled: closestDateIndex === 0}),
-                    re("div", {className: "title"}, closestDate ? getTitleDate(closestDate) : ""),
-                    re("button", {className: "icon-right-open", onClick: this.onNextPage, disabled: closestDateIndex === pagesByDates.length - 1})
+                    re("button", {className: "icon-left-open", onClick: this.onPreviousPage, disabled: closestIndex === 0}),
+                    re("div", {className: "title"}, closestPage ? closestPage.type : ""),
+                    re("button", {className: "icon-right-open", onClick: this.onNextPage, disabled: closestIndex === pages.length - 1})
                 ),
                 re("div", {className: "tiles" + (props.isShowTileDialog ? " no-scroll" : "")},
                     tilesInPage
