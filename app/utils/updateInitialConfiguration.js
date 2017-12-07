@@ -54,53 +54,37 @@ function updateGames(gameJSON) {
 }
 
 function createMatchResults(matchResults, league) {
-    var deferred = Q.defer();
-    var itemsProcessed = 0;
     console.log('creating ' + matchResults.length + ' matchesResults for ' + league);
-    if (matchResults.length == 0){
-        deferred.resolve();
+    if (matchResults.length == 0) {
         return;
     }
-    matchResults.forEach(function (matchResult) {
-        MatchResultService.updateMatchResult(matchResult).then(function (obj) {
+    var promises = matchResults.map(function (matchResult) {
+        return MatchResultService.updateMatchResult(matchResult).then(function (obj) {
             if (typeof(obj) === "undefined") {
-                deferred.resolve(undefined);
+                return Promise.reject('general error');
             } else {
-                MatchResultService.updateMatchScore(matchResult).then(function (obj2) {
-                    itemsProcessed++;
-                    if (itemsProcessed === matchResults.length) {
-                        deferred.resolve(matchResults);
-                    }
-                });
+                return MatchResultService.updateMatchScore(matchResult);
             }
         });
     });
-    return deferred.promise;
+    return Promise.all(promises);
 }
 
 function createTeamResults(teamResults, league) {
-    var deferred = Q.defer();
-    var itemsProcessed = 0;
     console.log('creating ' + teamResults.length + ' teamsResults for ' + league);
-    if (teamResults.length == 0){
-        deferred.resolve();
+    if (teamResults.length == 0) {
         return;
     }
-    teamResults.forEach(function (aTeamResult) {
-        TeamResultService.updateTeamResult(aTeamResult).then(function (obj) {
+    var promises = teamResults.map(function (aTeamResult) {
+        return TeamResultService.updateTeamResult(aTeamResult).then(function (obj) {
             if (typeof(obj) === "undefined") {
-                deferred.resolve(undefined);
+                return Promise.reject('general error');
             } else {
-                TeamResultService.updateTeamScore(aTeamResult).then(function (obj2) {
-                    itemsProcessed++;
-                    if (itemsProcessed === teamResults.length) {
-                        deferred.resolve(teamResults);
-                    }
-                });
+                return TeamResultService.updateTeamScore(aTeamResult);
             }
         });
     });
-    return deferred.promise;
+    return Promise.all(promises);
 }
 
 function removeMatches(league) {
@@ -114,23 +98,21 @@ function removeMatches(league) {
         }
 
         console.log('removing ' + leagueMatches.length + ' matches for ' + league);
-        var itemsProcessed = 0;
-        leagueMatches.forEach(function (aMatch) {
-            aMatch.remove();
-            //console.log('removing {} matchResults for {}', aMatch._id);
-            MatchResult.remove({matchId: aMatch._id}, function (err, obj) {
-                // removing user's scores as well
-                //console.log('removing {} userScore', aMatch._id);
-                UserScore.remove({gameId: aMatch._id}, function (err, obj) {
-                    itemsProcessed++;
-                    if (itemsProcessed === leagueMatches.length) {
-                        deferred.resolve();
-                    }
-                });
-            });
+        removeLeagueMatches(leagueMatches).then(function () {
+            deferred.resolve();
         });
     });
     return deferred.promise;
+}
+
+function removeLeagueMatches(leagueMatches) {
+    var promises = leagueMatches.map(function (aMatch) {
+        aMatch.remove();
+        return MatchResult.remove({matchId: aMatch._id}, function (err, obj) {
+            return UserScore.remove({gameId: aMatch._id});
+        });
+    });
+    return Promise.all(promises);
 }
 
 function removeTeams(league) {
@@ -144,19 +126,19 @@ function removeTeams(league) {
         }
 
         console.log('removing ' + leagueTeams.length + ' teams for ' + league);
-        var itemsProcessed = 0;
-        leagueTeams.forEach(function (aTeam) {
-            aTeam.remove();
-            TeamResult.remove({teamId: aTeam._id}, function (err, obj) {
-                // removing user's scores as well
-                UserScore.remove({gameId: aTeam._id}, function (err, obj) {
-                    itemsProcessed++;
-                    if (itemsProcessed === leagueTeams.length) {
-                        deferred.resolve();
-                    }
-                });
-            });
+        removeLeagueTeams(leagueTeams).then(function () {
+            deferred.resolve();
         });
     });
     return deferred.promise;
+}
+
+function removeLeagueTeams(leagueTeams) {
+    var promises = leagueTeams.map(function (aTeam) {
+        aTeam.remove();
+        return TeamResult.remove({teamId: aTeam._id}, function (err, obj) {
+            return UserScore.remove({gameId: aTeam._id});
+        });
+    });
+    return Promise.all(promises);
 }
