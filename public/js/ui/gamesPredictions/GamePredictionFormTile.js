@@ -2,17 +2,14 @@ component.GamePredictionFormTile = (function(){
     var RadioGroup = component.RadioGroup;
     var InputNumber = component.InputNumber;
 
-    function mapToMutualFriends(arr, reverse) {
-        if (!arr){
-            return;
-        }
-        return arr.map(function(src, index){
+    function mapToMutualFriends(otherUsers, reverse) {
+        return otherUsers.map(function(user, index){
             var transform = 0.75;
             var style = {
-                zIndex: (reverse ? index : arr.length - index),
-                transform: "translateX(" + (reverse ? (arr.length - index - 1) * transform : "-" + (index * transform)) + "rem)"
+                zIndex: (reverse ? index : otherUsers.length - index),
+                transform: "translateX(" + (reverse ? (otherUsers.length - index - 1) * transform : "-" + (index * transform)) + "rem)"
             };
-            return re("img", {src: "../images/facebook/" + src, style: style, key: index});
+            return re("img", {src: user.photo, style: style, key: index});
         });
     }
 
@@ -35,6 +32,13 @@ component.GamePredictionFormTile = (function(){
             var props = this.props,
                 game = props.game,
                 prediction = props.prediction,
+                otherMatchPredictions = props.otherMatchPredictions,
+                users = props.users,
+                otherPredictionByWinner = utils.general.getOtherPredictionsUserIdsByWinner(otherMatchPredictions),
+                otherPredctionsTeam1 = utils.general.mapUsersIdsToUsersObjects(otherPredictionByWinner[game.team1] || [], users),
+                otherPredctionsTeam2 = utils.general.mapUsersIdsToUsersObjects(otherPredictionByWinner[game.team2] || [], users),
+                team1MutualFriends = mapToMutualFriends(otherPredctionsTeam1),
+                team2MutualFriends = mapToMutualFriends(otherPredctionsTeam2, true),
                 result = props.result,
                 teams = models.leagues.getTeamsByLeagueName(game.league),
                 team1 = teams[game.team1],
@@ -46,8 +50,6 @@ component.GamePredictionFormTile = (function(){
                 team2Color = team2.color,
                 team1SecondColor = team1.secondColor,
                 team2SecondColor = team2.secondColor,
-                team1MutualFriends,// = mapToMutualFriends(game.team1MutualFriends), //TODO
-                team2MutualFriends,// = mapToMutualFriends(game.team2MutualFriends, true), //TODO
 
                 predictionWinner = prediction && prediction[GAME.BET_TYPES.WINNER.key],
                 predictionFirstToScore = prediction && prediction[GAME.BET_TYPES.FIRST_TO_SCORE.key],

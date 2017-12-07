@@ -11,6 +11,7 @@ component.GamePredictionTile = (function(){
             var props = this.props,
                 game = props.game,
                 prediction = props.prediction,
+                otherMatchPredictions = props.otherMatchPredictions,
                 result = props.result,
                 teams = models.leagues.getTeamsByLeagueName(game.league),
                 team1 = teams[game.team1],
@@ -20,7 +21,7 @@ component.GamePredictionTile = (function(){
                 disableOpen = !team1 || !team2;
 
             return re(Tile, {disableOpen: disableOpen, borderLeftColor: borderLeftColor, borderRightColor: borderRightColor, className: "game-prediction-tile", dialogComponent: "GamePredictionTileDialog", dialogComponentProps:{_id: game._id, isDialogFormDisabled: !!result}},
-                re(GamePredictionMainTile, {game: game, prediction: prediction, result: result})
+                re(GamePredictionMainTile, {game: game, prediction: prediction,otherMatchPredictions: otherMatchPredictions, result: result})
             );
         }
     });

@@ -1,11 +1,36 @@
 utils.general = (function(){
     return {
         findItemInArrBy: findItemInArrBy,
+        findItemsInArrBy: findItemsInArrBy,
         calculatePoints: calculatePoints,
         sumObject: sumObject,
         getMaxPoints: getMaxPoints,
-        updateOrCreateObject: updateOrCreateObject
+        updateOrCreateObject: updateOrCreateObject,
+        getOtherPredictionsUserIdsByWinner: getOtherPredictionsUserIdsByWinner,
+        mapUsersIdsToUsersObjects: mapUsersIdsToUsersObjects
     };
+
+    function mapUsersIdsToUsersObjects(usersIds, users) {
+        return usersIds.map(function(userId){
+            return users.filter(function(user){
+                return userId === user._id;
+            })[0];
+        });
+    }
+
+    //{Russia: ["userId1","userId2"], draw:  ["userId3","userId4"]}
+    function getOtherPredictionsUserIdsByWinner(predictions) {
+        var res = {};
+        predictions.forEach(function(prediction){
+            if (!res[prediction.winner]) {
+                res[prediction.winner] = [];
+            }
+
+            res[prediction.winner].push(prediction.userId);
+        });
+
+        return res;
+    }
 
     function updateOrCreateObject(arr, objectToUpdate) {
         var newArr = arr.slice();
@@ -34,6 +59,12 @@ utils.general = (function(){
                 return arr[i]
             }
         }
+    }
+
+    function findItemsInArrBy(arr, property, val) {
+        return arr.filter(function(item){
+            item[property] === val;
+        });
     }
 
     function calculatePoints(prediction, result) {

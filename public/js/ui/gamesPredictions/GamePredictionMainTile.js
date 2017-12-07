@@ -4,6 +4,7 @@ component.GamePredictionMainTile = (function(){
     return  function(props) {
         var game = props.game,
             prediction = props.prediction,
+            otherMatchPredictions = props.otherMatchPredictions,
             result = props.result,
             predictionWinner = prediction && prediction[GAME.BET_TYPES.WINNER.key],
             resultWinner,
@@ -35,7 +36,12 @@ component.GamePredictionMainTile = (function(){
             }
             dateStr = dateObj.getDate() + "." + (dateObj.getMonth() + 1) + " " + dateObj.getHours() + ":" + minutes;
             gameDate = re("div", {}, dateStr + (game.status === GAME.STATUS.CLOSED_GAME ? " (Closed)" : ""));
-            graphParts = [{color: team1Color, amount: game.othersPredictions_team1WinCount}, {color: COLORS.DRAW_COLOR, amount: game.othersPredictions_drawCount}, {color: team2Color, amount: game.othersPredictions_team2WinCount}]; //TODO
+
+            var otherPredictionByWinner = utils.general.getOtherPredictionsUserIdsByWinner(otherMatchPredictions);
+            var otherPredictionsTeam1Count = otherPredictionByWinner[game.team1] ? otherPredictionByWinner[game.team1].length : 0;
+            var otherPredictionsTeam2Count = otherPredictionByWinner[game.team2] ? otherPredictionByWinner[game.team2].length : 0;
+            var otherPredictionsDrawCount = otherPredictionByWinner["draw"] ? otherPredictionByWinner["draw"].length : 0;
+            graphParts = [{color: team1Color, amount: otherPredictionsTeam1Count}, {color: COLORS.DRAW_COLOR, amount: otherPredictionsDrawCount}, {color: team2Color, amount: otherPredictionsTeam2Count}]; //TODO
 
             if (predictionWinner !== game.team1) {
                 team1LogoClass += " grayed";

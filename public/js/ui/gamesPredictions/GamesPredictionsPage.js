@@ -116,6 +116,7 @@ component.GamesPredictionsPage = (function(){
             var props = this.props,
                 matches = props.matches,
                 userPredictions = props.userPredictions,
+                otherPredictions = props.otherPredictions,
                 results = props.results,
                 offsetPageIndex = this.state.offsetPageIndex,
                 pages = [],
@@ -137,10 +138,12 @@ component.GamesPredictionsPage = (function(){
                     var tilesInGroup = group.matches.map(function (match) {
                         var matchId = match._id;
                         var prediction = utils.general.findItemInArrBy(userPredictions, "matchId", matchId);
+                        var otherMatchPredictions = utils.general.findItemsInArrBy(otherPredictions, "matchId", matchId);
                         var result = utils.general.findItemInArrBy(results, "matchId", matchId);
                         return re(GamePredictionTile, {
                             game: match,
                             prediction: prediction,
+                            otherMatchPredictions: otherMatchPredictions,
                             result: result,
                             key: matchId
                         });
@@ -170,6 +173,7 @@ component.GamesPredictionsPage = (function(){
         return {
             matches: state.gamesPredictions.matches,
             userPredictions: state.gamesPredictions.userPredictions,
+            otherPredictions: state.gamesPredictions.otherPredictions,
             results: state.gamesPredictions.results,
             isShowTileDialog: state.general.isShowTileDialog
         }
