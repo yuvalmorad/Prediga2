@@ -20,7 +20,7 @@ component.TeamPredictionTile = (function(){
                 borderColor = selectedTeam.color;
             }
 
-            return re(Tile, {borderLeftColor: borderColor, borderRightColor: borderColor, className: "team-prediction-tile", dialogComponent: "TeamPredictionTileDialog", dialogComponentProps: {team: team, prediction: prediction}},
+            return re(Tile, {borderLeftColor: borderColor, borderRightColor: borderColor, className: "team-prediction-tile", dialogComponent: "TeamPredictionTileDialog", dialogComponentProps: {team: team, prediction: prediction, isDialogFormDisabled: false}},
                 re(TeamPredictionMainTile, {team: team, selectedTeam: selectedTeam})
             );
         }

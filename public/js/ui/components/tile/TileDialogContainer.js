@@ -3,7 +3,7 @@ component.TileDialogContainer = (function(){
 
     var TileDialogContainer = React.createClass({
 
-        onCancel: function() {
+        onCancel: function() {//close/cancel
             this.props.closeTileDialog();
         },
 
@@ -22,9 +22,11 @@ component.TileDialogContainer = (function(){
             var props = this.props;
             var className = "tile-dialog-container";
             var componentElement;
+            var componentProps = props.componentProps;
+            var isDialogFormDisabled = false;
 
             if (props.isShowTileDialog) {
-                var componentProps = props.componentProps;
+                isDialogFormDisabled = !!componentProps.isDialogFormDisabled;
                 componentProps.onDialogSave = this.assignDialogSaveFun;
                 componentElement = re(component[props.componentName], componentProps);
                 className +=  (" " + props.componentName);
@@ -34,11 +36,11 @@ component.TileDialogContainer = (function(){
 
             return re("div", { className: className},
                 re("div", {className: "dialog-button"},
-                    re("button", {onClick: this.onCancel}, "Cancel")
+                    re("button", {onClick: this.onCancel, className: isDialogFormDisabled ? "hide" : ""}, "Cancel")
                 ),
                 componentElement,
                 re("div", {className: "dialog-button"},
-                    re("button", {onClick: this.onSave}, "Save")
+                    re("button", {onClick: isDialogFormDisabled ? this.onCancel : this.onSave}, isDialogFormDisabled ? "Close" : "Save")
                 )
             )
         }
