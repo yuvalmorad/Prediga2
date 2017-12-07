@@ -102,6 +102,16 @@ component.GamesPredictionsPage = (function(){
             this.setState({offsetPageIndex: this.state.offsetPageIndex + 1});
         },
 
+        componentDidUpdate: function(prevProps, prevState) {
+            if (this.state.offsetPageIndex !== prevState.offsetPageIndex) {
+                this.tilesElem.scrollTo(0,0);
+            }
+        },
+
+        assignTilesRef: function(tilesElem) {
+            this.tilesElem = tilesElem;
+        },
+
         render: function() {
             var props = this.props,
                 matches = props.matches,
@@ -149,7 +159,7 @@ component.GamesPredictionsPage = (function(){
                     re("div", {className: "title"}, closestPage ? models.leagues.getLeagueName(closestPage.league) + ": " + closestPage.type : ""),
                     re("button", {className: "icon-right-open", onClick: this.onNextPage, disabled: closestIndex === pages.length - 1})
                 ),
-                re("div", {className: "tiles" + (props.isShowTileDialog ? " no-scroll" : "")},
+                re("div", {ref: this.assignTilesRef, className: "tiles" + (props.isShowTileDialog ? " no-scroll" : "")},
                     tilesInPage
                 )
             );
