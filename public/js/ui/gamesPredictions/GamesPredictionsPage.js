@@ -21,10 +21,13 @@ component.GamesPredictionsPage = (function(){
 
         matches.forEach(function(match){
             var type = match.type;
-            if (!pages[type]) {
+            var league = match.league;
+            var pageKey = league + "_" + type;
+            if (!pages[pageKey]) {
                 //create page
-                pages[type] = {
+                pages[pageKey] = {
                     type: type,
+                    league: league,
                     groups: [] //each group: {date: new Date() by same day, matches: []}
                 }
             }
@@ -32,7 +35,7 @@ component.GamesPredictionsPage = (function(){
             var groupFound = null;
             var currentMatchDate = new Date(match.kickofftime);
 
-            pages[type].groups.forEach(function(group){
+            pages[pageKey].groups.forEach(function(group){
                 if (isOnSameDay(group.date, currentMatchDate)) {
                     groupFound = group;
                 }
@@ -40,12 +43,12 @@ component.GamesPredictionsPage = (function(){
 
             if (!groupFound) {
                 //create group
-                var length = pages[type].groups.push({
+                var length = pages[pageKey].groups.push({
                     date: currentMatchDate,
                     matches: []
                 });
 
-                groupFound = pages[type].groups[length - 1];
+                groupFound = pages[pageKey].groups[length - 1];
             }
 
             groupFound.matches.push(match);
@@ -61,9 +64,12 @@ component.GamesPredictionsPage = (function(){
             i;
 
         for (i = 0; i < pages.length; i++) {
+            var iscurrentDateBeforeSome = pages[i].groups.some(function(group){
+                var date = group.date;
+                return currentDate < date;
+            });
 
-            var date = pages[i].groups[0].date;
-            if (currentDate < date) {
+            if (iscurrentDateBeforeSome) {
                 closestDateIndex = i;
                 break;
             }
@@ -140,7 +146,7 @@ component.GamesPredictionsPage = (function(){
             return re("div", { className: "games-prediction-page content hasTilesHeader"},
                 re("div", {className: "tiles-header"},
                     re("button", {className: "icon-left-open", onClick: this.onPreviousPage, disabled: closestIndex === 0}),
-                    re("div", {className: "title"}, closestPage ? closestPage.type : ""),
+                    re("div", {className: "title"}, closestPage ? models.leagues.getLeagueName(closestPage.league) + ": " + closestPage.type : ""),
                     re("button", {className: "icon-right-open", onClick: this.onNextPage, disabled: closestIndex === pages.length - 1})
                 ),
                 re("div", {className: "tiles" + (props.isShowTileDialog ? " no-scroll" : "")},
