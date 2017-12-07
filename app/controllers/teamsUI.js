@@ -5,7 +5,6 @@ var TeamPrediction = require('../models/teamPrediction');
 var util = require('../utils/util.js');
 var User = require('../models/user');
 var TeamResult = require('../models/teamResult');
-var Q = require('q');
 
 app.get('/', util.isLoggedIn, function (req, res) {
     getData().then(function (teamsCombined) {

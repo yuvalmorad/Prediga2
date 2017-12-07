@@ -31,10 +31,12 @@ module.exports = {
                 TeamPrediction.find({teamId: teamResult.teamId}, function (err, aTeamPredictions) {
                     // 3. for each one calculate user score and call update.
                     if (aTeamPredictions && aTeamPredictions.length > 0) {
-                        var itemsProcessed = 0;
-                        aTeamPredictions.forEach(function (userPrediction) {
+                        var promises = aTeamPredictions.map(function (userPrediction) {
                             var score = 0;
-                            score += util.calculateResult(userPrediction.team, teamResult.team, convertTeamTypeToConfigScore(teamResult.type, configuration[0]));
+                            var configScore = convertTeamTypeToConfigScore(teamResult.type, configuration[0]);
+                            score += util.calculateResult(userPrediction.team, teamResult.team, configScore);
+
+                            // score to update
                             var userScore = {
                                 userId: userPrediction.userId,
                                 gameId: userPrediction.teamId,
@@ -42,13 +44,10 @@ module.exports = {
                                 strikes: 0
                             };
 
-                            UserScoreService.updateScore(userScore).then(function (res) {
-                                itemsProcessed++;
-                                if (itemsProcessed === aTeamPredictions.length) {
-                                    deferred.resolve(teamResult);
-                                }
-                            });
+                            return UserScoreService.updateScore(userScore);
                         });
+
+                        return Promise.all(promises);
 
                     } else {
                         deferred.resolve(teamResult);

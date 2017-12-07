@@ -3,7 +3,6 @@ var app = express.Router();
 var TeamPrediction = require('../models/teamPrediction');
 var Team = require('../models/team');
 var util = require('../utils/util.js');
-var Q = require('q');
 
 app.get('/', util.isLoggedIn, function (req, res) {
     TeamPrediction.find({}, function (err, obj) {

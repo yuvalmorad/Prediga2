@@ -22,17 +22,16 @@ module.exports = {
         var deferred = Q.defer();
         UserScore.find({}, function (err, allUserScores) {
             if (allUserScores && allUserScores.length > 0){
-                allUserScores.forEach(function (aUserScore) {
-                    Match.find({_id: aUserScore.gameId}, function (err, aMatches) {
+                var promises = allUserScores.map(function (aUserScore) {
+                    return Match.find({_id: aUserScore.gameId}, function (err, aMatches) {
                         if (!aMatches || aMatches.length < 1) {
                             // removing all user score of this game
                             console.log('removing user scores for game ' + aUserScore.gameId);
-                            UserScore.remove({gameId: aUserScore.gameId}, function (err, obj) {
-                                deferred.resolve(obj);
-                            });
+                            return UserScore.remove({gameId: aUserScore.gameId});
                         }
                     });
                 });
+                return Promise.all(promises);
             } else {
                 deferred.resolve();
             }

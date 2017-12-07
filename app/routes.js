@@ -27,13 +27,13 @@ module.exports = function (app, passport) {
     /********************************************
      * Authentications APIs
      ********************************************* */
-    app.get('/profile', util.isLoggedIn, function (req, res) {
+    app.get('/auth/profile', util.isLoggedIn, function (req, res) {
         res.render('profile.ejs', {
             user: req.user
         });
     });
 
-    app.get('/logout', function (req, res) {
+    app.get('/auth/logout', function (req, res) {
         req.logout();
         res.redirect('/');
     });
@@ -50,19 +50,19 @@ module.exports = function (app, passport) {
             failureRedirect: '/login'
         }));
 
-    app.get('/connect/facebook',
+    app.get('/auth/connect/facebook',
         passport.authorize('facebook', {
             authType: 'rerequest',
             scope: ['email']
         }));
 
-    app.get('/connect/facebook/callback',
+    app.get('/auth/connect/facebook/callback',
         passport.authorize('facebook', {
             successRedirect: '/',
             failureRedirect: '/login'
         }));
 
-    app.get('/unlink/facebook', util.isLoggedIn, function (req, res) {
+    app.get('/auth/unlink/facebook', util.isLoggedIn, function (req, res) {
         var user = req.user;
         user.token = undefined;
         user.save(function (err) {

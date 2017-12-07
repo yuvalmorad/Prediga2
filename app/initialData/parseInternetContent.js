@@ -1104,14 +1104,14 @@ var games =
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 var id = '6a21a7c1a3f89181074e9';
 var idNum = 768;
-var round = 0;
+var round = -1;
 var gamesFiltered = [];
 var gamesResults = [];
 games.matches.forEach(function (match, idx) {
-    round += 1;
     if (!match["date"]) {
         return;
     }
+    round += 1;
     idNum += 1;
 
     // id
@@ -1170,4 +1170,5 @@ games.matches.forEach(function (match, idx) {
 
 
 console.log(JSON.stringify(gamesFiltered));
+console.log('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~');
 console.log(JSON.stringify(gamesResults));

@@ -3,7 +3,6 @@ var app = express.Router();
 var MatchPrediction = require('../models/matchPrediction');
 var Match = require('../models/match');
 var util = require('../utils/util.js');
-var Q = require('q');
 
 app.get('/:userId', util.isLoggedIn, function (req, res) {
     var userId = req.params.userId;
@@ -71,6 +70,13 @@ function createMatchPredictions(matchPredictions, userId) {
         // we can update only if the kickofftime is not passed
         return Match.findOne({kickofftime: {$gte: now}, _id: matchPrediction.matchId}).then(function(aMatch){
             if (aMatch) {
+                // fixing wrong input
+                if (typeof(matchPrediction.winner) === 'undefined'){
+                    matchPrediction.winner = 'draw';
+                }
+                if (typeof(matchPrediction.firstToScore) === 'undefined'){
+                    matchPrediction.firstToScore = 'none';
+                }
                 // validation:
                 if (((matchPrediction.winner !== aMatch.team1) && (matchPrediction.winner !== aMatch.team2) && (matchPrediction.winner !== "draw")) ||
                     ((matchPrediction.firstToScore !== aMatch.team1) && (matchPrediction.firstToScore !== aMatch.team2) && matchPrediction.firstToScore !== "none") ||

@@ -12,21 +12,22 @@ module.exports = {
             if (err) {
                 deferred.resolve('error');
             } else {
-                // 2. for each user, get all user's score
-                var itemsProcessed = 0;
-                users.forEach(function (aUser) {
-                    updateLeaderBoardForUser(aUser).then(function () {
-                        itemsProcessed++;
-                        if (itemsProcessed === users.length) {
-                            deferred.resolve({});
-                        }
-                    });
+                updateLeaderBoardForUsers(users).then(function () {
+                    deferred.resolve({});
                 });
             }
         });
         return deferred.promise;
     }
 };
+
+function updateLeaderBoardForUsers(users) {
+    var promises = users.map(function (aUser) {
+        return updateLeaderBoardForUser(aUser);
+    });
+
+    return Promise.all(promises);
+}
 
 function updateLeaderBoardForUser(aUser) {
     var deferred = Q.defer();

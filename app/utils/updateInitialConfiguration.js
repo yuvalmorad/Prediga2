@@ -19,7 +19,7 @@ module.exports = {
             PredictionScoreConfigurationService.createConfiguration(require('../initialData/scoreConfiguration.json')),
             updateGames(require('../initialData/Tournament_Worldcup_18.json')),
             updateGames(require('../initialData/League_Israel_17-18.json')),
-            //loadGames(require('../initialData/League_Champions_18.json'));
+            //loadGames(require('../initialData/League_Champions_17-18.json'));
         ]).then(function (arr) {
             UserScoreService.removeUserScoreWithoutGames().then(function () {
                 UsersLeaderboardService.updateLeaderboard().then(function (obj3) {

@@ -31,15 +31,13 @@ module.exports = {
                 MatchPrediction.find({matchId: matchResult.matchId}, function (err, aMatchPredictions) {
                     // 3. for each one calculate user score and call update.
                     if (aMatchPredictions && aMatchPredictions.length > 0) {
-                        var itemsProcessed = 0;
-                        aMatchPredictions.forEach(function (userPrediction) {
-                            var score = 0;
-                            score += util.calculateResult(userPrediction.winner, matchResult.winner, configuration[0].winner);
-                            score += util.calculateResult(userPrediction.team1Goals, matchResult.team1Goals, configuration[0].team1Goals);
-                            score += util.calculateResult(userPrediction.team2Goals, matchResult.team2Goals, configuration[0].team2Goals);
-                            score += util.calculateResult(userPrediction.goalDiff, matchResult.goalDiff, configuration[0].goalDiff);
-                            score += util.calculateResult(userPrediction.firstToScore, matchResult.firstToScore, configuration[0].firstToScore);
-                            var isStrike = score === (configuration[0].winner + configuration[0].team1Goals + configuration[0].team2Goals + configuration[0].goalDiff + configuration[0].firstToScore);
+                        var promises = aMatchPredictions.map(function (userPrediction) {
+
+                            // calculate score for user
+                            var score = calculateUserPredictionScore(userPrediction, matchResult, configuration);
+                            var isStrike = isStrike(score, configuration);
+
+                            // score to update
                             var userScore = {
                                 userId: userPrediction.userId,
                                 gameId: userPrediction.matchId,
@@ -47,20 +45,33 @@ module.exports = {
                                 strikes: isStrike ? 1 : 0
                             };
 
-                            UserScoreService.updateScore(userScore).then(function (res) {
-                                itemsProcessed++;
-                                if (itemsProcessed === aMatchPredictions.length) {
-                                    deferred.resolve({});
-                                }
-                            });
+                            return UserScoreService.updateScore(userScore);
                         });
+                        return Promise.all(promises);
 
                     } else {
                         deferred.resolve({});
                     }
                 });
+            } else {
+                deferred.resolve({});
             }
         });
         return deferred.promise;
     }
 };
+
+function calculateUserPredictionScore(userPrediction, matchResult, configuration) {
+    var score = 0;
+    score += util.calculateResult(userPrediction.winner, matchResult.winner, configuration[0].winner);
+    score += util.calculateResult(userPrediction.team1Goals, matchResult.team1Goals, configuration[0].team1Goals);
+    score += util.calculateResult(userPrediction.team2Goals, matchResult.team2Goals, configuration[0].team2Goals);
+    score += util.calculateResult(userPrediction.goalDiff, matchResult.goalDiff, configuration[0].goalDiff);
+    score += util.calculateResult(userPrediction.firstToScore, matchResult.firstToScore, configuration[0].firstToScore);
+    return score;
+};
+
+function isStrike(score, configuration) {
+    var maxScore = (configuration[0].winner + configuration[0].team1Goals + configuration[0].team2Goals + configuration[0].goalDiff + configuration[0].firstToScore);
+    return (score === maxScore);
+}
