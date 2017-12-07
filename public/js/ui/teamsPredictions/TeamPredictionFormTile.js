@@ -4,15 +4,16 @@ component.TeamPredictionFormTile = (function(){
     return function(props) {
         var teamsOptions,
             selectedTeam = props.selectedTeam,
-            team = props.team;
+            team = props.team,
+            teams = models.leagues.getTeamsByLeagueName(team.league);
 
         if (team.options.length) {
             teamsOptions = team.options.map(function(teamOptionName){
-               return LEAGUE.teams[teamOptionName];
+               return teams[teamOptionName];
             });
         } else {
-            teamsOptions = Object.keys(LEAGUE.teams).map(function(teamName){
-                return LEAGUE.teams[teamName];
+            teamsOptions = Object.keys(teams).map(function(teamName){
+                return teams[teamName];
             });
         }
 

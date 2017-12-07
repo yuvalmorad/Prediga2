@@ -1,11 +1,4 @@
-var WORLD_CUP_18 = (function() {
-
-    function mapTeamsByName(teams) {
-        var res = {};
-        teams.forEach(function(team){res[team.name] = team});
-        return res;
-    }
-
+(function() {
     var teams = [
         {
             name: "Argentina",
@@ -199,12 +192,13 @@ var WORLD_CUP_18 = (function() {
             color: "#fff",
             secondColor: "red"
         }
-
     ];
 
-    return {
+    var league = {
         name: "World Cup 2018",
         logo: "worldcup2018.png",
-        teams: mapTeamsByName(teams)
+        teams: teams
     };
+
+    models.leagues.addLeague(league, "WorldCup2018");
 })();

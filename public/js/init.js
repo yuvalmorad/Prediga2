@@ -7,6 +7,7 @@ var reducer = {};
 var action = {};
 var service = {};
 var utils = {};
+var models = {};
 
 var httpInstnace = axios.create({
     baseURL: '/',

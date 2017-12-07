@@ -18,11 +18,3 @@ var COLORS = {
     DRAW_COLOR: "#888282"
 };
 
-var LEAGUES = (function(){
-    return {
-        WORLD_CUP_18: WORLD_CUP_18
-    }
-})();
-
-var LEAGUE = LEAGUES.WORLD_CUP_18;
-

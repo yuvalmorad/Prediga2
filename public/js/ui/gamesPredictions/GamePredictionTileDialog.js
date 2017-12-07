@@ -35,9 +35,9 @@ component.GamePredictionTileDialog = (function(){
         },
 
         render: function() {
-            var teams = LEAGUE.teams,
-                state = this.state,
+            var state = this.state,
                 game = state.game,
+                teams = models.leagues.getTeamsByLeagueName(game.league),
                 prediction = state.prediction,
                 result = state.result,
                 team1 = teams[game.team1],

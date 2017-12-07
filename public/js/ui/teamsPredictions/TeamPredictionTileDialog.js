@@ -13,7 +13,9 @@ component.TeamPredictionTileDialog = (function(){
                 predictionCopy = Object.assign({}, prediction, {teamId: team._id});
 
             if (!predictionCopy.team) {
-                predictionCopy.team = team.options.length ? team.options[0] : Object.keys(LEAGUE.teams)[0];
+                predictionCopy.team = team.options.length ?
+                                        team.options[0] :
+                                        Object.keys(models.leagues.getTeamsByLeagueName(team.league))[0];
             }
 
             return {
@@ -41,15 +43,17 @@ component.TeamPredictionTileDialog = (function(){
                 prediction = state.prediction,
                 team = props.team,
                 selectedTeam,
-                borderColor = "gray";
+                borderColor = "gray",
+                teams = models.leagues.getTeamsByLeagueName(team.league),
+                leagueName = models.leagues.getLeagueName(team.league);
 
             if (prediction && prediction.team) {
-                selectedTeam = LEAGUE.teams[prediction.team];
+                selectedTeam = teams[prediction.team];
                 borderColor = selectedTeam.color;
             }
 
             return re(TileDialog, {borderLeftColor: borderColor, borderRightColor: borderColor, className: "team-prediction-tile"},
-                re(TeamPredictionMainTile, {team: team, selectedTeam: selectedTeam, fixedDescription: LEAGUE.name}),
+                re(TeamPredictionMainTile, {team: team, selectedTeam: selectedTeam, fixedDescription: leagueName}),
                 re(TeamPredictionFormTile, {team: team, selectedTeam: selectedTeam, onSelectedTeamChanged: this.onSelectedTeamChanged})
             );
         }

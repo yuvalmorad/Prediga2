@@ -9,7 +9,7 @@ component.GamePredictionMainTile = (function(){
             resultWinner,
             resultTeam1Goals,
             resultTeam2Goals,
-            teams = LEAGUE.teams,
+            teams = models.leagues.getTeamsByLeagueName(game.league),
             team1 = teams[game.team1],
             team2 = teams[game.team2],
             team1Logo = team1 ? "url('../images/teamsLogo/" + team1.name + ".png')" : "",

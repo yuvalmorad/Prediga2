@@ -3,7 +3,9 @@ component.TeamPredictionMainTile = (function(){
 
     return  function(props) {
         var team = props.team,
-            selectedTeam = props.selectedTeam;
+            selectedTeam = props.selectedTeam,
+            leagueLogo = models.leagues.getLeagueLogo(team.league),
+            leagueName = models.leagues.getLeagueName(team.league);
 
         if (selectedTeam) {
             return re(BaseMainTile, {
@@ -13,9 +15,9 @@ component.TeamPredictionMainTile = (function(){
             });
         } else {
             return re(BaseMainTile, {
-                imageSrc: "../images/teamsLogo/" + LEAGUE.logo,
+                imageSrc: "../images/teamsLogo/" + leagueLogo,
                 title: "Team",
-                description: LEAGUE.name
+                description: leagueName
             });
         }
     }
