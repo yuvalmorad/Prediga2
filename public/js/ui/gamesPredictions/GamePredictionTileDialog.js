@@ -13,7 +13,7 @@ component.GamePredictionTileDialog = (function(){
                 prediction = utils.general.findItemInArrBy(props.userPredictions, "matchId", matchId),
                 otherMatchPredictions = utils.general.findItemsInArrBy(props.otherPredictions, "matchId", matchId),
                 result = utils.general.findItemInArrBy(props.results, "matchId", matchId),
-                predictionCopy = Object.assign({}, {matchId: matchId, goalDiff: 0, team1Goals: 0, team2Goals: 0}, prediction);
+                predictionCopy = Object.assign({}, {matchId: matchId}, prediction);
 
             return {
                 game: game,
@@ -28,7 +28,9 @@ component.GamePredictionTileDialog = (function(){
         },
 
         onDialogSave: function() {
-            this.props.updateGame(this.state.prediction);
+            var defaults = {goalDiff: 0, team1Goals: 0, team2Goals: 0}
+            var prediction = Object.assign(defaults, this.state.prediction);
+            this.props.updateGame(prediction);
         },
 
         updateGameForm: function(predictionToUpdate) {
