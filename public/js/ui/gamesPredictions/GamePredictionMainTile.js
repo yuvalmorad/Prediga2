@@ -1,7 +1,7 @@
 component.GamePredictionMainTile = (function(){
     var Graph = component.Graph;
 
-    return  function(props) {
+    return function(props) {
         var game = props.game,
             prediction = props.prediction,
             otherMatchPredictions = props.otherMatchPredictions,
@@ -41,15 +41,25 @@ component.GamePredictionMainTile = (function(){
             var otherPredictionsTeam1Count = otherPredictionByWinner[game.team1] ? otherPredictionByWinner[game.team1].length : 0;
             var otherPredictionsTeam2Count = otherPredictionByWinner[game.team2] ? otherPredictionByWinner[game.team2].length : 0;
             var otherPredictionsDrawCount = otherPredictionByWinner["draw"] ? otherPredictionByWinner["draw"].length : 0;
-            graphParts = [{color: team1Color, amount: otherPredictionsTeam1Count}, {color: COLORS.DRAW_COLOR, amount: otherPredictionsDrawCount}, {color: team2Color, amount: otherPredictionsTeam2Count}]; //TODO
 
-            if (predictionWinner !== game.team1) {
+            //add this user to the count
+            if (predictionWinner === game.team1) {
+                otherPredictionsTeam1Count++;
+            } else {
                 team1LogoClass += " grayed";
             }
 
-            if (predictionWinner !== game.team2) {
+            if (predictionWinner === game.team2) {
+                otherPredictionsTeam2Count++;
+            } else {
                 team2LogoClass += " grayed";
             }
+
+            if (predictionWinner === "draw") {
+                otherPredictionsDrawCount++;
+            }
+
+            graphParts = [{color: team1Color, amount: otherPredictionsTeam1Count}, {color: COLORS.DRAW_COLOR, amount: otherPredictionsDrawCount}, {color: team2Color, amount: otherPredictionsTeam2Count}]; //TODO
         } else {// if (game.status === GAME.STATUS.POST_GAME){ //TODO
             //POST GAME
             var points = utils.general.sumObject( utils.general.calculatePoints(prediction, result));
