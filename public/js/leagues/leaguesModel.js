@@ -7,9 +7,9 @@ models.leagues = (function(){
         getLeagueName: getLeagueName
     };
 
-    function addLeague(league, leagueName) {
+    function addLeague(league) {
         league.teams = mapTeamsByName(league.teams);
-        leagues[leagueName] = league;
+        leagues[league.id] = league;
     }
 
     function getTeamsByLeagueName(leagueName) {

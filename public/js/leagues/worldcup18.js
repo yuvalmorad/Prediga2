@@ -195,10 +195,11 @@
     ];
 
     var league = {
+        id: "WorldCup2018",
         name: "World Cup 2018",
         logo: "worldcup2018.png",
         teams: teams
     };
 
-    models.leagues.addLeague(league, "WorldCup2018");
+    models.leagues.addLeague(league);
 })();
