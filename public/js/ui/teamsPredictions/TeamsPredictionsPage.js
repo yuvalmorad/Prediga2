@@ -18,7 +18,9 @@ component.TeamsPredictionsPage = (function(){
             var teams = this.props.teams,
                 userPredictions = this.props.userPredictions;
 
-            var tiles = teams.map(function(team){
+            var tiles = teams.sort(function(team1, team2){
+                return new Date(team1.deadline) - new Date(team2.deadline);
+            }).map(function(team){
                 var teamId = team._id;
                 var prediction = utils.general.findItemInArrBy(userPredictions, "teamId", teamId);
                 return re(TeamPredictionTile, {team: team, prediction: prediction, key: teamId})
