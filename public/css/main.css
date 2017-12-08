@@ -274,13 +274,6 @@ body {
     filter: grayscale(0);
 }
 
-.images-pagination > .title {
-    text-align: center;
-    margin-top: 1rem;
-    font-size: 0.75rem;
-    color: #898989;
-}
-
 /* -------  Input Number -------*/
 
 .input-number {

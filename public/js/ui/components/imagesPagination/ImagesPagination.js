@@ -96,8 +96,7 @@ component.ImagesPagination = (function(){
                     re("div", {className: "button-area right"},
                         re("button", {className: "icon-right-open", onClick: this.onNextClicked.bind(this,currentIndex)})
                     )
-                ),
-                re("div", {className: "title"}, items[currentIndex].name)
+                )
             );
         }
     });

@@ -17,7 +17,9 @@ component.TeamPredictionFormTile = (function(){
             });
         }
 
-        var items = teamsOptions.map(function(teamOption){
+        var items = teamsOptions.sort(function(team1, team2){
+                return team1.name.localeCompare(team2.name);
+            }).map(function(teamOption){
                 var isSelected = false;
                 var teamName = teamOption.name;
                 if (selectedTeam && selectedTeam.name === teamName) {
