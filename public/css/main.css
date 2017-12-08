@@ -424,10 +424,6 @@ body {
     border-radius: 4px;
 }
 
-.tile.no-prediction {
-    background-color: transparent;
-}
-
 .tile .main {
     height: 8rem;
     display: flex;
@@ -572,6 +568,10 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+
+.tile.game-prediction-tile.no-prediction {
+    background-color: transparent;
 }
 
 .game-prediction-tile .main > .left {
