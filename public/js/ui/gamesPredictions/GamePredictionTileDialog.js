@@ -28,7 +28,12 @@ component.GamePredictionTileDialog = (function(){
         },
 
         onDialogSave: function() {
-            var defaults = {goalDiff: 0, team1Goals: 0, team2Goals: 0}
+            var defaults = {};
+            defaults[GAME.BET_TYPES.WINNER.key] = "draw";
+            defaults[GAME.BET_TYPES.FIRST_TO_SCORE.key] = "none";
+            defaults[GAME.BET_TYPES.TEAM1_GOALS.key] = 0;
+            defaults[GAME.BET_TYPES.TEAM2_GOALS.key] = 0;
+            defaults[GAME.BET_TYPES.GOAL_DIFF.key] = 0;
             var prediction = Object.assign(defaults, this.state.prediction);
             this.props.updateGame(prediction);
         },
