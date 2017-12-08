@@ -69,9 +69,9 @@ module.exports = {
             return configuration.teamThird;
         } else if (type === '4th') {
             return configuration.teamForth;
-        } else if (type === 'last') {
+        } else if (type === '14th') {
             return configuration.teamLast;
-        } else if (type === '2nd last') {
+        } else if (type === '13th') {
             return configuration.team2ndLast;
         } else {
             return configuration.teamInGroup;

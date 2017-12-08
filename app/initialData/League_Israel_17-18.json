@@ -2332,7 +2332,7 @@
     },
     {
       "_id": "5a1342399017dfc4e2faf4b0",
-      "title": "3st place",
+      "title": "3rd place",
       "type": "3rd",
       "deadline": "2018-03-01T00:00:00.000Z",
       "league": "IsraeliLeague18",
@@ -2340,7 +2340,7 @@
     },
     {
       "_id": "5a1342399017dfc4e2faf4b1",
-      "title": "3th place",
+      "title": "4th place",
       "type": "4th",
       "deadline": "2018-03-01T00:00:00.000Z",
       "league": "IsraeliLeague18",
@@ -2348,16 +2348,16 @@
     },
     {
       "_id": "5a1342399017dfc4e2faf4b2",
-      "title": "2nd last",
-      "type": "2nd last",
+      "title": "13th place",
+      "type": "13th",
       "deadline": "2018-03-01T00:00:00.000Z",
       "league": "IsraeliLeague18",
       "options": []
     },
     {
       "_id": "5a1342399017dfc4e2faf4b3",
-      "title": "Last place",
-      "type": "last",
+      "title": "14th place",
+      "type": "14th",
       "deadline": "2018-03-01T00:00:00.000Z",
       "league": "IsraeliLeague18",
       "options": []
