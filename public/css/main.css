@@ -482,6 +482,11 @@ body {
     font-weight: bold;
 }
 
+.tile .main.base .rankTitle {
+    font-size: 0.75rem;
+    font-weight: bold;
+}
+
 .tile .main.base .image-wrapper {
     position: relative;
 }

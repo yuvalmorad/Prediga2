@@ -5,6 +5,7 @@ component.BaseMainTile = (function(){
             title = props.title,
             description = props.description,
             rank = props.rank,
+            rankTitle = props.rankTitle,
             points = props.points;
 
         var trendElement = null;
@@ -39,7 +40,7 @@ component.BaseMainTile = (function(){
                 )
             ),
             re("div", {className: "right"},
-                re("div", {className: "rank"}, rank),
+                re("div", {className: rank !== undefined ? "rank" : "rankTitle"}, rank !== undefined ? rank : rankTitle),
                 re("div", {className: "points"}, points !== undefined ? points : "")
             )
         );
