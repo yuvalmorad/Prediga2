@@ -1,16 +1,16 @@
 component.InputNumber = (function(){
     return React.createClass({
         onIncrement: function() {
-            var num = this.props.num;
+            var num = this.props.num || 0;
             if (num !== 9) {
-                this.props.onChange((num || 0) + 1);
+                this.props.onChange((num) + 1);
             }
         },
 
         onDecrement: function() {
-            var num = this.props.num;
+            var num = this.props.num || 0;
             if(num !== 0) {
-                this.props.onChange((num || 0) - 1);
+                this.props.onChange((num) - 1);
             }
         },
 
