@@ -47,13 +47,12 @@ component.GamePredictionTileDialog = (function(){
             var state = this.state,
                 props = this.props,
                 game = state.game,
-                teams = models.leagues.getTeamsByLeagueName(game.league),
+                team1 = models.leagues.getTeamByTeamName(game.team1),
+                team2 = models.leagues.getTeamByTeamName(game.team2),
                 users = props.users,
                 prediction = state.prediction,
                 otherMatchPredictions = state.otherMatchPredictions,
-                result = state.result,
-                team1 = teams[game.team1],
-                team2 = teams[game.team2];
+                result = state.result;
 
             return re(TileDialog, {borderLeftColor: team1.color, borderRightColor: team2.color, className: "game-prediction-tile"},
                 re(GamePredictionMainTile, {game: game, prediction: prediction, otherMatchPredictions: otherMatchPredictions, result: result}),

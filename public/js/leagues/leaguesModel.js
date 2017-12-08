@@ -2,9 +2,10 @@ models.leagues = (function(){
     var leagues = {};
     return {
         addLeague: addLeague,
-        getTeamsByLeagueName: getTeamsByLeagueName,
         getLeagueLogo: getLeagueLogo,
-        getLeagueName: getLeagueName
+        getLeagueName: getLeagueName,
+        getTeamsByLeagueName: getTeamsByLeagueName,
+        getTeamByTeamName: getTeamByTeamName
     };
 
     function addLeague(league) {
@@ -14,6 +15,16 @@ models.leagues = (function(){
 
     function getTeamsByLeagueName(leagueName) {
         return leagues[leagueName].teams;
+    }
+
+    function getTeamByTeamName(teamName) {
+        var leageName;
+        for (leageName in leagues) {
+            var team = leagues[leageName].teams[teamName];
+            if (team) {
+                return team;
+            }
+        }
     }
 
     function getLeagueLogo(leagueName) {

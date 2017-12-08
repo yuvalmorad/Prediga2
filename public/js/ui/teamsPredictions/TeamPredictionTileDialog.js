@@ -44,11 +44,10 @@ component.TeamPredictionTileDialog = (function(){
                 team = props.team,
                 selectedTeam,
                 borderColor = "gray",
-                teams = models.leagues.getTeamsByLeagueName(team.league),
                 leagueName = models.leagues.getLeagueName(team.league);
 
             if (prediction && prediction.team) {
-                selectedTeam = teams[prediction.team];
+                selectedTeam = models.leagues.getTeamByTeamName(prediction.team),
                 borderColor = selectedTeam.color;
             }
 

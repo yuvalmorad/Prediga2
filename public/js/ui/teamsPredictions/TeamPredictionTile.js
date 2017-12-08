@@ -15,8 +15,7 @@ component.TeamPredictionTile = (function(){
                 selectedTeam;
 
             if (prediction && prediction.team) {
-                var teams = models.leagues.getTeamsByLeagueName(team.league);
-                selectedTeam = teams[prediction.team];
+                var selectedTeam = models.leagues.getTeamByTeamName(prediction.team);
                 borderColor = selectedTeam.color;
             }
 
