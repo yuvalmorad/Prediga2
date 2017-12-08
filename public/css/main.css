@@ -416,10 +416,16 @@ body {
     box-shadow: 0 6px 12px -5px #615c5c;
     border-left: 4px solid #888282;
     border-right: 4px solid #888282;
+    border-top: 1px solid #c1baba;
+    border-bottom: 1px solid #c1baba;
     overflow: hidden;
     max-width: 700px;
     margin: 0 auto 0.5rem auto;
     border-radius: 4px;
+}
+
+.tile.no-prediction {
+    background-color: transparent;
 }
 
 .tile .main {

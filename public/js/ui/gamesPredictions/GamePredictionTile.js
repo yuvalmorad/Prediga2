@@ -19,7 +19,7 @@ component.GamePredictionTile = (function(){
                 borderRightColor = team2 ? team2.color : "",
                 disableOpen = !team1 || !team2;
 
-            return re(Tile, {disableOpen: disableOpen, borderLeftColor: borderLeftColor, borderRightColor: borderRightColor, className: "game-prediction-tile", dialogComponent: "GamePredictionTileDialog", dialogComponentProps:{_id: game._id, isDialogFormDisabled: !!result}},
+            return re(Tile, {hasPrediction: !!prediction, hasdisableOpen: disableOpen, borderLeftColor: borderLeftColor, borderRightColor: borderRightColor, className: "game-prediction-tile", dialogComponent: "GamePredictionTileDialog", dialogComponentProps:{_id: game._id, isDialogFormDisabled: !!result}},
                 re(GamePredictionMainTile, {game: game, prediction: prediction,otherMatchPredictions: otherMatchPredictions, result: result})
             );
         }

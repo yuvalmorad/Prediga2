@@ -14,6 +14,10 @@ component.Tile = (function(){
                 className += " " + props.className
             }
 
+            if (!props.hasPrediction) {
+                className += " no-prediction";
+            }
+
             var opts = { className: className , style: {borderLeftColor: props.borderLeftColor, borderRightColor: props.borderRightColor}};
             if (!this.props.disableOpen) {
                 opts.onClick = this.onTileClicked;
