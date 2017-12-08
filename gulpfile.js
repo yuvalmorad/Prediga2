@@ -17,7 +17,7 @@ gulp.task('buildJS', function() {
 });
 
 gulp.task('copyFolders', function(){
-    var foldersToCopy = ["css", "fonts", "images"];
+    var foldersToCopy = ["css", "fonts", "images", "config"];
     var res = foldersToCopy.map(function(folder){
         return gulp.src(['./public/' + folder + '/**/*'])
             .pipe(gulp.dest('build/' + folder));
