@@ -35,7 +35,7 @@ module.exports = {
 
                             // calculate score for user
                             var score = calculateUserPredictionScore(userPrediction, matchResult, configuration);
-                            var isStrikeCount = isStrike(score, configuration);
+                            var isStrikeCount = 0;//isStrike(score, configuration);
 
                             // score to update
                             var userScore = {
