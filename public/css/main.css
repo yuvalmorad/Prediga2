@@ -371,12 +371,14 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.51);
+    background: rgba(0, 0, 0, 0.85);
 }
 
 .tile-dialog-container .dialog-button {
     height: calc((100% - 24rem)/2);
-    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .tile-dialog-container.TeamPredictionTileDialog .dialog-button {
@@ -385,15 +387,21 @@ body {
 
 .tile-dialog-container .dialog-button button {
     background: transparent;
-    border: transparent;
     color: #fff;
+    border: 2px solid #F5F5F5;
+    border-radius: 8px;
     font-size: 1.3125rem;
-    height: 100%;
-    width: 100%;
+    flex: 1;
+    max-width: 185px;
+    height: 50px;
 }
 
 .tile-dialog-container .dialog-button button:active {
     color: #009fff;
+}
+
+.tile-dialog-container .dialog-button button:first-child {
+    margin-right: 0.5rem;
 }
 
 .tile-dialog-container .tile {
