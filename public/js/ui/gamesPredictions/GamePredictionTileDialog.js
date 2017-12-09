@@ -53,11 +53,12 @@ component.GamePredictionTileDialog = (function(){
                 prediction = state.prediction,
                 otherMatchPredictions = state.otherMatchPredictions,
                 result = state.result,
-                userId = props.userId;
+                userId = props.userId,
+                isDialogFormDisabled = props.isDialogFormDisabled;
 
             return re(TileDialog, {borderLeftColor: team1.color, borderRightColor: team2.color, className: "game-prediction-tile"},
                 re(GamePredictionMainTile, {game: game, prediction: prediction, otherMatchPredictions: otherMatchPredictions, result: result}),
-                re(GamePredictionFormTile, {game: game, prediction: prediction, otherMatchPredictions: otherMatchPredictions, result: result, users: users, userId: userId, updateGameForm: this.updateGameForm})
+                re(GamePredictionFormTile, {game: game, prediction: prediction, otherMatchPredictions: otherMatchPredictions, result: result, users: users, userId: userId, updateGameForm: this.updateGameForm, isDialogFormDisabled: isDialogFormDisabled})
             );
         }
     });
