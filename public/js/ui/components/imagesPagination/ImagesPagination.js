@@ -1,4 +1,6 @@
 component.ImagesPagination = (function(){
+    var ImageButton = component.ImageButton;
+
     return React.createClass({
         getInitialState: function() {
             return {
@@ -85,16 +87,19 @@ component.ImagesPagination = (function(){
                 scrollClassName += " animate";
             }
 
+            var isLeftButtonDisabled = currentIndex === 0;
+            var isRightButtonDisabled = currentIndex === items.length - 1;
+
             return re("div", {className: "images-pagination", ref: this.assignRefElem},
                 re("div", {className: "images-pagination-container"},
                     re("div", {className: "button-area left"},
-                        re("button", {className: "icon-left-open", onClick: this.onPreviousClicked.bind(this, currentIndex)})
+                        re(ImageButton, {onClick: this.onPreviousClicked.bind(this, currentIndex), disabled: isLeftButtonDisabled, imageName: "arrow_left"})
                     ),
                     re("div", {className: scrollClassName, style: {transform: "translateX(" + scrollX + "px)"}},
                         itemsElements
                     ),
                     re("div", {className: "button-area right"},
-                        re("button", {className: "icon-right-open", onClick: this.onNextClicked.bind(this,currentIndex)})
+                        re(ImageButton, {onClick: this.onNextClicked.bind(this,currentIndex), disabled: isRightButtonDisabled, imageName: "arrow_right"})
                     )
                 )
             );

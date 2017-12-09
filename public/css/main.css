@@ -287,10 +287,12 @@ body {
 .images-pagination .button-area button {
     background: transparent;
     border: none;
-    font-size: 2rem;
-    color: #c5c5c5;
     padding: 0;
-    line-height: 5rem;
+    height: 100%;
+}
+
+.images-pagination .button-area button img {
+    height: 2.5rem;
 }
 
 .images-pagination .scroll {
