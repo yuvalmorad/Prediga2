@@ -761,7 +761,6 @@
       "team1": "Hapoel Haifa",
       "team2": "FC Ashdod",
       "kickofftime": "2017-12-09T14:00:00.000Z",
-      "status": "PRE_GAME",
       "type": "Round 13",
       "league": "IsraeliLeague18"
     },
@@ -770,7 +769,6 @@
       "team1": "Maccabi Tel Aviv",
       "team2": "Maccabi Ironi Petah Tikva",
       "kickofftime": "2017-12-11T19:00:00.000Z",
-      "status": "PRE_GAME",
       "type": "Round 13",
       "league": "IsraeliLeague18"
     },
@@ -779,7 +777,6 @@
       "team1": "Hapoel Raanana",
       "team2": "Beitar Jerusalem",
       "kickofftime": "2017-12-09T18:30:00.000Z",
-      "status": "PRE_GAME",
       "type": "Round 13",
       "league": "IsraeliLeague18"
     },
@@ -788,7 +785,6 @@
       "team1": "Hapoel Akko",
       "team2": "Hapoel Kiryat Shmona",
       "kickofftime": "2017-12-10T17:00:00.000Z",
-      "status": "PRE_GAME",
       "type": "Round 13",
       "league": "IsraeliLeague18"
     },
@@ -797,7 +793,6 @@
       "team1": "Hapoel Beer Sheva",
       "team2": "Bnei Sakhnin",
       "kickofftime": "2017-12-10T18:15:00.000Z",
-      "status": "PRE_GAME",
       "type": "Round 13",
       "league": "IsraeliLeague18"
     },
@@ -806,7 +801,6 @@
       "team1": "Bnei Yehuda Tel Aviv",
       "team2": "Maccabi Netanya",
       "kickofftime": "2017-12-09T14:00:00.000Z",
-      "status": "PRE_GAME",
       "type": "Round 13",
       "league": "IsraeliLeague18"
     },
@@ -815,7 +809,6 @@
       "team1": "Hapoel Ironi Ashkelon",
       "team2": "Maccabi Haifa",
       "kickofftime": "2017-12-09T16:15:00.000Z",
-      "status": "PRE_GAME",
       "type": "Round 13",
       "league": "IsraeliLeague18"
     },
@@ -824,7 +817,6 @@
       "team1": "Hapoel Haifa",
       "team2": "Hapoel Ironi Ashkelon",
       "kickofftime": "2017-12-16T16:15:00.000Z",
-      "status": "PRE_GAME",
       "type": "Round 14",
       "league": "IsraeliLeague18"
     },
@@ -833,7 +825,6 @@
       "team1": "Bnei Yehuda Tel Aviv",
       "team2": "Maccabi Haifa",
       "kickofftime": "2017-12-16T18:30:00.000Z",
-      "status": "PRE_GAME",
       "type": "Round 14",
       "league": "IsraeliLeague18"
     },
@@ -842,7 +833,6 @@
       "team1": "Hapoel Beer Sheva",
       "team2": "Maccabi Netanya",
       "kickofftime": "2017-12-17T18:30:00.000Z",
-      "status": "PRE_GAME",
       "type": "Round 14",
       "league": "IsraeliLeague18"
     },
@@ -851,7 +841,6 @@
       "team1": "Hapoel Akko",
       "team2": "Bnei Sakhnin",
       "kickofftime": "2017-12-16T16:00:00.000Z",
-      "status": "PRE_GAME",
       "type": "Round 14",
       "league": "IsraeliLeague18"
     },
@@ -860,7 +849,6 @@
       "team1": "Hapoel Raanana",
       "team2": "Hapoel Kiryat Shmona",
       "kickofftime": "2017-12-17T17:00:00.000Z",
-      "status": "PRE_GAME",
       "type": "Round 14",
       "league": "IsraeliLeague18"
     },
@@ -869,7 +857,6 @@
       "team1": "Maccabi Tel Aviv",
       "team2": "Beitar Jerusalem",
       "kickofftime": "2017-12-18T19:00:00.000Z",
-      "status": "PRE_GAME",
       "type": "Round 14",
       "league": "IsraeliLeague18"
     },
@@ -878,7 +865,6 @@
       "team1": "FC Ashdod",
       "team2": "Maccabi Ironi Petah Tikva",
       "kickofftime": "2017-12-16T14:00:00.000Z",
-      "status": "PRE_GAME",
       "type": "Round 14",
       "league": "IsraeliLeague18"
     },
@@ -887,7 +873,6 @@
       "team1": "Maccabi Ironi Petah Tikva",
       "team2": "Hapoel Haifa",
       "kickofftime": "2017-12-23T16:15:00.000Z",
-      "status": "PRE_GAME",
       "type": "Round 15",
       "league": "IsraeliLeague18"
     },
@@ -896,7 +881,6 @@
       "team1": "Beitar Jerusalem",
       "team2": "FC Ashdod",
       "kickofftime": "2017-12-24T18:15:00.000Z",
-      "status": "PRE_GAME",
       "type": "Round 15",
       "league": "IsraeliLeague18"
     },
@@ -905,7 +889,6 @@
       "team1": "Hapoel Kiryat Shmona",
       "team2": "Maccabi Tel Aviv",
       "kickofftime": "2017-12-23T18:30:00.000Z",
-      "status": "PRE_GAME",
       "type": "Round 15",
       "league": "IsraeliLeague18"
     },
@@ -914,7 +897,6 @@
       "team1": "Bnei Sakhnin",
       "team2": "Hapoel Raanana",
       "kickofftime": "2017-12-24T17:00:00.000Z",
-      "status": "PRE_GAME",
       "type": "Round 15",
       "league": "IsraeliLeague18"
     },
@@ -923,7 +905,6 @@
       "team1": "Maccabi Netanya",
       "team2": "Hapoel Akko",
       "kickofftime": "2017-12-23T14:00:00.000Z",
-      "status": "PRE_GAME",
       "type": "Round 15",
       "league": "IsraeliLeague18"
     },
@@ -932,7 +913,6 @@
       "team1": "Maccabi Haifa",
       "team2": "Hapoel Beer Sheva",
       "kickofftime": "2017-12-25T19:00:00.000Z",
-      "status": "PRE_GAME",
       "type": "Round 15",
       "league": "IsraeliLeague18"
     },
@@ -941,7 +921,6 @@
       "team1": "Hapoel Ironi Ashkelon",
       "team2": "Bnei Yehuda Tel Aviv",
       "kickofftime": "2017-12-23T16:00:00.000Z",
-      "status": "PRE_GAME",
       "type": "Round 15",
       "league": "IsraeliLeague18"
     },
@@ -950,7 +929,6 @@
       "team1": "Hapoel Haifa",
       "team2": "Bnei Yehuda Tel Aviv",
       "kickofftime": "2017-12-30T14:00:00.000Z",
-      "status": "PRE_GAME",
       "type": "Round 16",
       "league": "IsraeliLeague18"
     },
@@ -959,7 +937,6 @@
       "team1": "Hapoel Beer Sheva",
       "team2": "Hapoel Ironi Ashkelon",
       "kickofftime": "2017-12-31T18:15:00.000Z",
-      "status": "PRE_GAME",
       "type": "Round 16",
       "league": "IsraeliLeague18"
     },
@@ -968,7 +945,6 @@
       "team1": "Hapoel Akko",
       "team2": "Maccabi Haifa",
       "kickofftime": "2017-12-30T16:15:00.000Z",
-      "status": "PRE_GAME",
       "type": "Round 16",
       "league": "IsraeliLeague18"
     },
@@ -977,7 +953,6 @@
       "team1": "Hapoel Raanana",
       "team2": "Maccabi Netanya",
       "kickofftime": "2017-12-30T16:15:00.000Z",
-      "status": "PRE_GAME",
       "type": "Round 16",
       "league": "IsraeliLeague18"
     },
@@ -986,7 +961,6 @@
       "team1": "Maccabi Tel Aviv",
       "team2": "Bnei Sakhnin",
       "kickofftime": "2018-01-01T19:00:00.000Z",
-      "status": "PRE_GAME",
       "type": "Round 16",
       "league": "IsraeliLeague18"
     },
@@ -995,7 +969,6 @@
       "team1": "FC Ashdod",
       "team2": "Hapoel Kiryat Shmona",
       "kickofftime": "2017-12-31T17:00:00.000Z",
-      "status": "PRE_GAME",
       "type": "Round 16",
       "league": "IsraeliLeague18"
     },
@@ -1004,7 +977,6 @@
       "team1": "Maccabi Ironi Petah Tikva",
       "team2": "Beitar Jerusalem",
       "kickofftime": "2017-12-30T18:30:00.000Z",
-      "status": "PRE_GAME",
       "type": "Round 16",
       "league": "IsraeliLeague18"
     },
@@ -1013,7 +985,6 @@
       "team1": "Beitar Jerusalem",
       "team2": "Hapoel Haifa",
       "kickofftime": "2018-01-09T18:33:00.000Z",
-      "status": "PRE_GAME",
       "type": "Round 17",
       "league": "IsraeliLeague18"
     },
@@ -1022,7 +993,6 @@
       "team1": "Hapoel Kiryat Shmona",
       "team2": "Maccabi Ironi Petah Tikva",
       "kickofftime": "2018-01-09T18:33:00.000Z",
-      "status": "PRE_GAME",
       "type": "Round 17",
       "league": "IsraeliLeague18"
     },
@@ -1031,7 +1001,6 @@
       "team1": "Bnei Sakhnin",
       "team2": "FC Ashdod",
       "kickofftime": "2018-01-09T18:33:00.000Z",
-      "status": "PRE_GAME",
       "type": "Round 17",
       "league": "IsraeliLeague18"
     },
@@ -1040,7 +1009,6 @@
       "team1": "Maccabi Netanya",
       "team2": "Maccabi Tel Aviv",
       "kickofftime": "2018-01-09T18:33:00.000Z",
-      "status": "PRE_GAME",
       "type": "Round 17",
       "league": "IsraeliLeague18"
     },
@@ -1049,7 +1017,6 @@
       "team1": "Maccabi Haifa",
       "team2": "Hapoel Raanana",
       "kickofftime": "2018-01-09T18:33:00.000Z",
-      "status": "PRE_GAME",
       "type": "Round 17",
       "league": "IsraeliLeague18"
     },
@@ -1058,7 +1025,6 @@
       "team1": "Hapoel Ironi Ashkelon",
       "team2": "Hapoel Akko",
       "kickofftime": "2018-01-09T18:33:00.000Z",
-      "status": "PRE_GAME",
       "type": "Round 17",
       "league": "IsraeliLeague18"
     },
@@ -1067,7 +1033,6 @@
       "team1": "Bnei Yehuda Tel Aviv",
       "team2": "Hapoel Beer Sheva",
       "kickofftime": "2018-01-09T18:33:00.000Z",
-      "status": "PRE_GAME",
       "type": "Round 17",
       "league": "IsraeliLeague18"
     },
@@ -1076,7 +1041,6 @@
       "team1": "Hapoel Haifa",
       "team2": "Hapoel Beer Sheva",
       "kickofftime": "2018-01-13T18:33:00.000Z",
-      "status": "PRE_GAME",
       "type": "Round 18",
       "league": "IsraeliLeague18"
     },
@@ -1085,7 +1049,6 @@
       "team1": "Hapoel Akko",
       "team2": "Bnei Yehuda Tel Aviv",
       "kickofftime": "2018-01-13T18:33:00.000Z",
-      "status": "PRE_GAME",
       "type": "Round 18",
       "league": "IsraeliLeague18"
     },
@@ -1094,7 +1057,6 @@
       "team1": "Hapoel Raanana",
       "team2": "Hapoel Ironi Ashkelon",
       "kickofftime": "2018-01-13T18:33:00.000Z",
-      "status": "PRE_GAME",
       "type": "Round 18",
       "league": "IsraeliLeague18"
     },
@@ -1103,7 +1065,6 @@
       "team1": "Maccabi Tel Aviv",
       "team2": "Maccabi Haifa",
       "kickofftime": "2018-01-13T18:33:00.000Z",
-      "status": "PRE_GAME",
       "type": "Round 18",
       "league": "IsraeliLeague18"
     },
@@ -1112,7 +1073,6 @@
       "team1": "FC Ashdod",
       "team2": "Maccabi Netanya",
       "kickofftime": "2018-01-13T18:33:00.000Z",
-      "status": "PRE_GAME",
       "type": "Round 18",
       "league": "IsraeliLeague18"
     },
@@ -1121,7 +1081,6 @@
       "team1": "Maccabi Ironi Petah Tikva",
       "team2": "Bnei Sakhnin",
       "kickofftime": "2018-01-13T18:33:00.000Z",
-      "status": "PRE_GAME",
       "type": "Round 18",
       "league": "IsraeliLeague18"
     },
@@ -1130,7 +1089,6 @@
       "team1": "Beitar Jerusalem",
       "team2": "Hapoel Kiryat Shmona",
       "kickofftime": "2018-01-13T18:33:00.000Z",
-      "status": "PRE_GAME",
       "type": "Round 18",
       "league": "IsraeliLeague18"
     },
@@ -1139,7 +1097,6 @@
       "team1": "Hapoel Kiryat Shmona",
       "team2": "Hapoel Haifa",
       "kickofftime": "2018-01-20T18:33:00.000Z",
-      "status": "PRE_GAME",
       "type": "Round 19",
       "league": "IsraeliLeague18"
     },
@@ -1148,7 +1105,6 @@
       "team1": "Maccabi Netanya",
       "team2": "Maccabi Ironi Petah Tikva",
       "kickofftime": "2018-01-20T18:33:00.000Z",
-      "status": "PRE_GAME",
       "type": "Round 19",
       "league": "IsraeliLeague18"
     },
@@ -1157,7 +1113,6 @@
       "team1": "Maccabi Haifa",
       "team2": "FC Ashdod",
       "kickofftime": "2018-01-20T18:33:00.000Z",
-      "status": "PRE_GAME",
       "type": "Round 19",
       "league": "IsraeliLeague18"
     },
@@ -1166,7 +1121,6 @@
       "team1": "Hapoel Ironi Ashkelon",
       "team2": "Maccabi Tel Aviv",
       "kickofftime": "2018-01-20T18:33:00.000Z",
-      "status": "PRE_GAME",
       "type": "Round 19",
       "league": "IsraeliLeague18"
     },
@@ -1175,7 +1129,6 @@
       "team1": "Bnei Yehuda Tel Aviv",
       "team2": "Hapoel Raanana",
       "kickofftime": "2018-01-20T18:33:00.000Z",
-      "status": "PRE_GAME",
       "type": "Round 19",
       "league": "IsraeliLeague18"
     },
@@ -1184,7 +1137,6 @@
       "team1": "Hapoel Beer Sheva",
       "team2": "Hapoel Akko",
       "kickofftime": "2018-01-20T18:33:00.000Z",
-      "status": "PRE_GAME",
       "type": "Round 19",
       "league": "IsraeliLeague18"
     },
@@ -1193,7 +1145,6 @@
       "team1": "Bnei Sakhnin",
       "team2": "Beitar Jerusalem",
       "kickofftime": "2018-01-20T18:33:00.000Z",
-      "status": "PRE_GAME",
       "type": "Round 19",
       "league": "IsraeliLeague18"
     },
@@ -1202,7 +1153,6 @@
       "team1": "Hapoel Haifa",
       "team2": "Hapoel Akko",
       "kickofftime": "2018-01-27T18:33:00.000Z",
-      "status": "PRE_GAME",
       "type": "Round 20",
       "league": "IsraeliLeague18"
     },
@@ -1211,7 +1161,6 @@
       "team1": "Hapoel Raanana",
       "team2": "Hapoel Beer Sheva",
       "kickofftime": "2018-01-27T18:33:00.000Z",
-      "status": "PRE_GAME",
       "type": "Round 20",
       "league": "IsraeliLeague18"
     },
@@ -1220,7 +1169,6 @@
       "team1": "Maccabi Tel Aviv",
       "team2": "Bnei Yehuda Tel Aviv",
       "kickofftime": "2018-01-27T18:33:00.000Z",
-      "status": "PRE_GAME",
       "type": "Round 20",
       "league": "IsraeliLeague18"
     },
@@ -1229,7 +1177,6 @@
       "team1": "FC Ashdod",
       "team2": "Hapoel Ironi Ashkelon",
       "kickofftime": "2018-01-27T18:33:00.000Z",
-      "status": "PRE_GAME",
       "type": "Round 20",
       "league": "IsraeliLeague18"
     },
@@ -1238,7 +1185,6 @@
       "team1": "Maccabi Ironi Petah Tikva",
       "team2": "Maccabi Haifa",
       "kickofftime": "2018-01-27T18:33:00.000Z",
-      "status": "PRE_GAME",
       "type": "Round 20",
       "league": "IsraeliLeague18"
     },
@@ -1247,7 +1193,6 @@
       "team1": "Beitar Jerusalem",
       "team2": "Maccabi Netanya",
       "kickofftime": "2018-01-27T18:33:00.000Z",
-      "status": "PRE_GAME",
       "type": "Round 20",
       "league": "IsraeliLeague18"
     },
@@ -1256,7 +1201,6 @@
       "team1": "Hapoel Kiryat Shmona",
       "team2": "Bnei Sakhnin",
       "kickofftime": "2018-01-27T18:33:00.000Z",
-      "status": "PRE_GAME",
       "type": "Round 20",
       "league": "IsraeliLeague18"
     },
@@ -1265,7 +1209,6 @@
       "team1": "Bnei Sakhnin",
       "team2": "Hapoel Haifa",
       "kickofftime": "2018-02-03T18:33:00.000Z",
-      "status": "PRE_GAME",
       "type": "Round 21",
       "league": "IsraeliLeague18"
     },
@@ -1274,7 +1217,6 @@
       "team1": "Maccabi Netanya",
       "team2": "Hapoel Kiryat Shmona",
       "kickofftime": "2018-02-03T18:33:00.000Z",
-      "status": "PRE_GAME",
       "type": "Round 21",
       "league": "IsraeliLeague18"
     },
@@ -1283,7 +1225,6 @@
       "team1": "Maccabi Haifa",
       "team2": "Beitar Jerusalem",
       "kickofftime": "2018-02-03T18:33:00.000Z",
-      "status": "PRE_GAME",
       "type": "Round 21",
       "league": "IsraeliLeague18"
     },
@@ -1292,7 +1233,6 @@
       "team1": "Hapoel Ironi Ashkelon",
       "team2": "Maccabi Ironi Petah Tikva",
       "kickofftime": "2018-02-03T18:33:00.000Z",
-      "status": "PRE_GAME",
       "type": "Round 21",
       "league": "IsraeliLeague18"
     },
@@ -1301,7 +1241,6 @@
       "team1": "Bnei Yehuda Tel Aviv",
       "team2": "FC Ashdod",
       "kickofftime": "2018-02-03T18:33:00.000Z",
-      "status": "PRE_GAME",
       "type": "Round 21",
       "league": "IsraeliLeague18"
     },
@@ -1310,7 +1249,6 @@
       "team1": "Hapoel Beer Sheva",
       "team2": "Maccabi Tel Aviv",
       "kickofftime": "2018-02-03T18:33:00.000Z",
-      "status": "PRE_GAME",
       "type": "Round 21",
       "league": "IsraeliLeague18"
     },
@@ -1319,7 +1257,6 @@
       "team1": "Hapoel Akko",
       "team2": "Hapoel Raanana",
       "kickofftime": "2018-02-03T18:33:00.000Z",
-      "status": "PRE_GAME",
       "type": "Round 21",
       "league": "IsraeliLeague18"
     },
@@ -1328,7 +1265,6 @@
       "team1": "Hapoel Haifa",
       "team2": "Hapoel Raanana",
       "kickofftime": "2018-02-10T18:33:00.000Z",
-      "status": "PRE_GAME",
       "type": "Round 22",
       "league": "IsraeliLeague18"
     },
@@ -1337,7 +1273,6 @@
       "team1": "Maccabi Tel Aviv",
       "team2": "Hapoel Akko",
       "kickofftime": "2018-02-10T18:33:00.000Z",
-      "status": "PRE_GAME",
       "type": "Round 22",
       "league": "IsraeliLeague18"
     },
@@ -1346,7 +1281,6 @@
       "team1": "FC Ashdod",
       "team2": "Hapoel Beer Sheva",
       "kickofftime": "2018-02-10T18:33:00.000Z",
-      "status": "PRE_GAME",
       "type": "Round 22",
       "league": "IsraeliLeague18"
     },
@@ -1355,7 +1289,6 @@
       "team1": "Maccabi Ironi Petah Tikva",
       "team2": "Bnei Yehuda Tel Aviv",
       "kickofftime": "2018-02-10T18:33:00.000Z",
-      "status": "PRE_GAME",
       "type": "Round 22",
       "league": "IsraeliLeague18"
     },
@@ -1364,7 +1297,6 @@
       "team1": "Beitar Jerusalem",
       "team2": "Hapoel Ironi Ashkelon",
       "kickofftime": "2018-02-10T18:33:00.000Z",
-      "status": "PRE_GAME",
       "type": "Round 22",
       "league": "IsraeliLeague18"
     },
@@ -1373,7 +1305,6 @@
       "team1": "Hapoel Kiryat Shmona",
       "team2": "Maccabi Haifa",
       "kickofftime": "2018-02-10T18:33:00.000Z",
-      "status": "PRE_GAME",
       "type": "Round 22",
       "league": "IsraeliLeague18"
     },
@@ -1382,7 +1313,6 @@
       "team1": "Bnei Sakhnin",
       "team2": "Maccabi Netanya",
       "kickofftime": "2018-02-10T18:33:00.000Z",
-      "status": "PRE_GAME",
       "type": "Round 22",
       "league": "IsraeliLeague18"
     },
@@ -1391,7 +1321,6 @@
       "team1": "Maccabi Netanya",
       "team2": "Hapoel Haifa",
       "kickofftime": "2018-02-17T18:33:00.000Z",
-      "status": "PRE_GAME",
       "type": "Round 23",
       "league": "IsraeliLeague18"
     },
@@ -1400,7 +1329,6 @@
       "team1": "Maccabi Haifa",
       "team2": "Bnei Sakhnin",
       "kickofftime": "2018-02-17T18:33:00.000Z",
-      "status": "PRE_GAME",
       "type": "Round 23",
       "league": "IsraeliLeague18"
     },
@@ -1409,7 +1337,6 @@
       "team1": "Hapoel Ironi Ashkelon",
       "team2": "Hapoel Kiryat Shmona",
       "kickofftime": "2018-02-17T18:33:00.000Z",
-      "status": "PRE_GAME",
       "type": "Round 23",
       "league": "IsraeliLeague18"
     },
@@ -1418,7 +1345,6 @@
       "team1": "Bnei Yehuda Tel Aviv",
       "team2": "Beitar Jerusalem",
       "kickofftime": "2018-02-17T18:33:00.000Z",
-      "status": "PRE_GAME",
       "type": "Round 23",
       "league": "IsraeliLeague18"
     },
@@ -1427,7 +1353,6 @@
       "team1": "Hapoel Beer Sheva",
       "team2": "Maccabi Ironi Petah Tikva",
       "kickofftime": "2018-02-17T18:33:00.000Z",
-      "status": "PRE_GAME",
       "type": "Round 23",
       "league": "IsraeliLeague18"
     },
@@ -1436,7 +1361,6 @@
       "team1": "Hapoel Akko",
       "team2": "FC Ashdod",
       "kickofftime": "2018-02-17T18:33:00.000Z",
-      "status": "PRE_GAME",
       "type": "Round 23",
       "league": "IsraeliLeague18"
     },
@@ -1445,7 +1369,6 @@
       "team1": "Hapoel Raanana",
       "team2": "Maccabi Tel Aviv",
       "kickofftime": "2018-02-17T18:33:00.000Z",
-      "status": "PRE_GAME",
       "type": "Round 23",
       "league": "IsraeliLeague18"
     },
@@ -1454,7 +1377,6 @@
       "team1": "Hapoel Haifa",
       "team2": "Maccabi Tel Aviv",
       "kickofftime": "2018-02-24T18:33:00.000Z",
-      "status": "PRE_GAME",
       "type": "Round 24",
       "league": "IsraeliLeague18"
     },
@@ -1463,7 +1385,6 @@
       "team1": "FC Ashdod",
       "team2": "Hapoel Raanana",
       "kickofftime": "2018-02-24T18:33:00.000Z",
-      "status": "PRE_GAME",
       "type": "Round 24",
       "league": "IsraeliLeague18"
     },
@@ -1472,7 +1393,6 @@
       "team1": "Maccabi Ironi Petah Tikva",
       "team2": "Hapoel Akko",
       "kickofftime": "2018-02-24T18:33:00.000Z",
-      "status": "PRE_GAME",
       "type": "Round 24",
       "league": "IsraeliLeague18"
     },
@@ -1481,7 +1401,6 @@
       "team1": "Beitar Jerusalem",
       "team2": "Hapoel Beer Sheva",
       "kickofftime": "2018-02-24T18:33:00.000Z",
-      "status": "PRE_GAME",
       "type": "Round 24",
       "league": "IsraeliLeague18"
     },
@@ -1490,7 +1409,6 @@
       "team1": "Hapoel Kiryat Shmona",
       "team2": "Bnei Yehuda Tel Aviv",
       "kickofftime": "2018-02-24T18:33:00.000Z",
-      "status": "PRE_GAME",
       "type": "Round 24",
       "league": "IsraeliLeague18"
     },
@@ -1499,7 +1417,6 @@
       "team1": "Bnei Sakhnin",
       "team2": "Hapoel Ironi Ashkelon",
       "kickofftime": "2018-02-24T18:33:00.000Z",
-      "status": "PRE_GAME",
       "type": "Round 24",
       "league": "IsraeliLeague18"
     },
@@ -1508,7 +1425,6 @@
       "team1": "Maccabi Netanya",
       "team2": "Maccabi Haifa",
       "kickofftime": "2018-02-24T18:33:00.000Z",
-      "status": "PRE_GAME",
       "type": "Round 24",
       "league": "IsraeliLeague18"
     },
@@ -1517,7 +1433,6 @@
       "team1": "Hapoel Haifa",
       "team2": "Maccabi Haifa",
       "kickofftime": "2018-03-03T18:33:00.000Z",
-      "status": "PRE_GAME",
       "type": "Round 25",
       "league": "IsraeliLeague18"
     },
@@ -1526,7 +1441,6 @@
       "team1": "Hapoel Ironi Ashkelon",
       "team2": "Maccabi Netanya",
       "kickofftime": "2018-03-03T18:33:00.000Z",
-      "status": "PRE_GAME",
       "type": "Round 25",
       "league": "IsraeliLeague18"
     },
@@ -1535,7 +1449,6 @@
       "team1": "Bnei Yehuda Tel Aviv",
       "team2": "Bnei Sakhnin",
       "kickofftime": "2018-03-03T18:33:00.000Z",
-      "status": "PRE_GAME",
       "type": "Round 25",
       "league": "IsraeliLeague18"
     },
@@ -1544,7 +1457,6 @@
       "team1": "Hapoel Beer Sheva",
       "team2": "Hapoel Kiryat Shmona",
       "kickofftime": "2018-03-03T18:33:00.000Z",
-      "status": "PRE_GAME",
       "type": "Round 25",
       "league": "IsraeliLeague18"
     },
@@ -1553,7 +1465,6 @@
       "team1": "Hapoel Akko",
       "team2": "Beitar Jerusalem",
       "kickofftime": "2018-03-03T18:33:00.000Z",
-      "status": "PRE_GAME",
       "type": "Round 25",
       "league": "IsraeliLeague18"
     },
@@ -1562,7 +1473,6 @@
       "team1": "Hapoel Raanana",
       "team2": "Maccabi Ironi Petah Tikva",
       "kickofftime": "2018-03-03T18:33:00.000Z",
-      "status": "PRE_GAME",
       "type": "Round 25",
       "league": "IsraeliLeague18"
     },
@@ -1571,7 +1481,6 @@
       "team1": "Maccabi Tel Aviv",
       "team2": "FC Ashdod",
       "kickofftime": "2018-03-03T18:33:00.000Z",
-      "status": "PRE_GAME",
       "type": "Round 25",
       "league": "IsraeliLeague18"
     },
@@ -1580,7 +1489,6 @@
       "team1": "FC Ashdod",
       "team2": "Hapoel Haifa",
       "kickofftime": "2018-03-10T18:33:00.000Z",
-      "status": "PRE_GAME",
       "type": "Round 26",
       "league": "IsraeliLeague18"
     },
@@ -1589,7 +1497,6 @@
       "team1": "Maccabi Ironi Petah Tikva",
       "team2": "Maccabi Tel Aviv",
       "kickofftime": "2018-03-10T18:33:00.000Z",
-      "status": "PRE_GAME",
       "type": "Round 26",
       "league": "IsraeliLeague18"
     },
@@ -1598,7 +1505,6 @@
       "team1": "Beitar Jerusalem",
       "team2": "Hapoel Raanana",
       "kickofftime": "2018-03-10T18:33:00.000Z",
-      "status": "PRE_GAME",
       "type": "Round 26",
       "league": "IsraeliLeague18"
     },
@@ -1607,7 +1513,6 @@
       "team1": "Hapoel Kiryat Shmona",
       "team2": "Hapoel Akko",
       "kickofftime": "2018-03-10T18:33:00.000Z",
-      "status": "PRE_GAME",
       "type": "Round 26",
       "league": "IsraeliLeague18"
     },
@@ -1616,7 +1521,6 @@
       "team1": "Bnei Sakhnin",
       "team2": "Hapoel Beer Sheva",
       "kickofftime": "2018-03-10T18:33:00.000Z",
-      "status": "PRE_GAME",
       "type": "Round 26",
       "league": "IsraeliLeague18"
     },
@@ -1625,7 +1529,6 @@
       "team1": "Maccabi Netanya",
       "team2": "Bnei Yehuda Tel Aviv",
       "kickofftime": "2018-03-10T18:33:00.000Z",
-      "status": "PRE_GAME",
       "type": "Round 26",
       "league": "IsraeliLeague18"
     },
@@ -1634,7 +1537,6 @@
       "team1": "Maccabi Haifa",
       "team2": "Hapoel Ironi Ashkelon",
       "kickofftime": "2018-03-10T18:33:00.000Z",
-      "status": "PRE_GAME",
       "type": "Round 26",
       "league": "IsraeliLeague18"
     }

@@ -37,17 +37,12 @@ function updateGames(gameJSON) {
     var league = gameJSON.matches[0].league;
 
     return Promise.all([
-        removeMatches(league),
-        removeTeams(league),
+        MatchService.createMatches(gameJSON.matches, league),
+        createMatchResults(gameJSON.matchResults, league),
+        TeamService.createTeams(gameJSON.teams, league),
+        createTeamResults(gameJSON.teamResults, league)
     ]).then(function (arr) {
-        return Promise.all([
-            MatchService.createMatches(gameJSON.matches, league),
-            createMatchResults(gameJSON.matchResults, league),
-            TeamService.createTeams(gameJSON.teams, league),
-            createTeamResults(gameJSON.teamResults, league)
-        ]).then(function (arr) {
-            deferred.resolve();
-        });
+        deferred.resolve();
     });
 
     return deferred.promise;
