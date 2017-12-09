@@ -8,8 +8,8 @@ component.GamePredictionMainTile = (function(){
             result = props.result,
             predictionWinner = prediction && prediction[GAME.BET_TYPES.WINNER.key],
             resultWinner,
-            resultTeam1Goals,
-            resultTeam2Goals,
+            displayTeam1Goals,
+            displayTeam2Goals,
             team1 = models.leagues.getTeamByTeamName(game.team1),
             team2 = models.leagues.getTeamByTeamName(game.team2),
             team1Logo = team1 ? "url('../images/teamsLogo/" + team1.name + ".png')" : "",
@@ -41,6 +41,9 @@ component.GamePredictionMainTile = (function(){
             var otherPredictionsTeam2Count = otherPredictionByWinner[game.team2] ? otherPredictionByWinner[game.team2].length : 0;
             var otherPredictionsDrawCount = otherPredictionByWinner["draw"] ? otherPredictionByWinner["draw"].length : 0;
 
+            displayTeam1Goals = prediction ? prediction[GAME.BET_TYPES.TEAM1_GOALS.key] : "";
+            displayTeam2Goals = prediction ? prediction[GAME.BET_TYPES.TEAM2_GOALS.key] : "";
+
             if (predictionWinner) {
                 //add this user to the count
                 if (predictionWinner === game.team1) {
@@ -67,8 +70,8 @@ component.GamePredictionMainTile = (function(){
             var maxPoints = utils.general.getMaxPoints();
 
             resultWinner = result[GAME.BET_TYPES.WINNER.key];
-            resultTeam1Goals = result[GAME.BET_TYPES.TEAM1_GOALS.key];
-            resultTeam2Goals = result[GAME.BET_TYPES.TEAM2_GOALS.key];
+            displayTeam1Goals = result[GAME.BET_TYPES.TEAM1_GOALS.key];
+            displayTeam2Goals = result[GAME.BET_TYPES.TEAM2_GOALS.key];
 
             gameDate = re("div", {className: "final-game"}, "FINAL");
             gamePoints = re("div", {key: 2, className: "game-points"}, points);
@@ -94,9 +97,9 @@ component.GamePredictionMainTile = (function(){
                             gameDate
                         ),
                         re("div", {className: "status"},
-                            re("div", {className: "game-score"}, resultTeam1Goals !== undefined ? resultTeam1Goals : ""),
+                            re("div", {className: "game-score"}, displayTeam1Goals !== undefined ? displayTeam1Goals : ""),
                             gamePoints,
-                            re("div", {className: "game-score"}, resultTeam2Goals !== undefined ? resultTeam2Goals : "")
+                            re("div", {className: "game-score"}, displayTeam2Goals !== undefined ? displayTeam2Goals : "")
                         ),
                         re("div", {className: "graphContainer"},
                             re(Graph, {parts: graphParts})
