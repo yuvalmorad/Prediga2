@@ -35,14 +35,14 @@ module.exports = {
 
                             // calculate score for user
                             var score = calculateUserPredictionScore(userPrediction, matchResult, configuration);
-                            var isStrike = isStrike(score, configuration);
+                            var isStrikeCount = 0;//isStrike(score, configuration);
 
                             // score to update
                             var userScore = {
                                 userId: userPrediction.userId,
                                 gameId: userPrediction.matchId,
                                 score: score,
-                                strikes: isStrike ? 1 : 0
+                                strikes: isStrikeCount ? 1 : 0
                             };
 
                             return UserScoreService.updateScore(userScore);
@@ -69,7 +69,7 @@ function calculateUserPredictionScore(userPrediction, matchResult, configuration
     score += util.calculateResult(userPrediction.goalDiff, matchResult.goalDiff, configuration[0].goalDiff);
     score += util.calculateResult(userPrediction.firstToScore, matchResult.firstToScore, configuration[0].firstToScore);
     return score;
-};
+}
 
 function isStrike(score, configuration) {
     var maxScore = (configuration[0].winner + configuration[0].team1Goals + configuration[0].team2Goals + configuration[0].goalDiff + configuration[0].firstToScore);
