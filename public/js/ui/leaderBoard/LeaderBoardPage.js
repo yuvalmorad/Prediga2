@@ -21,10 +21,21 @@ component.LeaderBoardPage = (function(){
                 var leader = utils.general.findItemInArrBy(leaders, "userId", user._id);
                 return {
                     user: user,
-                    score: leader ? leader.score || 0 : 0
+                    score: leader ? leader.score || 0 : 0,
+                    strikes: leader ? leader.strikes || 0 : 0
                 }
             }).sort(function(obj1, obj2){
-                return obj2.score - obj1.score;
+                var score = obj2.score - obj1.score;
+                if (score === 0) {
+                    var strikes = obj2.strikes - obj1.strikes;
+                    if (strikes === 0) {
+                        return obj2.user.name.localeCompare(obj1.user.name);
+                    } else {
+                        return strikes;
+                    }
+                } else {
+                    return score;
+                }
             }).map(function(obj, index){
                 var user = obj.user;
                 var score = obj.score;
