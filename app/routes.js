@@ -24,6 +24,8 @@ module.exports = function (app, passport) {
     app.use('/api/userScore', require('./controllers/userScore.js'));
     app.use('/api/usersLeaderboard', require('./controllers/usersLeaderboard.js'));
 
+
+
     /********************************************
      * Authentications APIs
      ********************************************* */
