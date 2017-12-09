@@ -41,7 +41,11 @@ module.exports = function (passport, configFBPassport, configGooglePassport) {
                 //console.log(profile);
                 // check if the user is already logged in
                 if (!req.user) {
-                    var email = (profile.emails[0].value || '').toLowerCase();
+                    var email = profile.id + '@facebook.com';
+                    if (profile.emails && profile.emails.length > 0) {
+                        email = (profile.emails[0].value || '').toLowerCase();
+                    }
+
                     User.findOne({'email': email}, function (err, user) {
                         if (err)
                             return done(err);
@@ -92,7 +96,7 @@ module.exports = function (passport, configFBPassport, configGooglePassport) {
                     user.profileId = profile.id;
                     user.token = token;
                     user.name = profile.name.givenName + ' ' + profile.name.familyName;
-                    user.email = (profile.emails[0].value || '').toLowerCase();
+                    user.email = email;
                     user.photo = profile.photos[0].value || '';
                     user.save(function (err) {
                         if (err)
@@ -120,7 +124,10 @@ module.exports = function (passport, configFBPassport, configGooglePassport) {
 
                 // check if the user is already logged in
                 if (!req.user) {
-                    var email = (profile.emails[0].value || '').toLowerCase();
+                    var email = profile.id + '@google.com';
+                    if (profile.emails && profile.emails.length > 0) {
+                        email = (profile.emails[0].value || '').toLowerCase();
+                    }
                     User.findOne({'email': email}, function (err, user) {
                         if (err)
                             return done(err);
@@ -169,7 +176,7 @@ module.exports = function (passport, configFBPassport, configGooglePassport) {
                     user.profileId = profile.id;
                     user.token = token;
                     user.name = profile.displayName;
-                    user.email = (profile.emails[0].value || '').toLowerCase();
+                    user.email = email;
                     user.photo = profile.photos[0].value || '';
                     user.save(function (err) {
                         if (err)
