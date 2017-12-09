@@ -46,18 +46,22 @@ module.exports = function (passport, configFBPassport, configGooglePassport) {
                         email = (profile.emails[0].value || '').toLowerCase();
                     }
 
+                    var photo = '';
+                    if (profile.photos && profile.photos.length > 0) {
+                        photo = (profile.photos[0].value || '');
+                    }
+
                     User.findOne({'email': email}, function (err, user) {
                         if (err)
                             return done(err);
 
                         if (user) {
-
                             // if there is a user id already but no token (user was linked at one point and then removed)
                             if (!user.token) {
                                 user.token = token;
                                 user.name = profile.name.givenName + ' ' + profile.name.familyName;
                                 user.email = email;
-                                user.photo = (profile.photos[0].value || '');
+                                user.photo = photo;
                                 user.save(function (err) {
                                     if (err)
                                         return done(err);
@@ -68,23 +72,51 @@ module.exports = function (passport, configFBPassport, configGooglePassport) {
 
                             return done(null, user); // user found, return that user
                         } else {
-                            // if there is no user, create them
-                            var newUser = new User();
-                            try {
-                                newUser.profileId = profile.id;
-                                newUser.token = token;
-                                newUser.name = profile.name.givenName + ' ' + profile.name.familyName;
-                                newUser.email = email;
-                                newUser.photo = (profile.photos[0].value || '');
-                            } catch (err) {
-                                console.log(err);
-                            }
+                            // check if the user already registered with profile id.
+                            User.findOne({'profileId': profile.id}, function (err, user) {
+                                if (user) {
+                                    // if there is a user id already but no token (user was linked at one point and then removed)
+                                    if (!user.token) {
+                                        user.token = token;
+                                        user.name = profile.name.givenName + ' ' + profile.name.familyName;
+                                        user.email = email;
+                                        user.photo = photo;
+                                        user.save(function (err) {
+                                            if (err)
+                                                return done(err);
 
-                            newUser.save(function (err) {
-                                if (err)
-                                    return done(err);
+                                            return done(null, user);
+                                        });
+                                    } else {
+                                        // update email for the next login
+                                        user.email = email;
+                                        user.save(function (err) {
+                                            if (err)
+                                                return done(err);
 
-                                return done(null, newUser);
+                                            return done(null, user);
+                                        });
+                                    }
+                                } else {
+                                    // if there is no user, create them
+                                    var newUser = new User();
+                                    try {
+                                        newUser.profileId = profile.id;
+                                        newUser.token = token;
+                                        newUser.name = profile.name.givenName + ' ' + profile.name.familyName;
+                                        newUser.email = email;
+                                        newUser.photo = photo;
+                                    } catch (err) {
+                                        console.log(err);
+                                    }
+
+                                    newUser.save(function (err) {
+                                        if (err)
+                                            return done(err);
+
+                                        return done(null, newUser);
+                                    });
+                                }
                             });
                         }
                     });
@@ -97,7 +129,7 @@ module.exports = function (passport, configFBPassport, configGooglePassport) {
                     user.token = token;
                     user.name = profile.name.givenName + ' ' + profile.name.familyName;
                     user.email = email;
-                    user.photo = profile.photos[0].value || '';
+                    user.photo = photo;
                     user.save(function (err) {
                         if (err)
                             return done(err);
@@ -128,6 +160,12 @@ module.exports = function (passport, configFBPassport, configGooglePassport) {
                     if (profile.emails && profile.emails.length > 0) {
                         email = (profile.emails[0].value || '').toLowerCase();
                     }
+
+                    var photo = '';
+                    if (profile.photos && profile.photos.length > 0) {
+                        photo = (profile.photos[0].value || '');
+                    }
+
                     User.findOne({'email': email}, function (err, user) {
                         if (err)
                             return done(err);
@@ -138,7 +176,8 @@ module.exports = function (passport, configFBPassport, configGooglePassport) {
                                 user.token = token;
                                 user.name = profile.displayName;
                                 user.email = email;
-                                user.photo = (profile.photos[0].value || '');
+                                user.photo = photo;
+
                                 user.save(function (err) {
                                     if (err)
                                         return done(err);
@@ -149,23 +188,51 @@ module.exports = function (passport, configFBPassport, configGooglePassport) {
 
                             return done(null, user); // user found, return that user
                         } else {
-                            // if there is no user, create them
-                            var newUser = new User();
-                            try {
-                                newUser.profileId = profile.id;
-                                newUser.token = token;
-                                newUser.name = profile.displayName;
-                                newUser.email = email;
-                                newUser.photo = (profile.photos[0].value || '');
-                            } catch (err) {
-                                console.log(err);
-                            }
+                            // check if the user already registered with profile id.
+                            User.findOne({'profileId': profile.id}, function (err, user) {
+                                if (user) {
+                                    // if there is a user id already but no token (user was linked at one point and then removed)
+                                    if (!user.token) {
+                                        user.token = token;
+                                        user.name = profile.displayName;
+                                        user.email = email;
+                                        user.photo = photo;
+                                        user.save(function (err) {
+                                            if (err)
+                                                return done(err);
 
-                            newUser.save(function (err) {
-                                if (err)
-                                    return done(err);
+                                            return done(null, user);
+                                        });
+                                    } else {
+                                        // update email for the next login
+                                        user.email = email;
+                                        user.save(function (err) {
+                                            if (err)
+                                                return done(err);
 
-                                return done(null, newUser);
+                                            return done(null, user);
+                                        });
+                                    }
+                                } else {
+                                    // if there is no user, create them
+                                    var newUser = new User();
+                                    try {
+                                        newUser.profileId = profile.id;
+                                        newUser.token = token;
+                                        newUser.name = profile.displayName;
+                                        newUser.email = email;
+                                        newUser.photo = photo;
+                                    } catch (err) {
+                                        console.log(err);
+                                    }
+
+                                    newUser.save(function (err) {
+                                        if (err)
+                                            return done(err);
+
+                                        return done(null, newUser);
+                                    });
+                                }
                             });
                         }
                     });
@@ -177,7 +244,7 @@ module.exports = function (passport, configFBPassport, configGooglePassport) {
                     user.token = token;
                     user.name = profile.displayName;
                     user.email = email;
-                    user.photo = profile.photos[0].value || '';
+                    user.photo = photo;
                     user.save(function (err) {
                         if (err)
                             return done(err);
