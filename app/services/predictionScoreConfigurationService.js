@@ -1,8 +1,9 @@
 var Q = require('q');
 var PredictionScoreConfiguration = require('../models/predictionScoreConfiguration');
+var util = require('../utils/util');
 
 module.exports = {
-    createConfiguration: function (predictionScoreConfiguration) {
+    updateConfiguration: function (predictionScoreConfiguration) {
         var deferred = Q.defer();
         PredictionScoreConfiguration.findOneAndUpdate({}, predictionScoreConfiguration, {
                 upsert: true,

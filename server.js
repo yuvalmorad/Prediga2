@@ -21,8 +21,9 @@ mongoose.connect(configDB, function (err) {
     if (err) console.log('Unable to connect to DB ' + err);
     else console.log('Connection to DB successful')
 }); // connect to our database
-var configFBPassport = port !== 3000 ? 'facebookAuth' : 'facebookAuth-Test';
-require('./config/passport')(passport, configFBPassport); // pass passport for configuration
+var configFBPassport = port !== 3000 ? 'facebookAuth' : 'facebookAuth-local';
+var configGooglePassport = port !== 3000 ? 'googleAuth' : 'googleAuth-local';
+require('./config/passport')(passport, configFBPassport, configGooglePassport); // pass passport for configuration
 
 // set up our express application
 app.use(morgan('dev')); // log every request to the console

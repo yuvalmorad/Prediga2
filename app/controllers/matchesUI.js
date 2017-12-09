@@ -5,7 +5,6 @@ var MatchPrediction = require('../models/matchPrediction');
 var util = require('../utils/util.js');
 var User = require('../models/user');
 var MatchResult = require('../models/matchResult');
-var Q = require('q');
 
 app.get('/', util.isLoggedIn, function (req, res) {
     getData().then(function (matchesCombined) {
@@ -15,11 +14,11 @@ app.get('/', util.isLoggedIn, function (req, res) {
 
 function getData() {
     return Promise.all([
-            Match.find({}),
-            MatchPrediction.find({}),
-            User.find({}),
-            MatchResult.find({})
-    ]).then(function(arr){
+        Match.find({}),
+        MatchPrediction.find({}),
+        User.find({}),
+        MatchResult.find({})
+    ]).then(function (arr) {
         return {
             matches: arr[0],
             predictions: arr[1],

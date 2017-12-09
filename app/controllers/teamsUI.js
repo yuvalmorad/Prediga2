@@ -18,7 +18,7 @@ function getData() {
         TeamPrediction.find({}),
         User.find({}),
         TeamResult.find({})
-    ]).then(function(arr){
+    ]).then(function (arr) {
         return {
             teams: arr[0],
             predictions: arr[1],

@@ -2,7 +2,7 @@ var express = require('express');
 var app = express.Router();
 var UserScore = require('../models/userScore');
 var util = require('../utils/util.js');
-var UsersLeaderboardService = require('../services/leaderboardService');
+//var UsersLeaderboardService = require('../services/leaderboardService');
 
 app.get('/', util.isAdmin, function (req, res) {
     UserScore.find({}, function (err, obj) {
@@ -10,6 +10,8 @@ app.get('/', util.isAdmin, function (req, res) {
     });
 });
 
+/*
+user score is updated via initial data.
 app.delete('/:gameId', util.isAdmin, function (req, res) {
     var gameId = req.params.gameId;
     if (!gameId) {
@@ -25,5 +27,6 @@ app.delete('/:gameId', util.isAdmin, function (req, res) {
         });
     });
 });
+*/
 
 module.exports = app;

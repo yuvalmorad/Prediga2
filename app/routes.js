@@ -24,8 +24,6 @@ module.exports = function (app, passport) {
     app.use('/api/userScore', require('./controllers/userScore.js'));
     app.use('/api/usersLeaderboard', require('./controllers/usersLeaderboard.js'));
 
-
-
     /********************************************
      * Authentications APIs
      ********************************************* */
@@ -39,6 +37,17 @@ module.exports = function (app, passport) {
         req.logout();
         res.redirect('/');
     });
+
+    app.get('/auth/google',
+        passport.authenticate('google', {
+            scope: ['email']
+        }));
+
+    app.get('/auth/google/callback',
+        passport.authenticate('google', {
+            successRedirect: '/',
+            failureRedirect: '/login'
+        }));
 
     app.get('/auth/facebook',
         passport.authenticate('facebook', {

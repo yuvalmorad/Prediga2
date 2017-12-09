@@ -1,7 +1,7 @@
 var express = require('express');
 var app = express.Router();
 var PredictionScoreConfiguration = require('../models/predictionScoreConfiguration');
-var PredictionScoreConfigurationService = require('../services/predictionScoreConfigurationService');
+//var PredictionScoreConfigurationService = require('../services/predictionScoreConfigurationService');
 var util = require('../utils/util.js');
 
 app.get('/', util.isLoggedIn, function (req, res) {
@@ -14,6 +14,8 @@ app.get('/', util.isLoggedIn, function (req, res) {
     });
 });
 
+/*
+Available only via initial data setup
 app.post('/', util.isAdmin, function (req, res) {
     var predictionScoreConfiguration = req.body.predictionScoreConfiguration;
     if (!predictionScoreConfiguration) {
@@ -21,9 +23,10 @@ app.post('/', util.isAdmin, function (req, res) {
         return;
     }
 
-    PredictionScoreConfigurationService.createConfiguration(predictionScoreConfiguration).then(function (obj) {
+    PredictionScoreConfigurationService.updateConfiguration(predictionScoreConfiguration).then(function (obj) {
         res.status(200).json(obj);
     });
 });
+*/
 
 module.exports = app;

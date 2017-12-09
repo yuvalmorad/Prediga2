@@ -59,7 +59,7 @@ app.post('/', util.isLoggedIn, function (req, res) {
 
     createMatchPredictions(matchPredictions, userId).then(function (obj) {
         res.status(200).json(obj);
-    }, function(msg){
+    }, function (msg) {
         res.status(500).json({error: msg});
     });
 });
@@ -68,13 +68,13 @@ function createMatchPredictions(matchPredictions, userId) {
     var now = new Date();
     var promises = matchPredictions.map(function (matchPrediction) {
         // we can update only if the kickofftime is not passed
-        return Match.findOne({kickofftime: {$gte: now}, _id: matchPrediction.matchId}).then(function(aMatch){
+        return Match.findOne({kickofftime: {$gte: now}, _id: matchPrediction.matchId}).then(function (aMatch) {
             if (aMatch) {
                 // fixing wrong input
-                if (typeof(matchPrediction.winner) === 'undefined'){
+                if (typeof(matchPrediction.winner) === 'undefined') {
                     matchPrediction.winner = 'draw';
                 }
-                if (typeof(matchPrediction.firstToScore) === 'undefined'){
+                if (typeof(matchPrediction.firstToScore) === 'undefined') {
                     matchPrediction.firstToScore = 'none';
                 }
                 // validation:
@@ -85,7 +85,10 @@ function createMatchPredictions(matchPredictions, userId) {
                 }
 
                 matchPrediction.userId = userId;
-                return MatchPrediction.findOneAndUpdate({matchId: matchPrediction.matchId, userId: userId}, matchPrediction, {
+                return MatchPrediction.findOneAndUpdate({
+                    matchId: matchPrediction.matchId,
+                    userId: userId
+                }, matchPrediction, {
                     upsert: true,
                     setDefaultsOnInsert: true,
                     new: true

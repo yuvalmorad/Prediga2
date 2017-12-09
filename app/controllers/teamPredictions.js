@@ -50,7 +50,7 @@ app.post('/', util.isLoggedIn, function (req, res) {
 
     creaTeamPredictions(teamPredictions, userId).then(function (obj) {
         res.status(200).json(obj);
-    }, function(msg){
+    }, function (msg) {
         res.status(500).json({error: msg});
     });
 });
@@ -59,10 +59,13 @@ function creaTeamPredictions(teamPredictions, userId) {
     var now = new Date();
     var promises = teamPredictions.map(function (teamPrediction) {
         // we can update only if the kickofftime is not passed
-        return Team.findOne({deadline: {$gte: now}, _id: teamPrediction.teamId}).then(function(aTeam){
+        return Team.findOne({deadline: {$gte: now}, _id: teamPrediction.teamId}).then(function (aTeam) {
             if (aTeam) {
                 teamPrediction.userId = userId;
-                return TeamPrediction.findOneAndUpdate({teamId: teamPrediction.teamId, userId: userId}, teamPrediction, {
+                return TeamPrediction.findOneAndUpdate({
+                    teamId: teamPrediction.teamId,
+                    userId: userId
+                }, teamPrediction, {
                     upsert: true,
                     setDefaultsOnInsert: true,
                     new: true

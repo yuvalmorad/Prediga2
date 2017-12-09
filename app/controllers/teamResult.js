@@ -1,8 +1,6 @@
 var express = require('express');
 var app = express.Router();
 var TeamResult = require('../models/teamResult');
-var TeamResultService = require('../services/teamResultService');
-var UsersLeaderboardService = require('../services/leaderboardService');
 var util = require('../utils/util.js');
 
 app.get('/', util.isLoggedIn, function (req, res) {
@@ -25,25 +23,4 @@ app.get('/:teamId', util.isLoggedIn, function (req, res) {
         }
     });
 });
-
-app.post('/', util.isAdmin, function (req, res) {
-    var teamResult = req.body.teamResult;
-    if (!teamResult) {
-        res.status(500).json(util.errorResponse.format('provide teamResult'));
-        return;
-    }
-
-    TeamResultService.updateTeamResult(teamResult).then(function (obj) {
-        if (typeof(obj) === "undefined") {
-            res.status(500).json(util.errorResponse.format('error'));
-        } else {
-            TeamResultService.updateTeamScore(teamResult).then(function (obj2) {
-                UsersLeaderboardService.updateLeaderboard().then(function (obj3) {
-                    res.status(200).json(util.okResponse);
-                });
-            });
-        }
-    });
-});
-
 module.exports = app;
