@@ -2213,6 +2213,22 @@
       "team2Goals": "1",
       "goalDiff": 0,
       "firstToScore": "None"
+    },
+    {
+      "matchId": "6a21a7c1a3f89181074e9853",
+      "winner": "Draw",
+      "team1Goals": "1",
+      "team2Goals": "1",
+      "goalDiff": 0,
+      "firstToScore": "Hapoel Haifa"
+    },
+    {
+      "matchId": "6a21a7c1a3f89181074e9858",
+      "winner": "Bnei Yehuda Tel Aviv",
+      "team1Goals": "2",
+      "team2Goals": "1",
+      "goalDiff": 1,
+      "firstToScore": "Bnei Yehuda Tel Aviv"
     }
   ],
   "teams": [
