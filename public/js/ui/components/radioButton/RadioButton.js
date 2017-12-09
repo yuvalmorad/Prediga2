@@ -9,16 +9,18 @@ component.RadioButton = (function(){
             isDisabled = props.isDisabled,
             points = props.points,
             hasPoints = points !== undefined,
-            className = "radio-button";
+            className = "radio-button",
+            pointsClassName = "points";
 
         if (isChecked) {
             className += " selected";
         }
 
         if (pos === 0) {
-            className += " left"
+            className += " left";
         } else if (pos === 2) {
-            className += " right"
+            className += " right";
+            pointsClassName += " right";
         }
 
         if (hasPoints && isChecked) {
@@ -29,8 +31,11 @@ component.RadioButton = (function(){
             }
         }
 
-        return re("button", {className: className, onClick: onClicked, disabled: isDisabled, style: {visibility: (isDisabled && !isChecked) ? "hidden" : ""}},
-            re("div", {style: {backgroundColor: isChecked && !hasPoints ? bgColor : "", color: isChecked && !hasPoints ? textColor : ""}}, text)
+        return re("div", {className: "radio-button-wrapper"},
+                re("button", {className: className, onClick: onClicked, disabled: isDisabled, style: {visibility: (isDisabled && !isChecked) ? "hidden" : ""}},
+                    re("div", {style: {backgroundColor: isChecked && !hasPoints ? bgColor : "", color: isChecked && !hasPoints ? textColor : ""}}, text)
+                ),
+                re("div", {className: pointsClassName}, points ? points : "")
         );
     }
 })();

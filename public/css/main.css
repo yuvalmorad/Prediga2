@@ -379,13 +379,17 @@ body {
 
 /* -------  Radio Button -------*/
 
+.radio-button-wrapper {
+    flex: 1;
+    position: relative;
+}
 
 .radio-button {
     border: none;
     background-color: #CDCDCD;
     color: #fff;
     padding: 1px;
-    flex: 1;
+    width: 100%;
 }
 
 .radio-button.left,
@@ -761,7 +765,7 @@ body {
     position: relative;
 }
 
-.goals-predictions .points {
+.game-prediction-tile .points {
     position: absolute;
     bottom: 0;
     right: -1.2rem;
@@ -772,7 +776,7 @@ body {
     font-size: 0.75rem;
 }
 
-.goals-predictions .points.right {
+.game-prediction-tile .points.right {
     left: -1.2rem;
     right: auto;
 }
