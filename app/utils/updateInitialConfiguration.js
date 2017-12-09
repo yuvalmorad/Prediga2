@@ -9,6 +9,7 @@ var Q = require('q');
 
 var self = module.exports = {
     loadAll: function () {
+
         var deferred = Q.defer();
         return Promise.all([
             PredictionScoreConfigurationService.updateConfiguration(require('../initialData/scoreConfiguration.json')),
