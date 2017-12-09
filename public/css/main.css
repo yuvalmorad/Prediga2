@@ -626,6 +626,7 @@ body {
 
 .tile.game-prediction-tile.no-prediction {
     background-color: transparent;
+    box-shadow: none;
 }
 
 .game-prediction-tile .main > .left {
