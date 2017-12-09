@@ -433,6 +433,7 @@ body {
 .tile-dialog-container .tile {
     height: 29rem;
     margin: 0 auto;
+    box-sizing: border-box;
 }
 
 .tile-dialog-container .dialog-button {
