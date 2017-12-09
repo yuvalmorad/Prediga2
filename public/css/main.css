@@ -91,10 +91,19 @@ body {
 
 .login-page {
     height: 100%;
-    background-image: url(../images/football-stadium.jpg);
+    background-image: url(../images/football-stadium-small.png);
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: 50% 50%;
+    background-position: 100% 50%;
+}
+
+.login-page .login-logo {
+    max-width: 300px;
+    width: 60%;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .login-page .login-buttons {
@@ -399,7 +408,7 @@ body {
 }
 
 .tile-dialog-container.TeamPredictionTileDialog .dialog-button {
-    height: calc((100% - 16rem)/2);
+    height: calc((100% - 14rem)/2);
 }
 
 .tile-dialog-container .dialog-button button {
@@ -543,7 +552,7 @@ body {
 
 /* -------  team prediction tile -------*/
 .tile-dialog-container .team-prediction-tile.tile {
-    height: 16rem;
+    height: 14rem;
 }
 
 .team-prediction-form {
