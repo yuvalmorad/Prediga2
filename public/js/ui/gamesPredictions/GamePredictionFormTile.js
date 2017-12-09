@@ -78,7 +78,7 @@ component.GamePredictionFormTile = (function(){
                 result = props.result,
                 team1 = models.leagues.getTeamByTeamName(game.team1),
                 team2 = models.leagues.getTeamByTeamName(game.team2),
-                isFormDisabled = false,
+                isDialogFormDisabled = props.isDialogFormDisabled,
                 team1Name = team1.name,
                 team2Name = team2.name,
                 team1Color = team1.color,
@@ -118,13 +118,12 @@ component.GamePredictionFormTile = (function(){
                 points = utils.general.calculatePoints(prediction, result);
                 team1GoalsPoints = points[GAME.BET_TYPES.TEAM1_GOALS.key];
                 diffGoalsPoints = points[GAME.BET_TYPES.GOAL_DIFF.key];
-                team2GoalsPoints = points[GAME.BET_TYPES.TEAM2_GOALS.key]
-                isFormDisabled = true;
+                team2GoalsPoints = points[GAME.BET_TYPES.TEAM2_GOALS.key];
             }
 
             return re("div", {className: "game-form"},
                 re("div", {className: "form-row-title"}, "Game Outcome"),
-                re(RadioGroup, {className: "game-outcome", points: points[GAME.BET_TYPES.WINNER.key], onChange: this.onRadioGroupChanged, _id: game._id + "0", name: GAME.BET_TYPES.WINNER.key, isDisabled: isFormDisabled, inputs: [
+                re(RadioGroup, {className: "game-outcome", points: points[GAME.BET_TYPES.WINNER.key], onChange: this.onRadioGroupChanged, _id: game._id + "0", name: GAME.BET_TYPES.WINNER.key, isDisabled: isDialogFormDisabled, inputs: [
                         {bgColor: team1Color, textColor: team1SecondColor, text: team1Name, name: team1Name, res: predictionWinner},
                         {bgColor: COLORS.DRAW_COLOR, text: "Draw", name: "draw", res: predictionWinner, isDefault: true},
                         {bgColor: team2Color, textColor: team2SecondColor, text: team2Name, name: team2Name, res: predictionWinner}
@@ -133,22 +132,22 @@ component.GamePredictionFormTile = (function(){
                 re("div", {className: "goals-predictions"},
                     re("div", {},
                         re("div", {className: "form-row-title"}, "Goals"),
-                        re(InputNumber, {isDisabled: isFormDisabled, points: team1GoalsPoints, num: predictionTeam1Goals, onChange: this.onInputNumberChanged.bind(this, GAME.BET_TYPES.TEAM1_GOALS.key)}),
+                        re(InputNumber, {isDisabled: isDialogFormDisabled, points: team1GoalsPoints, num: predictionTeam1Goals, onChange: this.onInputNumberChanged.bind(this, GAME.BET_TYPES.TEAM1_GOALS.key)}),
                         re("div", {className: "points"}, team1GoalsPoints ? team1GoalsPoints : "")
                     ),
                     re("div", {},
                         re("div", {className: "form-row-title"}, "Diff"),
-                        re(InputNumber, {isDisabled: isFormDisabled, points: diffGoalsPoints, num: predictionGoalDiff, onChange: this.onInputNumberChanged.bind(this, GAME.BET_TYPES.GOAL_DIFF.key)}),
+                        re(InputNumber, {isDisabled: isDialogFormDisabled, points: diffGoalsPoints, num: predictionGoalDiff, onChange: this.onInputNumberChanged.bind(this, GAME.BET_TYPES.GOAL_DIFF.key)}),
                         re("div", {className: "points"}, diffGoalsPoints ? diffGoalsPoints : "")
                     ),
                     re("div", {},
                         re("div", {className: "form-row-title"}, "Goals"),
-                        re(InputNumber, {isDisabled: isFormDisabled, points: team2GoalsPoints, num: predictionTeam2Goals, onChange: this.onInputNumberChanged.bind(this, GAME.BET_TYPES.TEAM2_GOALS.key)}),
+                        re(InputNumber, {isDisabled: isDialogFormDisabled, points: team2GoalsPoints, num: predictionTeam2Goals, onChange: this.onInputNumberChanged.bind(this, GAME.BET_TYPES.TEAM2_GOALS.key)}),
                         re("div", {className: "points right"}, team2GoalsPoints ? team2GoalsPoints : "")
                     )
                 ),
                 re("div", {className: "form-row-title"}, "First to Score"),
-                re(RadioGroup, {className: "first-score", points: points[GAME.BET_TYPES.FIRST_TO_SCORE.key], onChange: this.onRadioGroupChanged, _id: game._id + "1", name: GAME.BET_TYPES.FIRST_TO_SCORE.key, isDisabled: isFormDisabled, inputs: [
+                re(RadioGroup, {className: "first-score", points: points[GAME.BET_TYPES.FIRST_TO_SCORE.key], onChange: this.onRadioGroupChanged, _id: game._id + "1", name: GAME.BET_TYPES.FIRST_TO_SCORE.key, isDisabled: isDialogFormDisabled, inputs: [
                         {bgColor: team1Color, textColor: team1SecondColor, text: team1Name, name: team1Name, res: predictionFirstToScore},
                         {bgColor: COLORS.DRAW_COLOR, text: "None", name: "none", res: predictionFirstToScore, isDefault: true},
                         {bgColor: team2Color, textColor: team2SecondColor, text: team2Name, name: team2Name, res: predictionFirstToScore}
