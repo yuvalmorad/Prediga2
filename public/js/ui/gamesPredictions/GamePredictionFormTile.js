@@ -5,6 +5,7 @@ component.GamePredictionFormTile = (function(){
     var IMAGE_SIZE = 2.5;
     var TRANSFORM_BACK = 2;
     var MAX_USERS = 7;
+    var DEAFULT_PROFILE_IMAGE = "../images/default_profile.png";
 
     function mapToMutualFriends(_users, reverse) {
         var users = _users.splice(0, MAX_USERS);
@@ -32,7 +33,7 @@ component.GamePredictionFormTile = (function(){
                 style["lineHeight"] = IMAGE_SIZE + "rem";
                 return re("div", {className: "additional-mutual-friends", style: style, key: "mutualFriendImg_" + index}, "+" + user.additionalFriends);
             } else {
-                return re("img", {src: user.photo, style: style, key: "mutualFriendImg_" + index});
+                return re("img", {src: user.photo || DEAFULT_PROFILE_IMAGE, style: style, key: "mutualFriendImg_" + index});
             }
         });
     }
