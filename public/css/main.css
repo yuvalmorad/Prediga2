@@ -375,7 +375,7 @@ body {
 }
 
 .tile-dialog-container .dialog-button {
-    height: calc((100% - 24rem)/2);
+    height: calc((100% - 29rem)/2);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -405,7 +405,7 @@ body {
 }
 
 .tile-dialog-container .tile {
-    height: 24rem;
+    height: 29rem;
     margin: 0 auto;
 }
 
@@ -702,23 +702,30 @@ body {
     align-items: center;
 }
 
-.game-prediction-tile .mutual-friends .first,
-.game-prediction-tile .mutual-friends .second {
+.game-prediction-tile .mutual-friends > div{
     flex: 1;
+    position: relative;
 }
 
-.game-prediction-tile .mutual-friends .second {
-    display: flex;
-    justify-content: flex-end;
+.game-prediction-tile .mutual-friends .mutual-friends-center {
+    transform: translateX(-50%);
+    position: relative;
+    left: 50%;
 }
 
-.game-prediction-tile .mutual-friends img{
+.game-prediction-tile .mutual-friends img,
+.game-prediction-tile .mutual-friends .additional-mutual-friends{
     border-radius: 50%;
-    width: 2rem;
-    height: 2rem;
     border: 2px solid #fff;
     box-sizing: border-box;
-    position: relative;
+    position: absolute;
+}
+
+.game-prediction-tile .mutual-friends .additional-mutual-friends {
+    text-align: center;
+    font-size: 0.75rem;
+    background: #c5bfbf;
+    color: #000;
 }
 
 /* -------  Fonts -------*/

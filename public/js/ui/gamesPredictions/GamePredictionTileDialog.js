@@ -52,11 +52,12 @@ component.GamePredictionTileDialog = (function(){
                 users = props.users,
                 prediction = state.prediction,
                 otherMatchPredictions = state.otherMatchPredictions,
-                result = state.result;
+                result = state.result,
+                userId = props.userId;
 
             return re(TileDialog, {borderLeftColor: team1.color, borderRightColor: team2.color, className: "game-prediction-tile"},
                 re(GamePredictionMainTile, {game: game, prediction: prediction, otherMatchPredictions: otherMatchPredictions, result: result}),
-                re(GamePredictionFormTile, {game: game, prediction: prediction, otherMatchPredictions: otherMatchPredictions, result: result, users: users, updateGameForm: this.updateGameForm})
+                re(GamePredictionFormTile, {game: game, prediction: prediction, otherMatchPredictions: otherMatchPredictions, result: result, users: users, userId: userId, updateGameForm: this.updateGameForm})
             );
         }
     });
@@ -67,7 +68,8 @@ component.GamePredictionTileDialog = (function(){
             userPredictions: state.gamesPredictions.userPredictions,
             otherPredictions: state.gamesPredictions.otherPredictions,
             users: state.gamesPredictions.users,
-            results: state.gamesPredictions.results
+            results: state.gamesPredictions.results,
+            userId: state.authentication.userId
         }
     }
 
