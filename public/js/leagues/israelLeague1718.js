@@ -19,7 +19,7 @@
             secondColor: "#fff"
         },
         {
-            name: "Bnei Yehuda Tel Aviv",
+            name: "Bnei Yehuda",
             shortName: "BY",
             color: "orange",
             secondColor: "#000"

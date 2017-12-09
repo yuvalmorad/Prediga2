@@ -11,7 +11,7 @@ var games =
             "review": "review"
         },
             {
-                "teams": "Bnei Yehuda Tel Aviv - Maccabi Haifa",
+                "teams": "Bnei Yehuda - Maccabi Haifa",
                 "score": "0:2",
                 "date": "21.08.17",
                 "review": "review"
@@ -83,13 +83,13 @@ var games =
                 "review": "review"
             },
             {
-                "teams": "Hapoel Ashkelon - Bnei Yehuda Tel Aviv",
+                "teams": "Hapoel Ashkelon - Bnei Yehuda",
                 "score": "1:1",
                 "date": "26.08.17",
                 "review": "review"
             },
             {
-                "teams": "Hapoel Haifa - Bnei Yehuda Tel Aviv",
+                "teams": "Hapoel Haifa - Bnei Yehuda",
                 "score": "1:2",
                 "date": "09.09.17",
                 "review": "review"
@@ -167,7 +167,7 @@ var games =
                 "review": "review"
             },
             {
-                "teams": "Bnei Yehuda Tel Aviv - Hapoel Beer Sheva",
+                "teams": "Bnei Yehuda - Hapoel Beer Sheva",
                 "score": "1:0",
                 "date": "17.09.17",
                 "review": "review"
@@ -179,7 +179,7 @@ var games =
                 "review": "review"
             },
             {
-                "teams": "Hapoel Akko - Bnei Yehuda Tel Aviv",
+                "teams": "Hapoel Akko - Bnei Yehuda",
                 "score": "1:1",
                 "date": "23.09.17",
                 "review": "review"
@@ -245,7 +245,7 @@ var games =
                 "review": "review"
             },
             {
-                "teams": "Bnei Yehuda Tel Aviv - Hapoel Raanana",
+                "teams": "Bnei Yehuda - Hapoel Raanana",
                 "score": "0:1",
                 "date": "01.10.17",
                 "review": "review"
@@ -269,7 +269,7 @@ var games =
                 "review": "review"
             },
             {
-                "teams": "Maccabi Tel Aviv - Bnei Yehuda Tel Aviv",
+                "teams": "Maccabi Tel Aviv - Bnei Yehuda",
                 "score": "0:2",
                 "date": "15.10.17",
                 "review": "review"
@@ -323,7 +323,7 @@ var games =
                 "review": "review"
             },
             {
-                "teams": "Bnei Yehuda Tel Aviv - FC Ashdod",
+                "teams": "Bnei Yehuda - FC Ashdod",
                 "score": "2:1",
                 "date": "21.10.17",
                 "review": "review"
@@ -359,7 +359,7 @@ var games =
                 "review": "review"
             },
             {
-                "teams": "Maccabi Petach Tikva - Bnei Yehuda Tel Aviv",
+                "teams": "Maccabi Petach Tikva - Bnei Yehuda",
                 "score": "2:1",
                 "date": "30.10.17",
                 "review": "review"
@@ -401,7 +401,7 @@ var games =
                 "review": "review"
             },
             {
-                "teams": "Bnei Yehuda Tel Aviv - Beitar Jerusalem",
+                "teams": "Bnei Yehuda - Beitar Jerusalem",
                 "score": "2:3",
                 "date": "04.11.17",
                 "review": "review"
@@ -449,7 +449,7 @@ var games =
                 "review": "review"
             },
             {
-                "teams": "Kiryat Shmona - Bnei Yehuda Tel Aviv",
+                "teams": "Kiryat Shmona - Bnei Yehuda",
                 "score": "1:2",
                 "date": "25.11.17",
                 "review": "review"
@@ -479,7 +479,7 @@ var games =
                 "review": "review"
             },
             {
-                "teams": "Bnei Yehuda Tel Aviv - Bnei Sakhnin",
+                "teams": "Bnei Yehuda - Bnei Sakhnin",
                 "score": "0:3",
                 "date": "02.12.17",
                 "review": "review"
@@ -542,7 +542,7 @@ var games =
                 "review": "20:15"
             },
             {
-                "teams": "Maccabi Netanya - Bnei Yehuda Tel Aviv",
+                "teams": "Maccabi Netanya - Bnei Yehuda",
                 "score": "שבת",
                 "date": "09.12.17",
                 "review": "16:00"
@@ -560,7 +560,7 @@ var games =
                 "review": "18:15"
             },
             {
-                "teams": "Maccabi Haifa - Bnei Yehuda Tel Aviv",
+                "teams": "Maccabi Haifa - Bnei Yehuda",
                 "score": "שבת",
                 "date": "16.12.17",
                 "review": "20:30"
@@ -632,13 +632,13 @@ var games =
                 "review": "21:00"
             },
             {
-                "teams": "Bnei Yehuda Tel Aviv - Hapoel Ashkelon",
+                "teams": "Bnei Yehuda - Hapoel Ashkelon",
                 "score": "שבת",
                 "date": "23.12.17",
                 "review": "18:00"
             },
             {
-                "teams": "Bnei Yehuda Tel Aviv - Hapoel Haifa",
+                "teams": "Bnei Yehuda - Hapoel Haifa",
                 "score": "שבת",
                 "date": "30.12.17",
                 "review": "16:00"
@@ -716,7 +716,7 @@ var games =
                 "review": "20:33"
             },
             {
-                "teams": "Hapoel Beer Sheva - Bnei Yehuda Tel Aviv",
+                "teams": "Hapoel Beer Sheva - Bnei Yehuda",
                 "score": " ג’",
                 "date": "09.01.18",
                 "review": "20:33"
@@ -728,7 +728,7 @@ var games =
                 "review": "20:33"
             },
             {
-                "teams": "Bnei Yehuda Tel Aviv - Hapoel Akko",
+                "teams": "Bnei Yehuda - Hapoel Akko",
                 "score": "שבת",
                 "date": "13.01.18",
                 "review": "20:33"
@@ -788,7 +788,7 @@ var games =
                 "review": "20:33"
             },
             {
-                "teams": "Hapoel Raanana - Bnei Yehuda Tel Aviv",
+                "teams": "Hapoel Raanana - Bnei Yehuda",
                 "score": "שבת",
                 "date": "20.01.18",
                 "review": "20:33"
@@ -818,7 +818,7 @@ var games =
                 "review": "20:33"
             },
             {
-                "teams": "Bnei Yehuda Tel Aviv - Maccabi Tel Aviv",
+                "teams": "Bnei Yehuda - Maccabi Tel Aviv",
                 "score": "שבת",
                 "date": "27.01.18",
                 "review": "20:33"
@@ -872,7 +872,7 @@ var games =
                 "review": "20:33"
             },
             {
-                "teams": "FC Ashdod - Bnei Yehuda Tel Aviv",
+                "teams": "FC Ashdod - Bnei Yehuda",
                 "score": "שבת",
                 "date": "03.02.18",
                 "review": "20:33"
@@ -908,7 +908,7 @@ var games =
                 "review": "20:33"
             },
             {
-                "teams": "Bnei Yehuda Tel Aviv - Maccabi Petach Tikva",
+                "teams": "Bnei Yehuda - Maccabi Petach Tikva",
                 "score": "שבת",
                 "date": "10.02.18",
                 "review": "20:33"
@@ -950,7 +950,7 @@ var games =
                 "review": "20:33"
             },
             {
-                "teams": "Beitar Jerusalem - Bnei Yehuda Tel Aviv",
+                "teams": "Beitar Jerusalem - Bnei Yehuda",
                 "score": "שבת",
                 "date": "17.02.18",
                 "review": "20:33"
@@ -998,7 +998,7 @@ var games =
                 "review": "20:33"
             },
             {
-                "teams": "Bnei Yehuda Tel Aviv - Kiryat Shmona",
+                "teams": "Bnei Yehuda - Kiryat Shmona",
                 "score": "שבת",
                 "date": "24.02.18",
                 "review": "20:33"
@@ -1028,7 +1028,7 @@ var games =
                 "review": "20:33"
             },
             {
-                "teams": "Bnei Sakhnin - Bnei Yehuda Tel Aviv",
+                "teams": "Bnei Sakhnin - Bnei Yehuda",
                 "score": "שבת",
                 "date": "03.03.18",
                 "review": "20:33"
@@ -1088,7 +1088,7 @@ var games =
                 "review": "20:33"
             },
             {
-                "teams": "Bnei Yehuda Tel Aviv - Maccabi Netanya",
+                "teams": "Bnei Yehuda - Maccabi Netanya",
                 "score": "שבת",
                 "date": "10.03.18",
                 "review": "20:33"
