@@ -712,6 +712,7 @@ body {
 
 .game-prediction-tile .game-points {
     color: #6ECE1A;
+    font-weight: bold;
 }
 
 .game-prediction-tile .game-date {
@@ -754,6 +755,26 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.game-prediction-tile .goals-predictions > div {
+    position: relative;
+}
+
+.goals-predictions .points {
+    position: absolute;
+    bottom: 0;
+    right: -1.2rem;
+    height: 2rem;
+    line-height: 2rem;
+    color: #6ECE1A;
+    font-weight: bold;
+    font-size: 0.75rem;
+}
+
+.goals-predictions .points.right {
+    left: -1.2rem;
+    right: auto;
 }
 
 .game-prediction-tile .mutual-friends > div{
