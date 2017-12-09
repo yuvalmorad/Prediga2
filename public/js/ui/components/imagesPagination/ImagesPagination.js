@@ -66,7 +66,7 @@ component.ImagesPagination = (function(){
                 }
 
                 return re("div", {key: name, className: "item" + (isSelected ? " selected" : ""), style: {marginRight: spaceBetweenItems}},
-                    re("img", {src: "../images/teamsLogo/" + name + ".png", style: {width: itemWidth, height: 28}}),
+                    re("img", {src: "../images/teamsLogo/" + name + ".png", style: {width: itemWidth, height: itemWidth}}),
                     re("div", {className: "title"}, shortName)
                 );
             });

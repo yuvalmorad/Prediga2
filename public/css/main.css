@@ -386,6 +386,11 @@ body {
     background: rgba(0, 0, 0, 0.85);
 }
 
+.tile-dialog-container .tile {
+    height: 29rem;
+    margin: 0 auto;
+}
+
 .tile-dialog-container .dialog-button {
     height: calc((100% - 29rem)/2);
     display: flex;
@@ -414,11 +419,6 @@ body {
 
 .tile-dialog-container .dialog-button button:first-child {
     margin-right: 0.5rem;
-}
-
-.tile-dialog-container .tile {
-    height: 29rem;
-    margin: 0 auto;
 }
 
 /* -------  Tile -------*/
@@ -507,8 +507,8 @@ body {
 }
 
 .tile .main.base .image-wrapper img {
-    height: 1.75rem;
-    width: 2.625rem;
+    height: 3.5rem;
+    width: 3.5rem;
 }
 
 .tile .main.base .trend {
@@ -598,8 +598,8 @@ body {
 .game-prediction-tile .team-logo {
     background-size: 100% 100%;
     background-repeat: no-repeat;
-    height: 1.75rem;
-    width: 2.625rem;
+    height: 3.5rem;
+    width: 3.5rem;
 }
 
 .game-prediction-tile .team-logo.grayed {
