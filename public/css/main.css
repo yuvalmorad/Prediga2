@@ -606,14 +606,10 @@ body {
 .games-prediction-page .tiles-header button {
     background: transparent;
     border: none;
-    font-size: 1rem;
-    padding: 0 0.5rem;
-    color: #009fff;
-    line-height: 2rem;
 }
 
-.games-prediction-page .tiles-header button[disabled] {
-    color: #cac6c6;
+.games-prediction-page .tiles-header button img {
+    height: 1rem;
 }
 
 .game-prediction-tile .main > .left,

@@ -156,11 +156,18 @@ component.GamesPredictionsPage = (function(){
                 tilesInPage = [].concat.apply([], tilesInPage);
             }
 
+            var isLeftButtonDisabled = closestIndex === 0;
+            var isRightButtonDisabled = closestIndex === pages.length - 1;
+
             return re("div", { className: "games-prediction-page content hasTilesHeader"},
                 re("div", {className: "tiles-header"},
-                    re("button", {className: "icon-left-open", onClick: this.onPreviousPage, disabled: closestIndex === 0}),
+                    re("button", {onClick: this.onPreviousPage, disabled: isLeftButtonDisabled},
+                        re("img", {src: "../images/arrow_left" + (isLeftButtonDisabled ? "_gray" : "") + ".png"})
+                    ),
                     re("div", {className: "title"}, closestPage ? models.leagues.getLeagueName(closestPage.league) + ": " + closestPage.type : ""),
-                    re("button", {className: "icon-right-open", onClick: this.onNextPage, disabled: closestIndex === pages.length - 1})
+                    re("button", {onClick: this.onNextPage, disabled: isRightButtonDisabled},
+                        re("img", {src: "../images/arrow_right" + (isRightButtonDisabled ? "_gray" : "") + ".png"})
+                    )
                 ),
                 re("div", {ref: this.assignTilesRef, className: "tiles" + (props.isShowTileDialog ? " no-scroll" : "")},
                     tilesInPage
