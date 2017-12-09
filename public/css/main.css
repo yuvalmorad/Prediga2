@@ -276,12 +276,12 @@ body {
 
 .images-pagination .button-area.left {
     left: 0;
-    box-shadow: 10px 0 36px 19px rgba(255, 255, 255, 0.88);
+    box-shadow: 20px 0 36px 19px rgba(255, 255, 255, 0.88);
 }
 
 .images-pagination .button-area.right {
     right: 0;
-    box-shadow: -10px 0 36px 19px rgba(255, 255, 255, 0.88);
+    box-shadow: -20px 0 36px 19px rgba(255, 255, 255, 0.88);
 }
 
 .images-pagination .button-area button {
