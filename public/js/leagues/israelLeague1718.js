@@ -1,7 +1,7 @@
 (function() {
     var teams = [
         {
-            name: "Hapoel Ironi Ashkelon",
+            name: "Hapoel Ashkelon",
             shortName: "HA",
             color: "blue",
             secondColor: "#fff"
@@ -43,7 +43,7 @@
             secondColor: "#fff"
         },
         {
-            name: "Hapoel Kiryat Shmona",
+            name: "Kiryat Shmona",
             shortName: "HKS",
             color: "blue",
             secondColor: "#fff"
@@ -55,7 +55,7 @@
             secondColor: "black"
         },
         {
-            name: "Maccabi Ironi Petah Tikva",
+            name: "Maccabi Petach Tikva",
             shortName: "MPT",
             color: "#042c71",
             secondColor: "#fff"

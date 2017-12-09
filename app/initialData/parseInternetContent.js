@@ -5,7 +5,7 @@
 var games =
     {
         "matches": [{
-            "teams": "Hapoel Haifa - Hapoel Ironi Ashkelon",
+            "teams": "Hapoel Haifa - Hapoel Ashkelon",
             "score": "1:3",
             "date": "19.08.17",
             "review": "review"
@@ -29,7 +29,7 @@ var games =
                 "review": "review"
             },
             {
-                "teams": "Hapoel Raanana - Hapoel Kiryat Shmona",
+                "teams": "Hapoel Raanana - Kiryat Shmona",
                 "score": "0:0",
                 "date": "19.08.17",
                 "review": "review"
@@ -41,13 +41,13 @@ var games =
                 "review": "review"
             },
             {
-                "teams": "FC Ashdod - Maccabi Ironi Petah Tikva",
+                "teams": "FC Ashdod - Maccabi Petach Tikva",
                 "score": "2:1",
                 "date": "19.08.17",
                 "review": "review"
             },
             {
-                "teams": "Maccabi Ironi Petah Tikva - Hapoel Haifa",
+                "teams": "Maccabi Petach Tikva - Hapoel Haifa",
                 "score": "2:0",
                 "date": "26.08.17",
                 "review": "review"
@@ -59,7 +59,7 @@ var games =
                 "review": "review"
             },
             {
-                "teams": "Hapoel Kiryat Shmona - Maccabi Tel Aviv",
+                "teams": "Kiryat Shmona - Maccabi Tel Aviv",
                 "score": "2:1",
                 "date": "27.08.17",
                 "review": "review"
@@ -83,7 +83,7 @@ var games =
                 "review": "review"
             },
             {
-                "teams": "Hapoel Ironi Ashkelon - Bnei Yehuda Tel Aviv",
+                "teams": "Hapoel Ashkelon - Bnei Yehuda Tel Aviv",
                 "score": "1:1",
                 "date": "26.08.17",
                 "review": "review"
@@ -95,7 +95,7 @@ var games =
                 "review": "review"
             },
             {
-                "teams": "Hapoel Beer Sheva - Hapoel Ironi Ashkelon",
+                "teams": "Hapoel Beer Sheva - Hapoel Ashkelon",
                 "score": "0:1",
                 "date": "09.09.17",
                 "review": "review"
@@ -119,13 +119,13 @@ var games =
                 "review": "review"
             },
             {
-                "teams": "FC Ashdod - Hapoel Kiryat Shmona",
+                "teams": "FC Ashdod - Kiryat Shmona",
                 "score": "2:0",
                 "date": "09.09.17",
                 "review": "review"
             },
             {
-                "teams": "Maccabi Ironi Petah Tikva - Beitar Jerusalem",
+                "teams": "Maccabi Petach Tikva - Beitar Jerusalem",
                 "score": "2:1",
                 "date": "11.09.17",
                 "review": "review"
@@ -137,7 +137,7 @@ var games =
                 "review": "review"
             },
             {
-                "teams": "Hapoel Kiryat Shmona - Maccabi Ironi Petah Tikva",
+                "teams": "Kiryat Shmona - Maccabi Petach Tikva",
                 "score": "1:3",
                 "date": "16.09.17",
                 "review": "review"
@@ -161,7 +161,7 @@ var games =
                 "review": "review"
             },
             {
-                "teams": "Hapoel Ironi Ashkelon - Hapoel Akko",
+                "teams": "Hapoel Ashkelon - Hapoel Akko",
                 "score": "1:2",
                 "date": "16.09.17",
                 "review": "review"
@@ -185,7 +185,7 @@ var games =
                 "review": "review"
             },
             {
-                "teams": "Hapoel Raanana - Hapoel Ironi Ashkelon",
+                "teams": "Hapoel Raanana - Hapoel Ashkelon",
                 "score": "3:0",
                 "date": "23.09.17",
                 "review": "review"
@@ -203,19 +203,19 @@ var games =
                 "review": "review"
             },
             {
-                "teams": "Maccabi Ironi Petah Tikva - Bnei Sakhnin",
+                "teams": "Maccabi Petach Tikva - Bnei Sakhnin",
                 "score": "0:1",
                 "date": "24.09.17",
                 "review": "review"
             },
             {
-                "teams": "Beitar Jerusalem - Hapoel Kiryat Shmona",
+                "teams": "Beitar Jerusalem - Kiryat Shmona",
                 "score": "1:1",
                 "date": "25.09.17",
                 "review": "review"
             },
             {
-                "teams": "Hapoel Kiryat Shmona - Hapoel Haifa",
+                "teams": "Kiryat Shmona - Hapoel Haifa",
                 "score": "1:0",
                 "date": "01.10.17",
                 "review": "review"
@@ -227,7 +227,7 @@ var games =
                 "review": "review"
             },
             {
-                "teams": "Maccabi Netanya - Maccabi Ironi Petah Tikva",
+                "teams": "Maccabi Netanya - Maccabi Petach Tikva",
                 "score": "0:4",
                 "date": "02.10.17",
                 "review": "review"
@@ -239,7 +239,7 @@ var games =
                 "review": "review"
             },
             {
-                "teams": "Hapoel Ironi Ashkelon - Maccabi Tel Aviv",
+                "teams": "Hapoel Ashkelon - Maccabi Tel Aviv",
                 "score": "2:2",
                 "date": "01.10.17",
                 "review": "review"
@@ -275,13 +275,13 @@ var games =
                 "review": "review"
             },
             {
-                "teams": "FC Ashdod - Hapoel Ironi Ashkelon",
+                "teams": "FC Ashdod - Hapoel Ashkelon",
                 "score": "1:1",
                 "date": "14.10.17",
                 "review": "review"
             },
             {
-                "teams": "Maccabi Ironi Petah Tikva - Maccabi Haifa",
+                "teams": "Maccabi Petach Tikva - Maccabi Haifa",
                 "score": "2:2",
                 "date": "14.10.17",
                 "review": "review"
@@ -293,7 +293,7 @@ var games =
                 "review": "review"
             },
             {
-                "teams": "Hapoel Kiryat Shmona - Bnei Sakhnin",
+                "teams": "Kiryat Shmona - Bnei Sakhnin",
                 "score": "0:0",
                 "date": "15.10.17",
                 "review": "review"
@@ -305,7 +305,7 @@ var games =
                 "review": "review"
             },
             {
-                "teams": "Maccabi Netanya - Hapoel Kiryat Shmona",
+                "teams": "Maccabi Netanya - Kiryat Shmona",
                 "score": "1:3",
                 "date": "21.10.17",
                 "review": "review"
@@ -317,7 +317,7 @@ var games =
                 "review": "review"
             },
             {
-                "teams": "Hapoel Ironi Ashkelon - Maccabi Ironi Petah Tikva",
+                "teams": "Hapoel Ashkelon - Maccabi Petach Tikva",
                 "score": "3:1",
                 "date": "22.10.17",
                 "review": "review"
@@ -359,19 +359,19 @@ var games =
                 "review": "review"
             },
             {
-                "teams": "Maccabi Ironi Petah Tikva - Bnei Yehuda Tel Aviv",
+                "teams": "Maccabi Petach Tikva - Bnei Yehuda Tel Aviv",
                 "score": "2:1",
                 "date": "30.10.17",
                 "review": "review"
             },
             {
-                "teams": "Beitar Jerusalem - Hapoel Ironi Ashkelon",
+                "teams": "Beitar Jerusalem - Hapoel Ashkelon",
                 "score": "0:2",
                 "date": "28.10.17",
                 "review": "review"
             },
             {
-                "teams": "Hapoel Kiryat Shmona - Maccabi Haifa",
+                "teams": "Kiryat Shmona - Maccabi Haifa",
                 "score": "0:1",
                 "date": "28.10.17",
                 "review": "review"
@@ -395,7 +395,7 @@ var games =
                 "review": "review"
             },
             {
-                "teams": "Hapoel Ironi Ashkelon - Hapoel Kiryat Shmona",
+                "teams": "Hapoel Ashkelon - Kiryat Shmona",
                 "score": "0:0",
                 "date": "06.11.17",
                 "review": "review"
@@ -407,7 +407,7 @@ var games =
                 "review": "review"
             },
             {
-                "teams": "Maccabi Ironi Petah Tikva - Hapoel Beer Sheva",
+                "teams": "Maccabi Petach Tikva - Hapoel Beer Sheva",
                 "score": "2:0",
                 "date": "05.11.17",
                 "review": "review"
@@ -437,7 +437,7 @@ var games =
                 "review": "review"
             },
             {
-                "teams": "Hapoel Akko - Maccabi Ironi Petah Tikva",
+                "teams": "Hapoel Akko - Maccabi Petach Tikva",
                 "score": "3:0",
                 "date": "25.11.17",
                 "review": "review"
@@ -449,13 +449,13 @@ var games =
                 "review": "review"
             },
             {
-                "teams": "Hapoel Kiryat Shmona - Bnei Yehuda Tel Aviv",
+                "teams": "Kiryat Shmona - Bnei Yehuda Tel Aviv",
                 "score": "1:2",
                 "date": "25.11.17",
                 "review": "review"
             },
             {
-                "teams": "Bnei Sakhnin - Hapoel Ironi Ashkelon",
+                "teams": "Bnei Sakhnin - Hapoel Ashkelon",
                 "score": "1:2",
                 "date": "25.11.17",
                 "review": "review"
@@ -473,7 +473,7 @@ var games =
                 "review": "review"
             },
             {
-                "teams": "Hapoel Ironi Ashkelon - Maccabi Netanya",
+                "teams": "Hapoel Ashkelon - Maccabi Netanya",
                 "score": "1:1",
                 "date": "02.12.17",
                 "review": "review"
@@ -485,7 +485,7 @@ var games =
                 "review": "review"
             },
             {
-                "teams": "Hapoel Beer Sheva - Hapoel Kiryat Shmona",
+                "teams": "Hapoel Beer Sheva - Kiryat Shmona",
                 "score": "1:3",
                 "date": "03.12.17",
                 "review": "review"
@@ -497,7 +497,7 @@ var games =
                 "review": "review"
             },
             {
-                "teams": "Hapoel Raanana - Maccabi Ironi Petah Tikva",
+                "teams": "Hapoel Raanana - Maccabi Petach Tikva",
                 "score": "0:0",
                 "date": "03.12.17",
                 "review": "review"
@@ -518,7 +518,7 @@ var games =
                 "review": "16:00"
             },
             {
-                "teams": "Maccabi Ironi Petah Tikva - Maccabi Tel Aviv",
+                "teams": "Maccabi Petach Tikva - Maccabi Tel Aviv",
                 "score": " ב’",
                 "date": "11.12.17",
                 "review": "21:00"
@@ -530,7 +530,7 @@ var games =
                 "review": "20:30"
             },
             {
-                "teams": "Hapoel Kiryat Shmona - Hapoel Akko",
+                "teams": "Kiryat Shmona - Hapoel Akko",
                 "score": " א’",
                 "date": "10.12.17",
                 "review": "19:00"
@@ -548,13 +548,13 @@ var games =
                 "review": "16:00"
             },
             {
-                "teams": "Maccabi Haifa - Hapoel Ironi Ashkelon",
+                "teams": "Maccabi Haifa - Hapoel Ashkelon",
                 "score": "שבת",
                 "date": "09.12.17",
                 "review": "18:15"
             },
             {
-                "teams": "Hapoel Ironi Ashkelon - Hapoel Haifa",
+                "teams": "Hapoel Ashkelon - Hapoel Haifa",
                 "score": "שבת",
                 "date": "16.12.17",
                 "review": "18:15"
@@ -578,7 +578,7 @@ var games =
                 "review": "18:00"
             },
             {
-                "teams": "Hapoel Kiryat Shmona - Hapoel Raanana",
+                "teams": "Kiryat Shmona - Hapoel Raanana",
                 "score": " א’",
                 "date": "17.12.17",
                 "review": "19:00"
@@ -590,13 +590,13 @@ var games =
                 "review": "21:00"
             },
             {
-                "teams": "Maccabi Ironi Petah Tikva - FC Ashdod",
+                "teams": "Maccabi Petach Tikva - FC Ashdod",
                 "score": "שבת",
                 "date": "16.12.17",
                 "review": "16:00"
             },
             {
-                "teams": "Hapoel Haifa - Maccabi Ironi Petah Tikva",
+                "teams": "Hapoel Haifa - Maccabi Petach Tikva",
                 "score": "שבת",
                 "date": "23.12.17",
                 "review": "18:15"
@@ -608,7 +608,7 @@ var games =
                 "review": "20:15"
             },
             {
-                "teams": "Maccabi Tel Aviv - Hapoel Kiryat Shmona",
+                "teams": "Maccabi Tel Aviv - Kiryat Shmona",
                 "score": "שבת",
                 "date": "23.12.17",
                 "review": "20:30"
@@ -632,7 +632,7 @@ var games =
                 "review": "21:00"
             },
             {
-                "teams": "Bnei Yehuda Tel Aviv - Hapoel Ironi Ashkelon",
+                "teams": "Bnei Yehuda Tel Aviv - Hapoel Ashkelon",
                 "score": "שבת",
                 "date": "23.12.17",
                 "review": "18:00"
@@ -644,7 +644,7 @@ var games =
                 "review": "16:00"
             },
             {
-                "teams": "Hapoel Ironi Ashkelon - Hapoel Beer Sheva",
+                "teams": "Hapoel Ashkelon - Hapoel Beer Sheva",
                 "score": " א’",
                 "date": "31.12.17",
                 "review": "20:15"
@@ -668,13 +668,13 @@ var games =
                 "review": "21:00"
             },
             {
-                "teams": "Hapoel Kiryat Shmona - FC Ashdod",
+                "teams": "Kiryat Shmona - FC Ashdod",
                 "score": " א’",
                 "date": "31.12.17",
                 "review": "19:00"
             },
             {
-                "teams": "Beitar Jerusalem - Maccabi Ironi Petah Tikva",
+                "teams": "Beitar Jerusalem - Maccabi Petach Tikva",
                 "score": "שבת",
                 "date": "30.12.17",
                 "review": "20:30"
@@ -686,7 +686,7 @@ var games =
                 "review": "20:33"
             },
             {
-                "teams": "Maccabi Ironi Petah Tikva - Hapoel Kiryat Shmona",
+                "teams": "Maccabi Petach Tikva - Kiryat Shmona",
                 "score": " ג’",
                 "date": "09.01.18",
                 "review": "20:33"
@@ -710,7 +710,7 @@ var games =
                 "review": "20:33"
             },
             {
-                "teams": "Hapoel Akko - Hapoel Ironi Ashkelon",
+                "teams": "Hapoel Akko - Hapoel Ashkelon",
                 "score": " ג’",
                 "date": "09.01.18",
                 "review": "20:33"
@@ -734,7 +734,7 @@ var games =
                 "review": "20:33"
             },
             {
-                "teams": "Hapoel Ironi Ashkelon - Hapoel Raanana",
+                "teams": "Hapoel Ashkelon - Hapoel Raanana",
                 "score": "שבת",
                 "date": "13.01.18",
                 "review": "20:33"
@@ -752,25 +752,25 @@ var games =
                 "review": "20:33"
             },
             {
-                "teams": "Bnei Sakhnin - Maccabi Ironi Petah Tikva",
+                "teams": "Bnei Sakhnin - Maccabi Petach Tikva",
                 "score": "שבת",
                 "date": "13.01.18",
                 "review": "20:33"
             },
             {
-                "teams": "Hapoel Kiryat Shmona - Beitar Jerusalem",
+                "teams": "Kiryat Shmona - Beitar Jerusalem",
                 "score": "שבת",
                 "date": "13.01.18",
                 "review": "20:33"
             },
             {
-                "teams": "Hapoel Haifa - Hapoel Kiryat Shmona",
+                "teams": "Hapoel Haifa - Kiryat Shmona",
                 "score": "שבת",
                 "date": "20.01.18",
                 "review": "20:33"
             },
             {
-                "teams": "Maccabi Ironi Petah Tikva - Maccabi Netanya",
+                "teams": "Maccabi Petach Tikva - Maccabi Netanya",
                 "score": "שבת",
                 "date": "20.01.18",
                 "review": "20:33"
@@ -782,7 +782,7 @@ var games =
                 "review": "20:33"
             },
             {
-                "teams": "Maccabi Tel Aviv - Hapoel Ironi Ashkelon",
+                "teams": "Maccabi Tel Aviv - Hapoel Ashkelon",
                 "score": "שבת",
                 "date": "20.01.18",
                 "review": "20:33"
@@ -824,13 +824,13 @@ var games =
                 "review": "20:33"
             },
             {
-                "teams": "Hapoel Ironi Ashkelon - FC Ashdod",
+                "teams": "Hapoel Ashkelon - FC Ashdod",
                 "score": "שבת",
                 "date": "27.01.18",
                 "review": "20:33"
             },
             {
-                "teams": "Maccabi Haifa - Maccabi Ironi Petah Tikva",
+                "teams": "Maccabi Haifa - Maccabi Petach Tikva",
                 "score": "שבת",
                 "date": "27.01.18",
                 "review": "20:33"
@@ -842,7 +842,7 @@ var games =
                 "review": "20:33"
             },
             {
-                "teams": "Bnei Sakhnin - Hapoel Kiryat Shmona",
+                "teams": "Bnei Sakhnin - Kiryat Shmona",
                 "score": "שבת",
                 "date": "27.01.18",
                 "review": "20:33"
@@ -854,7 +854,7 @@ var games =
                 "review": "20:33"
             },
             {
-                "teams": "Hapoel Kiryat Shmona - Maccabi Netanya",
+                "teams": "Kiryat Shmona - Maccabi Netanya",
                 "score": "שבת",
                 "date": "03.02.18",
                 "review": "20:33"
@@ -866,7 +866,7 @@ var games =
                 "review": "20:33"
             },
             {
-                "teams": "Maccabi Ironi Petah Tikva - Hapoel Ironi Ashkelon",
+                "teams": "Maccabi Petach Tikva - Hapoel Ashkelon",
                 "score": "שבת",
                 "date": "03.02.18",
                 "review": "20:33"
@@ -908,19 +908,19 @@ var games =
                 "review": "20:33"
             },
             {
-                "teams": "Bnei Yehuda Tel Aviv - Maccabi Ironi Petah Tikva",
+                "teams": "Bnei Yehuda Tel Aviv - Maccabi Petach Tikva",
                 "score": "שבת",
                 "date": "10.02.18",
                 "review": "20:33"
             },
             {
-                "teams": "Hapoel Ironi Ashkelon - Beitar Jerusalem",
+                "teams": "Hapoel Ashkelon - Beitar Jerusalem",
                 "score": "שבת",
                 "date": "10.02.18",
                 "review": "20:33"
             },
             {
-                "teams": "Maccabi Haifa - Hapoel Kiryat Shmona",
+                "teams": "Maccabi Haifa - Kiryat Shmona",
                 "score": "שבת",
                 "date": "10.02.18",
                 "review": "20:33"
@@ -944,7 +944,7 @@ var games =
                 "review": "20:33"
             },
             {
-                "teams": "Hapoel Kiryat Shmona - Hapoel Ironi Ashkelon",
+                "teams": "Kiryat Shmona - Hapoel Ashkelon",
                 "score": "שבת",
                 "date": "17.02.18",
                 "review": "20:33"
@@ -956,7 +956,7 @@ var games =
                 "review": "20:33"
             },
             {
-                "teams": "Maccabi Ironi Petah Tikva - Hapoel Beer Sheva",
+                "teams": "Maccabi Petach Tikva - Hapoel Beer Sheva",
                 "score": "שבת",
                 "date": "17.02.18",
                 "review": "20:33"
@@ -986,7 +986,7 @@ var games =
                 "review": "20:33"
             },
             {
-                "teams": "Hapoel Akko - Maccabi Ironi Petah Tikva",
+                "teams": "Hapoel Akko - Maccabi Petach Tikva",
                 "score": "שבת",
                 "date": "24.02.18",
                 "review": "20:33"
@@ -998,13 +998,13 @@ var games =
                 "review": "20:33"
             },
             {
-                "teams": "Bnei Yehuda Tel Aviv - Hapoel Kiryat Shmona",
+                "teams": "Bnei Yehuda Tel Aviv - Kiryat Shmona",
                 "score": "שבת",
                 "date": "24.02.18",
                 "review": "20:33"
             },
             {
-                "teams": "Hapoel Ironi Ashkelon - Bnei Sakhnin",
+                "teams": "Hapoel Ashkelon - Bnei Sakhnin",
                 "score": "שבת",
                 "date": "24.02.18",
                 "review": "20:33"
@@ -1022,7 +1022,7 @@ var games =
                 "review": "20:33"
             },
             {
-                "teams": "Maccabi Netanya - Hapoel Ironi Ashkelon",
+                "teams": "Maccabi Netanya - Hapoel Ashkelon",
                 "score": "שבת",
                 "date": "03.03.18",
                 "review": "20:33"
@@ -1034,7 +1034,7 @@ var games =
                 "review": "20:33"
             },
             {
-                "teams": "Hapoel Kiryat Shmona - Hapoel Beer Sheva",
+                "teams": "Kiryat Shmona - Hapoel Beer Sheva",
                 "score": "שבת",
                 "date": "03.03.18",
                 "review": "20:33"
@@ -1046,7 +1046,7 @@ var games =
                 "review": "20:33"
             },
             {
-                "teams": "Maccabi Ironi Petah Tikva - Hapoel Raanana",
+                "teams": "Maccabi Petach Tikva - Hapoel Raanana",
                 "score": "שבת",
                 "date": "03.03.18",
                 "review": "20:33"
@@ -1064,7 +1064,7 @@ var games =
                 "review": "20:33"
             },
             {
-                "teams": "Maccabi Tel Aviv - Maccabi Ironi Petah Tikva",
+                "teams": "Maccabi Tel Aviv - Maccabi Petach Tikva",
                 "score": "שבת",
                 "date": "10.03.18",
                 "review": "20:33"
@@ -1076,7 +1076,7 @@ var games =
                 "review": "20:33"
             },
             {
-                "teams": "Hapoel Akko - Hapoel Kiryat Shmona",
+                "teams": "Hapoel Akko - Kiryat Shmona",
                 "score": "שבת",
                 "date": "10.03.18",
                 "review": "20:33"
@@ -1094,7 +1094,7 @@ var games =
                 "review": "20:33"
             },
             {
-                "teams": "Hapoel Ironi Ashkelon - Maccabi Haifa",
+                "teams": "Hapoel Ashkelon - Maccabi Haifa",
                 "score": "שבת",
                 "date": "10.03.18",
                 "review": "20:33"

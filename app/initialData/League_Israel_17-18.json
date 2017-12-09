@@ -2,7 +2,7 @@
   "matches": [
     {
       "_id": "6a21a7c1a3f89181074e9769",
-      "team1": "Hapoel Ironi Ashkelon",
+      "team1": "Hapoel Ashkelon",
       "team2": "Hapoel Haifa",
       "kickofftime": "2017-08-19T17:00:00.000Z",
       "status": "CLOSED_GAME",
@@ -38,7 +38,7 @@
     },
     {
       "_id": "6a21a7c1a3f89181074e9773",
-      "team1": "Hapoel Kiryat Shmona",
+      "team1": "Kiryat Shmona",
       "team2": "Hapoel Raanana",
       "kickofftime": "2017-08-19T17:00:00.000Z",
       "status": "CLOSED_GAME",
@@ -56,7 +56,7 @@
     },
     {
       "_id": "6a21a7c1a3f89181074e9775",
-      "team1": "Maccabi Ironi Petah Tikva",
+      "team1": "Maccabi Petach Tikva",
       "team2": "FC Ashdod",
       "kickofftime": "2017-08-19T17:00:00.000Z",
       "status": "CLOSED_GAME",
@@ -66,7 +66,7 @@
     {
       "_id": "6a21a7c1a3f89181074e9776",
       "team1": "Hapoel Haifa",
-      "team2": "Maccabi Ironi Petah Tikva",
+      "team2": "Maccabi Petach Tikva",
       "kickofftime": "2017-08-26T17:00:00.000Z",
       "status": "CLOSED_GAME",
       "type": "Round 2",
@@ -84,7 +84,7 @@
     {
       "_id": "6a21a7c1a3f89181074e9778",
       "team1": "Maccabi Tel Aviv",
-      "team2": "Hapoel Kiryat Shmona",
+      "team2": "Kiryat Shmona",
       "kickofftime": "2017-08-27T17:00:00.000Z",
       "status": "CLOSED_GAME",
       "type": "Round 2",
@@ -120,7 +120,7 @@
     {
       "_id": "6a21a7c1a3f89181074e9782",
       "team1": "Bnei Yehuda Tel Aviv",
-      "team2": "Hapoel Ironi Ashkelon",
+      "team2": "Hapoel Ashkelon",
       "kickofftime": "2017-08-26T17:00:00.000Z",
       "status": "CLOSED_GAME",
       "type": "Round 2",
@@ -137,7 +137,7 @@
     },
     {
       "_id": "6a21a7c1a3f89181074e9784",
-      "team1": "Hapoel Ironi Ashkelon",
+      "team1": "Hapoel Ashkelon",
       "team2": "Hapoel Beer Sheva",
       "kickofftime": "2017-09-09T17:00:00.000Z",
       "status": "CLOSED_GAME",
@@ -173,7 +173,7 @@
     },
     {
       "_id": "6a21a7c1a3f89181074e9788",
-      "team1": "Hapoel Kiryat Shmona",
+      "team1": "Kiryat Shmona",
       "team2": "FC Ashdod",
       "kickofftime": "2017-09-09T17:00:00.000Z",
       "status": "CLOSED_GAME",
@@ -183,7 +183,7 @@
     {
       "_id": "6a21a7c1a3f89181074e9789",
       "team1": "Beitar Jerusalem",
-      "team2": "Maccabi Ironi Petah Tikva",
+      "team2": "Maccabi Petach Tikva",
       "kickofftime": "2017-09-11T17:00:00.000Z",
       "status": "CLOSED_GAME",
       "type": "Round 3",
@@ -200,8 +200,8 @@
     },
     {
       "_id": "6a21a7c1a3f89181074e9791",
-      "team1": "Maccabi Ironi Petah Tikva",
-      "team2": "Hapoel Kiryat Shmona",
+      "team1": "Maccabi Petach Tikva",
+      "team2": "Kiryat Shmona",
       "kickofftime": "2017-09-16T17:00:00.000Z",
       "status": "CLOSED_GAME",
       "type": "Round 4",
@@ -237,7 +237,7 @@
     {
       "_id": "6a21a7c1a3f89181074e9795",
       "team1": "Hapoel Akko",
-      "team2": "Hapoel Ironi Ashkelon",
+      "team2": "Hapoel Ashkelon",
       "kickofftime": "2017-09-16T17:00:00.000Z",
       "status": "CLOSED_GAME",
       "type": "Round 4",
@@ -272,7 +272,7 @@
     },
     {
       "_id": "6a21a7c1a3f89181074e9799",
-      "team1": "Hapoel Ironi Ashkelon",
+      "team1": "Hapoel Ashkelon",
       "team2": "Hapoel Raanana",
       "kickofftime": "2017-09-23T17:00:00.000Z",
       "status": "CLOSED_GAME",
@@ -300,7 +300,7 @@
     {
       "_id": "6a21a7c1a3f89181074e9802",
       "team1": "Bnei Sakhnin",
-      "team2": "Maccabi Ironi Petah Tikva",
+      "team2": "Maccabi Petach Tikva",
       "kickofftime": "2017-09-24T17:00:00.000Z",
       "status": "CLOSED_GAME",
       "type": "Round 5",
@@ -308,7 +308,7 @@
     },
     {
       "_id": "6a21a7c1a3f89181074e9803",
-      "team1": "Hapoel Kiryat Shmona",
+      "team1": "Kiryat Shmona",
       "team2": "Beitar Jerusalem",
       "kickofftime": "2017-09-25T17:00:00.000Z",
       "status": "CLOSED_GAME",
@@ -318,7 +318,7 @@
     {
       "_id": "6a21a7c1a3f89181074e9804",
       "team1": "Hapoel Haifa",
-      "team2": "Hapoel Kiryat Shmona",
+      "team2": "Kiryat Shmona",
       "kickofftime": "2017-10-01T17:00:00.000Z",
       "status": "CLOSED_GAME",
       "type": "Round 6",
@@ -335,7 +335,7 @@
     },
     {
       "_id": "6a21a7c1a3f89181074e9806",
-      "team1": "Maccabi Ironi Petah Tikva",
+      "team1": "Maccabi Petach Tikva",
       "team2": "Maccabi Netanya",
       "kickofftime": "2017-10-02T17:00:00.000Z",
       "status": "CLOSED_GAME",
@@ -354,7 +354,7 @@
     {
       "_id": "6a21a7c1a3f89181074e9808",
       "team1": "Maccabi Tel Aviv",
-      "team2": "Hapoel Ironi Ashkelon",
+      "team2": "Hapoel Ashkelon",
       "kickofftime": "2017-10-01T17:00:00.000Z",
       "status": "CLOSED_GAME",
       "type": "Round 6",
@@ -407,7 +407,7 @@
     },
     {
       "_id": "6a21a7c1a3f89181074e9814",
-      "team1": "Hapoel Ironi Ashkelon",
+      "team1": "Hapoel Ashkelon",
       "team2": "FC Ashdod",
       "kickofftime": "2017-10-14T17:00:00.000Z",
       "status": "CLOSED_GAME",
@@ -417,7 +417,7 @@
     {
       "_id": "6a21a7c1a3f89181074e9815",
       "team1": "Maccabi Haifa",
-      "team2": "Maccabi Ironi Petah Tikva",
+      "team2": "Maccabi Petach Tikva",
       "kickofftime": "2017-10-14T17:00:00.000Z",
       "status": "CLOSED_GAME",
       "type": "Round 7",
@@ -435,7 +435,7 @@
     {
       "_id": "6a21a7c1a3f89181074e9817",
       "team1": "Bnei Sakhnin",
-      "team2": "Hapoel Kiryat Shmona",
+      "team2": "Kiryat Shmona",
       "kickofftime": "2017-10-15T17:00:00.000Z",
       "status": "CLOSED_GAME",
       "type": "Round 7",
@@ -452,7 +452,7 @@
     },
     {
       "_id": "6a21a7c1a3f89181074e9819",
-      "team1": "Hapoel Kiryat Shmona",
+      "team1": "Kiryat Shmona",
       "team2": "Maccabi Netanya",
       "kickofftime": "2017-10-21T17:00:00.000Z",
       "status": "CLOSED_GAME",
@@ -470,8 +470,8 @@
     },
     {
       "_id": "6a21a7c1a3f89181074e9821",
-      "team1": "Maccabi Ironi Petah Tikva",
-      "team2": "Hapoel Ironi Ashkelon",
+      "team1": "Maccabi Petach Tikva",
+      "team2": "Hapoel Ashkelon",
       "kickofftime": "2017-10-22T17:00:00.000Z",
       "status": "CLOSED_GAME",
       "type": "Round 8",
@@ -534,7 +534,7 @@
     {
       "_id": "6a21a7c1a3f89181074e9828",
       "team1": "Bnei Yehuda Tel Aviv",
-      "team2": "Maccabi Ironi Petah Tikva",
+      "team2": "Maccabi Petach Tikva",
       "kickofftime": "2017-10-30T18:00:00.000Z",
       "status": "CLOSED_GAME",
       "type": "Round 9",
@@ -542,7 +542,7 @@
     },
     {
       "_id": "6a21a7c1a3f89181074e9829",
-      "team1": "Hapoel Ironi Ashkelon",
+      "team1": "Hapoel Ashkelon",
       "team2": "Beitar Jerusalem",
       "kickofftime": "2017-10-28T17:00:00.000Z",
       "status": "CLOSED_GAME",
@@ -552,7 +552,7 @@
     {
       "_id": "6a21a7c1a3f89181074e9830",
       "team1": "Maccabi Haifa",
-      "team2": "Hapoel Kiryat Shmona",
+      "team2": "Kiryat Shmona",
       "kickofftime": "2017-10-28T17:00:00.000Z",
       "status": "CLOSED_GAME",
       "type": "Round 9",
@@ -587,8 +587,8 @@
     },
     {
       "_id": "6a21a7c1a3f89181074e9834",
-      "team1": "Hapoel Kiryat Shmona",
-      "team2": "Hapoel Ironi Ashkelon",
+      "team1": "Kiryat Shmona",
+      "team2": "Hapoel Ashkelon",
       "kickofftime": "2017-11-06T18:00:00.000Z",
       "status": "CLOSED_GAME",
       "type": "Round 10",
@@ -606,7 +606,7 @@
     {
       "_id": "6a21a7c1a3f89181074e9836",
       "team1": "Hapoel Beer Sheva",
-      "team2": "Maccabi Ironi Petah Tikva",
+      "team2": "Maccabi Petach Tikva",
       "kickofftime": "2017-11-05T18:00:00.000Z",
       "status": "CLOSED_GAME",
       "type": "Round 10",
@@ -650,7 +650,7 @@
     },
     {
       "_id": "6a21a7c1a3f89181074e9841",
-      "team1": "Maccabi Ironi Petah Tikva",
+      "team1": "Maccabi Petach Tikva",
       "team2": "Hapoel Akko",
       "kickofftime": "2017-11-25T18:00:00.000Z",
       "status": "CLOSED_GAME",
@@ -669,7 +669,7 @@
     {
       "_id": "6a21a7c1a3f89181074e9843",
       "team1": "Bnei Yehuda Tel Aviv",
-      "team2": "Hapoel Kiryat Shmona",
+      "team2": "Kiryat Shmona",
       "kickofftime": "2017-11-25T18:00:00.000Z",
       "status": "CLOSED_GAME",
       "type": "Round 11",
@@ -677,7 +677,7 @@
     },
     {
       "_id": "6a21a7c1a3f89181074e9844",
-      "team1": "Hapoel Ironi Ashkelon",
+      "team1": "Hapoel Ashkelon",
       "team2": "Bnei Sakhnin",
       "kickofftime": "2017-11-25T18:00:00.000Z",
       "status": "CLOSED_GAME",
@@ -705,7 +705,7 @@
     {
       "_id": "6a21a7c1a3f89181074e9847",
       "team1": "Maccabi Netanya",
-      "team2": "Hapoel Ironi Ashkelon",
+      "team2": "Hapoel Ashkelon",
       "kickofftime": "2017-12-02T18:00:00.000Z",
       "status": "CLOSED_GAME",
       "type": "Round 12",
@@ -722,7 +722,7 @@
     },
     {
       "_id": "6a21a7c1a3f89181074e9849",
-      "team1": "Hapoel Kiryat Shmona",
+      "team1": "Kiryat Shmona",
       "team2": "Hapoel Beer Sheva",
       "kickofftime": "2017-12-03T18:00:00.000Z",
       "status": "CLOSED_GAME",
@@ -740,7 +740,7 @@
     },
     {
       "_id": "6a21a7c1a3f89181074e9851",
-      "team1": "Maccabi Ironi Petah Tikva",
+      "team1": "Maccabi Petach Tikva",
       "team2": "Hapoel Raanana",
       "kickofftime": "2017-12-03T18:00:00.000Z",
       "status": "CLOSED_GAME",
@@ -767,7 +767,7 @@
     {
       "_id": "6a21a7c1a3f89181074e9854",
       "team1": "Maccabi Tel Aviv",
-      "team2": "Maccabi Ironi Petah Tikva",
+      "team2": "Maccabi Petach Tikva",
       "kickofftime": "2017-12-11T19:00:00.000Z",
       "type": "Round 13",
       "league": "IsraeliLeague18"
@@ -783,7 +783,7 @@
     {
       "_id": "6a21a7c1a3f89181074e9856",
       "team1": "Hapoel Akko",
-      "team2": "Hapoel Kiryat Shmona",
+      "team2": "Kiryat Shmona",
       "kickofftime": "2017-12-10T17:00:00.000Z",
       "type": "Round 13",
       "league": "IsraeliLeague18"
@@ -806,7 +806,7 @@
     },
     {
       "_id": "6a21a7c1a3f89181074e9859",
-      "team1": "Hapoel Ironi Ashkelon",
+      "team1": "Hapoel Ashkelon",
       "team2": "Maccabi Haifa",
       "kickofftime": "2017-12-09T16:15:00.000Z",
       "type": "Round 13",
@@ -815,7 +815,7 @@
     {
       "_id": "6a21a7c1a3f89181074e9860",
       "team1": "Hapoel Haifa",
-      "team2": "Hapoel Ironi Ashkelon",
+      "team2": "Hapoel Ashkelon",
       "kickofftime": "2017-12-16T16:15:00.000Z",
       "type": "Round 14",
       "league": "IsraeliLeague18"
@@ -847,7 +847,7 @@
     {
       "_id": "6a21a7c1a3f89181074e9864",
       "team1": "Hapoel Raanana",
-      "team2": "Hapoel Kiryat Shmona",
+      "team2": "Kiryat Shmona",
       "kickofftime": "2017-12-17T17:00:00.000Z",
       "type": "Round 14",
       "league": "IsraeliLeague18"
@@ -863,14 +863,14 @@
     {
       "_id": "6a21a7c1a3f89181074e9866",
       "team1": "FC Ashdod",
-      "team2": "Maccabi Ironi Petah Tikva",
+      "team2": "Maccabi Petach Tikva",
       "kickofftime": "2017-12-16T14:00:00.000Z",
       "type": "Round 14",
       "league": "IsraeliLeague18"
     },
     {
       "_id": "6a21a7c1a3f89181074e9867",
-      "team1": "Maccabi Ironi Petah Tikva",
+      "team1": "Maccabi Petach Tikva",
       "team2": "Hapoel Haifa",
       "kickofftime": "2017-12-23T16:15:00.000Z",
       "type": "Round 15",
@@ -886,7 +886,7 @@
     },
     {
       "_id": "6a21a7c1a3f89181074e9869",
-      "team1": "Hapoel Kiryat Shmona",
+      "team1": "Kiryat Shmona",
       "team2": "Maccabi Tel Aviv",
       "kickofftime": "2017-12-23T18:30:00.000Z",
       "type": "Round 15",
@@ -918,7 +918,7 @@
     },
     {
       "_id": "6a21a7c1a3f89181074e9873",
-      "team1": "Hapoel Ironi Ashkelon",
+      "team1": "Hapoel Ashkelon",
       "team2": "Bnei Yehuda Tel Aviv",
       "kickofftime": "2017-12-23T16:00:00.000Z",
       "type": "Round 15",
@@ -935,7 +935,7 @@
     {
       "_id": "6a21a7c1a3f89181074e9875",
       "team1": "Hapoel Beer Sheva",
-      "team2": "Hapoel Ironi Ashkelon",
+      "team2": "Hapoel Ashkelon",
       "kickofftime": "2017-12-31T18:15:00.000Z",
       "type": "Round 16",
       "league": "IsraeliLeague18"
@@ -967,14 +967,14 @@
     {
       "_id": "6a21a7c1a3f89181074e9879",
       "team1": "FC Ashdod",
-      "team2": "Hapoel Kiryat Shmona",
+      "team2": "Kiryat Shmona",
       "kickofftime": "2017-12-31T17:00:00.000Z",
       "type": "Round 16",
       "league": "IsraeliLeague18"
     },
     {
       "_id": "6a21a7c1a3f89181074e9880",
-      "team1": "Maccabi Ironi Petah Tikva",
+      "team1": "Maccabi Petach Tikva",
       "team2": "Beitar Jerusalem",
       "kickofftime": "2017-12-30T18:30:00.000Z",
       "type": "Round 16",
@@ -990,8 +990,8 @@
     },
     {
       "_id": "6a21a7c1a3f89181074e9882",
-      "team1": "Hapoel Kiryat Shmona",
-      "team2": "Maccabi Ironi Petah Tikva",
+      "team1": "Kiryat Shmona",
+      "team2": "Maccabi Petach Tikva",
       "kickofftime": "2018-01-09T18:33:00.000Z",
       "type": "Round 17",
       "league": "IsraeliLeague18"
@@ -1022,7 +1022,7 @@
     },
     {
       "_id": "6a21a7c1a3f89181074e9886",
-      "team1": "Hapoel Ironi Ashkelon",
+      "team1": "Hapoel Ashkelon",
       "team2": "Hapoel Akko",
       "kickofftime": "2018-01-09T18:33:00.000Z",
       "type": "Round 17",
@@ -1055,7 +1055,7 @@
     {
       "_id": "6a21a7c1a3f89181074e9890",
       "team1": "Hapoel Raanana",
-      "team2": "Hapoel Ironi Ashkelon",
+      "team2": "Hapoel Ashkelon",
       "kickofftime": "2018-01-13T18:33:00.000Z",
       "type": "Round 18",
       "league": "IsraeliLeague18"
@@ -1078,7 +1078,7 @@
     },
     {
       "_id": "6a21a7c1a3f89181074e9893",
-      "team1": "Maccabi Ironi Petah Tikva",
+      "team1": "Maccabi Petach Tikva",
       "team2": "Bnei Sakhnin",
       "kickofftime": "2018-01-13T18:33:00.000Z",
       "type": "Round 18",
@@ -1087,14 +1087,14 @@
     {
       "_id": "6a21a7c1a3f89181074e9894",
       "team1": "Beitar Jerusalem",
-      "team2": "Hapoel Kiryat Shmona",
+      "team2": "Kiryat Shmona",
       "kickofftime": "2018-01-13T18:33:00.000Z",
       "type": "Round 18",
       "league": "IsraeliLeague18"
     },
     {
       "_id": "6a21a7c1a3f89181074e9895",
-      "team1": "Hapoel Kiryat Shmona",
+      "team1": "Kiryat Shmona",
       "team2": "Hapoel Haifa",
       "kickofftime": "2018-01-20T18:33:00.000Z",
       "type": "Round 19",
@@ -1103,7 +1103,7 @@
     {
       "_id": "6a21a7c1a3f89181074e9896",
       "team1": "Maccabi Netanya",
-      "team2": "Maccabi Ironi Petah Tikva",
+      "team2": "Maccabi Petach Tikva",
       "kickofftime": "2018-01-20T18:33:00.000Z",
       "type": "Round 19",
       "league": "IsraeliLeague18"
@@ -1118,7 +1118,7 @@
     },
     {
       "_id": "6a21a7c1a3f89181074e9898",
-      "team1": "Hapoel Ironi Ashkelon",
+      "team1": "Hapoel Ashkelon",
       "team2": "Maccabi Tel Aviv",
       "kickofftime": "2018-01-20T18:33:00.000Z",
       "type": "Round 19",
@@ -1175,14 +1175,14 @@
     {
       "_id": "6a21a7c1a3f89181074e9905",
       "team1": "FC Ashdod",
-      "team2": "Hapoel Ironi Ashkelon",
+      "team2": "Hapoel Ashkelon",
       "kickofftime": "2018-01-27T18:33:00.000Z",
       "type": "Round 20",
       "league": "IsraeliLeague18"
     },
     {
       "_id": "6a21a7c1a3f89181074e9906",
-      "team1": "Maccabi Ironi Petah Tikva",
+      "team1": "Maccabi Petach Tikva",
       "team2": "Maccabi Haifa",
       "kickofftime": "2018-01-27T18:33:00.000Z",
       "type": "Round 20",
@@ -1198,7 +1198,7 @@
     },
     {
       "_id": "6a21a7c1a3f89181074e9908",
-      "team1": "Hapoel Kiryat Shmona",
+      "team1": "Kiryat Shmona",
       "team2": "Bnei Sakhnin",
       "kickofftime": "2018-01-27T18:33:00.000Z",
       "type": "Round 20",
@@ -1215,7 +1215,7 @@
     {
       "_id": "6a21a7c1a3f89181074e9910",
       "team1": "Maccabi Netanya",
-      "team2": "Hapoel Kiryat Shmona",
+      "team2": "Kiryat Shmona",
       "kickofftime": "2018-02-03T18:33:00.000Z",
       "type": "Round 21",
       "league": "IsraeliLeague18"
@@ -1230,8 +1230,8 @@
     },
     {
       "_id": "6a21a7c1a3f89181074e9912",
-      "team1": "Hapoel Ironi Ashkelon",
-      "team2": "Maccabi Ironi Petah Tikva",
+      "team1": "Hapoel Ashkelon",
+      "team2": "Maccabi Petach Tikva",
       "kickofftime": "2018-02-03T18:33:00.000Z",
       "type": "Round 21",
       "league": "IsraeliLeague18"
@@ -1286,7 +1286,7 @@
     },
     {
       "_id": "6a21a7c1a3f89181074e9919",
-      "team1": "Maccabi Ironi Petah Tikva",
+      "team1": "Maccabi Petach Tikva",
       "team2": "Bnei Yehuda Tel Aviv",
       "kickofftime": "2018-02-10T18:33:00.000Z",
       "type": "Round 22",
@@ -1295,14 +1295,14 @@
     {
       "_id": "6a21a7c1a3f89181074e9920",
       "team1": "Beitar Jerusalem",
-      "team2": "Hapoel Ironi Ashkelon",
+      "team2": "Hapoel Ashkelon",
       "kickofftime": "2018-02-10T18:33:00.000Z",
       "type": "Round 22",
       "league": "IsraeliLeague18"
     },
     {
       "_id": "6a21a7c1a3f89181074e9921",
-      "team1": "Hapoel Kiryat Shmona",
+      "team1": "Kiryat Shmona",
       "team2": "Maccabi Haifa",
       "kickofftime": "2018-02-10T18:33:00.000Z",
       "type": "Round 22",
@@ -1334,8 +1334,8 @@
     },
     {
       "_id": "6a21a7c1a3f89181074e9925",
-      "team1": "Hapoel Ironi Ashkelon",
-      "team2": "Hapoel Kiryat Shmona",
+      "team1": "Hapoel Ashkelon",
+      "team2": "Kiryat Shmona",
       "kickofftime": "2018-02-17T18:33:00.000Z",
       "type": "Round 23",
       "league": "IsraeliLeague18"
@@ -1351,7 +1351,7 @@
     {
       "_id": "6a21a7c1a3f89181074e9927",
       "team1": "Hapoel Beer Sheva",
-      "team2": "Maccabi Ironi Petah Tikva",
+      "team2": "Maccabi Petach Tikva",
       "kickofftime": "2018-02-17T18:33:00.000Z",
       "type": "Round 23",
       "league": "IsraeliLeague18"
@@ -1390,7 +1390,7 @@
     },
     {
       "_id": "6a21a7c1a3f89181074e9932",
-      "team1": "Maccabi Ironi Petah Tikva",
+      "team1": "Maccabi Petach Tikva",
       "team2": "Hapoel Akko",
       "kickofftime": "2018-02-24T18:33:00.000Z",
       "type": "Round 24",
@@ -1406,7 +1406,7 @@
     },
     {
       "_id": "6a21a7c1a3f89181074e9934",
-      "team1": "Hapoel Kiryat Shmona",
+      "team1": "Kiryat Shmona",
       "team2": "Bnei Yehuda Tel Aviv",
       "kickofftime": "2018-02-24T18:33:00.000Z",
       "type": "Round 24",
@@ -1415,7 +1415,7 @@
     {
       "_id": "6a21a7c1a3f89181074e9935",
       "team1": "Bnei Sakhnin",
-      "team2": "Hapoel Ironi Ashkelon",
+      "team2": "Hapoel Ashkelon",
       "kickofftime": "2018-02-24T18:33:00.000Z",
       "type": "Round 24",
       "league": "IsraeliLeague18"
@@ -1438,7 +1438,7 @@
     },
     {
       "_id": "6a21a7c1a3f89181074e9938",
-      "team1": "Hapoel Ironi Ashkelon",
+      "team1": "Hapoel Ashkelon",
       "team2": "Maccabi Netanya",
       "kickofftime": "2018-03-03T18:33:00.000Z",
       "type": "Round 25",
@@ -1455,7 +1455,7 @@
     {
       "_id": "6a21a7c1a3f89181074e9940",
       "team1": "Hapoel Beer Sheva",
-      "team2": "Hapoel Kiryat Shmona",
+      "team2": "Kiryat Shmona",
       "kickofftime": "2018-03-03T18:33:00.000Z",
       "type": "Round 25",
       "league": "IsraeliLeague18"
@@ -1471,7 +1471,7 @@
     {
       "_id": "6a21a7c1a3f89181074e9942",
       "team1": "Hapoel Raanana",
-      "team2": "Maccabi Ironi Petah Tikva",
+      "team2": "Maccabi Petach Tikva",
       "kickofftime": "2018-03-03T18:33:00.000Z",
       "type": "Round 25",
       "league": "IsraeliLeague18"
@@ -1494,7 +1494,7 @@
     },
     {
       "_id": "6a21a7c1a3f89181074e9945",
-      "team1": "Maccabi Ironi Petah Tikva",
+      "team1": "Maccabi Petach Tikva",
       "team2": "Maccabi Tel Aviv",
       "kickofftime": "2018-03-10T18:33:00.000Z",
       "type": "Round 26",
@@ -1510,7 +1510,7 @@
     },
     {
       "_id": "6a21a7c1a3f89181074e9947",
-      "team1": "Hapoel Kiryat Shmona",
+      "team1": "Kiryat Shmona",
       "team2": "Hapoel Akko",
       "kickofftime": "2018-03-10T18:33:00.000Z",
       "type": "Round 26",
@@ -1535,7 +1535,7 @@
     {
       "_id": "6a21a7c1a3f89181074e9950",
       "team1": "Maccabi Haifa",
-      "team2": "Hapoel Ironi Ashkelon",
+      "team2": "Hapoel Ashkelon",
       "kickofftime": "2018-03-10T18:33:00.000Z",
       "type": "Round 26",
       "league": "IsraeliLeague18"
@@ -1592,7 +1592,7 @@
     },
     {
       "matchId": "6a21a7c1a3f89181074e9775",
-      "winner": "Maccabi Ironi Petah Tikva",
+      "winner": "Maccabi Petach Tikva",
       "team1Goals": "2",
       "team2Goals": "1",
       "goalDiff": 1,
@@ -1696,11 +1696,11 @@
     },
     {
       "matchId": "6a21a7c1a3f89181074e9788",
-      "winner": "Hapoel Kiryat Shmona",
+      "winner": "Kiryat Shmona",
       "team1Goals": "2",
       "team2Goals": "0",
       "goalDiff": 2,
-      "firstToScore": "Hapoel Kiryat Shmona"
+      "firstToScore": "Kiryat Shmona"
     },
     {
       "matchId": "6a21a7c1a3f89181074e9789",
@@ -1720,7 +1720,7 @@
     },
     {
       "matchId": "6a21a7c1a3f89181074e9791",
-      "winner": "Hapoel Kiryat Shmona",
+      "winner": "Kiryat Shmona",
       "team1Goals": "1",
       "team2Goals": "3",
       "goalDiff": 2,
@@ -1752,7 +1752,7 @@
     },
     {
       "matchId": "6a21a7c1a3f89181074e9795",
-      "winner": "Hapoel Ironi Ashkelon",
+      "winner": "Hapoel Ashkelon",
       "team1Goals": "1",
       "team2Goals": "2",
       "goalDiff": 1,
@@ -1784,11 +1784,11 @@
     },
     {
       "matchId": "6a21a7c1a3f89181074e9799",
-      "winner": "Hapoel Ironi Ashkelon",
+      "winner": "Hapoel Ashkelon",
       "team1Goals": "3",
       "team2Goals": "0",
       "goalDiff": 3,
-      "firstToScore": "Hapoel Ironi Ashkelon"
+      "firstToScore": "Hapoel Ashkelon"
     },
     {
       "matchId": "6a21a7c1a3f89181074e9800",
@@ -1808,11 +1808,11 @@
     },
     {
       "matchId": "6a21a7c1a3f89181074e9802",
-      "winner": "Maccabi Ironi Petah Tikva",
+      "winner": "Maccabi Petach Tikva",
       "team1Goals": "0",
       "team2Goals": "1",
       "goalDiff": 1,
-      "firstToScore": "Maccabi Ironi Petah Tikva"
+      "firstToScore": "Maccabi Petach Tikva"
     },
     {
       "matchId": "6a21a7c1a3f89181074e9803",
@@ -1960,7 +1960,7 @@
     },
     {
       "matchId": "6a21a7c1a3f89181074e9821",
-      "winner": "Maccabi Ironi Petah Tikva",
+      "winner": "Maccabi Petach Tikva",
       "team1Goals": "3",
       "team2Goals": "1",
       "goalDiff": 2,
@@ -2032,11 +2032,11 @@
     },
     {
       "matchId": "6a21a7c1a3f89181074e9830",
-      "winner": "Hapoel Kiryat Shmona",
+      "winner": "Kiryat Shmona",
       "team1Goals": "0",
       "team2Goals": "1",
       "goalDiff": 1,
-      "firstToScore": "Hapoel Kiryat Shmona"
+      "firstToScore": "Kiryat Shmona"
     },
     {
       "matchId": "6a21a7c1a3f89181074e9831",
@@ -2120,11 +2120,11 @@
     },
     {
       "matchId": "6a21a7c1a3f89181074e9841",
-      "winner": "Maccabi Ironi Petah Tikva",
+      "winner": "Maccabi Petach Tikva",
       "team1Goals": "3",
       "team2Goals": "0",
       "goalDiff": 3,
-      "firstToScore": "Maccabi Ironi Petah Tikva"
+      "firstToScore": "Maccabi Petach Tikva"
     },
     {
       "matchId": "6a21a7c1a3f89181074e9842",
@@ -2136,7 +2136,7 @@
     },
     {
       "matchId": "6a21a7c1a3f89181074e9843",
-      "winner": "Hapoel Kiryat Shmona",
+      "winner": "Kiryat Shmona",
       "team1Goals": "1",
       "team2Goals": "2",
       "goalDiff": 1,
