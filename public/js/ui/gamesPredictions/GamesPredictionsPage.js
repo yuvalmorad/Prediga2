@@ -1,6 +1,7 @@
 component.GamesPredictionsPage = (function(){
     var connect = ReactRedux.connect;
-    var GamePredictionTile = component.GamePredictionTile;
+    var GamePredictionTile = component.GamePredictionTile,
+        ImageButton = component.ImageButton;
 
     var isGamesPredictionsRequestSent = false;
 
@@ -156,11 +157,14 @@ component.GamesPredictionsPage = (function(){
                 tilesInPage = [].concat.apply([], tilesInPage);
             }
 
+            var isLeftButtonDisabled = closestIndex === 0;
+            var isRightButtonDisabled = closestIndex === pages.length - 1;
+
             return re("div", { className: "games-prediction-page content hasTilesHeader"},
                 re("div", {className: "tiles-header"},
-                    re("button", {className: "icon-left-open", onClick: this.onPreviousPage, disabled: closestIndex === 0}),
+                    re(ImageButton, {onClick: this.onPreviousPage, disabled: isLeftButtonDisabled, imageName: "arrow_left"}),
                     re("div", {className: "title"}, closestPage ? models.leagues.getLeagueName(closestPage.league) + ": " + closestPage.type : ""),
-                    re("button", {className: "icon-right-open", onClick: this.onNextPage, disabled: closestIndex === pages.length - 1})
+                    re(ImageButton, {onClick: this.onNextPage, disabled: isRightButtonDisabled, imageName: "arrow_right"})
                 ),
                 re("div", {ref: this.assignTilesRef, className: "tiles" + (props.isShowTileDialog ? " no-scroll" : "")},
                     tilesInPage

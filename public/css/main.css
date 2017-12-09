@@ -221,9 +221,42 @@ body {
     border-right: none;
 }
 
-.navigation-tab.selected {
-    color: #009fff;
+.navigation-tab:before {
+    content: '';
+    background-size: 1.5rem;
+    position: absolute;
+    background-position: 50%;
+    background-repeat: no-repeat;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
 }
+
+.games-prediction-tab:before {
+    background-image: url(../images/crystal_ball.png);
+}
+
+.games-prediction-tab.selected:before {
+    background-image: url(../images/crystal_ball_selected.png);
+}
+
+.teams-prediction-tab:before {
+    background-image: url(../images/medals.png);
+}
+
+.teams-prediction-tab.selected:before {
+    background-image: url(../images/medals_selected.png);
+}
+
+.leader-board-tab:before {
+    background-image: url(../images/trophy.png);
+}
+
+.leader-board-tab.selected:before {
+    background-image: url(../images/trophy_selected.png);
+}
+
 
 /* -------  images pagination -------*/
 
@@ -243,21 +276,23 @@ body {
 
 .images-pagination .button-area.left {
     left: 0;
-    box-shadow: 10px 0 36px 19px rgba(255, 255, 255, 0.88);
+    box-shadow: 20px 0 36px 19px rgba(255, 255, 255, 0.88);
 }
 
 .images-pagination .button-area.right {
     right: 0;
-    box-shadow: -10px 0 36px 19px rgba(255, 255, 255, 0.88);
+    box-shadow: -20px 0 36px 19px rgba(255, 255, 255, 0.88);
 }
 
 .images-pagination .button-area button {
     background: transparent;
     border: none;
-    font-size: 2rem;
-    color: #c5c5c5;
     padding: 0;
-    line-height: 5rem;
+    height: 100%;
+}
+
+.images-pagination .button-area button img {
+    height: 2.5rem;
 }
 
 .images-pagination .scroll {
@@ -398,6 +433,7 @@ body {
 .tile-dialog-container .tile {
     height: 29rem;
     margin: 0 auto;
+    box-sizing: border-box;
 }
 
 .tile-dialog-container .dialog-button {
@@ -573,14 +609,10 @@ body {
 .games-prediction-page .tiles-header button {
     background: transparent;
     border: none;
-    font-size: 1rem;
-    padding: 0 0.5rem;
-    color: #009fff;
-    line-height: 2rem;
 }
 
-.games-prediction-page .tiles-header button[disabled] {
-    color: #cac6c6;
+.games-prediction-page .tiles-header button img {
+    height: 1rem;
 }
 
 .game-prediction-tile .main > .left,
@@ -594,6 +626,7 @@ body {
 
 .tile.game-prediction-tile.no-prediction {
     background-color: transparent;
+    box-shadow: none;
 }
 
 .game-prediction-tile .main > .left {
@@ -679,6 +712,7 @@ body {
 
 .game-prediction-tile .game-points {
     color: #6ECE1A;
+    font-weight: bold;
 }
 
 .game-prediction-tile .game-date {
@@ -723,6 +757,26 @@ body {
     align-items: center;
 }
 
+.game-prediction-tile .goals-predictions > div {
+    position: relative;
+}
+
+.goals-predictions .points {
+    position: absolute;
+    bottom: 0;
+    right: -1.2rem;
+    height: 2rem;
+    line-height: 2rem;
+    color: #6ECE1A;
+    font-weight: bold;
+    font-size: 0.75rem;
+}
+
+.goals-predictions .points.right {
+    left: -1.2rem;
+    right: auto;
+}
+
 .game-prediction-tile .mutual-friends > div{
     flex: 1;
     position: relative;
@@ -750,6 +804,7 @@ body {
 }
 
 /* -------  Fonts -------*/
+/*
 
 @font-face {
     font-family: 'fontello';
@@ -774,32 +829,32 @@ body {
     width: 1em;
     margin-right: .2em;
     text-align: center;
-    /* opacity: .8; */
+    !* opacity: .8; *!
 
-    /* For safety - reset parent styles, that can break glyph codes*/
+    !* For safety - reset parent styles, that can break glyph codes*!
     font-variant: normal;
     text-transform: none;
 
-    /* fix buttons height, for twitter bootstrap */
+    !* fix buttons height, for twitter bootstrap *!
     line-height: 1em;
 
-    /* Animation center compensation - margins should be symmetric */
-    /* remove if not needed */
+    !* Animation center compensation - margins should be symmetric *!
+    !* remove if not needed *!
     margin-left: .2em;
 
-    /* you can be more comfortable with increased icons size */
-    /* font-size: 120%; */
+    !* you can be more comfortable with increased icons size *!
+    !* font-size: 120%; *!
 
-    /* Font smoothing. That was taken from TWBS */
+    !* Font smoothing. That was taken from TWBS *!
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 
-    /* Uncomment for 3D effect */
-    /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+    !* Uncomment for 3D effect *!
+    !* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); *!
 }
 
-.icon-lifebuoy:before { content: '\e800'; } /* '' */
-.icon-credit-card:before { content: '\e801'; } /* '' */
-.icon-trophy:before { content: '\e804'; } /* '' */
-.icon-right-open:before { content: '\e802'; } /* '' */
-.icon-left-open:before { content: '\e803'; } /* '' */
+.icon-lifebuoy:before { content: '\e800'; }
+.icon-credit-card:before { content: '\e801'; }
+.icon-trophy:before { content: '\e804'; }
+.icon-right-open:before { content: '\e802'; }
+.icon-left-open:before { content: '\e803'; } */

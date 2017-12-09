@@ -5,6 +5,7 @@ component.GamePredictionFormTile = (function(){
     var IMAGE_SIZE = 2.5;
     var TRANSFORM_BACK = 2;
     var MAX_USERS = 7;
+    var DEAFULT_PROFILE_IMAGE = "../images/default_profile.png";
 
     function mapToMutualFriends(_users, reverse) {
         var users = _users.splice(0, MAX_USERS);
@@ -32,7 +33,7 @@ component.GamePredictionFormTile = (function(){
                 style["lineHeight"] = IMAGE_SIZE + "rem";
                 return re("div", {className: "additional-mutual-friends", style: style, key: "mutualFriendImg_" + index}, "+" + user.additionalFriends);
             } else {
-                return re("img", {src: user.photo, style: style, key: "mutualFriendImg_" + index});
+                return re("img", {src: user.photo || DEAFULT_PROFILE_IMAGE, style: style, key: "mutualFriendImg_" + index});
             }
         });
     }
@@ -107,11 +108,17 @@ component.GamePredictionFormTile = (function(){
             var mutualFriendsTeam1 = mapToMutualFriends(otherPredctionsTeam1),
                 mutualFriendsDrawWidth = getMutualFriendsWidth(otherPredctionsDraw),
                 mutualFriendsDraw = mapToMutualFriends(otherPredctionsDraw, false),
-                mutualFriendsTeam2 = mapToMutualFriends(otherPredctionsTeam2, true);
+                mutualFriendsTeam2 = mapToMutualFriends(otherPredctionsTeam2, true),
+                team1GoalsPoints,
+                diffGoalsPoints,
+                team2GoalsPoints;
 
             if (result) {
                 //POST_GAME
                 points = utils.general.calculatePoints(prediction, result);
+                team1GoalsPoints = points[GAME.BET_TYPES.TEAM1_GOALS.key];
+                diffGoalsPoints = points[GAME.BET_TYPES.GOAL_DIFF.key];
+                team2GoalsPoints = points[GAME.BET_TYPES.TEAM2_GOALS.key]
                 isFormDisabled = true;
             }
 
@@ -126,15 +133,18 @@ component.GamePredictionFormTile = (function(){
                 re("div", {className: "goals-predictions"},
                     re("div", {},
                         re("div", {className: "form-row-title"}, "Goals"),
-                        re(InputNumber, {isDisabled: isFormDisabled, points: points[GAME.BET_TYPES.TEAM1_GOALS.key], num: predictionTeam1Goals, onChange: this.onInputNumberChanged.bind(this, GAME.BET_TYPES.TEAM1_GOALS.key)})
+                        re(InputNumber, {isDisabled: isFormDisabled, points: team1GoalsPoints, num: predictionTeam1Goals, onChange: this.onInputNumberChanged.bind(this, GAME.BET_TYPES.TEAM1_GOALS.key)}),
+                        re("div", {className: "points"}, team1GoalsPoints ? team1GoalsPoints : "")
                     ),
                     re("div", {},
                         re("div", {className: "form-row-title"}, "Diff"),
-                        re(InputNumber, {isDisabled: isFormDisabled, points: points[GAME.BET_TYPES.GOAL_DIFF.key], num: predictionGoalDiff, onChange: this.onInputNumberChanged.bind(this, GAME.BET_TYPES.GOAL_DIFF.key)})
+                        re(InputNumber, {isDisabled: isFormDisabled, points: diffGoalsPoints, num: predictionGoalDiff, onChange: this.onInputNumberChanged.bind(this, GAME.BET_TYPES.GOAL_DIFF.key)}),
+                        re("div", {className: "points"}, diffGoalsPoints ? diffGoalsPoints : "")
                     ),
                     re("div", {},
                         re("div", {className: "form-row-title"}, "Goals"),
-                        re(InputNumber, {isDisabled: isFormDisabled, points: points[GAME.BET_TYPES.TEAM2_GOALS.key], num: predictionTeam2Goals, onChange: this.onInputNumberChanged.bind(this, GAME.BET_TYPES.TEAM2_GOALS.key)})
+                        re(InputNumber, {isDisabled: isFormDisabled, points: team2GoalsPoints, num: predictionTeam2Goals, onChange: this.onInputNumberChanged.bind(this, GAME.BET_TYPES.TEAM2_GOALS.key)}),
+                        re("div", {className: "points right"}, team2GoalsPoints ? team2GoalsPoints : "")
                     )
                 ),
                 re("div", {className: "form-row-title"}, "First to Score"),
