@@ -35,7 +35,7 @@ component.RadioButton = (function(){
                 re("button", {className: className, onClick: onClicked, disabled: isDisabled, style: {visibility: (isDisabled && !isChecked) ? "hidden" : ""}},
                     re("div", {style: {backgroundColor: isChecked && !hasPoints ? bgColor : "", color: isChecked && !hasPoints ? textColor : ""}}, text)
                 ),
-                re("div", {className: pointsClassName}, points ? points : "")
+                re("div", {className: pointsClassName}, (points && isChecked) ? points : "")
         );
     }
 })();
