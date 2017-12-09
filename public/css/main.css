@@ -399,7 +399,7 @@ body {
 }
 
 .tile-dialog-container.TeamPredictionTileDialog .dialog-button {
-    height: calc((100% - 16rem)/2);
+    height: calc((100% - 14rem)/2);
 }
 
 .tile-dialog-container .dialog-button button {
@@ -543,7 +543,7 @@ body {
 
 /* -------  team prediction tile -------*/
 .tile-dialog-container .team-prediction-tile.tile {
-    height: 16rem;
+    height: 14rem;
 }
 
 .team-prediction-form {
