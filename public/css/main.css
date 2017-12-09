@@ -221,9 +221,42 @@ body {
     border-right: none;
 }
 
-.navigation-tab.selected {
-    color: #009fff;
+.navigation-tab:before {
+    content: '';
+    background-size: 1.5rem;
+    position: absolute;
+    background-position: 50%;
+    background-repeat: no-repeat;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
 }
+
+.games-prediction-tab:before {
+    background-image: url(../images/crystal_ball.png);
+}
+
+.games-prediction-tab.selected:before {
+    background-image: url(../images/crystal_ball_selected.png);
+}
+
+.teams-prediction-tab:before {
+    background-image: url(../images/medals.png);
+}
+
+.teams-prediction-tab.selected:before {
+    background-image: url(../images/medals_selected.png);
+}
+
+.leader-board-tab:before {
+    background-image: url(../images/trophy.png);
+}
+
+.leader-board-tab.selected:before {
+    background-image: url(../images/trophy_selected.png);
+}
+
 
 /* -------  images pagination -------*/
 
@@ -750,6 +783,7 @@ body {
 }
 
 /* -------  Fonts -------*/
+/*
 
 @font-face {
     font-family: 'fontello';
@@ -774,32 +808,32 @@ body {
     width: 1em;
     margin-right: .2em;
     text-align: center;
-    /* opacity: .8; */
+    !* opacity: .8; *!
 
-    /* For safety - reset parent styles, that can break glyph codes*/
+    !* For safety - reset parent styles, that can break glyph codes*!
     font-variant: normal;
     text-transform: none;
 
-    /* fix buttons height, for twitter bootstrap */
+    !* fix buttons height, for twitter bootstrap *!
     line-height: 1em;
 
-    /* Animation center compensation - margins should be symmetric */
-    /* remove if not needed */
+    !* Animation center compensation - margins should be symmetric *!
+    !* remove if not needed *!
     margin-left: .2em;
 
-    /* you can be more comfortable with increased icons size */
-    /* font-size: 120%; */
+    !* you can be more comfortable with increased icons size *!
+    !* font-size: 120%; *!
 
-    /* Font smoothing. That was taken from TWBS */
+    !* Font smoothing. That was taken from TWBS *!
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 
-    /* Uncomment for 3D effect */
-    /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+    !* Uncomment for 3D effect *!
+    !* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); *!
 }
 
-.icon-lifebuoy:before { content: '\e800'; } /* '' */
-.icon-credit-card:before { content: '\e801'; } /* '' */
-.icon-trophy:before { content: '\e804'; } /* '' */
-.icon-right-open:before { content: '\e802'; } /* '' */
-.icon-left-open:before { content: '\e803'; } /* '' */
+.icon-lifebuoy:before { content: '\e800'; }
+.icon-credit-card:before { content: '\e801'; }
+.icon-trophy:before { content: '\e804'; }
+.icon-right-open:before { content: '\e802'; }
+.icon-left-open:before { content: '\e803'; } */
