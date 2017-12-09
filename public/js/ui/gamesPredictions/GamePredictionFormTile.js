@@ -109,9 +109,9 @@ component.GamePredictionFormTile = (function(){
                 mutualFriendsDraw = mapToMutualFriends(otherPredctionsDraw, false),
                 mutualFriendsTeam2 = mapToMutualFriends(otherPredctionsTeam2, true);
 
-            if (result) {//(game.status === GAME.STATUS.POST_GAME){ //TODO
+            if (result) {
                 //POST_GAME
-                points = utils.general.calculatePoints(prediction, result); //TODO
+                points = utils.general.calculatePoints(prediction, result);
                 isFormDisabled = true;
             }
 

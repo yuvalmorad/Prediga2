@@ -105,20 +105,32 @@ body {
     text-align: center;
 }
 
-.login-page .facebook-login {
-    width: 100%;
-    background: #3e6aab;
+.login-page .login-button-wrapper {
+    margin-bottom: 1rem;
+}
+
+.login-page .login-button-wrapper:last-child {
+    margin-bottom: 0;
+}
+
+.login-page .login-button-wrapper a {
+    width: calc(100% - 4rem);
     border: none;
     padding: 0.5rem 1rem;
     color: #fff;
     border-radius: 6px;
-    margin-bottom: 1rem;
+    display: inline-block;
+    max-width: 400px;
 }
 
-.login-page .register-account {
-    color: #fff;
-    font-size: 0.75rem;
+.login-page .login-button-wrapper a.facebook-login {
+    background-color: #3e6aab;
 }
+
+.login-page .login-button-wrapper a.google-login {
+    background-color: #ca1212;
+}
+
 /* -------  Site Header -------*/
 
 .site-header {
