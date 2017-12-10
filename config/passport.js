@@ -129,7 +129,7 @@ module.exports = function (passport, configFBPassport, configGooglePassport) {
                         photo = (profile.photos[0].value || '');
                     }
 
-                    User.findOne({'email': email}, function (err, user) {
+                    User.findOne({'profileId': profile.id}, function (err, user) {
                         if (err)
                             return done(err);
 
@@ -153,53 +153,25 @@ module.exports = function (passport, configFBPassport, configGooglePassport) {
 
                             return done(null, user); // user found, return that user
                         } else {
-                            // check if the user already registered with profile id.
-                            User.findOne({'profileId': profile.id}, function (err, user) {
-                                if (user) {
-                                    // if there is a user id already but no token (user was linked at one point and then removed)
-                                    if (!user.token) {
-                                        user.token = token;
-                                        user.name = profile.displayName;
-                                        user.email = email;
-                                        if (photo !== '') {
-                                            user.photo = photo;
-                                        }
-                                        user.save(function (err) {
-                                            if (err)
-                                                return done(err);
-
-                                            return done(null, user);
-                                        });
-                                    } else {
-                                        user.save(function (err) {
-                                            if (err)
-                                                return done(err);
-
-                                            return done(null, user);
-                                        });
-                                    }
-                                } else {
-                                    // if there is no user, create them
-                                    var newUser = new User();
-                                    try {
-                                        newUser.profileId = profile.id;
-                                        newUser.token = token;
-                                        newUser.name = profile.displayName;
-                                        newUser.email = email;
-                                        if (photo !== '') {
-                                            newUser.photo = photo;
-                                        }
-                                    } catch (err) {
-                                        return done(err);
-                                    }
-
-                                    newUser.save(function (err) {
-                                        if (err)
-                                            return done(err);
-
-                                        return done(null, newUser);
-                                    });
+                            // if there is no user, create them
+                            var newUser = new User();
+                            try {
+                                newUser.profileId = profile.id;
+                                newUser.token = token;
+                                newUser.name = profile.displayName;
+                                newUser.email = email;
+                                if (photo !== '') {
+                                    newUser.photo = photo;
                                 }
+                            } catch (err) {
+                                return done(err);
+                            }
+
+                            newUser.save(function (err) {
+                                if (err)
+                                    return done(err);
+
+                                return done(null, newUser);
                             });
                         }
                     });
