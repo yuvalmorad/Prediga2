@@ -57,7 +57,7 @@ module.exports = function (passport, configFBPassport, configGooglePassport) {
                                 }
                                 user.save(function (err) {
                                     if (err)
-                                        throw err;
+                                        return done(err);
                                     return done(null, user);
                                 });
                             }
@@ -76,7 +76,7 @@ module.exports = function (passport, configFBPassport, configGooglePassport) {
                             }
                             newUser.save(function (err) {
                                 if (err)
-                                    throw err;
+                                    return done(err);
                                 return done(null, newUser);
                             });
                         }
@@ -96,7 +96,7 @@ module.exports = function (passport, configFBPassport, configGooglePassport) {
 
                     user.save(function (err) {
                         if (err)
-                            throw err;
+                            return done(err);
                         return done(null, user);
                     });
 
@@ -135,7 +135,7 @@ module.exports = function (passport, configFBPassport, configGooglePassport) {
                                 }
                                 user.save(function (err) {
                                     if (err)
-                                        throw err;
+                                        return done(err);
                                     return done(null, user);
                                 });
                             }
@@ -153,7 +153,7 @@ module.exports = function (passport, configFBPassport, configGooglePassport) {
                             }
                             newUser.save(function (err) {
                                 if (err)
-                                    throw err;
+                                    return done(err);
                                 return done(null, newUser);
                             });
                         }
@@ -173,7 +173,7 @@ module.exports = function (passport, configFBPassport, configGooglePassport) {
 
                     user.save(function (err) {
                         if (err)
-                            throw err;
+                            return done(err);
                         return done(null, user);
                     });
                 }
