@@ -40,7 +40,7 @@ module.exports = function (passport, configFBPassport, configGooglePassport) {
                 // check if the user is already logged in
                 if (!req.user) {
 
-                    User.findOne({'facebook.id': profile.id}, function (err, user) {
+                    User.findOne({'profileId': profile.id}, function (err, user) {
                         if (err)
                             return done(err);
 
@@ -48,6 +48,7 @@ module.exports = function (passport, configFBPassport, configGooglePassport) {
 
                             // if there is a user id already but no token (user was linked at one point and then removed)
                             if (!user.token) {
+                                user.profileId = profile.id;
                                 user.token = token;
                                 user.name = profile.name.givenName + ' ' + profile.name.familyName;
                                 user.email = profile.emails && profile.emails.length > 0 ? profile.emails[0].value : '';
@@ -66,7 +67,7 @@ module.exports = function (passport, configFBPassport, configGooglePassport) {
                             // if there is no user, create them
                             var newUser = new User();
 
-                            newUser.id = profile.id;
+                            newUser.profileId = profile.id;
                             newUser.token = token;
                             newUser.name = profile.name.givenName + ' ' + profile.name.familyName;
                             newUser.email = profile.emails && profile.emails.length > 0 ? profile.emails[0].value : '';
@@ -85,7 +86,7 @@ module.exports = function (passport, configFBPassport, configGooglePassport) {
                     // user already exists and is logged in, we have to link accounts
                     var user = req.user; // pull the user out of the session
 
-                    user.id = profile.id;
+                    user.profileId = profile.id;
                     user.token = token;
                     user.name = profile.name.givenName + ' ' + profile.name.familyName;
                     user.email = profile.emails && profile.emails.length > 0 ? profile.emails[0].value : '';
@@ -117,7 +118,7 @@ module.exports = function (passport, configFBPassport, configGooglePassport) {
                 // check if the user is already logged in
                 if (!req.user) {
 
-                    User.findOne({'google.id': profile.id}, function (err, user) {
+                    User.findOne({'profileId': profile.id}, function (err, user) {
                         if (err)
                             return done(err);
 
@@ -125,6 +126,7 @@ module.exports = function (passport, configFBPassport, configGooglePassport) {
 
                             // if there is a user id already but no token (user was linked at one point and then removed)
                             if (!user.token) {
+                                user.profileId = profile.id;
                                 user.token = token;
                                 user.name = profile.displayName;
                                 user.email = profile.emails && profile.emails.length > 0 ? profile.emails[0].value : '';
@@ -142,7 +144,7 @@ module.exports = function (passport, configFBPassport, configGooglePassport) {
                         } else {
                             var newUser = new User();
 
-                            newUser.id = profile.id;
+                            newUser.profileId = profile.id;
                             newUser.token = token;
                             newUser.name = profile.displayName;
                             newUser.email = profile.emails && profile.emails.length > 0 ? profile.emails[0].value : '';
