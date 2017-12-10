@@ -2245,6 +2245,14 @@
       "team2Goals": "3",
       "goalDiff": 1,
       "firstToScore": "Beitar Jerusalem"
+    },
+    {
+      "matchId": "6a21a7c1a3f89181074e9856",
+      "winner": "Kiryat Shmona",
+      "team1Goals": "0",
+      "team2Goals": "4",
+      "goalDiff": 4,
+      "firstToScore": "Kiryat Shmona"
     }
   ],
   "teams": [
