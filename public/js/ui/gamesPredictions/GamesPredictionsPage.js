@@ -65,12 +65,16 @@ component.GamesPredictionsPage = (function(){
             i;
 
         for (i = 0; i < pages.length; i++) {
-            var iscurrentDateBeforeSome = pages[i].groups.some(function(group){
+            var isCurrentDateBeforeSome = pages[i].groups.some(function(group){
                 var date = group.date;
-                return currentDate < date;
+                var found = currentDate < date || isOnSameDay(currentDate, date);
+                if (found) {
+                    group.scrollTo = true;
+                }
+                return found;
             });
 
-            if (iscurrentDateBeforeSome) {
+            if (isCurrentDateBeforeSome) {
                 closestDateIndex = i;
                 break;
             }
@@ -83,8 +87,11 @@ component.GamesPredictionsPage = (function(){
         return closestDateIndex;
     }
 
+    var shouldScrollToCurrentDate = false;
     var GamesPredictionsPage = React.createClass({
         getInitialState: function() {
+            shouldScrollToCurrentDate = true;
+
             if (!isGamesPredictionsRequestSent) {
                 this.props.loadGamesPredictions();
                 isGamesPredictionsRequestSent = true;
@@ -106,6 +113,22 @@ component.GamesPredictionsPage = (function(){
         componentDidUpdate: function(prevProps, prevState) {
             if (this.state.offsetPageIndex !== prevState.offsetPageIndex) {
                 this.tilesElem.scrollTo(0,0);
+            } else {
+                this.scrollToCurrentDate();
+            }
+        },
+
+        componentDidMount: function() {
+            this.scrollToCurrentDate();
+        },
+
+        scrollToCurrentDate: function() {
+            if (shouldScrollToCurrentDate){
+                var scrollToElem = this.tilesElem.querySelector('.tiles-group-title[data-scrollto="true"]');
+                if (scrollToElem && scrollToElem.scrollIntoView) {
+                    shouldScrollToCurrentDate = false;
+                    scrollToElem.scrollIntoView();
+                }
             }
         },
 
@@ -135,6 +158,8 @@ component.GamesPredictionsPage = (function(){
                 closestIndex = findClosestPagesIndex(pages, currentDate) + offsetPageIndex;
                 closestPage = pages[closestIndex];
 
+
+                //var wasScroll = false;
                 tilesInPage = closestPage.groups.map(function (group, groupIndex) {
                     var tilesInGroup = group.matches.map(function (match) {
                         var matchId = match._id;
@@ -150,7 +175,12 @@ component.GamesPredictionsPage = (function(){
                         });
                     });
 
-                    tilesInGroup.unshift(re("div", {className: "tiles-group-title", key: "tilesGroup" + groupIndex}, getTitleDate(group.date)));
+                    var groupProps = {className: "tiles-group-title", key: "tilesGroup" + groupIndex};
+                    if (group.scrollTo) {
+                        groupProps["data-ScrollTo"] = true;
+                    }
+
+                    tilesInGroup.unshift(re("div", groupProps, getTitleDate(group.date)));
                     return tilesInGroup;
                 });
 
