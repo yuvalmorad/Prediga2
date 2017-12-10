@@ -109,56 +109,100 @@ module.exports = function (passport, configFBPassport, configGooglePassport) {
     // Google ==================================================================
     // =========================================================================
     var googleStrategy = configAuth[configGooglePassport];
+    googleStrategy.passReqToCallback = true;  // allows us to pass in the req from our route (lets us check if a user is logged in or not)
     passport.use(new GoogleStrategy(googleStrategy,
         function (req, token, refreshToken, profile, done) {
 
-            // asynchronous
+            // make the code asynchronous
+            // User.findOne won't fire until we have all our data back from Google
             process.nextTick(function () {
 
                 // check if the user is already logged in
                 if (!req.user) {
+                    var email = profile.id + '@google.com';
+                    if (profile.emails && profile.emails.length > 0) {
+                        email = (profile.emails[0].value || '').toLowerCase();
+                    }
 
-                    User.findOne({'profileId': profile.id}, function (err, user) {
+                    var photo = '';
+                    if (profile.photos && profile.photos.length > 0) {
+                        photo = (profile.photos[0].value || '');
+                    }
+
+                    User.findOne({'email': email}, function (err, user) {
                         if (err)
                             return done(err);
 
                         if (user) {
-
                             // if there is a user id already but no token (user was linked at one point and then removed)
                             if (!user.token) {
-                                user.profileId = profile.id;
                                 user.token = token;
                                 user.name = profile.displayName;
-                                user.email = profile.emails && profile.emails.length > 0 ? profile.emails[0].value : '';
-                                if (profile.photos && profile.photos.length > 0) {
-                                    user.photo = (profile.photos[0].value || '');
+                                user.email = email;
+                                if (photo !== '') {
+                                    user.photo = photo;
                                 }
+
                                 user.save(function (err) {
                                     if (err)
                                         return done(err);
+
                                     return done(null, user);
                                 });
                             }
 
-                            return done(null, user);
+                            return done(null, user); // user found, return that user
                         } else {
-                            var newUser = new User();
+                            // check if the user already registered with profile id.
+                            User.findOne({'profileId': profile.id}, function (err, user) {
+                                if (user) {
+                                    // if there is a user id already but no token (user was linked at one point and then removed)
+                                    if (!user.token) {
+                                        user.token = token;
+                                        user.name = profile.displayName;
+                                        user.email = email;
+                                        if (photo !== '') {
+                                            user.photo = photo;
+                                        }
+                                        user.save(function (err) {
+                                            if (err)
+                                                return done(err);
 
-                            newUser.profileId = profile.id;
-                            newUser.token = token;
-                            newUser.name = profile.displayName;
-                            newUser.email = profile.emails && profile.emails.length > 0 ? profile.emails[0].value : '';
-                            if (profile.photos && profile.photos.length > 0) {
-                                newUser.photo = (profile.photos[0].value || '');
-                            }
-                            newUser.save(function (err) {
-                                if (err)
-                                    return done(err);
-                                return done(null, newUser);
+                                            return done(null, user);
+                                        });
+                                    } else {
+                                        user.save(function (err) {
+                                            if (err)
+                                                return done(err);
+
+                                            return done(null, user);
+                                        });
+                                    }
+                                } else {
+                                    // if there is no user, create them
+                                    var newUser = new User();
+                                    try {
+                                        newUser.profileId = profile.id;
+                                        newUser.token = token;
+                                        newUser.name = profile.displayName;
+                                        newUser.email = email;
+                                        if (photo !== '') {
+                                            newUser.photo = photo;
+                                        }
+                                    } catch (err) {
+                                        return done(err);
+                                    }
+
+                                    newUser.save(function (err) {
+                                        if (err)
+                                            return done(err);
+
+                                        return done(null, newUser);
+                                    });
+                                }
                             });
                         }
                     });
-
                 } else {
                     // user already exists and is logged in, we have to link accounts
                     var user = req.user; // pull the user out of the session
@@ -166,14 +210,12 @@ module.exports = function (passport, configFBPassport, configGooglePassport) {
                     user.profileId = profile.id;
                     user.token = token;
                     user.name = profile.displayName;
-                    user.email = profile.emails && profile.emails.length > 0 ? profile.emails[0].value : '';
-                    if (profile.photos && profile.photos.length > 0) {
-                        user.photo = (profile.photos[0].value || '');
-                    }
-
+                    user.email = email;
+                    user.photo = photo;
                     user.save(function (err) {
                         if (err)
                             return done(err);
+
                         return done(null, user);
                     });
                 }
