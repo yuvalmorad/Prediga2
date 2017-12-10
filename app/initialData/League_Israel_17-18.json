@@ -2253,6 +2253,14 @@
       "team2Goals": "4",
       "goalDiff": 4,
       "firstToScore": "Kiryat Shmona"
+    },
+    {
+      "matchId": "6a21a7c1a3f89181074e9857",
+      "winner": "Hapoel Beer Sheva",
+      "team1Goals": "3",
+      "team2Goals": "1",
+      "goalDiff": 2,
+      "firstToScore": "Bnei Sakhnin"
     }
   ],
   "teams": [
