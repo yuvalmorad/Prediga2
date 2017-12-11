@@ -11,7 +11,7 @@ var util = require('../utils/util');
 var self = module.exports = {
     updateAllUserScores: function () {
         var deferred = Q.defer();
-        console.log('trying to update all user scores based on all current match/team results');
+        console.log('beginning to update all user scores based on all current match/team results');
         // get {score conf, match results, teams results}
         return self.getRelevantDataForUserScore().then(function (obj) {
             return Promise.all([
@@ -25,7 +25,7 @@ var self = module.exports = {
         return deferred.promise;
     },
     updateScore: function (userScore) {
-        //console.log('trying to update score:' + userScore.gameId);
+        //console.log('beginning to update score:' + userScore.gameId);
         var deferred = Q.defer();
         UserScore.findOneAndUpdate({userId: userScore.userId, gameId: userScore.gameId}, userScore, {
                 upsert: true,
@@ -45,7 +45,7 @@ var self = module.exports = {
         if (matchResults.length == 0) {
             return;
         }
-        console.log('trying to update user scores based on ' + matchResults.length + ' matchResults');
+        console.log('beginning to update user scores based on ' + matchResults.length + ' matchResults');
         // for each match result, get all matchPredictions
         var promises = matchResults.map(function (aMatchResult) {
             // for each match result, find all match predictions, update user score
@@ -90,7 +90,7 @@ var self = module.exports = {
         if (teamResults.length == 0) {
             return;
         }
-        console.log('trying to update user scores based on ' + teamResults.length + ' teamResults');
+        console.log('beginning to update user scores based on ' + teamResults.length + ' teamResults');
         // for each team result, get all teamPredictions
         var promises = teamResults.map(function (aTeamResult) {
             // for each team result, find all team predictions, update user score

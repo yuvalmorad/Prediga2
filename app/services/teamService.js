@@ -4,8 +4,9 @@ var TeamResult = require('../models/teamResult');
 var UserScore = require('../models/userScore');
 
 var self = module.exports = {
+    // TODO - update only if necessary
     updateTeams: function (teams) {
-        console.log('trying to update ' + teams.length + ' teams');
+        console.log('beginning to update ' + teams.length + ' teams');
         var promises = teams.map(function (team) {
             return Team.findOneAndUpdate({_id: team._id}, team, {
                     upsert: true,

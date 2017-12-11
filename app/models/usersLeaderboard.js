@@ -5,7 +5,9 @@ var mongoose = require('mongoose');
 var usersLeaderboardSchema = mongoose.Schema({
     userId: String,
     score: Number,
-    strikes: Number
+    strikes: Number,
+    placeCurrent: Number,
+    placeBeforeLastGame: Number
 });
 
 usersLeaderboardSchema.options.toJSON = {

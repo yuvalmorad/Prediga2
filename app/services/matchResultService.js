@@ -18,11 +18,12 @@ var self = module.exports = {
         );
         return deferred.promise;
     },
+    // TODO - update only if necessary
     updateMatchResults: function (matchResults) {
         if (matchResults.length == 0) {
             return;
         }
-        console.log('trying to update ' + matchResults.length + ' matchResults');
+        console.log('beginning to update ' + matchResults.length + ' matchResults');
         var promises = matchResults.map(function (matchResult) {
             return self.updateMatchResult(matchResult);
         });

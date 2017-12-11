@@ -3,24 +3,37 @@ var MatchService = require('../services/matchService');
 var MatchResultService = require('../services/matchResultService');
 var TeamResultService = require('../services/teamResultService');
 var PredictionScoreConfigurationService = require('../services/predictionScoreConfigurationService');
-var UsersLeaderboardService = require('../services/leaderboardService');
+var UsersLeaderboardService = require('../services/usersLeaderboardService');
 var UserScoreService = require('../services/userScoreService');
+var MatchResult = require('../models/matchResult');
+var TeamResult = require('../models/teamResult');
 var Q = require('q');
 
 var self = module.exports = {
     loadAll: function () {
-
         var deferred = Q.defer();
-        return Promise.all([
-            PredictionScoreConfigurationService.updateConfiguration(require('../initialData/scoreConfiguration.json')),
-            self.updateLeagueData(require('../initialData/Tournament_Worldcup_18.json')),
-            self.updateLeagueData(require('../initialData/League_Israel_17-18.json')),
-            //loadGames(require('../initialData/League_Champions_17-18.json'));
-        ]).then(function (arr) {
-            UserScoreService.updateAllUserScores().then(function (obj) {
-                UsersLeaderboardService.updateLeaderboard().then(function (obj) {
-                    console.log('Succeed to update all initial data');
-                    deferred.resolve(arr);
+
+        self.getCurrentMatchTeamResults().then(function (oldMatchTeamResults) {
+            return Promise.all([
+                PredictionScoreConfigurationService.updateConfiguration(require('../initialData/scoreConfiguration.json')),
+                self.updateLeagueData(require('../initialData/Tournament_Worldcup_18.json')),
+                self.updateLeagueData(require('../initialData/League_Israel_17-18.json')),
+                //loadGames(require('../initialData/League_Champions_17-18.json'));
+            ]).then(function (arr) {
+                self.getCurrentMatchTeamResults().then(function (newMatchTeamResults) {
+                    console.log('is leaderboard needed? oldMatchTeamResults = ' + oldMatchTeamResults.size + '; newMatchTeamResults = ' + newMatchTeamResults.size);
+                    if (oldMatchTeamResults.size !== newMatchTeamResults.size) {
+                        // TODO - update only needed matchResult and not ALL
+                        UserScoreService.updateAllUserScores().then(function (obj) {
+                            UsersLeaderboardService.updateLeaderboard().then(function (obj) {
+                                console.log('Succeed to update all initial data');
+                                deferred.resolve(arr);
+                            });
+                        });
+                    } else {
+                        console.log('Succeed to update all initial data');
+                        deferred.resolve(arr);
+                    }
                 });
             });
         });
@@ -41,5 +54,15 @@ var self = module.exports = {
         });
 
         return deferred.promise;
+    },
+    getCurrentMatchTeamResults: function () {
+        return Promise.all([
+            MatchResult.count({}),
+            TeamResult.count({})
+        ]).then(function (arr) {
+            return {
+                size: arr[0] + arr[1]
+            }
+        });
     }
 };

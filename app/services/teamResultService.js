@@ -19,11 +19,12 @@ var self = module.exports = {
         return deferred.promise;
     },
 
+    // TODO - update only if necessary
     updateTeamResults: function (teamResults) {
         if (teamResults.length == 0) {
             return;
         }
-        console.log('trying to update ' + teamResults.length + ' teamsResults');
+        console.log('beginning to update ' + teamResults.length + ' teamsResults');
         var promises = teamResults.map(function (aTeamResult) {
             return self.updateTeamResult(aTeamResult);
         });

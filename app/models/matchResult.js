@@ -8,7 +8,7 @@ var matchResultSchema = mongoose.Schema({
     team1Goals: Number,
     team2Goals: Number,
     goalDiff: Number,
-    firstToScore: String
+    firstToScore: String,
 });
 
 matchResultSchema.options.toJSON = {

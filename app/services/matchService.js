@@ -4,8 +4,9 @@ var MatchResult = require('../models/matchResult');
 var UserScore = require('../models/userScore');
 
 var self = module.exports = {
+    // TODO - update only if necessary
     updateMatches: function (matches) {
-        console.log('trying to update ' + matches.length + ' matches');
+        console.log('beginning to update ' + matches.length + ' matches');
         var promises = matches.map(function (match) {
             return Match.findOneAndUpdate({_id: match._id}, match, {
                     upsert: true,

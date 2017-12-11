@@ -2261,6 +2261,14 @@
       "team2Goals": "1",
       "goalDiff": 2,
       "firstToScore": "Bnei Sakhnin"
+    },
+    {
+      "matchId": "6a21a7c1a3f89181074e9868",
+      "winner": "Draw",
+      "team1Goals": "0",
+      "team2Goals": "0",
+      "goalDiff": 0,
+      "firstToScore": "None"
     }
   ],
   "teams": [

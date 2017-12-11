@@ -12,7 +12,7 @@ app.get('/', util.isLoggedIn, function (req, res) {
 
 function getData() {
     return Promise.all([
-        UsersLeaderboard.find({}),
+        UsersLeaderboard.find({}).sort({'score': -1}),
         User.find({})
     ]).then(function (arr) {
         return {
