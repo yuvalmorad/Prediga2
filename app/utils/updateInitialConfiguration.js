@@ -21,19 +21,12 @@ var self = module.exports = {
                 //loadGames(require('../initialData/League_Champions_17-18.json'));
             ]).then(function (arr) {
                 self.getCurrentMatchTeamResults().then(function (newMatchTeamResults) {
-                    console.log('is leaderboard needed? oldMatchTeamResults = ' + oldMatchTeamResults.size + '; newMatchTeamResults = ' + newMatchTeamResults.size);
-                    if (oldMatchTeamResults.size !== newMatchTeamResults.size) {
-                        // TODO - update only needed matchResult and not ALL
-                        UserScoreService.updateAllUserScores().then(function (obj) {
-                            UsersLeaderboardService.updateLeaderboard().then(function (obj) {
-                                console.log('Succeed to update all initial data');
-                                deferred.resolve(arr);
-                            });
+                    UserScoreService.updateAllUserScores().then(function (obj) {
+                        UsersLeaderboardService.updateLeaderboard().then(function (obj) {
+                            console.log('Succeed to update all initial data');
+                            deferred.resolve(arr);
                         });
-                    } else {
-                        console.log('Succeed to update all initial data');
-                        deferred.resolve(arr);
-                    }
+                    });
                 });
             });
         });
