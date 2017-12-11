@@ -39,12 +39,6 @@ var self = module.exports = {
                 aggregatedScore.placeBeforeLastGame = placeBeforeLastGame;
                 return UsersLeaderboard.findOneAndUpdate({userId: aggregatedScore.userId}, aggregatedScore, {
                         upsert: true, setDefaultsOnInsert: true, isNew: true
-                    }, function (err, obj) {
-                        if (err) {
-                            console.log(err);
-                        } else {
-                            console.log('successfully updateAllAggregatedScores');
-                        }
                     }
                 );
 
