@@ -18,6 +18,7 @@ var self = module.exports = {
                     aggregatedScores.sort(self.compareAggregatedScores);
 
                     self.updateAllAggregatedScores(aggregatedScores).then(function () {
+                        console.log('finished to update the leader board based on all user scores');
                         deferred.resolve();
                     });
                 });
@@ -38,6 +39,12 @@ var self = module.exports = {
                 aggregatedScore.placeBeforeLastGame = placeBeforeLastGame;
                 return UsersLeaderboard.findOneAndUpdate({userId: aggregatedScore.userId}, aggregatedScore, {
                         upsert: true, setDefaultsOnInsert: true, isNew: true
+                    }, function (err, obj) {
+                        if (err) {
+                            console.log(err);
+                        } else {
+                            console.log('successfully updateAllAggregatedScores');
+                        }
                     }
                 );
 
