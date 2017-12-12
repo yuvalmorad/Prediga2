@@ -19,7 +19,7 @@ module.exports = {
     },
 
     calculateResult: function (userPrediction, realResult, configScore) {
-        if (userPrediction.toLowerCase() === realResult.toLowerCase()) {
+        if (userPrediction === realResult) {
             return configScore;
         } else {
             return 0;
