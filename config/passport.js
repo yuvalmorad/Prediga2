@@ -40,6 +40,15 @@ module.exports = function (passport, configFBPassport, configGooglePassport) {
                 // check if the user is already logged in
                 if (!req.user) {
 
+                    var email = profile.id + '@google.com';
+                    if (profile.emails && profile.emails.length > 0) {
+                        email = (profile.emails[0].value || '').toLowerCase();
+                    }
+
+                    var photo = '';
+                    if (profile.photos && profile.photos.length > 0 && profile.photos[0].value && profile.photos[0].value.length > 0) {
+                        photo = profile.photos[0].value;
+                    }
                     User.findOne({'profileId': profile.id}, function (err, user) {
                         if (err)
                             return done(err);
@@ -51,10 +60,8 @@ module.exports = function (passport, configFBPassport, configGooglePassport) {
                                 user.profileId = profile.id;
                                 user.token = token;
                                 user.name = profile.name.givenName + ' ' + profile.name.familyName;
-                                user.email = profile.emails && profile.emails.length > 0 ? profile.emails[0].value : '';
-                                if (profile.photos && profile.photos.length > 0) {
-                                    user.photo = (profile.photos[0].value || '');
-                                }
+                                user.email = email;
+                                user.photo = photo;
                                 user.save(function (err) {
                                     if (err)
                                         return done(err);
@@ -70,10 +77,8 @@ module.exports = function (passport, configFBPassport, configGooglePassport) {
                             newUser.profileId = profile.id;
                             newUser.token = token;
                             newUser.name = profile.name.givenName + ' ' + profile.name.familyName;
-                            newUser.email = profile.emails && profile.emails.length > 0 ? profile.emails[0].value : '';
-                            if (profile.photos && profile.photos.length > 0) {
-                                newUser.photo = (profile.photos[0].value || '');
-                            }
+                            newUser.email = email;
+                            newUser.photo = photo;
                             newUser.save(function (err) {
                                 if (err)
                                     return done(err);
@@ -89,10 +94,8 @@ module.exports = function (passport, configFBPassport, configGooglePassport) {
                     user.profileId = profile.id;
                     user.token = token;
                     user.name = profile.name.givenName + ' ' + profile.name.familyName;
-                    user.email = profile.emails && profile.emails.length > 0 ? profile.emails[0].value : '';
-                    if (profile.photos && profile.photos.length > 0) {
-                        user.photo = (profile.photos[0].value || '');
-                    }
+                    user.email = email;
+                    user.photo = photo;
 
                     user.save(function (err) {
                         if (err)
@@ -125,8 +128,8 @@ module.exports = function (passport, configFBPassport, configGooglePassport) {
                     }
 
                     var photo = '';
-                    if (profile.photos && profile.photos.length > 0) {
-                        photo = (profile.photos[0].value || '');
+                    if (profile.photos && profile.photos.length > 0 && profile.photos[0].value && profile.photos[0].value.length > 0) {
+                        photo = profile.photos[0].value;
                     }
 
                     User.findOne({'profileId': profile.id}, function (err, user) {
@@ -139,9 +142,7 @@ module.exports = function (passport, configFBPassport, configGooglePassport) {
                                 user.token = token;
                                 user.name = profile.displayName;
                                 user.email = email;
-                                if (photo !== '') {
-                                    user.photo = photo;
-                                }
+                                user.photo = photo;
 
                                 user.save(function (err) {
                                     if (err)
@@ -160,9 +161,7 @@ module.exports = function (passport, configFBPassport, configGooglePassport) {
                                 newUser.token = token;
                                 newUser.name = profile.displayName;
                                 newUser.email = email;
-                                if (photo !== '') {
-                                    newUser.photo = photo;
-                                }
+                                newUser.photo = photo;
                             } catch (err) {
                                 return done(err);
                             }

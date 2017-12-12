@@ -35,7 +35,7 @@ module.exports = function (app, passport) {
 
     app.get('/auth/logout', function (req, res) {
         req.logout();
-        res.redirect('/');
+        res.redirect('/login');
     });
 
     app.get('/auth/google',

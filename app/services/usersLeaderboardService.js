@@ -28,24 +28,31 @@ var self = module.exports = {
     },
     updateAllAggregatedScores: function (aggregatedScores) {
         var promises = aggregatedScores.map(function (aggregatedScore, index) {
-            // for each new score find the old score and save updated trend.
-            return UsersLeaderboard.find({userId: aggregatedScore.userId}, function (err, obj) {
-                var placeBeforeLastGame = -1;
-                if (obj && obj.length > 0 && typeof(obj[0].placeCurrent) !== 'undefined') {
-                    placeBeforeLastGame = obj[0].placeCurrent;
-                }
-
-                aggregatedScore.placeCurrent = index + 1;
-                aggregatedScore.placeBeforeLastGame = placeBeforeLastGame;
-                return UsersLeaderboard.findOneAndUpdate({userId: aggregatedScore.userId}, aggregatedScore, {
-                        upsert: true, setDefaultsOnInsert: true, isNew: true
-                    }
-                );
-
-            });
+            return self.updateOneAggregatedScore(aggregatedScore, index);
         });
 
         return Promise.all(promises);
+    },
+    updateOneAggregatedScore: function (aggregatedScore, index) {
+        var deferred = Q.defer();
+
+        UsersLeaderboard.find({userId: aggregatedScore.userId}, function (err, obj) {
+            var placeBeforeLastGame = -1;
+            if (obj && obj.length > 0 && typeof(obj[0].placeCurrent) !== 'undefined') {
+                placeBeforeLastGame = obj[0].placeCurrent;
+            }
+
+            aggregatedScore.placeCurrent = index + 1;
+            aggregatedScore.placeBeforeLastGame = placeBeforeLastGame;
+            UsersLeaderboard.findOneAndUpdate({userId: aggregatedScore.userId}, aggregatedScore, {
+                    upsert: true, setDefaultsOnInsert: true, isNew: true
+                },
+                function () {
+                    deferred.resolve();
+                }
+            );
+        });
+        return deferred.promise;
     },
     calculatedAggregatedUserScores: function (users) {
         var promises = users.map(function (aUser) {
@@ -58,24 +65,34 @@ var self = module.exports = {
         var deferred = Q.defer();
 
         UserScore.find({userId: aUser._id}, function (err, userScores) {
-            var aggregrateScore = {
-                userId: aUser._id,
-                score: 0,
-                strikes: 0
-            };
-
             if (userScores && userScores.length > 0) {
-                userScores.forEach(function (aUserScore) {
-                    if (aUserScore.score) {
-                        aggregrateScore.score += aUserScore.score;
-                    }
-                    if (aUserScore.strikes) {
-                        aggregrateScore.strikes += aUserScore.strikes;
-                    }
+                self.calculatedAggregatedUserScoreForEachUserScore(aUser, userScores).then(function (aggregrateScore) {
+                    deferred.resolve(aggregrateScore);
                 });
             }
+        });
+        return deferred.promise;
+    },
+    calculatedAggregatedUserScoreForEachUserScore: function (aUser, userScores) {
+        var deferred = Q.defer();
+        var aggregrateScore = {
+            userId: aUser._id,
+            score: 0,
+            strikes: 0
+        };
+        var itemsProcessed = 0;
+        userScores.forEach(function (aUserScore) {
+            itemsProcessed += 1;
+            if (aUserScore.score) {
+                aggregrateScore.score += aUserScore.score;
+            }
+            if (aUserScore.strikes) {
+                aggregrateScore.strikes += aUserScore.strikes;
+            }
 
-            deferred.resolve(aggregrateScore);
+            if (itemsProcessed == userScores.length) {
+                deferred.resolve(aggregrateScore);
+            }
         });
         return deferred.promise;
     },
