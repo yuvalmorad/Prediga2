@@ -567,13 +567,12 @@ body {
     background-color: #a7a4a4;
     color: #fff;
     border-radius: 50%;
-    padding: 4px;
     font-size: 0.5rem;
-    min-width: 20px;
-    min-height: 20px;
     text-align: center;
-    box-sizing: border-box;
     border: 2px solid #fff;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
 }
 
 .tile .main.base .trend.positive {
