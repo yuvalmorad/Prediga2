@@ -48,8 +48,11 @@ app.use(flash()); // use connect-flash for flash messages stored in session
 
 require('./app/routes.js')(app, passport); // load our routes and pass in our app and fully configured passport
 app.get('*', function (req, res) {
-    res.redirect('/auth/google');
-    //res.sendFile(clientFolder + '/index.html'); // load the single view file (angular will handle the page changes on the front-end)
+    if (req.isAuthenticated()) {
+        res.sendFile(clientFolder + '/index.html'); // load the single view file (angular will handle the page changes on the front-end)
+    } else {
+        res.redirect('/auth/google');
+    }
 });
 
 // launch ======================================================================

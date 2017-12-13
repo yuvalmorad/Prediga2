@@ -94,8 +94,6 @@ module.exports = function (passport, configFBPassport, configGooglePassport) {
                     user.profileId = profile.id;
                     user.token = token;
                     user.name = profile.name.givenName + ' ' + profile.name.familyName;
-                    user.email = email;
-                    user.photo = photo;
 
                     user.save(function (err) {
                         if (err)
@@ -181,8 +179,6 @@ module.exports = function (passport, configFBPassport, configGooglePassport) {
                     user.profileId = profile.id;
                     user.token = token;
                     user.name = profile.displayName;
-                    user.email = email;
-                    user.photo = photo;
                     user.save(function (err) {
                         if (err)
                             return done(err);
