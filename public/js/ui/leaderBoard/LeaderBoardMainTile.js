@@ -8,16 +8,14 @@ component.LeaderBoardMainTile = (function(){
             score = props.score,
             photo = user.photo || DEAFULT_PROFILE_IMAGE,
             name = user.name,
-            predictions = user.predictions;
-            //strikes = user.strikes,
-            //trend = user.trend,
-
+            trend = props.trend,
+            description = props.description;
 
         return re(BaseMainTile, {
             imageSrc: photo,
-            //trend: trend,
+            trend: trend,
             title: name,
-            description: "",//strikes + " Strikes, " + predictions + " Predictions",
+            description: description,
             rank: rank,
             points: score
         });

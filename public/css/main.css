@@ -562,9 +562,10 @@ body {
 
 .tile .main.base .trend {
     position: absolute;
-    left: -1px;
+    left: -6px;
     bottom: 0;
-    background: #fff;
+    background-color: #a7a4a4;
+    color: #fff;
     border-radius: 50%;
     padding: 4px;
     font-size: 0.5rem;
@@ -572,14 +573,15 @@ body {
     min-height: 20px;
     text-align: center;
     box-sizing: border-box;
+    border: 2px solid #fff;
 }
 
 .tile .main.base .trend.positive {
-    color: #6ECE1A;
+    background-color: #6ECE1A;
 }
 
 .tile .main.base .trend.negative {
-    color: red;
+    background-color: red;
 }
 
 /* -------  Leader Board tile-------*/

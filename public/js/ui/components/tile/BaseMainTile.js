@@ -21,7 +21,7 @@ component.BaseMainTile = (function(){
                 trendClassName += " negative";
             } else {
                 //0
-                trendText = "-";
+                trendText = "";
             }
 
             trendElement = re("div", {className: trendClassName}, trendText);
