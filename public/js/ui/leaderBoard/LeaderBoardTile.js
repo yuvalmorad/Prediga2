@@ -3,16 +3,9 @@ component.LeaderBoardTile = (function(){
         LeaderBoardMainTile = component.LeaderBoardMainTile;
 
     return function(props) {
-        var trend = props.trend,
-            borderColor = "#a7a4a4";
+        var borderColor = props.borderColor;
 
-        if (trend > 0) {
-            borderColor = "#00ff00";
-        } else if (trend < 0) {
-            borderColor = "red";
-        }
-
-        return re(Tile, {disableOpen: true, borderLeftColor: borderColor, borderRightColor: borderColor, className: "leader-board-tile"},
+        return re(Tile, {borderLeftColor: borderColor, borderRightColor: borderColor, className: "leader-board-tile", dialogComponent: "LeaderBoardTileDialog", dialogComponentProps: Object.assign({}, props, {isDialogFormDisabled: true})},
             re(LeaderBoardMainTile, props)
         );
     };

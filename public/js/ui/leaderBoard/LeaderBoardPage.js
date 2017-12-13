@@ -20,8 +20,17 @@ component.LeaderBoardPage = (function(){
             var tiles = leaders.map(function(leader, index){
                 var user = utils.general.findItemInArrBy(users, "_id", leader.userId);
                 var trend = leader.placeBeforeLastGame === -1 ? 0 :  leader.placeBeforeLastGame - leader.placeCurrent;
+                var borderColor = "#a7a4a4";
+
+                if (trend > 0) {
+                    borderColor = "#00ff00";
+                } else if (trend < 0) {
+                    borderColor = "red";
+                }
+
                 var description = leader.strikes + " strikes";
-                return re(LeaderBoardTile, {user: user, score: leader.score, trend: trend, description: description, rank: index + 1, key: user._id});
+
+                return re(LeaderBoardTile, {user: user, score: leader.score, trend: trend, borderColor: borderColor, description: description, rank: index + 1, key: user._id});
             });
             
             return re("div", { className: "content" },
