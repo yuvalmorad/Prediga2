@@ -4,7 +4,6 @@ var Match = require('../models/match');
 var MatchPrediction = require('../models/matchPrediction');
 var util = require('../utils/util.js');
 var MatchResult = require('../models/matchResult');
-var ObjectId = require('mongoose').Types.ObjectId;
 
 app.get('/:userId', util.isLoggedIn, function (req, res) {
     var userId = req.params.userId;
@@ -18,7 +17,6 @@ function getData(userId) {
         var predictionsMatchIds = predictions.map(function(prediction){
             return prediction.matchId;
         });
-
 
         return MatchResult.find({matchId: {$in: predictionsMatchIds}}).then(function(matchResults){
             var relevantMatchIds = matchResults.map(function(prediction){
