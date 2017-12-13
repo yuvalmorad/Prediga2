@@ -78,8 +78,8 @@ function createMatchPredictions(matchPredictions, userId) {
                     matchPrediction.firstToScore = 'none';
                 }
                 // validation:
-                if (((matchPrediction.winner !== aMatch.team1) && (matchPrediction.winner !== aMatch.team2) && (matchPrediction.winner !== "draw")) ||
-                    ((matchPrediction.firstToScore !== aMatch.team1) && (matchPrediction.firstToScore !== aMatch.team2) && matchPrediction.firstToScore !== "none") ||
+                if (((matchPrediction.winner !== aMatch.team1) && (matchPrediction.winner !== aMatch.team2) && (matchPrediction.winner !== "draw" || matchPrediction.winner !== "Draw")) ||
+                    ((matchPrediction.firstToScore !== aMatch.team1) && (matchPrediction.firstToScore !== aMatch.team2) && (matchPrediction.firstToScore !== "none" || matchPrediction.firstToScore !== "None")) ||
                     matchPrediction.team1Goals < 0 || matchPrediction.team2Goals < 0 || matchPrediction.goalDiff < 0) {
                     return Promise.reject('general error');
                 }
