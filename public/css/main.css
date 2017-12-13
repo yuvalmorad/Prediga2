@@ -710,8 +710,12 @@ body {
 
 .game-prediction-tile .game-score {
     font-weight: bold;
-    color: #000;
+    color: #cec7c7;
     font-size: 1.5rem;
+}
+
+.game-prediction-tile .post-game .game-score {
+    color: #000;
 }
 
 .game-prediction-tile .game-points {

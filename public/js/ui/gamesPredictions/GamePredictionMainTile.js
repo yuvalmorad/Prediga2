@@ -24,7 +24,8 @@ component.GamePredictionMainTile = (function(){
             graphParts,
             kickofftime = game.kickofftime,
             dateStr,
-            gamePoints;
+            gamePoints,
+            isPostGame = false;
 
         if (!result) {//(game.status === GAME.STATUS.PRE_GAME || game.status === GAME.STATUS.CLOSED_GAME) { //TODO
             //PRE GAME
@@ -66,6 +67,7 @@ component.GamePredictionMainTile = (function(){
             graphParts = [{color: team1Color, amount: otherPredictionsTeam1Count}, {color: COLORS.DRAW_COLOR, amount: otherPredictionsDrawCount}, {color: team2Color, amount: otherPredictionsTeam2Count}]; //TODO
         } else {// if (game.status === GAME.STATUS.POST_GAME){ //TODO
             //POST GAME
+            isPostGame = true;
             var points = utils.general.sumObject( utils.general.calculatePoints(prediction, result));
             var maxPoints = utils.general.getMaxPoints();
 
@@ -86,7 +88,7 @@ component.GamePredictionMainTile = (function(){
             }
         }
 
-        return re("div", {className: "main"},
+        return re("div", {className: "main" + (isPostGame ? " post-game" : "")},
                     re("div", {className: "left"},
                         re("div", {className: team1LogoClass, style: {backgroundImage: team1Logo}}),
                         re("div", {className: "team-name"}, team1ShortName)
