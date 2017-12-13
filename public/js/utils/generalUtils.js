@@ -91,7 +91,7 @@ utils.general = (function(){
             var predictionVal = prediction[key];
             var resultVal = result[key];
 
-            if (predictionVal && resultVal) {
+            if (predictionVal !== undefined && resultVal !== undefined) {
                 predictionVal = typeof predictionVal === "string" ? predictionVal.toLowerCase() : predictionVal;
                 resultVal = typeof resultVal === "string" ? resultVal.toLowerCase() : resultVal;
                 res[key] = predictionVal === resultVal ? points : 0;
