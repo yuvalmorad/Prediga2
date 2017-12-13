@@ -608,6 +608,10 @@ body {
     height: 20rem;
 }
 
+.tile-dialog-container .leader-board-tile .no-content {
+    text-align: center;
+}
+
 .tile-dialog-container .leaderboard-match-rows {
     height: 14rem;
     padding: 0 1rem;

@@ -32,6 +32,10 @@ component.LeaderBoardMatchesHistory = (function(){
                 return re("div", {}, "");
             }
 
+            if (!matches.length) {
+                return re("div", {className: "no-content"}, "No Predictions Finished");
+            }
+
             matches.sort(function(match1, match2){
                 return new Date(match2.kickofftime) - new Date(match1.kickofftime);
             });
