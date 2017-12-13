@@ -40,7 +40,8 @@ component.GamePredictionMainTile = (function(){
             var otherPredictionByWinner = utils.general.getOtherPredictionsUserIdsByWinner(otherMatchPredictions);
             var otherPredictionsTeam1Count = otherPredictionByWinner[game.team1] ? otherPredictionByWinner[game.team1].length : 0;
             var otherPredictionsTeam2Count = otherPredictionByWinner[game.team2] ? otherPredictionByWinner[game.team2].length : 0;
-            var otherPredictionsDrawCount = otherPredictionByWinner["draw"] ? otherPredictionByWinner["draw"].length : 0;
+            var otherPredictionDraw = utils.general.getDrawFromObject(otherPredictionByWinner);
+            var otherPredictionsDrawCount = otherPredictionDraw ? otherPredictionDraw.length : 0;
 
             displayTeam1Goals = prediction ? prediction[GAME.BET_TYPES.TEAM1_GOALS.key] : "";
             displayTeam2Goals = prediction ? prediction[GAME.BET_TYPES.TEAM2_GOALS.key] : "";
@@ -59,7 +60,7 @@ component.GamePredictionMainTile = (function(){
                     team2LogoClass += " grayed";
                 }
 
-                if (predictionWinner === "draw") {
+                if (utils.general.isMatchDraw(predictionWinner)) {
                     otherPredictionsDrawCount++;
                 }
             }
