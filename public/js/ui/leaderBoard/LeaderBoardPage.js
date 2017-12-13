@@ -19,7 +19,7 @@ component.LeaderBoardPage = (function(){
             var users = this.props.users;
             var tiles = leaders.map(function(leader, index){
                 var user = utils.general.findItemInArrBy(users, "_id", leader.userId);
-                var trend = leader.placeBeforeLastGame === -1 ? 0 : leader.placeCurrent - leader.placeBeforeLastGame;
+                var trend = leader.placeBeforeLastGame === -1 ? 0 :  leader.placeBeforeLastGame - leader.placeCurrent;
                 var description = leader.strikes + " strikes";
                 return re(LeaderBoardTile, {user: user, score: leader.score, trend: trend, description: description, rank: index + 1, key: user._id});
             });
