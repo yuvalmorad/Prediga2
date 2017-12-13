@@ -29,7 +29,7 @@ component.LeaderBoardMatchesHistory = (function(){
                 results = state.results || [];
 
             if (isLoading) {
-                return re("div", {}, "loading...");
+                return re("div", {}, "");
             }
 
             matches.sort(function(match1, match2){
