@@ -69,9 +69,18 @@ module.exports = function (passport, configFBPassport, configGooglePassport) {
                                         return done(err);
                                     return done(null, user);
                                 });
-                            }
+                            } else {
+                                // updating email and photo
+                                user.email = email;
+                                user.photo = photo;
 
-                            return done(null, user); // user found, return that user
+                                user.save(function (err) {
+                                    if (err)
+                                        return done(err);
+
+                                    return done(null, user);
+                                });
+                            }
                         } else {
                             // if there is no user, create them
                             var newUser = new User();
@@ -151,9 +160,18 @@ module.exports = function (passport, configFBPassport, configGooglePassport) {
 
                                     return done(null, user);
                                 });
-                            }
+                            } else {
+                                user.name = profile.displayName;
+                                user.email = email;
+                                user.photo = photo;
 
-                            return done(null, user); // user found, return that user
+                                user.save(function (err) {
+                                    if (err)
+                                        return done(err);
+
+                                    return done(null, user);
+                                });
+                            }
                         } else {
                             // if there is no user, create them
                             var newUser = new User();
