@@ -37,18 +37,20 @@ module.exports = function (passport, configFBPassport, configGooglePassport) {
             // asynchronous
             process.nextTick(function () {
 
+                var email = profile.id + '@google.com';
+                if (profile.emails && profile.emails.length > 0) {
+                    email = (profile.emails[0].value || '').toLowerCase();
+                }
+
+                var photo = '';
+                if (profile.photos && profile.photos.length > 0 && profile.photos[0].value && profile.photos[0].value.length > 0) {
+                    photo = profile.photos[0].value;
+                }
+
                 // check if the user is already logged in
                 if (!req.user) {
 
-                    var email = profile.id + '@google.com';
-                    if (profile.emails && profile.emails.length > 0) {
-                        email = (profile.emails[0].value || '').toLowerCase();
-                    }
 
-                    var photo = '';
-                    if (profile.photos && profile.photos.length > 0 && profile.photos[0].value && profile.photos[0].value.length > 0) {
-                        photo = profile.photos[0].value;
-                    }
                     User.findOne({'profileId': profile.id}, function (err, user) {
                         if (err)
                             return done(err);
@@ -94,7 +96,8 @@ module.exports = function (passport, configFBPassport, configGooglePassport) {
                     user.profileId = profile.id;
                     user.token = token;
                     user.name = profile.name.givenName + ' ' + profile.name.familyName;
-
+                    user.email = email;
+                    user.photo = photo;
                     user.save(function (err) {
                         if (err)
                             return done(err);
@@ -118,18 +121,18 @@ module.exports = function (passport, configFBPassport, configGooglePassport) {
             // User.findOne won't fire until we have all our data back from Google
             process.nextTick(function () {
 
+                var email = profile.id + '@google.com';
+                if (profile.emails && profile.emails.length > 0) {
+                    email = (profile.emails[0].value || '').toLowerCase();
+                }
+
+                var photo = '';
+                if (profile.photos && profile.photos.length > 0 && profile.photos[0].value && profile.photos[0].value.length > 0) {
+                    photo = profile.photos[0].value;
+                }
+
                 // check if the user is already logged in
                 if (!req.user) {
-                    var email = profile.id + '@google.com';
-                    if (profile.emails && profile.emails.length > 0) {
-                        email = (profile.emails[0].value || '').toLowerCase();
-                    }
-
-                    var photo = '';
-                    if (profile.photos && profile.photos.length > 0 && profile.photos[0].value && profile.photos[0].value.length > 0) {
-                        photo = profile.photos[0].value;
-                    }
-
                     User.findOne({'profileId': profile.id}, function (err, user) {
                         if (err)
                             return done(err);
@@ -179,6 +182,8 @@ module.exports = function (passport, configFBPassport, configGooglePassport) {
                     user.profileId = profile.id;
                     user.token = token;
                     user.name = profile.displayName;
+                    user.email = email;
+                    user.photo = photo;
                     user.save(function (err) {
                         if (err)
                             return done(err);
