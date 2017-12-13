@@ -7,8 +7,23 @@ utils.general = (function(){
         getMaxPoints: getMaxPoints,
         updateOrCreateObject: updateOrCreateObject,
         getOtherPredictionsUserIdsByWinner: getOtherPredictionsUserIdsByWinner,
-        mapUsersIdsToUsersObjects: mapUsersIdsToUsersObjects
+        mapUsersIdsToUsersObjects: mapUsersIdsToUsersObjects,
+        isMatchDraw: isMatchDraw,
+        isFirstScoreNone: isFirstScoreNone,
+        getDrawFromObject: getDrawFromObject
     };
+
+    function isMatchDraw(winner) {
+        return (winner || "").toLowerCase() === "draw";
+    }
+
+    function isFirstScoreNone(firstToScore) {
+        return (firstToScore || "").toLowerCase() === "none";
+    }
+
+    function getDrawFromObject(obj) {
+        return obj["draw"] || obj["Draw"];
+    }
 
     function mapUsersIdsToUsersObjects(usersIds, users) {
         return usersIds.map(function(userId){
@@ -18,7 +33,6 @@ utils.general = (function(){
         });
     }
 
-    //{Russia: ["userId1","userId2"], draw:  ["userId3","userId4"]}
     function getOtherPredictionsUserIdsByWinner(predictions) {
         var res = {};
         predictions.forEach(function(prediction){
@@ -74,7 +88,16 @@ utils.general = (function(){
             var betType = GAME.BET_TYPES[typeKey];
             var key = betType.key;
             var points = betType.points;
-            res[key] = (prediction[key] === result[key] ? points : 0);
+            var predictionVal = prediction[key];
+            var resultVal = result[key];
+
+            if (predictionVal && resultVal) {
+                predictionVal = typeof predictionVal === "string" ? predictionVal.toLowerCase() : predictionVal;
+                resultVal = typeof resultVal === "string" ? resultVal.toLowerCase() : resultVal;
+                res[key] = predictionVal === resultVal ? points : 0;
+            } else {
+                res[key] = 0;
+            }
         });
 
         return res;

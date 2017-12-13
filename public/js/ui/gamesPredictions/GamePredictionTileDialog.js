@@ -29,8 +29,8 @@ component.GamePredictionTileDialog = (function(){
 
         onDialogSave: function() {
             var defaults = {};
-            defaults[GAME.BET_TYPES.WINNER.key] = "draw";
-            defaults[GAME.BET_TYPES.FIRST_TO_SCORE.key] = "none";
+            defaults[GAME.BET_TYPES.WINNER.key] = "Draw";
+            defaults[GAME.BET_TYPES.FIRST_TO_SCORE.key] = "None";
             defaults[GAME.BET_TYPES.TEAM1_GOALS.key] = 0;
             defaults[GAME.BET_TYPES.TEAM2_GOALS.key] = 0;
             defaults[GAME.BET_TYPES.GOAL_DIFF.key] = 0;
