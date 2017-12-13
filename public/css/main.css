@@ -562,8 +562,8 @@ body {
 
 .tile .main.base .trend {
     position: absolute;
-    left: -6px;
-    bottom: 0;
+    left: -8px;
+    bottom: -4px;
     background-color: #a7a4a4;
     color: #fff;
     border-radius: 50%;
@@ -585,10 +585,18 @@ body {
 
 /* -------  Leader Board tile-------*/
 
+.leader-board-tile.tile {
+    height: 6rem;
+}
+
+.leader-board-tile.tile .main {
+    height: 6rem;
+}
+
 .leader-board-tile .main.base .image-wrapper img {
     border-radius: 50%;
-    height: 2.5rem;
-    width: 2.5rem;
+    height: 3.5rem;
+    width: 3.5rem;
 }
 
 /* -------  team prediction tile -------*/
