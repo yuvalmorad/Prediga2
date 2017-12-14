@@ -102,5 +102,34 @@ var self = module.exports = {
         if (a.score > b.score)
             return -1;
         return 0;
+    },
+    getLeaderboardWithNewRegisteredUsers: function () {
+        return Promise.all([
+            UsersLeaderboard.find({}).sort({'score': -1}),
+            User.find({})
+        ]).then(function (arr) {
+            // amend newly registered users into the bottom of the leader board.
+            var userIdsInLeaderboard = arr[0].map(a => a.userId);
+            var userIdsNotInLeaderboard = arr[1].map(a => a._id);
+            var userIdsToAddInLeaderboard = userIdsNotInLeaderboard.filter(x => userIdsInLeaderboard.indexOf(x) == -1);
+            var leaderboardArr = [];
+            if (userIdsToAddInLeaderboard && userIdsToAddInLeaderboard.length > 0) {
+                userIdsToAddInLeaderboard.forEach(function (userId) {
+                    leaderboardArr.push({
+                        userId: userId,
+                        score: 0,
+                        strikes: 0
+                    });
+                });
+            } else {
+                leaderboardArr = arr[0];
+            }
+
+            return {
+                leaderboard: leaderboardArr,
+                users: arr[1]
+            }
+        });
+        //,
     }
 };
