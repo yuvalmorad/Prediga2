@@ -110,12 +110,13 @@ var self = module.exports = {
         ]).then(function (arr) {
             // amend newly registered users into the bottom of the leader board.
             var userIdsInLeaderboard = arr[0].map(a => a.userId);
-            var userIdsNotInLeaderboard = arr[1].map(a => a._id);
-            var userIdsToAddInLeaderboard = userIdsNotInLeaderboard.filter(x => userIdsInLeaderboard.indexOf(x) == -1);
+            var allUsersIds = arr[1].map(a => a._id);
+            var userIdsNotInLeaderboard = allUsersIds.filter(x => userIdsInLeaderboard.indexOf(allUsersIds[0].toString()) == -1);
             var leaderboardArr = [];
-            if (userIdsToAddInLeaderboard && userIdsToAddInLeaderboard.length > 0) {
-                userIdsToAddInLeaderboard.forEach(function (userId) {
-                    leaderboardArr.push({
+            if (userIdsNotInLeaderboard && userIdsNotInLeaderboard.length > 0) {
+                userIdsNotInLeaderboard.forEach(function (userId) {
+                    // add to the bottom
+                    leaderboardArr.unshift({
                         userId: userId,
                         score: 0,
                         strikes: 0
