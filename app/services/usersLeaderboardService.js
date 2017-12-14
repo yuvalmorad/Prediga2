@@ -109,10 +109,10 @@ var self = module.exports = {
             User.find({})
         ]).then(function (arr) {
             // amend newly registered users into the bottom of the leader board.
-            var userIdsInLeaderboard = arr[0].map(a => a.userId);
-            var allUsersIds = arr[1].map(a => a._id);
-            var userIdsNotInLeaderboard = allUsersIds.filter(x => userIdsInLeaderboard.indexOf(allUsersIds[0].toString()) == -1);
-            var leaderboardArr = [];
+            var userIdsInLeaderboard = arr[0].map(a => a.userId.toString());
+            var allUsersIds = arr[1].map(a => a._id.toString());
+            var userIdsNotInLeaderboard = allUsersIds.filter(x => userIdsInLeaderboard.indexOf(x) == -1);
+            var leaderboardArr = arr[0];
             if (userIdsNotInLeaderboard && userIdsNotInLeaderboard.length > 0) {
                 userIdsNotInLeaderboard.forEach(function (userId) {
                     // add to the bottom
@@ -122,8 +122,6 @@ var self = module.exports = {
                         strikes: 0
                     });
                 });
-            } else {
-                leaderboardArr = arr[0];
             }
 
             return {
