@@ -116,7 +116,7 @@ var self = module.exports = {
             if (userIdsNotInLeaderboard && userIdsNotInLeaderboard.length > 0) {
                 userIdsNotInLeaderboard.forEach(function (userId) {
                     // add to the bottom
-                    leaderboardArr.unshift({
+                    leaderboardArr.splice(leaderboardArr.length - 1, 0, {
                         userId: userId,
                         score: 0,
                         strikes: 0
