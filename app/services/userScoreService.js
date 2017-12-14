@@ -47,7 +47,7 @@ var self = module.exports = {
     },
     checkUpdateNeededForMatches: function (matchResults) {
         if (matchResults.length == 0) {
-            return false;
+            return Promise.resolve([]);
         }
 
         var promises = matchResults.map(function (aMatchResult) {
@@ -57,7 +57,7 @@ var self = module.exports = {
     },
     checkUpdateNeededForTeams: function (teamResults) {
         if (teamResults.length == 0) {
-            return false;
+            Promise.resolve([])
         }
 
         var promises = teamResults.map(function (aTeamResult) {

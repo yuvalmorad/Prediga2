@@ -636,6 +636,10 @@ body {
     display: inline-block;
 }
 
+.tile-dialog-container .leaderboard-match-row .teams-score > div.win {
+    font-weight: bold;
+}
+
 .tile-dialog-container .leaderboard-match-row .teams-score > div:nth-child(1),
 .tile-dialog-container .leaderboard-match-row .teams-score > div:nth-child(2) {
     margin-right: 0.5rem;

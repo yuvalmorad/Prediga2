@@ -48,15 +48,17 @@ component.LeaderBoardMatchesHistory = (function(){
                     matchPrediction = utils.general.findItemInArrBy(predictions, "matchId", matchId),
                     team1 = match.team1,
                     team2 = match.team2,
-                    score = matchPrediction[GAME.BET_TYPES.TEAM1_GOALS.key] + " - " + matchPrediction[GAME.BET_TYPES.TEAM2_GOALS.key],
+                    team1GoalsResult = matchResult[GAME.BET_TYPES.TEAM1_GOALS.key],
+                    team2GoalsResult = matchResult[GAME.BET_TYPES.TEAM2_GOALS.key],
+                    score = team1GoalsResult + " - " + team2GoalsResult,
                     points = utils.general.sumObject( utils.general.calculatePoints(matchPrediction, matchResult));
 
                 return re("div", {className: "leaderboard-match-row"},
                     re ("div", {className: "match-date"}, dateStr),
                     re("div", {className: "teams-score"},
-                        re("div", {}, team1),
-                        re("div", {}, score),
-                        re("div", {}, team2)
+                        re("div", {className: team1GoalsResult > team2GoalsResult ? "win": ""}, team1),
+                        re("div", {className: team2GoalsResult !== team1GoalsResult ? "win": ""}, score),
+                        re("div", {className: team2GoalsResult > team1GoalsResult ? "win": ""}, team2)
                     ),
                     re("div", {},
                         re("div", {className: "points"}, points)
