@@ -5,7 +5,6 @@ component.GamePredictionFormTile = (function(){
     var IMAGE_SIZE = 2.5;
     var TRANSFORM_BACK = 2;
     var MAX_USERS = 7;
-    var DEAFULT_PROFILE_IMAGE = "../images/default_profile.png";
 
     function mapToMutualFriends(_users, reverse) {
         var users = _users.splice(0, MAX_USERS);

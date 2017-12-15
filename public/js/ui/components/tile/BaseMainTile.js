@@ -6,7 +6,8 @@ component.BaseMainTile = (function(){
             description = props.description,
             rank = props.rank,
             rankTitle = props.rankTitle,
-            points = props.points;
+            points = props.points,
+            badgeName = props.badgeName;
 
         var trendElement = null;
 
@@ -27,9 +28,13 @@ component.BaseMainTile = (function(){
             trendElement = re("div", {className: trendClassName}, trendText);
         }
 
+        var rankElem = rank && re("div", {className: "rank"}, rank);
+        var ranktitleElem = rankTitle && re("div", {className: "rankTitle"}, rankTitle);
+        var badgeElem = badgeName && re("div", {className: "badge", style: {backgroundImage: "url('../images/" + badgeName + ".png')"}});
 
         return re("div", {className: "main base"},
             re("div", {className: "left"},
+                rankElem,
                 re("div", {className: "image-wrapper"},
                     re("img", {src: imageSrc}),
                     trendElement
@@ -40,7 +45,8 @@ component.BaseMainTile = (function(){
                 )
             ),
             re("div", {className: "right"},
-                re("div", {className: rank !== undefined ? "rank" : "rankTitle"}, rank !== undefined ? rank : rankTitle),
+                badgeElem,
+                ranktitleElem,
                 re("div", {className: "points"}, points !== undefined ? points : "")
             )
         );

@@ -1,6 +1,5 @@
 component.LeaderBoardMainTile = (function(){
     var BaseMainTile = component.BaseMainTile;
-    var DEAFULT_PROFILE_IMAGE = "../images/default_profile.png";
 
     return function(props) {
         var user = props.user,
@@ -9,7 +8,8 @@ component.LeaderBoardMainTile = (function(){
             photo = user.photo || DEAFULT_PROFILE_IMAGE,
             name = user.name,
             trend = props.trend,
-            description = props.description;
+            description = props.description,
+            badgeName = props.badgeName;
 
         return re(BaseMainTile, {
             imageSrc: photo,
@@ -17,7 +17,8 @@ component.LeaderBoardMainTile = (function(){
             title: name,
             description: description,
             rank: rank,
-            points: score
+            points: score,
+            badgeName: badgeName
         });
     };
 })();

@@ -579,16 +579,26 @@ body {
 }
 
 /* -------  base main tile -------*/
+
 .tile .main.base  {
     justify-content: space-between;
 }
 
 .tile .main.base > .right {
-    text-align: center;
     margin-right: 1rem;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    align-items: center;
+}
+
+.tile .main.base > .right .points {
+    width: 2rem;
+    text-align: center;
+}
+
+.tile .main.base .badge {
+    width: 2rem;
+    height: 2rem;
+    background-size: 100%;
 }
 
 .tile .main.base > .left {
@@ -616,6 +626,7 @@ body {
 .tile .main.base .rank {
     font-size: 2rem;
     font-weight: bold;
+    margin-right: 1rem;
 }
 
 .tile .main.base .rankTitle {
