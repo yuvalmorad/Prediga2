@@ -528,10 +528,6 @@ body {
     align-items: center;
 }
 
-.tile-dialog-container.LeaderBoardTileDialog .dialog-button {
-    height: calc((100% - 20rem)/2);
-}
-
 .tile-dialog-container.TeamPredictionTileDialog .dialog-button {
     height: calc((100% - 14rem)/2);
 }
@@ -570,6 +566,7 @@ body {
     max-width: 700px;
     margin: 0 auto 0.5rem auto;
     border-radius: 4px;
+    transition: height 0.3s;
 }
 
 .tile .main {
@@ -690,21 +687,25 @@ body {
     height: 6rem;
 }
 
+.leader-board-tile.tile.open {
+    height: 20rem;
+}
+
 .leader-board-tile .main.base .image-wrapper img {
     border-radius: 50%;
     height: 3.5rem;
     width: 3.5rem;
 }
 
-.tile-dialog-container .leader-board-tile.tile {
+/*.tile-dialog-container .leader-board-tile.tile {
     height: 20rem;
-}
+}*/
 
-.tile-dialog-container .leader-board-tile .no-content {
+.leader-board-tile .no-content {
     text-align: center;
 }
 
-.tile-dialog-container .leaderboard-match-rows {
+.leaderboard-match-rows {
     height: 14rem;
     padding: 0 1rem;
     box-sizing: border-box;
@@ -712,7 +713,7 @@ body {
     font-size: 0.5rem;
 }
 
-.tile-dialog-container .leaderboard-match-row {
+.leaderboard-match-row {
     display: flex;
     justify-content: space-between;
     border-bottom: 1px solid #e8e8e8;
@@ -720,24 +721,24 @@ body {
     align-items: center;
 }
 
-.tile-dialog-container .leaderboard-match-row:first-child {
+.leaderboard-match-row:first-child {
     padding-top: 0;
 }
 
-.tile-dialog-container .leaderboard-match-row .teams-score > div {
+.leaderboard-match-row .teams-score > div {
     display: inline-block;
 }
 
-.tile-dialog-container .leaderboard-match-row .teams-score > div.win {
+.leaderboard-match-row .teams-score > div.win {
     font-weight: bold;
 }
 
-.tile-dialog-container .leaderboard-match-row .teams-score > div:nth-child(1),
-.tile-dialog-container .leaderboard-match-row .teams-score > div:nth-child(2) {
+.leaderboard-match-row .teams-score > div:nth-child(1),
+.leaderboard-match-row .teams-score > div:nth-child(2) {
     margin-right: 0.5rem;
 }
 
-.tile-dialog-container .leaderboard-match-row .points {
+.leaderboard-match-row .points {
     background-color: #6ECE1A;
     color: #fff;
     border-radius: 50%;

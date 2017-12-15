@@ -2,12 +2,24 @@ component.Tile = (function(){
     var connect = ReactRedux.connect;
 
     var Tile = React.createClass({
+        getInitialState: function() {
+            return {isInPlaceOpen: false};
+        },
+
         onTileClicked: function(e) {
-            this.props.openTileDialog(this.props.dialogComponent, this.props.dialogComponentProps);
+            if (this.props.openInPlace) {
+                this.setState({isInPlaceOpen: !this.state.isInPlaceOpen});
+                if (this.props.onOpenInPlace) {
+                    this.props.onOpenInPlace();
+                }
+            } else {
+                this.props.openTileDialog(this.props.dialogComponent, this.props.dialogComponentProps);
+            }
         },
 
         render: function() {
             var props = this.props,
+                state = this.state,
                 className = "tile";
 
             if (props.className) {
@@ -16,6 +28,10 @@ component.Tile = (function(){
 
             if (!props.hasPrediction) {
                 className += " no-prediction";
+            }
+
+            if (state.isInPlaceOpen) {
+                className += " open"
             }
 
             var opts = { className: className , style: {borderLeftColor: props.borderLeftColor, borderRightColor: props.borderRightColor}};
