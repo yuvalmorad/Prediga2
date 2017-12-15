@@ -1,7 +1,8 @@
 component.LeaderBoardMatchesHistory = (function(){
+    var connect = ReactRedux.connect;
     var leaderBoardService = service.leaderBoard;
 
-    return React.createClass({
+    var LeaderBoardMatchesHistory = React.createClass({
         getInitialState: function() {
             return {
                 isLoading: true
@@ -21,8 +22,23 @@ component.LeaderBoardMatchesHistory = (function(){
             });
         },
 
-        render: function() {
+        onLeaderboardMatchClicked: function(matchId, event) {
             var state = this.state,
+                dialogComponentProps = {
+                    game: utils.general.findItemInArrBy(state.matches, "_id", matchId),
+                    result: utils.general.findItemInArrBy(state.results, "matchId", matchId),
+                    prediction: utils.general.findItemInArrBy(state.predictions, "matchId", matchId),
+                    hideOtherPredictions: true
+                };
+
+            event.stopPropagation();
+            dialogComponentProps.isDialogFormDisabled = !!dialogComponentProps.result || utils.general.isGameClosed(dialogComponentProps.game.kickofftime);
+            this.props.openTileDialog("GamePredictionTileDialog", dialogComponentProps);
+        },
+
+        render: function() {
+            var that = this,
+                state = this.state,
                 isLoading = state.isLoading,
                 matches = state.matches || [],
                 predictions = state.predictions || [],
@@ -53,7 +69,7 @@ component.LeaderBoardMatchesHistory = (function(){
                     score = team1GoalsResult + " - " + team2GoalsResult,
                     points = utils.general.sumObject( utils.general.calculatePoints(matchPrediction, matchResult));
 
-                return re("div", {className: "leaderboard-match-row"},
+                return re("div", {className: "leaderboard-match-row", onClick: that.onLeaderboardMatchClicked.bind(that, matchId)},
                     re ("div", {className: "match-date"}, dateStr),
                     re("div", {className: "teams-score"},
                         re("div", {className: team1GoalsResult > team2GoalsResult ? "win": ""}, team1),
@@ -69,6 +85,19 @@ component.LeaderBoardMatchesHistory = (function(){
             return re("div", {className: "leaderboard-match-rows"}, rows);
         }
     });
+
+    function mapStateToProps(state){
+        return {
+        }
+    }
+
+    function mapDispatchToProps(dispatch) {
+        return {
+            openTileDialog: function(componentName, componentProps){dispatch(action.general.openTileDialog(componentName, componentProps))}
+        }
+    }
+
+    return connect(mapStateToProps, mapDispatchToProps)(LeaderBoardMatchesHistory);
 })();
 
 

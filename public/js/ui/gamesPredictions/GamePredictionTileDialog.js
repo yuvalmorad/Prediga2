@@ -40,6 +40,7 @@ component.GamePredictionTileDialog = (function(){
                 props = this.props,
                 prediction = state.prediction,
                 game = props.game,
+                hideOtherPredictions = props.hideOtherPredictions,
                 team1 = models.leagues.getTeamByTeamName(game.team1),
                 team2 = models.leagues.getTeamByTeamName(game.team2),
                 otherMatchPredictions = props.otherMatchPredictions,
@@ -47,8 +48,8 @@ component.GamePredictionTileDialog = (function(){
                 isDialogFormDisabled = props.isDialogFormDisabled;
 
             return re(TileDialog, {borderLeftColor: team1.color, borderRightColor: team2.color, className: "game-prediction-tile"},
-                re(GamePredictionMainTile, {game: game, prediction: prediction, otherMatchPredictions: otherMatchPredictions, result: result}),
-                re(GamePredictionFormTile, {game: game, prediction: prediction, otherMatchPredictions: otherMatchPredictions, result: result, updateGameForm: this.updateGameForm, isDialogFormDisabled: isDialogFormDisabled})
+                re(GamePredictionMainTile, {game: game, prediction: prediction, otherMatchPredictions: otherMatchPredictions, result: result, hideOtherPredictions: hideOtherPredictions}),
+                re(GamePredictionFormTile, {game: game, prediction: prediction, otherMatchPredictions: otherMatchPredictions, result: result, hideOtherPredictions: hideOtherPredictions, updateGameForm: this.updateGameForm, isDialogFormDisabled: isDialogFormDisabled})
             );
         }
     });

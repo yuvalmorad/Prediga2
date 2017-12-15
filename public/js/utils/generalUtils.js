@@ -10,8 +10,16 @@ utils.general = (function(){
         mapUsersIdsToUsersObjects: mapUsersIdsToUsersObjects,
         isMatchDraw: isMatchDraw,
         isFirstScoreNone: isFirstScoreNone,
-        getDrawFromObject: getDrawFromObject
+        getDrawFromObject: getDrawFromObject,
+        isGameClosed: isGameClosed
     };
+
+    function isGameClosed(kickofftime) {
+        var currentDate = new Date();
+        var gameClosedDate = new Date(kickofftime);
+        gameClosedDate.setHours(gameClosedDate.getHours() - 1);
+        return currentDate >= gameClosedDate;
+    }
 
     function isMatchDraw(winner) {
         return (winner || "").toLowerCase() === "draw";
@@ -35,7 +43,7 @@ utils.general = (function(){
 
     function getOtherPredictionsUserIdsByWinner(predictions) {
         var res = {};
-        predictions.forEach(function(prediction){
+        (predictions || []).forEach(function(prediction){
             if (!res[prediction.winner]) {
                 res[prediction.winner] = [];
             }

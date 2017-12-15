@@ -27,7 +27,7 @@ component.GamePredictionMainTile = (function(){
             gamePoints,
             isPostGame = false;
 
-        if (!result) {//(game.status === GAME.STATUS.PRE_GAME || game.status === GAME.STATUS.CLOSED_GAME) { //TODO
+        if (!result) {
             //PRE GAME
             var dateObj = new Date(kickofftime);
             var minutes = dateObj.getMinutes();
@@ -66,7 +66,7 @@ component.GamePredictionMainTile = (function(){
             }
 
             graphParts = [{color: team1Color, amount: otherPredictionsTeam1Count}, {color: COLORS.DRAW_COLOR, amount: otherPredictionsDrawCount}, {color: team2Color, amount: otherPredictionsTeam2Count}]; //TODO
-        } else {// if (game.status === GAME.STATUS.POST_GAME){ //TODO
+        } else {
             //POST GAME
             isPostGame = true;
             var points = utils.general.sumObject( utils.general.calculatePoints(prediction, result));
