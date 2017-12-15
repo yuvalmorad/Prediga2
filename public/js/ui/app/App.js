@@ -1,11 +1,12 @@
 component.App = (function(){
     var SiteHeader = component.SiteHeader,
         SiteNavigation = component.SiteNavigation,
+        Menu = component.Menu,
         TileDialogContainer = component.TileDialogContainer,
         Loading = component.Loading,
         Pages = component.Pages;
 
-    var App = function() {
+    return function() {
         var path = routerHistory.location.pathname;
         var currentPage = routePages.getPageByPath(path);
         var title = currentPage.title;
@@ -17,12 +18,10 @@ component.App = (function(){
             re(Pages, {}),
             re(SiteNavigation, {hide: hideSiteNavigation}),
             re(TileDialogContainer, {}),
+            re(Menu, {}),
             re(Loading, {})
         )
     };
-
-    return App;
-
 })();
 
 

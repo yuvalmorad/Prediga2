@@ -38,13 +38,10 @@ utils.action = (function(){
 
     function updatePrediction(prediction, serviceObj, updateType) {
         return function(dispatch){
-            dispatch(action.general.setUpdating());
             serviceObj.updatePrediction(prediction).then(function(predictionRes){
                 dispatch(updatePredictionState(predictionRes));
-                dispatch(action.general.removeUpdating());
                 console.log("success");
             }, function(error){
-                dispatch(action.general.removeUpdating());
                 console.log("error");
             });
         };

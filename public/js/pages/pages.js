@@ -2,28 +2,55 @@ var routePages = (function(){
     var GamesPredictionsPage = component.GamesPredictionsPage,
         TeamsPredictionsPage = component.TeamsPredictionsPage,
         LeaderBoardPage = component.LeaderBoardPage,
-        LoginPage = component.LoginPage;
+        LoginPage = component.LoginPage,
+        RulesPage = component.RulesPage,
+        AboutPage = component.AboutPage;
 
     var routePages = [
         {
             path: "/",
             title: "Games Predictions",
+            name: "gamesPredictions",
             isAuthenticatedPage: true,
             component: GamesPredictionsPage,
-            exact: true
+            exact: true,
+            displayInTopMenu: true,
+            displayInSiteNavigation: true
         },
         {
             path: "/teamsPredictions",
             title: "Teams Predictions",
+            name: "teamsPredictions",
             isAuthenticatedPage: true,
             component: TeamsPredictionsPage,
-            exact: true
+            exact: true,
+            displayInTopMenu: true,
+            displayInSiteNavigation: true
         },
         {
             path: "/leaderBoard",
             title: "Leader Board",
+            name: "leaderBoard",
             isAuthenticatedPage: true,
-            component: LeaderBoardPage
+            component: LeaderBoardPage,
+            displayInTopMenu: true,
+            displayInSiteNavigation: true
+        },
+        {
+            path: "/rules",
+            title: "Rules of the Game",
+            name: "rulesOfTheGame",
+            isAuthenticatedPage: true,
+            component: RulesPage,
+            displayInBottomMenu: true
+        },
+        {
+            path: "/about",
+            title: "About",
+            name: "about",
+            isAuthenticatedPage: true,
+            component: AboutPage,
+            displayInBottomMenu: true
         },
         {
             path: "/login",

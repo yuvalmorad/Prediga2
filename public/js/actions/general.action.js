@@ -4,11 +4,16 @@ action.general = (function(){
         SET_LOADING: "SET_LOADING",
         REMOVE_LOADING: "REMOVE_LOADING",
 
-        SET_UPDATING: "SET_UPDATING",
-        REMOVE_UPDATING: "REMOVE_UPDATING",
-
         OPEN_TILE_DIALOG: "OPEN_TILE_DIALOG",
         CLOSE_TILE_DIALOG: "CLOSE_TILE_DIALOG",
+
+        TOGGLE_MENU: "TOGGLE_MENU",
+
+        toggleMenu: function() {
+            return {
+                type: general.TOGGLE_MENU
+            }
+        },
 
         setLoading: function() {
             return {
@@ -19,18 +24,6 @@ action.general = (function(){
         removeLoading: function() {
             return {
                 type: general.REMOVE_LOADING
-            }
-        },
-
-        setUpdating: function() {
-            return {
-                type: general.SET_UPDATING
-            }
-        },
-
-        removeUpdating: function() {
-            return {
-                type: general.REMOVE_UPDATING
             }
         },
 

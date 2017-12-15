@@ -163,24 +163,8 @@ body {
 .site-header .right {
     width: 27%;
     line-height: 2.75rem;
-    text-align: center;
     font-size: 0.75rem;
     color: #229eff;
-}
-
-.site-header .left .updating {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.site-header .left .updating-image {
-    background-image: url(../images/loading.gif);
-    width: 1rem;
-    height: 1rem;
-    background-size: 100%;
-    background-repeat: no-repeat;
-    margin-right: 5px;
 }
 
 .site-header .center {
@@ -188,6 +172,89 @@ body {
     text-align: center;
     line-height: 44px;
     color: #009fff;
+}
+
+/* -------  Menu -------*/
+
+.menu-button {
+    padding: 2px;
+    position: relative;
+    left: 10px;
+}
+
+.menu-button:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.21rem;
+    bottom: 0.21rem;
+    width: 1.2rem;
+    background: linear-gradient(
+            to bottom,
+            #009fff, #009fff 20%,
+            white 20%, white 40%,
+            #009fff 40%, #009fff 60%,
+            white 60%, white 80%,
+            #009fff 80%, #009fff 100%
+    );
+}
+
+.menu {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.87);
+    transform: translateX(-100%);
+    transition: transform 0.25s;
+    color: #c5c1c1;
+    padding-top: 0.5rem;
+}
+
+.menu.open {
+    transform: translateX(0);
+}
+
+.menu .menu-header {
+    height: 2rem;
+    line-height: 2rem;
+    padding: 0 0.5rem;
+}
+
+.menu .menu-content {
+    height: calc(100% - 3rem);
+    position: relative;
+    margin-top: 1rem;
+}
+
+.menu .menu-header .close-menu {
+    padding: 0 0.5rem;
+    margin-left: -0.5rem;
+}
+
+.menu .menu-bottom-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.menu .menu-item {
+    padding: 0.5rem 0.5rem;
+    border-top: 1px solid;
+}
+
+.menu .menu-top-content .menu-item:first-child {
+    border: none;
+}
+
+.menu .menu-top-content .menu-item:last-child {
+    border-bottom: 1px solid;
+}
+
+.menu .menu-item.selected {
+    background-color: #009fff;
 }
 
 /* -------  Site Navigation -------*/
@@ -233,27 +300,27 @@ body {
     top: 0;
 }
 
-.games-prediction-tab:before {
+.gamesPredictions-tab:before {
     background-image: url(../images/crystal_ball.png);
 }
 
-.games-prediction-tab.selected:before {
+.gamesPredictions-tab.selected:before {
     background-image: url(../images/crystal_ball_selected.png);
 }
 
-.teams-prediction-tab:before {
+.teamsPredictions-tab:before {
     background-image: url(../images/medals.png);
 }
 
-.teams-prediction-tab.selected:before {
+.teamsPredictions-tab.selected:before {
     background-image: url(../images/medals_selected.png);
 }
 
-.leader-board-tab:before {
+.leaderBoard-tab:before {
     background-image: url(../images/trophy.png);
 }
 
-.leader-board-tab.selected:before {
+.leaderBoard-tab.selected:before {
     background-image: url(../images/trophy_selected.png);
 }
 

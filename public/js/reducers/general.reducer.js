@@ -1,15 +1,14 @@
 reducer.general = (function() {
     var SET_LOADING = action.general.SET_LOADING,
         REMOVE_LOADING = action.general.REMOVE_LOADING,
-        SET_UPDATING = action.general.SET_UPDATING,
-        REMOVE_UPDATING = action.general.REMOVE_UPDATING,
         OPEN_TILE_DIALOG = action.general.OPEN_TILE_DIALOG,
-        CLOSE_TILE_DIALOG = action.general.CLOSE_TILE_DIALOG;
+        CLOSE_TILE_DIALOG = action.general.CLOSE_TILE_DIALOG,
+        TOGGLE_MENU = action.general.TOGGLE_MENU;
 
     var initialState = {
         isLoading: false,
-        isUpdating: false,
-        isShowTileDialog: false
+        isShowTileDialog: false,
+        isMenuOpen: false
     };
 
     return function general(state, action){
@@ -18,14 +17,12 @@ reducer.general = (function() {
         }
 
         switch (action.type) {
+            case TOGGLE_MENU:
+                return Object.assign({}, state, {isMenuOpen: !state.isMenuOpen});
             case SET_LOADING:
                 return Object.assign({}, state, {isLoading: true});
             case REMOVE_LOADING:
                 return Object.assign({}, state, {isLoading: false});
-            case SET_UPDATING:
-                return Object.assign({}, state, {isUpdating: true});
-            case REMOVE_UPDATING:
-                return Object.assign({}, state, {isUpdating: false});
             case OPEN_TILE_DIALOG:
                 return Object.assign({}, state, {isShowTileDialog: true, tileDailogComponentName: action.componentName, tileDialogComponentProps: action.componentProps});
             case CLOSE_TILE_DIALOG:

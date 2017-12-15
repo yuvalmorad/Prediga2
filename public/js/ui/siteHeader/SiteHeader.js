@@ -2,29 +2,31 @@ component.SiteHeader = (function(){
     var connect = ReactRedux.connect;
 
     var SiteHeader = function (props) {
-        var hide = props.hide,
-            title = props.title,
-            isUpdating = props.isUpdating;
+       var hide = props.hide,
+           title = props.title;
 
-        return re("div", { className: "site-header" + (hide ? " hide" : "") },
-            re("div", {className: "left"},
-                re("div", {className: "updating" + (isUpdating ? "" : " hide")},
-                    re("div", {className: "updating-image"}),
-                    re("div", {}, "Saving...")
-                )
-            ),
-            re("div", {className: "center"}, title),
-            re("div", {className: "right"})
-        );
+       return re("div", { className: "site-header" + (hide ? " hide" : "") },
+           re("div", {className: "left"},
+               re("a", {className: "menu-button", onClick: props.toggleMenu})
+           ),
+           re("div", {className: "center"}, title),
+           re("div", {className: "right"})
+       );
     };
 
     function mapStateToProps(state){
         return {
-            isUpdating: state.general.isUpdating
+
         }
     }
 
-    return connect(mapStateToProps)(SiteHeader);
+    function mapDispatchToProps(dispatch) {
+        return {
+            toggleMenu: function(){dispatch(action.general.toggleMenu())}
+        }
+    }
+
+    return connect(mapStateToProps, mapDispatchToProps)(SiteHeader);
 })();
 
 
