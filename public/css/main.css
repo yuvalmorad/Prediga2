@@ -757,6 +757,7 @@ body {
 .games-prediction-page .tiles-header button {
     background: transparent;
     border: none;
+    padding: 0 1rem;
 }
 
 .games-prediction-page .tiles-header button img {
