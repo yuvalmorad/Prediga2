@@ -10,6 +10,15 @@ a, u {
     text-decoration: none;
 }
 
+h1, h2, h3, h4, h5 {
+    margin: 0;
+    padding: 0;
+}
+p {
+    padding: 0;
+    margin: 0;
+}
+
 input, button {
     outline: none;
 }
@@ -29,6 +38,10 @@ body {
 
 .hide {
     display: none !important;
+}
+
+.smallMarginBottom {
+    margin-bottom: 1rem;
 }
 /* -------  Loading -------*/
 
@@ -66,7 +79,8 @@ body {
     height: 100%;
 }
 
-.page > .content > .tiles{
+.page > .content > .tiles,
+.page > .content > .scroll-container{
     padding: 0.5rem;
     height: 100%;
     box-sizing: border-box;
