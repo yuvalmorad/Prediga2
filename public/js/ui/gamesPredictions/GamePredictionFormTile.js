@@ -85,7 +85,7 @@ component.GamePredictionFormTile = (function(){
                 prediction = props.prediction,
                 otherMatchPredictions = props.otherMatchPredictions,
                 users = props.users,
-                hideOtherPredictions = props.hideOtherPredictions,
+                hideMutualFriends = props.hideMutualFriends,
                 userId = props.userId,
                 predictionWinner = prediction && prediction[GAME.BET_TYPES.WINNER.key],
                 predictionFirstToScore = prediction && prediction[GAME.BET_TYPES.FIRST_TO_SCORE.key],
@@ -110,9 +110,10 @@ component.GamePredictionFormTile = (function(){
                 team1GoalsPoints,
                 diffGoalsPoints,
                 team2GoalsPoints,
-                mutualFriendsElem;
+                mutualFriendsElem,
+                mtutalFriendsTitleElem;
 
-            if (!hideOtherPredictions) {
+            if (!hideMutualFriends) {
                 if (predictionWinner) {
                     var myUser = utils.general.findItemInArrBy(users, "_id", userId);
                     var myUserObj = {photo: myUser.photo};
@@ -137,6 +138,8 @@ component.GamePredictionFormTile = (function(){
                     getMutualFriendsWidth(otherPredctionsDraw),
                     mapToMutualFriends(otherPredctionsDraw, false),
                     mapToMutualFriends(otherPredctionsTeam2, true));
+
+                mtutalFriendsTitleElem = re("div", {className: "form-row-title"}, "Friends");
             }
 
             if (result) {
@@ -179,7 +182,7 @@ component.GamePredictionFormTile = (function(){
                         {bgColor: team2Color, textColor: team2SecondColor, text: team2Name, name: team2Name, res: predictionFirstToScore}
                     ]}
                 ),
-                re("div", {className: "form-row-title"}, "Friends"),
+                mtutalFriendsTitleElem,
                 mutualFriendsElem
             );
         }

@@ -28,7 +28,8 @@ component.LeaderBoardMatchesHistory = (function(){
                     game: utils.general.findItemInArrBy(state.matches, "_id", matchId),
                     result: utils.general.findItemInArrBy(state.results, "matchId", matchId),
                     prediction: utils.general.findItemInArrBy(state.predictions, "matchId", matchId),
-                    hideOtherPredictions: true
+                    hideMutualFriends: true,
+                    dialogContainerClassName: "hide-mutual-friends"
                 };
 
             event.stopPropagation();

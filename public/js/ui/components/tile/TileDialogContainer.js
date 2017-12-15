@@ -30,6 +30,9 @@ component.TileDialogContainer = (function(){
                 componentProps.onDialogSave = this.assignDialogSaveFun;
                 componentElement = re(component[props.componentName], componentProps);
                 className +=  (" " + props.componentName);
+                if (componentProps.dialogContainerClassName) {
+                    className += (" " + componentProps.dialogContainerClassName);
+                }
             } else {
                 className += " hide";
             }

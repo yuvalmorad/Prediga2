@@ -516,20 +516,14 @@ body {
 }
 
 .tile-dialog-container .tile {
-    height: 29rem;
     margin: 0 auto;
     box-sizing: border-box;
 }
 
 .tile-dialog-container .dialog-button {
-    height: calc((100% - 29rem)/2);
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-.tile-dialog-container.TeamPredictionTileDialog .dialog-button {
-    height: calc((100% - 14rem)/2);
 }
 
 .tile-dialog-container .dialog-button button {
@@ -754,6 +748,10 @@ body {
     height: 14rem;
 }
 
+.tile-dialog-container.TeamPredictionTileDialog .dialog-button {
+    height: calc((100% - 14rem)/2);
+}
+
 .team-prediction-form {
     padding: 0.5rem;
     box-sizing: border-box;
@@ -890,6 +888,22 @@ body {
 .game-prediction-tile .final-game {
     font-weight: bold;
     color: #000;
+}
+
+.tile-dialog-container.GamePredictionTileDialog .dialog-button {
+    height: calc((100% - 29rem)/2);
+}
+
+.tile-dialog-container.GamePredictionTileDialog.hide-mutual-friends .dialog-button {
+    height: calc((100% - 20.5rem)/2);
+}
+
+.tile-dialog-container .game-prediction-tile.tile {
+    height: 29rem;
+}
+
+.tile-dialog-container.hide-mutual-friends .game-prediction-tile.tile {
+    height: 20.5rem;
 }
 
 /* -------  game prediction form tile -------*/
