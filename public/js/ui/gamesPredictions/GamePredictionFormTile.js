@@ -1,6 +1,7 @@
 component.GamePredictionFormTile = (function(){
-    var RadioGroup = component.RadioGroup;
-    var InputNumber = component.InputNumber;
+    var connect = ReactRedux.connect,
+        RadioGroup = component.RadioGroup,
+        InputNumber = component.InputNumber;
 
     var IMAGE_SIZE = 2.5;
     var TRANSFORM_BACK = 2;
@@ -43,7 +44,7 @@ component.GamePredictionFormTile = (function(){
         return width + "rem";
     }
 
-    return React.createClass({
+    var GamePredictionFormTile = React.createClass({
         onRadioGroupChanged: function(groupName, radioName) {
             var prediction = {};
             prediction[groupName] = radioName;
@@ -174,6 +175,15 @@ component.GamePredictionFormTile = (function(){
             );
         }
     });
+
+    function mapStateToProps(state){
+        return {
+            users: state.gamesPredictions.users,
+            userId: state.authentication.userId
+        }
+    }
+
+    return connect(mapStateToProps)(GamePredictionFormTile);
 })();
 
 

@@ -8,18 +8,10 @@ component.GamePredictionTileDialog = (function(){
 
         getInitialState: function() {
             var props = this.props,
-                matchId = props._id,
-                game = props.matches.filter(function(game){return game._id === matchId})[0],
-                prediction = utils.general.findItemInArrBy(props.userPredictions, "matchId", matchId),
-                otherMatchPredictions = utils.general.findItemsInArrBy(props.otherPredictions, "matchId", matchId),
-                result = utils.general.findItemInArrBy(props.results, "matchId", matchId),
-                predictionCopy = Object.assign({}, {matchId: matchId}, prediction);
+                predictionCopy = Object.assign({}, {matchId: props.game._id}, props.prediction);
 
             return {
-                game: game,
-                prediction: predictionCopy,
-                otherMatchPredictions: otherMatchPredictions,
-                result: result
+                prediction: predictionCopy
             };
         },
 
@@ -46,31 +38,23 @@ component.GamePredictionTileDialog = (function(){
         render: function() {
             var state = this.state,
                 props = this.props,
-                game = state.game,
+                prediction = state.prediction,
+                game = props.game,
                 team1 = models.leagues.getTeamByTeamName(game.team1),
                 team2 = models.leagues.getTeamByTeamName(game.team2),
-                users = props.users,
-                prediction = state.prediction,
-                otherMatchPredictions = state.otherMatchPredictions,
-                result = state.result,
-                userId = props.userId,
+                otherMatchPredictions = props.otherMatchPredictions,
+                result = props.result,
                 isDialogFormDisabled = props.isDialogFormDisabled;
 
             return re(TileDialog, {borderLeftColor: team1.color, borderRightColor: team2.color, className: "game-prediction-tile"},
                 re(GamePredictionMainTile, {game: game, prediction: prediction, otherMatchPredictions: otherMatchPredictions, result: result}),
-                re(GamePredictionFormTile, {game: game, prediction: prediction, otherMatchPredictions: otherMatchPredictions, result: result, users: users, userId: userId, updateGameForm: this.updateGameForm, isDialogFormDisabled: isDialogFormDisabled})
+                re(GamePredictionFormTile, {game: game, prediction: prediction, otherMatchPredictions: otherMatchPredictions, result: result, updateGameForm: this.updateGameForm, isDialogFormDisabled: isDialogFormDisabled})
             );
         }
     });
 
     function mapStateToProps(state){
         return {
-            matches: state.gamesPredictions.matches,
-            userPredictions: state.gamesPredictions.userPredictions,
-            otherPredictions: state.gamesPredictions.otherPredictions,
-            users: state.gamesPredictions.users,
-            results: state.gamesPredictions.results,
-            userId: state.authentication.userId
         }
     }
 
