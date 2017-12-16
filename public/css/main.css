@@ -530,8 +530,14 @@ body {
 }
 
 .tile-dialog-container .tile {
-    margin: 0 auto;
+    margin: 0 0.5rem;
     box-sizing: border-box;
+}
+
+@media only screen and (min-width : 700px) {
+    .tile-dialog-container .tile {
+        margin: 0 auto;
+    }
 }
 
 .tile-dialog-container .dialog-button {
