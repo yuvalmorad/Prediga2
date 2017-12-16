@@ -60,7 +60,7 @@ component.GamePredictionFormTile = (function(){
         },
 
         renderMutualFriends: function(mutualFriendsTeam1, mutualFriendsDraw, mutualFriendsTeam2, mutualFriendsDrawWidth) {
-            re("div", {className: "mutual-friends"},
+            return re("div", {className: "mutual-friends"},
                 re("div", {},
                     re("div", {},
                         mutualFriendsTeam1
