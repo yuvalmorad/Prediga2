@@ -67,7 +67,7 @@ app.post('/', util.isLoggedIn, function (req, res) {
 function createMatchPredictions(matchPredictions, userId) {
     var now = new Date();
     var deadline = new Date();
-    deadline.setMinutes(now + 5);
+    deadline.setMinutes(now.getMinutes() + 5);
     var promises = matchPredictions.map(function (matchPrediction) {
         // we can update only until 5 minutes before kick off time.
         return Match.findOne({kickofftime: {$gte: deadline}, _id: matchPrediction.matchId}).then(function (aMatch) {
