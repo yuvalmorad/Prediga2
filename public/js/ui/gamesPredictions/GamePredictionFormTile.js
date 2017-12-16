@@ -5,10 +5,14 @@ component.GamePredictionFormTile = (function(){
 
     var IMAGE_SIZE = 2.5;
     var TRANSFORM_BACK = 2;
+    var USERS_IN_ROW = 2;
+    var NUM_OF_ROWS = 3;
     var MAX_USERS = 7;
 
+
     function mapToMutualFriends(_users, reverse) {
-        var users = _users.splice(0, MAX_USERS);
+        var maxUsers = (NUM_OF_ROWS * USERS_IN_ROW) - 1;
+        var users = _users.splice(0, maxUsers);
         if (_users.length) {
             //left users
             users.push({additionalFriends: _users.length});
@@ -18,12 +22,12 @@ component.GamePredictionFormTile = (function(){
             var leftRightProperty = reverse ? "right" : "left";
             var style = {
                 zIndex: (users.length - index),
-                top: (Math.floor(index / 3) * TRANSFORM_BACK) + "rem",
+                top: (Math.floor(index / USERS_IN_ROW) * TRANSFORM_BACK) + "rem",
                 width: IMAGE_SIZE + "rem",
                 height: IMAGE_SIZE + "rem"
             };
 
-            style[leftRightProperty] = ((index % 3) * TRANSFORM_BACK) + "rem";
+            style[leftRightProperty] = ((index % USERS_IN_ROW) * TRANSFORM_BACK) + "rem";
             if (user.style) {
                 Object.assign(style, user.style);
             }
