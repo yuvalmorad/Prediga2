@@ -66,9 +66,11 @@ app.post('/', util.isLoggedIn, function (req, res) {
 
 function createMatchPredictions(matchPredictions, userId) {
     var now = new Date();
+    var deadline = new Date();
+    deadline.setMinutes(now + 5);
     var promises = matchPredictions.map(function (matchPrediction) {
-        // we can update only if the kickofftime is not passed
-        return Match.findOne({kickofftime: {$gte: now}, _id: matchPrediction.matchId}).then(function (aMatch) {
+        // we can update only until 5 minutes before kick off time.
+        return Match.findOne({kickofftime: {$gte: deadline}, _id: matchPrediction.matchId}).then(function (aMatch) {
             if (aMatch) {
                 // fixing wrong input
                 if (typeof(matchPrediction.winner) === 'undefined') {
