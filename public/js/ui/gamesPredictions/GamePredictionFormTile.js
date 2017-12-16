@@ -3,11 +3,10 @@ component.GamePredictionFormTile = (function(){
         RadioGroup = component.RadioGroup,
         InputNumber = component.InputNumber;
 
-    var IMAGE_SIZE = 2.5;
+    var IMAGE_SIZE = 3;
     var TRANSFORM_BACK = 2;
     var USERS_IN_ROW = 2;
     var NUM_OF_ROWS = 3;
-    var MAX_USERS = 7;
 
 
     function mapToMutualFriends(_users, reverse) {
@@ -42,8 +41,8 @@ component.GamePredictionFormTile = (function(){
         });
     }
 
-    function getMutualFriendsWidth(users) {
-        var width = users.length * IMAGE_SIZE - (users.length - 1) * (IMAGE_SIZE - TRANSFORM_BACK);
+    function getMutualFriendsWidth(usersLength) {
+        var width = usersLength * IMAGE_SIZE - (usersLength - 1) * (IMAGE_SIZE - TRANSFORM_BACK);
 
         return width + "rem";
     }
@@ -137,11 +136,12 @@ component.GamePredictionFormTile = (function(){
                     }
                 }
 
+                var mutualFriendsDraw = mapToMutualFriends(otherPredctionsDraw, false);
                 mutualFriendsElem = this.renderMutualFriends(
                     mapToMutualFriends(otherPredctionsTeam1),
-                    mapToMutualFriends(otherPredctionsDraw, false),
+                    mutualFriendsDraw,
                     mapToMutualFriends(otherPredctionsTeam2, true),
-                    getMutualFriendsWidth(otherPredctionsDraw)
+                    getMutualFriendsWidth(mutualFriendsDraw.length)
                 );
 
                 mtutalFriendsTitleElem = re("div", {className: "form-row-title"}, "Friends");
