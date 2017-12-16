@@ -5,7 +5,7 @@ component.RulesPage = (function(){
                 re("h3", {className: "smallMarginBottom"}, "Rules"),
 
                 re("h5", {}, "Match Predictions"),
-                re("ul", {className: "smallMarginBottom"}, "Enter your prediction until game start time"),
+                re("ul", {className: "smallMarginBottom"}, "Enter your prediction until 5 minutes before game kickoff time"),
                 re("ul", {className: "smallMarginBottom"}, "The prediction is what will be the score after 90minutes, without extra time"),
                 re("ul", {className: "smallMarginBottom"}, "You can set non logical score, e.g. 2:1 (diff 0) to increase the possibility gain points but the maximum points will be reduced, you can't win it all"),
 

@@ -69,6 +69,8 @@ var self = module.exports = {
                 self.calculatedAggregatedUserScoreForEachUserScore(aUser, userScores).then(function (aggregrateScore) {
                     deferred.resolve(aggregrateScore);
                 });
+            } else {
+                deferred.resolve();
             }
         });
         return deferred.promise;

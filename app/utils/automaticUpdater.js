@@ -13,9 +13,9 @@ var Q = require('q');
 var self = module.exports = {
     startTask: function () {
         /**
-         * Schedule a task that will start every 15 minutes between 14:30 - 23:30
+         * Schedule a task that will start every 15 minutes between 17:30 - 00:30 (IL time), otherwise call /api/update as admin.
          */
-        schedule.scheduleJob('*/15 * * * *', function () {
+        schedule.scheduleJob('*/15 15-22 * * *', function () {
             console.log('Start to automatic update match results');
             self.startAutomaticUpdateJob().then(function () {
                 console.log('Finish to automatic update match results');
