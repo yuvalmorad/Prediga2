@@ -20,9 +20,9 @@ component.Pages = (function(){
         var hideSiteNavigation = currentPage.hideSiteNavigation;
         var pageClassName = "page";
 
-        if (props.animatePageDirection) {
+        /*if (props.animatePageDirection) {
             pageClassName += (" animate-" + props.animatePageDirection + "-to-center");
-        }
+        }*/
 
         if (!hideSiteHeader) {
             pageClassName += " hasSiteHeader";

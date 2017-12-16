@@ -14,7 +14,7 @@ component.App = (function(){
         var title = currentPage.title;
         var hideSiteHeader = currentPage.hideSiteHeader;
         var hideSiteNavigation = currentPage.hideSiteNavigation;
-        var animatePageDirection = "";
+        /*var animatePageDirection = "";
         var nextIndex = routePages.getPages().indexOf(currentPage);
 
         if (prevIndex !== undefined && nextIndex >= 0) {
@@ -25,11 +25,11 @@ component.App = (function(){
             }
         }
 
-        prevIndex = nextIndex;
+        prevIndex = nextIndex;*/
 
         return re("div", {className: "main"},
             re(SiteHeader, {title: title, hide: hideSiteHeader}),
-            re(Pages, {animatePageDirection: animatePageDirection}),
+            re(Pages, {}),
             re(SiteNavigation, {hide: hideSiteNavigation}),
             re(TileDialogContainer, {}),
             re(Menu, {}),

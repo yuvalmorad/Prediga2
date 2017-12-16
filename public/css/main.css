@@ -78,17 +78,17 @@ body {
 
 .page > .content {
     height: 100%;
-    animation-duration: 0.3s;
-    animation-fill-mode: forwards;
+    /*animation-duration: 0.3s;
+    animation-fill-mode: forwards;*/
 }
 
-.page.animate-right-to-center > .content{
+/*.page.animate-right-to-center > .content{
     animation-name: animateRightToCenter;
 }
 
 .page.animate-left-to-center > .content {
     animation-name: animateLeftToCenter;
-}
+}*/
 
 .page > .content > .tiles,
 .page > .content > .scroll-container{
@@ -995,7 +995,7 @@ body {
     background: #c5bfbf;
     color: #000;
 }
-
+/*
 @-webkit-keyframes animateLeftToCenter {
     0%   { transform:translateX(-100%);}
     100% { transform:translateX(0);}
@@ -1034,4 +1034,4 @@ body {
 @keyframes animateRightToCenter {
     0%   { transform:translateX(100%);}
     100% { transform:translateX(0);}
-}
+}*/
