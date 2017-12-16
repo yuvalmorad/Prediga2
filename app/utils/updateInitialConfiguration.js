@@ -5,8 +5,6 @@ var TeamResultService = require('../services/teamResultService');
 var PredictionScoreConfigurationService = require('../services/predictionScoreConfigurationService');
 var UsersLeaderboardService = require('../services/usersLeaderboardService');
 var UserScoreService = require('../services/userScoreService');
-var MatchResult = require('../models/matchResult');
-var TeamResult = require('../models/teamResult');
 var Q = require('q');
 
 var self = module.exports = {

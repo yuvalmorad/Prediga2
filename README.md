@@ -12,9 +12,10 @@ Prediction game using MongoDB, ExpressJS, NodeJS, ReactJS
 
 ## Add admin user
 1. Run mongo shell: `mongo.exe`
-2. Switch to Prediga DB: `use prediga`
+2. Switch to Prediga DB: `use prediga;`
 3. Find user: `db.users.find({"name": "Gilad Keinan"})`
 4. Update roles: `db.users.update({"name": "Gilad Keinan"}, { $set: {"roles": ["admin"]}})` 
+5. To drop all content: `db.dropDatabase();`
 
 ## Using Test Users
 - email: `nhrkrkbdms_1510943227@tfbnw.net`

@@ -48,5 +48,28 @@ var self = module.exports = {
             });
         });
         return Promise.all(promises);
+    },
+    findMatchByTeamsToday: function (team1, team2) {
+        var deferred = Q.defer();
+        var today = new Date();
+        var tomorrow = today;
+        var yesterday = today;
+        tomorrow.setDate(today.getDate() + 1);
+        yesterday.setDate(today.getDate() - 1);
+
+        Match.find({
+            kickofftime: {$gte: yesterday},
+            kickofftime: {$lte: tomorrow},
+            team1: team1,
+            team2: team2
+        }, function (err, relevantMatches) {
+            if (err) return console.log(err);
+            if (!relevantMatches || !Array.isArray(relevantMatches) || relevantMatches.length === 0) {
+                deferred.resolve();
+                return;
+            }
+            deferred.resolve(relevantMatches[0]);
+        });
+        return deferred.promise;
     }
 };

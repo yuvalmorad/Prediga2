@@ -23,7 +23,10 @@
     "q": "1.5.1",
     "gulp": "^3.9.1",
     "gulp-uglify": "^3.0.0",
-    "gulp-usemin": "^0.3.28"
+    "gulp-usemin": "^0.3.28",
+    "node-schedule": "1.2.5",
+    "http.request": "^0.1.7",
+    "htmlparser2": "^3.9.2"
   },
   "devDependencies": {}
 }

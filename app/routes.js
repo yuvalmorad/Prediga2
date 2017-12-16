@@ -1,12 +1,12 @@
 var util = require('./utils/util.js');
+var initialData = require('./utils/updateInitialConfiguration');
+var automaticUpdater = require('./utils/automaticUpdater');
+var mongoose = require('mongoose');
+mongoose.Promise = Promise;
 
 module.exports = function (app, passport) {
-    // update initial data
-    var initialData = require('../app/utils/updateInitialConfiguration');
     initialData.loadAll();
-
-    var mongoose = require('mongoose');
-    mongoose.Promise = Promise;
+    automaticUpdater.startTask();
 
     /********************************************
      * All routes mapping
@@ -24,6 +24,16 @@ module.exports = function (app, passport) {
     app.use('/api/teamResult', require('./controllers/teamResult.js'));
     app.use('/api/userScore', require('./controllers/userScore.js'));
     app.use('/api/usersLeaderboard', require('./controllers/usersLeaderboard.js'));
+
+
+    /********************************************
+     * Automatic Update (Immediate)
+     ********************************************* */
+    app.get('/api/update', util.isAdmin, function (req, res) {
+        automaticUpdater.startAutomaticUpdateJob().then(function () {
+            res.sendStatus(200);
+        });
+    });
 
     /********************************************
      * Authentications APIs

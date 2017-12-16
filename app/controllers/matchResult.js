@@ -24,4 +24,19 @@ app.get('/:matchId', util.isLoggedIn, function (req, res) {
     });
 });
 
+app.delete('/:matchId', util.isAdmin, function (req, res) {
+    var matchId = req.params.matchId;
+    if (!matchId) {
+        res.status(500).json(util.errorResponse.format('provide matchId'));
+        return;
+    }
+    MatchResult.findOneAndRemove({matchId: matchId}, function (err, obj) {
+        if (err || !obj) {
+            res.status(500).json('error');
+        } else {
+            res.status(200).json(util.okResponse);
+        }
+    });
+});
+
 module.exports = app;
