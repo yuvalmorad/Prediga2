@@ -11,13 +11,29 @@ utils.general = (function(){
         isMatchDraw: isMatchDraw,
         isFirstScoreNone: isFirstScoreNone,
         getDrawFromObject: getDrawFromObject,
-        isGameClosed: isGameClosed
+        isGameClosed: isGameClosed,
+        formatMinutesSecondsTime: formatMinutesSecondsTime
     };
+
+    function addZeroToTimeIfNeeded(time) {
+        if (time.toString().length === 1) {
+            time = "0" + time;
+        }
+
+        return time;
+    }
+
+    function formatMinutesSecondsTime(dateMs) {
+        var totalSeconds = Math.floor(dateMs/1000);
+        var seconds = addZeroToTimeIfNeeded(totalSeconds % 60);
+        var minutes = addZeroToTimeIfNeeded(Math.floor(totalSeconds / 60));
+        return minutes + ":" + seconds;
+    }
 
     function isGameClosed(kickofftime) {
         var currentDate = new Date();
         var gameClosedDate = new Date(kickofftime);
-        gameClosedDate.setHours(gameClosedDate.getHours() - 1);
+        gameClosedDate.setMinutes(gameClosedDate.getMinutes() - 5);
         return currentDate >= gameClosedDate;
     }
 

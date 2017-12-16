@@ -29,11 +29,11 @@ component.LeaderBoardMatchesHistory = (function(){
                     result: utils.general.findItemInArrBy(state.results, "matchId", matchId),
                     prediction: utils.general.findItemInArrBy(state.predictions, "matchId", matchId),
                     hideMutualFriends: true,
+                    isDialogFormDisabled: true,
                     dialogContainerClassName: "hide-mutual-friends"
                 };
 
             event.stopPropagation();
-            dialogComponentProps.isDialogFormDisabled = !!dialogComponentProps.result || utils.general.isGameClosed(dialogComponentProps.game.kickofftime);
             this.props.openTileDialog("GamePredictionTileDialog", dialogComponentProps);
         },
 
