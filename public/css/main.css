@@ -580,17 +580,10 @@ body {
 
 .tiles-group-title {
     text-align: center;
-    background: #63a8d2;
-    color: #fff;
+    color: #797676;
     padding: 0.3rem 0;
-    font-size: 0.75rem;
+    font-size: 1rem;
     margin-bottom: 0.2rem;
-    border-top-left-radius: 4px;
-    border-top-right-radius: 4px;
-    border-color: #929292;
-    border-style: solid;
-    border-width: 1px;
-    border-bottom: 0;
 }
 
 /* -------  base main tile -------*/
