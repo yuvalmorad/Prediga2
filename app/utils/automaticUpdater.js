@@ -22,8 +22,8 @@ var self = module.exports = {
             });
         });
 
-        // start the jon immediately now
-        self.startAutomaticUpdateJob();
+        // start the jon immediately now => disabled as it is not working good with the initialUpdater
+        //self.startAutomaticUpdateJob();
     },
     startAutomaticUpdateJob: function () {
         var deferred = Q.defer();
