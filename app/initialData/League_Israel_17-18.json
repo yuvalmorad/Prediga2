@@ -2277,6 +2277,14 @@
       "team2Goals": "1",
       "goalDiff": 0,
       "firstToScore": "Maccabi Petach Tikva"
+    },
+    {
+      "matchId": "6a21a7c1a3f89181074e9863",
+      "winner": "Bnei Sakhnin",
+      "team1Goals": "1",
+      "team2Goals": "2",
+      "goalDiff": 1,
+      "firstToScore": "Hapoel Akko"
     }
   ],
   "teams": [
