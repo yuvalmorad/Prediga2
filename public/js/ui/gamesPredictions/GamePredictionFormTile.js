@@ -135,9 +135,10 @@ component.GamePredictionFormTile = (function(){
 
                 mutualFriendsElem = this.renderMutualFriends(
                     mapToMutualFriends(otherPredctionsTeam1),
-                    getMutualFriendsWidth(otherPredctionsDraw),
                     mapToMutualFriends(otherPredctionsDraw, false),
-                    mapToMutualFriends(otherPredctionsTeam2, true));
+                    mapToMutualFriends(otherPredctionsTeam2, true),
+                    getMutualFriendsWidth(otherPredctionsDraw)
+                );
 
                 mtutalFriendsTitleElem = re("div", {className: "form-row-title"}, "Friends");
             }
