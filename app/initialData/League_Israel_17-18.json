@@ -2285,6 +2285,14 @@
       "team2Goals": "2",
       "goalDiff": 1,
       "firstToScore": "Hapoel Akko"
+    },
+    {
+      "matchId": "6a21a7c1a3f89181074e9860",
+      "winner": "Draw",
+      "team1Goals": "0",
+      "team2Goals": "0",
+      "goalDiff": 0,
+      "firstToScore": "None"
     }
   ],
   "teams": [
