@@ -78,16 +78,16 @@ body {
 
 .page > .content {
     height: 100%;
-    animation-duration: 0.2s;
+    animation-duration: 0.3s;
     animation-fill-mode: forwards;
 }
 
 .page.animate-right-to-center > .content{
-    animation-name: animateRightToCenter;
+    /*animation-name: animateRightToCenter;*/
 }
 
 .page.animate-left-to-center > .content {
-    animation-name: animateLeftToCenter;
+    /*animation-name: animateLeftToCenter;*/
 }
 
 .page > .content > .tiles,
