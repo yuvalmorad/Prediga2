@@ -84,12 +84,10 @@ body {
 
 .page.animate-right-to-center > .content{
     animation-name: animateRightToCenter;
-    transform:translateX(100%);
 }
 
 .page.animate-left-to-center > .content {
     animation-name: animateLeftToCenter;
-    transform:translateX(-100%);
 }
 
 .page > .content > .tiles,
