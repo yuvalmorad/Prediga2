@@ -32,7 +32,7 @@ component.RadioButton = (function(){
         }
 
         return re("div", {className: "radio-button-wrapper"},
-                re("button", {className: className, onClick: onClicked, disabled: isDisabled, style: {visibility: (isDisabled && !isChecked) ? "hidden" : ""}},
+                re("button", {className: className, onClick: onClicked, disabled: isDisabled, style: {backgroundColor: (isDisabled && isChecked  ? "transparent" : ""), visibility: (isDisabled && !isChecked) ? "hidden" : ""}},
                     re("div", {style: {backgroundColor: isChecked && !hasPoints ? bgColor : "", color: isChecked && !hasPoints ? textColor : ""}}, text)
                 ),
                 re("div", {className: pointsClassName}, (points && isChecked) ? points : "")

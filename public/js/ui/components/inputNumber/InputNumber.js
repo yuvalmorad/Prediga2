@@ -34,7 +34,7 @@ component.InputNumber = (function(){
 
 
 
-            return re("div", {className: className},
+            return re("div", {className: className, style: {backgroundColor: isDisabled ? "transparent" : ""}},
                 re("button", {onClick: this.onIncrement, className: isDisabled ? "hide" : ""},
                     re("span", {}, "+")
                 ),

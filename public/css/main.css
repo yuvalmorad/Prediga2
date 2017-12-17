@@ -513,10 +513,6 @@ body {
     border-radius: 0 4px 4px 0;
 }
 
-.radio-button.selected {
-    background-color: transparent;
-}
-
 .radio-button > div {
     padding: 0.5rem 0;
     display: inline-block;
