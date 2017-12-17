@@ -46,11 +46,11 @@ body {
 
 /* -------  TEAM LOGO -------*/
 .team-logo.IsraeliLeague18 {
-    background-size: 52.5rem 3.5rem;
+    background-size: 52.5rem;
 }
 
 .team-logo.WorldCup2018 {
-    background-size: 7rem 59.71875rem
+    background-size: 7rem;
 }
 
 .team-logo {
@@ -335,38 +335,41 @@ body {
 
 .navigation-tab:before {
     content: '';
-    background-size: 1.5rem;
     position: absolute;
-    background-position: 50%;
     background-repeat: no-repeat;
-    left: 0;
+    left: 50%;
     right: 0;
     bottom: 0;
-    top: 0;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 1.5rem;
+    height: 1.5rem;
+    background-size: 4.5rem;
+    background-image: url(../images/sprites/assets.png);
 }
 
 .gamesPredictions-tab:before {
-    background-image: url(../images/crystal_ball.png);
+    background-position: -24px -40px;
 }
 
 .gamesPredictions-tab.selected:before {
-    background-image: url(../images/crystal_ball_selected.png);
+    background-position: -24px -16px;
 }
 
 .teamsPredictions-tab:before {
-    background-image: url(../images/medals.png);
+    background-position: -48px -16px;
 }
 
 .teamsPredictions-tab.selected:before {
-    background-image: url(../images/medals_selected.png);
+    background-position: 0 -16px;
 }
 
 .leaderBoard-tab:before {
-    background-image: url(../images/trophy.png);
+    background-position: 0 -40px;
 }
 
 .leaderBoard-tab.selected:before {
-    background-image: url(../images/trophy_selected.png);
+    background-position: -48px -40px;
 }
 
 
