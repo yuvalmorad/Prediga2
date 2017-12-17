@@ -13,11 +13,16 @@ component.GamePredictionMainTile = (function(){
         shouldComponentUpdate: function(nextProps, nextState) {
             return this.props.prediction !== nextProps.prediction ||
                     this.state.timeBeforeGame !== nextState.timeBeforeGame ||
-                    this.state.timePlaying !== nextState.timePlaying;
+                    this.state.timePlaying !== nextState.timePlaying ||
+                    this.state.isGamePlaying !== nextState.isGamePlaying ||
+                    this.state.isGameHalfHourBeforeGame !== nextState.isGameHalfHourBeforeGame;
         },
 
         onTick: function() {
             var currentDate = new Date();
+            /*currentDate.setHours(currentDate.getHours() + 9);//TODO remove
+            currentDate.setMinutes(currentDate.getMinutes() + 108);//TODO remove
+            currentDate.setSeconds(currentDate.getSeconds() + 20);//TODO remove*/
             var kickofftime = new Date(this.props.game.kickofftime);
             var beforeKickoffTime = new Date(kickofftime - currentDate);
             var minutesBeforeKickoffTime = beforeKickoffTime.getTime() / (1000 * 60);
@@ -28,13 +33,16 @@ component.GamePredictionMainTile = (function(){
                 this.setState({
                     isGamePlaying: false,
                     isGameHalfHourBeforeGame: true,
-                    timeBeforeGame: utils.general.formatMinutesSecondsTime(kickofftime.getTime() - currentDate.getTime())
+                    timeBeforeGame: "Starting in - " + utils.general.formatMinutesSecondsTime(kickofftime.getTime() - currentDate.getTime())
                 })
-            } else if (minutesAftereKickoffTime >= 0 && minutesAftereKickoffTime <= 90) {
+            } else if (minutesAftereKickoffTime >= 0 && minutesAftereKickoffTime <= 105) {
+                var isHalfTime =  minutesAftereKickoffTime >= 45 && minutesAftereKickoffTime <= 60;
+                var isAfterHalfTime = minutesAftereKickoffTime >= 45;
+                var decreaseMinutes = isAfterHalfTime ? 15 * 1000 * 60 : 0;
                 this.setState({
                     isGamePlaying: true,
                     isGameHalfHourBeforeGame: false,
-                    timePlaying: utils.general.formatMinutesSecondsTime(currentDate.getTime() - kickofftime.getTime())
+                    timePlaying: isHalfTime ? "Half Time" : "Running - " + utils.general.formatMinutesSecondsTime(currentDate.getTime() - kickofftime.getTime() - decreaseMinutes)
                 })
             } else {
                 this.setState({
@@ -46,6 +54,7 @@ component.GamePredictionMainTile = (function(){
 
         componentDidMount: function() {
             this.timer = setInterval(this.onTick, 1000);
+            this.onTick();
         },
 
         componentWillUnmount: function() {
@@ -83,9 +92,9 @@ component.GamePredictionMainTile = (function(){
             if (!result) {
                 //PRE GAME
                 if (state.isGameHalfHourBeforeGame) {
-                    dateStr = "Starting in - " + state.timeBeforeGame;
+                    dateStr = state.timeBeforeGame;
                 } else if (state.isGamePlaying) {
-                    dateStr = "Running - " + state.timePlaying;
+                    dateStr = state.timePlaying;
                 } else {
                     var dateObj = new Date(kickofftime);
                     var minutes = dateObj.getMinutes();
