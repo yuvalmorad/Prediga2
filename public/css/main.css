@@ -406,8 +406,11 @@ body {
     height: 100%;
 }
 
-.images-pagination .button-area button img {
+.images-pagination .button-area button div {
     height: 2.5rem;
+    width: 1.65em;
+    display: inline-block;
+    background-size: 11.3rem;
 }
 
 .images-pagination .scroll {
@@ -813,8 +816,11 @@ body {
     padding: 0 1rem;
 }
 
-.games-prediction-page .tiles-header button img {
+.games-prediction-page .tiles-header button div {
     height: 1rem;
+    width: 0.55rem;
+    display: inline-block;
+    background-size: 4.7rem;
 }
 
 .game-prediction-tile .main > .left,

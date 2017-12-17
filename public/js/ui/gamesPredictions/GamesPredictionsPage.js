@@ -192,9 +192,9 @@ component.GamesPredictionsPage = (function(){
 
             return re("div", { className: "games-prediction-page content hasTilesHeader"},
                 re("div", {className: "tiles-header"},
-                    re(ImageButton, {onClick: this.onPreviousPage, disabled: isLeftButtonDisabled, imageName: "arrow_left"}),
+                    re(ImageButton, {onClick: this.onPreviousPage, disabled: isLeftButtonDisabled, backgroundPosition: "-18px 0px", backgroundPositionDisabled: "-28px 0px"}),
                     re("div", {className: "title"}, closestPage ? models.leagues.getLeagueName(closestPage.league) + ": " + closestPage.type : ""),
-                    re(ImageButton, {onClick: this.onNextPage, disabled: isRightButtonDisabled, imageName: "arrow_right"})
+                    re(ImageButton, {onClick: this.onNextPage, disabled: isRightButtonDisabled, backgroundPosition: "0 0", backgroundPositionDisabled: "-10px 0px"})
                 ),
                 re("div", {ref: this.assignTilesRef, className: "tiles" + (props.isShowTileDialog ? " no-scroll" : "")},
                     tilesInPage

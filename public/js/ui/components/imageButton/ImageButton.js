@@ -1,7 +1,7 @@
 component.ImageButton = (function(){
     return function(props){
         return re("button", {onClick: props.onClick, disabled: props.disabled},
-            re("img", {src: "../images/" + props.imageName + (props.disabled ? "_gray" : "") + ".png"})
+            re("div", {style: {backgroundImage: SPRITES.ASSETS, backgroundPosition: props.disabled ? props.backgroundPositionDisabled : props.backgroundPosition}})
         );
     }
 })();
