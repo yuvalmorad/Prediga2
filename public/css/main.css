@@ -926,7 +926,7 @@ body {
 }
 
 .tile-dialog-container.GamePredictionTileDialog .dialog-button {
-    height: calc((100% - 29.5rem)/2);
+    height: calc((100% - 30rem)/2);
 }
 
 .tile-dialog-container.GamePredictionTileDialog.hide-mutual-friends .dialog-button {
@@ -934,7 +934,7 @@ body {
 }
 
 .tile-dialog-container .game-prediction-tile.tile {
-    height: 29.5rem;
+    height: 30rem;
 }
 
 .tile-dialog-container.hide-mutual-friends .game-prediction-tile.tile {

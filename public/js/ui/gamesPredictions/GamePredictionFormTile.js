@@ -4,7 +4,7 @@ component.GamePredictionFormTile = (function(){
         InputNumber = component.InputNumber;
 
     var IMAGE_SIZE = 3;
-    var TRANSFORM_BACK = 2;
+    var TRANSFORM_BACK = 2.5;
     var USERS_IN_ROW = 2;
     var NUM_OF_ROWS = 3;
 
