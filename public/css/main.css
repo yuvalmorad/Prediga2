@@ -542,8 +542,9 @@ body {
 
 .tile-dialog-container .dialog-button {
     display: flex;
+    padding: 0.5rem 0.75rem 0 0.75rem;
     justify-content: center;
-    align-items: center;
+    box-sizing: border-box;
 }
 
 .tile-dialog-container .dialog-button button {
@@ -556,6 +557,11 @@ body {
     max-width: 185px;
     height: 40px;
     max-height: 100%;
+}
+
+.tile-dialog-container .dialog-button button.main-button {
+    background: #fff;
+    color: #000;
 }
 
 .tile-dialog-container .dialog-button button:active {

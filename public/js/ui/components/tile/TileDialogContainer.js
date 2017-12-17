@@ -37,12 +37,17 @@ component.TileDialogContainer = (function(){
                 className += " hide";
             }
 
+            var dialogButtonStyle = {};
+            if (isDialogFormDisabled) {
+                dialogButtonStyle.justifyContent = "flex-end";
+            }
+
             return re("div", { className: className},
                 re("div", {className: "dialog-button"}),
                 componentElement,
-                re("div", {className: "dialog-button"},
+                re("div", {className: "dialog-button", style: dialogButtonStyle},
                     re("button", {onClick: this.onCancel, className: isDialogFormDisabled ? "hide" : ""}, "Cancel"),
-                    re("button", {onClick: isDialogFormDisabled ? this.onCancel : this.onSave}, isDialogFormDisabled ? "Close" : "Save")
+                    re("button", {onClick: isDialogFormDisabled ? this.onCancel : this.onSave, className: "main-button"}, isDialogFormDisabled ? "Close" : "Save")
                 )
             )
         }
