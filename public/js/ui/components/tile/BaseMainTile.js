@@ -10,7 +10,7 @@ component.BaseMainTile = (function(){
             points = props.points,
             badgeName = props.badgeName,
             logoPosition = props.logoPosition,
-            leagueId = props.leagueId;
+            logoClassName = props.logoClassName;
 
         var trendElement = null;
 
@@ -38,7 +38,7 @@ component.BaseMainTile = (function(){
         var imageElem;
 
         if (imageBackground) {
-            imageElem = re("div", {className: "team-logo" + (leagueId ? " " + leagueId : ""), style: {backgroundImage: imageBackground, backgroundPosition: (logoPosition ? logoPosition : "")}});
+            imageElem = re("div", {className: "team-logo" + (logoClassName ? " " + logoClassName : ""), style: {backgroundImage: imageBackground, backgroundPosition: (logoPosition ? logoPosition : "")}});
         } else {
             imageElem = re("img", {src: imageSrc});
         }

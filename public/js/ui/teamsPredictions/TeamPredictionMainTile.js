@@ -14,7 +14,7 @@ component.TeamPredictionMainTile = (function(){
                 description: leagueName,
                 rankTitle: title,
                 logoPosition: selectedTeam.logoPosition,
-                leagueId: team.league
+                logoClassName: team.league
             });
         } else {
             return re(BaseMainTile, {
@@ -23,7 +23,7 @@ component.TeamPredictionMainTile = (function(){
                 description: leagueName,
                 rankTitle: title,
                 logoPosition: models.leagues.getLeagueLogoPosition(team.league),
-                leagueId: team.league
+                logoClassName: team.league
             });
         }
     }

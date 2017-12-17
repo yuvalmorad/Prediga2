@@ -8,7 +8,6 @@ component.GamePredictionFormTile = (function(){
     var USERS_IN_ROW = 2;
     var NUM_OF_ROWS = 3;
 
-
     function mapToMutualFriends(_users, reverse) {
         var maxUsers = (NUM_OF_ROWS * USERS_IN_ROW) - 1;
         var users = _users.splice(0, maxUsers);
@@ -16,7 +15,6 @@ component.GamePredictionFormTile = (function(){
             //left users
             users.push({additionalFriends: _users.length});
         }
-
         return users.map(function(user, index){
             var leftRightProperty = reverse ? "right" : "left";
             var style = {
@@ -36,7 +34,16 @@ component.GamePredictionFormTile = (function(){
                 style["lineHeight"] = IMAGE_SIZE + "rem";
                 return re("div", {className: "additional-mutual-friends", style: style, key: "mutualFriendImg_" + index}, "+" + user.additionalFriends);
             } else {
-                return re("img", {src: user.photo || DEAFULT_PROFILE_IMAGE, style: style, key: "mutualFriendImg_" + index});
+                var imageElem;
+                if (user.photo) {
+                    imageElem = re("img", {src: user.photo, style: style, key: "mutualFriendImg_" + index});
+                } else {
+                    style.backgroundImage = SPRITES.ASSETS;
+                    style.backgroundPosition = "-108px 0";
+                    imageElem  = re("div", {className: "user-avatar", style: style});
+                }
+
+                return imageElem;
             }
         });
     }

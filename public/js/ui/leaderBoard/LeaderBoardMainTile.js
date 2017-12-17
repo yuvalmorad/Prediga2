@@ -5,21 +5,27 @@ component.LeaderBoardMainTile = (function(){
         var user = props.user,
             rank = props.rank,
             score = props.score,
-            photo = user.photo || DEAFULT_PROFILE_IMAGE,
+            photo = user.photo,
             name = user.name,
             trend = props.trend,
             description = props.description,
-            badgeName = props.badgeName;
+            badgeName = props.badgeName,
+            opts = {
+                imageSrc: photo,
+                trend: trend,
+                title: name,
+                description: description,
+                rank: rank,
+                points: score,
+                badgeName: badgeName
+            };
 
-        return re(BaseMainTile, {
-            imageSrc: photo,
-            trend: trend,
-            title: name,
-            description: description,
-            rank: rank,
-            points: score,
-            badgeName: badgeName
-        });
+        if (!photo) {
+            opts.imageBackground = SPRITES.ASSETS;
+            opts.logoPosition = "-130px 1px";
+        }
+
+        return re(BaseMainTile, opts);
     };
 })();
 

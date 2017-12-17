@@ -18,5 +18,8 @@ var COLORS = {
     DRAW_COLOR: "#888282"
 };
 
-var DEAFULT_PROFILE_IMAGE = "../images/default_profile.png";
 var NUM_OF_BADGES = 2;
+
+var SPRITES = {
+    ASSETS: "url('../images/sprites/assets.png')"
+};

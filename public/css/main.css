@@ -729,9 +729,10 @@ body {
     width: 3.5rem;
 }
 
-/*.tile-dialog-container .leader-board-tile.tile {
-    height: 20rem;
-}*/
+.leader-board-tile .main.base .team-logo {
+    background-size: 16.5rem;
+    border-radius: 50%;
+}
 
 .leader-board-tile .no-content {
     text-align: center;
@@ -999,6 +1000,7 @@ body {
 }
 
 .game-prediction-tile .mutual-friends img,
+.game-prediction-tile .mutual-friends .user-avatar,
 .game-prediction-tile .mutual-friends .additional-mutual-friends{
     border-radius: 50%;
     border: 2px solid #fff;
