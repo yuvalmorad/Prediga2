@@ -1,13 +1,16 @@
 component.BaseMainTile = (function(){
     return function(props) {
         var imageSrc = props.imageSrc,
+            imageBackground = props.imageBackground,
             trend = props.trend,
             title = props.title,
             description = props.description,
             rank = props.rank,
             rankTitle = props.rankTitle,
             points = props.points,
-            badgeName = props.badgeName;
+            badgeName = props.badgeName,
+            logoPosition = props.logoPosition,
+            leagueId = props.leagueId;
 
         var trendElement = null;
 
@@ -32,11 +35,19 @@ component.BaseMainTile = (function(){
         var ranktitleElem = rankTitle && re("div", {className: "rankTitle"}, rankTitle);
         var badgeElem = badgeName && re("div", {className: "badge", style: {backgroundImage: "url('../images/" + badgeName + ".png')"}});
 
+        var imageElem;
+
+        if (imageBackground) {
+            imageElem = re("div", {className: "team-logo" + (leagueId ? " " + leagueId : ""), style: {backgroundImage: imageBackground, backgroundPosition: (logoPosition ? logoPosition : "")}});
+        } else {
+            imageElem = re("img", {src: imageSrc});
+        }
+
         return re("div", {className: "main base"},
             re("div", {className: "left"},
                 rankElem,
                 re("div", {className: "image-wrapper"},
-                    re("img", {src: imageSrc}),
+                    imageElem,
                     trendElement
                 ),
                 re("div", {className: "name-wrapper"},
@@ -47,7 +58,7 @@ component.BaseMainTile = (function(){
             re("div", {className: "right"},
                 badgeElem,
                 ranktitleElem,
-                re("div", {className: "points"}, points !== undefined ? points : "")
+                re("div", {className: "points" + (points === undefined ? " hide" : "") }, points !== undefined ? points : "")
             )
         );
     };

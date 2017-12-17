@@ -2,14 +2,14 @@ models.leagues = (function(){
     var leagues = {};
     return {
         addLeague: addLeague,
-        getLeagueLogo: getLeagueLogo,
+        getLeagueLogoPosition: getLeagueLogoPosition,
         getLeagueName: getLeagueName,
         getTeamsByLeagueName: getTeamsByLeagueName,
         getTeamByTeamName: getTeamByTeamName
     };
 
     function addLeague(league) {
-        league.teams = mapTeamsByName(league.teams);
+        league.teams = mapTeamsByName(league.teams, league.id);
         leagues[league.id] = league;
     }
 
@@ -27,17 +27,20 @@ models.leagues = (function(){
         }
     }
 
-    function getLeagueLogo(leagueName) {
-        return leagues[leagueName].logo;
+    function getLeagueLogoPosition(leagueName) {
+        return leagues[leagueName].logoPosition;
     }
 
     function getLeagueName(leagueName) {
         return leagues[leagueName].name;
     }
 
-    function mapTeamsByName(teams) {
+    function mapTeamsByName(teams, leagueId) {
         var res = {};
-        teams.forEach(function(team){res[team.name] = team});
+        teams.forEach(function(team){
+            team.leagueId = leagueId;
+            res[team.name] = team}
+        );
         return res;
     }
 })();

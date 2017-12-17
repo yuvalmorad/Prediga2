@@ -65,6 +65,7 @@ component.GamePredictionMainTile = (function(){
             var props = this.props,
                 state = this.state,
                 game = props.game,
+                league = game.league,
                 prediction = props.prediction,
                 otherMatchPredictions = props.otherMatchPredictions,
                 result = props.result,
@@ -74,14 +75,15 @@ component.GamePredictionMainTile = (function(){
                 displayTeam2Goals,
                 team1 = models.leagues.getTeamByTeamName(game.team1),
                 team2 = models.leagues.getTeamByTeamName(game.team2),
-                team1Logo = team1 ? "url('../images/teamsLogo/" + team1.name + ".png')" : "",
-                team2Logo = team2 ? "url('../images/teamsLogo/" + team2.name + ".png')" : "",
+                leagueSprite = team1 && team2 ? "url('../images/sprites/" + league + "_teams.png')" : "",
                 team1ShortName = team1 ? team1.shortName : "",
                 team2ShortName = team2 ? team2.shortName : "",
                 team1Color = team1 ? team1.color : "",
                 team2Color = team2 ? team2.color : "",
-                team1LogoClass = "team-logo",
-                team2LogoClass = "team-logo",
+                team1LogoPosition = team1.logoPosition,
+                team2LogoPosition = team2.logoPosition,
+                team1LogoClass = "team-logo " + league,
+                team2LogoClass = "team-logo " + league,
                 gameDate,
                 graphParts,
                 kickofftime = game.kickofftime,
@@ -160,11 +162,11 @@ component.GamePredictionMainTile = (function(){
 
             return re("div", {className: "main" + (isPostGame ? " post-game" : "")},
                 re("div", {className: "left"},
-                    re("div", {className: team1LogoClass, style: {backgroundImage: team1Logo}}),
+                    re("div", {className: team1LogoClass, style: {backgroundImage: leagueSprite, backgroundPosition: team1LogoPosition}}),
                     re("div", {className: "team-name"}, team1ShortName)
                 ),
                 re("div", {className: "center"},
-                    re("div", {className: "league-name"}, game.league + ' ' +game.type),
+                    re("div", {className: "league-name"}, league + ' ' +game.type),
                     re("div", {className: "game-date"},
                         gameDate
                     ),
@@ -178,7 +180,7 @@ component.GamePredictionMainTile = (function(){
                     )
                 ),
                 re("div", {className: "right"},
-                    re("div", {className: team2LogoClass, style: {backgroundImage: team2Logo}}),
+                    re("div", {className: team2LogoClass, style: {backgroundImage: leagueSprite, backgroundPosition: team2LogoPosition}}),
                     re("div", {className: "team-name"}, team2ShortName)
                 )
             );

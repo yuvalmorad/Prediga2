@@ -5,7 +5,7 @@ component.ImagesPagination = (function(){
         getInitialState: function() {
             return {
                 containerWidth: 0,
-                itemWidth: 42,
+                itemWidth: 56,
                 spaceBetweenItems: 32,
                 animate: false
             }
@@ -62,13 +62,15 @@ component.ImagesPagination = (function(){
                 var isSelected = item.isSelected;
                 var shortName = item.shortName;
                 var name = item.name;
+                var leagueId = item.leagueId;
+                var logoPosition = item.logoPosition;
 
                 if (isSelected) {
                     currentIndex = index;
                 }
 
                 return re("div", {key: name, className: "item" + (isSelected ? " selected" : ""), style: {marginRight: spaceBetweenItems}},
-                    re("img", {src: "../images/teamsLogo/" + name + ".png", style: {width: itemWidth, height: itemWidth}}),
+                    re("div", {className: "team-logo " + leagueId, style: {width: itemWidth, height: itemWidth, backgroundImage: "url('../images/sprites/" + leagueId + "_teams.png')", backgroundPosition: logoPosition}}),
                     re("div", {className: "title"}, shortName)
                 );
             });

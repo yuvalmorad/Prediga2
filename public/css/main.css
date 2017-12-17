@@ -43,6 +43,27 @@ body {
 .smallMarginBottom {
     margin-bottom: 1rem;
 }
+
+/* -------  TEAM LOGO -------*/
+.team-logo.IsraeliLeague18 {
+    background-size: 52.5rem 3.5rem;
+}
+
+.team-logo.WorldCup2018 {
+    background-size: 7rem 59.71875rem
+}
+
+.team-logo {
+    background-repeat: no-repeat;
+    height: 3.5rem;
+    width: 3.5rem;
+    display: inline-block;
+}
+
+.team-logo.grayed {
+    filter: grayscale(100%);
+}
+
 /* -------  Loading -------*/
 
 .loading {
@@ -401,6 +422,12 @@ body {
 .images-pagination .item img{
     width: 3.5rem;
     height: 3.5rem;
+    display: inline-block;
+    filter: grayscale(100%);
+}
+
+.images-pagination .item.selected img {
+    filter: grayscale(0);
 }
 
 .images-pagination .item .title {
@@ -413,13 +440,6 @@ body {
     color: #000;
 }
 
-.images-pagination .item img {
-    filter: grayscale(100%);
-}
-
-.images-pagination .item.selected img {
-    filter: grayscale(0);
-}
 
 /* -------  Input Number -------*/
 
@@ -817,17 +837,6 @@ body {
 
 .game-prediction-tile .main > .right {
     margin-right: 1rem;
-}
-
-.game-prediction-tile .team-logo {
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-    height: 3.5rem;
-    width: 3.5rem;
-}
-
-.game-prediction-tile .team-logo.grayed {
-    filter: grayscale(100%);
 }
 
 .game-prediction-tile .team-name {

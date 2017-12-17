@@ -22,6 +22,7 @@ component.TeamPredictionFormTile = (function(){
             }).map(function(teamOption){
                 var isSelected = false;
                 var teamName = teamOption.name;
+                var team = models.leagues.getTeamByTeamName(teamName);
                 if (selectedTeam && selectedTeam.name === teamName) {
                     isSelected = true;
                 }
@@ -29,7 +30,9 @@ component.TeamPredictionFormTile = (function(){
                 return {
                     isSelected: isSelected,
                     name: teamName,
-                    shortName: teamOption.shortName
+                    shortName: teamOption.shortName,
+                    logoPosition: team.logoPosition,
+                    leagueId: team.leagueId
                 }
             });
 
