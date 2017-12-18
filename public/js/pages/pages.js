@@ -4,7 +4,8 @@ var routePages = (function(){
         LeaderBoardPage = component.LeaderBoardPage,
         LoginPage = component.LoginPage,
         RulesPage = component.RulesPage,
-        AboutPage = component.AboutPage;
+        AboutPage = component.AboutPage,
+        SimulatorPage = component.SimulatorPage;
 
     var routePages = [
         {
@@ -36,6 +37,14 @@ var routePages = (function(){
             displayInTopMenu: true,
             displayInSiteNavigation: true
         },
+      /*  {
+            path: "/simulator",
+            title: "Simulator",
+            name: "simulator",
+            isAuthenticatedPage: true,
+            component: SimulatorPage,
+            displayInTopMenu: true
+        },*/
         {
             path: "/rules",
             title: "Rules of the Game",

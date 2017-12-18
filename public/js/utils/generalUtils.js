@@ -12,8 +12,13 @@ utils.general = (function(){
         isFirstScoreNone: isFirstScoreNone,
         getDrawFromObject: getDrawFromObject,
         isGameClosed: isGameClosed,
-        formatMinutesSecondsTime: formatMinutesSecondsTime
+        formatMinutesSecondsTime: formatMinutesSecondsTime,
+        getLeagueLogoURL: getLeagueLogoURL
     };
+
+    function getLeagueLogoURL(league) {
+        return "url('../images/sprites/" + league + "_teams.png')"
+    }
 
     function addZeroToTimeIfNeeded(time) {
         if (time.toString().length === 1) {
