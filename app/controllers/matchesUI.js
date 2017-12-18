@@ -1,10 +1,10 @@
-var express = require('express');
-var app = express.Router();
-var Match = require('../models/match');
-var MatchPrediction = require('../models/matchPrediction');
-var util = require('../utils/util.js');
-var User = require('../models/user');
-var MatchResult = require('../models/matchResult');
+let express = require('express');
+let app = express.Router();
+let Match = require('../models/match');
+let MatchPrediction = require('../models/matchPrediction');
+let util = require('../utils/util.js');
+let User = require('../models/user');
+let MatchResult = require('../models/matchResult');
 
 app.get('/', util.isLoggedIn, function (req, res) {
     getData().then(function (matchesCombined) {

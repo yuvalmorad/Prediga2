@@ -1,7 +1,7 @@
-var express = require('express');
-var app = express.Router();
-var UsersLeaderboardService = require('../services/usersLeaderboardService');
-var util = require('../utils/util.js');
+let express = require('express');
+let app = express.Router();
+let UsersLeaderboardService = require('../services/usersLeaderboardService');
+let util = require('../utils/util.js');
 
 app.get('/', util.isLoggedIn, function (req, res) {
     UsersLeaderboardService.getLeaderboardWithNewRegisteredUsers().then(function (leaderboardCombined) {

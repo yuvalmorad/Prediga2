@@ -1,8 +1,8 @@
-var express = require('express');
-var app = express.Router();
-var PredictionScoreConfiguration = require('../models/predictionScoreConfiguration');
+let express = require('express');
+let app = express.Router();
+let PredictionScoreConfiguration = require('../models/predictionScoreConfiguration');
 //var PredictionScoreConfigurationService = require('../services/predictionScoreConfigurationService');
-var util = require('../utils/util.js');
+let util = require('../utils/util.js');
 
 app.get('/', util.isLoggedIn, function (req, res) {
     PredictionScoreConfiguration.find({}, function (err, result) {

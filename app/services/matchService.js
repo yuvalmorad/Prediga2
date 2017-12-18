@@ -1,13 +1,13 @@
-var Q = require('q');
-var Match = require('../models/match');
-var MatchResult = require('../models/matchResult');
-var UserScore = require('../models/userScore');
+let Q = require('q');
+let Match = require('../models/match');
+let MatchResult = require('../models/matchResult');
+let UserScore = require('../models/userScore');
 
-var self = module.exports = {
+let self = module.exports = {
     // TODO - update only if necessary
     updateMatches: function (matches) {
         console.log('beginning to update ' + matches.length + ' matches');
-        var promises = matches.map(function (match) {
+        let promises = matches.map(function (match) {
             return Match.findOneAndUpdate({_id: match._id}, match, {
                     upsert: true,
                     setDefaultsOnInsert: true
@@ -25,7 +25,7 @@ var self = module.exports = {
      * Remove all (matches, match results, user scores).
      */
     removeMatches: function (league) {
-        var deferred = Q.defer();
+        let deferred = Q.defer();
         Match.find({league: league}, function (err, leagueMatches) {
             if (err) return console.log(err);
             if (!leagueMatches || !Array.isArray(leagueMatches) || leagueMatches.length === 0) {
@@ -41,7 +41,7 @@ var self = module.exports = {
         return deferred.promise;
     },
     removeLeagueMatches: function (leagueMatches) {
-        var promises = leagueMatches.map(function (aMatch) {
+        let promises = leagueMatches.map(function (aMatch) {
             aMatch.remove();
             return MatchResult.remove({matchId: aMatch._id}, function (err, obj) {
                 return UserScore.remove({gameId: aMatch._id});
@@ -50,16 +50,14 @@ var self = module.exports = {
         return Promise.all(promises);
     },
     findMatchByTeamsToday: function (team1, team2) {
-        var deferred = Q.defer();
-        var today = new Date();
-        var tomorrow = today;
-        var yesterday = today;
-        tomorrow.setDate(today.getDate() + 1);
-        yesterday.setDate(today.getDate() - 1);
+        let deferred = Q.defer();
+        let tomorrow = new Date();
+        let yesterday = new Date();
+        tomorrow.setDate(+1);
+        yesterday.setDate(-1);
 
         Match.find({
-            kickofftime: {$gte: yesterday},
-            kickofftime: {$lte: tomorrow},
+            kickofftime: {$gte: yesterday, $lte: tomorrow},
             team1: team1,
             team2: team2
         }, function (err, relevantMatches) {
@@ -69,6 +67,19 @@ var self = module.exports = {
                 return;
             }
             deferred.resolve(relevantMatches[0]);
+        });
+        return deferred.promise;
+    },
+    findClosedToPredictButNotFinishedMatchesToday: function () {
+        let deferred = Q.defer();
+        let now = new Date();
+        let after = new Date();
+        after.setMinutes(- 105);
+
+        Match.find({
+            kickofftime: {$gte: after, $lte: now},
+        }, function (err, relevantMatches) {
+            deferred.resolve(relevantMatches);
         });
         return deferred.promise;
     }

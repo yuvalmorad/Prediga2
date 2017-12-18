@@ -24,7 +24,7 @@ module.exports = function (app, passport) {
     app.use('/api/teamResult', require('./controllers/teamResult.js'));
     app.use('/api/userScore', require('./controllers/userScore.js'));
     app.use('/api/usersLeaderboard', require('./controllers/usersLeaderboard.js'));
-
+    app.use('/api/simulatorUI', require('./controllers/simulatorUI.js'));
 
     /********************************************
      * Automatic Update (Immediate)

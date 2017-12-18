@@ -1,10 +1,10 @@
-var express = require('express');
-var app = express.Router();
-var Team = require('../models/team');
-var TeamPrediction = require('../models/teamPrediction');
-var util = require('../utils/util.js');
-var User = require('../models/user');
-var TeamResult = require('../models/teamResult');
+let express = require('express');
+let app = express.Router();
+let Team = require('../models/team');
+let TeamPrediction = require('../models/teamPrediction');
+let util = require('../utils/util.js');
+let User = require('../models/user');
+let TeamResult = require('../models/teamResult');
 
 app.get('/', util.isLoggedIn, function (req, res) {
     getData().then(function (teamsCombined) {

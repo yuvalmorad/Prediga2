@@ -1,11 +1,11 @@
-var Q = require('q');
-var User = require('../models/user');
-var UserScore = require('../models/userScore');
-var UsersLeaderboard = require('../models/usersLeaderboard');
+let Q = require('q');
+let User = require('../models/user');
+let UserScore = require('../models/userScore');
+let UsersLeaderboard = require('../models/usersLeaderboard');
 
-var self = module.exports = {
+let self = module.exports = {
     updateLeaderboard: function () {
-        var deferred = Q.defer();
+        let deferred = Q.defer();
 
         console.log('beginning to update the leader board based on all user scores');
         // iterating all users
@@ -27,17 +27,17 @@ var self = module.exports = {
         return deferred.promise;
     },
     updateAllAggregatedScores: function (aggregatedScores) {
-        var promises = aggregatedScores.map(function (aggregatedScore, index) {
+        let promises = aggregatedScores.map(function (aggregatedScore, index) {
             return self.updateOneAggregatedScore(aggregatedScore, index);
         });
 
         return Promise.all(promises);
     },
     updateOneAggregatedScore: function (aggregatedScore, index) {
-        var deferred = Q.defer();
+        let deferred = Q.defer();
 
         UsersLeaderboard.find({userId: aggregatedScore.userId}, function (err, obj) {
-            var placeBeforeLastGame = -1;
+            let placeBeforeLastGame = -1;
             if (obj && obj.length > 0 && typeof(obj[0].placeCurrent) !== 'undefined') {
                 placeBeforeLastGame = obj[0].placeCurrent;
             }
@@ -55,14 +55,14 @@ var self = module.exports = {
         return deferred.promise;
     },
     calculatedAggregatedUserScores: function (users) {
-        var promises = users.map(function (aUser) {
+        let promises = users.map(function (aUser) {
             return self.calculatedAggregatedUserScore(aUser);
         });
 
         return Promise.all(promises);
     },
     calculatedAggregatedUserScore: function (aUser) {
-        var deferred = Q.defer();
+        let deferred = Q.defer();
 
         UserScore.find({userId: aUser._id}, function (err, userScores) {
             if (userScores && userScores.length > 0) {
@@ -76,13 +76,13 @@ var self = module.exports = {
         return deferred.promise;
     },
     calculatedAggregatedUserScoreForEachUserScore: function (aUser, userScores) {
-        var deferred = Q.defer();
-        var aggregrateScore = {
+        let deferred = Q.defer();
+        let aggregrateScore = {
             userId: aUser._id,
             score: 0,
             strikes: 0
         };
-        var itemsProcessed = 0;
+        let itemsProcessed = 0;
         userScores.forEach(function (aUserScore) {
             itemsProcessed += 1;
             if (aUserScore.score) {
@@ -92,7 +92,7 @@ var self = module.exports = {
                 aggregrateScore.strikes += aUserScore.strikes;
             }
 
-            if (itemsProcessed == userScores.length) {
+            if (itemsProcessed === userScores.length) {
                 deferred.resolve(aggregrateScore);
             }
         });
@@ -111,10 +111,10 @@ var self = module.exports = {
             User.find({})
         ]).then(function (arr) {
             // amend newly registered users into the bottom of the leader board.
-            var userIdsInLeaderboard = arr[0].map(a => a.userId.toString());
-            var allUsersIds = arr[1].map(a => a._id.toString());
-            var userIdsNotInLeaderboard = allUsersIds.filter(x => userIdsInLeaderboard.indexOf(x) == -1);
-            var leaderboardArr = arr[0];
+            let userIdsInLeaderboard = arr[0].map(a => a.userId.toString());
+            let allUsersIds = arr[1].map(a => a._id.toString());
+            let userIdsNotInLeaderboard = allUsersIds.filter(x => userIdsInLeaderboard.indexOf(x) === -1);
+            let leaderboardArr = arr[0];
             if (userIdsNotInLeaderboard && userIdsNotInLeaderboard.length > 0) {
                 userIdsNotInLeaderboard.forEach(function (userId) {
                     // add to the bottom
@@ -131,6 +131,5 @@ var self = module.exports = {
                 users: arr[1]
             }
         });
-        //,
     }
 };

@@ -1,17 +1,17 @@
-var Q = require('q');
-var UserScore = require('../models/userScore');
-var User = require('../models/user');
-var Match = require('../models/match');
-var MatchResult = require('../models/matchResult');
-var TeamResult = require('../models/teamResult');
-var MatchPrediction = require('../models/matchPrediction');
-var TeamPrediction = require('../models/teamPrediction');
-var PredictionScoreConfiguration = require('../models/predictionScoreConfiguration');
-var util = require('../utils/util');
+let Q = require('q');
+let UserScore = require('../models/userScore');
+let User = require('../models/user');
+let Match = require('../models/match');
+let MatchResult = require('../models/matchResult');
+let TeamResult = require('../models/teamResult');
+let MatchPrediction = require('../models/matchPrediction');
+let TeamPrediction = require('../models/teamPrediction');
+let PredictionScoreConfiguration = require('../models/predictionScoreConfiguration');
+let util = require('../utils/util');
 
-var self = module.exports = {
+let self = module.exports = {
     updateAllUserScores: function () {
-        var deferred = Q.defer();
+        let deferred = Q.defer();
         console.log('beginning to update all user scores based on all current match/team results');
         // get {score conf, match results, teams results}
         self.getRelevantDataForUserScore().then(function (obj) {
@@ -37,7 +37,7 @@ var self = module.exports = {
             self.checkUpdateNeededForMatches(obj.matchResults),
             self.checkUpdateNeededForTeams(obj.teamResults)
         ]).then(function (arr) {
-            var isUpdateNeeded = false;
+            let isUpdateNeeded = false;
             if (arr[0].includes(null) || arr[1].includes(null)) {
                 isUpdateNeeded = true;
             }
@@ -46,30 +46,30 @@ var self = module.exports = {
         });
     },
     checkUpdateNeededForMatches: function (matchResults) {
-        if (matchResults.length == 0) {
+        if (matchResults.length === 0) {
             return Promise.resolve([]);
         }
 
-        var promises = matchResults.map(function (aMatchResult) {
+        let promises = matchResults.map(function (aMatchResult) {
             return UserScore.findOne({gameId: aMatchResult.matchId});
         });
         return Promise.all(promises);
     },
     checkUpdateNeededForTeams: function (teamResults) {
-        if (teamResults.length == 0) {
+        if (teamResults.length === 0) {
             Promise.resolve([])
         }
 
-        var promises = teamResults.map(function (aTeamResult) {
+        let promises = teamResults.map(function (aTeamResult) {
             return UserScore.findOne({gameId: aTeamResult.teamId}, function (err, userScore) {
-                return userScore & typeof(userScore) !== 'undefined' ? false : true;
+                return !(userScore && typeof(userScore) !== 'undefined');
             });
         });
         return Promise.all(promises);
     },
     updateScore: function (userScore) {
         //console.log('beginning to update score:' + userScore.gameId);
-        var deferred = Q.defer();
+        let deferred = Q.defer();
         UserScore.findOneAndUpdate({userId: userScore.userId, gameId: userScore.gameId}, userScore, {
                 upsert: true,
                 setDefaultsOnInsert: true
@@ -85,19 +85,19 @@ var self = module.exports = {
         return deferred.promise;
     },
     updateUserScoreByMatchResults: function (configuration, matchResults) {
-        if (matchResults.length == 0) {
+        if (matchResults.length === 0) {
             return;
         }
         console.log('beginning to update user scores based on ' + matchResults.length + ' matchResults');
         // for each match result, get all matchPredictions
-        var promises = matchResults.map(function (aMatchResult) {
+        let promises = matchResults.map(function (aMatchResult) {
             // for each match result, find all match predictions, update user score
             return self.updateUserScoreByMatchResult(configuration, aMatchResult);
         });
         return Promise.all(promises);
     },
     updateUserScoreByMatchResult: function (configuration, matchResult) {
-        var deferred = Q.defer();
+        let deferred = Q.defer();
         MatchPrediction.find({matchId: matchResult.matchId}, function (err, anUserMatchPredictions) {
             self.updateUserScoreByMatchResultAndUserPredictions(matchResult, configuration, anUserMatchPredictions).then(function () {
                 deferred.resolve({});
@@ -108,14 +108,14 @@ var self = module.exports = {
     updateUserScoreByMatchResultAndUserPredictions: function (matchResult, configuration, anUserMatchPredictions) {
         if (anUserMatchPredictions && anUserMatchPredictions.length > 0) {
             //console.log('found ' + anUserMatchPredictions.length + ' user MatchPredictions');
-            var promises = anUserMatchPredictions.map(function (userPrediction) {
+            let promises = anUserMatchPredictions.map(function (userPrediction) {
 
                 // calculate score for user
-                var score = self.calculateUserPredictionScore(userPrediction, matchResult, configuration);
-                var isStrikeCount = self.isScoreIsStrike(score, configuration);
+                let score = self.calculateUserPredictionScore(userPrediction, matchResult, configuration);
+                let isStrikeCount = self.isScoreIsStrike(score, configuration);
 
                 // score to update
-                var userScore = {
+                let userScore = {
                     userId: userPrediction.userId,
                     gameId: userPrediction.matchId,
                     score: score,
@@ -135,7 +135,7 @@ var self = module.exports = {
         });
     },
     updateInitialScoreForUsers: function (users, matchId) {
-        var promises = users.map(function (user) {
+        let promises = users.map(function (user) {
             return self.updateInitialScoreForUser(user, matchId);
         });
         return Promise.all(promises);
@@ -149,19 +149,19 @@ var self = module.exports = {
         });
     },
     updateUserScoreByTeamResults: function (configuration, teamResults) {
-        if (teamResults.length == 0) {
+        if (teamResults.length === 0) {
             return;
         }
         console.log('beginning to update user scores based on ' + teamResults.length + ' teamResults');
         // for each team result, get all teamPredictions
-        var promises = teamResults.map(function (aTeamResult) {
+        let promises = teamResults.map(function (aTeamResult) {
             // for each team result, find all team predictions, update user score
             return self.updateUserScoreByTeamResult(configuration, aTeamResult);
         });
         return Promise.all(promises);
     },
     updateUserScoreByTeamResult: function (configuration, teamResult) {
-        var deferred = Q.defer();
+        let deferred = Q.defer();
         TeamPrediction.find({teamId: teamResult.teamId}, function (err, anUserTeamPredictions) {
             if (anUserTeamPredictions && anUserTeamPredictions.length > 0) {
                 self.updateUserScoreByTeamResultAndUserPredictions(teamResult, configuration, anUserTeamPredictions).then(function () {
@@ -175,9 +175,9 @@ var self = module.exports = {
     },
     updateUserScoreByTeamResultAndUserPredictions: function (teamResult, configuration, anUserTeamPredictions) {
         //console.log('found ' + anUserTeamPredictions.length + ' user MatchPredictions');
-        var promises = anUserTeamPredictions.map(function (userPrediction) {
-            var score = 0;
-            var configScore = self.convertTeamTypeToConfigScore(teamResult.type, configuration[0]);
+        let promises = anUserTeamPredictions.map(function (userPrediction) {
+            let score = 0;
+            let configScore = self.convertTeamTypeToConfigScore(teamResult.type, configuration[0]);
             score += util.calculateResult(userPrediction.team, teamResult.team, configScore);
             return self.updateScore({
                 userId: userPrediction.userId,
@@ -202,7 +202,7 @@ var self = module.exports = {
         });
     },
     calculateUserPredictionScore: function (userPrediction, matchResult, configuration) {
-        var score = 0;
+        let score = 0;
         score += util.calculateResult(userPrediction.winner, matchResult.winner, configuration[0].winner);
         score += util.calculateResult(userPrediction.team1Goals, matchResult.team1Goals, configuration[0].team1Goals);
         score += util.calculateResult(userPrediction.team2Goals, matchResult.team2Goals, configuration[0].team2Goals);
@@ -211,7 +211,7 @@ var self = module.exports = {
         return score;
     },
     isScoreIsStrike: function (score, configuration) {
-        var maxScore = (configuration[0].winner + configuration[0].team1Goals + configuration[0].team2Goals + configuration[0].goalDiff + configuration[0].firstToScore);
+        let maxScore = (configuration[0].winner + configuration[0].team1Goals + configuration[0].team2Goals + configuration[0].goalDiff + configuration[0].firstToScore);
         return (score === maxScore);
     },
     convertTeamTypeToConfigScore: function (type, configuration) {
@@ -235,10 +235,10 @@ var self = module.exports = {
     },
     // Not used
     removeUserScoreWithoutGames: function () {
-        var deferred = Q.defer();
+        let deferred = Q.defer();
         UserScore.find({}, function (err, allUserScores) {
             if (allUserScores && allUserScores.length > 0) {
-                var promises = allUserScores.map(function (aUserScore) {
+                let promises = allUserScores.map(function (aUserScore) {
                     return Match.find({_id: aUserScore.gameId}, function (err, aMatches) {
                         if (!aMatches || aMatches.length < 1) {
                             // removing all user score of this game

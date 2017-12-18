@@ -1,10 +1,10 @@
-var Q = require('q');
-var MatchResult = require('../models/matchResult');
-var util = require('../utils/util');
+let Q = require('q');
+let MatchResult = require('../models/matchResult');
+let util = require('../utils/util');
 
-var self = module.exports = {
+let self = module.exports = {
     updateMatchResult: function (matchResult) {
-        var deferred = Q.defer();
+        let deferred = Q.defer();
         MatchResult.findOneAndUpdate({matchId: matchResult.matchId}, matchResult, {
                 upsert: true,
                 setDefaultsOnInsert: true
@@ -20,11 +20,11 @@ var self = module.exports = {
     },
     // TODO - update only if necessary
     updateMatchResults: function (matchResults) {
-        if (matchResults.length == 0) {
+        if (matchResults.length === 0) {
             return;
         }
         console.log('beginning to update ' + matchResults.length + ' matchResults');
-        var promises = matchResults.map(function (matchResult) {
+        let promises = matchResults.map(function (matchResult) {
             return self.updateMatchResult(matchResult);
         });
         return Promise.all(promises);

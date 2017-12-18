@@ -1,16 +1,16 @@
-var schedule = require('node-schedule');
-var http = require('http');
-var htmlparser = require("htmlparser2");
-var automaticUpdaterConstants = require("./automaticUpdaterConstants");
-var matchService = require("../services/matchService");
-var matchResultService = require("../services/matchResultService");
-var userScoreService = require("../services/userScoreService");
-var userLeaderboardService = require("../services/usersLeaderboardService");
-var PredictionScoreConfiguration = require("../models/predictionScoreConfiguration");
-var MatchResult = require("../models/matchResult");
-var Q = require('q');
+let schedule = require('node-schedule');
+let http = require('http');
+let htmlparser = require("htmlparser2");
+let automaticUpdaterConstants = require("./automaticUpdaterConstants");
+let matchService = require("../services/matchService");
+let matchResultService = require("../services/matchResultService");
+let userScoreService = require("../services/userScoreService");
+let userLeaderboardService = require("../services/usersLeaderboardService");
+let PredictionScoreConfiguration = require("../models/predictionScoreConfiguration");
+let MatchResult = require("../models/matchResult");
+let Q = require('q');
 
-var self = module.exports = {
+let self = module.exports = {
     startTask: function () {
         /**
          * Schedule a task that will start every 15 minutes between 17:30 - 00:30 (IL time), otherwise call /api/update as admin.
@@ -26,7 +26,7 @@ var self = module.exports = {
         //self.startAutomaticUpdateJob();
     },
     startAutomaticUpdateJob: function () {
-        var deferred = Q.defer();
+        let deferred = Q.defer();
 
         console.log('Start to get latest data');
         self.getLatestData().then(function (htmlRawData) {
@@ -35,7 +35,7 @@ var self = module.exports = {
                 deferred.resolve();
             } else {
                 console.log('Start to parse response');
-                var soccerContent = self.parseResponse(htmlRawData);
+                let soccerContent = self.parseResponse(htmlRawData);
                 console.log('Start to get all completed games');
                 self.getCompletedGames(soccerContent).then(function (completedGames) {
                     if (completedGames.length > 0) {
@@ -66,10 +66,10 @@ var self = module.exports = {
         return deferred.promise;
     },
     getLatestData: function () {
-        var deferred = Q.defer();
+        let deferred = Q.defer();
 
         http.get('http://365scores.sport5.co.il:3333?SID=1', function (res) {
-            var str = '';
+            let str = '';
             res.on('data', function (chunk) {
                 //console.log('BODY: ' + chunk);
                 str += chunk;
@@ -87,8 +87,8 @@ var self = module.exports = {
         return deferred.promise;
     },
     parseResponse: function (htmlRawData) {
-        var txt;
-        var parser = new htmlparser.Parser({
+        let txt;
+        let parser = new htmlparser.Parser({
             onopentag: function (name, attribs) {
 
             },
@@ -104,18 +104,18 @@ var self = module.exports = {
         parser.write(htmlRawData);
         parser.end();
 
-        var startIdx = txt.indexOf('var GLOBAL_DATA =');
+        let startIdx = txt.indexOf('var GLOBAL_DATA =');
         txt = txt.substr(startIdx);
         txt = txt.substr('var GLOBAL_DATA ='.length);
-        var lastIdx = txt.indexOf(";");
+        let lastIdx = txt.indexOf(";");
         txt = txt.substr(0, lastIdx - 1);
-        var parsedObj = JSON.parse(txt + "}");
+        let parsedObj = JSON.parse(txt + "}");
         return parsedObj;
     },
     getCompletedGames: function (soccerContent) {
-        var deferred = Q.defer();
-        var itemsProcessed = 0;
-        var completedGames = [];
+        let deferred = Q.defer();
+        let itemsProcessed = 0;
+        let completedGames = [];
         soccerContent.Games.forEach(function (game) {
             itemsProcessed++;
             if (game.Completion >= 100 && game.Comp === automaticUpdaterConstants.COMPETITION.ISRAEL) {
@@ -129,15 +129,15 @@ var self = module.exports = {
         return deferred.promise;
     },
     updateCompletedGames: function (configuration, completedGames) {
-        var promises = completedGames.map(function (completedGame) {
+        let promises = completedGames.map(function (completedGame) {
             return self.updateCompletedGame(configuration, completedGame);
         });
         return Promise.all(promises);
     },
     updateCompletedGame: function (configuration, completedGame) {
-        var deferred = Q.defer();
-        var team1 = automaticUpdaterConstants.parseName(completedGame.Comps[1].Name);
-        var team2 = automaticUpdaterConstants.parseName(completedGame.Comps[0].Name);
+        let deferred = Q.defer();
+        let team1 = automaticUpdaterConstants.parseName(completedGame.Comps[1].Name);
+        let team2 = automaticUpdaterConstants.parseName(completedGame.Comps[0].Name);
         matchService.findMatchByTeamsToday(team1, team2).then(function (aMatch) {
             if (!aMatch) {
                 console.log('Not found relevant match for ' + team1 + ' - ' + team2);
@@ -167,8 +167,8 @@ var self = module.exports = {
         return deferred.promise;
     },
     calculateNewMatchResult: function (team1, team2, events) {
-        var deferred = Q.defer();
-        var newMatchResult = {
+        let deferred = Q.defer();
+        let newMatchResult = {
             winner: 'Draw',
             team1Goals: 0,
             team2Goals: 0,
@@ -179,7 +179,7 @@ var self = module.exports = {
         if (events.length < 1) {
             deferred.resolve(newMatchResult);
         } else {
-            var itemsProcessed = 0;
+            let itemsProcessed = 0;
             events.forEach(function (anEvent) {
                 itemsProcessed++;
                 if (anEvent.Type === 0) { // type = goal

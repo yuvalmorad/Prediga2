@@ -1,7 +1,7 @@
-var express = require('express');
-var app = express.Router();
-var TeamResult = require('../models/teamResult');
-var util = require('../utils/util.js');
+let express = require('express');
+let app = express.Router();
+let TeamResult = require('../models/teamResult');
+let util = require('../utils/util.js');
 
 app.get('/', util.isLoggedIn, function (req, res) {
     TeamResult.find({}, function (err, obj) {
@@ -10,7 +10,7 @@ app.get('/', util.isLoggedIn, function (req, res) {
 });
 
 app.get('/:teamId', util.isLoggedIn, function (req, res) {
-    var teamId = req.params.teamId;
+    let teamId = req.params.teamId;
     if (!teamId) {
         res.status(500).json(util.errorResponse.format('provide teamId'));
         return;

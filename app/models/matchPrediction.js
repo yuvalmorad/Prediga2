@@ -1,8 +1,8 @@
 // load the things we need
-var mongoose = require('mongoose');
+let mongoose = require('mongoose');
 
 // define the schema for our match predictions model
-var matchPredictionSchema = mongoose.Schema({
+let matchPredictionSchema = mongoose.Schema({
     matchId: String,
     userId: String,
     winner: String,

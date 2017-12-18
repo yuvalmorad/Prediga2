@@ -1,10 +1,10 @@
-var Q = require('q');
-var PredictionScoreConfiguration = require('../models/predictionScoreConfiguration');
-var util = require('../utils/util');
+let Q = require('q');
+let PredictionScoreConfiguration = require('../models/predictionScoreConfiguration');
+let util = require('../utils/util');
 
 module.exports = {
     updateConfiguration: function (predictionScoreConfiguration) {
-        var deferred = Q.defer();
+        let deferred = Q.defer();
         PredictionScoreConfiguration.findOneAndUpdate({}, predictionScoreConfiguration, {
                 upsert: true,
                 setDefaultsOnInsert: true

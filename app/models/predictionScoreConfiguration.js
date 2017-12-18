@@ -1,8 +1,8 @@
 // load the things we need
-var mongoose = require('mongoose');
+let mongoose = require('mongoose');
 
 // define the schema for our Prediction Score's Configuration model
-var predictionScoreConfiguration = mongoose.Schema({
+let predictionScoreConfiguration = mongoose.Schema({
     winner: Number,
     team1Goals: Number,
     team2Goals: Number,

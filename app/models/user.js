@@ -1,9 +1,9 @@
 // load the things we need
-var mongoose = require('mongoose');
-var bcrypt = require('bcrypt-nodejs');
+let mongoose = require('mongoose');
+let bcrypt = require('bcrypt-nodejs');
 
 // define the schema for our user model
-var userSchema = mongoose.Schema({
+let userSchema = mongoose.Schema({
     profileId: String,
     token: String,
     email: String,
@@ -32,7 +32,7 @@ userSchema.methods.validPassword = function (password) {
 };
 
 userSchema.methods.hasRole = function (role) {
-    for (var i = 0; i < this.roles.length; i++) {
+    for (let i = 0; i < this.roles.length; i++) {
         if (this.roles[i] === role) {
             return true;
         }

@@ -1,11 +1,11 @@
-var express = require('express');
-var app = express.Router();
-var Team = require('../models/team');
+let express = require('express');
+let app = express.Router();
+let Team = require('../models/team');
 //var TeamService = require('../services/teamService');
-var util = require('../utils/util.js');
+let util = require('../utils/util.js');
 
 app.get('/:teamId', util.isLoggedIn, function (req, res) {
-    var teamId = req.params.teamId;
+    let teamId = req.params.teamId;
     if (!teamId) {
         res.status(500).json(util.errorResponse.format('provide teamId'));
         return;

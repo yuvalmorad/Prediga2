@@ -1,10 +1,10 @@
-var Q = require('q');
-var TeamResult = require('../models/teamResult');
-var util = require('../utils/util');
+let Q = require('q');
+let TeamResult = require('../models/teamResult');
+let util = require('../utils/util');
 
-var self = module.exports = {
+let self = module.exports = {
     updateTeamResult: function (teamResult) {
-        var deferred = Q.defer();
+        let deferred = Q.defer();
         TeamResult.findOneAndUpdate({teamId: teamResult.teamId}, teamResult, {
                 upsert: true,
                 setDefaultsOnInsert: true
@@ -21,11 +21,11 @@ var self = module.exports = {
 
     // TODO - update only if necessary
     updateTeamResults: function (teamResults) {
-        if (teamResults.length == 0) {
+        if (teamResults.length === 0) {
             return;
         }
         console.log('beginning to update ' + teamResults.length + ' teamsResults');
-        var promises = teamResults.map(function (aTeamResult) {
+        let promises = teamResults.map(function (aTeamResult) {
             return self.updateTeamResult(aTeamResult);
         });
         return Promise.all(promises);

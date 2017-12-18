@@ -1,13 +1,13 @@
-var Q = require('q');
-var Team = require('../models/team');
-var TeamResult = require('../models/teamResult');
-var UserScore = require('../models/userScore');
+let Q = require('q');
+let Team = require('../models/team');
+let TeamResult = require('../models/teamResult');
+let UserScore = require('../models/userScore');
 
-var self = module.exports = {
+let self = module.exports = {
     // TODO - update only if necessary
     updateTeams: function (teams) {
         console.log('beginning to update ' + teams.length + ' teams');
-        var promises = teams.map(function (team) {
+        let promises = teams.map(function (team) {
             return Team.findOneAndUpdate({_id: team._id}, team, {
                     upsert: true,
                     setDefaultsOnInsert: true
@@ -22,7 +22,7 @@ var self = module.exports = {
         return Promise.all(promises);
     },
     removeTeams: function (league) {
-        var deferred = Q.defer();
+        let deferred = Q.defer();
         Team.find({league: league}, function (err, leagueTeams) {
             if (err) return console.log(err);
             if (!leagueTeams || !Array.isArray(leagueTeams) || leagueTeams.length === 0) {
@@ -38,7 +38,7 @@ var self = module.exports = {
         return deferred.promise;
     },
     removeLeagueTeams: function (leagueTeams) {
-        var promises = leagueTeams.map(function (aTeam) {
+        let promises = leagueTeams.map(function (aTeam) {
             aTeam.remove();
             return TeamResult.remove({teamId: aTeam._id}, function (err, obj) {
                 return UserScore.remove({gameId: aTeam._id});

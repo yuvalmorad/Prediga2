@@ -1,8 +1,8 @@
 // load the things we need
-var mongoose = require('mongoose');
+let mongoose = require('mongoose');
 
 // define the schema for our team result model
-var teamResultSchema = mongoose.Schema({
+let teamResultSchema = mongoose.Schema({
     teamId: String,
     team: String,
     type: String // winner, runnerUp, *

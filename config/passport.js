@@ -1,11 +1,11 @@
 // load all the things we need
-var FacebookStrategy = require('passport-facebook').Strategy;
-var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
+let FacebookStrategy = require('passport-facebook').Strategy;
+let GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 // load up the user model
-var User = require('../app/models/user');
+let User = require('../app/models/user');
 
 // load the auth variables
-var configAuth = require('./auth'); // use this one for testing
+let configAuth = require('./auth'); // use this one for testing
 
 module.exports = function (passport, configFBPassport, configGooglePassport) {
 
@@ -30,19 +30,19 @@ module.exports = function (passport, configFBPassport, configGooglePassport) {
     // =========================================================================
     // FACEBOOK ================================================================
     // =========================================================================
-    var fbStrategy = configAuth[configFBPassport];
+    let fbStrategy = configAuth[configFBPassport];
     passport.use(new FacebookStrategy(fbStrategy,
         function (req, token, refreshToken, profile, done) {
 
             // asynchronous
             process.nextTick(function () {
 
-                var email = profile.id + '@google.com';
+                let email = profile.id + '@google.com';
                 if (profile.emails && profile.emails.length > 0) {
                     email = (profile.emails[0].value || '').toLowerCase();
                 }
 
-                var photo = '';
+                let photo = '';
                 if (profile.photos && profile.photos.length > 0 && profile.photos[0].value && profile.photos[0].value.length > 0) {
                     photo = profile.photos[0].value;
                 }
@@ -83,7 +83,7 @@ module.exports = function (passport, configFBPassport, configGooglePassport) {
                             }
                         } else {
                             // if there is no user, create them
-                            var newUser = new User();
+                            let newUser = new User();
 
                             newUser.profileId = profile.id;
                             newUser.token = token;
@@ -100,7 +100,7 @@ module.exports = function (passport, configFBPassport, configGooglePassport) {
 
                 } else {
                     // user already exists and is logged in, we have to link accounts
-                    var user = req.user; // pull the user out of the session
+                    let user = req.user; // pull the user out of the session
 
                     user.profileId = profile.id;
                     user.token = token;
@@ -121,7 +121,7 @@ module.exports = function (passport, configFBPassport, configGooglePassport) {
     // =========================================================================
     // Google ==================================================================
     // =========================================================================
-    var googleStrategy = configAuth[configGooglePassport];
+    let googleStrategy = configAuth[configGooglePassport];
     googleStrategy.passReqToCallback = true;  // allows us to pass in the req from our route (lets us check if a user is logged in or not)
     passport.use(new GoogleStrategy(googleStrategy,
         function (req, token, refreshToken, profile, done) {
@@ -130,12 +130,12 @@ module.exports = function (passport, configFBPassport, configGooglePassport) {
             // User.findOne won't fire until we have all our data back from Google
             process.nextTick(function () {
 
-                var email = profile.id + '@google.com';
+                let email = profile.id + '@google.com';
                 if (profile.emails && profile.emails.length > 0) {
                     email = (profile.emails[0].value || '').toLowerCase();
                 }
 
-                var photo = '';
+                let photo = '';
                 if (profile.photos && profile.photos.length > 0 && profile.photos[0].value && profile.photos[0].value.length > 0) {
                     photo = profile.photos[0].value;
                 }
@@ -174,7 +174,7 @@ module.exports = function (passport, configFBPassport, configGooglePassport) {
                             }
                         } else {
                             // if there is no user, create them
-                            var newUser = new User();
+                            let newUser = new User();
                             try {
                                 newUser.profileId = profile.id;
                                 newUser.token = token;
@@ -195,7 +195,7 @@ module.exports = function (passport, configFBPassport, configGooglePassport) {
                     });
                 } else {
                     // user already exists and is logged in, we have to link accounts
-                    var user = req.user; // pull the user out of the session
+                    let user = req.user; // pull the user out of the session
 
                     user.profileId = profile.id;
                     user.token = token;

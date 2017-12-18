@@ -1,7 +1,7 @@
-var express = require('express');
-var app = express.Router();
-var MatchResult = require('../models/matchResult');
-var util = require('../utils/util.js');
+let express = require('express');
+let app = express.Router();
+let MatchResult = require('../models/matchResult');
+let util = require('../utils/util.js');
 
 app.get('/', util.isLoggedIn, function (req, res) {
     MatchResult.find({}, function (err, obj) {
@@ -10,7 +10,7 @@ app.get('/', util.isLoggedIn, function (req, res) {
 });
 
 app.get('/:matchId', util.isLoggedIn, function (req, res) {
-    var matchId = req.params.matchId;
+    let matchId = req.params.matchId;
     if (!matchId) {
         res.status(500).json(util.errorResponse.format('provide matchId'));
         return;
@@ -25,7 +25,7 @@ app.get('/:matchId', util.isLoggedIn, function (req, res) {
 });
 
 app.delete('/:matchId', util.isAdmin, function (req, res) {
-    var matchId = req.params.matchId;
+    let matchId = req.params.matchId;
     if (!matchId) {
         res.status(500).json(util.errorResponse.format('provide matchId'));
         return;

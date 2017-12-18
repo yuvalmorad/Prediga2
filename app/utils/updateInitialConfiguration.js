@@ -1,15 +1,14 @@
-var TeamService = require('../services/teamService');
-var MatchService = require('../services/matchService');
-var MatchResultService = require('../services/matchResultService');
-var TeamResultService = require('../services/teamResultService');
-var PredictionScoreConfigurationService = require('../services/predictionScoreConfigurationService');
-var UsersLeaderboardService = require('../services/usersLeaderboardService');
-var UserScoreService = require('../services/userScoreService');
-var Q = require('q');
+let TeamService = require('../services/teamService');
+let MatchService = require('../services/matchService');
+let MatchResultService = require('../services/matchResultService');
+let TeamResultService = require('../services/teamResultService');
+let PredictionScoreConfigurationService = require('../services/predictionScoreConfigurationService');
+let UsersLeaderboardService = require('../services/usersLeaderboardService');
+let UserScoreService = require('../services/userScoreService');
+let Q = require('q');
 
-var self = module.exports = {
+let self = module.exports = {
     loadAll: function () {
-        var deferred = Q.defer();
         return Promise.all([
             PredictionScoreConfigurationService.updateConfiguration(require('../initialData/scoreConfiguration.json')),
             self.updateLeagueData(require('../initialData/Tournament_Worldcup_18.json')),
@@ -20,30 +19,22 @@ var self = module.exports = {
                 if (obj.needUpdate === true) {
                     UsersLeaderboardService.updateLeaderboard().then(function (obj) {
                         console.log('Succeed to update all initial data');
-                        deferred.resolve(arr);
                     });
                 } else {
                     console.log('Succeed to update all initial data (w/o update leader board)');
-                    deferred.resolve(arr);
                 }
             });
         });
-
-        return deferred.promise;
     },
 
     updateLeagueData: function (leagueJson) {
-        var deferred = Q.defer();
-
         return Promise.all([
             MatchService.updateMatches(leagueJson.matches),
             TeamService.updateTeams(leagueJson.teams),
             MatchResultService.updateMatchResults(leagueJson.matchResults),
             TeamResultService.updateTeamResults(leagueJson.teamResults)
         ]).then(function (arr) {
-            deferred.resolve(arr);
-        });
 
-        return deferred.promise;
+        });
     }
 };
