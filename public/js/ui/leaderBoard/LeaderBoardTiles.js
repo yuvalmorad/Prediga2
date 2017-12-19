@@ -6,8 +6,9 @@ component.LeaderBoardTiles = (function(){
             users = props.users,
             disableOpen = props.disableOpen;
 
-        var strikesMap = {};
+        var strikesMap = {}; //{strikesCount: [<userId>,<userId>,...]}
 
+        //merge by strikes count
         leaders.forEach(function(leader){
             if (strikesMap[leader.strikes] === undefined) {
                 strikesMap[leader.strikes] = [];
@@ -16,6 +17,7 @@ component.LeaderBoardTiles = (function(){
             strikesMap[leader.strikes].push(leader.userId);
         });
 
+        //map back to arr + sort by strikes
         var strikesArr = Object.keys(strikesMap).map(function(strikes){
             return {
                 users: strikesMap[strikes],
@@ -37,11 +39,11 @@ component.LeaderBoardTiles = (function(){
 
             strikesArr[i].users.forEach(function(userId){
                 badgesByUserId[userId] = "badge" + badgeNumber;
+                badgesCount++;
             });
 
             badgeNumber++;
         }
-
 
         var tiles = leaders.map(function(leader, index){
             var user = utils.general.findItemInArrBy(users, "_id", leader.userId);
