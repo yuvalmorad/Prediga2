@@ -37,14 +37,14 @@ var routePages = (function(){
             displayInTopMenu: true,
             displayInSiteNavigation: true
         },
-        /*{
+        {
             path: "/simulator",
             title: "Simulator",
             name: "simulator",
             isAuthenticatedPage: true,
             component: SimulatorPage,
             displayInTopMenu: true
-        },*/
+        },
         {
             path: "/rules",
             title: "Rules of the Game",

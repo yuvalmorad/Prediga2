@@ -46,8 +46,7 @@ component.SimulatorPage = (function(){
     var SimulatorPage = React.createClass({
         getInitialState: function() {
             if (!isRequestSent) {
-                this.props.loadLeaderBoard();
-                this.props.loadGamesPredictions();
+                this.props.loadSimulator();
                 isRequestSent = true;
             }
 
@@ -76,9 +75,8 @@ component.SimulatorPage = (function(){
                 predictionsSimulated = state.predictionsSimulated,
                 leaders = props.leaders,
                 users = props.users,
-                matches = props.matches.length ? [utils.general.findItemInArrBy(props.matches, "_id", "6a21a7c1a3f89181074e9865"), utils.general.findItemInArrBy(props.matches, "_id", "6a21a7c1a3f89181074e9871")] : [], //TODO remove
-                userPredictions = props.userPredictions,
-                otherPredictions = props.otherPredictions;
+                matches = props.matches,
+                predictions = props.predictions;
 
             if (!leaders.length || !matches.length) {
                 return re("div", { className: "content" }, "");
@@ -90,8 +88,7 @@ component.SimulatorPage = (function(){
             var matchesElems = matches.map(function(match){
                 var matchId = match._id;
                 var matchResult = createMatchResult(predictionsSimulated, match);
-                updateLeaders(leaders, userPredictions, matchResult, matchId);
-                updateLeaders(leaders, otherPredictions, matchResult, matchId);
+                updateLeaders(leaders, predictions, matchResult, matchId);
 
                 return re(SimulatorMatch, {game: match, matchResult: matchResult, updateMatchChange: that.updateMatchChange});
             });
@@ -120,19 +117,17 @@ component.SimulatorPage = (function(){
 
     function mapStateToProps(state){
         return {
-            leaders: state.leaderBoard.leaders,
-            users: state.leaderBoard.users,
-            matches: state.gamesPredictions.matches,
-            userPredictions: state.gamesPredictions.userPredictions,
-            otherPredictions: state.gamesPredictions.otherPredictions,
+            leaders: state.simulator.leaders,
+            users: state.simulator.users,
+            matches: state.simulator.matches,
+            predictions: state.simulator.predictions,
             userId: state.authentication.userId
         }
     }
 
     function mapDispatchToProps(dispatch) {
         return {
-            loadLeaderBoard: function(){dispatch(action.leaderBoard.loadLeaderBoard())},
-            loadGamesPredictions: function(){dispatch(action.gamesPredictions.loadGames())}
+            loadSimulator: function(){dispatch(action.simulator.loadSimulator())},
         }
     }
 

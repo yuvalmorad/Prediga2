@@ -9,7 +9,8 @@ var store = (function(){
         general: reducer.general,
         gamesPredictions: reducer.gamesPredictions,
         teamsPredictions: reducer.teamsPredictions,
-        leaderBoard: reducer.leaderBoard
+        leaderBoard: reducer.leaderBoard,
+        simulator: reducer.simulator
     });
 
     return store = Redux.createStore(rootReducer, {}, compose(applyMiddleware(thunkMiddleware)));
