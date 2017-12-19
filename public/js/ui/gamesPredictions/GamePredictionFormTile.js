@@ -202,7 +202,7 @@ component.GamePredictionFormTile = (function(){
 
     function mapStateToProps(state){
         return {
-            users: state.gamesPredictions.users,
+            users: state.users.users,
             userId: state.authentication.userId
         }
     }

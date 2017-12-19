@@ -19,7 +19,6 @@ function getData() {
         return matchPredictionsService.findPredictionsByMatchIds(arr[1]).then(function (predictions) {
             return {
                 leaderboard: arr[0].leaderboard,
-                users: arr[0].users,
                 matches: arr[1],
                 predictions: predictions
             }

@@ -8,7 +8,6 @@ reducer.teamsPredictions = (function() {
         teams: [],
         userPredictions: [],
         otherPredictions: [],
-        users: [],
         results: []
     };
 
@@ -19,7 +18,7 @@ reducer.teamsPredictions = (function() {
 
         switch (action.type) {
             case LOAD_TEAMS_SUCCESS:
-                return Object.assign({}, state, {teams: action.teams, userPredictions: action.userPredictions, otherPredictions: action.otherPredictions, users: action.users, results: action.results});
+                return Object.assign({}, state, {teams: action.teams, userPredictions: action.userPredictions, otherPredictions: action.otherPredictions, results: action.results});
             case UPDATE_TEAM_SELECTED:
                 return Object.assign({}, state, {userPredictions: utils.general.updateOrCreateObject(state.userPredictions, action.prediction)});
             default:

@@ -3,7 +3,6 @@ let app = express.Router();
 let Team = require('../models/team');
 let TeamPrediction = require('../models/teamPrediction');
 let util = require('../utils/util.js');
-let User = require('../models/user');
 let TeamResult = require('../models/teamResult');
 
 app.get('/', util.isLoggedIn, function (req, res) {
@@ -16,14 +15,12 @@ function getData() {
     return Promise.all([
         Team.find({}),
         TeamPrediction.find({}),
-        User.find({}),
         TeamResult.find({})
     ]).then(function (arr) {
         return {
             teams: arr[0],
             predictions: arr[1],
-            users: arr[2],
-            results: arr[3]
+            results: arr[2]
         }
     });
 }

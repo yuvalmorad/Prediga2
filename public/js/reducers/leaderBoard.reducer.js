@@ -4,8 +4,7 @@ reducer.leaderBoard = (function() {
         LOAD_LEADER_BOARD_SUCCESS = leaderBoardAction.LOAD_LEADER_BOARD_SUCCESS;
 
     var initialState = {
-        leaders: [],
-        users: []
+        leaders: []
     };
 
     return function leaderBoard(state, action){
@@ -15,7 +14,7 @@ reducer.leaderBoard = (function() {
 
         switch (action.type) {
             case LOAD_LEADER_BOARD_SUCCESS:
-                return Object.assign({}, state, {leaders: action.leaders, users: action.users});
+                return Object.assign({}, state, {leaders: action.leaders});
             default:
                 return state
         }

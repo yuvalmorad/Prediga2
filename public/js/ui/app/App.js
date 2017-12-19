@@ -1,41 +1,47 @@
 component.App = (function(){
-    var SiteHeader = component.SiteHeader,
+    var connect = ReactRedux.connect,
+        SiteHeader = component.SiteHeader,
         SiteNavigation = component.SiteNavigation,
         Menu = component.Menu,
         TileDialogContainer = component.TileDialogContainer,
         Loading = component.Loading,
         Pages = component.Pages;
 
-    var prevIndex = undefined;
+    var App = React.createClass({
+        componentDidMount: function() {
+            this.props.loadUsers();
+        },
 
-    return function() {
-        var path = routerHistory.location.pathname;
-        var currentPage = routePages.getPageByPath(path);
-        var title = currentPage.title;
-        var hideSiteHeader = currentPage.hideSiteHeader;
-        var hideSiteNavigation = currentPage.hideSiteNavigation;
-        /*var animatePageDirection = "";
-        var nextIndex = routePages.getPages().indexOf(currentPage);
+        render: function(){
+            var path = routerHistory.location.pathname;
+            var currentPage = routePages.getPageByPath(path);
+            var title = currentPage.title;
+            var hideSiteHeader = currentPage.hideSiteHeader;
+            var hideSiteNavigation = currentPage.hideSiteNavigation;
 
-        if (prevIndex !== undefined && nextIndex >= 0) {
-            if (prevIndex < nextIndex) {
-                animatePageDirection = "right";
-            } else if (prevIndex > nextIndex){
-                animatePageDirection = "left";
-            }
+            return re("div", {className: "main"},
+                re(SiteHeader, {title: title, hide: hideSiteHeader}),
+                re(Pages, {}),
+                re(SiteNavigation, {hide: hideSiteNavigation}),
+                re(TileDialogContainer, {}),
+                re(Menu, {}),
+                re(Loading, {})
+            )
         }
+    });
 
-        prevIndex = nextIndex;*/
+    function mapStateToProps(state){
+        return {
+        }
+    }
 
-        return re("div", {className: "main"},
-            re(SiteHeader, {title: title, hide: hideSiteHeader}),
-            re(Pages, {}),
-            re(SiteNavigation, {hide: hideSiteNavigation}),
-            re(TileDialogContainer, {}),
-            re(Menu, {}),
-            re(Loading, {})
-        )
-    };
+    function mapDispatchToProps(dispatch) {
+        return {
+            loadUsers: function(){dispatch(action.users.loadUsers())}
+        }
+    }
+
+    return ReactRouterDOM.withRouter(connect(mapStateToProps, mapDispatchToProps)(App));
 })();
 
 

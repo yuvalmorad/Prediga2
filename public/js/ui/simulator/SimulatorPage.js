@@ -118,16 +118,16 @@ component.SimulatorPage = (function(){
     function mapStateToProps(state){
         return {
             leaders: state.simulator.leaders,
-            users: state.simulator.users,
             matches: state.simulator.matches,
             predictions: state.simulator.predictions,
-            userId: state.authentication.userId
+            userId: state.authentication.userId,
+            users: state.users.users
         }
     }
 
     function mapDispatchToProps(dispatch) {
         return {
-            loadSimulator: function(){dispatch(action.simulator.loadSimulator())},
+            loadSimulator: function(){dispatch(action.simulator.loadSimulator())}
         }
     }
 

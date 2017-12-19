@@ -24,7 +24,7 @@ component.LeaderBoardPage = (function(){
     function mapStateToProps(state){
         return {
             leaders: state.leaderBoard.leaders,
-            users: state.leaderBoard.users
+            users: state.users.users
         }
     }
 

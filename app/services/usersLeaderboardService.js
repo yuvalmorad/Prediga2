@@ -127,8 +127,7 @@ let self = module.exports = {
             }
 
             return {
-                leaderboard: leaderboardArr,
-                users: arr[1]
+                leaderboard: leaderboardArr
             }
         });
     }

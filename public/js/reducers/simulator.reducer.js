@@ -5,7 +5,6 @@ reducer.simulator = (function() {
 
     var initialState = {
         leaders: [],
-        users: [],
         matches: [],
         predictions: []
     };
@@ -17,7 +16,7 @@ reducer.simulator = (function() {
 
         switch (action.type) {
             case LOAD_SIMULATR_SUCCESS:
-                return Object.assign({}, state, {leaders: action.leaders, users: action.users, matches: action.matches, predictions: action.predictions});
+                return Object.assign({}, state, {leaders: action.leaders, matches: action.matches, predictions: action.predictions});
             default:
                 return state
         }

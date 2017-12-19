@@ -1,7 +1,12 @@
 utils.action = (function(){
     return {
         loadWithPredictions: loadWithPredictions,
-        updatePrediction: updatePrediction
+        updatePrediction: updatePrediction,
+        REQUEST_STATUS: {
+            LOADING: "LOADING",
+            SUCCESS_LOADING: "SUCCESS_LOADING",
+            ERROR_LOADING: "ERROR_LOADING"
+        }
     };
 
     //mainObjectProperty = "teams"/"matches"
@@ -10,7 +15,6 @@ utils.action = (function(){
             serviceObj.getAll().then(function(res){
                 var userId = res.headers.userid;
                 var data = res.data;
-                dispatch(action.authentication.setUserId(userId));
 
                 var userPredictions = data.predictions.filter(function(prediction){
                     return prediction.userId === userId;
@@ -20,15 +24,15 @@ utils.action = (function(){
                     return prediction.userId !== userId;
                 });
 
-                dispatch(success(data[mainObjectProperty], userPredictions, otherPredictions, data.users, data.results));
+                dispatch(success(data[mainObjectProperty], userPredictions, otherPredictions, data.results));
             }, function(error){
 
             })
         };
 
-        function success(mainObject, userPredictions, otherPredictions, users, results) {
+        function success(mainObject, userPredictions, otherPredictions, results) {
             var res = {
-                type: successType, userPredictions: userPredictions, otherPredictions: otherPredictions, users: users, results: results
+                type: successType, userPredictions: userPredictions, otherPredictions: otherPredictions, results: results
             };
             res[mainObjectProperty] = mainObject;
 
