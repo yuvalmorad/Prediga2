@@ -1,5 +1,6 @@
 component.App = (function(){
     var connect = ReactRedux.connect,
+        withRouter = ReactRouterDOM.withRouter,
         SiteHeader = component.SiteHeader,
         SiteNavigation = component.SiteNavigation,
         Menu = component.Menu,
@@ -41,7 +42,7 @@ component.App = (function(){
         }
     }
 
-    return ReactRouterDOM.withRouter(connect(mapStateToProps, mapDispatchToProps)(App));
+    return withRouter(connect(mapStateToProps, mapDispatchToProps)(App));
 })();
 
 

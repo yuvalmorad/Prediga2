@@ -20,7 +20,8 @@ component.Menu = (function(){
             return routePages.getPages().filter(function(page){
                 return page[filterProperty];
             }).map(function(page, index){
-                return re(MenuItem, {text: page.title, to: page.path, iconClassName: page.name + "-icon", onMenuItemClicked: that.onMenuItemClicked, key: filterProperty + index});
+                var to = page.path;
+                return re(MenuItem, {text: page.title, to: to, iconClassName: page.name + "-icon", onMenuItemClicked: that.onMenuItemClicked.bind(that, to), key: filterProperty + index});
             });
         },
 
@@ -29,10 +30,10 @@ component.Menu = (function(){
         },
 
         render: function() {
-            var props = this.props;
+            var props = this.props,
+                topMenuItems = this.renderMenuItems("displayInTopMenu"),
+                bottomMenuItems = this.renderMenuItems("displayInBottomMenu");
 
-            var topMenuItems = this.renderMenuItems("displayInTopMenu");
-            var bottomMenuItems = this.renderMenuItems("displayInBottomMenu");
             bottomMenuItems.push(this.renderLogoutMenuItem());
 
             return re("div", { className: "menu" + (props.isMenuOpen ? " open" : "")},

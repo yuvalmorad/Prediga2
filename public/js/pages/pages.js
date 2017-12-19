@@ -5,7 +5,8 @@ var routePages = (function(){
         LoginPage = component.LoginPage,
         RulesPage = component.RulesPage,
         AboutPage = component.AboutPage,
-        SimulatorPage = component.SimulatorPage;
+        SimulatorPage = component.SimulatorPage,
+        GroupsPage = component.GroupsPage;
 
     var routePages = [
         {
@@ -44,6 +45,13 @@ var routePages = (function(){
             isAuthenticatedPage: true,
             component: SimulatorPage,
             displayInTopMenu: true
+        },
+        {
+            path: "/groups",
+            title: "Groups",
+            name: "groups",
+            isAuthenticatedPage: true,
+            component: GroupsPage
         },
         {
             path: "/rules",
