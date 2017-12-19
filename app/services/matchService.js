@@ -71,16 +71,37 @@ let self = module.exports = {
         });
         return deferred.promise;
     },
+
+    //1. find the closest match playing
+    //2. get all matches on same date, from now(-105) until the end of the day.
     findClosedToPredictButNotFinishedMatchesToday: function () {
         let deferred = Q.defer();
-        let now = new Date();
         let after = new Date();
         after.setMinutes(- 105);
 
         Match.find({
-            kickofftime: {$gte: after, $lte: now},
-        }, function (err, relevantMatches) {
-            deferred.resolve(relevantMatches);
+                kickofftime: {$gte: after}
+            },
+            null,
+            {
+                sort: {kickofftime: 1},
+                limit: 1
+            },
+        function (err, closestMatches) {
+            if (closestMatches.length === 1) {
+                var closestMatchKickofftime = closestMatches[0].kickofftime;
+                var endOfDay = new Date(closestMatchKickofftime);
+                endOfDay.setHours(23,59,59,999);
+                Match.find({
+                            kickofftime: {$gte: after, $lte: endOfDay}
+                        },
+                    function (err, results) {
+                        deferred.resolve(results);
+                    });
+
+            } else {
+                deferred.resolve([]);
+            }
         });
         return deferred.promise;
     }
