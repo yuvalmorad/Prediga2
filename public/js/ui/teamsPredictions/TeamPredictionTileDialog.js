@@ -60,7 +60,6 @@ component.TeamPredictionTileDialog = (function(){
 
     function mapStateToProps(state){
         return {
-            /*teams: state.teamsPredictions.teams*/
         }
     }
 

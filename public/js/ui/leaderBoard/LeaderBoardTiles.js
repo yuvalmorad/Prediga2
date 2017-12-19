@@ -1,11 +1,7 @@
 component.LeaderBoardTiles = (function(){
     var LeaderBoardTile = component.LeaderBoardTile;
 
-    return function(props) {
-        var leaders = props.leaders,
-            users = props.users,
-            disableOpen = props.disableOpen;
-
+    function getBadgesByUserId(leaders) {
         var strikesMap = {}; //{strikesCount: [<userId>,<userId>,...]}
 
         //merge by strikes count
@@ -45,22 +41,30 @@ component.LeaderBoardTiles = (function(){
             badgeNumber++;
         }
 
-        var tiles = leaders.map(function(leader, index){
-            var user = utils.general.findItemInArrBy(users, "_id", leader.userId);
-            var trend = leader.placeBeforeLastGame === -1 ? 0 :  leader.placeBeforeLastGame - leader.placeCurrent;
-            var borderColor = "#a7a4a4";
+        return badgesByUserId;
+    }
 
-            if (trend > 0) {
-                borderColor = "#00ff00";
-            } else if (trend < 0) {
-                borderColor = "red";
-            }
+    return function(props) {
+        var leaders = props.leaders,
+            users = props.users,
+            disableOpen = props.disableOpen,
+            badgesByUserId = getBadgesByUserId(leaders),
+            tiles = leaders.map(function(leader, index){
+                var user = utils.general.findItemInArrBy(users, "_id", leader.userId);
+                var trend = leader.placeBeforeLastGame === -1 ? 0 :  leader.placeBeforeLastGame - leader.placeCurrent;
+                var borderColor = "#a7a4a4";
 
-            var description = leader.strikes + " strikes";
-            var badgeName = badgesByUserId[leader.userId];
+                if (trend > 0) {
+                    borderColor = "#00ff00";
+                } else if (trend < 0) {
+                    borderColor = "red";
+                }
 
-            return re(LeaderBoardTile, {disableOpen: disableOpen, user: user, badgeName: badgeName, score: leader.score, trend: trend, borderColor: borderColor, description: description, rank: index + 1, key: user._id});
-        });
+                var description = leader.strikes + " strikes";
+                var badgeName = badgesByUserId[leader.userId];
+
+                return re(LeaderBoardTile, {disableOpen: disableOpen, user: user, badgeName: badgeName, score: leader.score, trend: trend, borderColor: borderColor, description: description, rank: index + 1, key: user._id});
+            });
 
         if (props.displayFirstTileByUserId) {
             var tileUserIdIndex = utils.general.findItemInArrBy(tiles, "props.user._id", props.displayFirstTileByUserId, true);
