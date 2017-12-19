@@ -51,10 +51,11 @@ let self = module.exports = {
     },
     findMatchByTeamsToday: function (team1, team2) {
         let deferred = Q.defer();
+        let today = new Date();
         let tomorrow = new Date();
         let yesterday = new Date();
-        tomorrow.setDate(+1);
-        yesterday.setDate(-1);
+        tomorrow.setDate(today.getDate() +1);
+        yesterday.setDate(today.getDate() -1);
 
         Match.find({
             kickofftime: {$gte: yesterday, $lte: tomorrow},
