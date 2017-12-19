@@ -2293,6 +2293,14 @@
       "team2Goals": "0",
       "goalDiff": 0,
       "firstToScore": "None"
+    },
+    {
+      "matchId": "6a21a7c1a3f89181074e9865",
+      "winner": "Maccabi Tel Aviv",
+      "team1Goals": "2",
+      "team2Goals": "1",
+      "goalDiff": 1,
+      "firstToScore": "Maccabi Tel Aviv"
     }
   ],
   "teams": [
