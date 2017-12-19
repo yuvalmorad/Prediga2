@@ -1,7 +1,6 @@
 component.GamePredictionMainTile = (function(){
     var Graph = component.Graph;
 
-
     var GamePredictionMainTile = React.createClass({
         getInitialState: function() {
             return {
@@ -75,7 +74,7 @@ component.GamePredictionMainTile = (function(){
                 displayTeam2Goals,
                 team1 = models.leagues.getTeamByTeamName(game.team1),
                 team2 = models.leagues.getTeamByTeamName(game.team2),
-                leagueSprite = team1 && team2 ? "url('../images/sprites/" + league + "_teams.png')" : "",
+                leagueSprite = team1 && team2 ? utils.general.getLeagueLogoURL(league) : "",
                 team1ShortName = team1 ? team1.shortName : "",
                 team2ShortName = team2 ? team2.shortName : "",
                 team1Color = team1 ? team1.color : "",

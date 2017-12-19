@@ -5,27 +5,23 @@ component.TeamPredictionMainTile = (function(){
         var team = props.team,
             selectedTeam = props.selectedTeam,
             leagueName = models.leagues.getLeagueName(team.league),
-            title = team.title;
+            title = team.title,
+            opts = {
+                imageBackground: utils.general.getLeagueLogoURL(team.league),
+                description: leagueName,
+                rankTitle: title,
+                logoClassName: team.league
+            };
 
         if (selectedTeam) {
-            return re(BaseMainTile, {
-                imageBackground: "url('../images/sprites/" + team.league + "_teams.png')",
-                title: selectedTeam.name,
-                description: leagueName,
-                rankTitle: title,
-                logoPosition: selectedTeam.logoPosition,
-                logoClassName: team.league
-            });
+            opts.title = selectedTeam.name;
+            opts.logoPosition = selectedTeam.logoPosition;
         } else {
-            return re(BaseMainTile, {
-                imageBackground: "url('../images/sprites/" +team.league + "_teams.png')",
-                title: "Team",
-                description: leagueName,
-                rankTitle: title,
-                logoPosition: models.leagues.getLeagueLogoPosition(team.league),
-                logoClassName: team.league
-            });
+            opts.title = "Team";
+            opts.logoPosition = models.leagues.getLeagueLogoPosition(team.league);
         }
+
+        return re(BaseMainTile, opts);
     }
 })();
 

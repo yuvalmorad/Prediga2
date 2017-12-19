@@ -1020,6 +1020,71 @@ body {
     background: #c5bfbf;
     color: #000;
 }
+
+/* -------  Simulator -------*/
+
+.simulator-match {
+    padding: 0.5rem 1rem;
+    max-width: 700px;
+    margin: 0.5rem auto 0 auto;
+    font-size: 0.625rem;
+    color: #898989;
+    border-bottom: 1px solid #b3b2b2;
+}
+
+.simulator-match:last-child {
+    border-bottom: none;
+}
+
+.simulator-match .team-logo {
+    transform: scale(0.8);
+}
+
+.simulator-match .row1 {
+    display: flex;
+}
+
+.simulator-match .row1 > .left,
+.simulator-match .row1 > .right {
+    width: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.simulator-match .row1 > .center {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.simulator-match .team-name {
+    margin-top: 0.5rem;
+    font-size: 0.75rem;
+}
+
+.simulator-match .form-row-title {
+    font-weight: 300;
+    font-size: 0.625rem;
+    color: #898989;
+}
+
+.simulator-match .form-row-title {
+    text-align: center;
+    margin-bottom: 0.5rem;
+}
+
+.simulator-match .first-score {
+    display: flex;
+    margin-bottom: 0.5rem;
+}
+
+
+
+
+
 /*
 @-webkit-keyframes animateLeftToCenter {
     0%   { transform:translateX(-100%);}
