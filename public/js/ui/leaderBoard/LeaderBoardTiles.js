@@ -60,6 +60,14 @@ component.LeaderBoardTiles = (function(){
             return re(LeaderBoardTile, {disableOpen: disableOpen, user: user, badgeName: badgeName, score: leader.score, trend: trend, borderColor: borderColor, description: description, rank: index + 1, key: user._id});
         });
 
+        if (props.displayFirstTileByUserId) {
+            var tileUserIdIndex = utils.general.findItemInArrBy(tiles, "props.user._id", props.displayFirstTileByUserId, true);
+            if (tileUserIdIndex !== undefined) {
+                var moveToFirstTile = tiles.splice(tileUserIdIndex,1);
+                tiles.unshift(moveToFirstTile);
+            }
+        }
+
         return re("div", {className: "tiles"},
             tiles
         )

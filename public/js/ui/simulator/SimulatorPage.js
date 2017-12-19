@@ -3,6 +3,44 @@ component.SimulatorPage = (function(){
         LeaderBoardTiles = component.LeaderBoardTiles,
         SimulatorMatch = component.SimulatorMatch;
 
+    function createMatchResult(predictionsSimulated, match) {
+        var matchId = match._id;
+        var predictionSimulated = utils.general.findItemInArrBy(predictionsSimulated, "matchId", matchId);
+        //defaults
+        var matchResult = {
+            matchId: matchId
+        };
+        matchResult[GAME.BET_TYPES.TEAM1_GOALS.key] = 0;
+        matchResult[GAME.BET_TYPES.TEAM2_GOALS.key] = 0;
+        matchResult[GAME.BET_TYPES.FIRST_TO_SCORE.key] = "None";
+
+        Object.assign(matchResult, predictionSimulated || {});
+
+        var team1Goals = matchResult[GAME.BET_TYPES.TEAM1_GOALS.key];
+        var team2Goals = matchResult[GAME.BET_TYPES.TEAM2_GOALS.key];
+
+        matchResult[GAME.BET_TYPES.GOAL_DIFF.key] = Math.abs(team1Goals - team2Goals);
+        matchResult[GAME.BET_TYPES.WINNER.key] = team1Goals > team2Goals ? match.team1 :
+            (team1Goals < team2Goals ? match.team2 : "Draw");
+
+        return matchResult;
+    }
+
+    function updateLeaders(leaders, predictions, matchResult, matchId) {
+        var predictionsByMatchId = utils.general.findItemsInArrBy(predictions, "matchId", matchId);
+        predictionsByMatchId.forEach(function(prediction) {
+            var points = utils.general.calculateTotalPoints(prediction, matchResult);
+            if (points) {
+                var leader = utils.general.findItemInArrBy(leaders, "userId", prediction.userId);
+                leader.score += points;
+                var isStrike = utils.general.isPointsStrike(points);
+                if (isStrike) {
+                    leader.strikes += 1;
+                }
+            }
+        });
+    }
+
     var isRequestSent = false;
 
     var SimulatorPage = React.createClass({
@@ -46,30 +84,27 @@ component.SimulatorPage = (function(){
                 return re("div", { className: "content" }, "");
             }
 
+            leaders = JSON.parse(JSON.stringify(leaders)); //copy leaders
+
+            //create matches elements + update leaders points/strikes
             var matchesElems = matches.map(function(match){
                 var matchId = match._id;
-                var predictionSimulated = utils.general.findItemInArrBy(predictionsSimulated, "matchId", matchId);
+                var matchResult = createMatchResult(predictionsSimulated, match);
+                updateLeaders(leaders, userPredictions, matchResult, matchId);
+                updateLeaders(leaders, otherPredictions, matchResult, matchId);
 
-                //defaults
-                var mtachResult = {
-                    matchId: matchId
-                };
-                mtachResult[GAME.BET_TYPES.TEAM1_GOALS.key] = 0;
-                mtachResult[GAME.BET_TYPES.TEAM2_GOALS.key] = 0;
-                mtachResult[GAME.BET_TYPES.FIRST_TO_SCORE.key] = "None";
+                return re(SimulatorMatch, {game: match, matchResult: matchResult, updateMatchChange: that.updateMatchChange});
+            });
 
-                Object.assign(mtachResult, predictionSimulated || {});
+            //sort leaders
+            leaders.sort(function(leader1, leader2){
+               return leader2.score - leader1.score;
+            });
 
-                //update leaders
-                var userPrediction = utils.general.findItemInArrBy(userPredictions, "matchId", matchId);
-                var leader = utils.general.findItemInArrBy(leaders, "userId", userPrediction.userId);
-                //TODO check after update
-                leader
-
-
-
-
-                return re(SimulatorMatch, {game: match, mtachResult: mtachResult, updateMatchChange: that.updateMatchChange});
+            //update place
+            leaders.forEach(function(leader, index){
+                leader.placeBeforeLastGame = leader.placeCurrent;
+                leader.placeCurrent = index + 1;
             });
 
             return re("div", { className: "content" },
@@ -77,7 +112,7 @@ component.SimulatorPage = (function(){
                     re("div", { className: "simulator-matches" },
                         matchesElems
                     ),
-                    re(LeaderBoardTiles, {leaders: leaders, users: users,disableOpen: true})
+                    re(LeaderBoardTiles, {leaders: leaders, users: users, disableOpen: true, displayFirstTileByUserId: props.userId})
                 )
             );
         }
@@ -89,7 +124,8 @@ component.SimulatorPage = (function(){
             users: state.leaderBoard.users,
             matches: state.gamesPredictions.matches,
             userPredictions: state.gamesPredictions.userPredictions,
-            otherPredictions: state.gamesPredictions.otherPredictions
+            otherPredictions: state.gamesPredictions.otherPredictions,
+            userId: state.authentication.userId
         }
     }
 

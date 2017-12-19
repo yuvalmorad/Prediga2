@@ -68,7 +68,7 @@ component.LeaderBoardMatchesHistory = (function(){
                     team1GoalsResult = matchPrediction[GAME.BET_TYPES.TEAM1_GOALS.key],
                     team2GoalsResult = matchPrediction[GAME.BET_TYPES.TEAM2_GOALS.key],
                     score = team1GoalsResult + " - " + team2GoalsResult,
-                    points = utils.general.sumObject( utils.general.calculatePoints(matchPrediction, matchResult));
+                    points = utils.general.calculateTotalPoints(matchPrediction, matchResult);
 
                 return re("div", {className: "leaderboard-match-row", onClick: that.onLeaderboardMatchClicked.bind(that, matchId)},
                     re ("div", {className: "match-date"}, dateStr),

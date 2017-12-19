@@ -139,7 +139,7 @@ component.GamePredictionMainTile = (function(){
             } else {
                 //POST GAME
                 isPostGame = true;
-                var points = utils.general.sumObject( utils.general.calculatePoints(prediction, result));
+                var points = utils.general.calculateTotalPoints(prediction, result);
                 var maxPoints = utils.general.getMaxPoints();
 
                 resultWinner = result[GAME.BET_TYPES.WINNER.key];

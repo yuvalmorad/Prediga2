@@ -3,8 +3,10 @@ utils.general = (function(){
         findItemInArrBy: findItemInArrBy,
         findItemsInArrBy: findItemsInArrBy,
         calculatePoints: calculatePoints,
+        calculateTotalPoints: calculateTotalPoints,
         sumObject: sumObject,
         getMaxPoints: getMaxPoints,
+        isPointsStrike: isPointsStrike,
         updateOrCreateObject: updateOrCreateObject,
         getOtherPredictionsUserIdsByWinner: getOtherPredictionsUserIdsByWinner,
         mapUsersIdsToUsersObjects: mapUsersIdsToUsersObjects,
@@ -95,11 +97,16 @@ utils.general = (function(){
         return newArr;
     }
 
-    function findItemInArrBy(arr, property, val) {
+    function findItemInArrBy(arr, property, val, returnIndex) {
         var i;
         for (i = 0; i < arr.length; i++) {
-            if (arr[i][property] === val) {
-                return arr[i]
+            if (property.indexOf(".") > 0) {
+                var properties = property.split(".");
+                if (arr[i][properties[0]] && arr[i][properties[0]][properties[1]] && arr[i][properties[0]][properties[1]][properties[2]] === val) {
+                    return returnIndex ? i : arr[i];
+                }
+            } else if (arr[i][property] === val) {
+                return returnIndex ? i : arr[i];
             }
         }
     }
@@ -132,6 +139,10 @@ utils.general = (function(){
         return res;
     }
 
+    function calculateTotalPoints(prediction, result) {
+        return sumObject(calculatePoints(prediction, result));
+    }
+
     function sumObject(obj){
         return Object.keys(obj).reduce(function(res, key){
             return res + obj[key];
@@ -143,5 +154,9 @@ utils.general = (function(){
             var points = GAME.BET_TYPES[typeKey].points;
             return res + points;
         }, 0);
+    }
+
+    function isPointsStrike(points) {
+        return points === getMaxPoints();
     }
 })();

@@ -37,7 +37,7 @@ var routePages = (function(){
             displayInTopMenu: true,
             displayInSiteNavigation: true
         },
-      /*  {
+        /*{
             path: "/simulator",
             title: "Simulator",
             name: "simulator",
