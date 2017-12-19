@@ -47,6 +47,9 @@ component.SimulatorPage = (function(){
         getInitialState: function() {
             if (!isRequestSent) {
                 this.props.loadSimulator();
+                if (this.props.leadersStatus === utils.action.REQUEST_STATUS.NOT_LOADED) {
+                    this.props.loadLeaderBoard();
+                }
                 isRequestSent = true;
             }
 
@@ -117,9 +120,10 @@ component.SimulatorPage = (function(){
 
     function mapStateToProps(state){
         return {
-            leaders: state.simulator.leaders,
             matches: state.simulator.matches,
             predictions: state.simulator.predictions,
+            leaders: state.leaderBoard.leaders,
+            leadersStatus: state.leaderBoard.status,
             userId: state.authentication.userId,
             users: state.users.users
         }
@@ -127,7 +131,8 @@ component.SimulatorPage = (function(){
 
     function mapDispatchToProps(dispatch) {
         return {
-            loadSimulator: function(){dispatch(action.simulator.loadSimulator())}
+            loadSimulator: function(){dispatch(action.simulator.loadSimulator())},
+            loadLeaderBoard: function(){dispatch(action.leaderBoard.loadLeaderBoard())}
         }
     }
 

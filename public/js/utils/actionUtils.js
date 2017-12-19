@@ -3,8 +3,9 @@ utils.action = (function(){
         loadWithPredictions: loadWithPredictions,
         updatePrediction: updatePrediction,
         REQUEST_STATUS: {
+            NOT_LOADED: "NOT_LOADED",
             LOADING: "LOADING",
-            SUCCESS_LOADING: "SUCCESS_LOADING",
+            SUCCESS_LOADED: "SUCCESS_LOADED",
             ERROR_LOADING: "ERROR_LOADING"
         }
     };

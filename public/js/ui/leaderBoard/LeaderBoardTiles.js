@@ -49,22 +49,28 @@ component.LeaderBoardTiles = (function(){
             users = props.users,
             disableOpen = props.disableOpen,
             badgesByUserId = getBadgesByUserId(leaders),
-            tiles = leaders.map(function(leader, index){
-                var user = utils.general.findItemInArrBy(users, "_id", leader.userId);
-                var trend = leader.placeBeforeLastGame === -1 ? 0 :  leader.placeBeforeLastGame - leader.placeCurrent;
-                var borderColor = "#a7a4a4";
+            tiles;
 
-                if (trend > 0) {
-                    borderColor = "#00ff00";
-                } else if (trend < 0) {
-                    borderColor = "red";
-                }
+        if (!leaders.length || !users.length) {
+            return re("div", {});
+        }
 
-                var description = leader.strikes + " strikes";
-                var badgeName = badgesByUserId[leader.userId];
+        tiles = leaders.map(function(leader, index){
+            var user = utils.general.findItemInArrBy(users, "_id", leader.userId);
+            var trend = leader.placeBeforeLastGame === -1 ? 0 :  leader.placeBeforeLastGame - leader.placeCurrent;
+            var borderColor = "#a7a4a4";
 
-                return re(LeaderBoardTile, {disableOpen: disableOpen, user: user, badgeName: badgeName, score: leader.score, trend: trend, borderColor: borderColor, description: description, rank: index + 1, key: user._id});
-            });
+            if (trend > 0) {
+                borderColor = "#00ff00";
+            } else if (trend < 0) {
+                borderColor = "red";
+            }
+
+            var description = leader.strikes + " strikes";
+            var badgeName = badgesByUserId[leader.userId];
+
+            return re(LeaderBoardTile, {disableOpen: disableOpen, user: user, badgeName: badgeName, score: leader.score, trend: trend, borderColor: borderColor, description: description, rank: index + 1, key: user._id});
+        });
 
         if (props.displayFirstTileByUserId) {
             var tileUserIdIndex = utils.general.findItemInArrBy(tiles, "props.user._id", props.displayFirstTileByUserId, true);

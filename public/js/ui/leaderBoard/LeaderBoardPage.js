@@ -6,8 +6,8 @@ component.LeaderBoardPage = (function(){
 
     var LeaderBoardPage = React.createClass({
         getInitialState: function() {
-            if (!isLeaderBoardRequestSent) {
-                this.props.loadLeaderBoard();
+            if (!isLeaderBoardRequestSent && this.props.leadersStatus === utils.action.REQUEST_STATUS.NOT_LOADED) {
+                this.props.loadLeaderBoard(this.props.leadersStatus);
                 isLeaderBoardRequestSent = true;
             }
 
@@ -24,6 +24,7 @@ component.LeaderBoardPage = (function(){
     function mapStateToProps(state){
         return {
             leaders: state.leaderBoard.leaders,
+            leadersStatus: state.leaderBoard.status,
             users: state.users.users
         }
     }

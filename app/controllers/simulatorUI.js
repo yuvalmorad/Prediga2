@@ -3,7 +3,6 @@ let app = express.Router();
 let matchService = require('../services/matchService');
 let matchPredictionsService = require('../services/matchPredictionsService');
 let util = require('../utils/util.js');
-let UsersLeaderboardService = require('../services/usersLeaderboardService');
 
 app.get('/', util.isLoggedIn, function (req, res) {
     getData().then(function (simulatorCombined) {
@@ -13,13 +12,11 @@ app.get('/', util.isLoggedIn, function (req, res) {
 
 function getData() {
     return Promise.all([
-        UsersLeaderboardService.getLeaderboardWithNewRegisteredUsers(),
         matchService.findClosedToPredictButNotFinishedMatchesToday()
     ]).then(function (arr) {
-        return matchPredictionsService.findPredictionsByMatchIds(arr[1]).then(function (predictions) {
+        return matchPredictionsService.findPredictionsByMatchIds(arr[0]).then(function (predictions) {
             return {
-                leaderboard: arr[0].leaderboard,
-                matches: arr[1],
+                matches: arr[0],
                 predictions: predictions
             }
         });
