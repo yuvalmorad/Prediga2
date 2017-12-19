@@ -212,6 +212,16 @@ body {
     color: #229eff;
 }
 
+.site-header .right {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.site-header .right .action-button {
+    margin-right: 1rem;
+    font-size: 1.5rem;
+}
+
 .site-header .center {
     width: 46%;
     text-align: center;

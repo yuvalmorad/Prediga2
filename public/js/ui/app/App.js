@@ -14,14 +14,15 @@ component.App = (function(){
         },
 
         render: function(){
-            var path = routerHistory.location.pathname;
-            var currentPage = routePages.getPageByPath(path);
-            var title = currentPage.title;
-            var hideSiteHeader = currentPage.hideSiteHeader;
-            var hideSiteNavigation = currentPage.hideSiteNavigation;
+            var path = routerHistory.location.pathname,
+                currentPage = routePages.getPageByPath(path),
+                title = currentPage.title,
+                hideSiteHeader = currentPage.hideSiteHeader,
+                hideSiteNavigation = currentPage.hideSiteNavigation,
+                siteHeaderActionButtons = currentPage.siteHeaderActionButtons;
 
             return re("div", {className: "main"},
-                re(SiteHeader, {title: title, hide: hideSiteHeader}),
+                re(SiteHeader, {title: title, hide: hideSiteHeader, siteHeaderActionButtons: siteHeaderActionButtons}),
                 re(Pages, {}),
                 re(SiteNavigation, {hide: hideSiteNavigation}),
                 re(TileDialogContainer, {}),

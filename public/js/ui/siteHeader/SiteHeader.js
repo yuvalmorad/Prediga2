@@ -3,14 +3,22 @@ component.SiteHeader = (function(){
 
     var SiteHeader = function (props) {
        var hide = props.hide,
-           title = props.title;
+           title = props.title,
+           siteHeaderActionButtons = props.siteHeaderActionButtons,
+           rightButton;
 
+       if (siteHeaderActionButtons) {
+           var button = siteHeaderActionButtons[0];
+           rightButton = re("a", {className: "action-button", onClick: button.onClick}, button.text);
+       }
        return re("div", { className: "site-header" + (hide ? " hide" : "") },
            re("div", {className: "left"},
                re("a", {className: "menu-button", onClick: props.toggleMenu})
            ),
            re("div", {className: "center"}, title),
-           re("div", {className: "right"})
+           re("div", {className: "right"},
+               rightButton
+           )
        );
     };
 

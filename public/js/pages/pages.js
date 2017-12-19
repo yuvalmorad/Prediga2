@@ -51,7 +51,13 @@ var routePages = (function(){
             title: "Groups",
             name: "groups",
             isAuthenticatedPage: true,
-            component: GroupsPage
+            component: GroupsPage,
+            siteHeaderActionButtons: [
+                {
+                    text: "+",
+                    onClick: function(){}
+                }
+            ]
         },
         {
             path: "/rules",
