@@ -22,23 +22,21 @@ Prediction game using MongoDB, ExpressJS, NodeJS, ReactJS
 - password: `qwerasdfzxcv`
 
 ## Copy DB from heroku to localhost:
-1. Get the config vars from Heroku with:
-  heroku config --app <appname>
-( heroku config --app prediga2 )
-Find the MONGOLAB_URI value. It will be in the form of: mongodb://<username>:<password>@<url>:<port>/<database>
+- Get the config vars from Heroku with:  
+ `heroku config --app <appname>`  
+ e.g. `heroku config --app prediga2`  
+Find the `MONGOLAB_URI` value. It will be in the form of: `mongodb://<username>:<password>@<url>:<port>/<database>`
 
-2. Run the following command to make a copy of the production database to your local working directory:
- Use the values from the config file: 
-  mongodump -h <url>:<port> -d <database> -u <username> -p <password>
-( mongodump -h ds113136.mlab.com:13136 -d heroku_lx301k46 -u heroku_lx301k46 -p 8dfj5o98t7a87n9iicm6t5kdbi )
-mongodump will create the following directory to store the data: dump/<database>/
+- Run the following command to make a copy of the production database to your local working directory.  
+ mongodump will create the following directory to store the data: dump/<database>  
+ Use the values from the config file:     
+`mongodump -h <url>:<port> -d <database> -u <username> -p <password>`  
 
-3. Make sure your local instance of mongod is running.
 
-4. Drop your existing local database with the following command:
-  mongo <dbname> --eval "db.dropDatabase()"
-( mongo localhost:27017/prediga --eval "db.dropDatabase()" )
+- Make sure your local instance of mongod is running.
 
-5. Use mongorestore to put the prod data into your local mongodb.
-  mongorestore -d <dbname> dump/<database>/
-( mongorestore -d localhost:27017/prediga dump/heroku_lx301k46 )
+- Drop your existing local database with the following command:  
+`mongo localhost:27017/prediga --eval "db.dropDatabase()"`
+
+- Use mongorestore to put the prod data into your local mongodb.  
+`mongorestore --host <host> --port <port> --db <dbname> <dumpPath>`
