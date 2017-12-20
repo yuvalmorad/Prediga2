@@ -85,11 +85,10 @@ let self = module.exports = {
         return Promise.all(promises);
     },
     getPredictionsForOtherUsers: function (userId, matchId, me) {
-        let now = new Date();
         return Promise.all([
             typeof(matchId) === 'undefined' ?
-                Match.find({kickofftime: {$lt: now}}) :
-                Match.find({kickofftime: {$lt: now}, matchId: matchId})
+                Match.find({}) :
+                Match.find({matchId: matchId})
         ]).then(function (arr) {
             return Promise.all([
                 self.getPredictionsForOtherUsersInner(arr[0], userId, me),
@@ -102,7 +101,7 @@ let self = module.exports = {
                     mergedPredictions = mergedPredictions.concat.apply([], arr2[0]);
                 }
                 if (arr2[1]) {
-                    mergedPredictions = mergedPredictions.concat.apply([], arr2[1]);
+                    mergedPredictions = mergedPredictions.concat(arr2[1]);
                 }
                 return self.removeSecureFields(mergedPredictions, me).then(function (mergedPredictionsFiltered) {
                     return mergedPredictionsFiltered;
