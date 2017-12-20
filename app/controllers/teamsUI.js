@@ -1,20 +1,21 @@
 let express = require('express');
 let app = express.Router();
 let Team = require('../models/team');
-let TeamPrediction = require('../models/teamPrediction');
+let teamPredictionsService = require('../services/teamPredictionsService');
 let util = require('../utils/util.js');
 let TeamResult = require('../models/teamResult');
 
 app.get('/', util.isLoggedIn, function (req, res) {
-    getData().then(function (teamsCombined) {
+    let user = req.user;
+    getData(user._id).then(function (teamsCombined) {
         res.status(200).json(teamsCombined);
     });
 });
 
-function getData() {
+function getData(me) {
     return Promise.all([
         Team.find({}),
-        TeamPrediction.find({}),
+        teamPredictionsService.getPredictionsByUserId(undefined, false, me),
         TeamResult.find({})
     ]).then(function (arr) {
         return {

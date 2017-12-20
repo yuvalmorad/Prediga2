@@ -77,7 +77,7 @@ let self = module.exports = {
     findClosedToPredictButNotFinishedMatchesToday: function () {
         let deferred = Q.defer();
         let after = new Date();
-        after.setMinutes(- 105);
+        after.setMinutes(-105);
 
         Match.find({
                 kickofftime: {$gte: after}
@@ -87,22 +87,22 @@ let self = module.exports = {
                 sort: {kickofftime: 1},
                 limit: 1
             },
-        function (err, closestMatches) {
-            if (closestMatches.length === 1) {
-                var closestMatchKickofftime = closestMatches[0].kickofftime;
-                var endOfDay = new Date(closestMatchKickofftime);
-                endOfDay.setHours(23,59,59,999);
-                Match.find({
+            function (err, closestMatches) {
+                if (closestMatches.length === 1) {
+                    let closestMatchKickofftime = closestMatches[0].kickofftime;
+                    let endOfDay = new Date(closestMatchKickofftime);
+                    endOfDay.setHours(23, 59, 59, 999);
+                    Match.find({
                             kickofftime: {$gte: after, $lte: endOfDay}
                         },
-                    function (err, results) {
-                        deferred.resolve(results);
-                    });
+                        function (err, results) {
+                            deferred.resolve(results);
+                        });
 
-            } else {
-                deferred.resolve([]);
-            }
-        });
+                } else {
+                    deferred.resolve([]);
+                }
+            });
         return deferred.promise;
     }
 };

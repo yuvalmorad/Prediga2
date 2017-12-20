@@ -1,6 +1,8 @@
 module.exports = {
     okResponse: {"status": "OK"},
-    errorResponse: {"status": "Error", "message": "{0}"},
+    getErrorResponse: function (msg) {
+        return {"status": "Error", "message": msg};
+    },
     isLoggedIn: function (req, res, next) {
         if (req.isAuthenticated()) {
             res.header('userId', req.user.id);

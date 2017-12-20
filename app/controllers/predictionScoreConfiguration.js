@@ -7,7 +7,7 @@ let util = require('../utils/util.js');
 app.get('/', util.isLoggedIn, function (req, res) {
     PredictionScoreConfiguration.find({}, function (err, result) {
         if (err || !result) {
-            res.status(403).json(util.errorResponse.format('error'));
+            res.status(403).json(util.getErrorResponse('error'));
         } else {
             res.status(200).json(result);
         }
@@ -19,7 +19,7 @@ Available only via initial data setup
 app.post('/', util.isAdmin, function (req, res) {
     var predictionScoreConfiguration = req.body.predictionScoreConfiguration;
     if (!predictionScoreConfiguration) {
-        res.status(500).json(util.errorResponse.format('error'));
+        res.status(500).json(util.getErrorResponse('error'));
         return;
     }
 

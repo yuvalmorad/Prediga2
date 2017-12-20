@@ -1,8 +1,13 @@
 let Q = require('q');
-var Match = require('../models/match');
-var MatchPrediction = require('../models/matchPrediction');
+let Match = require('../models/match');
+let MatchPrediction = require('../models/matchPrediction');
 
-var self = module.exports = {
+let self = module.exports = {
+    /**
+     * NOT SECURE API, USED BY /SIMULATOR AND MATCHES ARE FILTERED BEFORE CALLING TO THIS METHOD
+     * @param matches
+     * @returns {*|PromiseLike<any>|Promise}
+     */
     findPredictionsByMatchIds: function (matches) {
         let deferred = Q.defer();
         if (matches && matches.length < 1) {
@@ -54,5 +59,85 @@ var self = module.exports = {
         });
 
         return Promise.all(promises);
+    },
+    removeSecureFields: function (mergedPredictions, me) {
+        let promises = mergedPredictions.map(function (prediction) {
+            if (me === prediction.userId) {
+                return prediction;
+            } else {
+                delete prediction.team1Goals;
+                delete prediction.team2Goals;
+                delete prediction.goalDiff;
+                delete prediction.firstToScore;
+                return prediction;
+            }
+        });
+        return Promise.all(promises);
+    },
+    getPredictionsForOtherUsersInner: function (matches, userId, me) {
+        let promises = matches.map(function (aMatch) {
+            if (userId) {
+                return MatchPrediction.find({matchId: aMatch._id, userId: userId});
+            } else {
+                return MatchPrediction.find({matchId: aMatch._id, userId: {$ne: me}});
+            }
+        });
+        return Promise.all(promises);
+    },
+    getPredictionsForOtherUsers: function (userId, matchId, me) {
+        let now = new Date();
+        return Promise.all([
+            typeof(matchId) === 'undefined' ?
+                Match.find({kickofftime: {$lt: now}}) :
+                Match.find({kickofftime: {$lt: now}, matchId: matchId})
+        ]).then(function (arr) {
+            return Promise.all([
+                self.getPredictionsForOtherUsersInner(arr[0], userId, me),
+                typeof(matchId) === 'undefined' ?
+                    MatchPrediction.find({userId: me}) :
+                    MatchPrediction.find({matchId: matchId, userId: me})
+            ]).then(function (arr2) {
+                let mergedPredictions = [];
+                if (arr2[0]) {
+                    mergedPredictions = mergedPredictions.concat.apply([], arr2[0]);
+                }
+                if (arr2[1]) {
+                    mergedPredictions = mergedPredictions.concat.apply([], arr2[1]);
+                }
+                return self.removeSecureFields(mergedPredictions, me).then(function (mergedPredictionsFiltered) {
+                    return mergedPredictionsFiltered;
+                });
+            });
+        });
+    },
+    getPredictionsByUserId: function (userId, isForMe, me) {
+        let deferred = Q.defer();
+
+        if (isForMe) {
+            MatchPrediction.find({userId: userId}, function (err, aMatchPredictions) {
+                deferred.resolve(aMatchPredictions);
+            });
+        } else {
+            self.getPredictionsForOtherUsers(userId, undefined, me).then(function (aMatchPredictions) {
+                deferred.resolve(aMatchPredictions);
+            });
+        }
+
+        return deferred.promise;
+    },
+    getPredictionsByMatchId: function (matchId, isForMe, me) {
+        let deferred = Q.defer();
+
+        if (isForMe) {
+            MatchPrediction.find({matchId: matchId}, function (err, aMatchPredictions) {
+                deferred.resolve(aMatchPredictions);
+            });
+        } else {
+            self.getPredictionsForOtherUsers(undefined, matchId, me).then(function (aMatchPredictions) {
+                deferred.resolve(aMatchPredictions);
+            });
+        }
+
+        return deferred.promise;
     }
 };

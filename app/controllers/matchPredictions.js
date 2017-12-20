@@ -6,43 +6,51 @@ let util = require('../utils/util.js');
 
 app.get('/:userId', util.isLoggedIn, function (req, res) {
     let userId = req.params.userId;
+
     if (!userId) {
-        res.status(403).json(util.errorResponse.format('provide userId'));
+        res.status(403).json(util.getErrorResponse('provide userId'));
         return;
     }
 
-    MatchPrediction.find({userId: userId}, function (err, obj) {
-        res.status(200).json(obj);
+    let user = req.user;
+    let isForMe = user._id.toString() === userId || typeof(userId) === 'undefined';
+
+    matchPredictionsService.getPredictionsByUserId(userId, isForMe).then(function (result) {
+        res.status(200).json(result);
     });
 });
 
 app.get('/:matchId', util.isLoggedIn, function (req, res) {
     let matchId = req.params.matchId;
     if (!matchId) {
-        res.status(403).json(util.errorResponse.format('provide matchId'));
+        res.status(403).json(util.getErrorResponse('provide matchId'));
         return;
     }
 
-    MatchPrediction.find({matchId: matchId}, function (err, obj) {
-        res.status(200).json(obj);
+    let user = req.user;
+    let isForMe = user._id.toString() === userId || typeof(userId) === 'undefined';
+
+    matchPredictionsService.getPredictionsByMatchId(matchId, isForMe).then(function (result) {
+        res.status(200).json(result);
     });
 });
 
 app.get('/', util.isLoggedIn, function (req, res) {
-    MatchPrediction.find({}, function (err, obj) {
-        res.status(200).json(obj);
+    let user = req.user;
+    matchPredictionsService.getPredictionsByUserId(undefined, false, user._id).then(function (result) {
+        res.status(200).json(result);
     });
 });
 
 app.delete('/:id', util.isAdmin, function (req, res) {
     let id = req.params.id;
     if (!id) {
-        res.status(403).json(util.errorResponse.format('provide id'));
+        res.status(403).json(util.getErrorResponse('provide id'));
         return;
     }
     MatchPrediction.findOneAndRemove({_id: id}, function (err, obj) {
         if (err) {
-            res.status(403).json(util.errorResponse.format('error'));
+            res.status(403).json(util.getErrorResponse('error'));
         } else {
             res.status(200).json(util.okResponse);
         }
@@ -51,12 +59,11 @@ app.delete('/:id', util.isAdmin, function (req, res) {
 
 app.post('/', util.isLoggedIn, function (req, res) {
     let matchPredictions = req.body.matchPredictions;
-    let userId = req.user._id;
     if (!matchPredictions || !Array.isArray(matchPredictions)) {
-        res.status(500).json(util.errorResponse.format('provide array of matchPredictions'));
+        res.status(500).json(util.getErrorResponse('provide array of matchPredictions'));
         return;
     }
-
+    let userId = req.user._id;
     matchPredictionsService.createMatchPredictions(matchPredictions, userId).then(function (obj) {
         res.status(200).json(obj);
     }, function (msg) {

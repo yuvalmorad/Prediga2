@@ -10,7 +10,7 @@ let self = module.exports = {
                 setDefaultsOnInsert: true
             }, function (err, obj) {
                 if (err) {
-                    deferred.resolve(util.errorResponse.format('error'));
+                    deferred.resolve(util.getErrorResponse('error'));
                 } else {
                     deferred.resolve(obj);
                 }

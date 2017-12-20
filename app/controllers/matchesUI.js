@@ -1,20 +1,21 @@
 let express = require('express');
 let app = express.Router();
 let Match = require('../models/match');
-let MatchPrediction = require('../models/matchPrediction');
+let matchPredictionService = require('../services/matchPredictionsService');
 let util = require('../utils/util.js');
 let MatchResult = require('../models/matchResult');
 
 app.get('/', util.isLoggedIn, function (req, res) {
-    getData().then(function (matchesCombined) {
+    let user = req.user;
+    getData(user._id).then(function (matchesCombined) {
         res.status(200).json(matchesCombined);
     });
 });
 
-function getData() {
+function getData(me) {
     return Promise.all([
         Match.find({}),
-        MatchPrediction.find({}),
+        matchPredictionService.getPredictionsByUserId(undefined, false, me),
         MatchResult.find({})
     ]).then(function (arr) {
         return {

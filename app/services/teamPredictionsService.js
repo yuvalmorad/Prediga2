@@ -1,3 +1,4 @@
+let Q = require('q');
 let Team = require('../models/team');
 let TeamPrediction = require('../models/teamPrediction');
 
@@ -24,5 +25,82 @@ let self = module.exports = {
         });
 
         return Promise.all(promises);
+    },
+    removeSecureFields: function (mergedPredictions, me) {
+        let promises = mergedPredictions.map(function (prediction) {
+            if (me === prediction.userId) {
+                return prediction;
+            } else {
+                delete prediction.team;
+                return prediction;
+            }
+
+        });
+        return Promise.all(promises);
+    },
+    getPredictionsForOtherUsersInner: function (teams, userId) {
+        let promises = teams.map(function (aTeam) {
+            if (userId) {
+                return TeamPrediction.find({teamId: aTeam._id, userId: userId});
+            } else {
+                return TeamPrediction.find({teamId: aTeam._id});
+            }
+        });
+        return Promise.all(promises);
+    },
+    getPredictionsForOtherUsers: function (userId, teamId, me) {
+        let now = new Date();
+        return Promise.all([
+            typeof(teamId) === 'undefined' ?
+                Team.find({deadline: {$lt: now}}) : Team.find({deadline: {$lt: now}, teamId: teamId})
+        ]).then(function (arr) {
+            return Promise.all([
+                self.getPredictionsForOtherUsersInner(arr[0], userId, me),
+                typeof(teamId) === 'undefined' ?
+                    TeamPrediction.find({userId: me}) :
+                    TeamPrediction.find({teamId: teamId, userId: me})
+            ]).then(function (arr2) {
+                let mergedPredictions = [];
+                if (arr2[0]) {
+                    mergedPredictions = mergedPredictions.concat.apply([], arr2[0]);
+                }
+                if (arr2[1]) {
+                    mergedPredictions = mergedPredictions.concat.apply([], arr2[1]);
+                }
+                return self.removeSecureFields(mergedPredictions, me).then(function (mergedPredictionsFiltered) {
+                    return mergedPredictionsFiltered;
+                });
+            });
+        });
+    },
+    getPredictionsByUserId: function (userId, isForMe, me) {
+        let deferred = Q.defer();
+
+        if (isForMe) {
+            TeamPrediction.find({userId: userId}, function (err, aTeamPredictions) {
+                deferred.resolve(aTeamPredictions);
+            });
+        } else {
+            self.getPredictionsForOtherUsers(userId, undefined, me).then(function (aTeamPredictions) {
+                deferred.resolve(aTeamPredictions);
+            });
+        }
+
+        return deferred.promise;
+    },
+    getPredictionsByTeamId: function (teamId, isForMe, me) {
+        let deferred = Q.defer();
+
+        if (isForMe) {
+            TeamPrediction.find({teamId: teamId}, function (err, aTeamPredictions) {
+                deferred.resolve(aTeamPredictions);
+            });
+        } else {
+            self.getPredictionsForOtherUsers(undefined, teamId, me).then(function (aTeamPredictions) {
+                deferred.resolve(aTeamPredictions);
+            });
+        }
+
+        return deferred.promise;
     }
 };

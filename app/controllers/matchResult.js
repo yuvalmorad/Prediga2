@@ -12,12 +12,12 @@ app.get('/', util.isLoggedIn, function (req, res) {
 app.get('/:matchId', util.isLoggedIn, function (req, res) {
     let matchId = req.params.matchId;
     if (!matchId) {
-        res.status(500).json(util.errorResponse.format('provide matchId'));
+        res.status(500).json(util.getErrorResponse('provide matchId'));
         return;
     }
     MatchResult.findOne({matchId: matchId}, function (err, obj) {
         if (err || !obj) {
-            res.status(403).json(util.errorResponse.format('no match result'));
+            res.status(403).json(util.getErrorResponse('no match result'));
         } else {
             res.status(200).json(obj);
         }
@@ -27,7 +27,7 @@ app.get('/:matchId', util.isLoggedIn, function (req, res) {
 app.delete('/:matchId', util.isAdmin, function (req, res) {
     let matchId = req.params.matchId;
     if (!matchId) {
-        res.status(500).json(util.errorResponse.format('provide matchId'));
+        res.status(500).json(util.getErrorResponse('provide matchId'));
         return;
     }
     MatchResult.findOneAndRemove({matchId: matchId}, function (err, obj) {
