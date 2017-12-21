@@ -265,6 +265,7 @@ body {
     transition: transform 0.25s;
     color: #c5c1c1;
     padding-top: 0.5rem;
+    z-index: 100;
 }
 
 .menu.open {
