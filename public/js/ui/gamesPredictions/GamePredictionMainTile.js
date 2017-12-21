@@ -97,12 +97,7 @@ component.GamePredictionMainTile = (function(){
                 } else if (state.isGamePlaying) {
                     dateStr = state.timePlaying;
                 } else {
-                    var dateObj = new Date(kickofftime);
-                    var minutes = dateObj.getMinutes();
-                    if (minutes.toString().length === 1) {
-                        minutes = "0" + minutes;
-                    }
-                    dateStr = dateObj.getHours() + ":" + minutes;
+                    dateStr = utils.general.formatHourMinutesTime(kickofftime);
                 }
 
                 gameDate = re("div", {}, dateStr);

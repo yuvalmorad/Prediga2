@@ -54,7 +54,8 @@ component.SimulatorPage = (function(){
             }
 
             return {
-                predictionsSimulated: [] //{matchId: "", team1Goals: 1, ...}
+                predictionsSimulated: [], //{matchId: "", team1Goals: 1, ...}
+                isMatchesDropDownMenuOpen: false
             };
         },
 
@@ -71,15 +72,27 @@ component.SimulatorPage = (function(){
             this.forceUpdate();
         },
 
+        toggleMatchesDropDownMenu: function() {
+            this.setState({isMatchesDropDownMenuOpen: !this.state.isMatchesDropDownMenuOpen});
+        },
+
+        onDropDownMatchClicked: function(matchId) {
+            this.setState({selectedMatchId: matchId, isMatchesDropDownMenuOpen: false, predictionsSimulated: []});
+        },
+
         render: function() {
             var that = this,
                 props = this.props,
                 state = this.state,
+                isMatchesDropDownMenuOpen = state.isMatchesDropDownMenuOpen,
+                selectedMatchId = state.selectedMatchId,
                 predictionsSimulated = state.predictionsSimulated,
                 leaders = props.leaders,
                 users = props.users,
                 matches = props.matches,
-                predictions = props.predictions;
+                predictions = props.predictions,
+                matchElem,
+                dropDownButton;
 
             if (!leaders.length || !matches.length) {
                 return re("div", { className: "content" }, "");
@@ -87,14 +100,31 @@ component.SimulatorPage = (function(){
 
             leaders = JSON.parse(JSON.stringify(leaders)); //copy leaders
 
-            //create matches elements + update leaders points/strikes
-            var matchesElems = matches.map(function(match){
-                var matchId = match._id;
+            if (selectedMatchId) {
+                var match = utils.general.findItemInArrBy(matches, "_id", selectedMatchId);
                 var matchResult = createMatchResult(predictionsSimulated, match);
-                updateLeaders(leaders, predictions, matchResult, matchId);
+                updateLeaders(leaders, predictions, matchResult, selectedMatchId);
+                matchElem = re(SimulatorMatch, {game: match, matchResult: matchResult, updateMatchChange: that.updateMatchChange});
+            }
 
-                return re(SimulatorMatch, {game: match, matchResult: matchResult, updateMatchChange: that.updateMatchChange});
+            dropDownButton = re("div", {className: "matches-dropdown-button"},
+                re("a", {onClick: this.toggleMatchesDropDownMenu}, "Select Match")
+            );
+
+            var dropDownMatchesElems = matches.map(function(match){
+                var matchId = match._id;
+                var isSelected = selectedMatchId ? selectedMatchId === matchId : false;
+                return re("div", {className: "match-row" + (isSelected ? " selected": ""), onClick: that.onDropDownMatchClicked.bind(that, matchId), key: "dropdownMatch_" + matchId},
+                    re("div", {}, utils.general.formatHourMinutesTime(match.kickofftime)),
+                    re("div", {}, match.team1 + " - " + match.team2)
+                );
             });
+
+            dropDownMatchesElems.unshift(
+                re("div", {className: "match-row" + (selectedMatchId ? "": " selected"), onClick: that.onDropDownMatchClicked.bind(that, ""), key: "dropdownMatch_NONE"},
+                    re("div", {}, "None")
+                )
+            );
 
             //sort leaders
             leaders.sort(function(leader1, leader2){
@@ -107,10 +137,16 @@ component.SimulatorPage = (function(){
                 leader.placeCurrent = index + 1;
             });
 
-            return re("div", { className: "content" },
+            return re("div", { className: "content simulator-page" },
+                re("div", {className: "matches-dropdown-menu" + (isMatchesDropDownMenuOpen ? "" : " hide")},
+                    re("div", {className: "matches"},
+                        dropDownMatchesElems
+                    )
+                ),
                 re("div", {className: "scroll-container"},
                     re("div", { className: "simulator-matches" },
-                        matchesElems
+                        dropDownButton,
+                        matchElem
                     ),
                     re(LeaderBoardTiles, {leaders: leaders, users: users, disableOpen: true, displayFirstTileByUserId: props.userId})
                 )

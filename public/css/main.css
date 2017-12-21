@@ -1033,6 +1033,68 @@ body {
 
 /* -------  Simulator -------*/
 
+.simulator-matches {
+    min-height: 1.7rem;
+    position: relative;
+}
+
+.simulator-matches .matches-dropdown-button {
+    margin: 0 auto;
+    color: #868080;
+    box-sizing: border-box;
+    text-align: center;
+    position: absolute;
+    top: 0;
+    left: 0.5rem;
+    right: 0.5rem;
+}
+
+.simulator-matches .matches-dropdown-button a {
+    background-color: #23a2ff;
+    color: #fff;
+    padding: 0.2rem 0.5rem;
+    font-size: 0.75rem;
+}
+
+.simulator-page .matches-dropdown-menu {
+    position: absolute;
+    top: 3rem;
+    left: 0.5rem;
+    right: 0.5rem;
+    background-color: #d4d4d4;
+    z-index: 5;
+    border: 1px solid #848080;
+    box-shadow: 0 6px 10px -3px #484545;
+    max-height: 15rem;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.simulator-page .matches-dropdown-menu .match-row {
+    height: 3rem;
+    display: flex;
+    align-items: center;
+}
+
+.simulator-page .matches-dropdown-menu .match-row:nth-child(2n-1) {
+    background-color: #c1bdbd;
+}
+
+.simulator-page .matches-dropdown-menu .match-row.selected {
+    background-color: #66b9f9;
+    color: #fff;
+}
+
+.matches-dropdown-menu .match-row > div:first-child {
+    flex: 1;
+    text-align: center;
+}
+
+.matches-dropdown-menu .match-row > div:last-child {
+    flex: 5;
+    text-align: center;
+}
+
 .simulator-match {
     padding: 0.5rem 1rem;
     max-width: 700px;

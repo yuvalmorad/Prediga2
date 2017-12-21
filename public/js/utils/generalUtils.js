@@ -15,8 +15,18 @@ utils.general = (function(){
         getDrawFromObject: getDrawFromObject,
         isGameClosed: isGameClosed,
         formatMinutesSecondsTime: formatMinutesSecondsTime,
+        formatHourMinutesTime: formatHourMinutesTime,
         getLeagueLogoURL: getLeagueLogoURL
     };
+
+    function formatHourMinutesTime(date) {
+        var dateObj = new Date(date);
+        var hours = dateObj.getHours();
+        var minutes = dateObj.getMinutes();
+        hours = addZeroToTimeIfNeeded(hours);
+        minutes = addZeroToTimeIfNeeded(minutes);
+        return hours + ":" + minutes;
+    }
 
     function getLeagueLogoURL(league) {
         return "url('../images/sprites/" + league + "_teams.png')"
