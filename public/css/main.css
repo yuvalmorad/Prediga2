@@ -666,7 +666,7 @@ body {
     bottom: 0;
     width: 4px;
     background-position: right;
-    background-size: 100% 12px;
+    background-size: 100% 36px;
     background-repeat: repeat-y;
 }
 
@@ -989,18 +989,10 @@ body {
 }
 
 .tile-dialog-container.GamePredictionTileDialog .dialog-button {
-    height: calc((100% - 30rem)/2);
-}
-
-.tile-dialog-container.GamePredictionTileDialog.hide-mutual-friends .dialog-button {
     height: calc((100% - 20.5rem)/2);
 }
 
 .tile-dialog-container .game-prediction-tile.tile {
-    height: 30rem;
-}
-
-.tile-dialog-container.hide-mutual-friends .game-prediction-tile.tile {
     height: 20.5rem;
 }
 
@@ -1029,8 +1021,7 @@ body {
     margin-bottom: 1rem;
 }
 
-.game-prediction-tile .goals-predictions,
-.game-prediction-tile .mutual-friends {
+.game-prediction-tile .goals-predictions {
     margin-bottom: 1rem;
     display: flex;
     justify-content: space-between;
@@ -1055,33 +1046,6 @@ body {
 .game-prediction-tile .points.right {
     left: -1.2rem;
     right: auto;
-}
-
-.game-prediction-tile .mutual-friends > div{
-    flex: 1;
-    position: relative;
-}
-
-.game-prediction-tile .mutual-friends .mutual-friends-center {
-    transform: translateX(-50%);
-    position: relative;
-    left: 50%;
-}
-
-.game-prediction-tile .mutual-friends img,
-.game-prediction-tile .mutual-friends .user-avatar,
-.game-prediction-tile .mutual-friends .additional-mutual-friends{
-    border-radius: 50%;
-    border: 2px solid #fff;
-    box-sizing: border-box;
-    position: absolute;
-}
-
-.game-prediction-tile .mutual-friends .additional-mutual-friends {
-    text-align: center;
-    font-size: 0.75rem;
-    background: #c5bfbf;
-    color: #000;
 }
 
 /* -------  Simulator -------*/

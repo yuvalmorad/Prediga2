@@ -1,60 +1,8 @@
 component.GamePredictionFormTile = (function(){
-    var connect = ReactRedux.connect,
-        RadioGroup = component.RadioGroup,
+    var RadioGroup = component.RadioGroup,
         InputNumber = component.InputNumber;
 
-    var IMAGE_SIZE = 3;
-    var TRANSFORM_BACK = 2.5;
-    var USERS_IN_ROW = 2;
-    var NUM_OF_ROWS = 3;
-
-    function mapToMutualFriends(_users, reverse) {
-        var maxUsers = (NUM_OF_ROWS * USERS_IN_ROW) - 1;
-        var users = _users.splice(0, maxUsers);
-        if (_users.length) {
-            //left users
-            users.push({additionalFriends: _users.length});
-        }
-        return users.map(function(user, index){
-            var leftRightProperty = reverse ? "right" : "left";
-            var style = {
-                zIndex: (users.length - index),
-                top: (Math.floor(index / USERS_IN_ROW) * TRANSFORM_BACK) + "rem",
-                width: IMAGE_SIZE + "rem",
-                height: IMAGE_SIZE + "rem"
-            };
-
-            style[leftRightProperty] = ((index % USERS_IN_ROW) * TRANSFORM_BACK) + "rem";
-            if (user.style) {
-                Object.assign(style, user.style);
-            }
-
-            if (user.additionalFriends) {
-                //not a user
-                style["lineHeight"] = IMAGE_SIZE + "rem";
-                return re("div", {className: "additional-mutual-friends", style: style, key: "mutualFriendImg_" + index}, "+" + user.additionalFriends);
-            } else {
-                var imageElem;
-                if (user.photo) {
-                    imageElem = re("img", {src: user.photo, style: style, key: "mutualFriendImg_" + index});
-                } else {
-                    style.backgroundImage = SPRITES.ASSETS;
-                    style.backgroundPosition = "-108px 0";
-                    imageElem  = re("div", {className: "user-avatar", style: style});
-                }
-
-                return imageElem;
-            }
-        });
-    }
-
-    function getMutualFriendsWidth(usersLength) {
-        var width = usersLength * IMAGE_SIZE - (usersLength - 1) * (IMAGE_SIZE - TRANSFORM_BACK);
-
-        return width + "rem";
-    }
-
-    var GamePredictionFormTile = React.createClass({
+    return React.createClass({
         onRadioGroupChanged: function(groupName, radioName) {
             var prediction = {};
             prediction[groupName] = radioName;
@@ -69,43 +17,15 @@ component.GamePredictionFormTile = (function(){
             this.props.updateGameForm(prediction);
         },
 
-        renderMutualFriends: function(mutualFriendsTeam1, mutualFriendsDraw, mutualFriendsTeam2, mutualFriendsDrawWidth) {
-            return re("div", {className: "mutual-friends"},
-                re("div", {},
-                    re("div", {},
-                        mutualFriendsTeam1
-                    )
-                ),
-                re("div", {},
-                    re("div", {className: "mutual-friends-center", style: {width: mutualFriendsDrawWidth}},
-                        mutualFriendsDraw
-                    )
-                ),
-                re("div", {},
-                    re("div", {},
-                        mutualFriendsTeam2
-                    )
-                )
-            );
-        },
-
         render: function() {
             var props = this.props,
                 game = props.game,
                 prediction = props.prediction,
-                otherMatchPredictions = props.otherMatchPredictions,
-                users = props.users,
-                hideMutualFriends = props.hideMutualFriends,
-                userId = props.userId,
                 predictionWinner = prediction && prediction[GAME.BET_TYPES.WINNER.key],
                 predictionFirstToScore = prediction && prediction[GAME.BET_TYPES.FIRST_TO_SCORE.key],
                 predictionTeam1Goals = prediction && prediction[GAME.BET_TYPES.TEAM1_GOALS.key],
                 predictionTeam2Goals = prediction && prediction[GAME.BET_TYPES.TEAM2_GOALS.key],
                 predictionGoalDiff = prediction && prediction[GAME.BET_TYPES.GOAL_DIFF.key],
-                otherPredictionByWinner = utils.general.getOtherPredictionsUserIdsByWinner(otherMatchPredictions),
-                otherPredctionsTeam1 = utils.general.mapUsersIdsToUsersObjects(otherPredictionByWinner[game.team1] || [], users),
-                otherPredctionsDraw = utils.general.mapUsersIdsToUsersObjects(utils.general.getDrawFromObject(otherPredictionByWinner) || [], users),
-                otherPredctionsTeam2 = utils.general.mapUsersIdsToUsersObjects(otherPredictionByWinner[game.team2] || [], users),
                 result = props.result,
                 team1 = models.leagues.getTeamByTeamName(game.team1),
                 team2 = models.leagues.getTeamByTeamName(game.team2),
@@ -119,40 +39,7 @@ component.GamePredictionFormTile = (function(){
                 points = {},
                 team1GoalsPoints,
                 diffGoalsPoints,
-                team2GoalsPoints,
-                mutualFriendsElem,
-                mtutalFriendsTitleElem;
-
-            if (!hideMutualFriends) {
-                if (predictionWinner) {
-                    var myUser = utils.general.findItemInArrBy(users, "_id", userId);
-                    var myUserObj = {photo: myUser.photo};
-
-                    if (predictionWinner === game.team1) {
-                        myUserObj.style = {borderColor: team1Color};
-                        otherPredctionsTeam1.unshift(myUserObj);
-                    }
-
-                    if (utils.general.isMatchDraw(predictionWinner)) {
-                        myUserObj.style = {borderColor: COLORS.DRAW_COLOR};
-                        otherPredctionsDraw.unshift(myUserObj);
-                    }
-                    if (predictionWinner === game.team2) {
-                        myUserObj.style = {borderColor: team2Color};
-                        otherPredctionsTeam2.unshift(myUserObj);
-                    }
-                }
-
-                var mutualFriendsDraw = mapToMutualFriends(otherPredctionsDraw, false);
-                mutualFriendsElem = this.renderMutualFriends(
-                    mapToMutualFriends(otherPredctionsTeam1),
-                    mutualFriendsDraw,
-                    mapToMutualFriends(otherPredctionsTeam2, true),
-                    getMutualFriendsWidth(mutualFriendsDraw.length)
-                );
-
-                mtutalFriendsTitleElem = re("div", {className: "form-row-title"}, "Friends");
-            }
+                team2GoalsPoints;
 
             if (result) {
                 //POST_GAME
@@ -193,21 +80,10 @@ component.GamePredictionFormTile = (function(){
                         {bgColor: COLORS.DRAW_COLOR, text: "None", name: "None", res: predictionFirstToScore, isDefault: true},
                         {bgColor: team2Color, textColor: team2SecondColor, text: team2Name, name: team2Name, res: predictionFirstToScore}
                     ]}
-                ),
-                mtutalFriendsTitleElem,
-                mutualFriendsElem
+                )
             );
         }
     });
-
-    function mapStateToProps(state){
-        return {
-            users: state.users.users,
-            userId: state.authentication.userId
-        }
-    }
-
-    return connect(mapStateToProps)(GamePredictionFormTile);
 })();
 
 
