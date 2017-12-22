@@ -228,7 +228,7 @@
 
     var league = {
         id: "WorldCup2018",
-        name: "World Cup 2018",
+        name: "World Cup",
         logo: "worldcup2018.jpg",
         teams: teams,
         logoPosition: "-56px -672px"

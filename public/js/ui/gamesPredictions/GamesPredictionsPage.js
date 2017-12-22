@@ -1,7 +1,9 @@
 component.GamesPredictionsPage = (function(){
-    var connect = ReactRedux.connect;
-    var GamePredictionTile = component.GamePredictionTile,
-        ImageButton = component.ImageButton;
+    var connect = ReactRedux.connect,
+        GamePredictionTile = component.GamePredictionTile,
+        ImageButton = component.ImageButton,
+        LeaguesSubHeader = component.LeaguesSubHeader;
+
 
     var isGamesPredictionsRequestSent = false;
 
@@ -136,19 +138,32 @@ component.GamesPredictionsPage = (function(){
             this.tilesElem = tilesElem;
         },
 
+        onLeagueClicked: function(selectedLeagueId) {
+            this.props.setSelectedLeagueId(selectedLeagueId);
+            this.setState({offsetPageIndex: 0});
+        },
+
         render: function() {
             var props = this.props,
+                state = this.state,
                 matches = props.matches,
                 userPredictions = props.userPredictions,
                 otherPredictions = props.otherPredictions,
                 results = props.results,
-                offsetPageIndex = this.state.offsetPageIndex,
+                offsetPageIndex = state.offsetPageIndex,
                 pages = [],
                 tilesInPage = [],
                 closestIndex,
-                closestPage;
+                closestPage,
+                leagues = props.leagues,
+                selectedLeagueId = props.selectedLeagueId;
 
             if (matches.length) {
+                //filter matches with selected league id
+                matches = matches.filter(function(match){
+                    return match.league === selectedLeagueId;
+                });
+
                 matches.sort(function (game1, game2) {
                     return new Date(game1.kickofftime) - new Date(game2.kickofftime);
                 });
@@ -190,10 +205,11 @@ component.GamesPredictionsPage = (function(){
             var isLeftButtonDisabled = closestIndex === 0;
             var isRightButtonDisabled = closestIndex === pages.length - 1;
 
-            return re("div", { className: "games-prediction-page content hasTilesHeader"},
+            return re("div", { className: "games-prediction-page content hasTilesHeader hasSubHeader"},
+                re(LeaguesSubHeader, {leagues: leagues, selectedLeagueId: selectedLeagueId, onLeagueClicked: this.onLeagueClicked}),
                 re("div", {className: "tiles-header"},
                     re(ImageButton, {onClick: this.onPreviousPage, disabled: isLeftButtonDisabled, backgroundPosition: "-19px 0px", backgroundPositionDisabled: "-28px 0px"}),
-                    re("div", {className: "title"}, closestPage ? models.leagues.getLeagueName(closestPage.league) + ": " + closestPage.type : ""),
+                    re("div", {className: "title"}, closestPage ? closestPage.type : ""),
                     re(ImageButton, {onClick: this.onNextPage, disabled: isRightButtonDisabled, backgroundPosition: "0 0", backgroundPositionDisabled: "-10px 0px"})
                 ),
                 re("div", {ref: this.assignTilesRef, className: "tiles" + (props.isShowTileDialog ? " no-scroll" : "")},
@@ -209,13 +225,16 @@ component.GamesPredictionsPage = (function(){
             userPredictions: state.gamesPredictions.userPredictions,
             otherPredictions: state.gamesPredictions.otherPredictions,
             results: state.gamesPredictions.results,
-            isShowTileDialog: state.general.isShowTileDialog
+            isShowTileDialog: state.general.isShowTileDialog,
+            selectedLeagueId: state.leagues.selectedLeagueId,
+            leagues: state.leagues.leagues
         }
     }
 
     function mapDispatchToProps(dispatch) {
         return {
-            loadGamesPredictions: function(){dispatch(action.gamesPredictions.loadGames())}
+            loadGamesPredictions: function(){dispatch(action.gamesPredictions.loadGames())},
+            setSelectedLeagueId: function(leagueId){dispatch(action.leagues.setSelectedLeagueId(leagueId))},
         }
     }
 

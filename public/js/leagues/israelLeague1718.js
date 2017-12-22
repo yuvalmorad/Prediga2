@@ -102,7 +102,7 @@
 
     var league = {
         id: "IsraeliLeague18",
-        name: "Israel League 17-18",
+        name: "Israel",
         teams: teams,
         logoPosition: "-784px 0"
     };

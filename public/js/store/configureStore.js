@@ -6,6 +6,7 @@ var store = (function(){
 
     var rootReducer = combineReducers({
         authentication: reducer.authentication,
+        leagues: reducer.leagues,
         general: reducer.general,
         gamesPredictions: reducer.gamesPredictions,
         teamsPredictions: reducer.teamsPredictions,

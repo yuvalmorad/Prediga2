@@ -1,6 +1,7 @@
 component.TeamsPredictionsPage = (function(){
     var connect = ReactRedux.connect,
-        TeamPredictionTile = component.TeamPredictionTile;
+        TeamPredictionTile = component.TeamPredictionTile,
+        LeaguesSubHeader = component.LeaguesSubHeader;
 
     var isTeamsPredictionsRequestSent = false;
 
@@ -14,9 +15,21 @@ component.TeamsPredictionsPage = (function(){
             return {};
         },
 
+        onLeagueClicked: function(selectedLeagueId) {
+            this.props.setSelectedLeagueId(selectedLeagueId);
+        },
+
         render: function() {
-            var teams = this.props.teams,
-                userPredictions = this.props.userPredictions;
+            var props = this.props,
+                teams = props.teams,
+                userPredictions = props.userPredictions,
+                selectedLeagueId = props.selectedLeagueId,
+                leagues = props.leagues;
+
+            //filter teams with selected league id
+            teams = teams.filter(function(team){
+                return team.league === selectedLeagueId;
+            });
 
             var tiles = teams.sort(function(team1, team2){
                 return new Date(team1.deadline) - new Date(team2.deadline);
@@ -26,8 +39,9 @@ component.TeamsPredictionsPage = (function(){
                 return re(TeamPredictionTile, {team: team, prediction: prediction, key: teamId})
             });
 
-            return re("div", { className: "content" },
-                re("div", {className: "tiles" + (this.props.isShowTileDialog ? " no-scroll" : "")},
+            return re("div", { className: "content hasSubHeader" },
+                re(LeaguesSubHeader, {leagues: leagues, selectedLeagueId: selectedLeagueId, onLeagueClicked: this.onLeagueClicked}),
+                re("div", {className: "tiles" + (props.isShowTileDialog ? " no-scroll" : "")},
                     tiles
                 )
             );
@@ -38,13 +52,16 @@ component.TeamsPredictionsPage = (function(){
         return {
             teams: state.teamsPredictions.teams,
             userPredictions: state.teamsPredictions.userPredictions,
-            isShowTileDialog: state.general.isShowTileDialog
+            isShowTileDialog: state.general.isShowTileDialog,
+            selectedLeagueId: state.leagues.selectedLeagueId,
+            leagues: state.leagues.leagues
         }
     }
 
     function mapDispatchToProps(dispatch) {
         return {
-            loadTeamsPredictions: function(){dispatch(action.teamsPredictions.loadTeams())}
+            loadTeamsPredictions: function(){dispatch(action.teamsPredictions.loadTeams())},
+            setSelectedLeagueId: function(leagueId){dispatch(action.leagues.setSelectedLeagueId(leagueId))},
         }
     }
 

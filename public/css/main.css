@@ -128,9 +128,41 @@ body {
     height: 2rem;
 }
 
+.content > .subHeader {
+    height: 1.5rem;
+    background-color: #009fff;
+}
+
+.content > .leagues-sub-header {
+    display: flex;
+    color: #ccc;
+    font-size: 0.875rem;
+    padding: 0 0.5rem;
+}
+
+.leagues-sub-header .league-item {
+    line-height: 1.5rem;
+    flex: 1;
+    text-align: center;
+}
+
+.leagues-sub-header .league-item.selected {
+    color: #fff;
+    border-bottom: 3px solid #fff;
+}
+
 .page > .content.hasTilesHeader > .tiles {
     height: calc(100% - 2rem);
 }
+
+.page > .content.hasSubHeader > .tiles {
+    height: calc(100% - 1.5rem);
+}
+
+.page > .content.hasTilesHeader.hasSubHeader > .tiles {
+    height: calc(100% - 3.5rem);
+}
+
 
 /* -------  Login Page -------*/
 

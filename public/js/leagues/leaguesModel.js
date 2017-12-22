@@ -5,8 +5,19 @@ models.leagues = (function(){
         getLeagueLogoPosition: getLeagueLogoPosition,
         getLeagueName: getLeagueName,
         getTeamsByLeagueName: getTeamsByLeagueName,
-        getTeamByTeamName: getTeamByTeamName
+        getTeamByTeamName: getTeamByTeamName,
+        getAllLeagues: getAllLeagues
     };
+
+    function getAllLeagues() {
+        return Object.keys(leagues).map(function(leagueId){
+            var league = leagues[leagueId];
+            return {
+                id: league.id,
+                name: league.name
+            }
+        })
+    }
 
     function addLeague(league) {
         league.teams = mapTeamsByName(league.teams, league.id);
