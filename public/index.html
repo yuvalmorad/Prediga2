@@ -6,8 +6,8 @@
     <meta name="msapplication-tap-highlight" content="no">
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
     <title>Prediction Game</title>
-    <link href="css/main.css" rel="stylesheet"/>
-    <link rel="manifest" href="config/manifest.json">
+    <link href="/css/main.css" rel="stylesheet"/>
+    <link rel="manifest" href="/config/manifest.json">
 
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -27,126 +27,126 @@
 </head>
 <body>
     <div id="root"></div>
-    <!-- build:js js/min.js -->
+    <!-- build:js /js/min.js -->
 
     <!-- Libs -->
-    <script src="lib/react.min.js"></script>
-    <script src="lib/react-dom.min.js"></script>
+    <script src="/lib/react.min.js"></script>
+    <script src="/lib/react-dom.min.js"></script>
 
-    <script src="lib/redux.min.js"></script>
-    <script src="lib/react-redux.min.js"></script>
+    <script src="/lib/redux.min.js"></script>
+    <script src="/lib/react-redux.min.js"></script>
 
-    <script src="lib/react-router-dom.min.js"></script>
+    <script src="/lib/react-router-dom.min.js"></script>
 
-    <script src="lib/redux-thunk.min.js"></script>
-    <script src="lib/history.min.js"></script>
-    <script src="lib/axios.min.js"></script>
+    <script src="/lib/redux-thunk.min.js"></script>
+    <script src="/lib/history.min.js"></script>
+    <script src="/lib/axios.min.js"></script>
 
     <!-- axios proxy-->
-    <script src="js/axiosProxy/axiosProxy.js"></script>
+    <script src="/js/axiosProxy/axiosProxy.js"></script>
 
     <!-- init -->
-    <script src="js/init.js"></script>
-    <script src="js/constants.js"></script>
-    <script src="js/utils/actionUtils.js"></script>
-    <script src="js/utils/generalUtils.js"></script>
+    <script src="/js/init.js"></script>
+    <script src="/js/constants.js"></script>
+    <script src="/js/utils/actionUtils.js"></script>
+    <script src="/js/utils/generalUtils.js"></script>
 
-    <script src="js/leagues/leaguesModel.js"></script>
-    <script src="js/leagues/israelLeague1718.js"></script>
-    <script src="js/leagues/worldcup18.js"></script>
+    <script src="/js/leagues/leaguesModel.js"></script>
+    <script src="/js/leagues/israelLeague1718.js"></script>
+    <script src="/js/leagues/worldcup18.js"></script>
 
     <!-- services -->
-    <script src="js/services/users.service.js"></script>
-    <script src="js/services/gamesPredictions.service.js"></script>
-    <script src="js/services/teamsPredictions.service.js"></script>
-    <script src="js/services/leaderBoard.service.js"></script>
-    <script src="js/services/authentication.service.js"></script>
-    <script src="js/services/simulator.service.js"></script>
+    <script src="/js/services/users.service.js"></script>
+    <script src="/js/services/gamesPredictions.service.js"></script>
+    <script src="/js/services/teamsPredictions.service.js"></script>
+    <script src="/js/services/leaderBoard.service.js"></script>
+    <script src="/js/services/authentication.service.js"></script>
+    <script src="/js/services/simulator.service.js"></script>
 
     <!-- actions -->
-    <script src="js/actions/users.action.js"></script>
-    <script src="js/actions/authentication.action.js"></script>
-    <script src="js/actions/leagues.action.js"></script>
-    <script src="js/actions/general.action.js"></script>
-    <script src="js/actions/gamesPredictions.action.js"></script>
-    <script src="js/actions/teamsPredictions.action.js"></script>
-    <script src="js/actions/leaderBoard.action.js"></script>
-    <script src="js/actions/simulator.action.js"></script>
+    <script src="/js/actions/users.action.js"></script>
+    <script src="/js/actions/authentication.action.js"></script>
+    <script src="/js/actions/leagues.action.js"></script>
+    <script src="/js/actions/general.action.js"></script>
+    <script src="/js/actions/gamesPredictions.action.js"></script>
+    <script src="/js/actions/teamsPredictions.action.js"></script>
+    <script src="/js/actions/leaderBoard.action.js"></script>
+    <script src="/js/actions/simulator.action.js"></script>
 
     <!-- reducers -->
-    <script src="js/reducers/users.reducer.js"></script>
-    <script src="js/reducers/authentication.reducer.js"></script>
-    <script src="js/reducers/leagues.reducer.js"></script>
-    <script src="js/reducers/general.reducer.js"></script>
-    <script src="js/reducers/gamesPredictions.reducer.js"></script>
-    <script src="js/reducers/teamsPredictions.reducer.js"></script>
-    <script src="js/reducers/leaderBoard.reducer.js"></script>
-    <script src="js/reducers/simulator.reducer.js"></script>
+    <script src="/js/reducers/users.reducer.js"></script>
+    <script src="/js/reducers/authentication.reducer.js"></script>
+    <script src="/js/reducers/leagues.reducer.js"></script>
+    <script src="/js/reducers/general.reducer.js"></script>
+    <script src="/js/reducers/gamesPredictions.reducer.js"></script>
+    <script src="/js/reducers/teamsPredictions.reducer.js"></script>
+    <script src="/js/reducers/leaderBoard.reducer.js"></script>
+    <script src="/js/reducers/simulator.reducer.js"></script>
 
     <!-- store -->
-    <script src="js/store/configureStore.js"></script>
+    <script src="/js/store/configureStore.js"></script>
 
     <!-- UI -->
-    <script src="js/ui/authenticateRoute/AuthenticateRoute.js"></script>
+    <script src="/js/ui/authenticateRoute/AuthenticateRoute.js"></script>
 
-    <script src="js/ui/loading/Loading.js"></script>
+    <script src="/js/ui/loading/Loading.js"></script>
 
     <!-- Components -->
-    <script src="js/ui/components/imageButton/ImageButton.js"></script>
-    <script src="js/ui/components/leaguesSubHeader/LeaguesSubHeader.js"></script>
-    <script src="js/ui/components/tile/TileDialogContainer.js"></script>
-    <script src="js/ui/components/imagesPagination/ImagesPagination.js"></script>
-    <script src="js/ui/components/inputNumber/InputNumber.js"></script>
-    <script src="js/ui/components/radioButton/RadioButton.js"></script>
-    <script src="js/ui/components/radioGroup/RadioGroup.js"></script>
-    <script src="js/ui/components/graph/Graph.js"></script>
-    <script src="js/ui/components/tile/BaseMainTile.js"></script>
-    <script src="js/ui/components/tile/TileWrapper.js"></script>
-    <script src="js/ui/components/tile/TileDialog.js"></script>
-    <script src="js/ui/components/tile/Tile.js"></script>
+    <script src="/js/ui/components/imageButton/ImageButton.js"></script>
+    <script src="/js/ui/components/leaguesSubHeader/LeaguesSubHeader.js"></script>
+    <script src="/js/ui/components/tile/TileDialogContainer.js"></script>
+    <script src="/js/ui/components/imagesPagination/ImagesPagination.js"></script>
+    <script src="/js/ui/components/inputNumber/InputNumber.js"></script>
+    <script src="/js/ui/components/radioButton/RadioButton.js"></script>
+    <script src="/js/ui/components/radioGroup/RadioGroup.js"></script>
+    <script src="/js/ui/components/graph/Graph.js"></script>
+    <script src="/js/ui/components/tile/BaseMainTile.js"></script>
+    <script src="/js/ui/components/tile/TileWrapper.js"></script>
+    <script src="/js/ui/components/tile/TileDialog.js"></script>
+    <script src="/js/ui/components/tile/Tile.js"></script>
 
-    <script src="js/ui/login/LoginPage.js"></script>
+    <script src="/js/ui/login/LoginPage.js"></script>
 
-    <script src="js/ui/menu/MenuItem.js"></script>
-    <script src="js/ui/menu/Menu.js"></script>
+    <script src="/js/ui/menu/MenuItem.js"></script>
+    <script src="/js/ui/menu/Menu.js"></script>
 
-    <script src="js/ui/gamesPredictions/GamePredictionMainTile.js"></script>
-    <script src="js/ui/gamesPredictions/GamePredictionFormTile.js"></script>
-    <script src="js/ui/gamesPredictions/GamePredictionTileDialog.js"></script>
-    <script src="js/ui/gamesPredictions/GamePredictionTile.js"></script>
-    <script src="js/ui/gamesPredictions/GamesPredictionsPage.js"></script>
+    <script src="/js/ui/gamesPredictions/GamePredictionMainTile.js"></script>
+    <script src="/js/ui/gamesPredictions/GamePredictionFormTile.js"></script>
+    <script src="/js/ui/gamesPredictions/GamePredictionTileDialog.js"></script>
+    <script src="/js/ui/gamesPredictions/GamePredictionTile.js"></script>
+    <script src="/js/ui/gamesPredictions/GamesPredictionsPage.js"></script>
 
-    <script src="js/ui/teamsPredictions/TeamPredictionMainTile.js"></script>
-    <script src="js/ui/teamsPredictions/TeamPredictionFormTile.js"></script>
-    <script src="js/ui/teamsPredictions/TeamPredictionTileDialog.js"></script>
-    <script src="js/ui/teamsPredictions/TeamPredictionTile.js"></script>
-    <script src="js/ui/teamsPredictions/TeamsPredictionsPage.js"></script>
+    <script src="/js/ui/teamsPredictions/TeamPredictionMainTile.js"></script>
+    <script src="/js/ui/teamsPredictions/TeamPredictionFormTile.js"></script>
+    <script src="/js/ui/teamsPredictions/TeamPredictionTileDialog.js"></script>
+    <script src="/js/ui/teamsPredictions/TeamPredictionTile.js"></script>
+    <script src="/js/ui/teamsPredictions/TeamsPredictionsPage.js"></script>
 
-    <script src="js/ui/leaderBoard/LeaderBoardMatchesHistory.js"></script>
-	<script src="js/ui/leaderBoard/LeaderBoardMainTile.js"></script>
-	<script src="js/ui/leaderBoard/LeaderBoardTile.js"></script>
-	<script src="js/ui/leaderBoard/LeaderBoardTiles.js"></script>
-	<script src="js/ui/leaderBoard/LeaderBoardPage.js"></script>
+    <script src="/js/ui/leaderBoard/LeaderBoardMatchesHistory.js"></script>
+	<script src="/js/ui/leaderBoard/LeaderBoardMainTile.js"></script>
+	<script src="/js/ui/leaderBoard/LeaderBoardTile.js"></script>
+	<script src="/js/ui/leaderBoard/LeaderBoardTiles.js"></script>
+	<script src="/js/ui/leaderBoard/LeaderBoardPage.js"></script>
 
-    <script src="js/ui/simulator/SimulatorMatch.js"></script>
-    <script src="js/ui/simulator/SimulatorPage.js"></script>
+    <script src="/js/ui/simulator/SimulatorMatch.js"></script>
+    <script src="/js/ui/simulator/SimulatorPage.js"></script>
 
-    <script src="js/ui/groups/GroupsPage.js"></script>
+    <script src="/js/ui/groups/GroupsPage.js"></script>
 
-    <script src="js/ui/rules/RulesPage.js"></script>
-    <script src="js/ui/about/AboutPage.js"></script>
+    <script src="/js/ui/rules/RulesPage.js"></script>
+    <script src="/js/ui/about/AboutPage.js"></script>
 
-    <script src="js/ui/siteHeader/SiteHeader.js"></script>
+    <script src="/js/ui/siteHeader/SiteHeader.js"></script>
 
-    <script src="js/ui/siteNavigation/NavigationTab.js"></script>
-    <script src="js/ui/siteNavigation/SiteNavigation.js"></script>
+    <script src="/js/ui/siteNavigation/NavigationTab.js"></script>
+    <script src="/js/ui/siteNavigation/SiteNavigation.js"></script>
 
-    <script src="js/pages/pages.js"></script>
-    <script src="js/ui/pages/Pages.js"></script>
-    <script src="js/ui/app/App.js"></script>
+    <script src="/js/pages/pages.js"></script>
+    <script src="/js/ui/pages/Pages.js"></script>
+    <script src="/js/ui/app/App.js"></script>
 
     <!-- index -->
-    <script src="js/ui/index.js"></script>
+    <script src="/js/ui/index.js"></script>
     <!-- endbuild -->
 </body>
 </html>

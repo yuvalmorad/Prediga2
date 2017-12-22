@@ -16,8 +16,13 @@ utils.general = (function(){
         isGameClosed: isGameClosed,
         formatMinutesSecondsTime: formatMinutesSecondsTime,
         formatHourMinutesTime: formatHourMinutesTime,
-        getLeagueLogoURL: getLeagueLogoURL
+        getLeagueLogoURL: getLeagueLogoURL,
+        cutUrlPath: cutUrlPath
     };
+
+    function cutUrlPath(path) {
+        return "/" + path.split("/")[1];
+    }
 
     function formatHourMinutesTime(date) {
         var dateObj = new Date(date);

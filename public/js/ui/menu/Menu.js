@@ -5,7 +5,7 @@ component.Menu = (function(){
     var Menu =  React.createClass({
         onMenuItemClicked: function(to) {
             this.props.toggleMenu(); //close menu
-            window.routerHistory.push(to);
+            window.routerHistory.push(utils.general.cutUrlPath(to));
         },
 
         onLogout: function() {

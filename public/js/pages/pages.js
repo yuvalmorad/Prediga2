@@ -39,7 +39,8 @@ var routePages = (function(){
             displayInSiteNavigation: true
         },
         {
-            path: "/simulator",
+            path: "/simulator/:gameId?",
+
             title: "Simulator",
             name: "simulator",
             isAuthenticatedPage: true,
@@ -85,7 +86,7 @@ var routePages = (function(){
 
     function getPageByPath(path) {
         return getPages().filter(function(page){
-            return page.path === path;
+            return utils.general.cutUrlPath(page.path) === path;
         })[0];
     }
 

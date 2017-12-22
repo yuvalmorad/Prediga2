@@ -14,7 +14,7 @@ component.App = (function(){
         },
 
         render: function(){
-            var path = routerHistory.location.pathname,
+            var path = utils.general.cutUrlPath(routerHistory.location.pathname),
                 currentPage = routePages.getPageByPath(path),
                 title = currentPage.title,
                 hideSiteHeader = currentPage.hideSiteHeader,

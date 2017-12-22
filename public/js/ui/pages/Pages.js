@@ -14,7 +14,7 @@ component.Pages = (function(){
             return re(Component, {exact: !!page.exact, path: page.path, component: page.component, key: index});
         });
 
-        var path = routerHistory.location.pathname;
+        var path = utils.general.cutUrlPath(routerHistory.location.pathname);
         var currentPage = routePages.getPageByPath(path);
         var hideSiteHeader = currentPage.hideSiteHeader;
         var hideSiteNavigation = currentPage.hideSiteNavigation;

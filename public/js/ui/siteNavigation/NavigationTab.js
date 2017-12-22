@@ -2,7 +2,7 @@ component.NavigationTab = (function(){
     return function (props) {
         var className = "navigation-tab";
 
-        if (routerHistory.location.pathname === (props.to)) {
+        if (utils.general.cutUrlPath(routerHistory.location.pathname) === utils.general.cutUrlPath(props.to)) {
             className += " selected"
         }
 
