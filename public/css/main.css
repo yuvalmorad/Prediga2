@@ -982,6 +982,14 @@ body {
     color: #000;
 }
 
+.game-prediction-tile .simulation-button {
+    margin-bottom: 0.6rem;
+    border: 1px solid #3ba2ff;
+    padding: 0.2rem 1.5rem;
+    border-radius: 6px;
+    color: #3ba2ff;
+}
+
 .game-prediction-tile .game-points {
     color: #6ECE1A;
     font-weight: bold;

@@ -64,6 +64,7 @@ component.GamePredictionMainTile = (function(){
             var props = this.props,
                 state = this.state,
                 game = props.game,
+                gameId = game._id,
                 league = game.league,
                 prediction = props.prediction,
                 otherMatchPredictions = props.otherMatchPredictions,
@@ -88,14 +89,21 @@ component.GamePredictionMainTile = (function(){
                 kickofftime = game.kickofftime,
                 dateStr,
                 gamePoints,
-                isPostGame = false;
+                simulationBtn,
+                isPostGame = false,
+                isGamePlaying = state.isGamePlaying,
+                isGameHalfHourBeforeGame = state.isGameHalfHourBeforeGame,
+                timeBeforeGame = state.timeBeforeGame,
+                timePlaying = state.timePlaying;
 
             if (!result) {
                 //PRE GAME
-                if (state.isGameHalfHourBeforeGame) {
-                    dateStr = state.timeBeforeGame;
-                } else if (state.isGamePlaying) {
-                    dateStr = state.timePlaying;
+                if (isGameHalfHourBeforeGame) {
+                    dateStr = timeBeforeGame;
+                } else if (isGamePlaying) {
+                    simulationBtn = re(ReactRouterDOM.Link, {to: "/simulator/" + gameId, className: "simulation-button"}, "Simulation");
+                    //simulationBtn = re("a", {className: "simulation-button", onCli}, "Simulation");
+                    dateStr = timePlaying;
                 } else {
                     dateStr = utils.general.formatHourMinutesTime(kickofftime);
                 }
@@ -166,6 +174,7 @@ component.GamePredictionMainTile = (function(){
                     ),
                     re("div", {className: "status"},
                         re("div", {className: "game-score"}, displayTeam1Goals !== undefined ? displayTeam1Goals : ""),
+                        simulationBtn,
                         gamePoints,
                         re("div", {className: "game-score"}, displayTeam2Goals !== undefined ? displayTeam2Goals : "")
                     ),

@@ -8,6 +8,10 @@ component.Tile = (function(){
         },
 
         onTileClicked: function(e) {
+            if (e.target.tagName === "A") {
+                return;
+            }
+
             if (this.props.openInPlace) {
                 this.setState({isInPlaceOpen: !this.state.isInPlaceOpen});
                 if (this.props.onOpenInPlace) {

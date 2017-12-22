@@ -55,8 +55,13 @@ component.SimulatorPage = (function(){
 
             return {
                 predictionsSimulated: [], //{matchId: "", team1Goals: 1, ...}
-                isMatchesDropDownMenuOpen: false
+                isMatchesDropDownMenuOpen: false,
+                selectedMatchId: ""
             };
+        },
+
+        componentDidMount: function() {
+            this.props.closeTileDialog();
         },
 
         updateMatchChange: function(predictionToUpdate) {
@@ -93,10 +98,15 @@ component.SimulatorPage = (function(){
                 predictions = props.predictions,
                 userId = props.userId,
                 matchElem,
-                dropDownButton;
+                dropDownButton,
+                gameIdFromParam = props.match.params.gameId;
 
             if (!leaders.length || !matches.length) {
                 return re("div", { className: "content" }, "");
+            }
+
+            if (!selectedMatchId && gameIdFromParam) {
+                selectedMatchId = gameIdFromParam;
             }
 
             leaders = JSON.parse(JSON.stringify(leaders)); //copy leaders
@@ -167,7 +177,8 @@ component.SimulatorPage = (function(){
     function mapDispatchToProps(dispatch) {
         return {
             loadSimulator: function(){dispatch(action.simulator.loadSimulator())},
-            loadLeaderBoard: function(){dispatch(action.leaderBoard.loadLeaderBoard())}
+            loadLeaderBoard: function(){dispatch(action.leaderBoard.loadLeaderBoard())},
+            closeTileDialog: function(){dispatch(action.general.closeTileDialog())}
         }
     }
 
