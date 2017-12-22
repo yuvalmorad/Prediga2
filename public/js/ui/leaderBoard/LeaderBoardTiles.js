@@ -44,46 +44,70 @@ component.LeaderBoardTiles = (function(){
         return badgesByUserId;
     }
 
-    return function(props) {
-        var leaders = props.leaders,
-            users = props.users,
-            disableOpen = props.disableOpen,
-            badgesByUserId = getBadgesByUserId(leaders),
-            tiles;
+    var LeaderBoardTiles = React.createClass({
 
-        if (!leaders.length || !users.length) {
-            return re("div", {});
-        }
+        assignTileFocusRef: function(focusElem) {
+            this.focusElem = focusElem;
+        },
 
-        tiles = leaders.map(function(leader, index){
-            var user = utils.general.findItemInArrBy(users, "_id", leader.userId);
-            var trend = leader.placeBeforeLastGame === -1 ? 0 :  leader.placeBeforeLastGame - leader.placeCurrent;
-            var borderColor = "#a7a4a4";
+        componentDidUpdate: function(prevProps, prevState) {
+            this.scrollToFocusElem();
+        },
 
-            if (trend > 0) {
-                borderColor = "#00ff00";
-            } else if (trend < 0) {
-                borderColor = "red";
+        componentDidMount: function() {
+            this.scrollToFocusElem();
+        },
+
+        scrollToFocusElem: function() {
+            if (this.focusElem) {
+                ReactDOM.findDOMNode(this.focusElem).scrollIntoView();
+            }
+        },
+
+        render: function() {
+            var that = this,
+                props = this.props,
+                leaders = props.leaders,
+                users = props.users,
+                disableOpen = props.disableOpen,
+                badgesByUserId = getBadgesByUserId(leaders),
+                userIdFocus = props.userIdFocus,
+                tiles;
+
+            if (!leaders.length || !users.length) {
+                return re("div", {});
             }
 
-            var description = leader.strikes + " strikes";
-            var badgeName = badgesByUserId[leader.userId];
+            tiles = leaders.map(function(leader, index){
+                var userId = leader.userId;
+                var user = utils.general.findItemInArrBy(users, "_id", userId);
+                var trend = leader.placeBeforeLastGame === -1 ? 0 :  leader.placeBeforeLastGame - leader.placeCurrent;
+                var borderColor = "#a7a4a4";
 
-            return re(LeaderBoardTile, {disableOpen: disableOpen, user: user, badgeName: badgeName, score: leader.score, trend: trend, borderColor: borderColor, description: description, rank: index + 1, key: user._id});
-        });
+                if (trend > 0) {
+                    borderColor = "#00ff00";
+                } else if (trend < 0) {
+                    borderColor = "red";
+                }
 
-        if (props.displayFirstTileByUserId) {
-            var tileUserIdIndex = utils.general.findItemInArrBy(tiles, "props.user._id", props.displayFirstTileByUserId, true);
-            if (tileUserIdIndex !== undefined) {
-                var moveToFirstTile = tiles.splice(tileUserIdIndex,1);
-                tiles.unshift(moveToFirstTile);
-            }
+                var description = leader.strikes + " strikes";
+                var badgeName = badgesByUserId[userId];
+
+                var leaderBoardTileProps = {disableOpen: disableOpen, user: user, badgeName: badgeName, score: leader.score, trend: trend, borderColor: borderColor, description: description, rank: index + 1, key: userId};
+
+                if (userIdFocus && userId === userIdFocus) {
+                    leaderBoardTileProps.ref = that.assignTileFocusRef;
+                }
+                return re(LeaderBoardTile, leaderBoardTileProps);
+            });
+
+            return re("div", {className: "tiles"},
+                tiles
+            )
         }
+    });
 
-        return re("div", {className: "tiles"},
-            tiles
-        )
-    };
+    return LeaderBoardTiles;
 })();
 
 

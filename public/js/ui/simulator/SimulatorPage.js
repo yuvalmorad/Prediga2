@@ -91,6 +91,7 @@ component.SimulatorPage = (function(){
                 users = props.users,
                 matches = props.matches,
                 predictions = props.predictions,
+                userId = props.userId,
                 matchElem,
                 dropDownButton;
 
@@ -143,13 +144,11 @@ component.SimulatorPage = (function(){
                         dropDownMatchesElems
                     )
                 ),
-                re("div", {className: "scroll-container"},
-                    re("div", { className: "simulator-matches" },
-                        dropDownButton,
-                        matchElem
-                    ),
-                    re(LeaderBoardTiles, {leaders: leaders, users: users, disableOpen: true, displayFirstTileByUserId: props.userId})
-                )
+                re("div", { className: "simulator-matches" },
+                    dropDownButton,
+                    matchElem
+                ),
+                re(LeaderBoardTiles, {leaders: leaders, users: users, disableOpen: true, userIdFocus: userId})
             );
         }
     });
