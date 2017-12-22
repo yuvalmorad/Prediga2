@@ -73,9 +73,9 @@ component.LeaderBoardMatchesHistory = (function(){
                 return re("div", {className: "leaderboard-match-row", onClick: that.onLeaderboardMatchClicked.bind(that, matchId)},
                     re ("div", {className: "match-date"}, dateStr),
                     re("div", {className: "teams-score"},
-                        re("div", {className: team1GoalsResult > team2GoalsResult ? "win": ""}, team1),
-                        re("div", {className: team2GoalsResult !== team1GoalsResult ? "win": ""}, score),
-                        re("div", {className: team2GoalsResult > team1GoalsResult ? "win": ""}, team2)
+                        re("div", {}, team1),
+                        re("div", {}, score),
+                        re("div", {}, team2)
                     ),
                     re("div", {},
                         re("div", {className: "points"}, points)
