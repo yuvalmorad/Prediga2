@@ -43,11 +43,12 @@ component.TileDialogContainer = (function(){
             }
 
             return re("div", { className: className},
-                re("div", {className: "dialog-button"}),
-                componentElement,
-                re("div", {className: "dialog-button", style: dialogButtonStyle},
-                    re("button", {onClick: this.onCancel, className: isDialogFormDisabled ? "hide" : ""}, "Cancel"),
-                    re("button", {onClick: isDialogFormDisabled ? this.onCancel : this.onSave, className: "main-button"}, isDialogFormDisabled ? "Close" : "Save")
+                re("div", { className: "tile-dialog-container-wrapper"},
+                    componentElement,
+                    re("div", {className: "dialog-button", style: dialogButtonStyle},
+                        re("button", {onClick: this.onCancel, className: isDialogFormDisabled ? "hide" : ""}, "Cancel"),
+                        re("button", {onClick: isDialogFormDisabled ? this.onCancel : this.onSave, className: "main-button"}, isDialogFormDisabled ? "Close" : "Save")
+                    )
                 )
             )
         }

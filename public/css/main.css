@@ -594,6 +594,14 @@ body {
     background: rgba(0, 0, 0, 0.85);
 }
 
+.tile-dialog-container-wrapper {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
+}
+
 .tile-dialog-container .tile {
     margin: 0 0.5rem;
     box-sizing: border-box;
@@ -988,10 +996,6 @@ body {
     color: #000;
 }
 
-.tile-dialog-container.GamePredictionTileDialog .dialog-button {
-    height: calc((100% - 20.5rem)/2);
-}
-
 .tile-dialog-container .game-prediction-tile.tile {
     height: 20.5rem;
 }
@@ -999,7 +1003,7 @@ body {
 /* -------  game prediction form tile -------*/
 
 .game-prediction-tile .game-form {
-    height: 22rem;
+    height: 13rem;
     padding: 0 1rem;
     box-sizing: border-box;
     font-size: 0.625rem;
