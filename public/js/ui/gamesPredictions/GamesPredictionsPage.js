@@ -112,6 +112,12 @@ component.GamesPredictionsPage = (function(){
             this.setState({offsetPageIndex: this.state.offsetPageIndex + 1});
         },
 
+        componentWillReceiveProps: function(prevProps) {
+            if (prevProps.selectedLeagueId !== this.props.selectedLeagueId) {
+                this.setState({offsetPageIndex: 0});
+            }
+        },
+
         componentDidUpdate: function(prevProps, prevState) {
             if (this.state.offsetPageIndex !== prevState.offsetPageIndex) {
                 this.tilesElem.scrollTo(0,0);
@@ -138,11 +144,6 @@ component.GamesPredictionsPage = (function(){
             this.tilesElem = tilesElem;
         },
 
-        onLeagueClicked: function(selectedLeagueId) {
-            this.props.setSelectedLeagueId(selectedLeagueId);
-            this.setState({offsetPageIndex: 0});
-        },
-
         render: function() {
             var props = this.props,
                 state = this.state,
@@ -155,7 +156,6 @@ component.GamesPredictionsPage = (function(){
                 tilesInPage = [],
                 closestIndex,
                 closestPage,
-                leagues = props.leagues,
                 selectedLeagueId = props.selectedLeagueId;
 
             if (matches.length) {
@@ -206,7 +206,7 @@ component.GamesPredictionsPage = (function(){
             var isRightButtonDisabled = closestIndex === pages.length - 1;
 
             return re("div", { className: "games-prediction-page content hasTilesHeader hasSubHeader"},
-                re(LeaguesSubHeader, {leagues: leagues, selectedLeagueId: selectedLeagueId, onLeagueClicked: this.onLeagueClicked}),
+                re(LeaguesSubHeader, {}),
                 re("div", {className: "tiles-header"},
                     re(ImageButton, {onClick: this.onPreviousPage, disabled: isLeftButtonDisabled, backgroundPosition: "-19px 0px", backgroundPositionDisabled: "-28px 0px"}),
                     re("div", {className: "title"}, closestPage ? closestPage.type : ""),
@@ -226,15 +226,13 @@ component.GamesPredictionsPage = (function(){
             otherPredictions: state.gamesPredictions.otherPredictions,
             results: state.gamesPredictions.results,
             isShowTileDialog: state.general.isShowTileDialog,
-            selectedLeagueId: state.leagues.selectedLeagueId,
-            leagues: state.leagues.leagues
+            selectedLeagueId: state.leagues.selectedLeagueId
         }
     }
 
     function mapDispatchToProps(dispatch) {
         return {
-            loadGamesPredictions: function(){dispatch(action.gamesPredictions.loadGames())},
-            setSelectedLeagueId: function(leagueId){dispatch(action.leagues.setSelectedLeagueId(leagueId))},
+            loadGamesPredictions: function(){dispatch(action.gamesPredictions.loadGames())}
         }
     }
 

@@ -15,16 +15,11 @@ component.TeamsPredictionsPage = (function(){
             return {};
         },
 
-        onLeagueClicked: function(selectedLeagueId) {
-            this.props.setSelectedLeagueId(selectedLeagueId);
-        },
-
         render: function() {
             var props = this.props,
                 teams = props.teams,
                 userPredictions = props.userPredictions,
-                selectedLeagueId = props.selectedLeagueId,
-                leagues = props.leagues;
+                selectedLeagueId = props.selectedLeagueId;
 
             //filter teams with selected league id
             teams = teams.filter(function(team){
@@ -40,7 +35,7 @@ component.TeamsPredictionsPage = (function(){
             });
 
             return re("div", { className: "content hasSubHeader" },
-                re(LeaguesSubHeader, {leagues: leagues, selectedLeagueId: selectedLeagueId, onLeagueClicked: this.onLeagueClicked}),
+                re(LeaguesSubHeader, {}),
                 re("div", {className: "tiles" + (props.isShowTileDialog ? " no-scroll" : "")},
                     tiles
                 )
@@ -53,15 +48,13 @@ component.TeamsPredictionsPage = (function(){
             teams: state.teamsPredictions.teams,
             userPredictions: state.teamsPredictions.userPredictions,
             isShowTileDialog: state.general.isShowTileDialog,
-            selectedLeagueId: state.leagues.selectedLeagueId,
-            leagues: state.leagues.leagues
+            selectedLeagueId: state.leagues.selectedLeagueId
         }
     }
 
     function mapDispatchToProps(dispatch) {
         return {
-            loadTeamsPredictions: function(){dispatch(action.teamsPredictions.loadTeams())},
-            setSelectedLeagueId: function(leagueId){dispatch(action.leagues.setSelectedLeagueId(leagueId))},
+            loadTeamsPredictions: function(){dispatch(action.teamsPredictions.loadTeams())}
         }
     }
 

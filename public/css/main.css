@@ -148,7 +148,7 @@ body {
 
 .leagues-sub-header .league-item.selected {
     color: #fff;
-    border-bottom: 3px solid #fff;
+    border-bottom: 3px solid #cae2f5;
 }
 
 .page > .content.hasTilesHeader > .tiles {
