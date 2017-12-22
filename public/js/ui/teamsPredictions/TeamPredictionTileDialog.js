@@ -44,14 +44,16 @@ component.TeamPredictionTileDialog = (function(){
                 team = props.team,
                 selectedTeam,
                 borderColor = "gray",
+                borderSecondColor = "",
                 leagueName = models.leagues.getLeagueName(team.league);
 
             if (prediction && prediction.team) {
-                selectedTeam = models.leagues.getTeamByTeamName(prediction.team),
+                selectedTeam = models.leagues.getTeamByTeamName(prediction.team);
                 borderColor = selectedTeam.color;
+                borderSecondColor = selectedTeam.secondColor;
             }
 
-            return re(TileDialog, {borderLeftColor: borderColor, borderRightColor: borderColor, className: "team-prediction-tile"},
+            return re(TileDialog, {borderLeftColor: borderColor, borderLeftSecondColor: borderSecondColor, borderRightColor: borderColor, borderRightSecondColor: borderSecondColor, className: "team-prediction-tile"},
                 re(TeamPredictionMainTile, {team: team, selectedTeam: selectedTeam, fixedDescription: leagueName}),
                 re(TeamPredictionFormTile, {team: team, selectedTeam: selectedTeam, onSelectedTeamChanged: this.onSelectedTeamChanged})
             );

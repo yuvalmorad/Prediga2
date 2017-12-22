@@ -643,8 +643,6 @@ body {
     height: 8rem;
     background-color: #fff;
     box-shadow: 0 6px 12px -5px #615c5c;
-    border-left: 4px solid #888282;
-    border-right: 4px solid #888282;
     border-top: 1px solid #c1baba;
     border-bottom: 1px solid #c1baba;
     overflow: hidden;
@@ -652,6 +650,32 @@ body {
     margin: 0 auto 0.5rem auto;
     border-radius: 4px;
     transition: height 0.3s;
+}
+
+.tile .tile-wrapper {
+    border-left: 4px solid #888282;
+    border-right: 4px solid #888282;
+    border-radius: 4px;
+    position: relative;
+}
+
+.tile .tile-wrapper .tile-border-right,
+.tile .tile-wrapper .tile-border-left {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background-position: right;
+    background-size: 100% 12px;
+    background-repeat: repeat-y;
+}
+
+.tile .tile-wrapper .tile-border-right {
+    right: -4px;
+}
+
+.tile .tile-wrapper .tile-border-left {
+    left: -4px;
 }
 
 .tile .main {
@@ -987,7 +1011,7 @@ body {
 /* -------  game prediction form tile -------*/
 
 .game-prediction-tile .game-form {
-    height: 14rem;
+    height: 22rem;
     padding: 0 1rem;
     box-sizing: border-box;
     font-size: 0.625rem;

@@ -1,5 +1,6 @@
 component.TileDialog = (function(){
-    var connect = ReactRedux.connect;
+    var connect = ReactRedux.connect,
+        TileWrapper = component.TileWrapper;
 
     var TileDialog = React.createClass({
         render: function() {
@@ -10,10 +11,10 @@ component.TileDialog = (function(){
                 className += " " + props.className
             }
 
-            var opts = { className: className , style: {borderLeftColor: props.borderLeftColor, borderRightColor: props.borderRightColor}};
+            var opts = { className: className};
 
             return re("div", opts,
-                props.children
+                re(TileWrapper, props)
             );
         }
     });
