@@ -5,6 +5,8 @@ component.BaseMainTile = (function(){
             trend = props.trend,
             title = props.title,
             description = props.description,
+            additionalDescription = props.additionalDescription,
+            additionalDescription2 = props.additionalDescription2,
             rank = props.rank,
             rankTitle = props.rankTitle,
             points = props.points,
@@ -52,7 +54,9 @@ component.BaseMainTile = (function(){
                 ),
                 re("div", {className: "name-wrapper"},
                     re("div", {className: "name"}, title),
-                    re("div", {className: "description"}, description)
+                    re("div", {className: "description"}, description),
+                    re("div", {className: "additional-description"}, additionalDescription),
+                    re("div", {className: "additional-description"}, additionalDescription2)
                 )
             ),
             re("div", {className: "right"},

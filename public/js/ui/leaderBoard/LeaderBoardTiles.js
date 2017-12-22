@@ -90,10 +90,10 @@ component.LeaderBoardTiles = (function(){
                     borderColor = "red";
                 }
 
-                var description = leader.strikes + " strikes";
+                var description = leader.description || leader.strikes + " strikes";
                 var badgeName = badgesByUserId[userId];
 
-                var leaderBoardTileProps = {disableOpen: disableOpen, user: user, badgeName: badgeName, score: leader.score, trend: trend, borderColor: borderColor, description: description, rank: index + 1, key: userId};
+                var leaderBoardTileProps = {disableOpen: disableOpen, user: user, badgeName: badgeName, score: leader.score, trend: trend, borderColor: borderColor, description: description, additionalDescription: leader.additionalDescription, additionalDescription2: leader.additionalDescription2, rank: index + 1, key: userId};
 
                 if (userIdFocus && userId === userIdFocus) {
                     leaderBoardTileProps.ref = that.assignTileFocusRef;

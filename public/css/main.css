@@ -739,7 +739,8 @@ body {
     margin-bottom: 1px;
 }
 
-.tile .main.base .description {
+.tile .main.base .description,
+.tile .main.base .additional-description {
     font-size: 0.75rem;
     color: #898989;
 }

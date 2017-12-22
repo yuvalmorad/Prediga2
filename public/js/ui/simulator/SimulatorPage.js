@@ -26,18 +26,25 @@ component.SimulatorPage = (function(){
         return matchResult;
     }
 
-    function updateLeaders(leaders, predictions, matchResult, matchId) {
+    function updateLeaders(leaders, predictions, matchResult, matchId, match) {
         var predictionsByMatchId = utils.general.findItemsInArrBy(predictions, "matchId", matchId);
         predictionsByMatchId.forEach(function(prediction) {
             var points = utils.general.calculateTotalPoints(prediction, matchResult);
+            var leader = utils.general.findItemInArrBy(leaders, "userId", prediction.userId);
             if (points) {
-                var leader = utils.general.findItemInArrBy(leaders, "userId", prediction.userId);
                 leader.score += points;
                 var isStrike = utils.general.isPointsStrike(points);
                 if (isStrike) {
                     leader.strikes += 1;
                 }
             }
+
+            var team1 = models.leagues.getTeamByTeamName(match.team1),
+                team2 = models.leagues.getTeamByTeamName(match.team2);
+
+            leader.description = team1.shortName + " " + prediction.team1Goals + " - " + prediction.team2Goals + " " + team2.shortName + " (diff: " + prediction.goalDiff + ")";
+            leader.additionalDescription = "Winner - " + prediction.winner;
+            leader.additionalDescription2 = "1st Goal - " + prediction.firstToScore;
         });
     }
 
@@ -114,7 +121,7 @@ component.SimulatorPage = (function(){
             if (selectedMatchId) {
                 var match = utils.general.findItemInArrBy(matches, "_id", selectedMatchId);
                 var matchResult = createMatchResult(predictionsSimulated, match);
-                updateLeaders(leaders, predictions, matchResult, selectedMatchId);
+                updateLeaders(leaders, predictions, matchResult, selectedMatchId, match);
                 matchElem = re(SimulatorMatch, {game: match, matchResult: matchResult, updateMatchChange: that.updateMatchChange});
             }
 
