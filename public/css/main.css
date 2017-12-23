@@ -607,44 +607,43 @@ body {
     box-sizing: border-box;
 }
 
-@media only screen and (min-width : 700px) {
-    .tile-dialog-container .tile {
-        margin: 0 auto;
-    }
-}
-
 .tile-dialog-container .dialog-button {
+    position: absolute;
+    bottom: 1rem;
+    right: 1.75rem;
+    left: 1.75rem;
     display: flex;
-    padding: 0.5rem 0.75rem 0 0.75rem;
+    max-width: 700px;
     justify-content: center;
-    box-sizing: border-box;
 }
 
 .tile-dialog-container .dialog-button button {
     background: transparent;
-    color: #fff;
-    border: 2px solid #F5F5F5;
+    color: #4A90E2;
+    border: 1px solid #4A90E2;
     border-radius: 8px;
-    font-size: 1.3125rem;
+    font-size: 1rem;
     flex: 1;
-    max-width: 185px;
-    height: 40px;
-    max-height: 100%;
-}
-
-.tile-dialog-container .dialog-button button.main-button {
-    background: #fff;
-    color: #000;
-}
-
-.tile-dialog-container .dialog-button button:active {
-    color: #009fff;
+    height: 2rem;
+    max-width: 49%;
 }
 
 .tile-dialog-container .dialog-button button:first-child {
     margin-right: 0.5rem;
 }
 
+
+@media only screen and (min-width : 700px) {
+    .tile-dialog-container .tile {
+        margin: 0 auto;
+    }
+    .tile-dialog-container .dialog-button {
+        width: 670px;
+        right: auto;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
 /* -------  Tile -------*/
 
 .tile {
@@ -860,7 +859,7 @@ body {
 
 /* -------  team prediction tile -------*/
 .tile-dialog-container .team-prediction-tile.tile {
-    height: 14rem;
+    height: 18rem;
 }
 
 .tile-dialog-container.TeamPredictionTileDialog .dialog-button {
@@ -1007,7 +1006,7 @@ body {
 }
 
 .tile-dialog-container .game-prediction-tile.tile {
-    height: 20.5rem;
+    height: 24.5rem;
 }
 
 /* -------  game prediction form tile -------*/
