@@ -14,7 +14,7 @@ app.get('/:userId', util.isLoggedIn, function (req, res) {
 
 function getData(userId) {
     let now = new Date();
-    return Match.find({status: "CLOSED_GAME", kickofftime: {$lte: now,}}).sort({'kickofftime': -1}).limit(6).exec().then(function (lastFinishedMatches) {
+    return Match.find({kickofftime: {$lte: now}}).sort({'kickofftime': -1}).limit(6).exec().then(function (lastFinishedMatches) {
         if (lastFinishedMatches && lastFinishedMatches.length > 0) {
             let matchIds = lastFinishedMatches.map(function (match) {
                 return match._id;

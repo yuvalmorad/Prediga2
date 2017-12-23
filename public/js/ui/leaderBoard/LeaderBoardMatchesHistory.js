@@ -59,6 +59,11 @@ component.LeaderBoardMatchesHistory = (function(){
                 return re("div", {className: "no-content"}, "No Predictions Finished");
             }
 
+            matches = matches.filter(function(match){
+                var matchId = match._id;
+                return utils.general.findItemInArrBy(predictions, "matchId", matchId) &&
+                        utils.general.findItemInArrBy(results, "matchId", matchId)
+            });
             matches.sort(function(match1, match2){
                 return new Date(match2.kickofftime) - new Date(match1.kickofftime);
             });
