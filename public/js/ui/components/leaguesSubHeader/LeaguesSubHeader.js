@@ -7,7 +7,7 @@ component.LeaguesSubHeader = (function(){
             selectedLeagueId = props.selectedLeagueId;
 
         var leagueItemsElem = leagues.map(function (league) {
-            var leagueId = league.id;
+            var leagueId = league._id;
             return re("div", {
                 className: "league-item" + (leagueId === selectedLeagueId ? " selected" : ""),
                 onClick: props.setSelectedLeagueId.bind(that, leagueId),

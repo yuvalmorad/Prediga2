@@ -22,13 +22,16 @@ component.SimulatorMatch = (function(){
         render: function() {
            var props = this.props,
                game = props.game,
+               clubs = props.clubs,
+               league = props.league,
                matchResult = props.matchResult,
                predictionTeam1Goals = matchResult && matchResult[GAME.BET_TYPES.TEAM1_GOALS.key],
                predictionTeam2Goals = matchResult && matchResult[GAME.BET_TYPES.TEAM2_GOALS.key],
                predictionFirstToScore = matchResult && matchResult[GAME.BET_TYPES.FIRST_TO_SCORE.key],
-               league = game.league,
-               team1 = models.leagues.getTeamByTeamName(game.team1),
-               team2 = models.leagues.getTeamByTeamName(game.team2),
+               team1 = utils.general.findItemInArrBy(clubs, "_id", game.team1),
+               team2 = utils.general.findItemInArrBy(clubs, "_id", game.team2),
+               team1Id = team1._id,
+               team2Id = team2._id,
                team1Color = team1.color,
                team2Color = team2.color,
                team1SecondColor = team1.secondColor,
@@ -39,8 +42,9 @@ component.SimulatorMatch = (function(){
                team2Name = team2.name,
                team1ShortName = team1.shortName,
                team2ShortName = team2.shortName,
-               leagueSprite = utils.general.getLeagueLogoURL(league),
-               teamLogoClass = "team-logo " + league;
+               leagueIdName = utils.general.leagueNameToIdName(league.name),
+               leagueSprite = utils.general.getLeagueLogoURL(leagueIdName),
+               teamLogoClass = "team-logo " + leagueIdName;
 
            return re("div", { className: "simulator-match" },
                re("div", {className: "row1"},
@@ -59,9 +63,9 @@ component.SimulatorMatch = (function(){
                ),
                re("div", {className: "form-row-title"}, "First to Score"),
                re(RadioGroup, {className: "first-score", onChange: this.onRadioGroupChanged, _id: "simulatorMatch_" + game._id, name: GAME.BET_TYPES.FIRST_TO_SCORE.key, inputs: [//TODO
-                       {bgColor: team1Color, textColor: team1SecondColor, text: team1Name, name: team1Name, res: predictionFirstToScore},//TODO
+                       {bgColor: team1Color, textColor: team1SecondColor, text: team1Name, name: team1Id, res: predictionFirstToScore},
                        {bgColor: COLORS.DRAW_COLOR, text: "None", name: "None", res: predictionFirstToScore, isDefault: true},
-                       {bgColor: team2Color, textColor: team2SecondColor, text: team2Name, name: team2Name, res: predictionFirstToScore}//TODO
+                       {bgColor: team2Color, textColor: team2SecondColor, text: team2Name, name: team2Id, res: predictionFirstToScore}
                    ]}
                )
            );

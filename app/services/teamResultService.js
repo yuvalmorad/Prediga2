@@ -19,7 +19,6 @@ let self = module.exports = {
         return deferred.promise;
     },
 
-    // TODO - update only if necessary
     updateTeamResults: function (teamResults) {
         if (teamResults.length === 0) {
             return;

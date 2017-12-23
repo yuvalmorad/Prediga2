@@ -60,20 +60,6 @@ let self = module.exports = {
 
         return Promise.all(promises);
     },
-    removeSecureFields: function (mergedPredictions, me) {
-        let promises = mergedPredictions.map(function (prediction) {
-            if (me === prediction.userId) {
-                return prediction;
-            } else {
-                delete prediction.team1Goals;
-                delete prediction.team2Goals;
-                delete prediction.goalDiff;
-                delete prediction.firstToScore;
-                return prediction;
-            }
-        });
-        return Promise.all(promises);
-    },
     getPredictionsForOtherUsersInner: function (matches, userId, me) {
         let promises = matches.map(function (aMatch) {
             if (userId) {
@@ -85,10 +71,11 @@ let self = module.exports = {
         return Promise.all(promises);
     },
     getPredictionsForOtherUsers: function (userId, matchId, me) {
+        let now = new Date();
         return Promise.all([
             typeof(matchId) === 'undefined' ?
-                Match.find({}) :
-                Match.find({matchId: matchId})
+                Match.find({kickofftime: {$lt: now}}) :
+                Match.find({kickofftime: {$lt: now}, matchId: matchId})
         ]).then(function (arr) {
             return Promise.all([
                 self.getPredictionsForOtherUsersInner(arr[0], userId, me),
@@ -97,15 +84,14 @@ let self = module.exports = {
                     MatchPrediction.find({matchId: matchId, userId: me})
             ]).then(function (arr2) {
                 let mergedPredictions = [];
+                // merging between others & My predictions
                 if (arr2[0]) {
                     mergedPredictions = mergedPredictions.concat.apply([], arr2[0]);
                 }
                 if (arr2[1]) {
                     mergedPredictions = mergedPredictions.concat(arr2[1]);
                 }
-                return self.removeSecureFields(mergedPredictions, me).then(function (mergedPredictionsFiltered) {
-                    return mergedPredictionsFiltered;
-                });
+                return mergedPredictions;
             });
         });
     },

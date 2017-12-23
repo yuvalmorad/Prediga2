@@ -19,7 +19,9 @@ component.TeamsPredictionsPage = (function(){
             var props = this.props,
                 teams = props.teams,
                 userPredictions = props.userPredictions,
-                selectedLeagueId = props.selectedLeagueId;
+                selectedLeagueId = props.selectedLeagueId,
+                clubs = props.clubs,
+                leagues = props.leagues;
 
             //filter teams with selected league id
             teams = teams.filter(function(team){
@@ -31,7 +33,12 @@ component.TeamsPredictionsPage = (function(){
             }).map(function(team){
                 var teamId = team._id;
                 var prediction = utils.general.findItemInArrBy(userPredictions, "teamId", teamId);
-                return re(TeamPredictionTile, {team: team, prediction: prediction, key: teamId})
+                var league = utils.general.findItemInArrBy(leagues, "_id", team.league);
+                var selectedTeam;
+                if (prediction && prediction.team) {
+                    selectedTeam = utils.general.findItemInArrBy(clubs, "_id", prediction.team);
+                }
+                return re(TeamPredictionTile, {team: team, selectedTeam: selectedTeam, league: league, prediction: prediction, key: teamId})
             });
 
             return re("div", { className: "content hasSubHeader" },
@@ -48,7 +55,9 @@ component.TeamsPredictionsPage = (function(){
             teams: state.teamsPredictions.teams,
             userPredictions: state.teamsPredictions.userPredictions,
             isShowTileDialog: state.general.isShowTileDialog,
-            selectedLeagueId: state.leagues.selectedLeagueId
+            leagues: state.leagues.leagues,
+            selectedLeagueId: state.leagues.selectedLeagueId,
+            clubs: state.leagues.clubs
         }
     }
 

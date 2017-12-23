@@ -74,10 +74,6 @@ component.LeaderBoardTiles = (function(){
                 userIdFocus = props.userIdFocus,
                 tiles;
 
-            if (!leaders.length || !users.length) {
-                return re("div", {});
-            }
-
             tiles = leaders.map(function(leader, index){
                 var userId = leader.userId;
                 var user = utils.general.findItemInArrBy(users, "_id", userId);

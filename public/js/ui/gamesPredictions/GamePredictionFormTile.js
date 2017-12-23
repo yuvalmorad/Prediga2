@@ -20,6 +20,8 @@ component.GamePredictionFormTile = (function(){
         render: function() {
             var props = this.props,
                 game = props.game,
+                team1 = props.team1,
+                team2 = props.team2,
                 prediction = props.prediction,
                 predictionWinner = prediction && prediction[GAME.BET_TYPES.WINNER.key],
                 predictionFirstToScore = prediction && prediction[GAME.BET_TYPES.FIRST_TO_SCORE.key],
@@ -27,11 +29,11 @@ component.GamePredictionFormTile = (function(){
                 predictionTeam2Goals = prediction && prediction[GAME.BET_TYPES.TEAM2_GOALS.key],
                 predictionGoalDiff = prediction && prediction[GAME.BET_TYPES.GOAL_DIFF.key],
                 result = props.result,
-                team1 = models.leagues.getTeamByTeamName(game.team1),
-                team2 = models.leagues.getTeamByTeamName(game.team2),
                 isDialogFormDisabled = props.isDialogFormDisabled,
                 team1Name = team1.name,
                 team2Name = team2.name,
+                team1Id = team1._id,
+                team2Id = team2._id,
                 team1Color = team1.color,
                 team2Color = team2.color,
                 team1SecondColor = team1.secondColor,
@@ -52,9 +54,9 @@ component.GamePredictionFormTile = (function(){
             return re("div", {className: "game-form"},
                 re("div", {className: "form-row-title"}, "Game Outcome"),
                 re(RadioGroup, {className: "game-outcome", points: points[GAME.BET_TYPES.WINNER.key], onChange: this.onRadioGroupChanged, _id: game._id + "0", name: GAME.BET_TYPES.WINNER.key, isDisabled: isDialogFormDisabled, inputs: [
-                        {bgColor: team1Color, textColor: team1SecondColor, text: team1Name, name: team1Name, res: predictionWinner},
+                        {bgColor: team1Color, textColor: team1SecondColor, text: team1Name, name: team1Id, res: predictionWinner},
                         {bgColor: COLORS.DRAW_COLOR, text: "Draw", name: "Draw", res: predictionWinner, isDefault: true},
-                        {bgColor: team2Color, textColor: team2SecondColor, text: team2Name, name: team2Name, res: predictionWinner}
+                        {bgColor: team2Color, textColor: team2SecondColor, text: team2Name, name: team2Id, res: predictionWinner}
                     ]}
                 ),
                 re("div", {className: "goals-predictions"},
@@ -76,9 +78,9 @@ component.GamePredictionFormTile = (function(){
                 ),
                 re("div", {className: "form-row-title"}, "First to Score"),
                 re(RadioGroup, {className: "first-score", points: points[GAME.BET_TYPES.FIRST_TO_SCORE.key], onChange: this.onRadioGroupChanged, _id: game._id + "1", name: GAME.BET_TYPES.FIRST_TO_SCORE.key, isDisabled: isDialogFormDisabled, inputs: [
-                        {bgColor: team1Color, textColor: team1SecondColor, text: team1Name, name: team1Name, res: predictionFirstToScore},
+                        {bgColor: team1Color, textColor: team1SecondColor, text: team1Name, name: team1Id, res: predictionFirstToScore},
                         {bgColor: COLORS.DRAW_COLOR, text: "None", name: "None", res: predictionFirstToScore, isDefault: true},
-                        {bgColor: team2Color, textColor: team2SecondColor, text: team2Name, name: team2Name, res: predictionFirstToScore}
+                        {bgColor: team2Color, textColor: team2SecondColor, text: team2Name, name: team2Id, res: predictionFirstToScore}
                     ]}
                 )
             );

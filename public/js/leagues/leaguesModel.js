@@ -1,3 +1,4 @@
+/*
 models.leagues = (function(){
     var leagues = {};
     return {
@@ -54,4 +55,4 @@ models.leagues = (function(){
         );
         return res;
     }
-})();
+})();*/

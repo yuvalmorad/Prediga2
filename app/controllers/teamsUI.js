@@ -15,7 +15,7 @@ app.get('/', util.isLoggedIn, function (req, res) {
 function getData(me) {
     return Promise.all([
         Team.find({}),
-        teamPredictionsService.getPredictionsByUserId(undefined, false, me),
+        teamPredictionsService.getPredictionsByUserId(me, true, me),
         TeamResult.find({})
     ]).then(function (arr) {
         return {

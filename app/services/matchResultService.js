@@ -18,7 +18,6 @@ let self = module.exports = {
         );
         return deferred.promise;
     },
-    // TODO - update only if necessary
     updateMatchResults: function (matchResults) {
         if (matchResults.length === 0) {
             return;

@@ -1,6 +1,7 @@
 component.LeaderBoardPage = (function(){
     var connect = ReactRedux.connect,
-        LeaderBoardTiles = component.LeaderBoardTiles;
+        LeaderBoardTiles = component.LeaderBoardTiles,
+        LeaguesSubHeader = component.LeaguesSubHeader;
 
     var isLeaderBoardRequestSent = false;
 
@@ -15,8 +16,19 @@ component.LeaderBoardPage = (function(){
         },
 
         render: function() {
-            return re("div", { className: "content" },
-                re(LeaderBoardTiles, {leaders: this.props.leaders, users: this.props.users})
+            var props = this.props,
+                selectedLeagueId = props.selectedLeagueId,
+                leaders = props.leaders,
+                users = props.users;
+
+            if (!leaders.length || !users.length) {
+                return re("div", {className: "content"});
+            }
+
+            leaders = utils.general.getLeadersByLeagueId(leaders, selectedLeagueId);
+            return re("div", { className: "content hasSubHeader" },
+                re(LeaguesSubHeader, {}),
+                re(LeaderBoardTiles, {leaders: leaders, users: users})
             );
         }
     });
@@ -25,7 +37,8 @@ component.LeaderBoardPage = (function(){
         return {
             leaders: state.leaderBoard.leaders,
             leadersStatus: state.leaderBoard.status,
-            users: state.users.users
+            users: state.users.users,
+            selectedLeagueId: state.leagues.selectedLeagueId
         }
     }
 

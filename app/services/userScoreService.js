@@ -1,11 +1,12 @@
 let Q = require('q');
 let UserScore = require('../models/userScore');
 let User = require('../models/user');
-let Match = require('../models/match');
 let MatchResult = require('../models/matchResult');
 let TeamResult = require('../models/teamResult');
 let MatchPrediction = require('../models/matchPrediction');
 let TeamPrediction = require('../models/teamPrediction');
+let Match = require('../models/match');
+let Team = require('../models/team');
 let PredictionScoreConfiguration = require('../models/predictionScoreConfiguration');
 let util = require('../utils/util');
 
@@ -17,12 +18,30 @@ let self = module.exports = {
         self.getRelevantDataForUserScore().then(function (obj) {
             self.checkUpdateNeeded(obj).then(function (res) {
                 if (res.needUpdate === true) {
+                    let matchIds = [];
+                    if (obj.matchResults) {
+                        matchIds = obj.matchResults.map(function (match) {
+                            return match._id;
+                        });
+                    }
+                    let teamsIds = [];
+                    if (obj.teamResults) {
+                        teamsIds = obj.teamResults.map(function (team) {
+                            return team._id;
+                        });
+                    }
+
                     return Promise.all([
-                        self.updateUserScoreByMatchResults(obj.configuration, obj.matchResults),
-                        self.updateUserScoreByTeamResults(obj.configuration, obj.teamResults)
+                        Match.find({_id: {$in: matchIds}}),
+                        Team.find({_id: {$in: teamsIds}})
                     ]).then(function (arr) {
-                        console.log('Succeed to update all user scores');
-                        deferred.resolve(res);
+                        return Promise.all([
+                            self.updateUserScoreByMatchResults(obj.configuration, obj.matchResults, arr[0]),
+                            self.updateUserScoreByTeamResults(obj.configuration, obj.teamResults, arr[1])
+                        ]).then(function (arr) {
+                            console.log('Succeed to update all user scores');
+                            deferred.resolve(res);
+                        });
                     });
                 } else {
                     console.log('No need to update all user scores');
@@ -84,28 +103,31 @@ let self = module.exports = {
         );
         return deferred.promise;
     },
-    updateUserScoreByMatchResults: function (configuration, matchResults) {
+    updateUserScoreByMatchResults: function (configuration, matchResults, matches) {
         if (matchResults.length === 0) {
             return;
         }
         console.log('beginning to update user scores based on ' + matchResults.length + ' matchResults');
         // for each match result, get all matchPredictions
         let promises = matchResults.map(function (aMatchResult) {
-            // for each match result, find all match predictions, update user score
-            return self.updateUserScoreByMatchResult(configuration, aMatchResult);
+            // for each match result,
+            // find leagueId
+            var leagueId = matches.find(x => x._id === aMatchResult.matchId).leagueId;
+            // find all match predictions, update user score
+            return self.updateUserScoreByMatchResult(configuration, aMatchResult, leagueId);
         });
         return Promise.all(promises);
     },
-    updateUserScoreByMatchResult: function (configuration, matchResult) {
+    updateUserScoreByMatchResult: function (configuration, matchResult, leagueId) {
         let deferred = Q.defer();
         MatchPrediction.find({matchId: matchResult.matchId}, function (err, anUserMatchPredictions) {
-            self.updateUserScoreByMatchResultAndUserPredictions(matchResult, configuration, anUserMatchPredictions).then(function () {
+            self.updateUserScoreByMatchResultAndUserPredictions(matchResult, configuration, anUserMatchPredictions, leagueId).then(function () {
                 deferred.resolve({});
             });
         });
         return deferred.promise;
     },
-    updateUserScoreByMatchResultAndUserPredictions: function (matchResult, configuration, anUserMatchPredictions) {
+    updateUserScoreByMatchResultAndUserPredictions: function (matchResult, configuration, anUserMatchPredictions, leagueId) {
         if (anUserMatchPredictions && anUserMatchPredictions.length > 0) {
             //console.log('found ' + anUserMatchPredictions.length + ' user MatchPredictions');
             let promises = anUserMatchPredictions.map(function (userPrediction) {
@@ -116,6 +138,7 @@ let self = module.exports = {
 
                 // score to update
                 let userScore = {
+                    leagueId: leagueId,
                     userId: userPrediction.userId,
                     gameId: userPrediction.matchId,
                     score: score,
@@ -232,26 +255,5 @@ let self = module.exports = {
         } else {
             return configuration.teamInGroup;
         }
-    },
-    // Not used
-    removeUserScoreWithoutGames: function () {
-        let deferred = Q.defer();
-        UserScore.find({}, function (err, allUserScores) {
-            if (allUserScores && allUserScores.length > 0) {
-                let promises = allUserScores.map(function (aUserScore) {
-                    return Match.find({_id: aUserScore.gameId}, function (err, aMatches) {
-                        if (!aMatches || aMatches.length < 1) {
-                            // removing all user score of this game
-                            //console.log('removing user scores for game ' + aUserScore.gameId);
-                            return UserScore.remove({gameId: aUserScore.gameId});
-                        }
-                    });
-                });
-                return Promise.all(promises);
-            } else {
-                deferred.resolve();
-            }
-        });
-        return deferred.promise;
     }
 };

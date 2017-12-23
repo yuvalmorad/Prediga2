@@ -119,7 +119,7 @@ component.GamesPredictionsPage = (function(){
         },
 
         componentDidUpdate: function(prevProps, prevState) {
-            if (this.state.offsetPageIndex !== prevState.offsetPageIndex) {
+            if (this.state.offsetPageIndex !== prevState.offsetPageIndex && this.tilesElem) {
                 this.tilesElem.scrollTo(0,0);
             } else {
                 this.scrollToCurrentDate();
@@ -131,7 +131,7 @@ component.GamesPredictionsPage = (function(){
         },
 
         scrollToCurrentDate: function() {
-            if (shouldScrollToCurrentDate){
+            if (shouldScrollToCurrentDate && this.tilesElem){
                 var scrollToElem = this.tilesElem.querySelector('.tiles-group-title[data-scrollto="true"]');
                 if (scrollToElem && scrollToElem.scrollIntoView) {
                     shouldScrollToCurrentDate = false;
@@ -149,58 +149,66 @@ component.GamesPredictionsPage = (function(){
                 state = this.state,
                 matches = props.matches,
                 userPredictions = props.userPredictions,
-                otherPredictions = props.otherPredictions,
                 results = props.results,
                 offsetPageIndex = state.offsetPageIndex,
-                pages = [],
-                tilesInPage = [],
+                pages,
+                tilesInPage,
                 closestIndex,
                 closestPage,
-                selectedLeagueId = props.selectedLeagueId;
+                selectedLeagueId = props.selectedLeagueId,
+                leagues = props.leagues,
+                clubs = props.clubs;
 
-            if (matches.length) {
-                //filter matches with selected league id
-                matches = matches.filter(function(match){
-                    return match.league === selectedLeagueId;
-                });
-
-                matches.sort(function (game1, game2) {
-                    return new Date(game1.kickofftime) - new Date(game2.kickofftime);
-                });
-
-                var currentDate = new Date();
-                pages = getPagesByTypes(matches);
-                closestIndex = findClosestPagesIndex(pages, currentDate) + offsetPageIndex;
-                closestPage = pages[closestIndex];
-
-
-                //var wasScroll = false;
-                tilesInPage = closestPage.groups.map(function (group, groupIndex) {
-                    var tilesInGroup = group.matches.map(function (match) {
-                        var matchId = match._id;
-                        var prediction = utils.general.findItemInArrBy(userPredictions, "matchId", matchId);
-                        var otherMatchPredictions = utils.general.findItemsInArrBy(otherPredictions, "matchId", matchId);
-                        var result = utils.general.findItemInArrBy(results, "matchId", matchId);
-                        return re(GamePredictionTile, {
-                            game: match,
-                            prediction: prediction,
-                            otherMatchPredictions: otherMatchPredictions,
-                            result: result,
-                            key: matchId
-                        });
-                    });
-
-                    var groupProps = {className: "tiles-group-title", key: "tilesGroup" + groupIndex};
-                    if (group.scrollTo) {
-                        groupProps["data-ScrollTo"] = true;
-                    }
-
-                    tilesInGroup.unshift(re("div", groupProps, getTitleDate(group.date)));
-                    return tilesInGroup;
-                });
-
-                tilesInPage = [].concat.apply([], tilesInPage);
+            if (!matches.length || !clubs.length || !selectedLeagueId) {
+                return re("div", { className: "content"});
             }
+
+            //filter matches with selected league id
+            matches = matches.filter(function(match){
+                return match.league === selectedLeagueId;
+            });
+
+            matches.sort(function (game1, game2) {
+                return new Date(game1.kickofftime) - new Date(game2.kickofftime);
+            });
+
+            var currentDate = new Date();
+            pages = getPagesByTypes(matches);
+            closestIndex = findClosestPagesIndex(pages, currentDate) + offsetPageIndex;
+            closestPage = pages[closestIndex];
+
+
+            //var wasScroll = false;
+            tilesInPage = closestPage.groups.map(function (group, groupIndex) {
+                var tilesInGroup = group.matches.map(function (match) {
+                    var matchId = match._id;
+                    var prediction = utils.general.findItemInArrBy(userPredictions, "matchId", matchId);
+                    var result = utils.general.findItemInArrBy(results, "matchId", matchId);
+                    var team1 = utils.general.findItemInArrBy(clubs, "_id", match.team1);
+                    var team2 = utils.general.findItemInArrBy(clubs, "_id", match.team2);
+                    var league = utils.general.findItemInArrBy(leagues, "_id", selectedLeagueId);
+                    return re(GamePredictionTile, {
+                        game: match,
+                        prediction: prediction,
+                        result: result,
+                        team1: team1,
+                        team2: team2,
+                        league: league,
+                        key: matchId
+                    });
+                });
+
+                var groupProps = {className: "tiles-group-title", key: "tilesGroup" + groupIndex};
+                if (group.scrollTo) {
+                    groupProps["data-ScrollTo"] = true;
+                }
+
+                tilesInGroup.unshift(re("div", groupProps, getTitleDate(group.date)));
+                return tilesInGroup;
+            });
+
+            tilesInPage = [].concat.apply([], tilesInPage);
+
 
             var isLeftButtonDisabled = closestIndex === 0;
             var isRightButtonDisabled = closestIndex === pages.length - 1;
@@ -223,10 +231,11 @@ component.GamesPredictionsPage = (function(){
         return {
             matches: state.gamesPredictions.matches,
             userPredictions: state.gamesPredictions.userPredictions,
-            otherPredictions: state.gamesPredictions.otherPredictions,
             results: state.gamesPredictions.results,
             isShowTileDialog: state.general.isShowTileDialog,
-            selectedLeagueId: state.leagues.selectedLeagueId
+            leagues: state.leagues.leagues,
+            selectedLeagueId: state.leagues.selectedLeagueId,
+            clubs: state.leagues.clubs
         }
     }
 

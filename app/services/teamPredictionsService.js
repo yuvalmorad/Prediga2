@@ -26,18 +26,6 @@ let self = module.exports = {
 
         return Promise.all(promises);
     },
-    removeSecureFields: function (mergedPredictions, me) {
-        let promises = mergedPredictions.map(function (prediction) {
-            if (me === prediction.userId) {
-                return prediction;
-            } else {
-                delete prediction.team;
-                return prediction;
-            }
-
-        });
-        return Promise.all(promises);
-    },
     getPredictionsForOtherUsersInner: function (teams, userId) {
         let promises = teams.map(function (aTeam) {
             if (userId) {
@@ -49,9 +37,11 @@ let self = module.exports = {
         return Promise.all(promises);
     },
     getPredictionsForOtherUsers: function (userId, teamId, me) {
+        let now = new Date();
         return Promise.all([
             typeof(teamId) === 'undefined' ?
-                Team.find({}) : Team.find({teamId: teamId})
+                Team.find({deadline: {$lt: now}}) :
+                Team.find({deadline: {$lt: now}, teamId: teamId})
         ]).then(function (arr) {
             return Promise.all([
                 self.getPredictionsForOtherUsersInner(arr[0], userId, me),
@@ -60,15 +50,15 @@ let self = module.exports = {
                     TeamPrediction.find({teamId: teamId, userId: me})
             ]).then(function (arr2) {
                 let mergedPredictions = [];
+
+                // Merging between other & My predictions
                 if (arr2[0]) {
                     mergedPredictions = mergedPredictions.concat.apply([], arr2[0]);
                 }
                 if (arr2[1]) {
                     mergedPredictions = mergedPredictions.concat(arr2[1]);
                 }
-                return self.removeSecureFields(mergedPredictions, me).then(function (mergedPredictionsFiltered) {
-                    return mergedPredictionsFiltered;
-                });
+                return mergedPredictions;
             });
         });
     },

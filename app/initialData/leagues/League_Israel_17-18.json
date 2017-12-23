@@ -1,0 +1,2606 @@
+{
+  "league": {
+    "_id": "5a21a7c1a3f89181074e9769",
+    "name": "Israel",
+    "logoPosition": "-784px 0",
+    "year": "2017/2018",
+    "competition365": 42,
+    "syncResults365": true
+  },
+  "clubs": [
+    {
+      "_id": "3a21a7c1a3f89181074e9769",
+      "name": "Hapoel Ashkelon",
+      "name365": "הפועל אשקלון",
+      "shortName": "HA",
+      "color": "blue",
+      "secondColor": "#fff",
+      "logoPosition": "-728px 0",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "3a21a7c1a3f89181074e9770",
+      "name": "Hapoel Haifa",
+      "name365": "הפועל חיפה",
+      "shortName": "HH",
+      "color": "red",
+      "secondColor": "blue",
+      "logoPosition": "-336px 0",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "3a21a7c1a3f89181074e9771",
+      "name": "Maccabi Haifa",
+      "name365": "מכבי חיפה",
+      "shortName": "MH",
+      "color": "green",
+      "secondColor": "#fff",
+      "logoPosition": "-224px 0",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "3a21a7c1a3f89181074e9772",
+      "name": "Bnei Yehuda",
+      "name365": "בני יהודה ת\"א",
+      "shortName": "BY",
+      "color": "orange",
+      "secondColor": "#000",
+      "logoPosition": "-616px 0",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "3a21a7c1a3f89181074e9773",
+      "name": "Maccabi Netanya",
+      "name365": "מכבי נתניה",
+      "shortName": "MN",
+      "color": "yellow",
+      "secondColor": "#000",
+      "logoPosition": "-672px 0",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "3a21a7c1a3f89181074e9774",
+      "name": "Hapoel Beer Sheva",
+      "name365": "הפועל באר שבע",
+      "shortName": "HBS",
+      "color": "red",
+      "secondColor": "#fff",
+      "logoPosition": "-112px 0",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "3a21a7c1a3f89181074e9775",
+      "name": "Bnei Sakhnin",
+      "name365": "בני סכנין",
+      "shortName": "BS",
+      "color": "red",
+      "secondColor": "#fff",
+      "logoPosition": "-280px 0",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "3a21a7c1a3f89181074e9776",
+      "name": "Kiryat Shmona",
+      "name365": "עירוני קרית שמונה",
+      "shortName": "HKS",
+      "color": "blue",
+      "secondColor": "#fff",
+      "logoPosition": "-168px 0",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "3a21a7c1a3f89181074e9777",
+      "name": "Beitar Jerusalem",
+      "name365": "בית\"ר ירושלים",
+      "shortName": "BJ",
+      "color": "yellow",
+      "secondColor": "black",
+      "logoPosition": "-392px 0",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "3a21a7c1a3f89181074e9778",
+      "name": "Maccabi Petach Tikva",
+      "name365": "מכבי פתח תקוה",
+      "shortName": "MPT",
+      "color": "#042c71",
+      "secondColor": "#fff",
+      "logoPosition": "-560px 0",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "3a21a7c1a3f89181074e9779",
+      "name": "FC Ashdod",
+      "name365": "מ.ס. אשדוד",
+      "shortName": "ASH",
+      "color": "#e30e13",
+      "secondColor": "#feef04",
+      "logoPosition": "-56px 0",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "3a21a7c1a3f89181074e9780",
+      "name": "Maccabi Tel Aviv",
+      "name365": "מכבי תל אביב",
+      "shortName": "MTA",
+      "color": "yellow",
+      "secondColor": "blue",
+      "logoPosition": "0 0",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "3a21a7c1a3f89181074e9781",
+      "name": "Hapoel Raanana",
+      "name365": "הפועל רעננה",
+      "shortName": "HR",
+      "color": "red",
+      "secondColor": "#fff",
+      "logoPosition": "-504px 0",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "3a21a7c1a3f89181074e9782",
+      "name": "Hapoel Akko",
+      "name365": "הפועל עכו",
+      "shortName": "HA",
+      "color": "#42a0c8",
+      "secondColor": "#fff",
+      "logoPosition": "-448px 0",
+      "league": "5a21a7c1a3f89181074e9769"
+    }
+  ],
+  "matches": [
+    {
+      "_id": "6a21a7c1a3f89181074e9769",
+      "team1": "3a21a7c1a3f89181074e9769",
+      "team2": "3a21a7c1a3f89181074e9770",
+      "stadium": "Sami Ofer Stadium",
+      "kickofftime": "2017-08-19T17:00:00.000Z",
+      "type": "Round 1",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9770",
+      "team1": "3a21a7c1a3f89181074e9771",
+      "team2": "3a21a7c1a3f89181074e9772",
+      "stadium": "Ha-Moshava",
+      "kickofftime": "2017-08-21T17:00:00.000Z",
+      "type": "Round 1",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9771",
+      "team1": "3a21a7c1a3f89181074e9773",
+      "team2": "3a21a7c1a3f89181074e9774",
+      "stadium": "Toto Turner Stadium",
+      "kickofftime": "2017-08-19T17:00:00.000Z",
+      "type": "Round 1",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9772",
+      "team1": "3a21a7c1a3f89181074e9775",
+      "team2": "3a21a7c1a3f89181074e9782",
+      "stadium": "Acre Stadium",
+      "kickofftime": "2017-08-20T17:00:00.000Z",
+      "type": "Round 1",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9773",
+      "team1": "3a21a7c1a3f89181074e9776",
+      "team2": "3a21a7c1a3f89181074e9781",
+      "stadium": "Netanya",
+      "kickofftime": "2017-08-19T17:00:00.000Z",
+      "type": "Round 1",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9774",
+      "team1": "3a21a7c1a3f89181074e9777",
+      "team2": "3a21a7c1a3f89181074e9780",
+      "stadium": "Netanya",
+      "kickofftime": "2017-08-20T17:00:00.000Z",
+      "type": "Round 1",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9775",
+      "team1": "3a21a7c1a3f89181074e9778",
+      "team2": "3a21a7c1a3f89181074e9779",
+      "stadium": "Ashdod Stadium",
+      "kickofftime": "2017-08-19T17:00:00.000Z",
+      "type": "Round 1",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9776",
+      "team1": "3a21a7c1a3f89181074e9770",
+      "team2": "3a21a7c1a3f89181074e9778",
+      "stadium": "Ha-Moshava",
+      "kickofftime": "2017-08-26T17:00:00.000Z",
+      "type": "Round 2",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9777",
+      "team1": "3a21a7c1a3f89181074e9779",
+      "team2": "3a21a7c1a3f89181074e9777",
+      "stadium": "Teddy Stadium",
+      "kickofftime": "2017-08-28T17:00:00.000Z",
+      "type": "Round 2",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9778",
+      "team1": "3a21a7c1a3f89181074e9780",
+      "team2": "3a21a7c1a3f89181074e9776",
+      "stadium": "Kiryat Shmona Municipal",
+      "kickofftime": "2017-08-27T17:00:00.000Z",
+      "type": "Round 2",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9779",
+      "team1": "3a21a7c1a3f89181074e9781",
+      "team2": "3a21a7c1a3f89181074e9775",
+      "stadium": "Acre Stadium",
+      "kickofftime": "2017-08-26T17:00:00.000Z",
+      "type": "Round 2",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9780",
+      "team1": "3a21a7c1a3f89181074e9782",
+      "team2": "3a21a7c1a3f89181074e9773",
+      "stadium": "Netanya",
+      "kickofftime": "2017-08-26T17:00:00.000Z",
+      "type": "Round 2",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9781",
+      "team1": "3a21a7c1a3f89181074e9774",
+      "team2": "3a21a7c1a3f89181074e9771",
+      "stadium": "Sami Ofer Stadium",
+      "kickofftime": "2017-08-27T17:00:00.000Z",
+      "type": "Round 2",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9782",
+      "team1": "3a21a7c1a3f89181074e9772",
+      "team2": "3a21a7c1a3f89181074e9769",
+      "stadium": "Ashkelon",
+      "kickofftime": "2017-08-26T17:00:00.000Z",
+      "type": "Round 2",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9783",
+      "team1": "3a21a7c1a3f89181074e9772",
+      "team2": "3a21a7c1a3f89181074e9770",
+      "stadium": "Sami Ofer Stadium",
+      "kickofftime": "2017-09-09T17:00:00.000Z",
+      "type": "Round 3",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9784",
+      "team1": "3a21a7c1a3f89181074e9769",
+      "team2": "3a21a7c1a3f89181074e9774",
+      "stadium": "Toto Turner Stadium",
+      "kickofftime": "2017-09-09T17:00:00.000Z",
+      "type": "Round 3",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9785",
+      "team1": "3a21a7c1a3f89181074e9771",
+      "team2": "3a21a7c1a3f89181074e9782",
+      "stadium": "Acre Stadium",
+      "kickofftime": "2017-09-10T17:00:00.000Z",
+      "type": "Round 3",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9786",
+      "team1": "3a21a7c1a3f89181074e9773",
+      "team2": "3a21a7c1a3f89181074e9781",
+      "stadium": "Netanya",
+      "kickofftime": "2017-09-10T17:00:00.000Z",
+      "type": "Round 3",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9787",
+      "team1": "3a21a7c1a3f89181074e9775",
+      "team2": "3a21a7c1a3f89181074e9780",
+      "stadium": "Netanya",
+      "kickofftime": "2017-09-09T17:00:00.000Z",
+      "type": "Round 3",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9788",
+      "team1": "3a21a7c1a3f89181074e9776",
+      "team2": "3a21a7c1a3f89181074e9779",
+      "stadium": "Ashdod Stadium",
+      "kickofftime": "2017-09-09T17:00:00.000Z",
+      "type": "Round 3",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9789",
+      "team1": "3a21a7c1a3f89181074e9777",
+      "team2": "3a21a7c1a3f89181074e9778",
+      "stadium": "Ha-Moshava",
+      "kickofftime": "2017-09-11T17:00:00.000Z",
+      "type": "Round 3",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9790",
+      "team1": "3a21a7c1a3f89181074e9770",
+      "team2": "3a21a7c1a3f89181074e9777",
+      "stadium": "Teddy Stadium",
+      "kickofftime": "2017-09-16T17:00:00.000Z",
+      "type": "Round 4",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9791",
+      "team1": "3a21a7c1a3f89181074e9778",
+      "team2": "3a21a7c1a3f89181074e9776",
+      "stadium": "Kiryat Shmona Municipal",
+      "kickofftime": "2017-09-16T17:00:00.000Z",
+      "type": "Round 4",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9792",
+      "team1": "3a21a7c1a3f89181074e9779",
+      "team2": "3a21a7c1a3f89181074e9775",
+      "stadium": "Acre Stadium",
+      "kickofftime": "2017-09-17T17:00:00.000Z",
+      "type": "Round 4",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9793",
+      "team1": "3a21a7c1a3f89181074e9780",
+      "team2": "3a21a7c1a3f89181074e9773",
+      "stadium": "Netanya",
+      "kickofftime": "2017-09-18T17:00:00.000Z",
+      "type": "Round 4",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9794",
+      "team1": "3a21a7c1a3f89181074e9781",
+      "team2": "3a21a7c1a3f89181074e9771",
+      "stadium": "Sami Ofer Stadium",
+      "kickofftime": "2017-09-16T17:00:00.000Z",
+      "type": "Round 4",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9795",
+      "team1": "3a21a7c1a3f89181074e9782",
+      "team2": "3a21a7c1a3f89181074e9769",
+      "stadium": "Ashkelon",
+      "kickofftime": "2017-09-16T17:00:00.000Z",
+      "type": "Round 4",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9796",
+      "team1": "3a21a7c1a3f89181074e9774",
+      "team2": "3a21a7c1a3f89181074e9772",
+      "stadium": "Ha-Moshava",
+      "kickofftime": "2017-09-17T17:00:00.000Z",
+      "type": "Round 4",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9797",
+      "team1": "3a21a7c1a3f89181074e9774",
+      "team2": "3a21a7c1a3f89181074e9770",
+      "stadium": "Sami Ofer Stadium",
+      "kickofftime": "2017-09-23T17:00:00.000Z",
+      "type": "Round 5",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9798",
+      "team1": "3a21a7c1a3f89181074e9772",
+      "team2": "3a21a7c1a3f89181074e9782",
+      "stadium": "Acre Stadium",
+      "kickofftime": "2017-09-23T17:00:00.000Z",
+      "type": "Round 5",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9799",
+      "team1": "3a21a7c1a3f89181074e9769",
+      "team2": "3a21a7c1a3f89181074e9781",
+      "stadium": "Netanya",
+      "kickofftime": "2017-09-23T17:00:00.000Z",
+      "type": "Round 5",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9800",
+      "team1": "3a21a7c1a3f89181074e9771",
+      "team2": "3a21a7c1a3f89181074e9780",
+      "stadium": "Netanya",
+      "kickofftime": "2017-09-24T17:00:00.000Z",
+      "type": "Round 5",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9801",
+      "team1": "3a21a7c1a3f89181074e9773",
+      "team2": "3a21a7c1a3f89181074e9779",
+      "stadium": "Ashdod Stadium",
+      "kickofftime": "2017-09-23T17:00:00.000Z",
+      "type": "Round 5",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9802",
+      "team1": "3a21a7c1a3f89181074e9775",
+      "team2": "3a21a7c1a3f89181074e9778",
+      "stadium": "Ha-Moshava",
+      "kickofftime": "2017-09-24T17:00:00.000Z",
+      "type": "Round 5",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9803",
+      "team1": "3a21a7c1a3f89181074e9776",
+      "team2": "3a21a7c1a3f89181074e9777",
+      "stadium": "Teddy Stadium",
+      "kickofftime": "2017-09-25T17:00:00.000Z",
+      "type": "Round 5",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9804",
+      "team1": "3a21a7c1a3f89181074e9770",
+      "team2": "3a21a7c1a3f89181074e9776",
+      "stadium": "Kiryat Shmona Municipal",
+      "kickofftime": "2017-10-01T17:00:00.000Z",
+      "type": "Round 6",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9805",
+      "team1": "3a21a7c1a3f89181074e9777",
+      "team2": "3a21a7c1a3f89181074e9775",
+      "stadium": "Acre Stadium",
+      "kickofftime": "2017-10-02T17:00:00.000Z",
+      "type": "Round 6",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9806",
+      "team1": "3a21a7c1a3f89181074e9778",
+      "team2": "3a21a7c1a3f89181074e9773",
+      "stadium": "Netanya",
+      "kickofftime": "2017-10-02T17:00:00.000Z",
+      "type": "Round 6",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9807",
+      "team1": "3a21a7c1a3f89181074e9779",
+      "team2": "3a21a7c1a3f89181074e9771",
+      "stadium": "Sami Ofer Stadium",
+      "kickofftime": "2017-10-01T17:00:00.000Z",
+      "type": "Round 6",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9808",
+      "team1": "3a21a7c1a3f89181074e9780",
+      "team2": "3a21a7c1a3f89181074e9769",
+      "stadium": "Ashkelon",
+      "kickofftime": "2017-10-01T17:00:00.000Z",
+      "type": "Round 6",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9809",
+      "team1": "3a21a7c1a3f89181074e9781",
+      "team2": "3a21a7c1a3f89181074e9772",
+      "stadium": "Ha-Moshava",
+      "kickofftime": "2017-10-01T17:00:00.000Z",
+      "type": "Round 6",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9810",
+      "team1": "3a21a7c1a3f89181074e9782",
+      "team2": "3a21a7c1a3f89181074e9774",
+      "stadium": "Toto Turner Stadium",
+      "kickofftime": "2017-11-18T18:00:00.000Z",
+      "type": "Round 6",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9811",
+      "team1": "3a21a7c1a3f89181074e9782",
+      "team2": "3a21a7c1a3f89181074e9770",
+      "stadium": "Sami Ofer Stadium",
+      "kickofftime": "2017-10-14T17:00:00.000Z",
+      "type": "Round 7",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9812",
+      "team1": "3a21a7c1a3f89181074e9774",
+      "team2": "3a21a7c1a3f89181074e9781",
+      "stadium": "Netanya",
+      "kickofftime": "2017-10-14T17:00:00.000Z",
+      "type": "Round 7",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9813",
+      "team1": "3a21a7c1a3f89181074e9772",
+      "team2": "3a21a7c1a3f89181074e9780",
+      "stadium": "Netanya",
+      "kickofftime": "2017-10-15T17:00:00.000Z",
+      "type": "Round 7",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9814",
+      "team1": "3a21a7c1a3f89181074e9769",
+      "team2": "3a21a7c1a3f89181074e9779",
+      "stadium": "Ashdod Stadium",
+      "kickofftime": "2017-10-14T17:00:00.000Z",
+      "type": "Round 7",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9815",
+      "team1": "3a21a7c1a3f89181074e9771",
+      "team2": "3a21a7c1a3f89181074e9778",
+      "stadium": "Ha-Moshava",
+      "kickofftime": "2017-10-14T17:00:00.000Z",
+      "type": "Round 7",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9816",
+      "team1": "3a21a7c1a3f89181074e9773",
+      "team2": "3a21a7c1a3f89181074e9777",
+      "stadium": "Teddy Stadium",
+      "kickofftime": "2017-10-16T17:00:00.000Z",
+      "type": "Round 7",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9817",
+      "team1": "3a21a7c1a3f89181074e9775",
+      "team2": "3a21a7c1a3f89181074e9776",
+      "stadium": "Kiryat Shmona Municipal",
+      "kickofftime": "2017-10-15T17:00:00.000Z",
+      "type": "Round 7",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9818",
+      "team1": "3a21a7c1a3f89181074e9770",
+      "team2": "3a21a7c1a3f89181074e9775",
+      "stadium": "Acre Stadium",
+      "kickofftime": "2017-10-22T17:00:00.000Z",
+      "type": "Round 8",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9819",
+      "team1": "3a21a7c1a3f89181074e9776",
+      "team2": "3a21a7c1a3f89181074e9773",
+      "stadium": "Netanya",
+      "kickofftime": "2017-10-21T17:00:00.000Z",
+      "type": "Round 8",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9820",
+      "team1": "3a21a7c1a3f89181074e9777",
+      "team2": "3a21a7c1a3f89181074e9771",
+      "stadium": "Sami Ofer Stadium",
+      "kickofftime": "2017-10-21T17:00:00.000Z",
+      "type": "Round 8",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9821",
+      "team1": "3a21a7c1a3f89181074e9778",
+      "team2": "3a21a7c1a3f89181074e9769",
+      "stadium": "Ashkelon",
+      "kickofftime": "2017-10-22T17:00:00.000Z",
+      "type": "Round 8",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9822",
+      "team1": "3a21a7c1a3f89181074e9779",
+      "team2": "3a21a7c1a3f89181074e9772",
+      "stadium": "Ha-Moshava",
+      "kickofftime": "2017-10-21T17:00:00.000Z",
+      "type": "Round 8",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9823",
+      "team1": "3a21a7c1a3f89181074e9780",
+      "team2": "3a21a7c1a3f89181074e9774",
+      "stadium": "Toto Turner Stadium",
+      "kickofftime": "2017-10-23T17:00:00.000Z",
+      "type": "Round 8",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9824",
+      "team1": "3a21a7c1a3f89181074e9781",
+      "team2": "3a21a7c1a3f89181074e9782",
+      "stadium": "Acre Stadium",
+      "kickofftime": "2017-10-21T17:00:00.000Z",
+      "type": "Round 8",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9825",
+      "team1": "3a21a7c1a3f89181074e9781",
+      "team2": "3a21a7c1a3f89181074e9770",
+      "stadium": "Sami Ofer Stadium",
+      "kickofftime": "2017-10-28T17:00:00.000Z",
+      "type": "Round 9",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9826",
+      "team1": "3a21a7c1a3f89181074e9782",
+      "team2": "3a21a7c1a3f89181074e9780",
+      "stadium": "Netanya",
+      "kickofftime": "2017-10-29T18:00:00.000Z",
+      "type": "Round 9",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9827",
+      "team1": "3a21a7c1a3f89181074e9774",
+      "team2": "3a21a7c1a3f89181074e9779",
+      "stadium": "Ashdod Stadium",
+      "kickofftime": "2017-10-29T18:00:00.000Z",
+      "type": "Round 9",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9828",
+      "team1": "3a21a7c1a3f89181074e9772",
+      "team2": "3a21a7c1a3f89181074e9778",
+      "stadium": "Ha-Moshava",
+      "kickofftime": "2017-10-30T18:00:00.000Z",
+      "type": "Round 9",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9829",
+      "team1": "3a21a7c1a3f89181074e9769",
+      "team2": "3a21a7c1a3f89181074e9777",
+      "stadium": "Teddy Stadium",
+      "kickofftime": "2017-10-28T17:00:00.000Z",
+      "type": "Round 9",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9830",
+      "team1": "3a21a7c1a3f89181074e9771",
+      "team2": "3a21a7c1a3f89181074e9776",
+      "stadium": "Kiryat Shmona Municipal",
+      "kickofftime": "2017-10-28T17:00:00.000Z",
+      "type": "Round 9",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9831",
+      "team1": "3a21a7c1a3f89181074e9773",
+      "team2": "3a21a7c1a3f89181074e9775",
+      "stadium": "Acre Stadium",
+      "kickofftime": "2017-10-28T17:00:00.000Z",
+      "type": "Round 9",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9832",
+      "team1": "3a21a7c1a3f89181074e9770",
+      "team2": "3a21a7c1a3f89181074e9773",
+      "stadium": "Netanya",
+      "kickofftime": "2017-11-04T18:00:00.000Z",
+      "type": "Round 10",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9833",
+      "team1": "3a21a7c1a3f89181074e9775",
+      "team2": "3a21a7c1a3f89181074e9771",
+      "stadium": "Sami Ofer Stadium",
+      "kickofftime": "2017-11-05T18:00:00.000Z",
+      "type": "Round 10",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9834",
+      "team1": "3a21a7c1a3f89181074e9776",
+      "team2": "3a21a7c1a3f89181074e9769",
+      "stadium": "Ashkelon",
+      "kickofftime": "2017-11-06T18:00:00.000Z",
+      "type": "Round 10",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9835",
+      "team1": "3a21a7c1a3f89181074e9777",
+      "team2": "3a21a7c1a3f89181074e9772",
+      "stadium": "Ha-Moshava",
+      "kickofftime": "2017-11-04T18:00:00.000Z",
+      "type": "Round 10",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9836",
+      "team1": "3a21a7c1a3f89181074e9774",
+      "team2": "3a21a7c1a3f89181074e9778",
+      "stadium": "Ha-Moshava",
+      "kickofftime": "2017-11-05T18:00:00.000Z",
+      "type": "Round 10",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9837",
+      "team1": "3a21a7c1a3f89181074e9779",
+      "team2": "3a21a7c1a3f89181074e9782",
+      "stadium": "Acre Stadium",
+      "kickofftime": "2017-11-04T18:00:00.000Z",
+      "type": "Round 10",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9838",
+      "team1": "3a21a7c1a3f89181074e9780",
+      "team2": "3a21a7c1a3f89181074e9781",
+      "stadium": "Netanya",
+      "kickofftime": "2017-11-05T18:00:00.000Z",
+      "type": "Round 10",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9839",
+      "team1": "3a21a7c1a3f89181074e9780",
+      "team2": "3a21a7c1a3f89181074e9770",
+      "stadium": "Sami Ofer Stadium",
+      "kickofftime": "2017-11-26T18:00:00.000Z",
+      "type": "Round 11",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9840",
+      "team1": "3a21a7c1a3f89181074e9781",
+      "team2": "3a21a7c1a3f89181074e9779",
+      "stadium": "Ashdod Stadium",
+      "kickofftime": "2017-11-26T18:00:00.000Z",
+      "type": "Round 11",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9841",
+      "team1": "3a21a7c1a3f89181074e9778",
+      "team2": "3a21a7c1a3f89181074e9782",
+      "stadium": "Acre Stadium",
+      "kickofftime": "2017-11-25T18:00:00.000Z",
+      "type": "Round 11",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9842",
+      "team1": "3a21a7c1a3f89181074e9774",
+      "team2": "3a21a7c1a3f89181074e9777",
+      "stadium": "Teddy Stadium",
+      "kickofftime": "2017-11-27T18:00:00.000Z",
+      "type": "Round 11",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9843",
+      "team1": "3a21a7c1a3f89181074e9772",
+      "team2": "3a21a7c1a3f89181074e9776",
+      "stadium": "Kiryat Shmona Municipal",
+      "kickofftime": "2017-11-25T18:00:00.000Z",
+      "type": "Round 11",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9844",
+      "team1": "3a21a7c1a3f89181074e9769",
+      "team2": "3a21a7c1a3f89181074e9775",
+      "stadium": "Acre Stadium",
+      "kickofftime": "2017-11-25T18:00:00.000Z",
+      "type": "Round 11",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9845",
+      "team1": "3a21a7c1a3f89181074e9771",
+      "team2": "3a21a7c1a3f89181074e9773",
+      "stadium": "Netanya",
+      "kickofftime": "2017-11-25T18:00:00.000Z",
+      "type": "Round 11",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9846",
+      "team1": "3a21a7c1a3f89181074e9771",
+      "team2": "3a21a7c1a3f89181074e9770",
+      "stadium": "Sami Ofer Stadium",
+      "kickofftime": "2017-12-04T18:00:00.000Z",
+      "type": "Round 12",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9847",
+      "team1": "3a21a7c1a3f89181074e9773",
+      "team2": "3a21a7c1a3f89181074e9769",
+      "stadium": "Ashkelon",
+      "kickofftime": "2017-12-02T18:00:00.000Z",
+      "type": "Round 12",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9848",
+      "team1": "3a21a7c1a3f89181074e9775",
+      "team2": "3a21a7c1a3f89181074e9772",
+      "stadium": "Ha-Moshava",
+      "kickofftime": "2017-12-02T18:00:00.000Z",
+      "type": "Round 12",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9849",
+      "team1": "3a21a7c1a3f89181074e9776",
+      "team2": "3a21a7c1a3f89181074e9774",
+      "stadium": "Toto Turner Stadium",
+      "kickofftime": "2017-12-03T18:00:00.000Z",
+      "type": "Round 12",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9850",
+      "team1": "3a21a7c1a3f89181074e9777",
+      "team2": "3a21a7c1a3f89181074e9782",
+      "stadium": "Acre Stadium",
+      "kickofftime": "2017-12-02T18:00:00.000Z",
+      "type": "Round 12",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9851",
+      "team1": "3a21a7c1a3f89181074e9778",
+      "team2": "3a21a7c1a3f89181074e9781",
+      "stadium": "Netanya",
+      "kickofftime": "2017-12-03T18:00:00.000Z",
+      "type": "Round 12",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9852",
+      "team1": "3a21a7c1a3f89181074e9779",
+      "team2": "3a21a7c1a3f89181074e9780",
+      "stadium": "Netanya",
+      "kickofftime": "2017-12-02T18:00:00.000Z",
+      "type": "Round 12",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9853",
+      "team1": "3a21a7c1a3f89181074e9770",
+      "team2": "3a21a7c1a3f89181074e9779",
+      "stadium": "Ashdod Stadium",
+      "kickofftime": "2017-12-09T14:00:00.000Z",
+      "type": "Round 13",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9854",
+      "team1": "3a21a7c1a3f89181074e9780",
+      "team2": "3a21a7c1a3f89181074e9778",
+      "stadium": "Ha-Moshava",
+      "kickofftime": "2017-12-11T19:00:00.000Z",
+      "type": "Round 13",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9855",
+      "team1": "3a21a7c1a3f89181074e9781",
+      "team2": "3a21a7c1a3f89181074e9777",
+      "stadium": "Teddy Stadium",
+      "kickofftime": "2017-12-09T18:30:00.000Z",
+      "type": "Round 13",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9856",
+      "team1": "3a21a7c1a3f89181074e9782",
+      "team2": "3a21a7c1a3f89181074e9776",
+      "stadium": "Kiryat Shmona Municipal",
+      "kickofftime": "2017-12-10T17:00:00.000Z",
+      "type": "Round 13",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9857",
+      "team1": "3a21a7c1a3f89181074e9774",
+      "team2": "3a21a7c1a3f89181074e9775",
+      "stadium": "Acre Stadium",
+      "kickofftime": "2017-12-10T18:15:00.000Z",
+      "type": "Round 13",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9858",
+      "team1": "3a21a7c1a3f89181074e9772",
+      "team2": "3a21a7c1a3f89181074e9773",
+      "stadium": "Netanya",
+      "kickofftime": "2017-12-09T14:00:00.000Z",
+      "type": "Round 13",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9859",
+      "team1": "3a21a7c1a3f89181074e9769",
+      "team2": "3a21a7c1a3f89181074e9771",
+      "stadium": "Sami Ofer Stadium",
+      "kickofftime": "2017-12-09T16:15:00.000Z",
+      "type": "Round 13",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9860",
+      "team1": "3a21a7c1a3f89181074e9770",
+      "team2": "3a21a7c1a3f89181074e9769",
+      "stadium": "Ashkelon",
+      "kickofftime": "2017-12-16T16:15:00.000Z",
+      "type": "Round 14",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9861",
+      "team1": "3a21a7c1a3f89181074e9772",
+      "team2": "3a21a7c1a3f89181074e9771",
+      "stadium": "Sami Ofer Stadium",
+      "kickofftime": "2017-12-16T18:30:00.000Z",
+      "type": "Round 14",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9862",
+      "team1": "3a21a7c1a3f89181074e9774",
+      "team2": "3a21a7c1a3f89181074e9773",
+      "stadium": "Netanya",
+      "kickofftime": "2017-12-17T18:30:00.000Z",
+      "type": "Round 14",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9863",
+      "team1": "3a21a7c1a3f89181074e9782",
+      "team2": "3a21a7c1a3f89181074e9775",
+      "stadium": "Acre Stadium",
+      "kickofftime": "2017-12-16T16:00:00.000Z",
+      "type": "Round 14",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9864",
+      "team1": "3a21a7c1a3f89181074e9781",
+      "team2": "3a21a7c1a3f89181074e9776",
+      "stadium": "Kiryat Shmona Municipal",
+      "kickofftime": "2017-12-17T17:00:00.000Z",
+      "type": "Round 14",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9865",
+      "team1": "3a21a7c1a3f89181074e9780",
+      "team2": "3a21a7c1a3f89181074e9777",
+      "stadium": "Teddy Stadium",
+      "kickofftime": "2017-12-18T19:00:00.000Z",
+      "type": "Round 14",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9866",
+      "team1": "3a21a7c1a3f89181074e9779",
+      "team2": "3a21a7c1a3f89181074e9778",
+      "stadium": "Ha-Moshava",
+      "kickofftime": "2017-12-16T14:00:00.000Z",
+      "type": "Round 14",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9867",
+      "team1": "3a21a7c1a3f89181074e9778",
+      "team2": "3a21a7c1a3f89181074e9770",
+      "stadium": "Sami Ofer Stadium",
+      "kickofftime": "2017-12-23T16:15:00.000Z",
+      "type": "Round 15",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9868",
+      "team1": "3a21a7c1a3f89181074e9777",
+      "team2": "3a21a7c1a3f89181074e9779",
+      "stadium": "Ashdod Stadium",
+      "kickofftime": "2017-12-24T18:15:00.000Z",
+      "type": "Round 15",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9869",
+      "team1": "3a21a7c1a3f89181074e9776",
+      "team2": "3a21a7c1a3f89181074e9780",
+      "stadium": "Netanya",
+      "kickofftime": "2017-12-23T18:30:00.000Z",
+      "type": "Round 15",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9870",
+      "team1": "3a21a7c1a3f89181074e9775",
+      "team2": "3a21a7c1a3f89181074e9781",
+      "stadium": "Netanya",
+      "kickofftime": "2017-12-24T17:00:00.000Z",
+      "type": "Round 15",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9871",
+      "team1": "3a21a7c1a3f89181074e9773",
+      "team2": "3a21a7c1a3f89181074e9782",
+      "stadium": "Acre Stadium",
+      "kickofftime": "2017-12-23T14:00:00.000Z",
+      "type": "Round 15",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9872",
+      "team1": "3a21a7c1a3f89181074e9771",
+      "team2": "3a21a7c1a3f89181074e9774",
+      "stadium": "Toto Turner Stadium",
+      "kickofftime": "2017-12-25T19:00:00.000Z",
+      "type": "Round 15",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9873",
+      "team1": "3a21a7c1a3f89181074e9769",
+      "team2": "3a21a7c1a3f89181074e9772",
+      "stadium": "Ha-Moshava",
+      "kickofftime": "2017-12-23T16:00:00.000Z",
+      "type": "Round 15",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9874",
+      "team1": "3a21a7c1a3f89181074e9770",
+      "team2": "3a21a7c1a3f89181074e9772",
+      "stadium": "Ha-Moshava",
+      "kickofftime": "2017-12-30T14:00:00.000Z",
+      "type": "Round 16",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9875",
+      "team1": "3a21a7c1a3f89181074e9774",
+      "team2": "3a21a7c1a3f89181074e9769",
+      "stadium": "Ashkelon",
+      "kickofftime": "2017-12-31T18:15:00.000Z",
+      "type": "Round 16",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9876",
+      "team1": "3a21a7c1a3f89181074e9782",
+      "team2": "3a21a7c1a3f89181074e9771",
+      "stadium": "Sami Ofer Stadium",
+      "kickofftime": "2017-12-30T16:15:00.000Z",
+      "type": "Round 16",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9877",
+      "team1": "3a21a7c1a3f89181074e9781",
+      "team2": "3a21a7c1a3f89181074e9773",
+      "stadium": "Netanya",
+      "kickofftime": "2017-12-30T16:15:00.000Z",
+      "type": "Round 16",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9878",
+      "team1": "3a21a7c1a3f89181074e9780",
+      "team2": "3a21a7c1a3f89181074e9775",
+      "stadium": "Acre Stadium",
+      "kickofftime": "2018-01-01T19:00:00.000Z",
+      "type": "Round 16",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9879",
+      "team1": "3a21a7c1a3f89181074e9779",
+      "team2": "3a21a7c1a3f89181074e9776",
+      "stadium": "Kiryat Shmona Municipal",
+      "kickofftime": "2017-12-31T17:00:00.000Z",
+      "type": "Round 16",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9880",
+      "team1": "3a21a7c1a3f89181074e9778",
+      "team2": "3a21a7c1a3f89181074e9777",
+      "stadium": "Teddy Stadium",
+      "kickofftime": "2017-12-30T18:30:00.000Z",
+      "type": "Round 16",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9881",
+      "team1": "3a21a7c1a3f89181074e9777",
+      "team2": "3a21a7c1a3f89181074e9770",
+      "stadium": "Sami Ofer Stadium",
+      "kickofftime": "2018-01-09T18:33:00.000Z",
+      "type": "Round 17",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9882",
+      "team1": "3a21a7c1a3f89181074e9776",
+      "team2": "3a21a7c1a3f89181074e9778",
+      "stadium": "Ha-Moshava",
+      "kickofftime": "2018-01-09T18:33:00.000Z",
+      "type": "Round 17",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9883",
+      "team1": "3a21a7c1a3f89181074e9775",
+      "team2": "3a21a7c1a3f89181074e9779",
+      "stadium": "Ashdod Stadium",
+      "kickofftime": "2018-01-09T18:33:00.000Z",
+      "type": "Round 17",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9884",
+      "team1": "3a21a7c1a3f89181074e9773",
+      "team2": "3a21a7c1a3f89181074e9780",
+      "stadium": "Netanya",
+      "kickofftime": "2018-01-09T18:33:00.000Z",
+      "type": "Round 17",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9885",
+      "team1": "3a21a7c1a3f89181074e9771",
+      "team2": "3a21a7c1a3f89181074e9781",
+      "stadium": "Netanya",
+      "kickofftime": "2018-01-09T18:33:00.000Z",
+      "type": "Round 17",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9886",
+      "team1": "3a21a7c1a3f89181074e9769",
+      "team2": "3a21a7c1a3f89181074e9782",
+      "stadium": "Acre Stadium",
+      "kickofftime": "2018-01-09T18:33:00.000Z",
+      "type": "Round 17",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9887",
+      "team1": "3a21a7c1a3f89181074e9772",
+      "team2": "3a21a7c1a3f89181074e9774",
+      "stadium": "Toto Turner Stadium",
+      "kickofftime": "2018-01-09T18:33:00.000Z",
+      "type": "Round 17",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9888",
+      "team1": "3a21a7c1a3f89181074e9770",
+      "team2": "3a21a7c1a3f89181074e9774",
+      "stadium": "Toto Turner Stadium",
+      "kickofftime": "2018-01-13T18:33:00.000Z",
+      "type": "Round 18",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9889",
+      "team1": "3a21a7c1a3f89181074e9782",
+      "team2": "3a21a7c1a3f89181074e9772",
+      "stadium": "Ha-Moshava",
+      "kickofftime": "2018-01-13T18:33:00.000Z",
+      "type": "Round 18",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9890",
+      "team1": "3a21a7c1a3f89181074e9781",
+      "team2": "3a21a7c1a3f89181074e9769",
+      "stadium": "Ashkelon",
+      "kickofftime": "2018-01-13T18:33:00.000Z",
+      "type": "Round 18",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9891",
+      "team1": "3a21a7c1a3f89181074e9780",
+      "team2": "3a21a7c1a3f89181074e9771",
+      "stadium": "Sami Ofer Stadium",
+      "kickofftime": "2018-01-13T18:33:00.000Z",
+      "type": "Round 18",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9892",
+      "team1": "3a21a7c1a3f89181074e9779",
+      "team2": "3a21a7c1a3f89181074e9773",
+      "stadium": "Netanya",
+      "kickofftime": "2018-01-13T18:33:00.000Z",
+      "type": "Round 18",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9893",
+      "team1": "3a21a7c1a3f89181074e9778",
+      "team2": "3a21a7c1a3f89181074e9775",
+      "stadium": "Acre Stadium",
+      "kickofftime": "2018-01-13T18:33:00.000Z",
+      "type": "Round 18",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9894",
+      "team1": "3a21a7c1a3f89181074e9777",
+      "team2": "3a21a7c1a3f89181074e9776",
+      "stadium": "Kiryat Shmona Municipal",
+      "kickofftime": "2018-01-13T18:33:00.000Z",
+      "type": "Round 18",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9895",
+      "team1": "3a21a7c1a3f89181074e9776",
+      "team2": "3a21a7c1a3f89181074e9770",
+      "stadium": "Sami Ofer Stadium",
+      "kickofftime": "2018-01-20T18:33:00.000Z",
+      "type": "Round 19",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9896",
+      "team1": "3a21a7c1a3f89181074e9773",
+      "team2": "3a21a7c1a3f89181074e9778",
+      "stadium": "Ha-Moshava",
+      "kickofftime": "2018-01-20T18:33:00.000Z",
+      "type": "Round 19",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9897",
+      "team1": "3a21a7c1a3f89181074e9771",
+      "team2": "3a21a7c1a3f89181074e9779",
+      "stadium": "Ashdod Stadium",
+      "kickofftime": "2018-01-20T18:33:00.000Z",
+      "type": "Round 19",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9898",
+      "team1": "3a21a7c1a3f89181074e9769",
+      "team2": "3a21a7c1a3f89181074e9780",
+      "stadium": "Netanya",
+      "kickofftime": "2018-01-20T18:33:00.000Z",
+      "type": "Round 19",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9899",
+      "team1": "3a21a7c1a3f89181074e9772",
+      "team2": "3a21a7c1a3f89181074e9781",
+      "stadium": "Netanya",
+      "kickofftime": "2018-01-20T18:33:00.000Z",
+      "type": "Round 19",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9900",
+      "team1": "3a21a7c1a3f89181074e9774",
+      "team2": "3a21a7c1a3f89181074e9782",
+      "stadium": "Acre Stadium",
+      "kickofftime": "2018-01-20T18:33:00.000Z",
+      "type": "Round 19",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9901",
+      "team1": "3a21a7c1a3f89181074e9775",
+      "team2": "3a21a7c1a3f89181074e9777",
+      "stadium": "Teddy Stadium",
+      "kickofftime": "2018-01-20T18:33:00.000Z",
+      "type": "Round 19",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9902",
+      "team1": "3a21a7c1a3f89181074e9770",
+      "team2": "3a21a7c1a3f89181074e9782",
+      "stadium": "Acre Stadium",
+      "kickofftime": "2018-01-27T18:33:00.000Z",
+      "type": "Round 20",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9903",
+      "team1": "3a21a7c1a3f89181074e9781",
+      "team2": "3a21a7c1a3f89181074e9774",
+      "stadium": "Toto Turner Stadium",
+      "kickofftime": "2018-01-27T18:33:00.000Z",
+      "type": "Round 20",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9904",
+      "team1": "3a21a7c1a3f89181074e9780",
+      "team2": "3a21a7c1a3f89181074e9772",
+      "stadium": "Ha-Moshava",
+      "kickofftime": "2018-01-27T18:33:00.000Z",
+      "type": "Round 20",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9905",
+      "team1": "3a21a7c1a3f89181074e9779",
+      "team2": "3a21a7c1a3f89181074e9769",
+      "stadium": "Ashkelon",
+      "kickofftime": "2018-01-27T18:33:00.000Z",
+      "type": "Round 20",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9906",
+      "team1": "3a21a7c1a3f89181074e9778",
+      "team2": "3a21a7c1a3f89181074e9771",
+      "stadium": "Sami Ofer Stadium",
+      "kickofftime": "2018-01-27T18:33:00.000Z",
+      "type": "Round 20",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9907",
+      "team1": "3a21a7c1a3f89181074e9777",
+      "team2": "3a21a7c1a3f89181074e9773",
+      "stadium": "Netanya",
+      "kickofftime": "2018-01-27T18:33:00.000Z",
+      "type": "Round 20",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9908",
+      "team1": "3a21a7c1a3f89181074e9776",
+      "team2": "3a21a7c1a3f89181074e9775",
+      "stadium": "Acre Stadium",
+      "kickofftime": "2018-01-27T18:33:00.000Z",
+      "type": "Round 20",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9909",
+      "team1": "3a21a7c1a3f89181074e9775",
+      "team2": "3a21a7c1a3f89181074e9770",
+      "stadium": "Sami Ofer Stadium",
+      "kickofftime": "2018-02-03T18:33:00.000Z",
+      "type": "Round 21",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9910",
+      "team1": "3a21a7c1a3f89181074e9773",
+      "team2": "3a21a7c1a3f89181074e9776",
+      "stadium": "Kiryat Shmona Municipal",
+      "kickofftime": "2018-02-03T18:33:00.000Z",
+      "type": "Round 21",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9911",
+      "team1": "3a21a7c1a3f89181074e9771",
+      "team2": "3a21a7c1a3f89181074e9777",
+      "stadium": "Teddy Stadium",
+      "kickofftime": "2018-02-03T18:33:00.000Z",
+      "type": "Round 21",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9912",
+      "team1": "3a21a7c1a3f89181074e9769",
+      "team2": "3a21a7c1a3f89181074e9778",
+      "stadium": "Ha-Moshava",
+      "kickofftime": "2018-02-03T18:33:00.000Z",
+      "type": "Round 21",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9913",
+      "team1": "3a21a7c1a3f89181074e9772",
+      "team2": "3a21a7c1a3f89181074e9779",
+      "stadium": "Ashdod Stadium",
+      "kickofftime": "2018-02-03T18:33:00.000Z",
+      "type": "Round 21",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9914",
+      "team1": "3a21a7c1a3f89181074e9774",
+      "team2": "3a21a7c1a3f89181074e9780",
+      "stadium": "Netanya",
+      "kickofftime": "2018-02-03T18:33:00.000Z",
+      "type": "Round 21",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9915",
+      "team1": "3a21a7c1a3f89181074e9782",
+      "team2": "3a21a7c1a3f89181074e9781",
+      "stadium": "Netanya",
+      "kickofftime": "2018-02-03T18:33:00.000Z",
+      "type": "Round 21",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9916",
+      "team1": "3a21a7c1a3f89181074e9770",
+      "team2": "3a21a7c1a3f89181074e9781",
+      "stadium": "Netanya",
+      "kickofftime": "2018-02-10T18:33:00.000Z",
+      "type": "Round 22",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9917",
+      "team1": "3a21a7c1a3f89181074e9780",
+      "team2": "3a21a7c1a3f89181074e9782",
+      "stadium": "Acre Stadium",
+      "kickofftime": "2018-02-10T18:33:00.000Z",
+      "type": "Round 22",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9918",
+      "team1": "3a21a7c1a3f89181074e9779",
+      "team2": "3a21a7c1a3f89181074e9774",
+      "stadium": "Toto Turner Stadium",
+      "kickofftime": "2018-02-10T18:33:00.000Z",
+      "type": "Round 22",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9919",
+      "team1": "3a21a7c1a3f89181074e9778",
+      "team2": "3a21a7c1a3f89181074e9772",
+      "stadium": "Ha-Moshava",
+      "kickofftime": "2018-02-10T18:33:00.000Z",
+      "type": "Round 22",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9920",
+      "team1": "3a21a7c1a3f89181074e9777",
+      "team2": "3a21a7c1a3f89181074e9769",
+      "stadium": "Ashkelon",
+      "kickofftime": "2018-02-10T18:33:00.000Z",
+      "type": "Round 22",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9921",
+      "team1": "3a21a7c1a3f89181074e9776",
+      "team2": "3a21a7c1a3f89181074e9771",
+      "stadium": "Sami Ofer Stadium",
+      "kickofftime": "2018-02-10T18:33:00.000Z",
+      "type": "Round 22",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9922",
+      "team1": "3a21a7c1a3f89181074e9775",
+      "team2": "3a21a7c1a3f89181074e9773",
+      "stadium": "Netanya",
+      "kickofftime": "2018-02-10T18:33:00.000Z",
+      "type": "Round 22",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9923",
+      "team1": "3a21a7c1a3f89181074e9773",
+      "team2": "3a21a7c1a3f89181074e9770",
+      "stadium": "Sami Ofer Stadium",
+      "kickofftime": "2018-02-17T18:33:00.000Z",
+      "type": "Round 23",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9924",
+      "team1": "3a21a7c1a3f89181074e9771",
+      "team2": "3a21a7c1a3f89181074e9775",
+      "stadium": "Acre Stadium",
+      "kickofftime": "2018-02-17T18:33:00.000Z",
+      "type": "Round 23",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9925",
+      "team1": "3a21a7c1a3f89181074e9769",
+      "team2": "3a21a7c1a3f89181074e9776",
+      "stadium": "Kiryat Shmona Municipal",
+      "kickofftime": "2018-02-17T18:33:00.000Z",
+      "type": "Round 23",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9926",
+      "team1": "3a21a7c1a3f89181074e9772",
+      "team2": "3a21a7c1a3f89181074e9777",
+      "stadium": "Teddy Stadium",
+      "kickofftime": "2018-02-17T18:33:00.000Z",
+      "type": "Round 23",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9927",
+      "team1": "3a21a7c1a3f89181074e9774",
+      "team2": "3a21a7c1a3f89181074e9778",
+      "stadium": "Ha-Moshava",
+      "kickofftime": "2018-02-17T18:33:00.000Z",
+      "type": "Round 23",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9928",
+      "team1": "3a21a7c1a3f89181074e9782",
+      "team2": "3a21a7c1a3f89181074e9779",
+      "stadium": "Ashdod Stadium",
+      "kickofftime": "2018-02-17T18:33:00.000Z",
+      "type": "Round 23",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9929",
+      "team1": "3a21a7c1a3f89181074e9781",
+      "team2": "3a21a7c1a3f89181074e9780",
+      "stadium": "Netanya",
+      "kickofftime": "2018-02-17T18:33:00.000Z",
+      "type": "Round 23",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9930",
+      "team1": "3a21a7c1a3f89181074e9770",
+      "team2": "3a21a7c1a3f89181074e9780",
+      "stadium": "Netanya",
+      "kickofftime": "2018-02-24T18:33:00.000Z",
+      "type": "Round 24",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9931",
+      "team1": "3a21a7c1a3f89181074e9779",
+      "team2": "3a21a7c1a3f89181074e9781",
+      "stadium": "Netanya",
+      "kickofftime": "2018-02-24T18:33:00.000Z",
+      "type": "Round 24",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9932",
+      "team1": "3a21a7c1a3f89181074e9778",
+      "team2": "3a21a7c1a3f89181074e9782",
+      "stadium": "Acre Stadium",
+      "kickofftime": "2018-02-24T18:33:00.000Z",
+      "type": "Round 24",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9933",
+      "team1": "3a21a7c1a3f89181074e9777",
+      "team2": "3a21a7c1a3f89181074e9774",
+      "stadium": "Toto Turner Stadium",
+      "kickofftime": "2018-02-24T18:33:00.000Z",
+      "type": "Round 24",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9934",
+      "team1": "3a21a7c1a3f89181074e9776",
+      "team2": "3a21a7c1a3f89181074e9772",
+      "stadium": "Ha-Moshava",
+      "kickofftime": "2018-02-24T18:33:00.000Z",
+      "type": "Round 24",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9935",
+      "team1": "3a21a7c1a3f89181074e9775",
+      "team2": "3a21a7c1a3f89181074e9769",
+      "stadium": "Ashkelon",
+      "kickofftime": "2018-02-24T18:33:00.000Z",
+      "type": "Round 24",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9936",
+      "team1": "3a21a7c1a3f89181074e9773",
+      "team2": "3a21a7c1a3f89181074e9771",
+      "stadium": "Sami Ofer Stadium",
+      "kickofftime": "2018-02-24T18:33:00.000Z",
+      "type": "Round 24",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9937",
+      "team1": "3a21a7c1a3f89181074e9770",
+      "team2": "3a21a7c1a3f89181074e9771",
+      "stadium": "Sami Ofer Stadium",
+      "kickofftime": "2018-03-03T18:33:00.000Z",
+      "type": "Round 25",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9938",
+      "team1": "3a21a7c1a3f89181074e9769",
+      "team2": "3a21a7c1a3f89181074e9773",
+      "stadium": "Netanya",
+      "kickofftime": "2018-03-03T18:33:00.000Z",
+      "type": "Round 25",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9939",
+      "team1": "3a21a7c1a3f89181074e9772",
+      "team2": "3a21a7c1a3f89181074e9775",
+      "stadium": "Acre Stadium",
+      "kickofftime": "2018-03-03T18:33:00.000Z",
+      "type": "Round 25",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9940",
+      "team1": "3a21a7c1a3f89181074e9774",
+      "team2": "3a21a7c1a3f89181074e9776",
+      "stadium": "Kiryat Shmona Municipal",
+      "kickofftime": "2018-03-03T18:33:00.000Z",
+      "type": "Round 25",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9941",
+      "team1": "3a21a7c1a3f89181074e9782",
+      "team2": "3a21a7c1a3f89181074e9777",
+      "stadium": "Teddy Stadium",
+      "kickofftime": "2018-03-03T18:33:00.000Z",
+      "type": "Round 25",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9942",
+      "team1": "3a21a7c1a3f89181074e9781",
+      "team2": "3a21a7c1a3f89181074e9778",
+      "stadium": "Ha-Moshava",
+      "kickofftime": "2018-03-03T18:33:00.000Z",
+      "type": "Round 25",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9943",
+      "team1": "3a21a7c1a3f89181074e9780",
+      "team2": "3a21a7c1a3f89181074e9779",
+      "stadium": "Ashdod Stadium",
+      "kickofftime": "2018-03-03T18:33:00.000Z",
+      "type": "Round 25",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9944",
+      "team1": "3a21a7c1a3f89181074e9779",
+      "team2": "3a21a7c1a3f89181074e9770",
+      "stadium": "Sami Ofer Stadium",
+      "kickofftime": "2018-03-10T18:33:00.000Z",
+      "type": "Round 26",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9945",
+      "team1": "3a21a7c1a3f89181074e9778",
+      "team2": "3a21a7c1a3f89181074e9780",
+      "stadium": "Netanya",
+      "kickofftime": "2018-03-10T18:33:00.000Z",
+      "type": "Round 26",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9946",
+      "team1": "3a21a7c1a3f89181074e9777",
+      "team2": "3a21a7c1a3f89181074e9781",
+      "stadium": "Netanya",
+      "kickofftime": "2018-03-10T18:33:00.000Z",
+      "type": "Round 26",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9947",
+      "team1": "3a21a7c1a3f89181074e9776",
+      "team2": "3a21a7c1a3f89181074e9782",
+      "stadium": "Acre Stadium",
+      "kickofftime": "2018-03-10T18:33:00.000Z",
+      "type": "Round 26",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9948",
+      "team1": "3a21a7c1a3f89181074e9775",
+      "team2": "3a21a7c1a3f89181074e9774",
+      "stadium": "Toto Turner Stadium",
+      "kickofftime": "2018-03-10T18:33:00.000Z",
+      "type": "Round 26",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9949",
+      "team1": "3a21a7c1a3f89181074e9773",
+      "team2": "3a21a7c1a3f89181074e9772",
+      "stadium": "Ha-Moshava",
+      "kickofftime": "2018-03-10T18:33:00.000Z",
+      "type": "Round 26",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9950",
+      "team1": "3a21a7c1a3f89181074e9771",
+      "team2": "3a21a7c1a3f89181074e9769",
+      "stadium": "Ashkelon",
+      "kickofftime": "2018-03-10T18:33:00.000Z",
+      "type": "Round 26",
+      "league": "5a21a7c1a3f89181074e9769"
+    }
+  ],
+  "matchResults": [
+    {
+      "matchId": "6a21a7c1a3f89181074e9769",
+      "winner": "3a21a7c1a3f89181074e9770",
+      "team1Goals": "1",
+      "team2Goals": "3",
+      "goalDiff": 2,
+      "firstToScore": "None"
+    },
+    {
+      "matchId": "6a21a7c1a3f89181074e9770",
+      "winner": "3a21a7c1a3f89181074e9772",
+      "team1Goals": "0",
+      "team2Goals": "2",
+      "goalDiff": 2,
+      "firstToScore": "3a21a7c1a3f89181074e9772"
+    },
+    {
+      "matchId": "6a21a7c1a3f89181074e9771",
+      "winner": "Draw",
+      "team1Goals": "1",
+      "team2Goals": "1",
+      "goalDiff": 0,
+      "firstToScore": "None"
+    },
+    {
+      "matchId": "6a21a7c1a3f89181074e9772",
+      "winner": "3a21a7c1a3f89181074e9775",
+      "team1Goals": "2",
+      "team2Goals": "1",
+      "goalDiff": 1,
+      "firstToScore": "None"
+    },
+    {
+      "matchId": "6a21a7c1a3f89181074e9773",
+      "winner": "Draw",
+      "team1Goals": "0",
+      "team2Goals": "0",
+      "goalDiff": 0,
+      "firstToScore": "None"
+    },
+    {
+      "matchId": "6a21a7c1a3f89181074e9774",
+      "winner": "3a21a7c1a3f89181074e9777",
+      "team1Goals": "3",
+      "team2Goals": "0",
+      "goalDiff": 3,
+      "firstToScore": "3a21a7c1a3f89181074e9777"
+    },
+    {
+      "matchId": "6a21a7c1a3f89181074e9775",
+      "winner": "3a21a7c1a3f89181074e9778",
+      "team1Goals": "2",
+      "team2Goals": "1",
+      "goalDiff": 1,
+      "firstToScore": "None"
+    },
+    {
+      "matchId": "6a21a7c1a3f89181074e9776",
+      "winner": "3a21a7c1a3f89181074e9770",
+      "team1Goals": "2",
+      "team2Goals": "0",
+      "goalDiff": 2,
+      "firstToScore": "3a21a7c1a3f89181074e9770"
+    },
+    {
+      "matchId": "6a21a7c1a3f89181074e9777",
+      "winner": "3a21a7c1a3f89181074e9777",
+      "team1Goals": "1",
+      "team2Goals": "4",
+      "goalDiff": 3,
+      "firstToScore": "None"
+    },
+    {
+      "matchId": "6a21a7c1a3f89181074e9778",
+      "winner": "3a21a7c1a3f89181074e9780",
+      "team1Goals": "2",
+      "team2Goals": "1",
+      "goalDiff": 1,
+      "firstToScore": "None"
+    },
+    {
+      "matchId": "6a21a7c1a3f89181074e9779",
+      "winner": "3a21a7c1a3f89181074e9775",
+      "team1Goals": "1",
+      "team2Goals": "2",
+      "goalDiff": 1,
+      "firstToScore": "None"
+    },
+    {
+      "matchId": "6a21a7c1a3f89181074e9780",
+      "winner": "Draw",
+      "team1Goals": "2",
+      "team2Goals": "2",
+      "goalDiff": 0,
+      "firstToScore": "None"
+    },
+    {
+      "matchId": "6a21a7c1a3f89181074e9781",
+      "winner": "3a21a7c1a3f89181074e9771",
+      "team1Goals": "1",
+      "team2Goals": "3",
+      "goalDiff": 2,
+      "firstToScore": "None"
+    },
+    {
+      "matchId": "6a21a7c1a3f89181074e9782",
+      "winner": "Draw",
+      "team1Goals": "1",
+      "team2Goals": "1",
+      "goalDiff": 0,
+      "firstToScore": "None"
+    },
+    {
+      "matchId": "6a21a7c1a3f89181074e9783",
+      "winner": "3a21a7c1a3f89181074e9770",
+      "team1Goals": "1",
+      "team2Goals": "2",
+      "goalDiff": 1,
+      "firstToScore": "None"
+    },
+    {
+      "matchId": "6a21a7c1a3f89181074e9784",
+      "winner": "3a21a7c1a3f89181074e9774",
+      "team1Goals": "0",
+      "team2Goals": "1",
+      "goalDiff": 1,
+      "firstToScore": "3a21a7c1a3f89181074e9774"
+    },
+    {
+      "matchId": "6a21a7c1a3f89181074e9785",
+      "winner": "3a21a7c1a3f89181074e9782",
+      "team1Goals": "0",
+      "team2Goals": "2",
+      "goalDiff": 2,
+      "firstToScore": "3a21a7c1a3f89181074e9782"
+    },
+    {
+      "matchId": "6a21a7c1a3f89181074e9786",
+      "winner": "3a21a7c1a3f89181074e9773",
+      "team1Goals": "3",
+      "team2Goals": "0",
+      "goalDiff": 3,
+      "firstToScore": "3a21a7c1a3f89181074e9773"
+    },
+    {
+      "matchId": "6a21a7c1a3f89181074e9787",
+      "winner": "3a21a7c1a3f89181074e9780",
+      "team1Goals": "0",
+      "team2Goals": "2",
+      "goalDiff": 2,
+      "firstToScore": "3a21a7c1a3f89181074e9780"
+    },
+    {
+      "matchId": "6a21a7c1a3f89181074e9788",
+      "winner": "3a21a7c1a3f89181074e9776",
+      "team1Goals": "2",
+      "team2Goals": "0",
+      "goalDiff": 2,
+      "firstToScore": "3a21a7c1a3f89181074e9776"
+    },
+    {
+      "matchId": "6a21a7c1a3f89181074e9789",
+      "winner": "3a21a7c1a3f89181074e9777",
+      "team1Goals": "2",
+      "team2Goals": "1",
+      "goalDiff": 1,
+      "firstToScore": "None"
+    },
+    {
+      "matchId": "6a21a7c1a3f89181074e9790",
+      "winner": "Draw",
+      "team1Goals": "3",
+      "team2Goals": "3",
+      "goalDiff": 0,
+      "firstToScore": "None"
+    },
+    {
+      "matchId": "6a21a7c1a3f89181074e9791",
+      "winner": "3a21a7c1a3f89181074e9776",
+      "team1Goals": "1",
+      "team2Goals": "3",
+      "goalDiff": 2,
+      "firstToScore": "None"
+    },
+    {
+      "matchId": "6a21a7c1a3f89181074e9792",
+      "winner": "Draw",
+      "team1Goals": "0",
+      "team2Goals": "0",
+      "goalDiff": 0,
+      "firstToScore": "None"
+    },
+    {
+      "matchId": "6a21a7c1a3f89181074e9793",
+      "winner": "3a21a7c1a3f89181074e9780",
+      "team1Goals": "3",
+      "team2Goals": "2",
+      "goalDiff": 1,
+      "firstToScore": "None"
+    },
+    {
+      "matchId": "6a21a7c1a3f89181074e9794",
+      "winner": "3a21a7c1a3f89181074e9771",
+      "team1Goals": "2",
+      "team2Goals": "4",
+      "goalDiff": 2,
+      "firstToScore": "None"
+    },
+    {
+      "matchId": "6a21a7c1a3f89181074e9795",
+      "winner": "3a21a7c1a3f89181074e9769",
+      "team1Goals": "1",
+      "team2Goals": "2",
+      "goalDiff": 1,
+      "firstToScore": "None"
+    },
+    {
+      "matchId": "6a21a7c1a3f89181074e9796",
+      "winner": "3a21a7c1a3f89181074e9774",
+      "team1Goals": "1",
+      "team2Goals": "0",
+      "goalDiff": 1,
+      "firstToScore": "3a21a7c1a3f89181074e9774"
+    },
+    {
+      "matchId": "6a21a7c1a3f89181074e9797",
+      "winner": "Draw",
+      "team1Goals": "1",
+      "team2Goals": "1",
+      "goalDiff": 0,
+      "firstToScore": "None"
+    },
+    {
+      "matchId": "6a21a7c1a3f89181074e9798",
+      "winner": "Draw",
+      "team1Goals": "1",
+      "team2Goals": "1",
+      "goalDiff": 0,
+      "firstToScore": "None"
+    },
+    {
+      "matchId": "6a21a7c1a3f89181074e9799",
+      "winner": "3a21a7c1a3f89181074e9769",
+      "team1Goals": "3",
+      "team2Goals": "0",
+      "goalDiff": 3,
+      "firstToScore": "3a21a7c1a3f89181074e9769"
+    },
+    {
+      "matchId": "6a21a7c1a3f89181074e9800",
+      "winner": "Draw",
+      "team1Goals": "0",
+      "team2Goals": "0",
+      "goalDiff": 0,
+      "firstToScore": "None"
+    },
+    {
+      "matchId": "6a21a7c1a3f89181074e9801",
+      "winner": "3a21a7c1a3f89181074e9773",
+      "team1Goals": "3",
+      "team2Goals": "0",
+      "goalDiff": 3,
+      "firstToScore": "3a21a7c1a3f89181074e9773"
+    },
+    {
+      "matchId": "6a21a7c1a3f89181074e9802",
+      "winner": "3a21a7c1a3f89181074e9778",
+      "team1Goals": "0",
+      "team2Goals": "1",
+      "goalDiff": 1,
+      "firstToScore": "3a21a7c1a3f89181074e9778"
+    },
+    {
+      "matchId": "6a21a7c1a3f89181074e9803",
+      "winner": "Draw",
+      "team1Goals": "1",
+      "team2Goals": "1",
+      "goalDiff": 0,
+      "firstToScore": "None"
+    },
+    {
+      "matchId": "6a21a7c1a3f89181074e9804",
+      "winner": "3a21a7c1a3f89181074e9770",
+      "team1Goals": "1",
+      "team2Goals": "0",
+      "goalDiff": 1,
+      "firstToScore": "3a21a7c1a3f89181074e9770"
+    },
+    {
+      "matchId": "6a21a7c1a3f89181074e9805",
+      "winner": "3a21a7c1a3f89181074e9775",
+      "team1Goals": "2",
+      "team2Goals": "3",
+      "goalDiff": 1,
+      "firstToScore": "None"
+    },
+    {
+      "matchId": "6a21a7c1a3f89181074e9806",
+      "winner": "3a21a7c1a3f89181074e9773",
+      "team1Goals": "0",
+      "team2Goals": "4",
+      "goalDiff": 4,
+      "firstToScore": "3a21a7c1a3f89181074e9773"
+    },
+    {
+      "matchId": "6a21a7c1a3f89181074e9807",
+      "winner": "3a21a7c1a3f89181074e9771",
+      "team1Goals": "0",
+      "team2Goals": "1",
+      "goalDiff": 1,
+      "firstToScore": "3a21a7c1a3f89181074e9771"
+    },
+    {
+      "matchId": "6a21a7c1a3f89181074e9808",
+      "winner": "Draw",
+      "team1Goals": "2",
+      "team2Goals": "2",
+      "goalDiff": 0,
+      "firstToScore": "None"
+    },
+    {
+      "matchId": "6a21a7c1a3f89181074e9809",
+      "winner": "3a21a7c1a3f89181074e9772",
+      "team1Goals": "0",
+      "team2Goals": "1",
+      "goalDiff": 1,
+      "firstToScore": "3a21a7c1a3f89181074e9772"
+    },
+    {
+      "matchId": "6a21a7c1a3f89181074e9810",
+      "winner": "3a21a7c1a3f89181074e9774",
+      "team1Goals": "1",
+      "team2Goals": "3",
+      "goalDiff": 2,
+      "firstToScore": "None"
+    },
+    {
+      "matchId": "6a21a7c1a3f89181074e9811",
+      "winner": "3a21a7c1a3f89181074e9770",
+      "team1Goals": "0",
+      "team2Goals": "4",
+      "goalDiff": 4,
+      "firstToScore": "3a21a7c1a3f89181074e9770"
+    },
+    {
+      "matchId": "6a21a7c1a3f89181074e9812",
+      "winner": "3a21a7c1a3f89181074e9774",
+      "team1Goals": "3",
+      "team2Goals": "1",
+      "goalDiff": 2,
+      "firstToScore": "None"
+    },
+    {
+      "matchId": "6a21a7c1a3f89181074e9813",
+      "winner": "3a21a7c1a3f89181074e9780",
+      "team1Goals": "0",
+      "team2Goals": "2",
+      "goalDiff": 2,
+      "firstToScore": "3a21a7c1a3f89181074e9780"
+    },
+    {
+      "matchId": "6a21a7c1a3f89181074e9814",
+      "winner": "Draw",
+      "team1Goals": "1",
+      "team2Goals": "1",
+      "goalDiff": 0,
+      "firstToScore": "None"
+    },
+    {
+      "matchId": "6a21a7c1a3f89181074e9815",
+      "winner": "Draw",
+      "team1Goals": "2",
+      "team2Goals": "2",
+      "goalDiff": 0,
+      "firstToScore": "None"
+    },
+    {
+      "matchId": "6a21a7c1a3f89181074e9816",
+      "winner": "3a21a7c1a3f89181074e9777",
+      "team1Goals": "1",
+      "team2Goals": "4",
+      "goalDiff": 3,
+      "firstToScore": "None"
+    },
+    {
+      "matchId": "6a21a7c1a3f89181074e9817",
+      "winner": "Draw",
+      "team1Goals": "0",
+      "team2Goals": "0",
+      "goalDiff": 0,
+      "firstToScore": "None"
+    },
+    {
+      "matchId": "6a21a7c1a3f89181074e9818",
+      "winner": "3a21a7c1a3f89181074e9770",
+      "team1Goals": "1",
+      "team2Goals": "0",
+      "goalDiff": 1,
+      "firstToScore": "3a21a7c1a3f89181074e9770"
+    },
+    {
+      "matchId": "6a21a7c1a3f89181074e9819",
+      "winner": "3a21a7c1a3f89181074e9773",
+      "team1Goals": "1",
+      "team2Goals": "3",
+      "goalDiff": 2,
+      "firstToScore": "None"
+    },
+    {
+      "matchId": "6a21a7c1a3f89181074e9820",
+      "winner": "3a21a7c1a3f89181074e9777",
+      "team1Goals": "2",
+      "team2Goals": "1",
+      "goalDiff": 1,
+      "firstToScore": "None"
+    },
+    {
+      "matchId": "6a21a7c1a3f89181074e9821",
+      "winner": "3a21a7c1a3f89181074e9778",
+      "team1Goals": "3",
+      "team2Goals": "1",
+      "goalDiff": 2,
+      "firstToScore": "None"
+    },
+    {
+      "matchId": "6a21a7c1a3f89181074e9822",
+      "winner": "3a21a7c1a3f89181074e9779",
+      "team1Goals": "2",
+      "team2Goals": "1",
+      "goalDiff": 1,
+      "firstToScore": "None"
+    },
+    {
+      "matchId": "6a21a7c1a3f89181074e9823",
+      "winner": "3a21a7c1a3f89181074e9774",
+      "team1Goals": "1",
+      "team2Goals": "2",
+      "goalDiff": 1,
+      "firstToScore": "None"
+    },
+    {
+      "matchId": "6a21a7c1a3f89181074e9824",
+      "winner": "3a21a7c1a3f89181074e9781",
+      "team1Goals": "2",
+      "team2Goals": "0",
+      "goalDiff": 2,
+      "firstToScore": "3a21a7c1a3f89181074e9781"
+    },
+    {
+      "matchId": "6a21a7c1a3f89181074e9825",
+      "winner": "3a21a7c1a3f89181074e9770",
+      "team1Goals": "0",
+      "team2Goals": "2",
+      "goalDiff": 2,
+      "firstToScore": "3a21a7c1a3f89181074e9770"
+    },
+    {
+      "matchId": "6a21a7c1a3f89181074e9826",
+      "winner": "3a21a7c1a3f89181074e9780",
+      "team1Goals": "2",
+      "team2Goals": "5",
+      "goalDiff": 3,
+      "firstToScore": "None"
+    },
+    {
+      "matchId": "6a21a7c1a3f89181074e9827",
+      "winner": "3a21a7c1a3f89181074e9774",
+      "team1Goals": "3",
+      "team2Goals": "1",
+      "goalDiff": 2,
+      "firstToScore": "None"
+    },
+    {
+      "matchId": "6a21a7c1a3f89181074e9828",
+      "winner": "3a21a7c1a3f89181074e9772",
+      "team1Goals": "2",
+      "team2Goals": "1",
+      "goalDiff": 1,
+      "firstToScore": "None"
+    },
+    {
+      "matchId": "6a21a7c1a3f89181074e9829",
+      "winner": "3a21a7c1a3f89181074e9777",
+      "team1Goals": "0",
+      "team2Goals": "2",
+      "goalDiff": 2,
+      "firstToScore": "3a21a7c1a3f89181074e9777"
+    },
+    {
+      "matchId": "6a21a7c1a3f89181074e9830",
+      "winner": "3a21a7c1a3f89181074e9776",
+      "team1Goals": "0",
+      "team2Goals": "1",
+      "goalDiff": 1,
+      "firstToScore": "3a21a7c1a3f89181074e9776"
+    },
+    {
+      "matchId": "6a21a7c1a3f89181074e9831",
+      "winner": "Draw",
+      "team1Goals": "0",
+      "team2Goals": "0",
+      "goalDiff": 0,
+      "firstToScore": "None"
+    },
+    {
+      "matchId": "6a21a7c1a3f89181074e9832",
+      "winner": "3a21a7c1a3f89181074e9773",
+      "team1Goals": "0",
+      "team2Goals": "2",
+      "goalDiff": 2,
+      "firstToScore": "3a21a7c1a3f89181074e9773"
+    },
+    {
+      "matchId": "6a21a7c1a3f89181074e9833",
+      "winner": "3a21a7c1a3f89181074e9771",
+      "team1Goals": "0",
+      "team2Goals": "2",
+      "goalDiff": 2,
+      "firstToScore": "3a21a7c1a3f89181074e9771"
+    },
+    {
+      "matchId": "6a21a7c1a3f89181074e9834",
+      "winner": "Draw",
+      "team1Goals": "0",
+      "team2Goals": "0",
+      "goalDiff": 0,
+      "firstToScore": "None"
+    },
+    {
+      "matchId": "6a21a7c1a3f89181074e9835",
+      "winner": "3a21a7c1a3f89181074e9772",
+      "team1Goals": "2",
+      "team2Goals": "3",
+      "goalDiff": 1,
+      "firstToScore": "None"
+    },
+    {
+      "matchId": "6a21a7c1a3f89181074e9836",
+      "winner": "3a21a7c1a3f89181074e9774",
+      "team1Goals": "2",
+      "team2Goals": "0",
+      "goalDiff": 2,
+      "firstToScore": "3a21a7c1a3f89181074e9774"
+    },
+    {
+      "matchId": "6a21a7c1a3f89181074e9837",
+      "winner": "3a21a7c1a3f89181074e9782",
+      "team1Goals": "0",
+      "team2Goals": "1",
+      "goalDiff": 1,
+      "firstToScore": "3a21a7c1a3f89181074e9782"
+    },
+    {
+      "matchId": "6a21a7c1a3f89181074e9838",
+      "winner": "3a21a7c1a3f89181074e9780",
+      "team1Goals": "1",
+      "team2Goals": "0",
+      "goalDiff": 1,
+      "firstToScore": "3a21a7c1a3f89181074e9780"
+    },
+    {
+      "matchId": "6a21a7c1a3f89181074e9839",
+      "winner": "Draw",
+      "team1Goals": "2",
+      "team2Goals": "2",
+      "goalDiff": 0,
+      "firstToScore": "None"
+    },
+    {
+      "matchId": "6a21a7c1a3f89181074e9840",
+      "winner": "3a21a7c1a3f89181074e9781",
+      "team1Goals": "1",
+      "team2Goals": "0",
+      "goalDiff": 1,
+      "firstToScore": "3a21a7c1a3f89181074e9781"
+    },
+    {
+      "matchId": "6a21a7c1a3f89181074e9841",
+      "winner": "3a21a7c1a3f89181074e9778",
+      "team1Goals": "3",
+      "team2Goals": "0",
+      "goalDiff": 3,
+      "firstToScore": "3a21a7c1a3f89181074e9778"
+    },
+    {
+      "matchId": "6a21a7c1a3f89181074e9842",
+      "winner": "Draw",
+      "team1Goals": "2",
+      "team2Goals": "2",
+      "goalDiff": 0,
+      "firstToScore": "None"
+    },
+    {
+      "matchId": "6a21a7c1a3f89181074e9843",
+      "winner": "3a21a7c1a3f89181074e9776",
+      "team1Goals": "1",
+      "team2Goals": "2",
+      "goalDiff": 1,
+      "firstToScore": "None"
+    },
+    {
+      "matchId": "6a21a7c1a3f89181074e9844",
+      "winner": "3a21a7c1a3f89181074e9775",
+      "team1Goals": "1",
+      "team2Goals": "2",
+      "goalDiff": 1,
+      "firstToScore": "None"
+    },
+    {
+      "matchId": "6a21a7c1a3f89181074e9845",
+      "winner": "Draw",
+      "team1Goals": "1",
+      "team2Goals": "1",
+      "goalDiff": 0,
+      "firstToScore": "None"
+    },
+    {
+      "matchId": "6a21a7c1a3f89181074e9846",
+      "winner": "3a21a7c1a3f89181074e9770",
+      "team1Goals": "0",
+      "team2Goals": "1",
+      "goalDiff": 1,
+      "firstToScore": "3a21a7c1a3f89181074e9770"
+    },
+    {
+      "matchId": "6a21a7c1a3f89181074e9847",
+      "winner": "Draw",
+      "team1Goals": "1",
+      "team2Goals": "1",
+      "goalDiff": 0,
+      "firstToScore": "None"
+    },
+    {
+      "matchId": "6a21a7c1a3f89181074e9848",
+      "winner": "3a21a7c1a3f89181074e9772",
+      "team1Goals": "0",
+      "team2Goals": "3",
+      "goalDiff": 3,
+      "firstToScore": "3a21a7c1a3f89181074e9772"
+    },
+    {
+      "matchId": "6a21a7c1a3f89181074e9849",
+      "winner": "3a21a7c1a3f89181074e9774",
+      "team1Goals": "1",
+      "team2Goals": "3",
+      "goalDiff": 2,
+      "firstToScore": "None"
+    },
+    {
+      "matchId": "6a21a7c1a3f89181074e9850",
+      "winner": "3a21a7c1a3f89181074e9777",
+      "team1Goals": "3",
+      "team2Goals": "1",
+      "goalDiff": 2,
+      "firstToScore": "None"
+    },
+    {
+      "matchId": "6a21a7c1a3f89181074e9851",
+      "winner": "Draw",
+      "team1Goals": "0",
+      "team2Goals": "0",
+      "goalDiff": 0,
+      "firstToScore": "None"
+    },
+    {
+      "matchId": "6a21a7c1a3f89181074e9852",
+      "winner": "Draw",
+      "team1Goals": "1",
+      "team2Goals": "1",
+      "goalDiff": 0,
+      "firstToScore": "None"
+    },
+    {
+      "matchId": "6a21a7c1a3f89181074e9853",
+      "winner": "Draw",
+      "team1Goals": "1",
+      "team2Goals": "1",
+      "goalDiff": 0,
+      "firstToScore": "3a21a7c1a3f89181074e9770"
+    },
+    {
+      "matchId": "6a21a7c1a3f89181074e9858",
+      "winner": "3a21a7c1a3f89181074e9772",
+      "team1Goals": "2",
+      "team2Goals": "1",
+      "goalDiff": 1,
+      "firstToScore": "3a21a7c1a3f89181074e9772"
+    },
+    {
+      "matchId": "6a21a7c1a3f89181074e9859",
+      "winner": "Draw",
+      "team1Goals": "1",
+      "team2Goals": "1",
+      "goalDiff": 0,
+      "firstToScore": "3a21a7c1a3f89181074e9771"
+    },
+    {
+      "matchId": "6a21a7c1a3f89181074e9855",
+      "winner": "3a21a7c1a3f89181074e9777",
+      "team1Goals": "2",
+      "team2Goals": "3",
+      "goalDiff": 1,
+      "firstToScore": "3a21a7c1a3f89181074e9777"
+    },
+    {
+      "matchId": "6a21a7c1a3f89181074e9856",
+      "winner": "3a21a7c1a3f89181074e9776",
+      "team1Goals": "0",
+      "team2Goals": "4",
+      "goalDiff": 4,
+      "firstToScore": "3a21a7c1a3f89181074e9776"
+    },
+    {
+      "matchId": "6a21a7c1a3f89181074e9857",
+      "winner": "3a21a7c1a3f89181074e9774",
+      "team1Goals": "3",
+      "team2Goals": "1",
+      "goalDiff": 2,
+      "firstToScore": "3a21a7c1a3f89181074e9775"
+    },
+    {
+      "matchId": "6a21a7c1a3f89181074e9854",
+      "winner": "Draw",
+      "team1Goals": "0",
+      "team2Goals": "0",
+      "goalDiff": 0,
+      "firstToScore": "None"
+    },
+    {
+      "matchId": "6a21a7c1a3f89181074e9866",
+      "winner": "Draw",
+      "team1Goals": "1",
+      "team2Goals": "1",
+      "goalDiff": 0,
+      "firstToScore": "3a21a7c1a3f89181074e9778"
+    },
+    {
+      "matchId": "6a21a7c1a3f89181074e9863",
+      "winner": "3a21a7c1a3f89181074e9775",
+      "team1Goals": "1",
+      "team2Goals": "2",
+      "goalDiff": 1,
+      "firstToScore": "3a21a7c1a3f89181074e9782"
+    },
+    {
+      "matchId": "6a21a7c1a3f89181074e9860",
+      "winner": "Draw",
+      "team1Goals": "0",
+      "team2Goals": "0",
+      "goalDiff": 0,
+      "firstToScore": "None"
+    },
+    {
+      "matchId": "6a21a7c1a3f89181074e9865",
+      "winner": "3a21a7c1a3f89181074e9780",
+      "team1Goals": "2",
+      "team2Goals": "1",
+      "goalDiff": 1,
+      "firstToScore": "3a21a7c1a3f89181074e9780"
+    }
+  ],
+  "teams": [
+    {
+      "_id": "5a1342399017dfc4e2faf4a8",
+      "title": "1st place",
+      "type": "1st",
+      "deadline": "2018-03-01T00:00:00.000Z",
+      "league": "5a21a7c1a3f89181074e9769",
+      "options": []
+    },
+    {
+      "_id": "5a1342399017dfc4e2faf4a9",
+      "title": "2nd place",
+      "type": "2nd",
+      "deadline": "2018-03-01T00:00:00.001Z",
+      "league": "5a21a7c1a3f89181074e9769",
+      "options": []
+    },
+    {
+      "_id": "5a1342399017dfc4e2faf4b0",
+      "title": "3rd place",
+      "type": "3rd",
+      "deadline": "2018-03-01T00:00:00.002Z",
+      "league": "5a21a7c1a3f89181074e9769",
+      "options": []
+    },
+    {
+      "_id": "5a1342399017dfc4e2faf4b1",
+      "title": "4th place",
+      "type": "4th",
+      "deadline": "2018-03-01T00:00:00.003Z",
+      "league": "5a21a7c1a3f89181074e9769",
+      "options": []
+    },
+    {
+      "_id": "5a1342399017dfc4e2faf4b2",
+      "title": "13th place",
+      "type": "13th",
+      "deadline": "2018-03-01T00:00:00.004Z",
+      "league": "5a21a7c1a3f89181074e9769",
+      "options": []
+    },
+    {
+      "_id": "5a1342399017dfc4e2faf4b3",
+      "title": "14th place",
+      "type": "14th",
+      "deadline": "2018-03-01T00:00:00.005Z",
+      "league": "5a21a7c1a3f89181074e9769",
+      "options": []
+    }
+  ],
+  "teamResults": [
+  ]
+}

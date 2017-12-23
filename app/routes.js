@@ -1,12 +1,14 @@
 var util = require('./utils/util.js');
 var initialData = require('./utils/updateInitialConfiguration');
 var automaticUpdater = require('./utils/automaticUpdater');
+var migrator = require('./utils/migrator');
 var mongoose = require('mongoose');
 mongoose.Promise = Promise;
 
 module.exports = function (app, passport) {
     initialData.loadAll();
     automaticUpdater.startTask();
+    migrator.run();
 
     /********************************************
      * All routes mapping
@@ -25,6 +27,8 @@ module.exports = function (app, passport) {
     app.use('/api/userScore', require('./controllers/userScore.js'));
     app.use('/api/usersLeaderboard', require('./controllers/usersLeaderboard.js'));
     app.use('/api/simulatorUI', require('./controllers/simulatorUI.js'));
+    app.use('/api/leagues', require('./controllers/leagues.js'));
+    app.use('/api/clubs', require('./controllers/clubs.js'));
 
     /********************************************
      * Automatic Update (Immediate)

@@ -4,13 +4,15 @@ component.TeamPredictionMainTile = (function(){
     return  function(props) {
         var team = props.team,
             selectedTeam = props.selectedTeam,
-            leagueName = models.leagues.getLeagueName(team.league),
+            league = props.league,
+            leagueName = league.name,
+            leagueIdName = utils.general.leagueNameToIdName(leagueName),
             title = team.title,
             opts = {
-                imageBackground: utils.general.getLeagueLogoURL(team.league),
+                imageBackground: utils.general.getLeagueLogoURL(leagueIdName),
                 description: leagueName,
                 rankTitle: title,
-                logoClassName: team.league
+                logoClassName: leagueIdName
             };
 
         if (selectedTeam) {
@@ -18,7 +20,7 @@ component.TeamPredictionMainTile = (function(){
             opts.logoPosition = selectedTeam.logoPosition;
         } else {
             opts.title = "Team";
-            opts.logoPosition = models.leagues.getLeagueLogoPosition(team.league);
+            opts.logoPosition = league.logoPosition
         }
 
         return re(BaseMainTile, opts);

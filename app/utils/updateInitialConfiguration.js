@@ -5,15 +5,15 @@ let TeamResultService = require('../services/teamResultService');
 let PredictionScoreConfigurationService = require('../services/predictionScoreConfigurationService');
 let UsersLeaderboardService = require('../services/usersLeaderboardService');
 let UserScoreService = require('../services/userScoreService');
-let Q = require('q');
+let ClubService = require('../services/clubService');
+let LeagueService = require('../services/leagueService');
 
 let self = module.exports = {
     loadAll: function () {
         return Promise.all([
-            PredictionScoreConfigurationService.updateConfiguration(require('../initialData/scoreConfiguration.json')),
-            self.updateLeagueData(require('../initialData/Tournament_Worldcup_18.json')),
-            self.updateLeagueData(require('../initialData/League_Israel_17-18.json')),
-            //loadGames(require('../initialData/League_Champions_17-18.json'));
+            PredictionScoreConfigurationService.updateConfiguration(require('../initialData/configuration/scoreConfiguration.json')),
+            self.updateLeagueData(require('../initialData/leagues/Tournament_Worldcup_18.json')),
+            self.updateLeagueData(require('../initialData/leagues/League_Israel_17-18.json')),
         ]).then(function (arr) {
             UserScoreService.updateAllUserScores().then(function (obj) {
                 if (obj.needUpdate === true) {
@@ -29,12 +29,14 @@ let self = module.exports = {
 
     updateLeagueData: function (leagueJson) {
         return Promise.all([
+            LeagueService.updateLeague(leagueJson.league),
+            ClubService.updateClubs(leagueJson.clubs),
             MatchService.updateMatches(leagueJson.matches),
             TeamService.updateTeams(leagueJson.teams),
             MatchResultService.updateMatchResults(leagueJson.matchResults),
             TeamResultService.updateTeamResults(leagueJson.teamResults)
         ]).then(function (arr) {
-
+            console.log('update league data finished');
         });
     }
 };

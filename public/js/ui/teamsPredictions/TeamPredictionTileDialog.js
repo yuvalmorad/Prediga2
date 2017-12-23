@@ -4,10 +4,20 @@ component.TeamPredictionTileDialog = (function(){
         TeamPredictionMainTile = component.TeamPredictionMainTile,
         TeamPredictionFormTile = component.TeamPredictionFormTile;
 
+    function findFirstClubId(clubs, leagueId) {
+        var i = 0;
+        for (i = 0; i < clubs.length; i++) {
+            if (clubs[i].league === leagueId) {
+                return clubs[i]._id;
+            }
+        }
+    }
+
     var TeamPredictionTileDialog = React.createClass({
 
         getInitialState: function() {
             var props = this.props,
+                clubs = props.clubs,
                 prediction = props.prediction,
                 team = props.team,
                 predictionCopy = Object.assign({}, prediction, {teamId: team._id});
@@ -15,7 +25,7 @@ component.TeamPredictionTileDialog = (function(){
             if (!predictionCopy.team) {
                 predictionCopy.team = team.options.length ?
                                         team.options[0] :
-                                        Object.keys(models.leagues.getTeamsByLeagueName(team.league))[0];
+                                        findFirstClubId(clubs, team.league);
             }
 
             return {
@@ -41,27 +51,32 @@ component.TeamPredictionTileDialog = (function(){
             var props = this.props,
                 state = this.state,
                 prediction = state.prediction,
+                leagues = props.leagues,
+                clubs = props.clubs,
                 team = props.team,
                 selectedTeam,
                 borderColor = "gray",
                 borderSecondColor = "",
-                leagueName = models.leagues.getLeagueName(team.league);
+                league = utils.general.findItemInArrBy(leagues, "_id", team.league),
+                leagueName = league.name;
 
             if (prediction && prediction.team) {
-                selectedTeam = models.leagues.getTeamByTeamName(prediction.team);
+                selectedTeam = utils.general.findItemInArrBy(clubs, "_id", prediction.team);
                 borderColor = selectedTeam.color;
                 borderSecondColor = selectedTeam.secondColor;
             }
 
             return re(TileDialog, {borderLeftColor: borderColor, borderLeftSecondColor: borderSecondColor, borderRightColor: borderColor, borderRightSecondColor: borderSecondColor, className: "team-prediction-tile"},
-                re(TeamPredictionMainTile, {team: team, selectedTeam: selectedTeam, fixedDescription: leagueName}),
-                re(TeamPredictionFormTile, {team: team, selectedTeam: selectedTeam, onSelectedTeamChanged: this.onSelectedTeamChanged})
+                re(TeamPredictionMainTile, {team: team, selectedTeam: selectedTeam, league: league, fixedDescription: leagueName}),
+                re(TeamPredictionFormTile, {team: team, selectedTeam: selectedTeam, league: league, clubs: clubs, onSelectedTeamChanged: this.onSelectedTeamChanged})
             );
         }
     });
 
     function mapStateToProps(state){
         return {
+            leagues: state.leagues.leagues,
+            clubs: state.leagues.clubs
         }
     }
 

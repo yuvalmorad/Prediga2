@@ -17,8 +17,16 @@ utils.general = (function(){
         formatMinutesSecondsTime: formatMinutesSecondsTime,
         formatHourMinutesTime: formatHourMinutesTime,
         getLeagueLogoURL: getLeagueLogoURL,
-        cutUrlPath: cutUrlPath
+        leagueNameToIdName: leagueNameToIdName,
+        cutUrlPath: cutUrlPath,
+        getLeadersByLeagueId: getLeadersByLeagueId
     };
+
+    function getLeadersByLeagueId(leadersByLeagues, leagueId) {
+        return leadersByLeagues.filter(function(leadersByLeague){
+            return leadersByLeague.length && leadersByLeague[0].leagueId === leagueId;
+        })[0] || [];
+    }
 
     function cutUrlPath(path) {
         return "/" + path.split("/")[1];
@@ -33,8 +41,12 @@ utils.general = (function(){
         return hours + ":" + minutes;
     }
 
-    function getLeagueLogoURL(league) {
-        return "url('../images/sprites/" + league + "_teams.png')"
+    function getLeagueLogoURL(leagueIdName) {
+        return "url('../images/sprites/" + leagueIdName + "_teams.png')"
+    }
+
+    function leagueNameToIdName(leagueName) {
+        return leagueName.toLowerCase().replace(/ /g, "_");
     }
 
     function addZeroToTimeIfNeeded(time) {

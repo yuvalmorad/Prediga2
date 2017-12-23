@@ -5,34 +5,34 @@ component.TeamPredictionFormTile = (function(){
         var teamsOptions,
             selectedTeam = props.selectedTeam,
             team = props.team,
-            teams = models.leagues.getTeamsByLeagueName(team.league);
+            clubs = props.clubs,
+            league = props.league;
+
+        clubs = utils.general.findItemsInArrBy(clubs, "league", league._id);
 
         if (team.options.length) {
-            teamsOptions = team.options.map(function(teamOptionName){
-               return teams[teamOptionName];
+            teamsOptions = team.options.map(function(teamOptionId){
+               return utils.general.findItemInArrBy(clubs, "_id", teamOptionId);
             });
         } else {
-            teamsOptions = Object.keys(teams).map(function(teamName){
-                return teams[teamName];
-            });
+            teamsOptions = clubs
         }
 
         var items = teamsOptions.sort(function(team1, team2){
                 return team1.name.localeCompare(team2.name);
             }).map(function(teamOption){
                 var isSelected = false;
-                var teamName = teamOption.name;
-                var team = models.leagues.getTeamByTeamName(teamName);
-                if (selectedTeam && selectedTeam.name === teamName) {
+                var teamId = teamOption._id;
+                if (selectedTeam && selectedTeam._id === teamId) {
                     isSelected = true;
                 }
 
                 return {
                     isSelected: isSelected,
-                    name: teamName,
+                    id: teamOption._id,
                     shortName: teamOption.shortName,
-                    logoPosition: team.logoPosition,
-                    leagueId: team.leagueId
+                    logoPosition: teamOption.logoPosition,
+                    leagueIdName: utils.general.leagueNameToIdName(league.name)
                 }
             });
 

@@ -45,11 +45,11 @@ body {
 }
 
 /* -------  TEAM LOGO -------*/
-.team-logo.IsraeliLeague18 {
+.team-logo.israel {
     background-size: 52.5rem;
 }
 
-.team-logo.WorldCup2018 {
+.team-logo.world_cup {
     background-size: 7rem;
 }
 
@@ -665,6 +665,7 @@ body {
     border-right: 4px solid #888282;
     border-radius: 4px;
     position: relative;
+    height: 100%;
 }
 
 .tile .tile-wrapper .tile-border-right,

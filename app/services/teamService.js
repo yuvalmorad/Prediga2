@@ -4,7 +4,6 @@ let TeamResult = require('../models/teamResult');
 let UserScore = require('../models/userScore');
 
 let self = module.exports = {
-    // TODO - update only if necessary
     updateTeams: function (teams) {
         console.log('beginning to update ' + teams.length + ' teams');
         let promises = teams.map(function (team) {

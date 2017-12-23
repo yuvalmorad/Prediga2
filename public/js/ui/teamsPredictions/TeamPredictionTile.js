@@ -4,7 +4,7 @@ component.TeamPredictionTile = (function(){
 
     return React.createClass({
         shouldComponentUpdate: function(nextProps) {
-            return this.props.team !== nextProps.team || this.props.prediction !== nextProps.prediction;
+            return this.props.team !== nextProps.team || this.props.prediction !== nextProps.prediction || this.props.selectedTeam !== nextProps.selectedTeam;//TODO all this?
         },
 
         render: function() {
@@ -13,16 +13,16 @@ component.TeamPredictionTile = (function(){
                 prediction = props.prediction,
                 borderColor = "gray",
                 borderSecondColor = "",
-                selectedTeam;
+                selectedTeam = props.selectedTeam,
+                league = props.league;
 
-            if (prediction && prediction.team) {
-                var selectedTeam = models.leagues.getTeamByTeamName(prediction.team);
+            if (selectedTeam) {
                 borderColor = selectedTeam.color;
                 borderSecondColor = selectedTeam.secondColor;
             }
 
             return re(Tile, {borderLeftColor: borderColor, borderLeftSecondColor: borderSecondColor, borderRightColor: borderColor, borderRightSecondColor: borderSecondColor, className: "team-prediction-tile", dialogComponent: "TeamPredictionTileDialog", dialogComponentProps: {team: team, prediction: prediction, isDialogFormDisabled: false}},
-                re(TeamPredictionMainTile, {team: team, selectedTeam: selectedTeam})
+                re(TeamPredictionMainTile, {team: team, selectedTeam: selectedTeam, league: league})
             );
         }
     });

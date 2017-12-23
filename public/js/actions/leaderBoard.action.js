@@ -12,8 +12,8 @@ action.leaderBoard = (function(){
 
         return function(dispatch){
             service.leaderBoard.getAll().then(function(res){
-                var data = res.data;
-                dispatch(success(data.leaderboard));
+                var leaderboard = res.data;
+                dispatch(success(leaderboard));
             }, function(error){
 
             })

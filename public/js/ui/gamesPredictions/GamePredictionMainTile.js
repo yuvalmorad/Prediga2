@@ -65,25 +65,24 @@ component.GamePredictionMainTile = (function(){
                 state = this.state,
                 game = props.game,
                 gameId = game._id,
-                league = game.league,
+                league = props.league,
+                leagueName = league.name,
+                leagueIdName = utils.general.leagueNameToIdName(leagueName),
+                team1 = props.team1,
+                team2 = props.team2,
                 prediction = props.prediction,
-                otherMatchPredictions = props.otherMatchPredictions,
                 result = props.result,
                 predictionWinner = prediction && prediction[GAME.BET_TYPES.WINNER.key],
                 resultWinner,
                 displayTeam1Goals,
                 displayTeam2Goals,
-                team1 = models.leagues.getTeamByTeamName(game.team1),
-                team2 = models.leagues.getTeamByTeamName(game.team2),
-                leagueSprite = team1 && team2 ? utils.general.getLeagueLogoURL(league) : "",
+                leagueSprite = utils.general.getLeagueLogoURL(leagueIdName),
                 team1ShortName = team1 ? team1.shortName : "",
                 team2ShortName = team2 ? team2.shortName : "",
-                team1Color = team1 ? team1.color : "",
-                team2Color = team2 ? team2.color : "",
                 team1LogoPosition = team1 ? team1.logoPosition : "",
                 team2LogoPosition = team2 ? team2.logoPosition : "",
-                team1LogoClass = "team-logo " + league,
-                team2LogoClass = "team-logo " + league,
+                team1LogoClass = "team-logo " + leagueIdName,
+                team2LogoClass = "team-logo " + leagueIdName,
                 gameDate,
                 graphParts,
                 kickofftime = game.kickofftime,
@@ -102,7 +101,6 @@ component.GamePredictionMainTile = (function(){
                     dateStr = timeBeforeGame;
                 } else if (isGamePlaying) {
                     simulationBtn = re(ReactRouterDOM.Link, {to: "/simulator/" + gameId, className: "simulation-button"}, "Simulation");
-                    //simulationBtn = re("a", {className: "simulation-button", onCli}, "Simulation");
                     dateStr = timePlaying;
                 } else {
                     dateStr = utils.general.formatHourMinutesTime(kickofftime);
@@ -110,35 +108,21 @@ component.GamePredictionMainTile = (function(){
 
                 gameDate = re("div", {}, dateStr);
 
-                var otherPredictionByWinner = utils.general.getOtherPredictionsUserIdsByWinner(otherMatchPredictions);
-                var otherPredictionsTeam1Count = otherPredictionByWinner[game.team1] ? otherPredictionByWinner[game.team1].length : 0;
-                var otherPredictionsTeam2Count = otherPredictionByWinner[game.team2] ? otherPredictionByWinner[game.team2].length : 0;
-                var otherPredictionDraw = utils.general.getDrawFromObject(otherPredictionByWinner);
-                var otherPredictionsDrawCount = otherPredictionDraw ? otherPredictionDraw.length : 0;
-
                 displayTeam1Goals = prediction ? prediction[GAME.BET_TYPES.TEAM1_GOALS.key] : "";
                 displayTeam2Goals = prediction ? prediction[GAME.BET_TYPES.TEAM2_GOALS.key] : "";
 
                 if (predictionWinner) {
                     //add this user to the count
-                    if (predictionWinner === game.team1) {
-                        otherPredictionsTeam1Count++;
-                    } else {
+                    if (predictionWinner !== team1._id) {
                         team1LogoClass += " grayed";
                     }
 
-                    if (predictionWinner === game.team2) {
-                        otherPredictionsTeam2Count++;
-                    } else {
+                    if (predictionWinner !== team2._id) {
                         team2LogoClass += " grayed";
-                    }
-
-                    if (utils.general.isMatchDraw(predictionWinner)) {
-                        otherPredictionsDrawCount++;
                     }
                 }
 
-                graphParts = [{color: team1Color, amount: otherPredictionsTeam1Count}, {color: COLORS.DRAW_COLOR, amount: otherPredictionsDrawCount}, {color: team2Color, amount: otherPredictionsTeam2Count}]; //TODO
+                graphParts = []//[{color: team1Color, amount: otherPredictionsTeam1Count}, {color: COLORS.DRAW_COLOR, amount: otherPredictionsDrawCount}, {color: team2Color, amount: otherPredictionsTeam2Count}]; //TODO
             } else {
                 //POST GAME
                 isPostGame = true;
@@ -153,11 +137,11 @@ component.GamePredictionMainTile = (function(){
                 gamePoints = re("div", {key: 2, className: "game-points"}, points);
                 graphParts = [{color: "#7ED321", amount: points}, {color: COLORS.DRAW_COLOR, amount: maxPoints - points}];
 
-                if (resultWinner !== game.team1) {
+                if (resultWinner !== team1._id) {
                     team1LogoClass += " grayed";
                 }
 
-                if (resultWinner !== game.team2) {
+                if (resultWinner !== team2._id) {
                     team2LogoClass += " grayed";
                 }
             }
@@ -168,7 +152,7 @@ component.GamePredictionMainTile = (function(){
                     re("div", {className: "team-name"}, team1ShortName)
                 ),
                 re("div", {className: "center"},
-                    re("div", {className: "league-name"}, league + ' ' +game.type),
+                    re("div", {className: "league-name"}, leagueName + ' ' + game.type),
                     re("div", {className: "game-date"},
                         gameDate
                     ),

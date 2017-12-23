@@ -1,0 +1,1154 @@
+{
+  "league": {
+    "_id": "4a21a7c1a3f89181074e9762",
+    "name": "World Cup",
+    "logoPosition": "-56px -672px",
+    "year": "2018"
+  },
+  "clubs": [
+    {
+      "_id": "2a21a7c1a3f89181074e9762",
+      "name365": "",
+      "name": "Argentina",
+      "shortName": "AR",
+      "color": "#42a0c8",
+      "secondColor": "#fff",
+      "logoPosition": "0 0",
+      "league": "4a21a7c1a3f89181074e9762"
+    },
+    {
+      "_id": "2a21a7c1a3f89181074e9763",
+      "name365": "",
+      "name": "Brazil",
+      "shortName": "BR",
+      "color": "yellow",
+      "secondColor": "blue",
+      "logoPosition": "-56px -56px",
+      "league": "4a21a7c1a3f89181074e9762"
+    },
+    {
+      "_id": "2a21a7c1a3f89181074e9764",
+      "name365": "",
+      "name": "Colombia",
+      "shortName": "CU",
+      "color": "yellow",
+      "secondColor": "blue",
+      "logoPosition": "0 -112px",
+      "league": "4a21a7c1a3f89181074e9762"
+    },
+    {
+      "_id": "2a21a7c1a3f89181074e9765",
+      "name365": "",
+      "name": "Peru",
+      "shortName": "PE",
+      "color": "#fff",
+      "secondColor": "red",
+      "logoPosition": "-56px -560px",
+      "league": "4a21a7c1a3f89181074e9762"
+    },
+    {
+      "_id": "2a21a7c1a3f89181074e9766",
+      "name365": "",
+      "name": "Uruguay",
+      "shortName": "UR",
+      "color": "#60b5ff",
+      "secondColor": "#000",
+      "logoPosition": "-56px -899px",
+      "league": "4a21a7c1a3f89181074e9762"
+    },
+    {
+      "_id": "2a21a7c1a3f89181074e9767",
+      "name365": "",
+      "name": "Costa Rica",
+      "shortName": "CR",
+      "color": "red",
+      "secondColor": "blue",
+      "logoPosition": "-56px -112px",
+      "league": "4a21a7c1a3f89181074e9762"
+    },
+    {
+      "_id": "2a21a7c1a3f89181074e9768",
+      "name365": "",
+      "name": "Mexico",
+      "shortName": "MX",
+      "color": "#1a4d3e",
+      "secondColor": "#fff",
+      "logoPosition": "-56px -448px",
+      "league": "4a21a7c1a3f89181074e9762"
+    },
+    {
+      "_id": "2a21a7c1a3f89181074e9769",
+      "name365": "",
+      "name": "Panama",
+      "shortName": "PA",
+      "color": "red",
+      "secondColor": "#fff",
+      "logoPosition": "0 -560px",
+      "league": "4a21a7c1a3f89181074e9762"
+    },
+    {
+      "_id": "2a21a7c1a3f89181074e9770",
+      "name365": "",
+      "name": "Belgium",
+      "shortName": "BL",
+      "color": "red",
+      "secondColor": "yellow",
+      "logoPosition": "0 -56px",
+      "league": "4a21a7c1a3f89181074e9762"
+    },
+    {
+      "_id": "2a21a7c1a3f89181074e9771",
+      "name365": "",
+      "name": "Croatia",
+      "shortName": "CR",
+      "color": "red",
+      "secondColor": "#fff",
+      "logoPosition": "0 -168px",
+      "league": "4a21a7c1a3f89181074e9762"
+    },
+    {
+      "_id": "2a21a7c1a3f89181074e9772",
+      "name365": "",
+      "name": "Denmark",
+      "shortName": "DN",
+      "color": "red",
+      "secondColor": "#fff",
+      "logoPosition": "-56px -168px",
+      "league": "4a21a7c1a3f89181074e9762"
+    },
+    {
+      "_id": "2a21a7c1a3f89181074e9773",
+      "name365": "",
+      "name": "England",
+      "shortName": "EN",
+      "color": "#fff",
+      "secondColor": "red",
+      "logoPosition": "-56px -224px",
+      "league": "4a21a7c1a3f89181074e9762"
+    },
+    {
+      "_id": "2a21a7c1a3f89181074e9774",
+      "name365": "",
+      "name": "France",
+      "shortName": "FR",
+      "color": "blue",
+      "secondColor": "#fff",
+      "logoPosition": "0 -280px",
+      "league": "4a21a7c1a3f89181074e9762"
+    },
+    {
+      "_id": "2a21a7c1a3f89181074e9775",
+      "name365": "",
+      "name": "Germany",
+      "shortName": "GR",
+      "color": "#fff",
+      "secondColor": "#000",
+      "logoPosition": "-56px -280px",
+      "league": "4a21a7c1a3f89181074e9762"
+    },
+    {
+      "_id": "2a21a7c1a3f89181074e9776",
+      "name365": "",
+      "name": "Iceland",
+      "shortName": "IC",
+      "color": "blue",
+      "secondColor": "#fff",
+      "logoPosition": "0 -336px",
+      "league": "4a21a7c1a3f89181074e9762"
+    },
+    {
+      "_id": "2a21a7c1a3f89181074e9777",
+      "name365": "",
+      "name": "Poland",
+      "shortName": "PL",
+      "color": "#fff",
+      "secondColor": "red",
+      "logoPosition": "0 -616px",
+      "league": "4a21a7c1a3f89181074e9762"
+    },
+    {
+      "_id": "2a21a7c1a3f89181074e9778",
+      "name365": "",
+      "name": "Portugal",
+      "shortName": "POR",
+      "color": "red",
+      "secondColor": "green",
+      "logoPosition": "-56px -616px",
+      "league": "4a21a7c1a3f89181074e9762"
+    },
+    {
+      "_id": "2a21a7c1a3f89181074e9779",
+      "name365": "",
+      "name": "Russia",
+      "shortName": "RUS",
+      "color": "blue",
+      "secondColor": "red",
+      "logoPosition": "0 -672px",
+      "league": "4a21a7c1a3f89181074e9762"
+    },
+    {
+      "_id": "2a21a7c1a3f89181074e9780",
+      "name365": "",
+      "name": "Serbia",
+      "shortName": "SER",
+      "color": "red",
+      "secondColor": "blue",
+      "logoPosition": "0px -787px",
+      "league": "4a21a7c1a3f89181074e9762"
+    },
+    {
+      "_id": "2a21a7c1a3f89181074e9781",
+      "name365": "",
+      "name": "Spain",
+      "shortName": "SP",
+      "color": "red",
+      "secondColor": "blue",
+      "logoPosition": "-56px -787px",
+      "league": "4a21a7c1a3f89181074e9762"
+    },
+    {
+      "_id": "2a21a7c1a3f89181074e9782",
+      "name365": "",
+      "name": "Sweden",
+      "shortName": "SW",
+      "color": "yellow",
+      "secondColor": "blue",
+      "logoPosition": "0 -843px",
+      "league": "4a21a7c1a3f89181074e9762"
+    },
+    {
+      "_id": "2a21a7c1a3f89181074e9783",
+      "name365": "",
+      "name": "Switzerland",
+      "shortName": "SWI",
+      "color": "red",
+      "secondColor": "#fff",
+      "logoPosition": "-56px -843px",
+      "league": "4a21a7c1a3f89181074e9762"
+    },
+    {
+      "_id": "2a21a7c1a3f89181074e9784",
+      "name365": "",
+      "name": "Australia",
+      "shortName": "AUS",
+      "color": "green",
+      "secondColor": "#C5B358",
+      "logoPosition": "-56px 0",
+      "league": "4a21a7c1a3f89181074e9762"
+    },
+    {
+      "_id": "2a21a7c1a3f89181074e9785",
+      "name365": "",
+      "name": "Iran",
+      "shortName": "IR",
+      "color": "green",
+      "secondColor": "#fff",
+      "logoPosition": "-56px -336px",
+      "league": "4a21a7c1a3f89181074e9762"
+    },
+    {
+      "_id": "2a21a7c1a3f89181074e9786",
+      "name365": "",
+      "name": "Japan",
+      "shortName": "JA",
+      "color": "blue",
+      "secondColor": "#fff",
+      "logoPosition": "0 -392px",
+      "league": "4a21a7c1a3f89181074e9762"
+    },
+    {
+      "_id": "2a21a7c1a3f89181074e9787",
+      "name365": "",
+      "name": "South Korea",
+      "shortName": "SK",
+      "color": "red",
+      "secondColor": "#fff",
+      "logoPosition": "-56px -392px",
+      "league": "4a21a7c1a3f89181074e9762"
+    },
+    {
+      "_id": "2a21a7c1a3f89181074e9788",
+      "name365": "",
+      "name": "Saudi Arabia",
+      "shortName": "SA",
+      "color": "green",
+      "secondColor": "#fff",
+      "logoPosition": "0 -731px",
+      "league": "4a21a7c1a3f89181074e9762"
+    },
+    {
+      "_id": "2a21a7c1a3f89181074e9789",
+      "name365": "",
+      "name": "Egypt",
+      "shortName": "EG",
+      "color": "red",
+      "secondColor": "#fff",
+      "logoPosition": "0 -224px",
+      "league": "4a21a7c1a3f89181074e9762"
+    },
+    {
+      "_id": "2a21a7c1a3f89181074e9790",
+      "name365": "",
+      "name": "Morocco",
+      "shortName": "MOR",
+      "color": "red",
+      "secondColor": "green",
+      "logoPosition": "0 -504px",
+      "league": "4a21a7c1a3f89181074e9762"
+    },
+    {
+      "_id": "2a21a7c1a3f89181074e9791",
+      "name365": "",
+      "name": "Nigeria",
+      "shortName": "NIG",
+      "color": "green",
+      "secondColor": "#fff",
+      "logoPosition": "-56px -504px",
+      "league": "4a21a7c1a3f89181074e9762"
+    },
+    {
+      "_id": "2a21a7c1a3f89181074e9792",
+      "name365": "",
+      "name": "Senegal",
+      "shortName": "SEN",
+      "color": "#fff",
+      "secondColor": "green",
+      "logoPosition": "-56px -731px",
+      "league": "4a21a7c1a3f89181074e9762"
+    },
+    {
+      "_id": "2a21a7c1a3f89181074e9793",
+      "name365": "",
+      "name": "Tunisia",
+      "shortName": "TUN",
+      "color": "#fff",
+      "secondColor": "red",
+      "logoPosition": "0 -899px",
+      "league": "4a21a7c1a3f89181074e9762"
+    }
+  ],
+  "matches": [
+    {
+      "_id": "5a21a7c1a3f89181074e9762",
+      "team1": "2a21a7c1a3f89181074e9779",
+      "team2": "2a21a7c1a3f89181074e9788",
+      "kickofftime": "2018-06-14T15:00:00.000Z",
+      "stadium": "Luzhniki Stadium, Moscow",
+      "type": "Round 1",
+      "league": "4a21a7c1a3f89181074e9762"
+    },
+    {
+      "_id": "5a21a7c1a3f89181074e9763",
+      "team1": "2a21a7c1a3f89181074e9789",
+      "team2": "2a21a7c1a3f89181074e9766",
+      "kickofftime": "2018-06-15T12:00:00.000Z",
+      "stadium": "Central Stadium, Yekaterinburg",
+      "type": "Round 1",
+      "league": "4a21a7c1a3f89181074e9762"
+    },
+    {
+      "_id": "5a21a7c1a3f89181074e9764",
+      "team1": "2a21a7c1a3f89181074e9779",
+      "team2": "2a21a7c1a3f89181074e9789",
+      "kickofftime": "2018-06-19T18:00:00.000Z",
+      "stadium": "Krestovsky Stadium, Saint Petersburg",
+      "type": "Round 2",
+      "league": "4a21a7c1a3f89181074e9762"
+    },
+    {
+      "_id": "5a21a7c1a3f89181074e9765",
+      "team1": "2a21a7c1a3f89181074e9766",
+      "team2": "2a21a7c1a3f89181074e9788",
+      "kickofftime": "2018-06-20T15:00:00.000Z",
+      "stadium": "Rostov Arena, Rostov-on-Don",
+      "type": "Round 2",
+      "league": "4a21a7c1a3f89181074e9762"
+    },
+    {
+      "_id": "5a21a7c1a3f89181074e9766",
+      "team1": "2a21a7c1a3f89181074e9766",
+      "team2": "2a21a7c1a3f89181074e9779",
+      "kickofftime": "2018-06-25T14:00:00.000Z",
+      "stadium": "Cosmos Arena, Samara",
+      "type": "Round 3",
+      "league": "4a21a7c1a3f89181074e9762"
+    },
+    {
+      "_id": "5a21a7c1a3f89181074e9767",
+      "team1": "2a21a7c1a3f89181074e9788",
+      "team2": "2a21a7c1a3f89181074e9789",
+      "kickofftime": "2018-06-25T14:00:00.000Z",
+      "stadium": "Volgograd Arena, Volgograd",
+      "type": "Round 3",
+      "league": "4a21a7c1a3f89181074e9762"
+    },
+    {
+      "_id": "5a21a7c1a3f89181074e9768",
+      "team1": "2a21a7c1a3f89181074e9790",
+      "team2": "2a21a7c1a3f89181074e9785",
+      "kickofftime": "2018-06-15T15:00:00.000Z",
+      "stadium": "Krestovsky Stadium, Saint Petersburg",
+      "type": "Round 1",
+      "league": "4a21a7c1a3f89181074e9762"
+    },
+    {
+      "_id": "5a21a7c1a3f89181074e9769",
+      "team1": "2a21a7c1a3f89181074e9778",
+      "team2": "2a21a7c1a3f89181074e9781",
+      "kickofftime": "2018-06-15T18:00:00.000Z",
+      "stadium": "Fisht Olympic Stadium, Sochi",
+      "type": "Round 1",
+      "league": "4a21a7c1a3f89181074e9762"
+    },
+    {
+      "_id": "5a21a7c1a3f89181074e976a",
+      "team1": "2a21a7c1a3f89181074e9778",
+      "team2": "2a21a7c1a3f89181074e9790",
+      "kickofftime": "2018-06-20T12:00:00.000Z",
+      "stadium": "Luzhniki Stadium, Moscow",
+      "type": "Round 2",
+      "league": "4a21a7c1a3f89181074e9762"
+    },
+    {
+      "_id": "5a21a7c1a3f89181074e976b",
+      "team1": "2a21a7c1a3f89181074e9785",
+      "team2": "2a21a7c1a3f89181074e9781",
+      "kickofftime": "2018-06-20T18:00:00.000Z",
+      "stadium": "Kazan Arena, Kazan",
+      "type": "Round 2",
+      "league": "4a21a7c1a3f89181074e9762"
+    },
+    {
+      "_id": "5a21a7c1a3f89181074e976c",
+      "team1": "2a21a7c1a3f89181074e9785",
+      "team2": "2a21a7c1a3f89181074e9778",
+      "kickofftime": "2018-06-25T18:00:00.000Z",
+      "stadium": "Mordovia Arena, Saransk",
+      "type": "Round 3",
+      "league": "4a21a7c1a3f89181074e9762"
+    },
+    {
+      "_id": "5a21a7c1a3f89181074e976d",
+      "team1": "2a21a7c1a3f89181074e9781",
+      "team2": "2a21a7c1a3f89181074e9790",
+      "kickofftime": "2018-06-25T18:00:00.000Z",
+      "stadium": "Kaliningrad Stadium, Kaliningrad",
+      "type": "Round 3",
+      "league": "4a21a7c1a3f89181074e9762"
+    },
+    {
+      "_id": "5a21a7c1a3f89181074e976e",
+      "team1": "2a21a7c1a3f89181074e9774",
+      "team2": "2a21a7c1a3f89181074e9784",
+      "kickofftime": "2018-06-16T10:00:00.000Z",
+      "stadium": "Kazan Arena, Kazan",
+      "type": "Round 1",
+      "league": "4a21a7c1a3f89181074e9762"
+    },
+    {
+      "_id": "5a21a7c1a3f89181074e976f",
+      "team1": "2a21a7c1a3f89181074e9765",
+      "team2": "2a21a7c1a3f89181074e9772",
+      "kickofftime": "2018-06-16T16:00:00.000Z",
+      "stadium": "Mordovia Arena, Saransk",
+      "type": "Round 1",
+      "league": "4a21a7c1a3f89181074e9762"
+    },
+    {
+      "_id": "5a21a7c1a3f89181074e9770",
+      "team1": "2a21a7c1a3f89181074e9774",
+      "team2": "2a21a7c1a3f89181074e9765",
+      "kickofftime": "2018-06-21T12:00:00.000Z",
+      "stadium": "Cosmos Arena, Samara",
+      "type": "Round 2",
+      "league": "4a21a7c1a3f89181074e9762"
+    },
+    {
+      "_id": "5a21a7c1a3f89181074e9771",
+      "team1": "2a21a7c1a3f89181074e9772",
+      "team2": "2a21a7c1a3f89181074e9784",
+      "kickofftime": "2018-06-21T15:00:00.000Z",
+      "stadium": "Central Stadium, Yekaterinburg",
+      "type": "Round 2",
+      "league": "4a21a7c1a3f89181074e9762"
+    },
+    {
+      "_id": "5a21a7c1a3f89181074e9772",
+      "team1": "2a21a7c1a3f89181074e9772",
+      "team2": "2a21a7c1a3f89181074e9774",
+      "kickofftime": "2018-06-26T14:00:00.000Z",
+      "stadium": "Luzhniki Stadium, Moscow",
+      "type": "Round 3",
+      "league": "4a21a7c1a3f89181074e9762"
+    },
+    {
+      "_id": "5a21a7c1a3f89181074e9773",
+      "team1": "2a21a7c1a3f89181074e9784",
+      "team2": "2a21a7c1a3f89181074e9765",
+      "kickofftime": "2018-06-26T14:00:00.000Z",
+      "stadium": "Fisht Olympic Stadium, Sochi",
+      "type": "Round 3",
+      "league": "4a21a7c1a3f89181074e9762"
+    },
+    {
+      "_id": "5a21a7c1a3f89181074e9774",
+      "team1": "2a21a7c1a3f89181074e9762",
+      "team2": "2a21a7c1a3f89181074e9776",
+      "kickofftime": "2018-06-16T13:00:00.000Z",
+      "stadium": "Otkrytiye Arena, Moscow",
+      "type": "Round 1",
+      "league": "4a21a7c1a3f89181074e9762"
+    },
+    {
+      "_id": "5a21a7c1a3f89181074e9775",
+      "team1": "2a21a7c1a3f89181074e9771",
+      "team2": "2a21a7c1a3f89181074e9791",
+      "kickofftime": "2018-06-16T19:00:00.000Z",
+      "stadium": "Kaliningrad Stadium, Kaliningrad",
+      "type": "Round 1",
+      "league": "4a21a7c1a3f89181074e9762"
+    },
+    {
+      "_id": "5a21a7c1a3f89181074e9776",
+      "team1": "2a21a7c1a3f89181074e9762",
+      "team2": "2a21a7c1a3f89181074e9771",
+      "kickofftime": "2018-06-21T18:00:00.000Z",
+      "stadium": "Nizhny Novograd Stadium, Nizhny Novograd",
+      "type": "Round 2",
+      "league": "4a21a7c1a3f89181074e9762"
+    },
+    {
+      "_id": "5a21a7c1a3f89181074e9777",
+      "team1": "2a21a7c1a3f89181074e9791",
+      "team2": "2a21a7c1a3f89181074e9776",
+      "kickofftime": "2018-06-22T15:00:00.000Z",
+      "stadium": "Volgograd Arena, Volgograd",
+      "type": "Round 2",
+      "league": "4a21a7c1a3f89181074e9762"
+    },
+    {
+      "_id": "5a21a7c1a3f89181074e9778",
+      "team1": "2a21a7c1a3f89181074e9791",
+      "team2": "2a21a7c1a3f89181074e9762",
+      "kickofftime": "2018-06-26T18:00:00.000Z",
+      "stadium": "Krestovsky Stadium, Saint Petersburg",
+      "type": "Round 3",
+      "league": "4a21a7c1a3f89181074e9762"
+    },
+    {
+      "_id": "5a21a7c1a3f89181074e9779",
+      "team1": "2a21a7c1a3f89181074e9776",
+      "team2": "2a21a7c1a3f89181074e9771",
+      "kickofftime": "2018-06-26T18:00:00.000Z",
+      "stadium": "Rostov Arena, Rostov-on-Don",
+      "type": "Round 3",
+      "league": "4a21a7c1a3f89181074e9762"
+    },
+    {
+      "_id": "5a21a7c1a3f89181074e977a",
+      "team1": "2a21a7c1a3f89181074e9767",
+      "team2": "2a21a7c1a3f89181074e9780",
+      "kickofftime": "2018-06-17T12:00:00.000Z",
+      "stadium": "Cosmos Arena, Samara",
+      "type": "Round 1",
+      "league": "4a21a7c1a3f89181074e9762"
+    },
+    {
+      "_id": "5a21a7c1a3f89181074e977b",
+      "team1": "2a21a7c1a3f89181074e9763",
+      "team2": "2a21a7c1a3f89181074e9783",
+      "kickofftime": "2018-06-17T18:00:00.000Z",
+      "stadium": "Rostov Arena, Rostov-on-Don",
+      "type": "Round 1",
+      "league": "4a21a7c1a3f89181074e9762"
+    },
+    {
+      "_id": "5a21a7c1a3f89181074e977c",
+      "team1": "2a21a7c1a3f89181074e9763",
+      "team2": "2a21a7c1a3f89181074e9767",
+      "kickofftime": "2018-06-22T12:00:00.000Z",
+      "stadium": "Krestovsky Stadium, Saint Petersburg",
+      "type": "Round 2",
+      "league": "4a21a7c1a3f89181074e9762"
+    },
+    {
+      "_id": "5a21a7c1a3f89181074e977d",
+      "team1": "2a21a7c1a3f89181074e9780",
+      "team2": "2a21a7c1a3f89181074e9783",
+      "kickofftime": "2018-06-22T18:00:00.000Z",
+      "stadium": "Kaliningrad Stadium, Kaliningrad",
+      "type": "Round 2",
+      "league": "4a21a7c1a3f89181074e9762"
+    },
+    {
+      "_id": "5a21a7c1a3f89181074e977e",
+      "team1": "2a21a7c1a3f89181074e9780",
+      "team2": "2a21a7c1a3f89181074e9763",
+      "kickofftime": "2018-06-27T18:00:00.000Z",
+      "stadium": "Otkrytiye Arena, Moscow",
+      "type": "Round 3",
+      "league": "4a21a7c1a3f89181074e9762"
+    },
+    {
+      "_id": "5a21a7c1a3f89181074e977f",
+      "team1": "2a21a7c1a3f89181074e9783",
+      "team2": "2a21a7c1a3f89181074e9767",
+      "kickofftime": "2018-06-27T18:00:00.000Z",
+      "stadium": "Nizhny Novograd Stadium, Nizhny Novograd",
+      "type": "Round 3",
+      "league": "4a21a7c1a3f89181074e9762"
+    },
+    {
+      "_id": "5a21a7c1a3f89181074e9780",
+      "team1": "2a21a7c1a3f89181074e9775",
+      "team2": "2a21a7c1a3f89181074e9768",
+      "kickofftime": "2018-06-17T15:00:00.000Z",
+      "stadium": "Luzhniki Stadium, Moscow",
+      "type": "Round 1",
+      "league": "4a21a7c1a3f89181074e9762"
+    },
+    {
+      "_id": "5a21a7c1a3f89181074e9781",
+      "team1": "2a21a7c1a3f89181074e9782",
+      "team2": "2a21a7c1a3f89181074e9787",
+      "kickofftime": "2018-06-18T12:00:00.000Z",
+      "stadium": "Nizhny Novograd Stadium, Nizhny Novograd",
+      "type": "Round 1",
+      "league": "4a21a7c1a3f89181074e9762"
+    },
+    {
+      "_id": "5a21a7c1a3f89181074e9782",
+      "team1": "2a21a7c1a3f89181074e9775",
+      "team2": "2a21a7c1a3f89181074e9782",
+      "kickofftime": "2018-06-23T15:00:00.000Z",
+      "stadium": "Rostov Arena, Rostov-on-Don",
+      "type": "Round 2",
+      "league": "4a21a7c1a3f89181074e9762"
+    },
+    {
+      "_id": "5a21a7c1a3f89181074e9783",
+      "team1": "2a21a7c1a3f89181074e9787",
+      "team2": "2a21a7c1a3f89181074e9768",
+      "kickofftime": "2018-06-23T18:00:00.000Z",
+      "stadium": "Fisht Olympic Stadium, Sochi",
+      "type": "Round 2",
+      "league": "4a21a7c1a3f89181074e9762"
+    },
+    {
+      "_id": "5a21a7c1a3f89181074e9784",
+      "team1": "2a21a7c1a3f89181074e9787",
+      "team2": "2a21a7c1a3f89181074e9775",
+      "kickofftime": "2018-06-27T14:00:00.000Z",
+      "stadium": "Kazan Arena, Kazan",
+      "type": "Round 3",
+      "league": "4a21a7c1a3f89181074e9762"
+    },
+    {
+      "_id": "5a21a7c1a3f89181074e9785",
+      "team1": "2a21a7c1a3f89181074e9768",
+      "team2": "2a21a7c1a3f89181074e9782",
+      "kickofftime": "2018-06-27T14:00:00.000Z",
+      "stadium": "Central Stadium, Yekaterinburg",
+      "type": "Round 3",
+      "league": "4a21a7c1a3f89181074e9762"
+    },
+    {
+      "_id": "5a21a7c1a3f89181074e9786",
+      "team1": "2a21a7c1a3f89181074e9770",
+      "team2": "2a21a7c1a3f89181074e9769",
+      "kickofftime": "2018-06-18T15:00:00.000Z",
+      "stadium": "Fisht Olympic Stadium, Sochi",
+      "type": "Round 1",
+      "league": "4a21a7c1a3f89181074e9762"
+    },
+    {
+      "_id": "5a21a7c1a3f89181074e9787",
+      "team1": "2a21a7c1a3f89181074e9793",
+      "team2": "2a21a7c1a3f89181074e9773",
+      "kickofftime": "2018-06-18T18:00:00.000Z",
+      "stadium": "Volgograd Arena, Volgograd",
+      "type": "Round 1",
+      "league": "4a21a7c1a3f89181074e9762"
+    },
+    {
+      "_id": "5a21a7c1a3f89181074e9788",
+      "team1": "2a21a7c1a3f89181074e9770",
+      "team2": "2a21a7c1a3f89181074e9793",
+      "kickofftime": "2018-06-23T12:00:00.000Z",
+      "stadium": "Otkrytiye Arena, Moscow",
+      "type": "Round 2",
+      "league": "4a21a7c1a3f89181074e9762"
+    },
+    {
+      "_id": "5a21a7c1a3f89181074e9789",
+      "team1": "2a21a7c1a3f89181074e9773",
+      "team2": "2a21a7c1a3f89181074e9769",
+      "kickofftime": "2018-06-24T12:00:00.000Z",
+      "stadium": "Nizhny Novograd Stadium, Nizhny Novograd",
+      "type": "Round 2",
+      "league": "4a21a7c1a3f89181074e9762"
+    },
+    {
+      "_id": "5a21a7c1a3f89181074e978a",
+      "team1": "2a21a7c1a3f89181074e9773",
+      "team2": "2a21a7c1a3f89181074e9770",
+      "kickofftime": "2018-06-28T18:00:00.000Z",
+      "stadium": "Kaliningrad Stadium, Kaliningrad",
+      "type": "Round 3",
+      "league": "4a21a7c1a3f89181074e9762"
+    },
+    {
+      "_id": "5a21a7c1a3f89181074e978b",
+      "team1": "2a21a7c1a3f89181074e9769",
+      "team2": "2a21a7c1a3f89181074e9793",
+      "kickofftime": "2018-06-28T18:00:00.000Z",
+      "stadium": "Mordovia Arena, Saransk",
+      "type": "Round 3",
+      "league": "4a21a7c1a3f89181074e9762"
+    },
+    {
+      "_id": "5a21a7c1a3f89181074e978c",
+      "team1": "2a21a7c1a3f89181074e9777",
+      "team2": "2a21a7c1a3f89181074e9792",
+      "kickofftime": "2018-06-19T12:00:00.000Z",
+      "stadium": "Mordovia Arena, Saransk",
+      "type": "Round 1",
+      "league": "4a21a7c1a3f89181074e9762"
+    },
+    {
+      "_id": "5a21a7c1a3f89181074e978d",
+      "team1": "2a21a7c1a3f89181074e9764",
+      "team2": "2a21a7c1a3f89181074e9786",
+      "kickofftime": "2018-06-19T15:00:00.000Z",
+      "stadium": "Otkrytiye Arena, Moscow",
+      "type": "Round 1",
+      "league": "4a21a7c1a3f89181074e9762"
+    },
+    {
+      "_id": "5a21a7c1a3f89181074e978e",
+      "team1": "2a21a7c1a3f89181074e9786",
+      "team2": "2a21a7c1a3f89181074e9792",
+      "kickofftime": "2018-06-24T15:00:00.000Z",
+      "stadium": "Central Stadium, Yekaterinburg",
+      "type": "Round 2",
+      "league": "4a21a7c1a3f89181074e9762"
+    },
+    {
+      "_id": "5a21a7c1a3f89181074e978f",
+      "team1": "2a21a7c1a3f89181074e9777",
+      "team2": "2a21a7c1a3f89181074e9764",
+      "kickofftime": "2018-06-24T18:00:00.000Z",
+      "stadium": "Kazan Arena, Kazan",
+      "type": "Round 2",
+      "league": "4a21a7c1a3f89181074e9762"
+    },
+    {
+      "_id": "5a21a7c1a3f89181074e9790",
+      "team1": "2a21a7c1a3f89181074e9786",
+      "team2": "2a21a7c1a3f89181074e9777",
+      "kickofftime": "2018-06-28T12:00:00.000Z",
+      "stadium": "Volgograd Arena, Volgograd",
+      "type": "Round 3",
+      "league": "4a21a7c1a3f89181074e9762"
+    },
+    {
+      "_id": "5a21a7c1a3f89181074e9791",
+      "team1": "2a21a7c1a3f89181074e9792",
+      "team2": "2a21a7c1a3f89181074e9764",
+      "kickofftime": "2018-06-28T12:00:00.000Z",
+      "stadium": "Cosmos Arena, Samara",
+      "type": "Round 3",
+      "league": "4a21a7c1a3f89181074e9762"
+    },
+    {
+      "_id": "5a21a7c1a3f89181074e9792",
+      "team1": "C1",
+      "team2": "D2",
+      "kickofftime": "2018-06-30T14:00:00.000Z",
+      "stadium": "Kazan Arena, Kazan",
+      "type": "Round 4",
+      "league": "4a21a7c1a3f89181074e9762"
+    },
+    {
+      "_id": "5a21a7c1a3f89181074e9793",
+      "team1": "A1",
+      "team2": "B2",
+      "kickofftime": "2018-06-30T18:00:00.000Z",
+      "stadium": "Fisht Olympic Stadium, Sochi",
+      "type": "Round 4",
+      "league": "4a21a7c1a3f89181074e9762"
+    },
+    {
+      "_id": "5a21a7c1a3f89181074e9794",
+      "team1": "B1",
+      "team2": "A2",
+      "kickofftime": "2018-07-01T14:00:00.000Z",
+      "stadium": "Luzhniki Stadium, Moscow",
+      "type": "Round 4",
+      "league": "4a21a7c1a3f89181074e9762"
+    },
+    {
+      "_id": "5a21a7c1a3f89181074e9795",
+      "team1": "D1",
+      "team2": "C2",
+      "kickofftime": "2018-07-01T18:00:00.000Z",
+      "stadium": "Nizhny Novograd Stadium, Nizhny Novograd",
+      "type": "Round 4",
+      "league": "4a21a7c1a3f89181074e9762"
+    },
+    {
+      "_id": "5a21a7c1a3f89181074e9796",
+      "team1": "E1",
+      "team2": "F2",
+      "kickofftime": "2018-07-02T14:00:00.000Z",
+      "stadium": "Cosmos Arena, Samara",
+      "type": "Round 4",
+      "league": "4a21a7c1a3f89181074e9762"
+    },
+    {
+      "_id": "5a21a7c1a3f89181074e9797",
+      "team1": "G1",
+      "team2": "H2",
+      "kickofftime": "2018-07-02T18:00:00.000Z",
+      "stadium": "Rostov Arena, Rostov-on-Don",
+      "type": "Round 4",
+      "league": "4a21a7c1a3f89181074e9762"
+    },
+    {
+      "_id": "5a21a7c1a3f89181074e9798",
+      "team1": "F1",
+      "team2": "E2",
+      "kickofftime": "2018-07-03T14:00:00.000Z",
+      "stadium": "Krestovsky Stadium, Saint Petersburg",
+      "type": "Round 4",
+      "league": "4a21a7c1a3f89181074e9762"
+    },
+    {
+      "_id": "5a21a7c1a3f89181074e9799",
+      "team1": "H1",
+      "team2": "G2",
+      "kickofftime": "2018-07-03T18:00:00.000Z",
+      "stadium": "Otkrytiye Arena, Moscow",
+      "type": "Round 4",
+      "league": "4a21a7c1a3f89181074e9762"
+    },
+    {
+      "_id": "5a21a7c1a3f89181074e9800",
+      "team1": "W49",
+      "team2": "W50",
+      "kickofftime": "2018-07-06T14:00:00.000Z",
+      "stadium": "Nizhny Novograd Stadium, Nizhny Novograd",
+      "type": "Round 5",
+      "league": "4a21a7c1a3f89181074e9762"
+    },
+    {
+      "_id": "5a21a7c1a3f89181074e9801",
+      "team1": "W53",
+      "team2": "W54",
+      "kickofftime": "2018-07-06T18:00:00.000Z",
+      "stadium": "Kazan Arena, Kazan",
+      "type": "Round 5",
+      "league": "4a21a7c1a3f89181074e9762"
+    },
+    {
+      "_id": "5a21a7c1a3f89181074e9802",
+      "team1": "W55",
+      "team2": "W56",
+      "kickofftime": "2018-07-07T14:00:00.000Z",
+      "stadium": "Cosmos Arena, Samara",
+      "type": "Round 5",
+      "league": "4a21a7c1a3f89181074e9762"
+    },
+    {
+      "_id": "5a21a7c1a3f89181074e9803",
+      "team1": "W51",
+      "team2": "W52",
+      "kickofftime": "2018-07-07T18:00:00.000Z",
+      "stadium": "Fisht Olympic Stadium, Sochi",
+      "type": "Round 5",
+      "league": "4a21a7c1a3f89181074e9762"
+    },
+    {
+      "_id": "5a21a7c1a3f89181074e9804",
+      "team1": "W57",
+      "team2": "W58",
+      "kickofftime": "2018-07-10T18:00:00.000Z",
+      "stadium": "Krestovsky Stadium, Saint Petersburg",
+      "type": "Round 6",
+      "league": "4a21a7c1a3f89181074e9762"
+    },
+    {
+      "_id": "5a21a7c1a3f89181074e9805",
+      "team1": "W59",
+      "team2": "W60",
+      "kickofftime": "2018-07-11T18:00:00.000Z",
+      "stadium": "Luzhniki Stadium, Moscow",
+      "type": "Round 6",
+      "league": "4a21a7c1a3f89181074e9762"
+    },
+    {
+      "_id": "5a21a7c1a3f89181074e9806",
+      "team1": "L61",
+      "team2": "L62",
+      "kickofftime": "2018-07-14T14:00:00.000Z",
+      "stadium": "Krestovsky Stadium, Saint Petersburg",
+      "type": "Round 7",
+      "league": "4a21a7c1a3f89181074e9762"
+    },
+    {
+      "_id": "5a21a7c1a3f89181074e9807",
+      "team1": "W61",
+      "team2": "W62",
+      "kickofftime": "2018-07-15T15:00:00.000Z",
+      "stadium": "Luzhniki Stadium, Moscow",
+      "type": "Round 7",
+      "league": "4a21a7c1a3f89181074e9762"
+    }
+  ],
+  "matchResults": [
+  ],
+  "teams": [
+    {
+      "_id": "5a1342399017dfc4e2faf494",
+      "title": "1st place",
+      "type": "1st",
+      "deadline": "2018-06-14T15:00:00.000Z",
+      "league": "4a21a7c1a3f89181074e9762",
+      "options": []
+    },
+    {
+      "_id": "5a1342399017dfc4e2faf495",
+      "title": "2nd place",
+      "type": "2nd",
+      "deadline": "2018-06-14T15:00:00.001Z",
+      "league": "4a21a7c1a3f89181074e9762",
+      "options": []
+    },
+    {
+      "_id": "5a1342399017dfc4e2faf496",
+      "title": "3st place",
+      "type": "3rd",
+      "deadline": "2018-06-14T15:00:00.002Z",
+      "league": "4a21a7c1a3f89181074e9762",
+      "options": []
+    },
+    {
+      "_id": "5a1342399017dfc4e2faf497",
+      "title": "4th place",
+      "type": "4th",
+      "deadline": "2018-06-14T15:00:00.003Z",
+      "league": "4a21a7c1a3f89181074e9762",
+      "options": []
+    },
+    {
+      "_id": "5a1342399017dfc4e2faf498",
+      "title": "1st place Group A",
+      "type": "A1",
+      "deadline": "2018-06-14T15:00:00.004Z",
+      "league": "4a21a7c1a3f89181074e9762",
+      "options": [
+        "2a21a7c1a3f89181074e9789",
+        "2a21a7c1a3f89181074e9779",
+        "2a21a7c1a3f89181074e9788",
+        "2a21a7c1a3f89181074e9766"
+      ]
+    },
+    {
+      "_id": "5a1342399017dfc4e2faf499",
+      "title": "2nd place Group A",
+      "type": "A2",
+      "deadline": "2018-06-14T15:00:00.005Z",
+      "league": "4a21a7c1a3f89181074e9762",
+      "options": [
+        "2a21a7c1a3f89181074e9789",
+        "2a21a7c1a3f89181074e9779",
+        "2a21a7c1a3f89181074e9788",
+        "2a21a7c1a3f89181074e9766"
+      ]
+    },
+    {
+      "_id": "5a1342399017dfc4e2faf49a",
+      "title": "1st place Group B",
+      "type": "B1",
+      "deadline": "2018-06-14T15:00:00.006Z",
+      "league": "4a21a7c1a3f89181074e9762",
+      "options": [
+        "2a21a7c1a3f89181074e9785",
+        "2a21a7c1a3f89181074e9790",
+        "2a21a7c1a3f89181074e9778",
+        "2a21a7c1a3f89181074e9781"
+      ]
+    },
+    {
+      "_id": "5a1342399017dfc4e2faf49b",
+      "title": "2nd place Group B",
+      "type": "B2",
+      "deadline": "2018-06-14T15:00:00.007Z",
+      "league": "4a21a7c1a3f89181074e9762",
+      "options": [
+        "2a21a7c1a3f89181074e9785",
+        "2a21a7c1a3f89181074e9790",
+        "2a21a7c1a3f89181074e9778",
+        "2a21a7c1a3f89181074e9781"
+      ]
+    },
+    {
+      "_id": "5a1342399017dfc4e2faf49c",
+      "title": "1st place Group C",
+      "type": "C1",
+      "deadline": "2018-06-14T15:00:00.008Z",
+      "league": "4a21a7c1a3f89181074e9762",
+      "options": [
+        "2a21a7c1a3f89181074e9784",
+        "2a21a7c1a3f89181074e9772",
+        "2a21a7c1a3f89181074e9774",
+        "2a21a7c1a3f89181074e9765"
+      ]
+    },
+    {
+      "_id": "5a1342399017dfc4e2faf49d",
+      "title": "2nd place Group C",
+      "type": "C2",
+      "deadline": "2018-06-14T15:00:00.009Z",
+      "league": "4a21a7c1a3f89181074e9762",
+      "options": [
+        "2a21a7c1a3f89181074e9784",
+        "2a21a7c1a3f89181074e9772",
+        "2a21a7c1a3f89181074e9774",
+        "2a21a7c1a3f89181074e9765"
+      ]
+    },
+    {
+      "_id": "5a1342399017dfc4e2faf49e",
+      "title": "1st place Group D",
+      "type": "D1",
+      "deadline": "2018-06-14T15:00:00.010Z",
+      "league": "4a21a7c1a3f89181074e9762",
+      "options": [
+        "2a21a7c1a3f89181074e9762",
+        "2a21a7c1a3f89181074e9771",
+        "2a21a7c1a3f89181074e9776",
+        "2a21a7c1a3f89181074e9791"
+      ]
+    },
+    {
+      "_id": "5a1342399017dfc4e2faf49f",
+      "title": "2nd place Group D",
+      "type": "D2",
+      "deadline": "2018-06-14T15:00:00.011Z",
+      "league": "4a21a7c1a3f89181074e9762",
+      "options": [
+        "2a21a7c1a3f89181074e9762",
+        "2a21a7c1a3f89181074e9771",
+        "2a21a7c1a3f89181074e9776",
+        "2a21a7c1a3f89181074e9791"
+      ]
+    },
+    {
+      "_id": "5a1342399017dfc4e2faf4a0",
+      "title": "1st place Group E",
+      "type": "E1",
+      "deadline": "2018-06-14T15:00:00.012Z",
+      "league": "4a21a7c1a3f89181074e9762",
+      "options": [
+        "2a21a7c1a3f89181074e9763",
+        "2a21a7c1a3f89181074e9767",
+        "2a21a7c1a3f89181074e9780",
+        "2a21a7c1a3f89181074e9783"
+      ]
+    },
+    {
+      "_id": "5a1342399017dfc4e2faf4a1",
+      "title": "2nd place Group E",
+      "type": "E2",
+      "deadline": "2018-06-14T15:00:00.013Z",
+      "league": "4a21a7c1a3f89181074e9762",
+      "options": [
+        "2a21a7c1a3f89181074e9763",
+        "2a21a7c1a3f89181074e9767",
+        "2a21a7c1a3f89181074e9780",
+        "2a21a7c1a3f89181074e9783"
+      ]
+    },
+    {
+      "_id": "5a1342399017dfc4e2faf4a2",
+      "title": "1st place Group F",
+      "type": "F1",
+      "deadline": "2018-06-14T15:00:00.014Z",
+      "league": "4a21a7c1a3f89181074e9762",
+      "options": [
+        "2a21a7c1a3f89181074e9775",
+        "2a21a7c1a3f89181074e9768",
+        "2a21a7c1a3f89181074e9787",
+        "2a21a7c1a3f89181074e9782"
+      ]
+    },
+    {
+      "_id": "5a1342399017dfc4e2faf4a3",
+      "title": "2nd place Group F",
+      "type": "F2",
+      "deadline": "2018-06-14T15:00:00.015Z",
+      "league": "4a21a7c1a3f89181074e9762",
+      "options": [
+        "2a21a7c1a3f89181074e9775",
+        "2a21a7c1a3f89181074e9768",
+        "2a21a7c1a3f89181074e9787",
+        "2a21a7c1a3f89181074e9782"
+      ]
+    },
+    {
+      "_id": "5a1342399017dfc4e2faf4a4",
+      "title": "1st place Group G",
+      "type": "G1",
+      "deadline": "2018-06-14T15:00:00.016Z",
+      "league": "4a21a7c1a3f89181074e9762",
+      "options": [
+        "2a21a7c1a3f89181074e9770",
+        "2a21a7c1a3f89181074e9773",
+        "2a21a7c1a3f89181074e9769",
+        "2a21a7c1a3f89181074e9793"
+      ]
+    },
+    {
+      "_id": "5a1342399017dfc4e2faf4a5",
+      "title": "2nd place Group G",
+      "type": "G2",
+      "deadline": "2018-06-14T15:00:00.017Z",
+      "league": "4a21a7c1a3f89181074e9762",
+      "options": [
+        "2a21a7c1a3f89181074e9770",
+        "2a21a7c1a3f89181074e9773",
+        "2a21a7c1a3f89181074e9769",
+        "2a21a7c1a3f89181074e9793"
+      ]
+    },
+    {
+      "_id": "5a1342399017dfc4e2faf4a6",
+      "title": "1st place Group H",
+      "type": "H1",
+      "deadline": "2018-06-14T15:00:00.018Z",
+      "league": "4a21a7c1a3f89181074e9762",
+      "options": [
+        "2a21a7c1a3f89181074e9764",
+        "2a21a7c1a3f89181074e9786",
+        "2a21a7c1a3f89181074e9777",
+        "2a21a7c1a3f89181074e9792"
+      ]
+    },
+    {
+      "_id": "5a1342399017dfc4e2faf4a7",
+      "title": "2nd place Group H",
+      "type": "H2",
+      "deadline": "2018-06-14T15:00:00.019Z",
+      "league": "4a21a7c1a3f89181074e9762",
+      "options": [
+        "2a21a7c1a3f89181074e9764",
+        "2a21a7c1a3f89181074e9786",
+        "2a21a7c1a3f89181074e9777",
+        "2a21a7c1a3f89181074e9792"
+      ]
+    }
+  ],
+  "teamResults": [
+  ]
+}

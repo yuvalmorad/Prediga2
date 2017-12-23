@@ -24,7 +24,7 @@ component.ImagesPagination = (function(){
         },
 
         updateSelectedTeam: function(index) {
-            this.props.onSelectedTeamChanged(this.props.items[index].name);
+            this.props.onSelectedTeamChanged(this.props.items[index].id);
             this.setState({animate: true});
         },
 
@@ -61,16 +61,16 @@ component.ImagesPagination = (function(){
             var itemsElements = items.map(function(item, index){
                 var isSelected = item.isSelected;
                 var shortName = item.shortName;
-                var name = item.name;
-                var leagueId = item.leagueId;
+                var id = item.id;
+                var leagueIdName = item.leagueIdName;
                 var logoPosition = item.logoPosition;
 
                 if (isSelected) {
                     currentIndex = index;
                 }
 
-                return re("div", {key: name, className: "item" + (isSelected ? " selected" : ""), style: {marginRight: spaceBetweenItems}},
-                    re("div", {className: "team-logo " + leagueId, style: {width: itemWidth, height: itemWidth, backgroundImage: utils.general.getLeagueLogoURL(leagueId), backgroundPosition: logoPosition}}),
+                return re("div", {key: id, className: "item" + (isSelected ? " selected" : ""), style: {marginRight: spaceBetweenItems}},
+                    re("div", {className: "team-logo " + leagueIdName, style: {width: itemWidth, height: itemWidth, backgroundImage: utils.general.getLeagueLogoURL(leagueIdName), backgroundPosition: logoPosition}}),
                     re("div", {className: "title"}, shortName)
                 );
             });

@@ -12,7 +12,7 @@ app.get('/', util.isLoggedIn, function (req, res) {
 
 function getData() {
     return Promise.all([
-        matchService.findClosedToPredictButNotFinishedMatchesToday()
+        matchService.findMatchesThatAreClosedAndNotFinished()
     ]).then(function (arr) {
         return matchPredictionsService.findPredictionsByMatchIds(arr[0]).then(function (predictions) {
             return {

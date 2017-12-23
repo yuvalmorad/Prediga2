@@ -31,9 +31,6 @@ app.get('/', util.isLoggedIn, function (req, res) {
     }
 });
 
-/*
-Available only via initial file, disabled to fix database corruption bugs
-
 app.delete('/:matchId', util.isAdmin, function (req, res) {
     var matchId = req.params.matchId;
     if (!matchId) {
@@ -48,17 +45,5 @@ app.delete('/:matchId', util.isAdmin, function (req, res) {
         }
     });
 });
-
-app.post('/', util.isAdmin, function (req, res) {
-    var matches = req.body.matches;
-    if (!matches || !Array.isArray(matches)) {
-        res.status(500).json(util.getErrorResponse('provide matches'));
-        return;
-    }
-
-    MatchService.updateMatches(matches).then(function (obj) {
-        res.status(200).json(obj);
-    });
-});*/
 
 module.exports = app;

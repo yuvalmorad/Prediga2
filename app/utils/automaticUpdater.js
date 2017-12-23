@@ -1,8 +1,9 @@
 let schedule = require('node-schedule');
 let http = require('http');
 let htmlparser = require("htmlparser2");
-let automaticUpdaterConstants = require("./automaticUpdaterConstants");
 let matchService = require("../services/matchService");
+let clubService = require("../services/clubService");
+let leagueService = require("../services/leagueService");
 let matchResultService = require("../services/matchResultService");
 let userScoreService = require("../services/userScoreService");
 let userLeaderboardService = require("../services/usersLeaderboardService");
@@ -11,19 +12,16 @@ let MatchResult = require("../models/matchResult");
 let Q = require('q');
 
 let self = module.exports = {
+    /**
+     * Schedule a task that will start every 15 minutes between 17:30 - 00:30 (IL time), otherwise call /api/update as admin.
+     */
     startTask: function () {
-        /**
-         * Schedule a task that will start every 15 minutes between 17:30 - 00:30 (IL time), otherwise call /api/update as admin.
-         */
         schedule.scheduleJob('*/15 15-22 * * *', function () {
             console.log('Start to automatic update match results');
             self.startAutomaticUpdateJob().then(function () {
                 console.log('Finish to automatic update match results');
             });
         });
-
-        // start the jon immediately now => disabled as it is not working good with the initialUpdater
-        //self.startAutomaticUpdateJob();
     },
     startAutomaticUpdateJob: function () {
         let deferred = Q.defer();
@@ -36,28 +34,36 @@ let self = module.exports = {
             } else {
                 console.log('Start to parse response');
                 let soccerContent = self.parseResponse(htmlRawData);
-                console.log('Start to get all completed games');
-                self.getCompletedGames(soccerContent).then(function (completedGames) {
-                    if (completedGames.length > 0) {
-                        console.log('Found ' + completedGames.length + ' completed matches to update');
-                        PredictionScoreConfiguration.find({}).then(function (configuration) {
-                            self.updateCompletedGames(configuration, completedGames).then(function (arr) {
-                                if (arr.includes(true)) {
-                                    console.log('Start to update leaderboard');
-                                    userLeaderboardService.updateLeaderboard().then(function () {
-                                        console.log('Finish to update all');
-                                        deferred.resolve();
-                                    });
-                                } else {
-                                    console.log('Finish to update all');
-                                    deferred.resolve();
-                                }
-                            });
-                        });
 
-                    } else {
-                        console.log('Finish to update all');
+                leagueService.getSyncActive().then(function (competition365Arr) {
+                    if (!competition365Arr) {
+                        console.log('No leagues to sync');
                         deferred.resolve();
+                    } else {
+                        console.log('Start to get all completed games');
+                        self.getCompletedGames(soccerContent, competition365Arr).then(function (completedGames) {
+                            if (completedGames.length > 0) {
+                                console.log('Found ' + completedGames.length + ' completed matches to update');
+                                PredictionScoreConfiguration.find({}).then(function (configuration) {
+                                    self.updateCompletedGames(configuration, completedGames).then(function (arr) {
+                                        if (arr.includes(true)) {
+                                            console.log('Start to update leaderboard');
+                                            userLeaderboardService.updateLeaderboard().then(function () {
+                                                console.log('Finish to update all');
+                                                deferred.resolve();
+                                            });
+                                        } else {
+                                            console.log('Finish to update all');
+                                            deferred.resolve();
+                                        }
+                                    });
+                                });
+
+                            } else {
+                                console.log('Finish to update all');
+                                deferred.resolve();
+                            }
+                        });
                     }
                 });
             }
@@ -87,7 +93,7 @@ let self = module.exports = {
         return deferred.promise;
     },
     parseResponse: function (htmlRawData) {
-        let txt;
+        let txt = '';
         let parser = new htmlparser.Parser({
             onopentag: function (name, attribs) {
 
@@ -109,16 +115,15 @@ let self = module.exports = {
         txt = txt.substr('var GLOBAL_DATA ='.length);
         let lastIdx = txt.indexOf(";");
         txt = txt.substr(0, lastIdx - 1);
-        let parsedObj = JSON.parse(txt + "}");
-        return parsedObj;
+        return JSON.parse(txt + "}");
     },
-    getCompletedGames: function (soccerContent) {
+    getCompletedGames: function (soccerContent, competition365Arr) {
         let deferred = Q.defer();
         let itemsProcessed = 0;
         let completedGames = [];
         soccerContent.Games.forEach(function (game) {
             itemsProcessed++;
-            if (game.Completion >= 100 && game.Comp === automaticUpdaterConstants.COMPETITION.ISRAEL) {
+            if (game.Completion >= 100 && competition365Arr.indexOf(game.Comp) !== -1) {
                 completedGames.push(game);
             }
 
@@ -136,34 +141,37 @@ let self = module.exports = {
     },
     updateCompletedGame: function (configuration, completedGame) {
         let deferred = Q.defer();
-        let team1 = automaticUpdaterConstants.parseName(completedGame.Comps[1].Name);
-        let team2 = automaticUpdaterConstants.parseName(completedGame.Comps[0].Name);
-        matchService.findMatchByTeamsToday(team1, team2).then(function (aMatch) {
-            if (!aMatch) {
-                console.log('Not found relevant match for ' + team1 + ' - ' + team2);
-                deferred.resolve(false);
-            } else {
-                MatchResult.findOne({matchId: aMatch._id}, function (err, aMatchResult) {
-                    if (!aMatchResult) {
-                        console.log('Beginning to create new match result for ' + team1 + ' - ' + team2);
-                        self.calculateNewMatchResult(team1, team2, completedGame.Events).then(function (newMatchResult) {
-                            newMatchResult.matchId = aMatch._id;
-                            console.log('Beginning to update new match result for ' + team1 + ' - ' + team2);
-                            matchResultService.updateMatchResult(newMatchResult).then(function () {
-                                console.log('Beginning to update user score for ' + team1 + ' - ' + team2);
-                                userScoreService.updateUserScoreByMatchResult(configuration, newMatchResult).then(function () {
-                                    console.log('Finish to update all for ' + team1 + ' - ' + team2);
-                                    deferred.resolve(true);
+        clubService.findClubsBy365Name(completedGame).then(function (clubs) {
+            let team1 = clubs.team1;
+            let team2 = clubs.team2;
+            matchService.findMatchByTeamsToday(team1, team2).then(function (aMatch) {
+                if (!aMatch) {
+                    console.log('Not found relevant match for ' + team1 + ' - ' + team2);
+                    deferred.resolve(false);
+                } else {
+                    MatchResult.findOne({matchId: aMatch._id}, function (err, aMatchResult) {
+                        if (!aMatchResult) {
+                            console.log('Beginning to create new match result for ' + team1 + ' - ' + team2);
+                            self.calculateNewMatchResult(team1, team2, completedGame.Events).then(function (newMatchResult) {
+                                newMatchResult.matchId = aMatch._id;
+                                console.log('Beginning to update new match result for ' + team1 + ' - ' + team2);
+                                matchResultService.updateMatchResult(newMatchResult).then(function () {
+                                    console.log('Beginning to update user score for ' + team1 + ' - ' + team2);
+                                    userScoreService.updateUserScoreByMatchResult(configuration, newMatchResult).then(function () {
+                                        console.log('Finish to update all for ' + team1 + ' - ' + team2);
+                                        deferred.resolve(true);
+                                    });
                                 });
                             });
-                        });
-                    } else {
-                        console.log('Match result already exist for ' + team1 + ' - ' + team2);
-                        deferred.resolve(false);
-                    }
-                });
-            }
+                        } else {
+                            console.log('Match result already exist for ' + team1 + ' - ' + team2);
+                            deferred.resolve(false);
+                        }
+                    });
+                }
+            });
         });
+
         return deferred.promise;
     },
     calculateNewMatchResult: function (team1, team2, events) {

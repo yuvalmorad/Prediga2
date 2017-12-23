@@ -1,42 +1,44 @@
 let Q = require('q');
 let User = require('../models/user');
+let League = require('../models/league');
 let UserScore = require('../models/userScore');
 let UsersLeaderboard = require('../models/usersLeaderboard');
 
 let self = module.exports = {
     updateLeaderboard: function () {
-        let deferred = Q.defer();
-
-        console.log('beginning to update the leader board based on all user scores');
-        // iterating all users
-        User.find({}, function (err, users) {
-            if (err) {
-                deferred.resolve('error');
-            } else {
-                self.calculatedAggregatedUserScores(users).then(function (aggregatedScores) {
+        return Promise.all([
+            User.find({}),
+            League.find({})
+        ]).then(function (arr) {
+            let promises = arr[1].map(function (league) {
+                let leagueId = league._id;
+                console.log('Beginning to updateLeaderboard for league ' + league.name);
+                return Promise.all([
+                    self.calculatedAggregatedUserScores(leagueId, arr[0])
+                ]).then(function (arr) {
                     // sort aggregated scores by score desc.
-                    aggregatedScores.sort(self.compareAggregatedScores);
+                    arr[0].sort(self.compareAggregatedScores);
 
-                    self.updateAllAggregatedScores(aggregatedScores).then(function () {
+                    return self.updateAllAggregatedScores(leagueId, arr[0]).then(function () {
                         console.log('finished to update the leader board based on all user scores');
-                        deferred.resolve();
                     });
                 });
-            }
+            });
+
+            return Promise.all(promises);
         });
-        return deferred.promise;
     },
-    updateAllAggregatedScores: function (aggregatedScores) {
+    updateAllAggregatedScores: function (leagueId, aggregatedScores) {
         let promises = aggregatedScores.map(function (aggregatedScore, index) {
-            return self.updateOneAggregatedScore(aggregatedScore, index);
+            return self.updateOneAggregatedScore(leagueId, aggregatedScore, index);
         });
 
         return Promise.all(promises);
     },
-    updateOneAggregatedScore: function (aggregatedScore, index) {
+    updateOneAggregatedScore: function (leagueId, aggregatedScore, index) {
         let deferred = Q.defer();
 
-        UsersLeaderboard.find({userId: aggregatedScore.userId}, function (err, obj) {
+        UsersLeaderboard.find({userId: aggregatedScore.userId, leagueId: leagueId}, function (err, obj) {
             let placeBeforeLastGame = -1;
             if (obj && obj.length > 0 && typeof(obj[0].placeCurrent) !== 'undefined') {
                 placeBeforeLastGame = obj[0].placeCurrent;
@@ -44,7 +46,7 @@ let self = module.exports = {
 
             aggregatedScore.placeCurrent = index + 1;
             aggregatedScore.placeBeforeLastGame = placeBeforeLastGame;
-            UsersLeaderboard.findOneAndUpdate({userId: aggregatedScore.userId}, aggregatedScore, {
+            UsersLeaderboard.findOneAndUpdate({userId: aggregatedScore.userId, leagueId: leagueId}, aggregatedScore, {
                     upsert: true, setDefaultsOnInsert: true, isNew: true
                 },
                 function () {
@@ -54,19 +56,19 @@ let self = module.exports = {
         });
         return deferred.promise;
     },
-    calculatedAggregatedUserScores: function (users) {
+    calculatedAggregatedUserScores: function (leagueId, users) {
         let promises = users.map(function (aUser) {
-            return self.calculatedAggregatedUserScore(aUser);
+            return self.calculatedAggregatedUserScore(leagueId, aUser);
         });
 
         return Promise.all(promises);
     },
-    calculatedAggregatedUserScore: function (aUser) {
+    calculatedAggregatedUserScore: function (leagueId, aUser) {
         let deferred = Q.defer();
 
-        UserScore.find({userId: aUser._id}, function (err, userScores) {
+        UserScore.find({userId: aUser._id, leagueId: leagueId}, function (err, userScores) {
             if (userScores && userScores.length > 0) {
-                self.calculatedAggregatedUserScoreForEachUserScore(aUser, userScores).then(function (aggregrateScore) {
+                self.calculatedAggregatedUserScoreForEachUserScore(leagueId, aUser, userScores).then(function (aggregrateScore) {
                     deferred.resolve(aggregrateScore);
                 });
             } else {
@@ -75,9 +77,10 @@ let self = module.exports = {
         });
         return deferred.promise;
     },
-    calculatedAggregatedUserScoreForEachUserScore: function (aUser, userScores) {
+    calculatedAggregatedUserScoreForEachUserScore: function (leagueId, aUser, userScores) {
         let deferred = Q.defer();
         let aggregrateScore = {
+            leagueId: leagueId,
             userId: aUser._id,
             score: 0,
             strikes: 0
@@ -105,30 +108,42 @@ let self = module.exports = {
             return -1;
         return 0;
     },
-    getLeaderboardWithNewRegisteredUsers: function () {
+    getLeaderboardWithNewRegisteredUsers: function (leagueId) {
         return Promise.all([
-            UsersLeaderboard.find({}).sort({'score': -1}),
-            User.find({})
+            User.find({}),
+            typeof(leagueId) === 'undefined' ?
+                League.find({}) :
+                League.find({_id: leagueId})
         ]).then(function (arr) {
-            // amend newly registered users into the bottom of the leader board.
-            let userIdsInLeaderboard = arr[0].map(a => a.userId.toString());
-            let allUsersIds = arr[1].map(a => a._id.toString());
-            let userIdsNotInLeaderboard = allUsersIds.filter(x => userIdsInLeaderboard.indexOf(x) === -1);
-            let leaderboardArr = arr[0];
-            if (userIdsNotInLeaderboard && userIdsNotInLeaderboard.length > 0) {
-                userIdsNotInLeaderboard.forEach(function (userId) {
-                    // add to the bottom
-                    leaderboardArr.splice(leaderboardArr.length - 1, 0, {
-                        userId: userId,
-                        score: 0,
-                        strikes: 0
-                    });
-                });
-            }
+            let allUsers = arr[0];
+            let promises = arr[1].map(function (league) {
+                let leagueId = league._id;
+                return Promise.all([
+                    UsersLeaderboard.find({leagueId: leagueId}).sort({'score': -1})
+                ]).then(function (arr) {
+                    // amend newly registered users into the bottom of the leader board.
+                    let userIdsInLeaderboard = arr[0].map(a => a.userId.toString());
+                    let allUsersIds = allUsers.map(a => a._id.toString());
+                    let userIdsNotInLeaderboard = allUsersIds.filter(x => userIdsInLeaderboard.indexOf(x) === -1);
+                    let leaderboardArr = arr[0];
+                    if (userIdsNotInLeaderboard && userIdsNotInLeaderboard.length > 0) {
+                        userIdsNotInLeaderboard.forEach(function (userId) {
+                            // add to the bottom
+                            leaderboardArr.splice(leaderboardArr.length - 1, 0,
+                                {
+                                    leagueId: leagueId,
+                                    userId: userId,
+                                    score: 0,
+                                    strikes: 0
+                                });
+                        });
+                    }
 
-            return {
-                leaderboard: leaderboardArr
-            }
+                    return leaderboardArr;
+                });
+            });
+
+            return Promise.all(promises);
         });
     }
 };

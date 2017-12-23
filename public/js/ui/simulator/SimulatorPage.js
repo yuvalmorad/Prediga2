@@ -26,7 +26,18 @@ component.SimulatorPage = (function(){
         return matchResult;
     }
 
-    function updateLeaders(leaders, predictions, matchResult, matchId, match) {
+    function getClubName(clubId, team1, team2) {
+        if (clubId === team1._id) {
+            return team1.name;
+        }
+
+        if (clubId === team2._id) {
+            return team2.name;
+        }
+
+        return clubId; // "None"/"Draw";
+    }
+    function updateLeaders(leaders, clubs, predictions, matchResult, matchId, match) {
         var predictionsByMatchId = utils.general.findItemsInArrBy(predictions, "matchId", matchId);
         predictionsByMatchId.forEach(function(prediction) {
             var points = utils.general.calculateTotalPoints(prediction, matchResult);
@@ -39,12 +50,12 @@ component.SimulatorPage = (function(){
                 }
             }
 
-            var team1 = models.leagues.getTeamByTeamName(match.team1),
-                team2 = models.leagues.getTeamByTeamName(match.team2);
+            var team1 = utils.general.findItemInArrBy(clubs, "_id", match.team1);
+            var team2 = utils.general.findItemInArrBy(clubs, "_id", match.team2);
 
             leader.description = team1.shortName + " " + prediction.team1Goals + " - " + prediction.team2Goals + " " + team2.shortName + " (diff: " + prediction.goalDiff + ")";
-            leader.additionalDescription = "Winner - " + prediction.winner;
-            leader.additionalDescription2 = "1st Goal - " + prediction.firstToScore;
+            leader.additionalDescription = "Winner - " + getClubName(prediction.winner, team1, team2);
+            leader.additionalDescription2 = "1st Goal - " + getClubName(prediction.firstToScore, team1, team2);
         });
     }
 
@@ -63,7 +74,7 @@ component.SimulatorPage = (function(){
             return {
                 predictionsSimulated: [], //{matchId: "", team1Goals: 1, ...}
                 isMatchesDropDownMenuOpen: false,
-                selectedMatchId: ""
+                selectedMatchId: this.props.match.params.gameId
             };
         },
 
@@ -102,27 +113,27 @@ component.SimulatorPage = (function(){
                 leaders = props.leaders,
                 users = props.users,
                 matches = props.matches,
+                clubs = props.clubs,
                 predictions = props.predictions,
                 userId = props.userId,
                 matchElem,
                 dropDownButton,
-                gameIdFromParam = props.match.params.gameId;
+                selectedLeagueId = props.selectedLeagueId,
+                leagues = props.leagues;
 
-            if (!leaders.length || !matches.length) {
+            if (!leaders.length || !users.length || !matches.length || !clubs.length) {
                 return re("div", { className: "content" }, "");
             }
 
-            if (!selectedMatchId && gameIdFromParam) {
-                selectedMatchId = gameIdFromParam;
-            }
-
+            leaders = utils.general.getLeadersByLeagueId(leaders, selectedLeagueId);
             leaders = JSON.parse(JSON.stringify(leaders)); //copy leaders
 
             if (selectedMatchId) {
                 var match = utils.general.findItemInArrBy(matches, "_id", selectedMatchId);
                 var matchResult = createMatchResult(predictionsSimulated, match);
-                updateLeaders(leaders, predictions, matchResult, selectedMatchId, match);
-                matchElem = re(SimulatorMatch, {game: match, matchResult: matchResult, updateMatchChange: that.updateMatchChange});
+                updateLeaders(leaders, clubs, predictions, matchResult, selectedMatchId, match);
+                var league = utils.general.findItemInArrBy(leagues, "_id", match.league);
+                matchElem = re(SimulatorMatch, {game: match, league: league, clubs:clubs, matchResult: matchResult, updateMatchChange: that.updateMatchChange});
             }
 
             dropDownButton = re("div", {className: "matches-dropdown-button"},
@@ -132,9 +143,11 @@ component.SimulatorPage = (function(){
             var dropDownMatchesElems = matches.map(function(match){
                 var matchId = match._id;
                 var isSelected = selectedMatchId ? selectedMatchId === matchId : false;
+                var team1 = utils.general.findItemInArrBy(clubs, "_id", match.team1);
+                var team2 = utils.general.findItemInArrBy(clubs, "_id", match.team2);
                 return re("div", {className: "match-row" + (isSelected ? " selected": ""), onClick: that.onDropDownMatchClicked.bind(that, matchId), key: "dropdownMatch_" + matchId},
                     re("div", {}, utils.general.formatHourMinutesTime(match.kickofftime)),
-                    re("div", {}, match.team1 + " - " + match.team2)
+                    re("div", {}, team1.name + " - " + team2.name)
                 );
             });
 
@@ -165,7 +178,7 @@ component.SimulatorPage = (function(){
                     dropDownButton,
                     matchElem
                 ),
-                re(LeaderBoardTiles, {leaders: leaders, users: users, disableOpen: true, userIdFocus: userId})
+                re(LeaderBoardTiles, {leaders: leaders, users: users, selectedLeagueId: selectedLeagueId, disableOpen: true, userIdFocus: userId})
             );
         }
     });
@@ -177,7 +190,10 @@ component.SimulatorPage = (function(){
             leaders: state.leaderBoard.leaders,
             leadersStatus: state.leaderBoard.status,
             userId: state.authentication.userId,
-            users: state.users.users
+            users: state.users.users,
+            selectedLeagueId: state.leagues.selectedLeagueId,
+            leagues: state.leagues.leagues,
+            clubs: state.leagues.clubs
         }
     }
 

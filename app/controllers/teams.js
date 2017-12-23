@@ -1,7 +1,6 @@
 let express = require('express');
 let app = express.Router();
 let Team = require('../models/team');
-//var TeamService = require('../services/teamService');
 let util = require('../utils/util.js');
 
 app.get('/:teamId', util.isLoggedIn, function (req, res) {
@@ -25,21 +24,6 @@ app.get('/', util.isLoggedIn, function (req, res) {
     });
 });
 
-/*
-Available only via initial file, disabled to fix database corruption bugs
-
-app.post('/', util.isAdmin, function (req, res) {
-    var teams = req.body.teams;
-    if (!teams || !Array.isArray(teams)) {
-        res.status(500).json(util.getErrorResponse('provide teams'));
-        return;
-    }
-
-    TeamService.updateTeams(teams).then(function (obj) {
-        res.status(200).json(obj);
-    });
-});
-
 app.delete('/:teamId', util.isAdmin, function (req, res) {
     var teamId = req.params.teamId;
     if (!teamId) {
@@ -54,7 +38,5 @@ app.delete('/:teamId', util.isAdmin, function (req, res) {
         }
     });
 });
-
-*/
 
 module.exports = app;
