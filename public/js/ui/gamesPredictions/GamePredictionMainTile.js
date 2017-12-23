@@ -86,6 +86,7 @@ component.GamePredictionMainTile = (function(){
                 gameDate,
                 graphParts,
                 kickofftime = game.kickofftime,
+                stadium = game.stadium || "",
                 dateStr,
                 gamePoints,
                 simulationBtn,
@@ -152,7 +153,7 @@ component.GamePredictionMainTile = (function(){
                     re("div", {className: "team-name"}, team1ShortName)
                 ),
                 re("div", {className: "center"},
-                    re("div", {className: "league-name"}, leagueName + ' ' + game.type),
+                    re("div", {className: "league-name"}, stadium),
                     re("div", {className: "game-date"},
                         gameDate
                     ),
