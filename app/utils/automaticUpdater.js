@@ -44,7 +44,7 @@ let self = module.exports = {
                         self.getCompletedGames(soccerContent, competition365Arr).then(function (completedGames) {
                             if (completedGames.length > 0) {
                                 console.log('Found ' + completedGames.length + ' completed matches to update');
-                                groupConfiguration.find({}).then(function (err, configuration) {
+                                groupConfiguration.find({}).then(function (configuration) {
                                     self.updateCompletedGames(configuration, completedGames).then(function (arr) {
                                         if (arr.includes(true)) {
                                             console.log('Start to update leaderboard');
