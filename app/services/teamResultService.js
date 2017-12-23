@@ -5,10 +5,7 @@ let util = require('../utils/util');
 let self = module.exports = {
     updateTeamResult: function (teamResult) {
         let deferred = Q.defer();
-        TeamResult.findOneAndUpdate({teamId: teamResult.teamId}, teamResult, {
-                upsert: true,
-                setDefaultsOnInsert: true
-            }, function (err, obj) {
+        TeamResult.findOneAndUpdate({teamId: teamResult.teamId}, teamResult, util.updateSettings, function (err, obj) {
                 if (err) {
                     deferred.resolve(util.getErrorResponse('error'));
                 } else {

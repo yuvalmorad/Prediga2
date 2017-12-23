@@ -1,5 +1,6 @@
 {
-  "predictionScoreConfiguration": {
+  "defaultConfiguration": {
+    "_id": "5a3eac97d3ca76dbd12bf637",
     "winner": 4,
     "team1Goals": 2,
     "team2Goals": 2,
@@ -11,6 +12,7 @@
     "teamThird": 10,
     "teamForth": 10,
     "teamLast": 10,
-    "team2ndLast": 10
+    "team2ndLast": 10,
+    "minutesBeforeCloseMathPrediction": 5
   }
 }

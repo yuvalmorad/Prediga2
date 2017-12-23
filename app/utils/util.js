@@ -1,5 +1,8 @@
 module.exports = {
     okResponse: {"status": "OK"},
+    updateSettings: {
+        upsert: true, setDefaultsOnInsert: true, isNew: true, new: true
+    },
     getErrorResponse: function (msg) {
         return {"status": "Error", "message": msg};
     },

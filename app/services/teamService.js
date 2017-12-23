@@ -2,15 +2,13 @@ let Q = require('q');
 let Team = require('../models/team');
 let TeamResult = require('../models/teamResult');
 let UserScore = require('../models/userScore');
+let util = require('../utils/util');
 
 let self = module.exports = {
     updateTeams: function (teams) {
         console.log('beginning to update ' + teams.length + ' teams');
         let promises = teams.map(function (team) {
-            return Team.findOneAndUpdate({_id: team._id}, team, {
-                    upsert: true,
-                    setDefaultsOnInsert: true
-                }, function (err, obj) {
+            return Team.findOneAndUpdate({_id: team._id}, team, util.updateSettings, function (err, obj) {
                     if (err) {
                         return Promise.reject('general error');
                     }

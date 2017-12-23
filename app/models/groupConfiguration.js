@@ -2,7 +2,7 @@
 let mongoose = require('mongoose');
 
 // define the schema for our Prediction Score's Configuration model
-let predictionScoreConfiguration = mongoose.Schema({
+let groupConfiguration = mongoose.Schema({
     winner: Number,
     team1Goals: Number,
     team2Goals: Number,
@@ -14,14 +14,15 @@ let predictionScoreConfiguration = mongoose.Schema({
     teamThird: Number,
     teamForth: Number,
     teamLast: Number,
-    team2ndLast: Number
+    team2ndLast: Number,
+    minutesBeforeCloseMathPrediction: Number,
 });
 
-predictionScoreConfiguration.options.toJSON = {
+groupConfiguration.options.toJSON = {
     transform: function (doc, ret, options) {
         delete ret.__v;
         return ret;
     }
 };
 
-module.exports = mongoose.model('PredictionScoreConfiguration', predictionScoreConfiguration);
+module.exports = mongoose.model('GroupConfiguration', groupConfiguration);

@@ -2,7 +2,7 @@ let TeamService = require('../services/teamService');
 let MatchService = require('../services/matchService');
 let MatchResultService = require('../services/matchResultService');
 let TeamResultService = require('../services/teamResultService');
-let PredictionScoreConfigurationService = require('../services/predictionScoreConfigurationService');
+let groupConfigurationService = require('../services/groupConfigurationService');
 let UsersLeaderboardService = require('../services/usersLeaderboardService');
 let UserScoreService = require('../services/userScoreService');
 let ClubService = require('../services/clubService');
@@ -11,7 +11,7 @@ let LeagueService = require('../services/leagueService');
 let self = module.exports = {
     loadAll: function () {
         return Promise.all([
-            PredictionScoreConfigurationService.updateConfiguration(require('../initialData/configuration/scoreConfiguration.json')),
+            groupConfigurationService.updateConfiguration(require('../initialData/configuration/groupConfiguration.json')),
             self.updateLeagueData(require('../initialData/leagues/Tournament_Worldcup_18.json')),
             self.updateLeagueData(require('../initialData/leagues/League_Israel_17-18.json')),
         ]).then(function (arr) {

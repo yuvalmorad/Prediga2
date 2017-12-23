@@ -1,7 +1,7 @@
 let express = require('express');
 let app = express.Router();
 let Match = require('../models/match');
-let MatchPredictions = require('../models/matchPrediction');
+let matchPredictionsService = require('../services/matchPredictionsService');
 let util = require('../utils/util.js');
 let MatchResult = require('../models/matchResult');
 
@@ -13,30 +13,33 @@ app.get('/:userId', util.isLoggedIn, function (req, res) {
 });
 
 function getData(userId) {
-    let now = new Date();
-    return Match.find({kickofftime: {$lte: now}}).sort({'kickofftime': -1}).limit(6).exec().then(function (lastFinishedMatches) {
-        if (lastFinishedMatches && lastFinishedMatches.length > 0) {
-            let matchIds = lastFinishedMatches.map(function (match) {
-                return match._id;
+    return Promise.all([
+        matchPredictionsService.getPredictionsByUserId(userId, false)
+
+    ]).then(function (arr) {
+        let predictionsMatchIds = arr[0].map(function (prediction) {
+            return prediction.matchId;
+        });
+
+        return Promise.all([
+            MatchResult.find({matchId: {$in: predictionsMatchIds}})
+        ]).then(function (arr2) {
+            let relevantMatchIds = arr2[0].map(function (prediction) {
+                return prediction.matchId;
+            });
+            let predictionsFiltered = arr[0].filter(function (prediction) {
+                return relevantMatchIds.indexOf(prediction.matchId) >= 0;
             });
             return Promise.all([
-                MatchPredictions.find({matchId: {$in: matchIds}, userId: userId}),
-                MatchResult.find({matchId: {$in: matchIds}})
-            ]).then(function (arr) {
+                Match.find({_id: {$in: relevantMatchIds}}).sort({'kickofftime': -1}).limit(6)
+            ]).then(function (arr3) {
                 return {
-                    predictions: arr[0],
-                    matches: lastFinishedMatches,
-                    results: arr[1]
-                }
+                    predictions: predictionsFiltered,
+                    results: arr2[0],
+                    matches: arr3[0]
+                };
             });
-        } else {
-            return {
-                predictions: [],
-                matches: [],
-                results: []
-                // TODO - add also teams results.
-            };
-        }
+        });
     });
 }
 

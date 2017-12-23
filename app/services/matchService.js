@@ -2,15 +2,13 @@ let Q = require('q');
 let Match = require('../models/match');
 let MatchResult = require('../models/matchResult');
 let UserScore = require('../models/userScore');
+let util = require('../utils/util');
 
 let self = module.exports = {
     updateMatches: function (matches) {
         console.log('beginning to update ' + matches.length + ' matches');
         let promises = matches.map(function (match) {
-            return Match.findOneAndUpdate({_id: match._id}, match, {
-                    upsert: true,
-                    setDefaultsOnInsert: true
-                }, function (err, obj) {
+            return Match.findOneAndUpdate({_id: match._id}, match, util.updateSettings, function (err, obj) {
                     if (err) {
                         return Promise.reject('general error');
                     }

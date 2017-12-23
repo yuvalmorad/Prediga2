@@ -1,7 +1,7 @@
 let Q = require('q');
 let Team = require('../models/team');
 let TeamPrediction = require('../models/teamPrediction');
-
+let utils = require('../utils/util');
 let self = module.exports = {
     creaTeamPredictions(teamPredictions, userId) {
         let now = new Date();
@@ -13,11 +13,7 @@ let self = module.exports = {
                     return TeamPrediction.findOneAndUpdate({
                         teamId: teamPrediction.teamId,
                         userId: userId
-                    }, teamPrediction, {
-                        upsert: true,
-                        setDefaultsOnInsert: true,
-                        new: true
-                    });
+                    }, teamPrediction, utils.updateSettings);
                 } else {
                     return Promise.reject('general error');
                 }

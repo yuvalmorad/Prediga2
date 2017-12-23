@@ -7,7 +7,7 @@ let MatchPrediction = require('../models/matchPrediction');
 let TeamPrediction = require('../models/teamPrediction');
 let Match = require('../models/match');
 let Team = require('../models/team');
-let PredictionScoreConfiguration = require('../models/predictionScoreConfiguration');
+let groupConfiguration = require('../models/groupConfiguration');
 let util = require('../utils/util');
 
 let self = module.exports = {
@@ -89,10 +89,7 @@ let self = module.exports = {
     updateScore: function (userScore) {
         //console.log('beginning to update score:' + userScore.gameId);
         let deferred = Q.defer();
-        UserScore.findOneAndUpdate({userId: userScore.userId, gameId: userScore.gameId}, userScore, {
-                upsert: true,
-                setDefaultsOnInsert: true
-            }, function (err, obj) {
+        UserScore.findOneAndUpdate({userId: userScore.userId, gameId: userScore.gameId}, userScore, util.updateSettings, function (err, obj) {
                 if (err) {
                     deferred.resolve();
                 } else {
@@ -213,7 +210,7 @@ let self = module.exports = {
     },
     getRelevantDataForUserScore: function () {
         return Promise.all([
-            PredictionScoreConfiguration.find({}),
+            groupConfiguration.find({}),
             MatchResult.find({}),
             TeamResult.find({})
         ]).then(function (arr) {

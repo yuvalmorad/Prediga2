@@ -8,7 +8,7 @@ mongoose.Promise = Promise;
 module.exports = function (app, passport) {
     initialData.loadAll();
     automaticUpdater.startTask();
-    migrator.run();
+    //migrator.run();
 
     /********************************************
      * All routes mapping
@@ -21,7 +21,7 @@ module.exports = function (app, passport) {
     app.use('/api/teamsUI', require('./controllers/teamsUI.js'));
     app.use('/api/matchPredictions', require('./controllers/matchPredictions.js'));
     app.use('/api/teamPredictions', require('./controllers/teamPredictions.js'));
-    app.use('/api/predictionScoreConfiguration', require('./controllers/predictionScoreConfiguration.js'));
+    app.use('/api/groupConfiguration', require('./controllers/groupConfiguration.js'));
     app.use('/api/matchResult', require('./controllers/matchResult.js'));
     app.use('/api/teamResult', require('./controllers/teamResult.js'));
     app.use('/api/userScore', require('./controllers/userScore.js'));

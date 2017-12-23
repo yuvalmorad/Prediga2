@@ -3,6 +3,7 @@ let app = express.Router();
 let MatchPrediction = require('../models/matchPrediction');
 let matchPredictionsService = require('../services/matchPredictionsService');
 let util = require('../utils/util.js');
+let groupConfigurationService = require('../services/groupConfigurationService');
 
 app.get('/:userId', util.isLoggedIn, function (req, res) {
     let userId = req.params.userId;
@@ -64,10 +65,13 @@ app.post('/', util.isLoggedIn, function (req, res) {
         return;
     }
     let userId = req.user._id;
-    matchPredictionsService.createMatchPredictions(matchPredictions, userId).then(function (obj) {
-        res.status(200).json(obj);
-    }, function (msg) {
-        res.status(500).json({error: msg});
+
+    groupConfigurationService.getConfigurationValue('minutesBeforeCloseMathPrediction').then(function (value) {
+        return matchPredictionsService.createMatchPredictions(matchPredictions, userId, value).then(function (obj) {
+            res.status(200).json(obj);
+        }, function (msg) {
+            res.status(500).json({error: msg});
+        });
     });
 });
 

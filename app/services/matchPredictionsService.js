@@ -1,6 +1,7 @@
 let Q = require('q');
 let Match = require('../models/match');
 let MatchPrediction = require('../models/matchPrediction');
+let utils = require('../utils/util');
 
 let self = module.exports = {
     /**
@@ -21,10 +22,10 @@ let self = module.exports = {
         });
         return deferred.promise;
     },
-    createMatchPredictions(matchPredictions, userId) {
+    createMatchPredictions(matchPredictions, userId, minBefore) {
         let now = new Date();
         let deadline = new Date();
-        deadline.setMinutes(now.getMinutes() + 5);
+        deadline.setMinutes(now.getMinutes() + minBefore);
         let promises = matchPredictions.map(function (matchPrediction) {
             // we can update only until 5 minutes before kick off time.
             return Match.findOne({kickofftime: {$gte: deadline}, _id: matchPrediction.matchId}).then(function (aMatch) {
@@ -47,11 +48,7 @@ let self = module.exports = {
                     return MatchPrediction.findOneAndUpdate({
                         matchId: matchPrediction.matchId,
                         userId: userId
-                    }, matchPrediction, {
-                        upsert: true,
-                        setDefaultsOnInsert: true,
-                        new: true
-                    });
+                    }, matchPrediction, utils.updateSettings);
                 } else {
                     return Promise.reject('general error');
                 }
@@ -123,6 +120,44 @@ let self = module.exports = {
             });
         }
 
+        return deferred.promise;
+    },
+    getFutureGamesPredictionsCounters: function () {
+        let now = new Date();
+        return Promise.all([
+            Match.find({kickofftime: {$gte: now}})
+        ]).then(function (arr) {
+            let matchIds = arr[0].map(function (match) {
+                return match._id;
+            });
+
+            return Promise.all([
+                MatchPrediction.find({matchId: {$in: matchIds}})
+            ]).then(function (arr2) {
+                return self.aggegrateFuturePredictions(arr2[0]);
+            });
+        });
+    },
+    aggegrateFuturePredictions: function (matchPredictions) {
+        let deferred = Q.defer();
+        let result = {};
+        let itemsProcessed = 0;
+        matchPredictions.forEach(function (matchPrediction) {
+            itemsProcessed += 1;
+            if (!result.hasOwnProperty(matchPrediction.matchId)) {
+                result[matchPrediction.matchId] = {};
+            }
+
+            if (!result[matchPrediction.matchId].hasOwnProperty(matchPrediction.winner)) {
+                result[matchPrediction.matchId][matchPrediction.winner] = 1;
+            } else {
+                result[matchPrediction.matchId][matchPrediction.winner]++;
+            }
+
+            if (itemsProcessed === matchPredictions.length) {
+                deferred.resolve(result);
+            }
+        });
         return deferred.promise;
     }
 };

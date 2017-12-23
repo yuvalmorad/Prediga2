@@ -16,12 +16,14 @@ function getData(me) {
     return Promise.all([
         Match.find({}),
         matchPredictionService.getPredictionsByUserId(me, true, me),
-        MatchResult.find({})
+        MatchResult.find({}),
+        matchPredictionService.getFutureGamesPredictionsCounters(),
     ]).then(function (arr) {
         return {
             matches: arr[0],
             predictions: arr[1],
-            results: arr[2]
+            results: arr[2],
+            predictionsCounters: arr[3]
         }
     });
 }
