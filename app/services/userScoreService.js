@@ -111,7 +111,6 @@ let self = module.exports = {
         console.log('beginning to update user scores based on ' + matchResults.length + ' matchResults');
         // for each match result, get all matchPredictions
         let promises = matchResults.map(function (aMatchResult) {
-            // for each match result,
             // find leagueId
             let leagueId = matches.find(x => x._id === aMatchResult.matchId).leagueId;
             // find all match predictions, update user score
@@ -150,22 +149,23 @@ let self = module.exports = {
             });
             return Promise.all(promises);
         } else {
-            return self.updateInitialScoreForAllUsers(matchResult.matchId);
+            return self.updateInitialScoreForAllUsers(matchResult.matchId, leagueId);
         }
     },
-    updateInitialScoreForAllUsers: function (matchId) {
+    updateInitialScoreForAllUsers: function (matchId, leagueId) {
         return User.find({}, function (err, users) {
-            return self.updateInitialScoreForUsers(users, matchId);
+            return self.updateInitialScoreForUsers(users, matchId, leagueId);
         });
     },
-    updateInitialScoreForUsers: function (users, matchId) {
+    updateInitialScoreForUsers: function (users, matchId, leagueId) {
         let promises = users.map(function (user) {
-            return self.updateInitialScoreForUser(user, matchId);
+            return self.updateInitialScoreForUser(user, matchId, leagueId);
         });
         return Promise.all(promises);
     },
-    updateInitialScoreForUser: function (user, matchId) {
+    updateInitialScoreForUser: function (user, matchId, leagueId) {
         return self.updateScore({
+            leagueId: leagueId,
             userId: user._id,
             gameId: matchId,
             score: 0,
@@ -180,15 +180,17 @@ let self = module.exports = {
         // for each team result, get all teamPredictions
         let promises = teamResults.map(function (aTeamResult) {
             // for each team result, find all team predictions, update user score
-            return self.updateUserScoreByTeamResult(configuration, aTeamResult);
+            // find leagueId
+            let leagueId = Team.find(x => x._id === aTeamResult.teamId).leagueId;
+            return self.updateUserScoreByTeamResult(configuration, aTeamResult, leagueId);
         });
         return Promise.all(promises);
     },
-    updateUserScoreByTeamResult: function (configuration, teamResult) {
+    updateUserScoreByTeamResult: function (configuration, teamResult, leagueId) {
         let deferred = Q.defer();
         TeamPrediction.find({teamId: teamResult.teamId}, function (err, anUserTeamPredictions) {
             if (anUserTeamPredictions && anUserTeamPredictions.length > 0) {
-                self.updateUserScoreByTeamResultAndUserPredictions(teamResult, configuration, anUserTeamPredictions).then(function () {
+                self.updateUserScoreByTeamResultAndUserPredictions(teamResult, configuration, anUserTeamPredictions, leagueId).then(function () {
                     deferred.resolve({});
                 });
             } else {
@@ -197,13 +199,14 @@ let self = module.exports = {
         });
         return deferred.promise;
     },
-    updateUserScoreByTeamResultAndUserPredictions: function (teamResult, configuration, anUserTeamPredictions) {
+    updateUserScoreByTeamResultAndUserPredictions: function (teamResult, configuration, anUserTeamPredictions, leagueId) {
         //console.log('found ' + anUserTeamPredictions.length + ' user MatchPredictions');
         let promises = anUserTeamPredictions.map(function (userPrediction) {
             let score = 0;
             let configScore = self.convertTeamTypeToConfigScore(teamResult.type, configuration[0]);
             score += util.calculateResult(userPrediction.team, teamResult.team, configScore);
             return self.updateScore({
+                leagueId: leagueId,
                 userId: userPrediction.userId,
                 gameId: userPrediction.teamId,
                 score: score,

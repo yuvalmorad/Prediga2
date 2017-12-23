@@ -156,8 +156,9 @@ let self = module.exports = {
                                 newMatchResult.matchId = aMatch._id;
                                 console.log('Beginning to update new match result for ' + team1 + ' - ' + team2);
                                 matchResultService.updateMatchResult(newMatchResult).then(function () {
+                                    let leagueId = aMatch.league;
                                     console.log('Beginning to update user score for ' + team1 + ' - ' + team2);
-                                    userScoreService.updateUserScoreByMatchResult(configuration, newMatchResult).then(function () {
+                                    userScoreService.updateUserScoreByMatchResult(configuration, newMatchResult, leagueId).then(function () {
                                         console.log('Finish to update all for ' + team1 + ' - ' + team2);
                                         deferred.resolve(true);
                                     });
