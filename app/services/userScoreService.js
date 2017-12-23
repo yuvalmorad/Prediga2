@@ -89,7 +89,10 @@ let self = module.exports = {
     updateScore: function (userScore) {
         //console.log('beginning to update score:' + userScore.gameId);
         let deferred = Q.defer();
-        UserScore.findOneAndUpdate({userId: userScore.userId, gameId: userScore.gameId}, userScore, util.updateSettings, function (err, obj) {
+        UserScore.findOneAndUpdate({
+                userId: userScore.userId,
+                gameId: userScore.gameId
+            }, userScore, util.updateSettings, function (err, obj) {
                 if (err) {
                     deferred.resolve();
                 } else {

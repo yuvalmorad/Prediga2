@@ -51,8 +51,8 @@ let self = module.exports = {
         let today = new Date();
         let tomorrow = new Date();
         let yesterday = new Date();
-        tomorrow.setDate(today.getDate() +1);
-        yesterday.setDate(today.getDate() -1);
+        tomorrow.setDate(today.getDate() + 1);
+        yesterday.setDate(today.getDate() - 1);
 
         Match.find({
             kickofftime: {$gte: yesterday, $lte: tomorrow},

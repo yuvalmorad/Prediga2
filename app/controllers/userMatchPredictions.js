@@ -7,12 +7,14 @@ let MatchResult = require('../models/matchResult');
 
 app.get('/:userId', util.isLoggedIn, function (req, res) {
     let userId = req.params.userId;
-    getData(userId).then(function (obj) {
+    let leagueId = req.query.leagueId;
+    getData(userId, leagueId).then(function (obj) {
         res.status(200).json(obj);
     });
 });
 
-function getData(userId) {
+function getData(userId, leagueId) {
+    // TODO - improve this method in performance
     return Promise.all([
         matchPredictionsService.getPredictionsByUserId(userId, false)
 
@@ -31,7 +33,9 @@ function getData(userId) {
                 return relevantMatchIds.indexOf(prediction.matchId) >= 0;
             });
             return Promise.all([
-                Match.find({_id: {$in: relevantMatchIds}}).sort({'kickofftime': -1}).limit(6)
+                typeof (leagueId) !== 'undefined' ?
+                    Match.find({_id: {$in: relevantMatchIds}, league: leagueId}).sort({'kickofftime': -1}).limit(6):
+                    Match.find({_id: {$in: relevantMatchIds}}).sort({'kickofftime': -1}).limit(6)
             ]).then(function (arr3) {
                 return {
                     predictions: predictionsFiltered,
