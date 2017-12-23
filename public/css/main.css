@@ -531,10 +531,12 @@ body {
 
 .input-number.win .number {
     background-color: #7ED321;
+    color: #fff;
 }
 
 .input-number.lost .number {
     background-color: #9B9B9B;
+    color: #fff;
 }
 
 /* -------  Radio Button -------*/
