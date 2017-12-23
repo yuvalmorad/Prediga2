@@ -91,7 +91,8 @@ let self = module.exports = {
         let deferred = Q.defer();
         UserScore.findOneAndUpdate({
                 userId: userScore.userId,
-                gameId: userScore.gameId
+                gameId: userScore.gameId,
+                leagueId: userScore.leagueId
             }, userScore, util.updateSettings, function (err, obj) {
                 if (err) {
                     deferred.resolve();
@@ -112,7 +113,7 @@ let self = module.exports = {
         let promises = matchResults.map(function (aMatchResult) {
             // for each match result,
             // find leagueId
-            var leagueId = matches.find(x => x._id === aMatchResult.matchId).leagueId;
+            let leagueId = matches.find(x => x._id === aMatchResult.matchId).leagueId;
             // find all match predictions, update user score
             return self.updateUserScoreByMatchResult(configuration, aMatchResult, leagueId);
         });
