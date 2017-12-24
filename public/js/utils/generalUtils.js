@@ -64,10 +64,10 @@ utils.general = (function(){
         return minutes + ":" + seconds;
     }
 
-    function isGameClosed(kickofftime) {
+    function isGameClosed(kickofftime, groupConfiguration) {
         var currentDate = new Date();
         var gameClosedDate = new Date(kickofftime);
-        gameClosedDate.setMinutes(gameClosedDate.getMinutes() - 5);
+        gameClosedDate.setMinutes(gameClosedDate.getMinutes() - groupConfiguration[GAME.MINUTES_BEFORE_CLOSE_MATCH]);
         return currentDate >= gameClosedDate;
     }
 

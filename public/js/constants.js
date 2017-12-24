@@ -11,7 +11,9 @@ var GAME = {
         TEAM2_GOALS: {key: "team2Goals"},
         GOAL_DIFF: {key: "goalDiff"},
         FIRST_TO_SCORE: {key: "firstToScore"}
-    }
+    },
+
+    MINUTES_BEFORE_CLOSE_MATCH: "minutesBeforeCloseMathPrediction"
 };
 
 var COLORS = {
