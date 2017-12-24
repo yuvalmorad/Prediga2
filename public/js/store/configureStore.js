@@ -12,7 +12,8 @@ var store = (function(){
         teamsPredictions: reducer.teamsPredictions,
         leaderBoard: reducer.leaderBoard,
         simulator: reducer.simulator,
-        users: reducer.users
+        users: reducer.users,
+        groupConfiguration: reducer.groupConfiguration,
     });
 
     return store = Redux.createStore(rootReducer, {}, compose(applyMiddleware(thunkMiddleware)));

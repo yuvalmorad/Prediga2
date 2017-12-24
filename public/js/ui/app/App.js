@@ -10,6 +10,7 @@ component.App = (function(){
 
     var App = React.createClass({
         componentDidMount: function() {
+            this.props.loadGroupConfiguration();
             this.props.loadUsers();
             this.props.loadLeaguesAndClubs();
         },
@@ -41,7 +42,8 @@ component.App = (function(){
     function mapDispatchToProps(dispatch) {
         return {
             loadUsers: function(){dispatch(action.users.loadUsers())},
-            loadLeaguesAndClubs: function(){dispatch(action.leagues.loadLeaguesAndClubs())}
+            loadLeaguesAndClubs: function(){dispatch(action.leagues.loadLeaguesAndClubs())},
+            loadGroupConfiguration: function(){dispatch(action.groupConfiguration.load())}
         }
     }
 

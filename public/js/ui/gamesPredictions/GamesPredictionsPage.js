@@ -157,9 +157,10 @@ component.GamesPredictionsPage = (function(){
                 closestPage,
                 selectedLeagueId = props.selectedLeagueId,
                 leagues = props.leagues,
-                clubs = props.clubs;
+                clubs = props.clubs,
+                groupConfiguration = props.groupConfiguration;
 
-            if (!matches.length || !clubs.length || !selectedLeagueId) {
+            if (!matches.length || !clubs.length || !selectedLeagueId || !groupConfiguration) {
                 return re("div", { className: "content"});
             }
 
@@ -194,6 +195,7 @@ component.GamesPredictionsPage = (function(){
                         team1: team1,
                         team2: team2,
                         league: league,
+                        groupConfiguration: groupConfiguration,
                         key: matchId
                     });
                 });
@@ -235,7 +237,8 @@ component.GamesPredictionsPage = (function(){
             isShowTileDialog: state.general.isShowTileDialog,
             leagues: state.leagues.leagues,
             selectedLeagueId: state.leagues.selectedLeagueId,
-            clubs: state.leagues.clubs
+            clubs: state.leagues.clubs,
+            groupConfiguration: state.groupConfiguration.groupConfiguration
         }
     }
 

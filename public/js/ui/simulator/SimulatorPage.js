@@ -37,14 +37,14 @@ component.SimulatorPage = (function(){
 
         return clubId; // "None"/"Draw";
     }
-    function updateLeaders(leaders, clubs, predictions, matchResult, matchId, match) {
+    function updateLeaders(leaders, clubs, predictions, matchResult, matchId, match, groupConfiguration) {
         var predictionsByMatchId = utils.general.findItemsInArrBy(predictions, "matchId", matchId);
         predictionsByMatchId.forEach(function(prediction) {
-            var points = utils.general.calculateTotalPoints(prediction, matchResult);
+            var points = utils.general.calculateTotalPoints(prediction, matchResult, groupConfiguration);
             var leader = utils.general.findItemInArrBy(leaders, "userId", prediction.userId);
             if (points) {
                 leader.score += points;
-                var isStrike = utils.general.isPointsStrike(points);
+                var isStrike = utils.general.isPointsStrike(points, groupConfiguration);
                 if (isStrike) {
                     leader.strikes += 1;
                 }
@@ -122,9 +122,10 @@ component.SimulatorPage = (function(){
                 userId = props.userId,
                 matchElem,
                 selectedLeagueId = props.selectedLeagueId,
-                leagues = props.leagues;
+                leagues = props.leagues,
+                groupConfiguration = props.groupConfiguration;
 
-            if (!leaders.length || !users.length || !matches.length || !clubs.length) {
+            if (!leaders.length || !users.length || !matches.length || !clubs.length || !groupConfiguration) {
                 return re("div", { className: "content" }, "");
             }
 
@@ -134,7 +135,7 @@ component.SimulatorPage = (function(){
             if (selectedMatchId) {
                 var match = utils.general.findItemInArrBy(matches, "_id", selectedMatchId);
                 var matchResult = createMatchResult(predictionsSimulated, match);
-                updateLeaders(leaders, clubs, predictions, matchResult, selectedMatchId, match);
+                updateLeaders(leaders, clubs, predictions, matchResult, selectedMatchId, match, groupConfiguration);
                 var league = utils.general.findItemInArrBy(leagues, "_id", match.league);
                 matchElem = re(SimulatorMatch, {game: match, league: league, clubs:clubs, matchResult: matchResult, updateMatchChange: that.updateMatchChange});
             }
@@ -196,7 +197,8 @@ component.SimulatorPage = (function(){
             users: state.users.users,
             selectedLeagueId: state.leagues.selectedLeagueId,
             leagues: state.leagues.leagues,
-            clubs: state.leagues.clubs
+            clubs: state.leagues.clubs,
+            groupConfiguration: state.groupConfiguration.groupConfiguration
         }
     }
 

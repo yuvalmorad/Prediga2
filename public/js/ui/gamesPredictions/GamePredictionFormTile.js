@@ -20,6 +20,7 @@ component.GamePredictionFormTile = (function(){
         render: function() {
             var props = this.props,
                 game = props.game,
+                groupConfiguration = props.groupConfiguration,
                 team1 = props.team1,
                 team2 = props.team2,
                 prediction = props.prediction,
@@ -45,7 +46,7 @@ component.GamePredictionFormTile = (function(){
 
             if (result) {
                 //POST_GAME
-                points = utils.general.calculatePoints(prediction, result);
+                points = utils.general.calculatePoints(prediction, result, groupConfiguration);
                 team1GoalsPoints = points[GAME.BET_TYPES.TEAM1_GOALS.key];
                 diffGoalsPoints = points[GAME.BET_TYPES.GOAL_DIFF.key];
                 team2GoalsPoints = points[GAME.BET_TYPES.TEAM2_GOALS.key];

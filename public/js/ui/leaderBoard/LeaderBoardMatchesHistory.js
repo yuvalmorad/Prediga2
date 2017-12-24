@@ -49,13 +49,14 @@ component.LeaderBoardMatchesHistory = (function(){
                 isLoading = state.isLoading,
                 matches = state.matches || [],
                 predictions = state.predictions || [],
-                results = state.results || [];
+                results = state.results || [],
+                groupConfiguration = props.groupConfiguration;
 
             if (isLoading) {
                 return re("div", {}, "");
             }
 
-            if (!matches.length) {
+            if (!matches.length || !groupConfiguration) {
                 return re("div", {className: "no-content"}, "No Predictions Finished");
             }
 
@@ -79,7 +80,7 @@ component.LeaderBoardMatchesHistory = (function(){
                     team1GoalsResult = matchPrediction && matchPrediction[GAME.BET_TYPES.TEAM1_GOALS.key],
                     team2GoalsResult = matchPrediction && matchPrediction[GAME.BET_TYPES.TEAM2_GOALS.key],
                     score = matchPrediction ? team1GoalsResult + " - " + team2GoalsResult : "(No Prediction)",
-                    points = utils.general.calculateTotalPoints(matchPrediction, matchResult);
+                    points = utils.general.calculateTotalPoints(matchPrediction, matchResult, groupConfiguration);
 
                 return re("div", {className: "leaderboard-match-row", onClick: that.onLeaderboardMatchClicked.bind(that, matchId)},
                     re ("div", {className: "match-date"}, dateStr),
@@ -102,7 +103,8 @@ component.LeaderBoardMatchesHistory = (function(){
         return {
             clubs: state.leagues.clubs,
             leagues: state.leagues.leagues,
-            selectedLeagueId: state.leagues.selectedLeagueId
+            selectedLeagueId: state.leagues.selectedLeagueId,
+            groupConfiguration: state.groupConfiguration.groupConfiguration
         }
     }
 

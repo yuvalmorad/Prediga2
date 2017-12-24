@@ -144,13 +144,13 @@ utils.general = (function(){
         });
     }
 
-    function calculatePoints(prediction, result) {
+    function calculatePoints(prediction, result, configuration) {
         prediction = prediction || {};
         var res = {};
         Object.keys(GAME.BET_TYPES).forEach(function(typeKey){
             var betType = GAME.BET_TYPES[typeKey];
             var key = betType.key;
-            var points = betType.points;
+            var points = configuration[key];
             var predictionVal = prediction[key];
             var resultVal = result[key];
 
@@ -166,24 +166,24 @@ utils.general = (function(){
         return res;
     }
 
-    function calculateTotalPoints(prediction, result) {
-        return sumObject(calculatePoints(prediction, result));
+    function getMaxPoints(configuration) {
+        return Object.keys(GAME.BET_TYPES).reduce(function(res, typeKey){
+            var points = configuration[GAME.BET_TYPES[typeKey].key];
+            return res + points;
+        }, 0);
+    }
+
+    function isPointsStrike(points, configuration) {
+        return points === getMaxPoints(configuration);
+    }
+
+    function calculateTotalPoints(prediction, result, configuration) {
+        return sumObject(calculatePoints(prediction, result, configuration));
     }
 
     function sumObject(obj){
         return Object.keys(obj).reduce(function(res, key){
             return res + obj[key];
         }, 0);
-    }
-
-    function getMaxPoints() {
-        return Object.keys(GAME.BET_TYPES).reduce(function(res, typeKey){
-            var points = GAME.BET_TYPES[typeKey].points;
-            return res + points;
-        }, 0);
-    }
-
-    function isPointsStrike(points) {
-        return points === getMaxPoints();
     }
 })();

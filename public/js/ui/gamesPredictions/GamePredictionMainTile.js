@@ -65,6 +65,7 @@ component.GamePredictionMainTile = (function(){
                 state = this.state,
                 game = props.game,
                 gameId = game._id,
+                groupConfiguration = props.groupConfiguration,
                 league = props.league,
                 leagueName = league.name,
                 leagueIdName = utils.general.leagueNameToIdName(leagueName),
@@ -127,8 +128,8 @@ component.GamePredictionMainTile = (function(){
             } else {
                 //POST GAME
                 isPostGame = true;
-                var points = utils.general.calculateTotalPoints(prediction, result);
-                var maxPoints = utils.general.getMaxPoints();
+                var points = utils.general.calculateTotalPoints(prediction, result, groupConfiguration);
+                var maxPoints = utils.general.getMaxPoints(groupConfiguration);
 
                 resultWinner = result[GAME.BET_TYPES.WINNER.key];
                 displayTeam1Goals = result[GAME.BET_TYPES.TEAM1_GOALS.key];
