@@ -34,12 +34,13 @@ function getData(userId, leagueId) {
             });
             return Promise.all([
                 typeof (leagueId) !== 'undefined' ?
-                    Match.find({_id: {$in: relevantMatchIds}, league: leagueId}).sort({'kickofftime': -1}).limit(6):
+                    Match.find({_id: {$in: relevantMatchIds}, league: leagueId}).sort({'kickofftime': -1}).limit(6) :
                     Match.find({_id: {$in: relevantMatchIds}}).sort({'kickofftime': -1}).limit(6)
             ]).then(function (arr3) {
+                let isMatchesExist = !!(arr3[0] && arr3[0].length > 0);
                 return {
-                    predictions: predictionsFiltered,
-                    results: arr2[0],
+                    predictions: isMatchesExist ? predictionsFiltered : [],
+                    results: isMatchesExist ? arr2[0] : [],
                     matches: arr3[0]
                 };
             });
