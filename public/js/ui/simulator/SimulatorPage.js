@@ -53,9 +53,9 @@ component.SimulatorPage = (function(){
             var team1 = utils.general.findItemInArrBy(clubs, "_id", match.team1);
             var team2 = utils.general.findItemInArrBy(clubs, "_id", match.team2);
 
-            leader.description = team1.shortName + " " + prediction.team1Goals + " - " + prediction.team2Goals + " " + team2.shortName + " (diff: " + prediction.goalDiff + ")";
-            leader.additionalDescription = "Winner - " + getClubName(prediction.winner, team1, team2);
-            leader.additionalDescription2 = "1st Goal - " + getClubName(prediction.firstToScore, team1, team2);
+            leader.description = team1.shortName + " " + prediction[GAME.BET_TYPES.TEAM1_GOALS.key] + " - " + prediction[GAME.BET_TYPES.TEAM2_GOALS.key] + " " + team2.shortName + " (diff: " + prediction[GAME.GOAL_DIFF.key] + ")";
+            leader.additionalDescription = "Winner - " + getClubName(prediction[GAME.BET_TYPES.WINNER.key], team1, team2);
+            leader.additionalDescription2 = "1st Goal - " + getClubName(prediction[GAME.BET_TYPES.FIRST_TO_SCORE.key], team1, team2);
         });
     }
 

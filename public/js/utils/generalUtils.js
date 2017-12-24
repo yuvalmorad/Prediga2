@@ -93,12 +93,13 @@ utils.general = (function(){
 
     function getOtherPredictionsUserIdsByWinner(predictions) {
         var res = {};
+        var winnerKey = GAME.BET_TYPES.WINNER.key;
         (predictions || []).forEach(function(prediction){
-            if (!res[prediction.winner]) {
-                res[prediction.winner] = [];
+            if (!res[prediction[winnerKey]]) {
+                res[prediction[winnerKey]] = [];
             }
 
-            res[prediction.winner].push(prediction.userId);
+            res[prediction[winnerKey]].push(prediction.userId);
         });
 
         return res;
