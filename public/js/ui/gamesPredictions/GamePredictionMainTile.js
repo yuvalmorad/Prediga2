@@ -66,6 +66,7 @@ component.GamePredictionMainTile = (function(){
                 game = props.game,
                 gameId = game._id,
                 groupConfiguration = props.groupConfiguration,
+                predictionCounters = props.predictionCounters || {},
                 league = props.league,
                 leagueName = league.name,
                 leagueIdName = utils.general.leagueNameToIdName(leagueName),
@@ -124,7 +125,11 @@ component.GamePredictionMainTile = (function(){
                     }
                 }
 
-                graphParts = []//[{color: team1Color, amount: otherPredictionsTeam1Count}, {color: COLORS.DRAW_COLOR, amount: otherPredictionsDrawCount}, {color: team2Color, amount: otherPredictionsTeam2Count}]; //TODO
+                var predictionCounterWin1 = predictionCounters[team1._id] || 0,
+                    predictionCounterWin2 = predictionCounters[team2._id] || 0,
+                    predictionCounterDraw = utils.general.getDrawFromObject(predictionCounters) || 0;
+
+                graphParts = [{color: team1.color, amount: predictionCounterWin1}, {color: COLORS.DRAW_COLOR, amount: predictionCounterDraw}, {color: team2.color, amount: predictionCounterWin2}];
             } else {
                 //POST GAME
                 isPostGame = true;

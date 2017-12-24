@@ -14,26 +14,16 @@ utils.action = (function(){
     function loadWithPredictions(serviceObj, mainObjectProperty, successType) {
         return function(dispatch){
             serviceObj.getAll().then(function(res){
-                var userId = res.headers.userid;
                 var data = res.data;
-
-                var userPredictions = data.predictions.filter(function(prediction){
-                    return prediction.userId === userId;
-                });
-
-                var otherPredictions = data.predictions.filter(function(prediction){
-                    return prediction.userId !== userId;
-                });
-
-                dispatch(success(data[mainObjectProperty], userPredictions, otherPredictions, data.results));
+                dispatch(success(data[mainObjectProperty], data.predictions, data.results, data.predictionsCounters));
             }, function(error){
 
             })
         };
 
-        function success(mainObject, userPredictions, otherPredictions, results) {
+        function success(mainObject, userPredictions, results, predictionsCounters) {
             var res = {
-                type: successType, userPredictions: userPredictions, otherPredictions: otherPredictions, results: results
+                type: successType, userPredictions: userPredictions, results: results, predictionsCounters: predictionsCounters
             };
             res[mainObjectProperty] = mainObject;
 

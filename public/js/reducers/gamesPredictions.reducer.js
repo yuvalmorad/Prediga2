@@ -7,8 +7,8 @@ reducer.gamesPredictions = (function() {
     var initialState = {
         matches: [],
         userPredictions: [],
-        otherPredictions: [],
-        results: []
+        results: [],
+        predictionsCounters: {}
     };
 
     return function gamesPredictions(state, action){
@@ -18,7 +18,7 @@ reducer.gamesPredictions = (function() {
 
         switch (action.type) {
             case LOAD_GAMES_SUCCESS:
-                return Object.assign({}, state, {matches: action.matches, userPredictions: action.userPredictions, otherPredictions: action.otherPredictions, results: action.results});
+                return Object.assign({}, state, {matches: action.matches, userPredictions: action.userPredictions, results: action.results, predictionsCounters: action.predictionsCounters});
             case UPDATE_GAME:
                 return Object.assign({}, state, {userPredictions: utils.general.updateOrCreateObject(state.userPredictions, action.prediction)});
             default:
