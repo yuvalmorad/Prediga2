@@ -1,11 +1,18 @@
 component.TileWrapper = (function(){
+
+    function createBorderStyle(borderColor, borderSecondColor) {
+        return borderSecondColor ?
+            {backgroundImage: "linear-gradient(" + borderColor + " 50%, " + borderSecondColor + " 0%)"} :
+            {backgroundColor: borderColor}
+    }
+
     return function(props) {
-        var leftBackgroundImage = "linear-gradient(" + props.borderLeftColor + " 50%, " + props.borderLeftSecondColor + " 0%)";
-        var rightBackgroundImage = "linear-gradient(" + props.borderRightColor + " 50%, " + props.borderRightSecondColor + " 0%)";
+        var rightBorderStyle = createBorderStyle(props.borderRightColor, props.borderRightSecondColor),
+            leftBorderStyle = createBorderStyle(props.borderLeftColor, props.borderLeftSecondColor);
 
         return re("div", {className: "tile-wrapper"},
-            re("div", {className: "tile-border-right", style: {backgroundImage: rightBackgroundImage}}),
-            re("div", {className: "tile-border-left", style: {backgroundImage: leftBackgroundImage}}),
+            re("div", {className: "tile-border-right", style: rightBorderStyle}),
+            re("div", {className: "tile-border-left", style: leftBorderStyle}),
             props.children
         )
     }
