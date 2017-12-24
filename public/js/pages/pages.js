@@ -40,12 +40,10 @@ var routePages = (function(){
         },
         {
             path: "/simulator/:gameId?",
-
             title: "Simulator",
             name: "simulator",
             isAuthenticatedPage: true,
-            component: SimulatorPage,
-            displayInTopMenu: true
+            component: SimulatorPage
         },
         {
             path: "/groups",

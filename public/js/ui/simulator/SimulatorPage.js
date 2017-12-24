@@ -103,6 +103,10 @@ component.SimulatorPage = (function(){
             this.setState({selectedMatchId: matchId, isMatchesDropDownMenuOpen: false, predictionsSimulated: []});
         },
 
+        onBackButtonClicked: function() {
+            routerHistory.goBack();
+        },
+
         render: function() {
             var that = this,
                 props = this.props,
@@ -117,7 +121,6 @@ component.SimulatorPage = (function(){
                 predictions = props.predictions,
                 userId = props.userId,
                 matchElem,
-                dropDownButton,
                 selectedLeagueId = props.selectedLeagueId,
                 leagues = props.leagues;
 
@@ -135,10 +138,6 @@ component.SimulatorPage = (function(){
                 var league = utils.general.findItemInArrBy(leagues, "_id", match.league);
                 matchElem = re(SimulatorMatch, {game: match, league: league, clubs:clubs, matchResult: matchResult, updateMatchChange: that.updateMatchChange});
             }
-
-            dropDownButton = re("div", {className: "matches-dropdown-button"},
-                re("a", {onClick: this.toggleMatchesDropDownMenu}, "Select Match")
-            );
 
             var dropDownMatchesElems = matches.map(function(match){
                 var matchId = match._id;
@@ -169,13 +168,17 @@ component.SimulatorPage = (function(){
             });
 
             return re("div", { className: "content simulator-page" },
+                re("div", {className: "subHeader"},
+                    re("a", {className: "back-button", onClick: this.onBackButtonClicked}, "Back"),
+                    re("a", {className: "matches-dropdown-button", onClick: this.toggleMatchesDropDownMenu}, "Select Match"),
+                    re("div", {})
+                ),
                 re("div", {className: "matches-dropdown-menu" + (isMatchesDropDownMenuOpen ? "" : " hide")},
                     re("div", {className: "matches"},
                         dropDownMatchesElems
                     )
                 ),
                 re("div", { className: "simulator-matches" },
-                    dropDownButton,
                     matchElem
                 ),
                 re(LeaderBoardTiles, {leaders: leaders, users: users, selectedLeagueId: selectedLeagueId, disableOpen: true, userIdFocus: userId})
