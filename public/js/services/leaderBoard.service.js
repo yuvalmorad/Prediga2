@@ -8,7 +8,7 @@ service.leaderBoard = (function() {
         return httpInstnace.get("/api/usersLeaderboard");
     }
 
-    function getUserMatchPredictions(userId) {
-        return httpInstnace.get("/api/userMatchPredictions/" + userId);
+    function getUserMatchPredictions(userId, leagueId) {
+        return httpInstnace.get("/api/userMatchPredictions/" + userId + "?leagueId=" + leagueId);
     }
 })();

@@ -11,7 +11,7 @@ component.LeaderBoardMatchesHistory = (function(){
 
         componentDidMount: function() {
             var that = this;
-            leaderBoardService.getUserMatchPredictions(this.props.userId).then(function(res){
+            leaderBoardService.getUserMatchPredictions(this.props.userId, this.props.selectedLeagueId).then(function(res){
                 var data = res.data;
                 that.setState({
                     matches: data.matches,
