@@ -11,7 +11,7 @@ let self = module.exports = {
             }
         );
     },
-    getSyncActive: function () {
+    getActiveLeagues: function () {
         return Promise.all([
             League.find({syncResults365: true})
         ]).then(function (arr) {

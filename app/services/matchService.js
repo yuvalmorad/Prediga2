@@ -49,13 +49,13 @@ let self = module.exports = {
     findMatchByTeamsToday: function (team1, team2) {
         let deferred = Q.defer();
         let today = new Date();
-        let tomorrow = new Date();
-        let yesterday = new Date();
-        tomorrow.setDate(today.getDate() + 1);
-        yesterday.setDate(today.getDate() - 1);
+        let after = new Date();
+        let before = new Date();
+        after.setMinutes(today.getMinutes() + 200);
+        before.setDate(today.getDate() - 200);
 
         Match.find({
-            kickofftime: {$gte: yesterday, $lte: tomorrow},
+            kickofftime: {$gte: before, $lte: after},
             team1: team1,
             team2: team2
         }, function (err, relevantMatches) {
@@ -67,6 +67,15 @@ let self = module.exports = {
             deferred.resolve(relevantMatches[0]);
         });
         return deferred.promise;
+    },
+    getNextMatchDate: function () {
+        let now = new Date();
+
+        return Promise.all([
+            Match.findOne({kickofftime: {$gte: now}}).sort({'kickofftime': 1}).limit(1)
+        ]).then(function (arr) {
+            return arr[0]
+        });
     },
     findMatchesThatAreClosedAndNotFinished: function () {
         let deferred = Q.defer();

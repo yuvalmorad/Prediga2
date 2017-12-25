@@ -7,7 +7,7 @@ mongoose.Promise = Promise;
 
 module.exports = function (app, passport) {
     initialData.loadAll();
-    automaticUpdater.startTask();
+    automaticUpdater.run();
     //migrator.run();
 
     /********************************************
