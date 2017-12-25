@@ -62,8 +62,9 @@ component.TeamPredictionTileDialog = (function(){
 
             if (prediction && prediction.team) {
                 selectedTeam = utils.general.findItemInArrBy(clubs, "_id", prediction.team);
-                borderColor = selectedTeam.color;
-                borderSecondColor = selectedTeam.secondColor;
+                var clubHomeColors = utils.general.getClubHomeColors(selectedTeam);
+                borderColor = clubHomeColors[0];
+                borderSecondColor = clubHomeColors[1];
             }
 
             return re(TileDialog, {borderLeftColor: borderColor, borderLeftSecondColor: borderSecondColor, borderRightColor: borderColor, borderRightSecondColor: borderSecondColor, className: "team-prediction-tile"},

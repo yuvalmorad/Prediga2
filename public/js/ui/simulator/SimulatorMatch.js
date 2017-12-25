@@ -32,10 +32,10 @@ component.SimulatorMatch = (function(){
                team2 = utils.general.findItemInArrBy(clubs, "_id", game.team2),
                team1Id = team1._id,
                team2Id = team2._id,
-               team1Color = team1.color,
-               team2Color = team2.color,
-               team1SecondColor = team1.secondColor,
-               team2SecondColor = team2.secondColor,
+               team1BgColor = team1.homeButtonColors[0],
+               team1Color = team1.homeButtonColors[1],
+               team2BgColor = team2.homeButtonColors[0],
+               team2Color = team2.homeButtonColors[1],
                team1LogoPosition = team1.logoPosition,
                team2LogoPosition = team2.logoPosition,
                team1Name = team1.name,
@@ -62,10 +62,10 @@ component.SimulatorMatch = (function(){
                    )
                ),
                re("div", {className: "form-row-title"}, "First to Score"),
-               re(RadioGroup, {className: "first-score", onChange: this.onRadioGroupChanged, _id: "simulatorMatch_" + game._id, name: GAME.BET_TYPES.FIRST_TO_SCORE.key, inputs: [//TODO
-                       {bgColor: team1Color, textColor: team1SecondColor, text: team1Name, name: team1Id, res: predictionFirstToScore},
+               re(RadioGroup, {className: "first-score", onChange: this.onRadioGroupChanged, _id: "simulatorMatch_" + game._id, name: GAME.BET_TYPES.FIRST_TO_SCORE.key, inputs: [
+                       {bgColor: team1BgColor, textColor: team1Color, text: team1Name, name: team1Id, res: predictionFirstToScore},
                        {bgColor: COLORS.DRAW_COLOR, text: "None", name: "None", res: predictionFirstToScore, isDefault: true},
-                       {bgColor: team2Color, textColor: team2SecondColor, text: team2Name, name: team2Id, res: predictionFirstToScore}
+                       {bgColor: team2BgColor, textColor: team2Color, text: team2Name, name: team2Id, res: predictionFirstToScore}
                    ]}
                )
            );

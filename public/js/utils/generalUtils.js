@@ -19,8 +19,13 @@ utils.general = (function(){
         getLeagueLogoURL: getLeagueLogoURL,
         leagueNameToIdName: leagueNameToIdName,
         cutUrlPath: cutUrlPath,
-        getLeadersByLeagueId: getLeadersByLeagueId
+        getLeadersByLeagueId: getLeadersByLeagueId,
+        getClubHomeColors: getClubHomeColors
     };
+
+    function getClubHomeColors(club) {
+        return [club.awayColors[0], club.awayColors[1]]; //TODO replace with homeColors once israel league fix home/away match
+    }
 
     function getLeadersByLeagueId(leadersByLeagues, leagueId) {
         return leadersByLeagues.filter(function(leadersByLeague){
