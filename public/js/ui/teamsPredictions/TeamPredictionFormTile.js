@@ -8,7 +8,10 @@ component.TeamPredictionFormTile = (function(){
             clubs = props.clubs,
             league = props.league;
 
-        clubs = utils.general.findItemsInArrBy(clubs, "league", league._id);
+        var clubsIds = league.clubs;
+        clubs = clubs.filter(function(club){
+            return clubsIds.indexOf(club._id) >= 0;
+        });
 
         if (team.options.length) {
             teamsOptions = team.options.map(function(teamOptionId){
