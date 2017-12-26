@@ -2,27 +2,27 @@
 
 // set up ======================================================================
 // get all the tools we need
-var express = require('express');
-var app = express();
-var port = process.env.PORT || 3000;
-var mongoose = require('mongoose');
-var passport = require('passport');
-var flash = require('connect-flash');
-var morgan = require('morgan');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
-var session = require('express-session');
+let express = require('express');
+let app = express();
+let port = process.env.PORT || 3000;
+let mongoose = require('mongoose');
+let passport = require('passport');
+let flash = require('connect-flash');
+let morgan = require('morgan');
+let cookieParser = require('cookie-parser');
+let bodyParser = require('body-parser');
+let session = require('express-session');
 
 // configuration ===============================================================
-var configDB = port !== 3000 ? process.env.MONGODB_URI : 'mongodb://localhost:27017/prediga';
-var clientFolder = port === 3000 ? (__dirname + "/public") : (__dirname + "/build");
+let configDB = port !== 3000 ? process.env.MONGODB_URI : 'mongodb://localhost:27017/prediga';
+let clientFolder = port === 3000 ? (__dirname + "/public") : (__dirname + "/build");
 
 mongoose.connect(configDB, function (err) {
     if (err) console.log('Unable to connect to DB ' + err);
     else console.log('Connection to DB successful')
 }); // connect to our database
-var configFBPassport = port !== 3000 ? 'facebookAuth' : 'facebookAuth-local';
-var configGooglePassport = port !== 3000 ? 'googleAuth' : 'googleAuth-local';
+let configFBPassport = port !== 3000 ? 'facebookAuth' : 'facebookAuth-local';
+let configGooglePassport = port !== 3000 ? 'googleAuth' : 'googleAuth-local';
 require('./config/passport')(passport, configFBPassport, configGooglePassport); // pass passport for configuration
 
 // set up our express application
@@ -45,7 +45,6 @@ app.use(passport.session()); // persistent login sessions
 app.use(flash()); // use connect-flash for flash messages stored in session
 
 // routes ======================================================================
-
 require('./app/routes.js')(app, passport); // load our routes and pass in our app and fully configured passport
 app.get('*', function (req, res) {
     if (req.isAuthenticated()) {
@@ -57,4 +56,5 @@ app.get('*', function (req, res) {
 
 // launch ======================================================================
 app.listen(port);
+
 console.log('The magic happens on port ' + port);
