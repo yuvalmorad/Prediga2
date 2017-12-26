@@ -67,18 +67,18 @@ let self = module.exports = {
         });
         return Promise.all(promises);
     },
-    getPredictionsForOtherUsers: function (userId, matchId, me) {
+    getPredictionsForOtherUsers: function (userId, me, matchIds) {
         let now = new Date();
         return Promise.all([
-            typeof(matchId) === 'undefined' ?
+            typeof(matchIds) === 'undefined' ?
                 Match.find({kickofftime: {$lt: now}}) :
-                Match.find({kickofftime: {$lt: now}, matchId: matchId})
+                Match.find({kickofftime: {$lt: now}, matchId: {$in: matchIds}})
         ]).then(function (arr) {
             return Promise.all([
                 self.getPredictionsForOtherUsersInner(arr[0], userId, me),
-                typeof(matchId) === 'undefined' ?
+                typeof(matchIds) === 'undefined' ?
                     MatchPrediction.find({userId: me}) :
-                    MatchPrediction.find({matchId: matchId, userId: me})
+                    MatchPrediction.find({matchId: {$in: matchIds}, userId: me})
             ]).then(function (arr2) {
                 let mergedPredictions = [];
                 // merging between others & My predictions
@@ -92,40 +92,47 @@ let self = module.exports = {
             });
         });
     },
-    getPredictionsByUserId: function (userId, isForMe, me) {
+    getPredictionsByUserId: function (userId, isForMe, me, matchIds) {
         let deferred = Q.defer();
 
         if (isForMe) {
-            MatchPrediction.find({userId: userId}, function (err, aMatchPredictions) {
-                deferred.resolve(aMatchPredictions);
-            });
+            if (typeof(matchIds) !== 'undefined') {
+                MatchPrediction.find({userId: userId, matchId: {$in: matchIds}}, function (err, aMatchPredictions) {
+                    deferred.resolve(aMatchPredictions);
+                });
+            } else {
+                MatchPrediction.find({userId: userId}, function (err, aMatchPredictions) {
+                    deferred.resolve(aMatchPredictions);
+                });
+            }
+
         } else {
-            self.getPredictionsForOtherUsers(userId, undefined, me).then(function (aMatchPredictions) {
+            self.getPredictionsForOtherUsers(userId, me, matchIds).then(function (aMatchPredictions) {
                 deferred.resolve(aMatchPredictions);
             });
         }
 
         return deferred.promise;
     },
-    getPredictionsByMatchId: function (matchId, isForMe, me) {
+    getPredictionsByMatchIds: function (matchIds, isForMe, me) {
         let deferred = Q.defer();
 
         if (isForMe) {
-            MatchPrediction.find({matchId: matchId}, function (err, aMatchPredictions) {
+            MatchPrediction.find({matchId: matchIds}, function (err, aMatchPredictions) {
                 deferred.resolve(aMatchPredictions);
             });
         } else {
-            self.getPredictionsForOtherUsers(undefined, matchId, me).then(function (aMatchPredictions) {
+            self.getPredictionsForOtherUsers(undefined, me, matchIds).then(function (aMatchPredictions) {
                 deferred.resolve(aMatchPredictions);
             });
         }
 
         return deferred.promise;
     },
-    getFutureGamesPredictionsCounters: function () {
+    getFutureGamesPredictionsCounters: function (matchIdsRelevant) {
         let now = new Date();
         return Promise.all([
-            Match.find({kickofftime: {$gte: now}})
+            Match.find({kickofftime: {$gte: now}, matchId: {$in: matchIdsRelevant}})
         ]).then(function (arr) {
             let matchIds = arr[0].map(function (match) {
                 return match._id;
@@ -142,22 +149,27 @@ let self = module.exports = {
         let deferred = Q.defer();
         let result = {};
         let itemsProcessed = 0;
-        matchPredictions.forEach(function (matchPrediction) {
-            itemsProcessed += 1;
-            if (!result.hasOwnProperty(matchPrediction.matchId)) {
-                result[matchPrediction.matchId] = {};
-            }
+        if (matchPredictions && matchPredictions.league > 0) {
+            matchPredictions.forEach(function (matchPrediction) {
+                itemsProcessed += 1;
+                if (!result.hasOwnProperty(matchPrediction.matchId)) {
+                    result[matchPrediction.matchId] = {};
+                }
 
-            if (!result[matchPrediction.matchId].hasOwnProperty(matchPrediction.winner)) {
-                result[matchPrediction.matchId][matchPrediction.winner] = 1;
-            } else {
-                result[matchPrediction.matchId][matchPrediction.winner]++;
-            }
+                if (!result[matchPrediction.matchId].hasOwnProperty(matchPrediction.winner)) {
+                    result[matchPrediction.matchId][matchPrediction.winner] = 1;
+                } else {
+                    result[matchPrediction.matchId][matchPrediction.winner]++;
+                }
 
-            if (itemsProcessed === matchPredictions.length) {
-                deferred.resolve(result);
-            }
-        });
+                if (itemsProcessed === matchPredictions.length) {
+                    deferred.resolve(result);
+                }
+            });
+        } else {
+            deferred.resolve(result);
+        }
+
         return deferred.promise;
     }
 };

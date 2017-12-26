@@ -4,6 +4,7 @@ let Team = require('../models/team');
 let teamPredictionsService = require('../services/teamPredictionsService');
 let util = require('../utils/util.js');
 let TeamResult = require('../models/teamResult');
+let League = require('../models/league');
 
 app.get('/', util.isLoggedIn, function (req, res) {
     let user = req.user;
@@ -14,15 +15,32 @@ app.get('/', util.isLoggedIn, function (req, res) {
 
 function getData(me) {
     return Promise.all([
-        Team.find({}),
-        teamPredictionsService.getPredictionsByUserId(me, true, me),
-        TeamResult.find({})
-    ]).then(function (arr) {
-        return {
-            teams: arr[0],
-            predictions: arr[1],
-            results: arr[2]
-        }
+        // TODO - find user's groups + group's leagues
+        League.find({})
+    ]).then(function (arr2) {
+        let leagueIds = arr2[0].map(function (league) {
+            return league._id;
+        });
+
+        return Promise.all([
+            Team.find({league: {$in: leagueIds}})
+        ]).then(function (arr1) {
+            let teams = arr1[0];
+            let teamIds = arr1[0].map(function (team) {
+                return team._id;
+            });
+
+            return Promise.all([
+                teamPredictionsService.getPredictionsByUserId(me, true, me, teamIds),
+                TeamResult.find({teamId: {$in: teamIds}})
+            ]).then(function (arr) {
+                return {
+                    teams: teams,
+                    predictions: arr[0],
+                    results: arr[1]
+                }
+            });
+        });
     });
 }
 

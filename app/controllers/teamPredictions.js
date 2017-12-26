@@ -48,7 +48,7 @@ app.post('/', util.isLoggedIn, function (req, res) {
         return;
     }
     let userId = req.user._id;
-    teamPredictionsService.creaTeamPredictions(teamPredictions, userId).then(function (obj) {
+    teamPredictionsService.createTeamPredictions(teamPredictions, userId).then(function (obj) {
         res.status(200).json(obj);
     }, function (msg) {
         res.status(500).json({error: msg});

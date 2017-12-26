@@ -10,8 +10,7 @@ let clubSchema = mongoose.Schema({
     awayColors: Array,
     homeButtonColors: Array,
     awayButtonColors: Array,
-    logoPosition: String,
-    league: String
+    logoPosition: String
 });
 
 clubSchema.options.toJSON = {

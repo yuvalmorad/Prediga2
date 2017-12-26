@@ -8,7 +8,7 @@ let self = module.exports = {
     updateMatches: function (matches) {
         console.log('beginning to update ' + matches.length + ' matches');
         let promises = matches.map(function (match) {
-            return Match.findOneAndUpdate({_id: match._id}, match, util.updateSettings, function (err, obj) {
+            return Match.findOneAndUpdate({_id: match._id}, match, util.overrideSettings, function (err, obj) {
                     if (err) {
                         return Promise.reject('general error');
                     }
@@ -77,14 +77,14 @@ let self = module.exports = {
             return arr[0]
         });
     },
-    findMatchesThatAreClosedAndNotFinished: function () {
+    findMatchesThatAreClosedAndNotFinished: function (matchIds) {
         let deferred = Q.defer();
         let now = new Date();
         let after = new Date();
         after.setMinutes(after.getMinutes() - 105);
 
         Match.find({
-            kickofftime: {$gte: after, $lte: now}
+            kickofftime: {$gte: after, $lte: now}, _id: {$in: matchIds}
         }, function (err, relevantMatches) {
             deferred.resolve(relevantMatches);
         });
