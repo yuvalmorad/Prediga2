@@ -1,14 +1,20 @@
 component.InputNumber = (function(){
     return React.createClass({
         onIncrement: function() {
-            var num = this.props.num || 0;
-            if (num !== 9) {
+            var num = this.props.num;
+            if (num === undefined) {
+                this.props.onChange(0);
+            } else if (num !== 9) {
                 this.props.onChange((num) + 1);
             }
         },
 
         onDecrement: function() {
-            var num = this.props.num || 0;
+            var num = this.props.num
+            if (num === undefined) {
+                return;
+            }
+
             if(num !== 0) {
                 this.props.onChange((num) - 1);
             }
@@ -18,7 +24,7 @@ component.InputNumber = (function(){
             var props = this.props;
             var points = props.points;
             var hasPoints = points !== undefined;
-            var num = props.num || 0;
+            var num = props.num;
             var isDisabled = props.isDisabled;
             var className = "input-number";
 
@@ -32,13 +38,11 @@ component.InputNumber = (function(){
                 className += " disabled";
             }
 
-
-
             return re("div", {className: className, style: {backgroundColor: isDisabled ? "transparent" : ""}},
                 re("button", {onClick: this.onIncrement, className: isDisabled ? "hide" : ""},
                     re("span", {}, "+")
                 ),
-                re("div", {className: "number"}, num),
+                re("div", {className: "number"}, num === undefined ? "-" : num),
                 re("button", {onClick: this.onDecrement, className: isDisabled ? "hide" : ""},
                     re("span", {}, "-")
                 )

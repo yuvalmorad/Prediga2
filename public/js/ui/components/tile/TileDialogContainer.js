@@ -3,6 +3,12 @@ component.TileDialogContainer = (function(){
 
     var TileDialogContainer = React.createClass({
 
+        getInitialState: function() {
+            return {
+                saveButtonEnabled: true
+            }
+        },
+
         onCancel: function() {//close/cancel
             this.props.closeTileDialog();
         },
@@ -18,16 +24,22 @@ component.TileDialogContainer = (function(){
             this.onDialogSave = onDialogSaveFunc;
         },
 
+        setSaveButtonEnabled: function(status) {
+            this.setState({saveButtonEnabled: status});
+        },
+
         render: function() {
             var props = this.props;
             var className = "tile-dialog-container";
             var componentElement;
             var componentProps = props.componentProps;
             var isDialogFormDisabled = false;
+            var saveButtonEnabled = this.state.saveButtonEnabled;
 
             if (props.isShowTileDialog) {
                 isDialogFormDisabled = !!componentProps.isDialogFormDisabled;
                 componentProps.onDialogSave = this.assignDialogSaveFun;
+                componentProps.setSaveButtonEnabled = this.setSaveButtonEnabled;
                 componentElement = re(component[props.componentName], componentProps);
                 className +=  (" " + props.componentName);
                 if (componentProps.dialogContainerClassName) {
@@ -42,12 +54,13 @@ component.TileDialogContainer = (function(){
                 dialogButtonStyle.justifyContent = "flex-end";
             }
 
+            var isSave = !isDialogFormDisabled;
             return re("div", { className: className},
                 re("div", { className: "tile-dialog-container-wrapper"},
                     componentElement,
                     re("div", {className: "dialog-button", style: dialogButtonStyle},
                         re("button", {onClick: this.onCancel, className: isDialogFormDisabled ? "hide" : ""}, "Cancel"),
-                        re("button", {onClick: isDialogFormDisabled ? this.onCancel : this.onSave, className: "main-button"}, isDialogFormDisabled ? "Close" : "Save")
+                        re("button", {onClick: isSave ?  this.onSave : this.onCancel, className: "main-button", disabled: isSave && !saveButtonEnabled}, isSave ? "Save" : "Close")
                     )
                 )
             )

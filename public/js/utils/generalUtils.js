@@ -12,6 +12,7 @@ utils.general = (function(){
         mapUsersIdsToUsersObjects: mapUsersIdsToUsersObjects,
         isMatchDraw: isMatchDraw,
         isFirstScoreNone: isFirstScoreNone,
+        isAllBetTypesExists: isAllBetTypesExists,
         getDrawFromObject: getDrawFromObject,
         isGameClosed: isGameClosed,
         getGameStatus: getGameStatus,
@@ -167,6 +168,14 @@ utils.general = (function(){
     function findItemsInArrBy(arr, property, val) {
         return arr.filter(function(item){
             return item[property] === val;
+        });
+    }
+
+    function isAllBetTypesExists(obj) {
+        return Object.keys(GAME.BET_TYPES).every(function(typeKey){
+            var betType = GAME.BET_TYPES[typeKey];
+            var key = betType.key;
+            return obj[key] !== undefined;
         });
     }
 

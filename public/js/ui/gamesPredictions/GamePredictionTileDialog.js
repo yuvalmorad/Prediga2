@@ -17,22 +17,20 @@ component.GamePredictionTileDialog = (function(){
 
         componentDidMount: function() {
           this.props.onDialogSave(this.onDialogSave);
+          this.props.setSaveButtonEnabled(false);
         },
 
         onDialogSave: function() {
-            var defaults = {};
-            defaults[GAME.BET_TYPES.WINNER.key] = "Draw";
-            defaults[GAME.BET_TYPES.FIRST_TO_SCORE.key] = "None";
-            defaults[GAME.BET_TYPES.TEAM1_GOALS.key] = 0;
-            defaults[GAME.BET_TYPES.TEAM2_GOALS.key] = 0;
-            defaults[GAME.BET_TYPES.GOAL_DIFF.key] = 0;
-            var prediction = Object.assign(defaults, this.state.prediction);
-            this.props.updateGame(prediction);
+            this.props.updateGame(this.state.prediction);
         },
 
         updateGameForm: function(predictionToUpdate) {
             var prediction = Object.assign({}, this.state.prediction, predictionToUpdate);
             this.setState({prediction: prediction});
+
+            if (utils.general.isAllBetTypesExists(prediction)) {
+                this.props.setSaveButtonEnabled(true);
+            }
         },
 
         render: function() {
