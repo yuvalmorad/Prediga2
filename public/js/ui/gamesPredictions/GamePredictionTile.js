@@ -20,7 +20,7 @@ component.GamePredictionTile = (function(){
                 borderLeftSecondColor = team1 ? team1.homeColors[1] : "",
                 borderRightColor = team2 ? team2.awayColors[0] : "",
                 borderRightSecondColor = team2 ? team2.awayColors[1] : "",
-                isDialogFormDisabled = !!result || utils.general.isGameClosed(kickofftime, groupConfiguration);
+                isDialogFormDisabled = utils.general.getGameStatus(result) === GAME.STATUS.PRE_GAME ? utils.general.isGameClosed(kickofftime, groupConfiguration) : true;
 
             var dialogComponentProps = Object.assign({}, props, {isDialogFormDisabled: isDialogFormDisabled});
 

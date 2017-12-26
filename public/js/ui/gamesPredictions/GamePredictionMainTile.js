@@ -3,51 +3,27 @@ component.GamePredictionMainTile = (function(){
 
     var GamePredictionMainTile = React.createClass({
         getInitialState: function() {
-            return {
-                isGamePlaying: false,
-                isGameHalfHourBeforeGame: false
-            };
+            return {};
         },
 
         shouldComponentUpdate: function(nextProps, nextState) {
             return this.props.prediction !== nextProps.prediction ||
-                    this.state.timeBeforeGame !== nextState.timeBeforeGame ||
-                    this.state.timePlaying !== nextState.timePlaying ||
-                    this.state.isGamePlaying !== nextState.isGamePlaying ||
-                    this.state.isGameHalfHourBeforeGame !== nextState.isGameHalfHourBeforeGame;
+                    this.state.timeBeforeGame !== nextState.timeBeforeGame;
         },
 
         onTick: function() {
             var currentDate = new Date();
-            /*currentDate.setHours(currentDate.getHours() + 9);//TODO remove
-            currentDate.setMinutes(currentDate.getMinutes() + 108);//TODO remove
-            currentDate.setSeconds(currentDate.getSeconds() + 20);//TODO remove*/
             var kickofftime = new Date(this.props.game.kickofftime);
             var beforeKickoffTime = new Date(kickofftime - currentDate);
             var minutesBeforeKickoffTime = beforeKickoffTime.getTime() / (1000 * 60);
-            var afterKickoffTime = new Date(currentDate - kickofftime);
-            var minutesAftereKickoffTime = afterKickoffTime.getTime() / (1000 * 60);
 
             if (minutesBeforeKickoffTime > 0 && minutesBeforeKickoffTime < 30) {
                 this.setState({
-                    isGamePlaying: false,
-                    isGameHalfHourBeforeGame: true,
-                    timeBeforeGame: "Starting in - " + utils.general.formatMinutesSecondsTime(kickofftime.getTime() - currentDate.getTime())
-                })
-            } else if (minutesAftereKickoffTime >= 0 && minutesAftereKickoffTime <= 105) {
-                var isHalfTime =  minutesAftereKickoffTime >= 45 && minutesAftereKickoffTime <= 60;
-                var isAfterHalfTime = minutesAftereKickoffTime >= 45;
-                var decreaseMinutes = isAfterHalfTime ? 15 * 1000 * 60 : 0;
-                this.setState({
-                    isGamePlaying: true,
-                    isGameHalfHourBeforeGame: false,
-                    timePlaying: isHalfTime ? "Half Time" : "Running - " + utils.general.formatMinutesSecondsTime(currentDate.getTime() - kickofftime.getTime() - decreaseMinutes)
+                    timeBeforeGame: "Start in " + utils.general.formatMinutesSecondsTime(kickofftime.getTime() - currentDate.getTime())
                 })
             } else {
-                this.setState({
-                    isGamePlaying: false,
-                    isGameHalfHourBeforeGame: false
-                })
+                this.setState({timeBeforeGame: undefined});
+                clearInterval(this.timer);
             }
         },
 
@@ -92,47 +68,14 @@ component.GamePredictionMainTile = (function(){
                 dateStr,
                 gamePoints,
                 simulationBtn,
-                isPostGame = false,
-                isGamePlaying = state.isGamePlaying,
-                isGameHalfHourBeforeGame = state.isGameHalfHourBeforeGame,
                 timeBeforeGame = state.timeBeforeGame,
-                timePlaying = state.timePlaying;
+                gameStatus = utils.general.getGameStatus(result),
+                className = "main";
 
-            if (!result) {
-                //PRE GAME
-                if (isGameHalfHourBeforeGame) {
-                    dateStr = timeBeforeGame;
-                } else if (isGamePlaying) {
-                    simulationBtn = re(ReactRouterDOM.Link, {to: "/simulator/" + gameId, className: "simulation-button"}, "Simulation");
-                    dateStr = timePlaying;
-                } else {
-                    dateStr = utils.general.formatHourMinutesTime(kickofftime);
-                }
-
-                gameDate = re("div", {}, dateStr);
-
-                displayTeam1Goals = prediction ? prediction[GAME.BET_TYPES.TEAM1_GOALS.key] : "";
-                displayTeam2Goals = prediction ? prediction[GAME.BET_TYPES.TEAM2_GOALS.key] : "";
-
-                if (predictionWinner) {
-                    //add this user to the count
-                    if (predictionWinner !== team1._id) {
-                        team1LogoClass += " grayed";
-                    }
-
-                    if (predictionWinner !== team2._id) {
-                        team2LogoClass += " grayed";
-                    }
-                }
-
-                var predictionCounterWin1 = predictionCounters[team1._id] || 0,
-                    predictionCounterWin2 = predictionCounters[team2._id] || 0,
-                    predictionCounterDraw = utils.general.getDrawFromObject(predictionCounters) || 0;
-
-                graphParts = [{color: team1.color, amount: predictionCounterWin1}, {color: COLORS.DRAW_COLOR, amount: predictionCounterDraw}, {color: team2.color, amount: predictionCounterWin2}];
-            } else {
+            if (gameStatus === GAME.STATUS.POST_GAME) {
                 //POST GAME
-                isPostGame = true;
+
+                className += " post-game";
                 var points = utils.general.calculateTotalPoints(prediction, result, groupConfiguration);
                 var maxPoints = utils.general.getMaxPoints(groupConfiguration);
 
@@ -151,9 +94,48 @@ component.GamePredictionMainTile = (function(){
                 if (resultWinner !== team2._id) {
                     team2LogoClass += " grayed";
                 }
+            } else {
+                //before game ended
+
+                displayTeam1Goals = prediction ? prediction[GAME.BET_TYPES.TEAM1_GOALS.key] : "";
+                displayTeam2Goals = prediction ? prediction[GAME.BET_TYPES.TEAM2_GOALS.key] : "";
+
+                if (gameStatus === GAME.STATUS.RUNNING_GAME) {
+                    //running game
+                    className += " running-game";
+                    simulationBtn = re(ReactRouterDOM.Link, {to: "/simulator/" + gameId, className: "simulation-button"}, "Simulation");
+                    dateStr = "Running " + result.gameTime;
+                    displayTeam1Goals = result[GAME.BET_TYPES.TEAM1_GOALS.key];
+                    displayTeam2Goals = result[GAME.BET_TYPES.TEAM2_GOALS.key];
+                } else if (timeBeforeGame !== undefined) {
+                    //half hour before game
+                    dateStr = timeBeforeGame;
+                } else {
+                    //more than half hour before game
+                    dateStr = utils.general.formatHourMinutesTime(kickofftime);
+                }
+
+                gameDate = re("div", {}, dateStr);
+
+                if (predictionWinner) {
+                    //add this user to the count
+                    if (predictionWinner !== team1._id) {
+                        team1LogoClass += " grayed";
+                    }
+
+                    if (predictionWinner !== team2._id) {
+                        team2LogoClass += " grayed";
+                    }
+                }
+
+                var predictionCounterWin1 = predictionCounters[team1._id] || 0,
+                    predictionCounterWin2 = predictionCounters[team2._id] || 0,
+                    predictionCounterDraw = utils.general.getDrawFromObject(predictionCounters) || 0;
+
+                graphParts = [{color: team1.color, amount: predictionCounterWin1}, {color: COLORS.DRAW_COLOR, amount: predictionCounterDraw}, {color: team2.color, amount: predictionCounterWin2}];
             }
 
-            return re("div", {className: "main" + (isPostGame ? " post-game" : "")},
+            return re("div", {className: className},
                 re("div", {className: "left"},
                     re("div", {className: team1LogoClass, style: {backgroundImage: leagueSprite, backgroundPosition: team1LogoPosition}}),
                     re("div", {className: "team-name"}, team1ShortName)
