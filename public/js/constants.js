@@ -2,6 +2,7 @@ var GAME = {
     STATUS: {
         PRE_GAME: "PRE_GAME",
         CLOSED_GAME: "CLOSED_GAME",
+        RUNNING_GAME: "RUNNING_GAME",
         POST_GAME: "POST_GAME"
     },
 

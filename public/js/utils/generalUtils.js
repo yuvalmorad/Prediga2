@@ -14,6 +14,7 @@ utils.general = (function(){
         isFirstScoreNone: isFirstScoreNone,
         getDrawFromObject: getDrawFromObject,
         isGameClosed: isGameClosed,
+        getGameStatus: getGameStatus,
         formatMinutesSecondsTime: formatMinutesSecondsTime,
         formatHourMinutesTime: formatHourMinutesTime,
         getLeagueLogoURL: getLeagueLogoURL,
@@ -67,6 +68,25 @@ utils.general = (function(){
         var seconds = addZeroToTimeIfNeeded(totalSeconds % 60);
         var minutes = addZeroToTimeIfNeeded(Math.floor(totalSeconds / 60));
         return minutes + ":" + seconds;
+    }
+
+    function getGameStatus(result) {
+        if (result) {
+            if (result.completion === undefined) {
+                //old games ended without completion
+                return GAME.STATUS.POST_GAME;
+            } else {
+                if (result.completion >= 100) {
+                    return GAME.STATUS.POST_GAME;
+                } else {
+                    //not complete yet -> game is running
+                    return GAME.STATUS.RUNNING_GAME;
+                }
+            }
+        } else {
+            //no result yet -> before game kickoff
+            return GAME.STATUS.PRE_GAME;
+        }
     }
 
     function isGameClosed(kickofftime, groupConfiguration) {
