@@ -4,20 +4,12 @@ component.TeamPredictionTileDialog = (function(){
         TeamPredictionMainTile = component.TeamPredictionMainTile,
         TeamPredictionFormTile = component.TeamPredictionFormTile;
 
-    function findFirstClubId(clubs, leagueId) {
-        var i = 0;
-        for (i = 0; i < clubs.length; i++) {
-            if (clubs[i].league === leagueId) {
-                return clubs[i]._id;
-            }
-        }
-    }
-
     var TeamPredictionTileDialog = React.createClass({
 
         getInitialState: function() {
             var props = this.props,
-                clubs = props.clubs,
+                leagues = props.leagues,
+                selectedLeagueId = props.selectedLeagueId,
                 prediction = props.prediction,
                 team = props.team,
                 predictionCopy = Object.assign({}, prediction, {teamId: team._id});
@@ -25,7 +17,7 @@ component.TeamPredictionTileDialog = (function(){
             if (!predictionCopy.team) {
                 predictionCopy.team = team.options.length ?
                                         team.options[0] :
-                                        findFirstClubId(clubs, team.league);
+                                        utils.general.findItemInArrBy(leagues, "_id", selectedLeagueId).clubs[0]
             }
 
             return {
@@ -77,6 +69,7 @@ component.TeamPredictionTileDialog = (function(){
     function mapStateToProps(state){
         return {
             leagues: state.leagues.leagues,
+            selectedLeagueId: state.leagues.selectedLeagueId,
             clubs: state.leagues.clubs
         }
     }
