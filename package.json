@@ -26,7 +26,8 @@
     "gulp-usemin": "^0.3.28",
     "node-schedule": "1.2.5",
     "http.request": "^0.1.7",
-    "htmlparser2": "^3.9.2"
+    "htmlparser2": "^3.9.2",
+    "socket.io": "^2.0.4"
   },
   "devDependencies": {}
 }

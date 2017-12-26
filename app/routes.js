@@ -1,13 +1,18 @@
-var util = require('./utils/util.js');
-var initialData = require('./utils/updateInitialConfiguration');
-var automaticUpdater = require('./utils/automaticUpdater');
-var migrator = require('./utils/migrator');
-var mongoose = require('mongoose');
+let util = require('./utils/util.js');
+let initialData = require('./utils/updateInitialConfiguration');
+let automaticUpdater = require('./utils/automaticUpdater');
+let migrator = require('./utils/migrator');
+let mongoose = require('mongoose');
 mongoose.Promise = Promise;
 
 module.exports = function (app, passport) {
+    let server = require('http').Server(app);
+    let io = require('socket.io')(server);
+    io.on('connection', function (socket) {
+        socket.emit('message', {message: 'Welcome back'});
+    });
     initialData.loadAll();
-    automaticUpdater.run();
+    automaticUpdater.run(io);
     //migrator.run();
 
     /********************************************
