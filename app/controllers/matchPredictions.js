@@ -31,7 +31,8 @@ app.get('/:matchId', util.isLoggedIn, function (req, res) {
     let user = req.user;
     let isForMe = user._id.toString() === userId || typeof(userId) === 'undefined';
 
-    matchPredictionsService.getPredictionsByMatchId(matchId, isForMe).then(function (result) {
+    let matchArr = [matchId];
+    matchPredictionsService.getPredictionsByMatchIds(matchArr, isForMe).then(function (result) {
         res.status(200).json(result);
     });
 });

@@ -29,8 +29,6 @@ let self = module.exports = {
                 schedule.scheduleJob(aMatch.kickofftime, function () {
                     self.getResultsJob();
                 });
-
-                self.getResultsJob();
             }
         });
     },
@@ -220,15 +218,13 @@ let self = module.exports = {
                         ]).then(function (arr4) {
                             if (newMatchResult.completion < 100) {
                                 return 'getResultsJob';
-                            } else if (newMatchResult.completion === 100) {
+                            } else if (newMatchResult.completion >= 100) {
                                 let leagueId = aMatch.league;
                                 console.log('Beginning to update user score for [' + team1 + ' - ' + team2 + ']');
                                 return userScoreService.updateUserScoreByMatchResult(configuration, newMatchResult, leagueId).then(function () {
                                     console.log('Finish to update all for [' + team1 + ' - ' + team2 + ']');
                                     return 'updateLeaderboard';
                                 });
-                            } else {
-                                return false;
                             }
                         });
                     });
@@ -236,7 +232,7 @@ let self = module.exports = {
             });
         });
     },
-    // TODO - refactor this method to more beautify method and not o calculate again all events
+    // TODO - refactor this method to more beautify method and not to calculate again all events
     calculateNewMatchResult: function (team1, team2, relevantGame) {
         let deferred = Q.defer();
         let newMatchResult = {
@@ -261,11 +257,11 @@ let self = module.exports = {
                         newMatchResult.firstToScore = anEvent.Comp === 1 ? team2 : team1;
                     }
                     // team2 goals
-                    if (anEvent.Comp === 1) {
-                        newMatchResult.team2Goals++;
-                    } // team1 goals
-                    else {
+                    if (anEvent.Comp === 1) { // home goals
                         newMatchResult.team1Goals++;
+                    } // team1 goals
+                    else if (anEvent.Comp === 2) { // away goals
+                        newMatchResult.team2Goals++;
                     }
                 }
                 if (itemsProcessed === relevantGame.Events.length) {

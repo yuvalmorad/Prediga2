@@ -3,7 +3,41 @@
     "_id": "4a21a7c1a3f89181074e9762",
     "name": "World Cup",
     "logoPosition": "-56px -672px",
-    "year": "2018"
+    "year": "2018",
+    "clubs": [
+      "2a21a7c1a3f89181074e9762",
+      "2a21a7c1a3f89181074e9763",
+      "2a21a7c1a3f89181074e9764",
+      "2a21a7c1a3f89181074e9765",
+      "2a21a7c1a3f89181074e9766",
+      "2a21a7c1a3f89181074e9767",
+      "2a21a7c1a3f89181074e9768",
+      "2a21a7c1a3f89181074e9769",
+      "2a21a7c1a3f89181074e9770",
+      "2a21a7c1a3f89181074e9771",
+      "2a21a7c1a3f89181074e9772",
+      "2a21a7c1a3f89181074e9773",
+      "2a21a7c1a3f89181074e9774",
+      "2a21a7c1a3f89181074e9775",
+      "2a21a7c1a3f89181074e9776",
+      "2a21a7c1a3f89181074e9777",
+      "2a21a7c1a3f89181074e9778",
+      "2a21a7c1a3f89181074e9779",
+      "2a21a7c1a3f89181074e9780",
+      "2a21a7c1a3f89181074e9781",
+      "2a21a7c1a3f89181074e9782",
+      "2a21a7c1a3f89181074e9783",
+      "2a21a7c1a3f89181074e9784",
+      "2a21a7c1a3f89181074e9785",
+      "2a21a7c1a3f89181074e9786",
+      "2a21a7c1a3f89181074e9787",
+      "2a21a7c1a3f89181074e9788",
+      "2a21a7c1a3f89181074e9790",
+      "2a21a7c1a3f89181074e9790",
+      "2a21a7c1a3f89181074e9791",
+      "2a21a7c1a3f89181074e9792",
+      "2a21a7c1a3f89181074e9793"
+    ]
   },
   "clubs": [
     {
@@ -11,384 +45,702 @@
       "name365": "",
       "name": "Argentina",
       "shortName": "AR",
-      "homeColors": ["#42a0c8"],
-      "awayColors": ["#42a0c8"],
-      "homeButtonColors": ["#42a0c8", "#fff"],
-      "awayButtonColors": ["#42a0c8", "#fff"],
-      "logoPosition": "0 0",
-      "league": "4a21a7c1a3f89181074e9762"
+      "homeColors": [
+        "#42a0c8"
+      ],
+      "awayColors": [
+        "#42a0c8"
+      ],
+      "homeButtonColors": [
+        "#42a0c8",
+        "#fff"
+      ],
+      "awayButtonColors": [
+        "#42a0c8",
+        "#fff"
+      ],
+      "logoPosition": "0 0"
     },
     {
       "_id": "2a21a7c1a3f89181074e9763",
       "name365": "",
       "name": "Brazil",
       "shortName": "BR",
-      "homeColors": ["yellow"],
-      "awayColors": ["yellow"],
-      "homeButtonColors": ["yellow", "blue"],
-      "awayButtonColors": ["yellow", "blue"],
-      "logoPosition": "-56px -56px",
-      "league": "4a21a7c1a3f89181074e9762"
+      "homeColors": [
+        "yellow"
+      ],
+      "awayColors": [
+        "yellow"
+      ],
+      "homeButtonColors": [
+        "yellow",
+        "blue"
+      ],
+      "awayButtonColors": [
+        "yellow",
+        "blue"
+      ],
+      "logoPosition": "-56px -56px"
     },
     {
       "_id": "2a21a7c1a3f89181074e9764",
       "name365": "",
       "name": "Colombia",
       "shortName": "CU",
-      "homeColors": ["yellow"],
-      "awayColors": ["yellow"],
-      "homeButtonColors": ["yellow", "blue"],
-      "awayButtonColors": ["yellow", "blue"],
-      "logoPosition": "0 -112px",
-      "league": "4a21a7c1a3f89181074e9762"
+      "homeColors": [
+        "yellow"
+      ],
+      "awayColors": [
+        "yellow"
+      ],
+      "homeButtonColors": [
+        "yellow",
+        "blue"
+      ],
+      "awayButtonColors": [
+        "yellow",
+        "blue"
+      ],
+      "logoPosition": "0 -112px"
     },
     {
       "_id": "2a21a7c1a3f89181074e9765",
       "name365": "",
       "name": "Peru",
       "shortName": "PE",
-      "homeColors": ["#fff"],
-      "awayColors": ["#fff"],
-      "homeButtonColors": ["#fff", "red"],
-      "awayButtonColors": ["#fff", "red"],
-      "logoPosition": "-56px -560px",
-      "league": "4a21a7c1a3f89181074e9762"
+      "homeColors": [
+        "#fff"
+      ],
+      "awayColors": [
+        "#fff"
+      ],
+      "homeButtonColors": [
+        "#fff",
+        "red"
+      ],
+      "awayButtonColors": [
+        "#fff",
+        "red"
+      ],
+      "logoPosition": "-56px -560px"
     },
     {
       "_id": "2a21a7c1a3f89181074e9766",
       "name365": "",
       "name": "Uruguay",
       "shortName": "UR",
-      "homeColors": ["#60b5ff"],
-      "awayColors": ["#60b5ff"],
-      "homeButtonColors": ["#fff", "#000"],
-      "awayButtonColors": ["#fff", "#000"],
-      "logoPosition": "-56px -899px",
-      "league": "4a21a7c1a3f89181074e9762"
+      "homeColors": [
+        "#60b5ff"
+      ],
+      "awayColors": [
+        "#60b5ff"
+      ],
+      "homeButtonColors": [
+        "#fff",
+        "#000"
+      ],
+      "awayButtonColors": [
+        "#fff",
+        "#000"
+      ],
+      "logoPosition": "-56px -899px"
     },
     {
       "_id": "2a21a7c1a3f89181074e9767",
       "name365": "",
       "name": "Costa Rica",
       "shortName": "CR",
-      "homeColors": ["red"],
-      "awayColors": ["red"],
-      "homeButtonColors": ["red", "blue"],
-      "awayButtonColors": ["red", "blue"],
-      "logoPosition": "-56px -112px",
-      "league": "4a21a7c1a3f89181074e9762"
+      "homeColors": [
+        "red"
+      ],
+      "awayColors": [
+        "red"
+      ],
+      "homeButtonColors": [
+        "red",
+        "blue"
+      ],
+      "awayButtonColors": [
+        "red",
+        "blue"
+      ],
+      "logoPosition": "-56px -112px"
     },
     {
       "_id": "2a21a7c1a3f89181074e9768",
       "name365": "",
       "name": "Mexico",
       "shortName": "MX",
-      "homeColors": ["#1a4d3e"],
-      "awayColors": ["#1a4d3e"],
-      "homeButtonColors": ["#1a4d3e", "#fff"],
-      "awayButtonColors": ["#1a4d3e", "#fff"],
-      "logoPosition": "-56px -448px",
-      "league": "4a21a7c1a3f89181074e9762"
+      "homeColors": [
+        "#1a4d3e"
+      ],
+      "awayColors": [
+        "#1a4d3e"
+      ],
+      "homeButtonColors": [
+        "#1a4d3e",
+        "#fff"
+      ],
+      "awayButtonColors": [
+        "#1a4d3e",
+        "#fff"
+      ],
+      "logoPosition": "-56px -448px"
     },
     {
       "_id": "2a21a7c1a3f89181074e9769",
       "name365": "",
       "name": "Panama",
       "shortName": "PA",
-      "homeColors": ["red"],
-      "awayColors": ["red"],
-      "homeButtonColors": ["red", "#fff"],
-      "awayButtonColors": ["red", "#fff"],
-      "logoPosition": "0 -560px",
-      "league": "4a21a7c1a3f89181074e9762"
+      "homeColors": [
+        "red"
+      ],
+      "awayColors": [
+        "red"
+      ],
+      "homeButtonColors": [
+        "red",
+        "#fff"
+      ],
+      "awayButtonColors": [
+        "red",
+        "#fff"
+      ],
+      "logoPosition": "0 -560px"
     },
     {
       "_id": "2a21a7c1a3f89181074e9770",
       "name365": "",
       "name": "Belgium",
       "shortName": "BL",
-      "homeColors": ["red"],
-      "awayColors": ["red"],
-      "homeButtonColors": ["red", "yellow"],
-      "awayButtonColors": ["red", "yellow"],
-      "logoPosition": "0 -56px",
-      "league": "4a21a7c1a3f89181074e9762"
+      "homeColors": [
+        "red"
+      ],
+      "awayColors": [
+        "red"
+      ],
+      "homeButtonColors": [
+        "red",
+        "yellow"
+      ],
+      "awayButtonColors": [
+        "red",
+        "yellow"
+      ],
+      "logoPosition": "0 -56px"
     },
     {
       "_id": "2a21a7c1a3f89181074e9771",
       "name365": "",
       "name": "Croatia",
       "shortName": "CR",
-      "homeColors": ["red"],
-      "awayColors": ["red"],
-      "homeButtonColors": ["red", "#fff"],
-      "awayButtonColors": ["red", "#fff"],
-      "logoPosition": "0 -168px",
-      "league": "4a21a7c1a3f89181074e9762"
+      "homeColors": [
+        "red"
+      ],
+      "awayColors": [
+        "red"
+      ],
+      "homeButtonColors": [
+        "red",
+        "#fff"
+      ],
+      "awayButtonColors": [
+        "red",
+        "#fff"
+      ],
+      "logoPosition": "0 -168px"
     },
     {
       "_id": "2a21a7c1a3f89181074e9772",
       "name365": "",
       "name": "Denmark",
       "shortName": "DN",
-      "homeColors": ["red"],
-      "awayColors": ["red"],
-      "homeButtonColors": ["red", "#fff"],
-      "awayButtonColors": ["red", "#fff"],
-      "logoPosition": "-56px -168px",
-      "league": "4a21a7c1a3f89181074e9762"
+      "homeColors": [
+        "red"
+      ],
+      "awayColors": [
+        "red"
+      ],
+      "homeButtonColors": [
+        "red",
+        "#fff"
+      ],
+      "awayButtonColors": [
+        "red",
+        "#fff"
+      ],
+      "logoPosition": "-56px -168px"
     },
     {
       "_id": "2a21a7c1a3f89181074e9773",
       "name365": "",
       "name": "England",
       "shortName": "EN",
-      "homeColors": ["#fff"],
-      "awayColors": ["#fff"],
-      "homeButtonColors": ["#fff", "red"],
-      "awayButtonColors": ["#fff", "red"],
-      "logoPosition": "-56px -224px",
-      "league": "4a21a7c1a3f89181074e9762"
+      "homeColors": [
+        "#fff"
+      ],
+      "awayColors": [
+        "#fff"
+      ],
+      "homeButtonColors": [
+        "#fff",
+        "red"
+      ],
+      "awayButtonColors": [
+        "#fff",
+        "red"
+      ],
+      "logoPosition": "-56px -224px"
     },
     {
       "_id": "2a21a7c1a3f89181074e9774",
       "name365": "",
       "name": "France",
       "shortName": "FR",
-      "homeColors": ["blue"],
-      "awayColors": ["blue"],
-      "homeButtonColors": ["blue", "#fff"],
-      "awayButtonColors": ["blue", "#fff"],
-      "logoPosition": "0 -280px",
-      "league": "4a21a7c1a3f89181074e9762"
+      "homeColors": [
+        "blue"
+      ],
+      "awayColors": [
+        "blue"
+      ],
+      "homeButtonColors": [
+        "blue",
+        "#fff"
+      ],
+      "awayButtonColors": [
+        "blue",
+        "#fff"
+      ],
+      "logoPosition": "0 -280px"
     },
     {
       "_id": "2a21a7c1a3f89181074e9775",
       "name365": "",
       "name": "Germany",
       "shortName": "GR",
-      "homeColors": ["#fff"],
-      "awayColors": ["#fff"],
-      "homeButtonColors": ["#fff", "#000"],
-      "awayButtonColors": ["#fff", "#000"],
-      "logoPosition": "-56px -280px",
-      "league": "4a21a7c1a3f89181074e9762"
+      "homeColors": [
+        "#fff"
+      ],
+      "awayColors": [
+        "#fff"
+      ],
+      "homeButtonColors": [
+        "#fff",
+        "#000"
+      ],
+      "awayButtonColors": [
+        "#fff",
+        "#000"
+      ],
+      "logoPosition": "-56px -280px"
     },
     {
       "_id": "2a21a7c1a3f89181074e9776",
       "name365": "",
       "name": "Iceland",
       "shortName": "IC",
-      "homeColors": ["blue"],
-      "awayColors": ["blue"],
-      "homeButtonColors": ["blue", "#fff"],
-      "awayButtonColors": ["blue", "#fff"],
-      "logoPosition": "0 -336px",
-      "league": "4a21a7c1a3f89181074e9762"
+      "homeColors": [
+        "blue"
+      ],
+      "awayColors": [
+        "blue"
+      ],
+      "homeButtonColors": [
+        "blue",
+        "#fff"
+      ],
+      "awayButtonColors": [
+        "blue",
+        "#fff"
+      ],
+      "logoPosition": "0 -336px"
     },
     {
       "_id": "2a21a7c1a3f89181074e9777",
       "name365": "",
       "name": "Poland",
       "shortName": "PL",
-      "homeColors": ["red"],
-      "awayColors": ["red"],
-      "homeButtonColors": ["red", "#fff"],
-      "awayButtonColors": ["red", "#fff"],
-      "logoPosition": "0 -616px",
-      "league": "4a21a7c1a3f89181074e9762"
+      "homeColors": [
+        "red"
+      ],
+      "awayColors": [
+        "red"
+      ],
+      "homeButtonColors": [
+        "red",
+        "#fff"
+      ],
+      "awayButtonColors": [
+        "red",
+        "#fff"
+      ],
+      "logoPosition": "0 -616px"
     },
     {
       "_id": "2a21a7c1a3f89181074e9778",
       "name365": "",
       "name": "Portugal",
       "shortName": "POR",
-      "homeColors": ["red"],
-      "awayColors": ["red"],
-      "homeButtonColors": ["red", "green"],
-      "awayButtonColors": ["red", "green"],
-      "logoPosition": "-56px -616px",
-      "league": "4a21a7c1a3f89181074e9762"
+      "homeColors": [
+        "red"
+      ],
+      "awayColors": [
+        "red"
+      ],
+      "homeButtonColors": [
+        "red",
+        "green"
+      ],
+      "awayButtonColors": [
+        "red",
+        "green"
+      ],
+      "logoPosition": "-56px -616px"
     },
     {
       "_id": "2a21a7c1a3f89181074e9779",
       "name365": "",
       "name": "Russia",
       "shortName": "RUS",
-      "homeColors": ["red", "blue"],
-      "awayColors": ["red", "blue"],
-      "homeButtonColors": ["red", "blue"],
-      "awayButtonColors": ["red", "blue"],
-      "logoPosition": "0 -672px",
-      "league": "4a21a7c1a3f89181074e9762"
+      "homeColors": [
+        "red",
+        "blue"
+      ],
+      "awayColors": [
+        "red",
+        "blue"
+      ],
+      "homeButtonColors": [
+        "red",
+        "blue"
+      ],
+      "awayButtonColors": [
+        "red",
+        "blue"
+      ],
+      "logoPosition": "0 -672px"
     },
     {
       "_id": "2a21a7c1a3f89181074e9780",
       "name365": "",
       "name": "Serbia",
       "shortName": "SER",
-      "homeColors": ["red", "blue"],
-      "awayColors": ["red", "blue"],
-      "homeButtonColors": ["red", "blue"],
-      "awayButtonColors": ["red", "blue"],
-      "logoPosition": "0px -787px",
-      "league": "4a21a7c1a3f89181074e9762"
+      "homeColors": [
+        "red",
+        "blue"
+      ],
+      "awayColors": [
+        "red",
+        "blue"
+      ],
+      "homeButtonColors": [
+        "red",
+        "blue"
+      ],
+      "awayButtonColors": [
+        "red",
+        "blue"
+      ],
+      "logoPosition": "0px -787px"
     },
     {
       "_id": "2a21a7c1a3f89181074e9781",
       "name365": "",
       "name": "Spain",
       "shortName": "SP",
-      "homeColors": ["red", "blue"],
-      "awayColors": ["red", "blue"],
-      "homeButtonColors": ["red", "blue"],
-      "awayButtonColors": ["red", "blue"],
-      "logoPosition": "-56px -787px",
-      "league": "4a21a7c1a3f89181074e9762"
+      "homeColors": [
+        "red",
+        "blue"
+      ],
+      "awayColors": [
+        "red",
+        "blue"
+      ],
+      "homeButtonColors": [
+        "red",
+        "blue"
+      ],
+      "awayButtonColors": [
+        "red",
+        "blue"
+      ],
+      "logoPosition": "-56px -787px"
     },
     {
       "_id": "2a21a7c1a3f89181074e9782",
       "name365": "",
       "name": "Sweden",
       "shortName": "SW",
-      "homeColors": ["yellow", "blue"],
-      "awayColors": ["yellow", "blue"],
-      "homeButtonColors": ["yellow", "blue"],
-      "awayButtonColors": ["yellow", "blue"],
-      "logoPosition": "0 -843px",
-      "league": "4a21a7c1a3f89181074e9762"
+      "homeColors": [
+        "yellow",
+        "blue"
+      ],
+      "awayColors": [
+        "yellow",
+        "blue"
+      ],
+      "homeButtonColors": [
+        "yellow",
+        "blue"
+      ],
+      "awayButtonColors": [
+        "yellow",
+        "blue"
+      ],
+      "logoPosition": "0 -843px"
     },
     {
       "_id": "2a21a7c1a3f89181074e9783",
       "name365": "",
       "name": "Switzerland",
       "shortName": "SWI",
-      "homeColors": ["red", "#fff"],
-      "awayColors": ["red", "#fff"],
-      "homeButtonColors": ["red", "#fff"],
-      "awayButtonColors": ["red", "#fff"],
-      "logoPosition": "-56px -843px",
-      "league": "4a21a7c1a3f89181074e9762"
+      "homeColors": [
+        "red",
+        "#fff"
+      ],
+      "awayColors": [
+        "red",
+        "#fff"
+      ],
+      "homeButtonColors": [
+        "red",
+        "#fff"
+      ],
+      "awayButtonColors": [
+        "red",
+        "#fff"
+      ],
+      "logoPosition": "-56px -843px"
     },
     {
       "_id": "2a21a7c1a3f89181074e9784",
       "name365": "",
       "name": "Australia",
       "shortName": "AUS",
-      "homeColors": ["green", "#C5B358"],
-      "awayColors": ["green", "#C5B358"],
-      "homeButtonColors": ["green", "#C5B358"],
-      "awayButtonColors": ["green", "#C5B358"],
-      "logoPosition": "-56px 0",
-      "league": "4a21a7c1a3f89181074e9762"
+      "homeColors": [
+        "green",
+        "#C5B358"
+      ],
+      "awayColors": [
+        "green",
+        "#C5B358"
+      ],
+      "homeButtonColors": [
+        "green",
+        "#C5B358"
+      ],
+      "awayButtonColors": [
+        "green",
+        "#C5B358"
+      ],
+      "logoPosition": "-56px 0"
     },
     {
       "_id": "2a21a7c1a3f89181074e9785",
       "name365": "",
       "name": "Iran",
       "shortName": "IR",
-      "homeColors": ["green", "#fff"],
-      "awayColors": ["green", "#fff"],
-      "homeButtonColors": ["green", "#fff"],
-      "awayButtonColors": ["green", "#fff"],
-      "logoPosition": "-56px -336px",
-      "league": "4a21a7c1a3f89181074e9762"
+      "homeColors": [
+        "green",
+        "#fff"
+      ],
+      "awayColors": [
+        "green",
+        "#fff"
+      ],
+      "homeButtonColors": [
+        "green",
+        "#fff"
+      ],
+      "awayButtonColors": [
+        "green",
+        "#fff"
+      ],
+      "logoPosition": "-56px -336px"
     },
     {
       "_id": "2a21a7c1a3f89181074e9786",
       "name365": "",
       "name": "Japan",
       "shortName": "JA",
-      "homeColors": ["blue", "#fff"],
-      "awayColors": ["blue", "#fff"],
-      "homeButtonColors": ["blue", "#fff"],
-      "awayButtonColors": ["blue", "#fff"],
-      "logoPosition": "0 -392px",
-      "league": "4a21a7c1a3f89181074e9762"
+      "homeColors": [
+        "blue",
+        "#fff"
+      ],
+      "awayColors": [
+        "blue",
+        "#fff"
+      ],
+      "homeButtonColors": [
+        "blue",
+        "#fff"
+      ],
+      "awayButtonColors": [
+        "blue",
+        "#fff"
+      ],
+      "logoPosition": "0 -392px"
     },
     {
       "_id": "2a21a7c1a3f89181074e9787",
       "name365": "",
       "name": "South Korea",
       "shortName": "SK",
-      "homeColors": ["red", "#fff"],
-      "awayColors": ["red", "#fff"],
-      "homeButtonColors": ["red", "#fff"],
-      "awayButtonColors": ["red", "#fff"],
-      "logoPosition": "-56px -392px",
-      "league": "4a21a7c1a3f89181074e9762"
+      "homeColors": [
+        "red",
+        "#fff"
+      ],
+      "awayColors": [
+        "red",
+        "#fff"
+      ],
+      "homeButtonColors": [
+        "red",
+        "#fff"
+      ],
+      "awayButtonColors": [
+        "red",
+        "#fff"
+      ],
+      "logoPosition": "-56px -392px"
     },
     {
       "_id": "2a21a7c1a3f89181074e9788",
       "name365": "",
       "name": "Saudi Arabia",
       "shortName": "SA",
-      "homeColors": ["green", "#fff"],
-      "awayColors": ["green", "#fff"],
-      "homeButtonColors": ["green", "#fff"],
-      "awayButtonColors": ["green", "#fff"],
-      "logoPosition": "0 -731px",
-      "league": "4a21a7c1a3f89181074e9762"
+      "homeColors": [
+        "green",
+        "#fff"
+      ],
+      "awayColors": [
+        "green",
+        "#fff"
+      ],
+      "homeButtonColors": [
+        "green",
+        "#fff"
+      ],
+      "awayButtonColors": [
+        "green",
+        "#fff"
+      ],
+      "logoPosition": "0 -731px"
     },
     {
       "_id": "2a21a7c1a3f89181074e9789",
       "name365": "",
       "name": "Egypt",
       "shortName": "EG",
-      "homeColors": ["red", "#fff"],
-      "awayColors": ["red", "#fff"],
-      "homeButtonColors": ["red", "#fff"],
-      "awayButtonColors": ["red", "#fff"],
-      "logoPosition": "0 -224px",
-      "league": "4a21a7c1a3f89181074e9762"
+      "homeColors": [
+        "red",
+        "#fff"
+      ],
+      "awayColors": [
+        "red",
+        "#fff"
+      ],
+      "homeButtonColors": [
+        "red",
+        "#fff"
+      ],
+      "awayButtonColors": [
+        "red",
+        "#fff"
+      ],
+      "logoPosition": "0 -224px"
     },
     {
       "_id": "2a21a7c1a3f89181074e9790",
       "name365": "",
       "name": "Morocco",
       "shortName": "MOR",
-      "homeColors": ["red", "green"],
-      "awayColors": ["red", "green"],
-      "homeButtonColors": ["red", "green"],
-      "awayButtonColors": ["red", "green"],
-      "logoPosition": "0 -504px",
-      "league": "4a21a7c1a3f89181074e9762"
+      "homeColors": [
+        "red",
+        "green"
+      ],
+      "awayColors": [
+        "red",
+        "green"
+      ],
+      "homeButtonColors": [
+        "red",
+        "green"
+      ],
+      "awayButtonColors": [
+        "red",
+        "green"
+      ],
+      "logoPosition": "0 -504px"
     },
     {
       "_id": "2a21a7c1a3f89181074e9791",
       "name365": "",
       "name": "Nigeria",
       "shortName": "NIG",
-      "homeColors": ["#fff", "green"],
-      "awayColors": ["#fff", "green"],
-      "homeButtonColors": ["#fff", "green"],
-      "awayButtonColors": ["#fff", "green"],
-      "logoPosition": "-56px -504px",
-      "league": "4a21a7c1a3f89181074e9762"
+      "homeColors": [
+        "#fff",
+        "green"
+      ],
+      "awayColors": [
+        "#fff",
+        "green"
+      ],
+      "homeButtonColors": [
+        "#fff",
+        "green"
+      ],
+      "awayButtonColors": [
+        "#fff",
+        "green"
+      ],
+      "logoPosition": "-56px -504px"
     },
     {
       "_id": "2a21a7c1a3f89181074e9792",
       "name365": "",
       "name": "Senegal",
       "shortName": "SEN",
-      "homeColors": ["#fff", "green"],
-      "awayColors": ["#fff", "green"],
-      "homeButtonColors": ["#fff", "green"],
-      "awayButtonColors": ["#fff", "green"],
-      "logoPosition": "-56px -731px",
-      "league": "4a21a7c1a3f89181074e9762"
+      "homeColors": [
+        "#fff",
+        "green"
+      ],
+      "awayColors": [
+        "#fff",
+        "green"
+      ],
+      "homeButtonColors": [
+        "#fff",
+        "green"
+      ],
+      "awayButtonColors": [
+        "#fff",
+        "green"
+      ],
+      "logoPosition": "-56px -731px"
     },
     {
       "_id": "2a21a7c1a3f89181074e9793",
       "name365": "",
       "name": "Tunisia",
       "shortName": "TUN",
-      "homeColors": ["#fff", "red"],
-      "awayColors": ["#fff", "red"],
-      "homeButtonColors": ["#fff", "red"],
-      "awayButtonColors": ["#fff", "red"],
-      "logoPosition": "0 -899px",
-      "league": "4a21a7c1a3f89181074e9762"
+      "homeColors": [
+        "#fff",
+        "red"
+      ],
+      "awayColors": [
+        "#fff",
+        "red"
+      ],
+      "homeButtonColors": [
+        "#fff",
+        "red"
+      ],
+      "awayButtonColors": [
+        "#fff",
+        "red"
+      ],
+      "logoPosition": "0 -899px"
     }
   ],
   "matches": [

@@ -8,7 +8,7 @@ let self = module.exports = {
     updateTeams: function (teams) {
         console.log('beginning to update ' + teams.length + ' teams');
         let promises = teams.map(function (team) {
-            return Team.findOneAndUpdate({_id: team._id}, team, util.updateSettings, function (err, obj) {
+            return Team.findOneAndUpdate({_id: team._id}, team, util.overrideSettings, function (err, obj) {
                     if (err) {
                         return Promise.reject('general error');
                     }

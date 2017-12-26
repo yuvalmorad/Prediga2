@@ -3,6 +3,9 @@ module.exports = {
     updateSettings: {
         upsert: true, setDefaultsOnInsert: true, isNew: true, new: true
     },
+    overrideSettings: {
+        overwrite: true, setDefaultsOnInsert: true, isNew: true, new: true
+    },
     getErrorResponse: function (msg) {
         return {"status": "Error", "message": msg};
     },

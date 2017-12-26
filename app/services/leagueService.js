@@ -1,10 +1,11 @@
 let League = require('../models/league');
 let utils = require('../utils/util');
+let Match = require('../models/match');
 
 let self = module.exports = {
     updateLeague: function (league) {
         console.log('beginning to update league');
-        return League.findOneAndUpdate({_id: league._id}, league, utils.updateSettings, function (err, obj) {
+        return League.findOneAndUpdate({_id: league._id}, league, utils.overrideSettings, function (err, obj) {
                 if (err) {
                     return Promise.reject('general error');
                 }
@@ -23,6 +24,18 @@ let self = module.exports = {
                 });
                 return competitionIds;
             }
+        });
+    },
+    getUsersMatchesByLeagues: function () {
+        return Promise.all([
+            // TODO - find user's groups + group's leagues
+            League.find({})
+        ]).then(function (arr2) {
+            let leagueIds = arr2[0].map(function (league) {
+                return league._id;
+            });
+
+            return Match.find({league: {$in: leagueIds}});
         });
     }
 };

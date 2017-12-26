@@ -4,6 +4,7 @@ let Match = require('../models/match');
 let matchPredictionService = require('../services/matchPredictionsService');
 let util = require('../utils/util.js');
 let MatchResult = require('../models/matchResult');
+let League = require('../models/league');
 
 app.get('/', util.isLoggedIn, function (req, res) {
     let user = req.user;
@@ -14,17 +15,34 @@ app.get('/', util.isLoggedIn, function (req, res) {
 
 function getData(me) {
     return Promise.all([
-        Match.find({}),
-        matchPredictionService.getPredictionsByUserId(me, true, me),
-        MatchResult.find({}),
-        matchPredictionService.getFutureGamesPredictionsCounters(),
-    ]).then(function (arr) {
-        return {
-            matches: arr[0],
-            predictions: arr[1],
-            results: arr[2],
-            predictionsCounters: arr[3]
-        }
+        // TODO - find user's groups + group's leagues
+        League.find({})
+    ]).then(function (arr2) {
+        let leagueIds = arr2[0].map(function (league) {
+            return league._id;
+        });
+
+        return Promise.all([
+            Match.find({league: {$in: leagueIds}})
+        ]).then(function (arr1) {
+            let matches = arr1[0];
+            let matchIds = arr1[0].map(function (match) {
+                return match._id;
+            });
+
+            return Promise.all([
+                matchPredictionService.getPredictionsByUserId(me, true, me, matchIds),
+                MatchResult.find({matchId: {$in: matchIds}}),
+                matchPredictionService.getFutureGamesPredictionsCounters(matchIds),
+            ]).then(function (arr) {
+                return {
+                    matches: matches,
+                    predictions: arr[0],
+                    results: arr[1],
+                    predictionsCounters: arr[2]
+                }
+            });
+        });
     });
 }
 

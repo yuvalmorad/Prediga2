@@ -3,7 +3,7 @@ let Team = require('../models/team');
 let TeamPrediction = require('../models/teamPrediction');
 let utils = require('../utils/util');
 let self = module.exports = {
-    creaTeamPredictions(teamPredictions, userId) {
+    createTeamPredictions(teamPredictions, userId) {
         let now = new Date();
         let promises = teamPredictions.map(function (teamPrediction) {
             // we can update only if the kickofftime is not passed
@@ -32,18 +32,18 @@ let self = module.exports = {
         });
         return Promise.all(promises);
     },
-    getPredictionsForOtherUsers: function (userId, teamId, me) {
+    getPredictionsForOtherUsers: function (userId, me, teamIds) {
         let now = new Date();
         return Promise.all([
-            typeof(teamId) === 'undefined' ?
+            typeof(teamIds) === 'undefined' ?
                 Team.find({deadline: {$lt: now}}) :
-                Team.find({deadline: {$lt: now}, teamId: teamId})
+                Team.find({deadline: {$lt: now}, teamId: {$in: teamIds}})
         ]).then(function (arr) {
             return Promise.all([
                 self.getPredictionsForOtherUsersInner(arr[0], userId, me),
-                typeof(teamId) === 'undefined' ?
+                typeof(teamIds) === 'undefined' ?
                     TeamPrediction.find({userId: me}) :
-                    TeamPrediction.find({teamId: teamId, userId: me})
+                    TeamPrediction.find({teamId: {$in: teamIds}, userId: me})
             ]).then(function (arr2) {
                 let mergedPredictions = [];
 
@@ -58,30 +58,37 @@ let self = module.exports = {
             });
         });
     },
-    getPredictionsByUserId: function (userId, isForMe, me) {
+    getPredictionsByUserId: function (userId, isForMe, me, teamIds) {
         let deferred = Q.defer();
 
         if (isForMe) {
-            TeamPrediction.find({userId: userId}, function (err, aTeamPredictions) {
-                deferred.resolve(aTeamPredictions);
-            });
+            if (typeof(teamIds) !== 'undefined') {
+                TeamPrediction.find({userId: userId, teamId: {$in: teamIds}}, function (err, aTeamPredictions) {
+                    deferred.resolve(aTeamPredictions);
+                });
+            } else {
+                TeamPrediction.find({userId: userId}, function (err, aTeamPredictions) {
+                    deferred.resolve(aTeamPredictions);
+                });
+            }
+
         } else {
-            self.getPredictionsForOtherUsers(userId, undefined, me).then(function (aTeamPredictions) {
+            self.getPredictionsForOtherUsers(userId, me, teamIds).then(function (aTeamPredictions) {
                 deferred.resolve(aTeamPredictions);
             });
         }
 
         return deferred.promise;
     },
-    getPredictionsByTeamId: function (teamId, isForMe, me) {
+    getPredictionsByTeamId: function (teamIds, isForMe, me) {
         let deferred = Q.defer();
 
         if (isForMe) {
-            TeamPrediction.find({teamId: teamId}, function (err, aTeamPredictions) {
+            TeamPrediction.find({teamId: {$in: teamIds}}, function (err, aTeamPredictions) {
                 deferred.resolve(aTeamPredictions);
             });
         } else {
-            self.getPredictionsForOtherUsers(undefined, teamId, me).then(function (aTeamPredictions) {
+            self.getPredictionsForOtherUsers(undefined, me, teamIds).then(function (aTeamPredictions) {
                 deferred.resolve(aTeamPredictions);
             });
         }
