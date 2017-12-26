@@ -634,6 +634,10 @@ body {
     margin-right: 0.5rem;
 }
 
+.tile-dialog-container .dialog-button button[disabled] {
+    color: #CDCDCD;
+    border: none;
+}
 
 @media only screen and (min-width : 700px) {
     .tile-dialog-container .tile {
