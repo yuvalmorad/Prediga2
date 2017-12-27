@@ -12,9 +12,10 @@ let MatchResult = require("../models/matchResult");
 let Q = require('q');
 let mock365Html = require('../initialData/helpers/365Mock');
 let isTestingMode = false;
+let socketIo = require('../socketIo');
 
 let self = module.exports = {
-    run: function (io) {
+    run: function () {
         console.log('Automatic update (run job) wake up');
         return Promise.all([
             matchService.getNextMatchDate()
@@ -28,16 +29,16 @@ let self = module.exports = {
             else {
                 console.log('Next job will start at ' + aMatch.kickofftime);
                 schedule.scheduleJob(aMatch.kickofftime, function () {
-                    self.getResultsJob(io, undefined);
+                    self.getResultsJob(undefined);
                 });
 
                 if (isTestingMode) {
-                    self.getResultsJob(io, undefined);
+                    self.getResultsJob(undefined);
                 }
             }
         });
     },
-    getResultsJob: function (io, activeLeagues) {
+    getResultsJob: function (activeLeagues) {
         console.log('Automatic update (getResults Job) wake up');
 
         return Promise.all([
@@ -52,7 +53,7 @@ let self = module.exports = {
             }
             let configuration = arr[1];
             return Promise.all([
-                self.getResults(activeLeagues, configuration, io)
+                self.getResults(activeLeagues, configuration)
             ]).then(function (arr) {
                 let hasInProgressGames = arr[0];
                 let now = new Date();
@@ -62,18 +63,18 @@ let self = module.exports = {
                     let nextJob = new Date();
                     nextJob.setMinutes(now.getMinutes() + 1);
                     schedule.scheduleJob(nextJob, function () {
-                        self.getResultsJob(io, activeLeagues)
+                        self.getResultsJob(activeLeagues)
                     });
                 } else {
                     console.log('All games in progress are ended');
                     schedule.scheduleJob(now, function () {
-                        self.run(io)
+                        self.run()
                     });
                 }
             });
         });
     },
-    getResults: function (activeLeagues, configuration, io) {
+    getResults: function (activeLeagues, configuration) {
         console.log('Start to get results...');
         return Promise.all([
             self.getLatestData()
@@ -93,9 +94,9 @@ let self = module.exports = {
                     if (relevantGames.length > 0) {
                         console.log('Found ' + relevantGames.length + ' relevant games to update.');
                         if (isTestingMode) {
-                            io.emit("relevantGames", relevantGames);
+                            socketIo.emit("relevantGames", relevantGames);
                         }
-                        return self.updateMatchResults(relevantGames, configuration, io);
+                        return self.updateMatchResults(relevantGames, configuration);
                     } else {
                         console.log('There are no relevant games.');
                         return [];
@@ -104,8 +105,8 @@ let self = module.exports = {
             }
         });
     },
-    updateMatchResults: function (relevantGames, configuration, io) {
-        return self.updateMatchResultsMap(relevantGames, configuration, io).then(function (arr) {
+    updateMatchResults: function (relevantGames, configuration) {
+        return self.updateMatchResultsMap(relevantGames, configuration).then(function (arr) {
             if (arr.includes('updateLeaderboard')) {
                 console.log('Start to update leaderboard');
                 schedule.scheduleJob(new Date(), function () {
@@ -185,13 +186,13 @@ let self = module.exports = {
         });
         return deferred.promise;
     },
-    updateMatchResultsMap: function (relevantGames, configuration, io) {
+    updateMatchResultsMap: function (relevantGames, configuration) {
         let promises = relevantGames.map(function (relevantGame) {
-            return self.updateMatchResultsMapInner(relevantGame, configuration, io);
+            return self.updateMatchResultsMapInner(relevantGame, configuration);
         });
         return Promise.all(promises);
     },
-    updateMatchResultsMapInner: function (relevantGame, configuration, io) {
+    updateMatchResultsMapInner: function (relevantGame, configuration) {
         return Promise.all([
             clubService.findClubsBy365Name(relevantGame)
         ]).then(function (arr) {
@@ -228,7 +229,7 @@ let self = module.exports = {
                             "matchResult": newMatchResult,
                             "rawGame": relevantGame
                         };
-                        io.emit("matchResultUpdate", matchResultUpdate);
+                        socketIo.emit("matchResultUpdate", matchResultUpdate);
 
                         return Promise.all([
                             matchResultService.updateMatchResult(newMatchResult)

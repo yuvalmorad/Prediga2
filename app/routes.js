@@ -3,16 +3,14 @@ let initialData = require('./utils/updateInitialConfiguration');
 let automaticUpdater = require('./utils/automaticUpdater');
 let migrator = require('./utils/migrator');
 let mongoose = require('mongoose');
+let socketIo = require('./socketIo');
 mongoose.Promise = Promise;
 
 module.exports = function (app, passport) {
     let server = require('http').Server(app);
-    let io = require('socket.io')(server);
-    io.on('connection', function (socket) {
-        socket.emit('message', {message: 'Welcome back'});
-    });
+    socketIo.init(server);
     initialData.loadAll();
-    automaticUpdater.run(io);
+    automaticUpdater.run();
     //migrator.run();
 
     /********************************************

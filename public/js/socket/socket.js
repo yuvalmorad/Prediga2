@@ -1,4 +1,3 @@
-/*
 var socket = (function(){
     var socket = io();
 
@@ -13,4 +12,4 @@ var socket = (function(){
     });
 
     return socket;
-})();*/
+})();
