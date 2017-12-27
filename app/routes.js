@@ -5,6 +5,7 @@ let migrator = require('./utils/migrator');
 let mongoose = require('mongoose');
 let socketIo = require('./socketIo');
 mongoose.Promise = Promise;
+let pushNotification = require('./pushNotification');
 
 module.exports = function (app, passport) {
     let server = require('http').Server(app);
@@ -12,6 +13,13 @@ module.exports = function (app, passport) {
     initialData.loadAll();
     automaticUpdater.run();
     //migrator.run();
+
+
+    app.use('/api/pushTest', function(req, res){
+        console.log("pushTest!");
+        pushNotification.pushTest();
+        res.status(200).json({});
+    });
 
     /********************************************
      * All routes mapping
