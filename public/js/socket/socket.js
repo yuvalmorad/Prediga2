@@ -1,15 +1,29 @@
 var socket = (function(){
-    var socket = io();
+    var socket;
 
-    socket.on('connect', function(){
-        console.log("connected!!!");
-    });
-    socket.on('message', function(data){
-        console.log("message!!!", data);
-    });
-    socket.on('disconnect', function(){
-        console.log("disconnect!!!");
-    });
+    function init() {
+        if (!socket) {
+            socket = io();
+            registerEvents();
+        }
+    }
 
-    return socket;
+    function registerEvents() {
+        socket.on('connect', function(){
+            console.log("connected!!!");
+        });
+
+        socket.on('disconnect', function(){
+            console.log("disconnect!!!");
+        });
+
+        socket.on('matchResultUpdate', function(data){
+            var matchResult = data.matchResult;
+            store.dispatch(action.gamesPredictions.updateGameResult(matchResult));
+        });
+    }
+
+    return {
+        init: init
+    };
 })();

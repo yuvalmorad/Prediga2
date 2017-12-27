@@ -5,7 +5,10 @@ action.gamesPredictions = (function(){
         loadGames: loadGames,
 
         UPDATE_GAME: "UPDATE_GAME",
-        updateGame: updateGame
+        updateGame: updateGame,
+
+        UPDATE_GAME_RESULT: "UPDATE_GAME_RESULT",
+        updateGameResult: updateGameResult
     };
 
     function updateGame(prediction) {
@@ -14,6 +17,13 @@ action.gamesPredictions = (function(){
 
     function loadGames() {
         return utils.action.loadWithPredictions(service.gamesPredictions, "matches", gamesPredictions.LOAD_GAMES_SUCCESS);
+    }
+
+    function updateGameResult(result) {
+        return {
+            type: gamesPredictions.UPDATE_GAME_RESULT,
+            result: result
+        }
     }
 
     return gamesPredictions;

@@ -7,7 +7,8 @@ component.GamePredictionMainTile = (function(){
         },
 
         shouldComponentUpdate: function(nextProps, nextState) {
-            return this.props.prediction !== nextProps.prediction ||
+            return  this.props.prediction !== nextProps.prediction ||
+                    this.props.result !== nextProps.result ||
                     this.state.timeBeforeGame !== nextState.timeBeforeGame;
         },
 
@@ -104,7 +105,7 @@ component.GamePredictionMainTile = (function(){
                     //running game
                     className += " running-game";
                     simulationBtn = re(ReactRouterDOM.Link, {to: "/simulator/" + gameId, className: "simulation-button"}, "Simulation");
-                    dateStr = "Running " + result.gameTime;
+                    dateStr = "Running " + result.gameTime + "'";
                     displayTeam1Goals = result[GAME.BET_TYPES.TEAM1_GOALS.key];
                     displayTeam2Goals = result[GAME.BET_TYPES.TEAM2_GOALS.key];
                 } else if (timeBeforeGame !== undefined) {

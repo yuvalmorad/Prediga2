@@ -131,11 +131,12 @@ utils.general = (function(){
         return res;
     }
 
-    function updateOrCreateObject(arr, objectToUpdate) {
+    function updateOrCreateObject(arr, objectToUpdate, byProperty) {
+        byProperty = byProperty || "_id";
         var newArr = arr.slice();
         var index, i;
         for (i = 0; i < newArr.length; i++) {
-            if (newArr[i]._id === objectToUpdate._id) {
+            if (newArr[i][byProperty] === objectToUpdate[byProperty]) {
                 index = i;
                 break;
             }

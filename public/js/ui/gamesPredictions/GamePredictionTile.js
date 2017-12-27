@@ -4,7 +4,7 @@ component.GamePredictionTile = (function(){
 
     return React.createClass({
         shouldComponentUpdate: function(nextProps) {
-            return this.props.game !== nextProps.game || this.props.prediction !== nextProps.prediction;
+            return this.props.game !== nextProps.game || this.props.prediction !== nextProps.prediction || this.props.result !== nextProps.result;
         },
 
         render: function() {
