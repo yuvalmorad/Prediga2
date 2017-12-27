@@ -100,4 +100,6 @@ module.exports = function (app, passport) {
             res.redirect('/');
         });
     });
+
+    return server;
 };
