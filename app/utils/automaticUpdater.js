@@ -17,31 +17,6 @@ let pushNotificationUtil = require('./pushNotification');
 
 let self = module.exports = {
     run: function () {
-
-        /*if (isTestingMode) {
-            let count = 1;
-            setInterval(function () {
-                let newMatchResult = {
-                    matchId: "6a21a7c1a3f89181074e9874",
-                    winner: 'Draw',
-                    team1Goals: 1,
-                    team2Goals: 1,
-                    goalDiff: 0,
-                    firstToScore: 'None',
-                    gameTime: count++,
-                    completion: 60
-                };
-
-                // send push notification to client
-                let matchResultUpdate = {
-                    "matchResult": newMatchResult,
-                    "rawGame": "test"
-                };
-                socketIo.emit("matchResultUpdate", matchResultUpdate);
-            }, 10000);
-        }*/
-
-
         console.log('Automatic update (run job) wake up');
         return Promise.all([
             matchService.getNextMatchDate()
@@ -56,7 +31,7 @@ let self = module.exports = {
                 console.log('Next job will start at ' + aMatch.kickofftime);
                 schedule.scheduleJob(aMatch.kickofftime, function () {
                     //TODO just for fun it will send notification for all users when game starts -> should handle logic to send to specific user if no prediction was made for this match
-                    pushNotificationUtil.pushToAllRegisterdUsers("Game Has started!");
+                    pushNotificationUtil.pushToAllRegisterdUsers("Game Has started :)");
                     self.getResultsJob(undefined);
                 });
 

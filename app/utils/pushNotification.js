@@ -16,7 +16,9 @@ function pushAllSubscriptionsToSpecificUser(user, text) {
     if (user) {
         const pushSubscriptions = user.pushSubscriptions;
         pushSubscriptions.forEach(function(pushSubscription){
-            webpush.sendNotification(pushSubscription, text);
+            webpush.sendNotification(pushSubscription, text).catch(function(err){
+                console.log("error sending push notification", err);
+            });
         });
     }
 }
@@ -34,6 +36,10 @@ let self = module.exports = {
         pushSubscription.findOne({userId: userId}).then(function(user){
             pushAllSubscriptionsToSpecificUser(user, text);
         });
+    },
+
+    pushWithSubscription: function(user, text) {
+        pushAllSubscriptionsToSpecificUser(user, text);
     }
 };
 

@@ -1,6 +1,7 @@
 let util = require('./utils/util.js');
 let initialData = require('./utils/updateInitialConfiguration');
 let automaticUpdater = require('./utils/automaticUpdater');
+let automaticPushNotifications = require('./utils/automaticPushNotifications');
 let migrator = require('./utils/migrator');
 let mongoose = require('mongoose');
 let socketIo = require('./socketIo');
@@ -12,13 +13,14 @@ module.exports = function (app, passport) {
     socketIo.init(server);
     initialData.loadAll();
     automaticUpdater.run();
+    automaticPushNotifications.runAutomaticPushBeforeGame();
     //migrator.run();
 
 
     //TODO remove once we are sure push notification work correct
     app.use('/api/pushTest', function(req, res){
         console.log("pushTest!");
-        pushNotificationUtil.pushToAllRegisterdUsers("push notification from server!");
+        pushNotificationUtil.pushToAllRegisterdUsers("push notification TEST from server!");
         res.status(200).json({});
     });
 
