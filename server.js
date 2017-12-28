@@ -12,6 +12,7 @@ let morgan = require('morgan');
 let cookieParser = require('cookie-parser');
 let bodyParser = require('body-parser');
 let session = require('express-session');
+let sslRedirect = require('heroku-ssl-redirect');
 
 // configuration ===============================================================
 let configDB = port !== 3000 ? process.env.MONGODB_URI : 'mongodb://localhost:27017/prediga';
@@ -26,6 +27,7 @@ let configGooglePassport = port !== 3000 ? 'googleAuth' : 'googleAuth-local';
 require('./config/passport')(passport, configFBPassport, configGooglePassport); // pass passport for configuration
 
 // set up our express application
+app.use(sslRedirect()); // enable ssl redirect
 app.use(morgan('dev')); // log every request to the console
 app.use(cookieParser()); // read cookies (needed for auth)
 app.use(bodyParser.json()); // get information from html forms
