@@ -12,7 +12,7 @@ webpush.setVapidDetails(
     vapidKeys.privateKey
 );
 
-function pushAllSubscriptionsToSpecificUser(user) {
+function pushAllSubscriptionsToSpecificUser(user, text) {
     if (user) {
         const pushSubscriptions = user.pushSubscriptions;
         pushSubscriptions.forEach(function(pushSubscription){
@@ -25,14 +25,14 @@ let self = module.exports = {
     pushToAllRegisterdUsers: function(text) {
         pushSubscription.find({}).then(function(users){
             (users || []).forEach(function(user){
-                pushAllSubscriptionsToSpecificUser(user);
+                pushAllSubscriptionsToSpecificUser(user, text);
             });
         });
     },
 
     pushToSpecificUser: function(userId, text) {
         pushSubscription.findOne({userId: userId}).then(function(user){
-            pushAllSubscriptionsToSpecificUser(user);
+            pushAllSubscriptionsToSpecificUser(user, text);
         });
     }
 };
