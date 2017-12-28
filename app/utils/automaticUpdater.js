@@ -13,6 +13,7 @@ let Q = require('q');
 let mock365Html = require('../initialData/helpers/365Mock');
 let isTestingMode = false;
 let socketIo = require('../socketIo');
+let pushNotificationUtil = require('./pushNotification');
 
 let self = module.exports = {
     run: function () {
@@ -54,6 +55,8 @@ let self = module.exports = {
             else {
                 console.log('Next job will start at ' + aMatch.kickofftime);
                 schedule.scheduleJob(aMatch.kickofftime, function () {
+                    //TODO just for fun it will send notification for all users when game starts -> should handle logic to send to specific user if no prediction was made for this match
+                    pushNotificationUtil.pushToAllRegisterdUsers("Game Has started!");
                     self.getResultsJob(undefined);
                 });
 

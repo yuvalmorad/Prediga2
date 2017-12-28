@@ -5,7 +5,7 @@ let migrator = require('./utils/migrator');
 let mongoose = require('mongoose');
 let socketIo = require('./socketIo');
 mongoose.Promise = Promise;
-let pushNotification = require('./pushNotification');
+let pushNotificationUtil = require('./utils/pushNotification');
 
 module.exports = function (app, passport) {
     let server = require('http').Server(app);
@@ -15,9 +15,10 @@ module.exports = function (app, passport) {
     //migrator.run();
 
 
+    //TODO remove once we are sure push notification work correct
     app.use('/api/pushTest', function(req, res){
         console.log("pushTest!");
-        pushNotification.pushTest();
+        pushNotificationUtil.pushToAllRegisterdUsers("push notification from server!");
         res.status(200).json({});
     });
 
@@ -40,6 +41,7 @@ module.exports = function (app, passport) {
     app.use('/api/simulatorUI', require('./controllers/simulatorUI.js'));
     app.use('/api/leagues', require('./controllers/leagues.js'));
     app.use('/api/clubs', require('./controllers/clubs.js'));
+    app.use('/api/pushSubscription', require('./controllers/pushSubscription.js'));
 
     /********************************************
      * Automatic Update (Immediate)
