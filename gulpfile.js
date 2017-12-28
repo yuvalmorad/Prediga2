@@ -23,9 +23,9 @@ gulp.task('copyFolders', function(){
             .pipe(gulp.dest('build/' + folder));
     });
 
-    res.push(//TODO remove when server is working
-        gulp.src(['./public/js/mock/*.json'])
-            .pipe(gulp.dest('build/js/mock'))
+    res.push( //copy service worker
+        gulp.src(['./public/sw.js'])
+            .pipe(gulp.dest('build'))
     );
 
     return res;
