@@ -25,7 +25,9 @@ self.addEventListener('notificationclick', function(event) {
 function displayNotification(event) {
     if (Notification.permission == 'granted') {
         var options = {
-            body: event.data.text()
+            body: event.data.text(),
+            icon: './images/prediga192.png',
+            badge: './images/prediga128.png'
         };
 
         var title = 'Prediga';
