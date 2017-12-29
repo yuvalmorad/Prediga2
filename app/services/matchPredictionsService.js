@@ -72,7 +72,7 @@ let self = module.exports = {
         return Promise.all([
             typeof(matchIds) === 'undefined' ?
                 Match.find({kickofftime: {$lt: now}}) :
-                Match.find({kickofftime: {$lt: now}, matchId: {$in: matchIds}})
+                Match.find({kickofftime: {$lt: now}, _id: {$in: matchIds}})
         ]).then(function (arr) {
             return Promise.all([
                 self.getPredictionsForOtherUsersInner(arr[0], userId, me),
@@ -132,7 +132,7 @@ let self = module.exports = {
     getFutureGamesPredictionsCounters: function (matchIdsRelevant) {
         let now = new Date();
         return Promise.all([
-            Match.find({kickofftime: {$gte: now}, matchId: {$in: matchIdsRelevant}})
+            Match.find({kickofftime: {$gte: now}, _id: {$in: matchIdsRelevant}})
         ]).then(function (arr) {
             let matchIds = arr[0].map(function (match) {
                 return match._id;
@@ -149,7 +149,7 @@ let self = module.exports = {
         let deferred = Q.defer();
         let result = {};
         let itemsProcessed = 0;
-        if (matchPredictions && matchPredictions.league > 0) {
+        if (matchPredictions && matchPredictions.length > 0) {
             matchPredictions.forEach(function (matchPrediction) {
                 itemsProcessed += 1;
                 if (!result.hasOwnProperty(matchPrediction.matchId)) {
