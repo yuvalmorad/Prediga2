@@ -39,6 +39,5 @@ Find the `MONGOLAB_URI` value. It will be in the form of: `mongodb://<username>:
 `mongo localhost:27017/prediga --eval "db.dropDatabase()"`
 
 - Use mongorestore to put the prod data into your local mongodb.  
-`mongorestore --host <host> --port <port> --db <dbname> <dumpPath>`
-
+`mongorestore --host <host> --port <port> --db <dbname> <dumpPath>`  
 e.g. `mongorestore -d prediga dump/heroku_lx301k46`

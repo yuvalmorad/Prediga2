@@ -167,7 +167,7 @@ var GLOBAL_UPDATE_INTERVAL = 12000
 </body>
 </html>`;
 module.exports = {
-    getHtml: function () {
-        return html;
-    }
+	getHtml: function () {
+		return html;
+	}
 };
