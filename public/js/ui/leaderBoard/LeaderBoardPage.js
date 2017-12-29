@@ -28,7 +28,7 @@ component.LeaderBoardPage = (function(){
             leaders = utils.general.getLeadersByLeagueId(leaders, selectedLeagueId);
             return re("div", { className: "content hasSubHeader" },
                 re(LeaguesSubHeader, {}),
-                re(LeaderBoardTiles, {leaders: leaders, users: users})
+                re(LeaderBoardTiles, {leaders: leaders, users: users, selectedLeagueId: selectedLeagueId})
             );
         }
     });
