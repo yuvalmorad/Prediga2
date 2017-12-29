@@ -47,7 +47,7 @@ component.GamePredictionTileDialog = (function(){
                 predictionCounters = props.predictionCounters,
                 isDialogFormDisabled = props.isDialogFormDisabled;
 
-            return re(TileDialog, {borderLeftColor: team1.homeColors[0], borderLeftSecondColor: team1.homeColors[1], borderRightColor: team2.awayColors[0], borderRightSecondColor: team2.awayColors[1], className: "game-prediction-tile"},
+            return re(TileDialog, {borderLeftColor: team1.colors[0], borderLeftSecondColor: team1.colors[1], borderRightColor: team2.colors[0], borderRightSecondColor: team2.colors[1], className: "game-prediction-tile"},
                 re(GamePredictionMainTile, {game: game, team1: team1, team2: team2, league: league, prediction: prediction, result: result, groupConfiguration: groupConfiguration, predictionCounters: predictionCounters, hideMutualFriends: hideMutualFriends}),
                 re(GamePredictionFormTile, {game: game, team1: team1, team2: team2, league: league, prediction: prediction, result: result, groupConfiguration: groupConfiguration, updateGameForm: this.updateGameForm, isDialogFormDisabled: isDialogFormDisabled})
             );

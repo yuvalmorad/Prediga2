@@ -9,15 +9,20 @@ component.TileDialogContainer = (function(){
             }
         },
 
-        onCancel: function() {//close/cancel
-            this.props.closeTileDialog();
+        onCancel: function() { // close/cancel
+            this.closeDialog()
         },
 
         onSave: function() {
-            this.props.closeTileDialog();
+            this.closeDialog();
             if (this.onDialogSave) {
                 this.onDialogSave();
             }
+        },
+
+        closeDialog: function() {
+            this.props.closeTileDialog();
+            this.setState({saveButtonEnabled: true});
         },
 
         assignDialogSaveFun: function(onDialogSaveFunc) {

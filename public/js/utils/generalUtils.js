@@ -22,11 +22,23 @@ utils.general = (function(){
         leagueNameToIdName: leagueNameToIdName,
         cutUrlPath: cutUrlPath,
         getLeadersByLeagueId: getLeadersByLeagueId,
-        getClubHomeColors: getClubHomeColors
+        getTeamsUniqueGraphColor: getTeamsUniqueGraphColor
     };
 
-    function getClubHomeColors(club) {
-        return [club.awayColors[0], club.awayColors[1]]; //TODO replace with homeColors once israel league fix home/away match
+    function getTeamsUniqueGraphColor(team1, team2) {
+        var team1Color = team1.graphColors[0];
+        var team2Color = team2.graphColors[0];
+
+        if (team1Color === team2Color) {
+            //same color -> try to get the second graph color
+            if (team2.graphColors.length > 1) {
+                team2Color = team2.graphColors[1];
+            } else if (team1.graphColors.length > 1) {
+                team1Color = team1.graphColors[1];
+            }
+        }
+
+        return [team1Color, team2Color];
     }
 
     function getLeadersByLeagueId(leadersByLeagues, leagueId) {

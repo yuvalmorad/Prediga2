@@ -29,21 +29,9 @@
       "name": "Hapoel Ashkelon",
       "name365": "הפועל אשקלון",
       "shortName": "HA",
-      "homeColors": [
-        "#0636CA",
-        "#fff"
-      ],
-      "awayColors": [
-        "#0636CA"
-      ],
-      "homeButtonColors": [
-        "#fff",
-        "#0636CA"
-      ],
-      "awayButtonColors": [
-        "#0636CA",
-        "#fff"
-      ],
+      "colors": ["#0636CA"],
+      "buttonColors": ["#0636CA", "#fff"],
+      "graphColors": ["#0636CA"],
       "logoPosition": "-728px 0"
     },
     {
@@ -51,22 +39,9 @@
       "name": "Hapoel Haifa",
       "name365": "הפועל חיפה",
       "shortName": "HH",
-      "homeColors": [
-        "#EA0000",
-        "#000"
-      ],
-      "awayColors": [
-        "#EA0000",
-        "#000"
-      ],
-      "homeButtonColors": [
-        "#000",
-        "#EA0000"
-      ],
-      "awayButtonColors": [
-        "#EA0000",
-        "#000"
-      ],
+      "colors": ["#EA0000", "#000"],
+      "buttonColors": ["#EA0000", "#000"],
+      "graphColors": ["#000", "#EA0000"],
       "logoPosition": "-336px 0"
     },
     {
@@ -74,21 +49,9 @@
       "name": "Maccabi Haifa",
       "name365": "מכבי חיפה",
       "shortName": "MH",
-      "homeColors": [
-        "#006723",
-        "#fff"
-      ],
-      "awayColors": [
-        "#006723"
-      ],
-      "homeButtonColors": [
-        "#fff",
-        "#006723"
-      ],
-      "awayButtonColors": [
-        "#006723",
-        "#fff"
-      ],
+      "colors": ["#006723"],
+      "buttonColors": ["#006723", "#fff"],
+      "graphColors": ["#006723"],
       "logoPosition": "-224px 0"
     },
     {
@@ -96,21 +59,9 @@
       "name": "Bnei Yehuda",
       "name365": "בני יהודה ת\"א",
       "shortName": "BY",
-      "homeColors": [
-        "#F37620",
-        "#fff"
-      ],
-      "awayColors": [
-        "#F37620"
-      ],
-      "homeButtonColors": [
-        "#fff",
-        "#F37620"
-      ],
-      "awayButtonColors": [
-        "#F37620",
-        "#fff"
-      ],
+      "colors": ["#F37620"],
+      "buttonColors": ["#F37620", "#000"],
+      "graphColors": ["#F37620"],
       "logoPosition": "-616px 0"
     },
     {
@@ -118,22 +69,9 @@
       "name": "Maccabi Netanya",
       "name365": "מכבי נתניה",
       "shortName": "MN",
-      "homeColors": [
-        "#fff",
-        "#000"
-      ],
-      "awayColors": [
-        "#FFF500",
-        "#000"
-      ],
-      "homeButtonColors": [
-        "#fff",
-        "#000"
-      ],
-      "awayButtonColors": [
-        "#000",
-        "#FFF500"
-      ],
+      "colors": ["#FFF500", "#000"],
+      "buttonColors": ["#000", "#FFF500"],
+      "graphColors": ["#000", "#FFF500"],
       "logoPosition": "-672px 0"
     },
     {
@@ -141,21 +79,9 @@
       "name": "Hapoel Beer Sheva",
       "name365": "הפועל באר שבע",
       "shortName": "HBS",
-      "homeColors": [
-        "#FE0064",
-        "#000"
-      ],
-      "awayColors": [
-        "#D30229"
-      ],
-      "homeButtonColors": [
-        "#000",
-        "#FE0064"
-      ],
-      "awayButtonColors": [
-        "#D30229",
-        "#fff"
-      ],
+      "colors": ["#D30229"],
+      "buttonColors": ["#D30229", "#000"],
+      "graphColors": ["#D30229"],
       "logoPosition": "-112px 0"
     },
     {
@@ -163,22 +89,9 @@
       "name": "Bnei Sakhnin",
       "name365": "בני סכנין",
       "shortName": "BS",
-      "homeColors": [
-        "#fff",
-        "#000"
-      ],
-      "awayColors": [
-        "#fff",
-        "#FE1403"
-      ],
-      "homeButtonColors": [
-        "#000",
-        "#fff"
-      ],
-      "awayButtonColors": [
-        "#FE1403",
-        "#fff"
-      ],
+      "colors": ["#FE1403"],
+      "buttonColors": ["#FE1403", "#fff"],
+      "graphColors": ["#fff", "#FE1403"],
       "logoPosition": "-280px 0"
     },
     {
@@ -186,21 +99,9 @@
       "name": "Kiryat Shmona",
       "name365": "עירוני קרית שמונה",
       "shortName": "HKS",
-      "homeColors": [
-        "#fff",
-        "#0A2568"
-      ],
-      "awayColors": [
-        "#fff"
-      ],
-      "homeButtonColors": [
-        "#fff",
-        "#0A2568"
-      ],
-      "awayButtonColors": [
-        "#0A2568",
-        "#fff"
-      ],
+      "colors": ["#002F73"],
+      "buttonColors": ["#fff", "#002F73"],
+      "graphColors": ["#002F73", "#5488D2"],
       "logoPosition": "-168px 0"
     },
     {
@@ -208,22 +109,9 @@
       "name": "Beitar Jerusalem",
       "name365": "בית\"ר ירושלים",
       "shortName": "BJ",
-      "homeColors": [
-        "#000",
-        "#fff"
-      ],
-      "awayColors": [
-        "#FEF300",
-        "#000"
-      ],
-      "homeButtonColors": [
-        "#fff",
-        "#000"
-      ],
-      "awayButtonColors": [
-        "#FEF300",
-        "#000"
-      ],
+      "colors": ["#FEF300", "#000"],
+      "buttonColors": ["#FEF300", "#000"],
+      "graphColors": ["#FEF300"],
       "logoPosition": "-392px 0"
     },
     {
@@ -231,21 +119,9 @@
       "name": "Maccabi Petach Tikva",
       "name365": "מכבי פתח תקוה",
       "shortName": "MPT",
-      "homeColors": [
-        "#fff",
-        "#002F73"
-      ],
-      "awayColors": [
-        "#002F73"
-      ],
-      "homeButtonColors": [
-        "#fff",
-        "#002F73"
-      ],
-      "awayButtonColors": [
-        "#002F73",
-        "#fff"
-      ],
+      "colors": ["#002F73"],
+      "buttonColors": ["#002F73", "#fff"],
+      "graphColors": ["#002F73"],
       "logoPosition": "-560px 0"
     },
     {
@@ -253,22 +129,9 @@
       "name": "FC Ashdod",
       "name365": "מ.ס. אשדוד",
       "shortName": "ASH",
-      "homeColors": [
-        "#fff",
-        "#3232EC"
-      ],
-      "awayColors": [
-        "#E12E28",
-        "#F9E534"
-      ],
-      "homeButtonColors": [
-        "#fff",
-        "#3232EC"
-      ],
-      "awayButtonColors": [
-        "#E12E28",
-        "#F9E534"
-      ],
+      "colors": ["#E12E28", "#F9E534"],
+      "buttonColors": ["#E12E28", "#F9E534"],
+      "graphColors": ["#E12E28", "#F9E534"],
       "logoPosition": "-56px 0"
     },
     {
@@ -276,21 +139,9 @@
       "name": "Maccabi Tel Aviv",
       "name365": "מכבי תל אביב",
       "shortName": "MTA",
-      "homeColors": [
-        "#25446E",
-        "#F9E534"
-      ],
-      "awayColors": [
-        "#F9E534"
-      ],
-      "homeButtonColors": [
-        "#25446E",
-        "#F9E534"
-      ],
-      "awayButtonColors": [
-        "#F9E534",
-        "#25446E"
-      ],
+      "colors": ["#FBD54C", "#165DBE"],
+      "buttonColors": ["#FBD54C", "#165DBE"],
+      "graphColors": ["#FBD54C"],
       "logoPosition": "0 0"
     },
     {
@@ -298,21 +149,9 @@
       "name": "Hapoel Raanana",
       "name365": "הפועל רעננה",
       "shortName": "HR",
-      "homeColors": [
-        "#fff",
-        "#D30202"
-      ],
-      "awayColors": [
-        "#000"
-      ],
-      "homeButtonColors": [
-        "#fff",
-        "#D30202"
-      ],
-      "awayButtonColors": [
-        "#D30202",
-        "#000"
-      ],
+      "colors": ["#000"],
+      "buttonColors": ["#000", "#D30202"],
+      "graphColors": ["#000", "#D30202"],
       "logoPosition": "-504px 0"
     },
     {
@@ -320,21 +159,9 @@
       "name": "Hapoel Akko",
       "name365": "הפועל עכו",
       "shortName": "HA",
-      "homeColors": [
-        "#0636CA"
-      ],
-      "awayColors": [
-        "#0636CA",
-        "#fff"
-      ],
-      "homeButtonColors": [
-        "#0636CA",
-        "#fff"
-      ],
-      "awayButtonColors": [
-        "#fff",
-        "#0636CA"
-      ],
+      "colors": ["#5488D2"],
+      "buttonColors": ["#5488D2", "#fff"],
+      "graphColors": ["#5488D2"],
       "logoPosition": "-448px 0"
     }
   ],

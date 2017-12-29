@@ -17,9 +17,8 @@ component.TeamPredictionTile = (function(){
                 league = props.league;
 
             if (selectedTeam) {
-                var clubHomeColors = utils.general.getClubHomeColors(selectedTeam);
-                borderColor = clubHomeColors[0];
-                borderSecondColor = clubHomeColors[1];
+                borderColor = selectedTeam.colors[0];
+                borderSecondColor = selectedTeam.colors[1];
             }
 
             return re(Tile, {borderLeftColor: borderColor, borderLeftSecondColor: borderSecondColor, borderRightColor: borderColor, borderRightSecondColor: borderSecondColor, className: "team-prediction-tile", dialogComponent: "TeamPredictionTileDialog", dialogComponentProps: {team: team, prediction: prediction, isDialogFormDisabled: false}},

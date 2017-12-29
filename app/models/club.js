@@ -6,10 +6,9 @@ let clubSchema = mongoose.Schema({
     name: String,
     name365: String,
     shortName: String,
-    homeColors: Array,
-    awayColors: Array,
-    homeButtonColors: Array,
-    awayButtonColors: Array,
+    colors: Array,
+    buttonColors: Array,
+    graphColors: Array,
     logoPosition: String
 });
 

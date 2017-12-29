@@ -131,9 +131,10 @@ component.GamePredictionMainTile = (function(){
 
                 var predictionCounterWin1 = predictionCounters[team1._id] || 0,
                     predictionCounterWin2 = predictionCounters[team2._id] || 0,
-                    predictionCounterDraw = utils.general.getDrawFromObject(predictionCounters) || 0;
+                    predictionCounterDraw = utils.general.getDrawFromObject(predictionCounters) || 0,
+                    teamsGraphColors = utils.general.getTeamsUniqueGraphColor(team1, team2);
 
-                graphParts = [{color: team1.color, amount: predictionCounterWin1}, {color: COLORS.DRAW_COLOR, amount: predictionCounterDraw}, {color: team2.color, amount: predictionCounterWin2}];
+                graphParts = [{color: teamsGraphColors[0], amount: predictionCounterWin1}, {color: COLORS.DRAW_COLOR, amount: predictionCounterDraw}, {color: teamsGraphColors[1], amount: predictionCounterWin2}];
             }
 
             return re("div", {className: className},
