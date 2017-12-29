@@ -269,7 +269,7 @@ const self = module.exports = {
         if (relevantGame.Events.length < 1) {
             deferred.resolve(newMatchResult);
         } else {
-            const itemsProcessed = 0;
+            let itemsProcessed = 0;
             relevantGame.Events.forEach(function (anEvent) {
                 itemsProcessed++;
                 if (anEvent.Type === 0) { // type = goal
