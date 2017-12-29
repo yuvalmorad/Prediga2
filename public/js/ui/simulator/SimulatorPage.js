@@ -182,7 +182,7 @@ component.SimulatorPage = (function(){
                 re("div", { className: "simulator-matches" },
                     matchElem
                 ),
-                re(LeaderBoardTiles, {leaders: leaders, users: users, selectedLeagueId: selectedLeagueId, disableOpen: true, userIdFocus: userId})
+                re(LeaderBoardTiles, {leaders: leaders, users: users, selectedLeagueId: selectedLeagueId, disableOpen: true, userIdFocus: userId, selectedLeagueId: selectedLeagueId})
             );
         }
     });
