@@ -18,13 +18,13 @@ const self = module.exports = {
         self.getRelevantDataForUserScore().then(function (obj) {
             self.checkUpdateNeeded(obj).then(function (res) {
                 if (res.needUpdate === true) {
-                    const matchIds = [];
+                    let matchIds = [];
                     if (obj.matchResults) {
                         matchIds = obj.matchResults.map(function (match) {
                             return match._id;
                         });
                     }
-                    const teamsIds = [];
+                    let teamsIds = [];
                     if (obj.teamResults) {
                         teamsIds = obj.teamResults.map(function (team) {
                             return team._id;
@@ -56,7 +56,7 @@ const self = module.exports = {
             self.checkUpdateNeededForMatches(obj.matchResults),
             self.checkUpdateNeededForTeams(obj.teamResults)
         ]).then(function (arr) {
-            const isUpdateNeeded = false;
+            let isUpdateNeeded = false;
             if (arr[0].includes(null) || arr[1].includes(null)) {
                 isUpdateNeeded = true;
             }
@@ -202,7 +202,7 @@ const self = module.exports = {
     updateUserScoreByTeamResultAndUserPredictions: function (teamResult, configuration, anUserTeamPredictions, leagueId) {
         //console.log('found ' + anUserTeamPredictions.length + ' user MatchPredictions');
         const promises = anUserTeamPredictions.map(function (userPrediction) {
-            const score = 0;
+            let score = 0;
             const configScore = self.convertTeamTypeToConfigScore(teamResult.type, configuration[0]);
             score += util.calculateResult(userPrediction.team, teamResult.team, configScore);
             return self.updateScore({
@@ -229,7 +229,7 @@ const self = module.exports = {
         });
     },
     calculateUserPredictionScore: function (userPrediction, matchResult, configuration) {
-        const score = 0;
+        let score = 0;
         score += util.calculateResult(userPrediction.winner, matchResult.winner, configuration[0].winner);
         score += util.calculateResult(userPrediction.team1Goals, matchResult.team1Goals, configuration[0].team1Goals);
         score += util.calculateResult(userPrediction.team2Goals, matchResult.team2Goals, configuration[0].team2Goals);

@@ -128,7 +128,7 @@ const self = module.exports = {
         const deferred = Q.defer();
 
         http.get('http://365scores.sport5.co.il:3333?SID=1', function (res) {
-            const str = '';
+            let str = '';
             res.on('data', function (chunk) {
                 //console.log('BODY: ' + chunk);
                 str += chunk;
@@ -149,7 +149,7 @@ const self = module.exports = {
         return deferred.promise;
     },
     parseResponse: function (htmlRawData) {
-        const txt = '';
+        let txt = '';
         const parser = new htmlparser.Parser({
             onopentag: function (name, attribs) {
 
@@ -175,7 +175,7 @@ const self = module.exports = {
     },
     getRelevantGames: function (soccerContent, competition365Arr) {
         const deferred = Q.defer();
-        const itemsProcessed = 0;
+        let itemsProcessed = 0;
         const relevantGames = [];
         soccerContent.Games.forEach(function (game) {
             itemsProcessed++;

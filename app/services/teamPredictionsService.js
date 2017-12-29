@@ -45,7 +45,7 @@ const self = module.exports = {
                     TeamPrediction.find({userId: me}) :
                     TeamPrediction.find({teamId: {$in: teamIds}, userId: me})
             ]).then(function (arr2) {
-                const mergedPredictions = [];
+                let mergedPredictions = [];
 
                 // Merging between other & My predictions
                 if (arr2[0]) {

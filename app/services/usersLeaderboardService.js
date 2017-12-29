@@ -41,7 +41,7 @@ const self = module.exports = {
         const deferred = Q.defer();
 
         UsersLeaderboard.find({userId: aggregatedScore.userId, leagueId: leagueId}, function (err, obj) {
-            const placeBeforeLastGame = -1;
+            let placeBeforeLastGame = -1;
             if (obj && obj.length > 0 && typeof(obj[0].placeCurrent) !== 'undefined') {
                 placeBeforeLastGame = obj[0].placeCurrent;
             }
@@ -89,7 +89,7 @@ const self = module.exports = {
     calculatedAggregatedUserScoreForEachUserScore: function (leagueId, aUser, userScores, aggregrateScore) {
         const deferred = Q.defer();
 
-        const itemsProcessed = 0;
+        let itemsProcessed = 0;
         userScores.forEach(function (aUserScore) {
             itemsProcessed += 1;
             if (aUserScore.score) {
