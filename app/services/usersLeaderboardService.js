@@ -1,19 +1,19 @@
-let Q = require('q');
-let User = require('../models/user');
-let League = require('../models/league');
-let UserScore = require('../models/userScore');
-let UsersLeaderboard = require('../models/usersLeaderboard');
-let utils = require('../utils/util');
+const Q = require('q');
+const User = require('../models/user');
+const League = require('../models/league');
+const UserScore = require('../models/userScore');
+const UsersLeaderboard = require('../models/usersLeaderboard');
+const utils = require('../utils/util');
 
-let self = module.exports = {
+const self = module.exports = {
     updateLeaderboard: function () {
         return Promise.all([
             User.find({}),
             League.find({})
         ]).then(function (arr) {
-            let users = arr[0];
-            let promises = arr[1].map(function (league) {
-                let leagueId = league._id;
+            const users = arr[0];
+            const promises = arr[1].map(function (league) {
+                const leagueId = league._id;
                 console.log('Beginning to updateLeaderboard for league ' + league.name);
                 return Promise.all([
                     self.calculatedAggregatedUserScores(leagueId, users)
@@ -31,17 +31,17 @@ let self = module.exports = {
         });
     },
     updateAllAggregatedScores: function (leagueId, aggregatedScores) {
-        let promises = aggregatedScores.map(function (aggregatedScore, index) {
+        const promises = aggregatedScores.map(function (aggregatedScore, index) {
             return self.updateOneAggregatedScore(leagueId, aggregatedScore, index);
         });
 
         return Promise.all(promises);
     },
     updateOneAggregatedScore: function (leagueId, aggregatedScore, index) {
-        let deferred = Q.defer();
+        const deferred = Q.defer();
 
         UsersLeaderboard.find({userId: aggregatedScore.userId, leagueId: leagueId}, function (err, obj) {
-            let placeBeforeLastGame = -1;
+            const placeBeforeLastGame = -1;
             if (obj && obj.length > 0 && typeof(obj[0].placeCurrent) !== 'undefined') {
                 placeBeforeLastGame = obj[0].placeCurrent;
             }
@@ -60,17 +60,17 @@ let self = module.exports = {
         return deferred.promise;
     },
     calculatedAggregatedUserScores: function (leagueId, users) {
-        let promises = users.map(function (aUser) {
+        const promises = users.map(function (aUser) {
             return self.calculatedAggregatedUserScore(leagueId, aUser);
         });
 
         return Promise.all(promises);
     },
     calculatedAggregatedUserScore: function (leagueId, aUser) {
-        let deferred = Q.defer();
+        const deferred = Q.defer();
 
         UserScore.find({userId: aUser._id, leagueId: leagueId}, function (err, userScores) {
-            let aggregrateScore = {
+            const aggregrateScore = {
                 leagueId: leagueId,
                 userId: aUser._id,
                 score: 0,
@@ -87,9 +87,9 @@ let self = module.exports = {
         return deferred.promise;
     },
     calculatedAggregatedUserScoreForEachUserScore: function (leagueId, aUser, userScores, aggregrateScore) {
-        let deferred = Q.defer();
+        const deferred = Q.defer();
 
-        let itemsProcessed = 0;
+        const itemsProcessed = 0;
         userScores.forEach(function (aUserScore) {
             itemsProcessed += 1;
             if (aUserScore.score) {
@@ -119,9 +119,9 @@ let self = module.exports = {
                 League.find({}) :
                 League.find({_id: leagueId})
         ]).then(function (arr) {
-            let allUsers = arr[0];
-            let promises = arr[1].map(function (league) {
-                let leagueId = league._id;
+            const allUsers = arr[0];
+            const promises = arr[1].map(function (league) {
+                const leagueId = league._id;
                 return Promise.all([
                     UsersLeaderboard.find({leagueId: leagueId}).sort({'score': -1})
                 ]).then(function (arr) {
@@ -133,11 +133,11 @@ let self = module.exports = {
         });
     },
     amendNewRegisteredUsers: function (leaderboard, allUsers, leagueId) {
-        let userIdsInLeaderboard = leaderboard.map(a => a.userId.toString());
-        let allUsersIds = allUsers.map(a => a._id.toString());
-        let userIdsNotInLeaderboard = allUsersIds.filter(x => userIdsInLeaderboard.indexOf(x) === -1);
+        const userIdsInLeaderboard = leaderboard.map(a => a.userId.toString());
+        const allUsersIds = allUsers.map(a => a._id.toString());
+        const userIdsNotInLeaderboard = allUsersIds.filter(x => userIdsInLeaderboard.indexOf(x) === -1);
         if (userIdsNotInLeaderboard && userIdsNotInLeaderboard.length > 0) {
-            let promises = userIdsNotInLeaderboard.map(function (userId) {
+            const promises = userIdsNotInLeaderboard.map(function (userId) {
                 self.amendNewRegisteredUser(leaderboard, userId, leagueId);
                 return leaderboard;
             });
@@ -147,7 +147,7 @@ let self = module.exports = {
         }
     },
     amendNewRegisteredUser: function (leaderboard, userId, leagueId) {
-        let userItem = {
+        const userItem = {
             leagueId: leagueId,
             userId: userId,
             score: 0,

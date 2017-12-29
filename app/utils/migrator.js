@@ -1,13 +1,13 @@
-let MatchResult = require("../models/matchResult");
-let TeamResult = require("../models/teamResult");
-let MatchPrediction = require("../models/matchPrediction");
-let TeamPrediction = require("../models/teamPrediction");
-let UserScore = require("../models/userScore");
-let UsersLeaderboard = require("../models/usersLeaderboard");
-let Club = require("../models/club");
-let utils = require("../utils/util");
+const MatchResult = require("../models/matchResult");
+const TeamResult = require("../models/teamResult");
+const MatchPrediction = require("../models/matchPrediction");
+const TeamPrediction = require("../models/teamPrediction");
+const UserScore = require("../models/userScore");
+const UsersLeaderboard = require("../models/usersLeaderboard");
+const Club = require("../models/club");
+const utils = require("../utils/util");
 
-let self = module.exports = {
+const self = module.exports = {
 
     run: function () {
         return Promise.all([
@@ -29,7 +29,7 @@ let self = module.exports = {
     migrateUserScoreWithLeagueId: function () {
         return UserScore.find({}, function (err, userScores) {
             if (userScores) {
-                let promises = userScores.map(function (userScore) {
+                const promises = userScores.map(function (userScore) {
                     userScore.leagueId = '5a21a7c1a3f89181074e9769';
                     return UserScore.findOneAndUpdate({_id: userScore._id}, userScore, utils.updateSettings);
                 });
@@ -40,7 +40,7 @@ let self = module.exports = {
     migrateLeaderboardWithLeagueId: function () {
         return UsersLeaderboard.find({}, function (err, usersLeaderboards) {
             if (usersLeaderboards) {
-                let promises = usersLeaderboards.map(function (usersLeaderboard) {
+                const promises = usersLeaderboards.map(function (usersLeaderboard) {
                     usersLeaderboard.leagueId = '5a21a7c1a3f89181074e9769';
                     return UsersLeaderboard.findOneAndUpdate({_id: usersLeaderboard._id}, usersLeaderboard, utils.updateSettings);
                 });
@@ -64,13 +64,13 @@ let self = module.exports = {
     migrateMatchPredictions: function (clubs) {
         return MatchPrediction.find({}, function (err, matchPredictions) {
             if (matchPredictions) {
-                let promises = matchPredictions.map(function (matchPrediction) {
-                    let newWinner = self.getClubIdByName(clubs, matchPrediction.winner);
+                const promises = matchPredictions.map(function (matchPrediction) {
+                    const newWinner = self.getClubIdByName(clubs, matchPrediction.winner);
                     if (newWinner) {
                         matchPrediction.winner = newWinner;
                     }
 
-                    let newFirstToScore = self.getClubIdByName(clubs, matchPrediction.firstToScore);
+                    const newFirstToScore = self.getClubIdByName(clubs, matchPrediction.firstToScore);
                     if (newFirstToScore) {
                         matchPrediction.firstToScore = newFirstToScore;
                     }
@@ -83,13 +83,13 @@ let self = module.exports = {
     migrateMatchResults: function (clubs) {
         return MatchResult.find({}, function (err, matchResults) {
             if (matchResults) {
-                let promises = matchResults.map(function (matchResult) {
-                    let newWinner = self.getClubIdByName(clubs, matchResult.winner);
+                const promises = matchResults.map(function (matchResult) {
+                    const newWinner = self.getClubIdByName(clubs, matchResult.winner);
                     if (newWinner) {
                         matchResult.winner = newWinner;
                     }
 
-                    let newFirstToScore = self.getClubIdByName(clubs, matchResult.firstToScore);
+                    const newFirstToScore = self.getClubIdByName(clubs, matchResult.firstToScore);
                     if (newFirstToScore) {
                         matchResult.firstToScore = newFirstToScore;
                     }
@@ -102,8 +102,8 @@ let self = module.exports = {
     migrateTeamPredictions: function (clubs) {
         return TeamPrediction.find({}, function (err, teamPredictions) {
             if (teamPredictions) {
-                let promises = teamPredictions.map(function (teamPrediction) {
-                    let newTeam = self.getClubIdByName(clubs, teamPrediction.team);
+                const promises = teamPredictions.map(function (teamPrediction) {
+                    const newTeam = self.getClubIdByName(clubs, teamPrediction.team);
                     if (newTeam) {
                         teamPrediction.team = newTeam;
                     }
@@ -116,8 +116,8 @@ let self = module.exports = {
     migrateTeamResults: function (clubs) {
         return TeamResult.find({}, function (err, teamResults) {
             if (teamResults) {
-                let promises = teamResults.map(function (teamResult) {
-                    let newTeam = self.getClubIdByName(clubs, teamResult.team);
+                const promises = teamResults.map(function (teamResult) {
+                    const newTeam = self.getClubIdByName(clubs, teamResult.team);
                     if (newTeam) {
                         teamResult.team = newTeam;
                     }

@@ -1,13 +1,13 @@
-let express = require('express');
-let app = express.Router();
-let Team = require('../models/team');
-let teamPredictionsService = require('../services/teamPredictionsService');
-let util = require('../utils/util.js');
-let TeamResult = require('../models/teamResult');
-let League = require('../models/league');
+const express = require('express');
+const app = express.Router();
+const Team = require('../models/team');
+const teamPredictionsService = require('../services/teamPredictionsService');
+const util = require('../utils/util.js');
+const TeamResult = require('../models/teamResult');
+const League = require('../models/league');
 
 app.get('/', util.isLoggedIn, function (req, res) {
-    let user = req.user;
+    const user = req.user;
     getData(user._id).then(function (teamsCombined) {
         res.status(200).json(teamsCombined);
     });
@@ -18,15 +18,15 @@ function getData(me) {
         // TODO - find user's groups + group's leagues
         League.find({})
     ]).then(function (arr2) {
-        let leagueIds = arr2[0].map(function (league) {
+        const leagueIds = arr2[0].map(function (league) {
             return league._id;
         });
 
         return Promise.all([
             Team.find({league: {$in: leagueIds}})
         ]).then(function (arr1) {
-            let teams = arr1[0];
-            let teamIds = arr1[0].map(function (team) {
+            const teams = arr1[0];
+            const teamIds = arr1[0].map(function (team) {
                 return team._id;
             });
 

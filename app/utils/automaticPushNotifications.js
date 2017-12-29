@@ -11,7 +11,7 @@ function scheduleJobBeforeGameKickoffTime() {
             return;
         }
         
-        let hourBeforeGameKickoffTime = new Date(match.kickofftime);
+        const hourBeforeGameKickoffTime = new Date(match.kickofftime);
         hourBeforeGameKickoffTime.setHours(hourBeforeGameKickoffTime.getHours() - 1);
         schedule.scheduleJob(hourBeforeGameKickoffTime, function () {
             PushSubscription.find({}).then(function (users) {
@@ -31,7 +31,7 @@ function scheduleJobBeforeGameKickoffTime() {
     });
 }
 
-let self = module.exports = {
+const self = module.exports = {
     runAutomaticPushBeforeGame: function () {
         scheduleJobBeforeGameKickoffTime();
     }

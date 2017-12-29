@@ -1,10 +1,10 @@
-let express = require('express');
-let app = express.Router();
-let User = require('../models/user');
-let util = require('../utils/util.js');
+const express = require('express');
+const app = express.Router();
+const User = require('../models/user');
+const util = require('../utils/util.js');
 
 app.get('/:userId', util.isLoggedIn, function (req, res) {
-    let userId = req.params.userId;
+    const userId = req.params.userId;
     if (!userId) {
         res.status(500).json(util.getErrorResponse('provide userId'));
         return;
@@ -19,7 +19,7 @@ app.get('/:userId', util.isLoggedIn, function (req, res) {
 });
 
 app.delete('/:userId', util.isAdmin, function (req, res) {
-    let userId = req.params.userId;
+    const userId = req.params.userId;
     if (!userId) {
         res.status(500).json(util.getErrorResponse('provide userId'));
         return;

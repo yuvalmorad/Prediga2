@@ -24,7 +24,7 @@ function pushAllSubscriptionsToSpecificUser(user, text) {
     }
 }
 
-let self = module.exports = {
+const self = module.exports = {
     pushToAllRegisterdUsers: function (text) {
         pushSubscription.find({}).then(function (users) {
             (users || []).forEach(function (user) {

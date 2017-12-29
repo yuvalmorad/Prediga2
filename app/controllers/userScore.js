@@ -1,7 +1,7 @@
-let express = require('express');
-let app = express.Router();
-let UserScore = require('../models/userScore');
-let util = require('../utils/util.js');
+const express = require('express');
+const app = express.Router();
+const UserScore = require('../models/userScore');
+const util = require('../utils/util.js');
 
 app.get('/', util.isAdmin, function (req, res) {
     UserScore.find({}, function (err, obj) {

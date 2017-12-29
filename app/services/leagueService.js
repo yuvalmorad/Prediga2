@@ -1,8 +1,8 @@
-let League = require('../models/league');
-let utils = require('../utils/util');
-let Match = require('../models/match');
+const League = require('../models/league');
+const utils = require('../utils/util');
+const Match = require('../models/match');
 
-let self = module.exports = {
+const self = module.exports = {
     updateLeague: function (league) {
         console.log('beginning to update league');
         return League.findOneAndUpdate({_id: league._id}, league, utils.overrideSettings, function (err, obj) {
@@ -19,7 +19,7 @@ let self = module.exports = {
             if (!arr[0]) {
                 return [];
             } else {
-                let competitionIds = arr[0].map(function (league) {
+                const competitionIds = arr[0].map(function (league) {
                     return league.competition365;
                 });
                 return competitionIds;
@@ -31,7 +31,7 @@ let self = module.exports = {
             // TODO - find user's groups + group's leagues
             League.find({})
         ]).then(function (arr2) {
-            let leagueIds = arr2[0].map(function (league) {
+            const leagueIds = arr2[0].map(function (league) {
                 return league._id;
             });
 

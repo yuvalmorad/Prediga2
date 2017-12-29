@@ -1,13 +1,13 @@
-let Q = require('q');
-let Match = require('../models/match');
-let MatchResult = require('../models/matchResult');
-let UserScore = require('../models/userScore');
-let util = require('../utils/util');
+const Q = require('q');
+const Match = require('../models/match');
+const MatchResult = require('../models/matchResult');
+const UserScore = require('../models/userScore');
+const util = require('../utils/util');
 
-let self = module.exports = {
+const self = module.exports = {
     updateMatches: function (matches) {
         console.log('beginning to update ' + matches.length + ' matches');
-        let promises = matches.map(function (match) {
+        const promises = matches.map(function (match) {
             return Match.findOneAndUpdate({_id: match._id}, match, util.overrideSettings, function (err, obj) {
                     if (err) {
                         return Promise.reject('general error');
@@ -22,7 +22,7 @@ let self = module.exports = {
      * Remove all (matches, match results, user scores).
      */
     removeMatches: function (league) {
-        let deferred = Q.defer();
+        const deferred = Q.defer();
         Match.find({league: league}, function (err, leagueMatches) {
             if (err) return console.log(err);
             if (!leagueMatches || !Array.isArray(leagueMatches) || leagueMatches.length === 0) {
@@ -38,7 +38,7 @@ let self = module.exports = {
         return deferred.promise;
     },
     removeLeagueMatches: function (leagueMatches) {
-        let promises = leagueMatches.map(function (aMatch) {
+        const promises = leagueMatches.map(function (aMatch) {
             aMatch.remove();
             return MatchResult.remove({matchId: aMatch._id}, function (err, obj) {
                 return UserScore.remove({gameId: aMatch._id});
@@ -47,10 +47,10 @@ let self = module.exports = {
         return Promise.all(promises);
     },
     findMatchByTeamsToday: function (team1, team2) {
-        let deferred = Q.defer();
-        let today = new Date();
-        let after = new Date();
-        let before = new Date();
+        const deferred = Q.defer();
+        const today = new Date();
+        const after = new Date();
+        const before = new Date();
         after.setMinutes(today.getMinutes() + 200);
         before.setDate(today.getDate() - 200);
 
@@ -69,7 +69,7 @@ let self = module.exports = {
         return deferred.promise;
     },
     getNextMatchDate: function () {
-        let now = new Date();
+        const now = new Date();
 
         return Promise.all([
             Match.findOne({kickofftime: {$gte: now}}).sort({'kickofftime': 1}).limit(1)
@@ -78,9 +78,9 @@ let self = module.exports = {
         });
     },
     findMatchesThatAreClosedAndNotFinished: function (matchIds) {
-        let deferred = Q.defer();
-        let now = new Date();
-        let after = new Date();
+        const deferred = Q.defer();
+        const now = new Date();
+        const after = new Date();
         after.setMinutes(after.getMinutes() - 105);
 
         Match.find({

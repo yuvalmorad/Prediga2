@@ -1,8 +1,8 @@
 // load the things we need
-let mongoose = require('mongoose');
+const mongoose = require('mongoose');
 
 // define the schema for our leagues model
-let leagueSchema = mongoose.Schema({
+const leagueSchema = mongoose.Schema({
     name: String,
     logoPosition: String,
     year: String,

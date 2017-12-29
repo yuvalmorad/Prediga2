@@ -1,11 +1,11 @@
-let Q = require('q');
-let Team = require('../models/team');
-let TeamPrediction = require('../models/teamPrediction');
-let utils = require('../utils/util');
-let self = module.exports = {
+const Q = require('q');
+const Team = require('../models/team');
+const TeamPrediction = require('../models/teamPrediction');
+const utils = require('../utils/util');
+const self = module.exports = {
     createTeamPredictions(teamPredictions, userId) {
-        let now = new Date();
-        let promises = teamPredictions.map(function (teamPrediction) {
+        const now = new Date();
+        const promises = teamPredictions.map(function (teamPrediction) {
             // we can update only if the kickofftime is not passed
             return Team.findOne({deadline: {$gte: now}, _id: teamPrediction.teamId}).then(function (aTeam) {
                 if (aTeam) {
@@ -23,7 +23,7 @@ let self = module.exports = {
         return Promise.all(promises);
     },
     getPredictionsForOtherUsersInner: function (teams, userId) {
-        let promises = teams.map(function (aTeam) {
+        const promises = teams.map(function (aTeam) {
             if (userId) {
                 return TeamPrediction.find({teamId: aTeam._id, userId: userId});
             } else {
@@ -33,7 +33,7 @@ let self = module.exports = {
         return Promise.all(promises);
     },
     getPredictionsForOtherUsers: function (userId, me, teamIds) {
-        let now = new Date();
+        const now = new Date();
         return Promise.all([
             typeof(teamIds) === 'undefined' ?
                 Team.find({deadline: {$lt: now}}) :
@@ -45,7 +45,7 @@ let self = module.exports = {
                     TeamPrediction.find({userId: me}) :
                     TeamPrediction.find({teamId: {$in: teamIds}, userId: me})
             ]).then(function (arr2) {
-                let mergedPredictions = [];
+                const mergedPredictions = [];
 
                 // Merging between other & My predictions
                 if (arr2[0]) {
@@ -59,7 +59,7 @@ let self = module.exports = {
         });
     },
     getPredictionsByUserId: function (userId, isForMe, me, teamIds) {
-        let deferred = Q.defer();
+        const deferred = Q.defer();
 
         if (isForMe) {
             if (typeof(teamIds) !== 'undefined') {
@@ -81,7 +81,7 @@ let self = module.exports = {
         return deferred.promise;
     },
     getPredictionsByTeamId: function (teamIds, isForMe, me) {
-        let deferred = Q.defer();
+        const deferred = Q.defer();
 
         if (isForMe) {
             TeamPrediction.find({teamId: {$in: teamIds}}, function (err, aTeamPredictions) {

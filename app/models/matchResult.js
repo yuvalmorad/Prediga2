@@ -1,8 +1,8 @@
 // load the things we need
-let mongoose = require('mongoose');
+const mongoose = require('mongoose');
 
 // define the schema for our match result model
-let matchResultSchema = mongoose.Schema({
+const matchResultSchema = mongoose.Schema({
     matchId: String,
     winner: String,
     team1Goals: Number,

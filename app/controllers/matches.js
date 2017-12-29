@@ -1,10 +1,10 @@
-let express = require('express');
-let app = express.Router();
-let Match = require('../models/match');
-let util = require('../utils/util.js');
+const express = require('express');
+const app = express.Router();
+const Match = require('../models/match');
+const util = require('../utils/util.js');
 
 app.get('/:matchId', util.isLoggedIn, function (req, res) {
-    let matchId = req.params.matchId;
+    const matchId = req.params.matchId;
     if (!matchId) {
         res.status(500).json(util.getErrorResponse('provide matchId'));
         return;
@@ -19,7 +19,7 @@ app.get('/:matchId', util.isLoggedIn, function (req, res) {
 });
 
 app.get('/', util.isLoggedIn, function (req, res) {
-    let type = req.query.type;
+    const type = req.query.type;
     if (!type) {
         Match.find({}, function (err, obj) {
             res.status(200).json(obj);

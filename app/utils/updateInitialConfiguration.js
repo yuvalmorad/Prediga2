@@ -1,14 +1,14 @@
-let TeamService = require('../services/teamService');
-let MatchService = require('../services/matchService');
-let MatchResultService = require('../services/matchResultService');
-let TeamResultService = require('../services/teamResultService');
-let groupConfigurationService = require('../services/groupConfigurationService');
-let UsersLeaderboardService = require('../services/usersLeaderboardService');
-let UserScoreService = require('../services/userScoreService');
-let ClubService = require('../services/clubService');
-let LeagueService = require('../services/leagueService');
+const TeamService = require('../services/teamService');
+const MatchService = require('../services/matchService');
+const MatchResultService = require('../services/matchResultService');
+const TeamResultService = require('../services/teamResultService');
+const groupConfigurationService = require('../services/groupConfigurationService');
+const UsersLeaderboardService = require('../services/usersLeaderboardService');
+const UserScoreService = require('../services/userScoreService');
+const ClubService = require('../services/clubService');
+const LeagueService = require('../services/leagueService');
 
-let self = module.exports = {
+const self = module.exports = {
     loadAll: function () {
         return Promise.all([
             groupConfigurationService.updateConfiguration(require('../initialData/configuration/groupConfiguration.json')),

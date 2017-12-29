@@ -1,15 +1,15 @@
-let util = require('./utils/util.js');
-let initialData = require('./utils/updateInitialConfiguration');
-let automaticUpdater = require('./utils/automaticUpdater');
-let automaticPushNotifications = require('./utils/automaticPushNotifications');
-let migrator = require('./utils/migrator');
-let mongoose = require('mongoose');
-let socketIo = require('./socketIo');
+const util = require('./utils/util.js');
+const initialData = require('./utils/updateInitialConfiguration');
+const automaticUpdater = require('./utils/automaticUpdater');
+const automaticPushNotifications = require('./utils/automaticPushNotifications');
+const migrator = require('./utils/migrator');
+const mongoose = require('mongoose');
+const socketIo = require('./socketIo');
 mongoose.Promise = Promise;
-let pushNotificationUtil = require('./utils/pushNotification');
+const pushNotificationUtil = require('./utils/pushNotification');
 
 module.exports = function (app, passport) {
-    let server = require('http').Server(app);
+    const server = require('http').Server(app);
     socketIo.init(server);
     initialData.loadAll();
     automaticUpdater.run();

@@ -1,8 +1,8 @@
 // load the things we need
-let mongoose = require('mongoose');
+const mongoose = require('mongoose');
 
 // define the schema for our clubs model
-let clubSchema = mongoose.Schema({
+const clubSchema = mongoose.Schema({
     name: String,
     name365: String,
     shortName: String,

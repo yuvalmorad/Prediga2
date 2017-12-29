@@ -1,10 +1,10 @@
-let express = require('express');
-let app = express.Router();
-let Team = require('../models/team');
-let util = require('../utils/util.js');
+const express = require('express');
+const app = express.Router();
+const Team = require('../models/team');
+const util = require('../utils/util.js');
 
 app.get('/:teamId', util.isLoggedIn, function (req, res) {
-    let teamId = req.params.teamId;
+    const teamId = req.params.teamId;
     if (!teamId) {
         res.status(500).json(util.getErrorResponse('provide teamId'));
         return;

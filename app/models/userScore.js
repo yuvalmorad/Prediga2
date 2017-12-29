@@ -1,8 +1,8 @@
 // load the things we need
-let mongoose = require('mongoose');
+const mongoose = require('mongoose');
 
 // define the schema for our user score model
-let userScoreSchema = mongoose.Schema({
+const userScoreSchema = mongoose.Schema({
     leagueId: String,
     userId: String,
     gameId: String,

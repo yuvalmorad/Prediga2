@@ -1,25 +1,25 @@
-let express = require('express');
-let app = express.Router();
-let TeamPrediction = require('../models/teamPrediction');
-let teamPredictionsService = require('../services/teamPredictionsService');
-let util = require('../utils/util.js');
+const express = require('express');
+const app = express.Router();
+const TeamPrediction = require('../models/teamPrediction');
+const teamPredictionsService = require('../services/teamPredictionsService');
+const util = require('../utils/util.js');
 
 app.get('/', util.isLoggedIn, function (req, res) {
-    let user = req.user;
+    const user = req.user;
     teamPredictionsService.getPredictionsByUserId(undefined, false, user._id).then(function (result) {
         res.status(200).json(result);
     });
 });
 
 app.get('/:userId', util.isLoggedIn, function (req, res) {
-    let userId = req.params.userId;
+    const userId = req.params.userId;
     if (!userId) {
         res.status(403).json(util.getErrorResponse('provide userId'));
         return;
     }
 
-    let user = req.user;
-    let isForMe = user._id.toString() === userId || typeof(userId) === 'undefined';
+    const user = req.user;
+    const isForMe = user._id.toString() === userId || typeof(userId) === 'undefined';
 
     teamPredictionsService.getPredictionsByUserId(userId, isForMe).then(function (result) {
         res.status(200).json(result);
@@ -27,7 +27,7 @@ app.get('/:userId', util.isLoggedIn, function (req, res) {
 });
 
 app.delete('/:id', util.isAdmin, function (req, res) {
-    let id = req.params.id;
+    const id = req.params.id;
     if (!id) {
         res.status(403).json(util.getErrorResponse('provide id'));
         return;
@@ -42,12 +42,12 @@ app.delete('/:id', util.isAdmin, function (req, res) {
 });
 
 app.post('/', util.isLoggedIn, function (req, res) {
-    let teamPredictions = req.body.teamPredictions;
+    const teamPredictions = req.body.teamPredictions;
     if (!teamPredictions || !Array.isArray(teamPredictions)) {
         res.status(500).json(util.getErrorResponse('provide teamPredictions'));
         return;
     }
-    let userId = req.user._id;
+    const userId = req.user._id;
     teamPredictionsService.createTeamPredictions(teamPredictions, userId).then(function (obj) {
         res.status(200).json(obj);
     }, function (msg) {

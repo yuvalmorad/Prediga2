@@ -1,6 +1,6 @@
-let mongoose = require('mongoose');
+const mongoose = require('mongoose');
 
-let pushSubscriptionSchema = mongoose.Schema({
+const pushSubscriptionSchema = mongoose.Schema({
     userId: String,
     pushSubscriptions: Array
 });

@@ -1,10 +1,10 @@
-let Club = require('../models/club');
-let utils = require('../utils/util');
+const Club = require('../models/club');
+const utils = require('../utils/util');
 
-let self = module.exports = {
+const self = module.exports = {
     updateClubs: function (clubs) {
         console.log('beginning to update ' + clubs.length + ' clubs');
-        let promises = clubs.map(function (club) {
+        const promises = clubs.map(function (club) {
             return Club.findOneAndUpdate({_id: club._id}, club, utils.overrideSettings, function (err, obj) {
                     if (err) {
                         return Promise.reject('general error');

@@ -1,13 +1,13 @@
-let Q = require('q');
-let Team = require('../models/team');
-let TeamResult = require('../models/teamResult');
-let UserScore = require('../models/userScore');
-let util = require('../utils/util');
+const Q = require('q');
+const Team = require('../models/team');
+const TeamResult = require('../models/teamResult');
+const UserScore = require('../models/userScore');
+const util = require('../utils/util');
 
-let self = module.exports = {
+const self = module.exports = {
     updateTeams: function (teams) {
         console.log('beginning to update ' + teams.length + ' teams');
-        let promises = teams.map(function (team) {
+        const promises = teams.map(function (team) {
             return Team.findOneAndUpdate({_id: team._id}, team, util.overrideSettings, function (err, obj) {
                     if (err) {
                         return Promise.reject('general error');
@@ -19,7 +19,7 @@ let self = module.exports = {
         return Promise.all(promises);
     },
     removeTeams: function (league) {
-        let deferred = Q.defer();
+        const deferred = Q.defer();
         Team.find({league: league}, function (err, leagueTeams) {
             if (err) return console.log(err);
             if (!leagueTeams || !Array.isArray(leagueTeams) || leagueTeams.length === 0) {
@@ -35,7 +35,7 @@ let self = module.exports = {
         return deferred.promise;
     },
     removeLeagueTeams: function (leagueTeams) {
-        let promises = leagueTeams.map(function (aTeam) {
+        const promises = leagueTeams.map(function (aTeam) {
             aTeam.remove();
             return TeamResult.remove({teamId: aTeam._id}, function (err, obj) {
                 return UserScore.remove({gameId: aTeam._id});

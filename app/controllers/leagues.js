@@ -1,10 +1,10 @@
-let express = require('express');
-let app = express.Router();
-let League = require('../models/league');
-let util = require('../utils/util.js');
+const express = require('express');
+const app = express.Router();
+const League = require('../models/league');
+const util = require('../utils/util.js');
 
 app.get('/:leagueId', util.isLoggedIn, function (req, res) {
-    let leagueId = req.params.leagueId;
+    const leagueId = req.params.leagueId;
     if (!leagueId) {
         res.status(500).json(util.getErrorResponse('provide leagueId'));
         return;

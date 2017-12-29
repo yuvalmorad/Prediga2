@@ -1,20 +1,20 @@
-let Q = require('q');
-let Match = require('../models/match');
-let MatchPrediction = require('../models/matchPrediction');
-let utils = require('../utils/util');
+const Q = require('q');
+const Match = require('../models/match');
+const MatchPrediction = require('../models/matchPrediction');
+const utils = require('../utils/util');
 
-let self = module.exports = {
+const self = module.exports = {
     /**
      * NOT SECURE API, USED BY /SIMULATOR AND MATCHES ARE FILTERED BEFORE CALLING TO THIS METHOD
      * @param matches
      * @returns {*|PromiseLike<any>|Promise}
      */
     findPredictionsByMatchIds: function (matches) {
-        let deferred = Q.defer();
+        const deferred = Q.defer();
         if (matches && matches.length < 1) {
             deferred.resolve([]);
         }
-        let matchIds = matches.map(function (match) {
+        const matchIds = matches.map(function (match) {
             return match._id;
         });
         MatchPrediction.find({matchId: {$in: matchIds}}).then(function (predictions) {
@@ -23,10 +23,10 @@ let self = module.exports = {
         return deferred.promise;
     },
     createMatchPredictions(matchPredictions, userId, minBefore) {
-        let now = new Date();
-        let deadline = new Date();
+        const now = new Date();
+        const deadline = new Date();
         deadline.setMinutes(now.getMinutes() + minBefore);
-        let promises = matchPredictions.map(function (matchPrediction) {
+        const promises = matchPredictions.map(function (matchPrediction) {
             // we can update only until 5 minutes before kick off time.
             return Match.findOne({kickofftime: {$gte: deadline}, _id: matchPrediction.matchId}).then(function (aMatch) {
                 if (aMatch) {
@@ -58,7 +58,7 @@ let self = module.exports = {
         return Promise.all(promises);
     },
     getPredictionsForOtherUsersInner: function (matches, userId, me) {
-        let promises = matches.map(function (aMatch) {
+        const promises = matches.map(function (aMatch) {
             if (userId) {
                 return MatchPrediction.find({matchId: aMatch._id, userId: userId});
             } else {
@@ -68,7 +68,7 @@ let self = module.exports = {
         return Promise.all(promises);
     },
     getPredictionsForOtherUsers: function (userId, me, matchIds) {
-        let now = new Date();
+        const now = new Date();
         return Promise.all([
             typeof(matchIds) === 'undefined' ?
                 Match.find({kickofftime: {$lt: now}}) :
@@ -80,7 +80,7 @@ let self = module.exports = {
                     MatchPrediction.find({userId: me}) :
                     MatchPrediction.find({matchId: {$in: matchIds}, userId: me})
             ]).then(function (arr2) {
-                let mergedPredictions = [];
+                const mergedPredictions = [];
                 // merging between others & My predictions
                 if (arr2[0]) {
                     mergedPredictions = mergedPredictions.concat.apply([], arr2[0]);
@@ -93,7 +93,7 @@ let self = module.exports = {
         });
     },
     getPredictionsByUserId: function (userId, isForMe, me, matchIds) {
-        let deferred = Q.defer();
+        const deferred = Q.defer();
 
         if (isForMe) {
             if (typeof(matchIds) !== 'undefined') {
@@ -115,7 +115,7 @@ let self = module.exports = {
         return deferred.promise;
     },
     getPredictionsByMatchIds: function (matchIds, isForMe, me) {
-        let deferred = Q.defer();
+        const deferred = Q.defer();
 
         if (isForMe) {
             MatchPrediction.find({matchId: matchIds}, function (err, aMatchPredictions) {
@@ -130,11 +130,11 @@ let self = module.exports = {
         return deferred.promise;
     },
     getFutureGamesPredictionsCounters: function (matchIdsRelevant) {
-        let now = new Date();
+        const now = new Date();
         return Promise.all([
             Match.find({kickofftime: {$gte: now}, _id: {$in: matchIdsRelevant}})
         ]).then(function (arr) {
-            let matchIds = arr[0].map(function (match) {
+            const matchIds = arr[0].map(function (match) {
                 return match._id;
             });
 
@@ -146,9 +146,9 @@ let self = module.exports = {
         });
     },
     aggegrateFuturePredictions: function (matchPredictions) {
-        let deferred = Q.defer();
-        let result = {};
-        let itemsProcessed = 0;
+        const deferred = Q.defer();
+        const result = {};
+        const itemsProcessed = 0;
         if (matchPredictions && matchPredictions.length > 0) {
             matchPredictions.forEach(function (matchPrediction) {
                 itemsProcessed += 1;

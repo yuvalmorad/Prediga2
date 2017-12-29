@@ -1,10 +1,10 @@
-let Q = require('q');
-let TeamResult = require('../models/teamResult');
-let util = require('../utils/util');
+const Q = require('q');
+const TeamResult = require('../models/teamResult');
+const util = require('../utils/util');
 
-let self = module.exports = {
+const self = module.exports = {
     updateTeamResult: function (teamResult) {
-        let deferred = Q.defer();
+        const deferred = Q.defer();
         TeamResult.findOneAndUpdate({teamId: teamResult.teamId}, teamResult, util.updateSettings, function (err, obj) {
                 if (err) {
                     deferred.resolve(util.getErrorResponse('error'));
@@ -21,7 +21,7 @@ let self = module.exports = {
             return;
         }
         console.log('beginning to update ' + teamResults.length + ' teamsResults');
-        let promises = teamResults.map(function (aTeamResult) {
+        const promises = teamResults.map(function (aTeamResult) {
             return self.updateTeamResult(aTeamResult);
         });
         return Promise.all(promises);

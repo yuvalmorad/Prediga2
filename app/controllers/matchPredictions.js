@@ -1,20 +1,20 @@
-let express = require('express');
-let app = express.Router();
-let MatchPrediction = require('../models/matchPrediction');
-let matchPredictionsService = require('../services/matchPredictionsService');
-let util = require('../utils/util.js');
-let groupConfigurationService = require('../services/groupConfigurationService');
+const express = require('express');
+const app = express.Router();
+const MatchPrediction = require('../models/matchPrediction');
+const matchPredictionsService = require('../services/matchPredictionsService');
+const util = require('../utils/util.js');
+const groupConfigurationService = require('../services/groupConfigurationService');
 
 app.get('/:userId', util.isLoggedIn, function (req, res) {
-    let userId = req.params.userId;
+    const userId = req.params.userId;
 
     if (!userId) {
         res.status(403).json(util.getErrorResponse('provide userId'));
         return;
     }
 
-    let user = req.user;
-    let isForMe = user._id.toString() === userId || typeof(userId) === 'undefined';
+    const user = req.user;
+    const isForMe = user._id.toString() === userId || typeof(userId) === 'undefined';
 
     matchPredictionsService.getPredictionsByUserId(userId, isForMe).then(function (result) {
         res.status(200).json(result);
@@ -22,30 +22,30 @@ app.get('/:userId', util.isLoggedIn, function (req, res) {
 });
 
 app.get('/:matchId', util.isLoggedIn, function (req, res) {
-    let matchId = req.params.matchId;
+    const matchId = req.params.matchId;
     if (!matchId) {
         res.status(403).json(util.getErrorResponse('provide matchId'));
         return;
     }
 
-    let user = req.user;
-    let isForMe = user._id.toString() === userId || typeof(userId) === 'undefined';
+    const user = req.user;
+    const isForMe = user._id.toString() === userId || typeof(userId) === 'undefined';
 
-    let matchArr = [matchId];
+    const matchArr = [matchId];
     matchPredictionsService.getPredictionsByMatchIds(matchArr, isForMe).then(function (result) {
         res.status(200).json(result);
     });
 });
 
 app.get('/', util.isLoggedIn, function (req, res) {
-    let user = req.user;
+    const user = req.user;
     matchPredictionsService.getPredictionsByUserId(undefined, false, user._id).then(function (result) {
         res.status(200).json(result);
     });
 });
 
 app.delete('/:id', util.isAdmin, function (req, res) {
-    let id = req.params.id;
+    const id = req.params.id;
     if (!id) {
         res.status(403).json(util.getErrorResponse('provide id'));
         return;
@@ -60,12 +60,12 @@ app.delete('/:id', util.isAdmin, function (req, res) {
 });
 
 app.post('/', util.isLoggedIn, function (req, res) {
-    let matchPredictions = req.body.matchPredictions;
+    const matchPredictions = req.body.matchPredictions;
     if (!matchPredictions || !Array.isArray(matchPredictions)) {
         res.status(500).json(util.getErrorResponse('provide array of matchPredictions'));
         return;
     }
-    let userId = req.user._id;
+    const userId = req.user._id;
 
     groupConfigurationService.getConfigurationValue('minutesBeforeCloseMathPrediction').then(function (value) {
         return matchPredictionsService.createMatchPredictions(matchPredictions, userId, value).then(function (obj) {

@@ -1,6 +1,6 @@
-let io;
+const io;
 
-let self = module.exports = {
+const self = module.exports = {
     init: function (server) {
         io = require('socket.io')(server);
         self.connect();

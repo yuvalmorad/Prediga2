@@ -1,10 +1,10 @@
-let Q = require('q');
-let groupConfiguration = require('../models/groupConfiguration');
-let util = require('../utils/util');
+const Q = require('q');
+const groupConfiguration = require('../models/groupConfiguration');
+const util = require('../utils/util');
 
 module.exports = {
     updateConfiguration: function (groupConfigurationObj) {
-        let deferred = Q.defer();
+        const deferred = Q.defer();
         groupConfiguration.findOneAndUpdate({}, groupConfigurationObj.defaultConfiguration, util.updateSettings, function (err, obj) {
                 if (err) {
                     deferred.resolve(util.getErrorResponse('error'));
@@ -16,7 +16,7 @@ module.exports = {
         return deferred.promise;
     },
     getConfigurationValue: function (key) {
-        let deferred = Q.defer();
+        const deferred = Q.defer();
         groupConfiguration.find({}, function (err, config) {
             deferred.resolve(config[0][key]);
         });

@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express.Router();
-let util = require('../utils/util');
+const util = require('../utils/util');
 const pushSubscription = require('../models/pushSubscription');
 
 app.post('/', util.isLoggedIn, function (req, res) {

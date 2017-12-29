@@ -1,9 +1,9 @@
-let express = require('express');
-let app = express.Router();
-let matchService = require('../services/matchService');
-let matchPredictionsService = require('../services/matchPredictionsService');
-let util = require('../utils/util.js');
-let leagueService = require('../services/leagueService');
+const express = require('express');
+const app = express.Router();
+const matchService = require('../services/matchService');
+const matchPredictionsService = require('../services/matchPredictionsService');
+const util = require('../utils/util.js');
+const leagueService = require('../services/leagueService');
 
 app.get('/', util.isLoggedIn, function (req, res) {
     getData().then(function (simulatorCombined) {
@@ -15,7 +15,7 @@ function getData() {
     return Promise.all([
         leagueService.getUsersMatchesByLeagues()
     ]).then(function (arr2) {
-        let matchIds = arr2[0].map(function (match) {
+        const matchIds = arr2[0].map(function (match) {
             return match._id;
         });
 
