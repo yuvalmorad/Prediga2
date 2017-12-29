@@ -11,7 +11,7 @@ app.post('/', util.isLoggedIn, function (req, res) {
 
     pushSubscription.findOneAndUpdate({
         userId: userId
-    }, {userId: userId, $addToSet: {pushSubscriptions: pushSubscriptionObj}}, util.updateSettings).then(function(){
+    }, {userId: userId, $addToSet: {pushSubscriptions: pushSubscriptionObj}}, util.updateSettings).then(function () {
         res.status(200).json({});
     })
 });
@@ -20,7 +20,7 @@ app.get('/', util.isLoggedIn, function (req, res) {
     const userId = req.user._id;
     pushSubscription.findOne({
         userId: userId
-    }).then(function(obj){
+    }).then(function (obj) {
         console.log("obj", obj);
         res.status(200).json({
             pushSubscriptions: obj ? obj.pushSubscriptions : []

@@ -37,7 +37,7 @@ let self = module.exports = {
         return Promise.all([
             typeof(teamIds) === 'undefined' ?
                 Team.find({deadline: {$lt: now}}) :
-                Team.find({deadline: {$lt: now}, teamId: {$in: teamIds}})
+                Team.find({deadline: {$lt: now}, _id: {$in: teamIds}})
         ]).then(function (arr) {
             return Promise.all([
                 self.getPredictionsForOtherUsersInner(arr[0], userId, me),

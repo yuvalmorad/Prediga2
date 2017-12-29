@@ -1,18 +1,18 @@
 let io;
 
 let self = module.exports = {
-    init: function(server) {
+    init: function (server) {
         io = require('socket.io')(server);
         self.connect();
     },
 
-    connect: function() {
+    connect: function () {
         io.on('connection', function (socket) {
             socket.emit('message', {message: 'Welcome back'});
         });
     },
 
-    emit: function(path, obj) {
+    emit: function (path, obj) {
         io.emit(path, obj);
     }
 };

@@ -45,9 +45,17 @@
       "name365": "",
       "name": "Argentina",
       "shortName": "AR",
-      "colors": ["#42a0c8"],
-      "buttonColors": ["#42a0c8", "#fff"],
-      "graphColors": ["#42a0c8", "#fff"],
+      "colors": [
+        "#42a0c8"
+      ],
+      "buttonColors": [
+        "#42a0c8",
+        "#fff"
+      ],
+      "graphColors": [
+        "#42a0c8",
+        "#fff"
+      ],
       "logoPosition": "0 0"
     },
     {
@@ -55,9 +63,17 @@
       "name365": "",
       "name": "Brazil",
       "shortName": "BR",
-      "colors": ["yellow"],
-      "buttonColors": ["yellow", "blue"],
-      "graphColors": ["yellow", "blue"],
+      "colors": [
+        "yellow"
+      ],
+      "buttonColors": [
+        "yellow",
+        "blue"
+      ],
+      "graphColors": [
+        "yellow",
+        "blue"
+      ],
       "logoPosition": "-56px -56px"
     },
     {
@@ -65,9 +81,17 @@
       "name365": "",
       "name": "Colombia",
       "shortName": "CU",
-      "colors": ["yellow"],
-      "buttonColors": ["yellow", "blue"],
-      "graphColors": ["yellow", "blue"],
+      "colors": [
+        "yellow"
+      ],
+      "buttonColors": [
+        "yellow",
+        "blue"
+      ],
+      "graphColors": [
+        "yellow",
+        "blue"
+      ],
       "logoPosition": "0 -112px"
     },
     {
@@ -75,9 +99,16 @@
       "name365": "",
       "name": "Peru",
       "shortName": "PE",
-      "colors": ["red"],
-      "buttonColors": ["red", "#fff"],
-      "graphColors": ["red"],
+      "colors": [
+        "red"
+      ],
+      "buttonColors": [
+        "red",
+        "#fff"
+      ],
+      "graphColors": [
+        "red"
+      ],
       "logoPosition": "-56px -560px"
     },
     {
@@ -85,9 +116,16 @@
       "name365": "",
       "name": "Uruguay",
       "shortName": "UR",
-      "colors": ["#60b5ff"],
-      "buttonColors": ["#60b5ff", "#000"],
-      "graphColors": ["#60b5ff"],
+      "colors": [
+        "#60b5ff"
+      ],
+      "buttonColors": [
+        "#60b5ff",
+        "#000"
+      ],
+      "graphColors": [
+        "#60b5ff"
+      ],
       "logoPosition": "-56px -899px"
     },
     {
@@ -95,9 +133,16 @@
       "name365": "",
       "name": "Costa Rica",
       "shortName": "CR",
-      "colors": ["red"],
-      "buttonColors": ["red", "blue"],
-      "graphColors": ["red"],
+      "colors": [
+        "red"
+      ],
+      "buttonColors": [
+        "red",
+        "blue"
+      ],
+      "graphColors": [
+        "red"
+      ],
       "logoPosition": "-56px -112px"
     },
     {
@@ -105,9 +150,16 @@
       "name365": "",
       "name": "Mexico",
       "shortName": "MX",
-      "colors": ["#1a4d3e"],
-      "buttonColors": ["#1a4d3e", "#fff"],
-      "graphColors": ["#1a4d3e"],
+      "colors": [
+        "#1a4d3e"
+      ],
+      "buttonColors": [
+        "#1a4d3e",
+        "#fff"
+      ],
+      "graphColors": [
+        "#1a4d3e"
+      ],
       "logoPosition": "-56px -448px"
     },
     {
@@ -115,9 +167,16 @@
       "name365": "",
       "name": "Panama",
       "shortName": "PA",
-      "colors": ["red"],
-      "buttonColors": ["red", "#fff"],
-      "graphColors": ["red"],
+      "colors": [
+        "red"
+      ],
+      "buttonColors": [
+        "red",
+        "#fff"
+      ],
+      "graphColors": [
+        "red"
+      ],
       "logoPosition": "0 -560px"
     },
     {
@@ -125,9 +184,16 @@
       "name365": "",
       "name": "Belgium",
       "shortName": "BL",
-      "colors": ["red"],
-      "buttonColors": ["red", "yellow"],
-      "graphColors": ["red"],
+      "colors": [
+        "red"
+      ],
+      "buttonColors": [
+        "red",
+        "yellow"
+      ],
+      "graphColors": [
+        "red"
+      ],
       "logoPosition": "0 -56px"
     },
     {
@@ -135,9 +201,16 @@
       "name365": "",
       "name": "Croatia",
       "shortName": "CR",
-      "colors": ["red"],
-      "buttonColors": ["red", "#fff"],
-      "graphColors": ["red"],
+      "colors": [
+        "red"
+      ],
+      "buttonColors": [
+        "red",
+        "#fff"
+      ],
+      "graphColors": [
+        "red"
+      ],
       "logoPosition": "0 -168px"
     },
     {
@@ -145,9 +218,16 @@
       "name365": "",
       "name": "Denmark",
       "shortName": "DN",
-      "colors": ["red"],
-      "buttonColors": ["red", "#fff"],
-      "graphColors": ["red"],
+      "colors": [
+        "red"
+      ],
+      "buttonColors": [
+        "red",
+        "#fff"
+      ],
+      "graphColors": [
+        "red"
+      ],
       "logoPosition": "-56px -168px"
     },
     {
@@ -155,9 +235,16 @@
       "name365": "",
       "name": "England",
       "shortName": "EN",
-      "colors": ["red"],
-      "buttonColors": ["red", "#fff"],
-      "graphColors": ["red"],
+      "colors": [
+        "red"
+      ],
+      "buttonColors": [
+        "red",
+        "#fff"
+      ],
+      "graphColors": [
+        "red"
+      ],
       "logoPosition": "-56px -224px"
     },
     {
@@ -165,9 +252,16 @@
       "name365": "",
       "name": "France",
       "shortName": "FR",
-      "colors": ["blue"],
-      "buttonColors": ["blue", "#fff"],
-      "graphColors": ["blue"],
+      "colors": [
+        "blue"
+      ],
+      "buttonColors": [
+        "blue",
+        "#fff"
+      ],
+      "graphColors": [
+        "blue"
+      ],
       "logoPosition": "0 -280px"
     },
     {
@@ -175,9 +269,16 @@
       "name365": "",
       "name": "Germany",
       "shortName": "GR",
-      "colors": ["#000"],
-      "buttonColors": ["#000", "#fff"],
-      "graphColors": ["#000"],
+      "colors": [
+        "#000"
+      ],
+      "buttonColors": [
+        "#000",
+        "#fff"
+      ],
+      "graphColors": [
+        "#000"
+      ],
       "logoPosition": "-56px -280px"
     },
     {
@@ -185,9 +286,16 @@
       "name365": "",
       "name": "Iceland",
       "shortName": "IC",
-      "colors": ["blue"],
-      "buttonColors": ["blue", "#fff"],
-      "graphColors": ["blue"],
+      "colors": [
+        "blue"
+      ],
+      "buttonColors": [
+        "blue",
+        "#fff"
+      ],
+      "graphColors": [
+        "blue"
+      ],
       "logoPosition": "0 -336px"
     },
     {
@@ -195,9 +303,16 @@
       "name365": "",
       "name": "Poland",
       "shortName": "PL",
-      "colors": ["red"],
-      "buttonColors": ["red", "#fff"],
-      "graphColors": ["red"],
+      "colors": [
+        "red"
+      ],
+      "buttonColors": [
+        "red",
+        "#fff"
+      ],
+      "graphColors": [
+        "red"
+      ],
       "logoPosition": "0 -616px"
     },
     {
@@ -205,9 +320,16 @@
       "name365": "",
       "name": "Portugal",
       "shortName": "POR",
-      "colors": ["red"],
-      "buttonColors": ["red", "green"],
-      "graphColors": ["red"],
+      "colors": [
+        "red"
+      ],
+      "buttonColors": [
+        "red",
+        "green"
+      ],
+      "graphColors": [
+        "red"
+      ],
       "logoPosition": "-56px -616px"
     },
     {
@@ -215,9 +337,16 @@
       "name365": "",
       "name": "Russia",
       "shortName": "RUS",
-      "colors": ["red"],
-      "buttonColors": ["red", "blue"],
-      "graphColors": ["red"],
+      "colors": [
+        "red"
+      ],
+      "buttonColors": [
+        "red",
+        "blue"
+      ],
+      "graphColors": [
+        "red"
+      ],
       "logoPosition": "0 -672px"
     },
     {
@@ -225,9 +354,16 @@
       "name365": "",
       "name": "Serbia",
       "shortName": "SER",
-      "colors": ["red"],
-      "buttonColors": ["red", "blue"],
-      "graphColors": ["red"],
+      "colors": [
+        "red"
+      ],
+      "buttonColors": [
+        "red",
+        "blue"
+      ],
+      "graphColors": [
+        "red"
+      ],
       "logoPosition": "0px -787px"
     },
     {
@@ -235,9 +371,16 @@
       "name365": "",
       "name": "Spain",
       "shortName": "SP",
-      "colors": ["red"],
-      "buttonColors": ["red", "blue"],
-      "graphColors": ["red"],
+      "colors": [
+        "red"
+      ],
+      "buttonColors": [
+        "red",
+        "blue"
+      ],
+      "graphColors": [
+        "red"
+      ],
       "logoPosition": "-56px -787px"
     },
     {
@@ -245,9 +388,16 @@
       "name365": "",
       "name": "Sweden",
       "shortName": "SW",
-      "colors": ["yellow"],
-      "buttonColors": ["yellow", "blue"],
-      "graphColors": ["yellow"],
+      "colors": [
+        "yellow"
+      ],
+      "buttonColors": [
+        "yellow",
+        "blue"
+      ],
+      "graphColors": [
+        "yellow"
+      ],
       "logoPosition": "0 -843px"
     },
     {
@@ -255,9 +405,16 @@
       "name365": "",
       "name": "Switzerland",
       "shortName": "SWI",
-      "colors": ["red"],
-      "buttonColors": ["red", "#fff"],
-      "graphColors": ["red"],
+      "colors": [
+        "red"
+      ],
+      "buttonColors": [
+        "red",
+        "#fff"
+      ],
+      "graphColors": [
+        "red"
+      ],
       "logoPosition": "-56px -843px"
     },
     {
@@ -265,9 +422,16 @@
       "name365": "",
       "name": "Australia",
       "shortName": "AUS",
-      "colors": ["green"],
-      "buttonColors": ["green", "#C5B358"],
-      "graphColors": ["green"],
+      "colors": [
+        "green"
+      ],
+      "buttonColors": [
+        "green",
+        "#C5B358"
+      ],
+      "graphColors": [
+        "green"
+      ],
       "logoPosition": "-56px 0"
     },
     {
@@ -275,9 +439,16 @@
       "name365": "",
       "name": "Iran",
       "shortName": "IR",
-      "colors": ["green"],
-      "buttonColors": ["green", "#fff"],
-      "graphColors": ["green"],
+      "colors": [
+        "green"
+      ],
+      "buttonColors": [
+        "green",
+        "#fff"
+      ],
+      "graphColors": [
+        "green"
+      ],
       "logoPosition": "-56px -336px"
     },
     {
@@ -285,9 +456,16 @@
       "name365": "",
       "name": "Japan",
       "shortName": "JA",
-      "colors": ["blue"],
-      "buttonColors": ["blue", "#fff"],
-      "graphColors": ["blue"],
+      "colors": [
+        "blue"
+      ],
+      "buttonColors": [
+        "blue",
+        "#fff"
+      ],
+      "graphColors": [
+        "blue"
+      ],
       "logoPosition": "0 -392px"
     },
     {
@@ -295,9 +473,16 @@
       "name365": "",
       "name": "South Korea",
       "shortName": "SK",
-      "colors": ["red"],
-      "buttonColors": ["red", "#fff"],
-      "graphColors": ["red"],
+      "colors": [
+        "red"
+      ],
+      "buttonColors": [
+        "red",
+        "#fff"
+      ],
+      "graphColors": [
+        "red"
+      ],
       "logoPosition": "-56px -392px"
     },
     {
@@ -305,9 +490,16 @@
       "name365": "",
       "name": "Saudi Arabia",
       "shortName": "SA",
-      "colors": ["green"],
-      "buttonColors": ["green", "#fff"],
-      "graphColors": ["green"],
+      "colors": [
+        "green"
+      ],
+      "buttonColors": [
+        "green",
+        "#fff"
+      ],
+      "graphColors": [
+        "green"
+      ],
       "logoPosition": "0 -731px"
     },
     {
@@ -315,9 +507,16 @@
       "name365": "",
       "name": "Egypt",
       "shortName": "EG",
-      "colors": ["red"],
-      "buttonColors": ["red", "#fff"],
-      "graphColors": ["red"],
+      "colors": [
+        "red"
+      ],
+      "buttonColors": [
+        "red",
+        "#fff"
+      ],
+      "graphColors": [
+        "red"
+      ],
       "logoPosition": "0 -224px"
     },
     {
@@ -325,9 +524,16 @@
       "name365": "",
       "name": "Morocco",
       "shortName": "MOR",
-      "colors": ["red"],
-      "buttonColors": ["red", "green"],
-      "graphColors": ["red"],
+      "colors": [
+        "red"
+      ],
+      "buttonColors": [
+        "red",
+        "green"
+      ],
+      "graphColors": [
+        "red"
+      ],
       "logoPosition": "0 -504px"
     },
     {
@@ -335,9 +541,16 @@
       "name365": "",
       "name": "Nigeria",
       "shortName": "NIG",
-      "colors": ["green"],
-      "buttonColors": ["green", "#fff"],
-      "graphColors": ["green"],
+      "colors": [
+        "green"
+      ],
+      "buttonColors": [
+        "green",
+        "#fff"
+      ],
+      "graphColors": [
+        "green"
+      ],
       "logoPosition": "-56px -504px"
     },
     {
@@ -345,9 +558,16 @@
       "name365": "",
       "name": "Senegal",
       "shortName": "SEN",
-      "colors": ["green"],
-      "buttonColors": ["green", "#fff"],
-      "graphColors": ["green"],
+      "colors": [
+        "green"
+      ],
+      "buttonColors": [
+        "green",
+        "#fff"
+      ],
+      "graphColors": [
+        "green"
+      ],
       "logoPosition": "-56px -731px"
     },
     {
@@ -355,9 +575,16 @@
       "name365": "",
       "name": "Tunisia",
       "shortName": "TUN",
-      "colors": ["red"],
-      "buttonColors": ["red", "#fff"],
-      "graphColors": ["red"],
+      "colors": [
+        "red"
+      ],
+      "buttonColors": [
+        "red",
+        "#fff"
+      ],
+      "graphColors": [
+        "red"
+      ],
       "logoPosition": "0 -899px"
     }
   ],
