@@ -14,7 +14,7 @@ const self = module.exports = {
 		return Promise.all([
 			//self.updateAllToIds(),
 			//self.updateUserScoreAndLeaderboardWithIsraeliLeagueId()
-			self.fixOppositeIsraeliLeagueScores()
+			//self.fixOppositeIsraeliLeagueScores()
 		]).then(function (arr) {
 			console.log('migration finished');
 		});
