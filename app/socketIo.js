@@ -1,4 +1,4 @@
-const io;
+let io;
 
 const self = module.exports = {
     init: function (server) {
