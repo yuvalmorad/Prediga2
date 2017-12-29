@@ -32,7 +32,7 @@ userSchema.methods.validPassword = function (password) {
 };
 
 userSchema.methods.hasRole = function (role) {
-    for (const i = 0; i < this.roles.length; i++) {
+    for (let i = 0; i < this.roles.length; i++) {
         if (this.roles[i] === role) {
             return true;
         }

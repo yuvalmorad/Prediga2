@@ -80,7 +80,7 @@ const self = module.exports = {
                     MatchPrediction.find({userId: me}) :
                     MatchPrediction.find({matchId: {$in: matchIds}, userId: me})
             ]).then(function (arr2) {
-                const mergedPredictions = [];
+                let mergedPredictions = [];
                 // merging between others & My predictions
                 if (arr2[0]) {
                     mergedPredictions = mergedPredictions.concat.apply([], arr2[0]);
@@ -148,7 +148,7 @@ const self = module.exports = {
     aggegrateFuturePredictions: function (matchPredictions) {
         const deferred = Q.defer();
         const result = {};
-        const itemsProcessed = 0;
+        let itemsProcessed = 0;
         if (matchPredictions && matchPredictions.length > 0) {
             matchPredictions.forEach(function (matchPrediction) {
                 itemsProcessed += 1;
