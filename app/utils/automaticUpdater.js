@@ -248,7 +248,7 @@ const self = module.exports = {
 							return Promise.all([
 								matchResultService.updateMatchResult(newMatchResult)
 							]).then(function (arr4) {
-								if (newMatchResult.active === false) {
+								if (newMatchResult.active === true) {
 									return 'getResultsJob';
 								} else {
 									const leagueId = aMatch.league;
@@ -257,6 +257,7 @@ const self = module.exports = {
 										console.log('Finish to update all for [' + team1 + ' - ' + team2 + ']');
 										return 'updateLeaderboard';
 									});
+
 								}
 							});
 						});
@@ -290,12 +291,12 @@ const self = module.exports = {
 				if (anEvent.Type === 0) { // type = goal
 					// update firstToScore if is still in initial state
 					if (newMatchResult.firstToScore === 'None') {
-						newMatchResult.firstToScore = anEvent.Comp === 1 ? team2 : team1;
+						newMatchResult.firstToScore = anEvent.Comp === 1 ? team1 : team2;
 					}
-					// team2 goals
+
 					if (anEvent.Comp === 1) { // home goals
 						newMatchResult.team1Goals++;
-					} // team1 goals
+					}
 					else if (anEvent.Comp === 2) { // away goals
 						newMatchResult.team2Goals++;
 					}

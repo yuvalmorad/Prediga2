@@ -24,7 +24,7 @@ function getData(userId, leagueId) {
 		});
 
 		return Promise.all([
-			MatchResult.find({matchId: {$in: predictionsMatchIds}})
+			MatchResult.find({matchId: {$in: predictionsMatchIds}, active: false})
 		]).then(function (arr2) {
 			const relevantMatchIds = arr2[0].map(function (prediction) {
 				return prediction.matchId;

@@ -12,23 +12,17 @@ const self = module.exports = {
 
 	run: function () {
 		return Promise.all([
-			//self.updateAllToIds(),
-			//self.updateUserScoreAndLeaderboardWithIsraeliLeagueId()
-			//self.fixOppositeIsraeliLeagueScores()
+			//self.migrateUserScore(),
+			//self.migrateLeaderboard()
+			//self.migrateMatchPredictions()
+			//self.migrateMatchResults()
+			//self.migrateTeamPredictions(),
+			//self.migrateTeamResults()
 		]).then(function (arr) {
 			console.log('migration finished');
 		});
 	},
-	// TODO - can run once and then can be disabled.
-	updateUserScoreAndLeaderboardWithIsraeliLeagueId: function () {
-		return Promise.all([
-			self.migrateUserScoreWithLeagueId(),
-			self.migrateLeaderboardWithLeagueId()
-		]).then(function (arr) {
-			console.log('updateUserScoreAndLeaderboardWithIsraeliLeagueId finished');
-		});
-	},
-	migrateUserScoreWithLeagueId: function () {
+	migrateUserScore: function () {
 		return UserScore.find({}, function (err, userScores) {
 			if (userScores) {
 				const promises = userScores.map(function (userScore) {
@@ -39,7 +33,7 @@ const self = module.exports = {
 			}
 		});
 	},
-	migrateLeaderboardWithLeagueId: function () {
+	migrateLeaderboard: function () {
 		return UsersLeaderboard.find({}, function (err, usersLeaderboards) {
 			if (usersLeaderboards) {
 				const promises = usersLeaderboards.map(function (usersLeaderboard) {
@@ -50,32 +44,11 @@ const self = module.exports = {
 			}
 		});
 	},
-	// TODO - can run once and then can be disabled.
-	updateAllToIds: function () {
-		return Club.find({}, function (err, clubs) {
-			return Promise.all([
-				self.migrateMatchPredictions(clubs),
-				//self.migrateTeamPredictions(clubs),
-				//self.migrateMatchResults(clubs),
-				//self.migrateTeamResults(clubs),
-			]).then(function (arr) {
-				console.log('updateAllToIds finished');
-			});
-		});
-	},
 	migrateMatchPredictions: function (clubs) {
 		return MatchPrediction.find({}, function (err, matchPredictions) {
 			if (matchPredictions) {
 				const promises = matchPredictions.map(function (matchPrediction) {
-					const newWinner = self.getClubIdByName(clubs, matchPrediction.winner);
-					if (newWinner) {
-						matchPrediction.winner = newWinner;
-					}
 
-					const newFirstToScore = self.getClubIdByName(clubs, matchPrediction.firstToScore);
-					if (newFirstToScore) {
-						matchPrediction.firstToScore = newFirstToScore;
-					}
 					return MatchPrediction.findOneAndUpdate({_id: matchPrediction._id}, matchPrediction, utils.updateSettings);
 				});
 				return Promise.all(promises);
@@ -86,14 +59,11 @@ const self = module.exports = {
 		return MatchResult.find({}, function (err, matchResults) {
 			if (matchResults) {
 				const promises = matchResults.map(function (matchResult) {
-					const newWinner = self.getClubIdByName(clubs, matchResult.winner);
-					if (newWinner) {
-						matchResult.winner = newWinner;
+					if (typeof(matchResult.active) === 'undefined') {
+						matchResult.active = false;
 					}
-
-					const newFirstToScore = self.getClubIdByName(clubs, matchResult.firstToScore);
-					if (newFirstToScore) {
-						matchResult.firstToScore = newFirstToScore;
+					if (!matchResult.active) {
+						matchResult.active = false;
 					}
 					return MatchResult.findOneAndUpdate({_id: matchResult._id}, matchResult, utils.updateSettings);
 				});
@@ -125,53 +95,6 @@ const self = module.exports = {
 					}
 
 					return TeamResult.findOneAndUpdate({_id: teamResult._id}, teamResult, utils.updateSettings);
-				});
-				return Promise.all(promises);
-			}
-		});
-	},
-	getClubIdByName: function (clubs, name) {
-		const clubRequested = clubs.find(x => x.name === name);
-		if (clubRequested) {
-			return clubRequested._id;
-		}
-		return name;
-	},
-	fixOppositeIsraeliLeagueScores: function () {
-		const now = new Date();
-		return Match.find({kickofftime: {$lte: now}}, function (err, matches) {
-			const matchIds = matches.map(function (match) {
-				return match._id;
-			});
-			return Promise.all([
-				self.fixOppositeIsraeliLeagueScoresMatches(matchIds),
-				self.fixOppositeIsraeliLeagueScoresMatcheResults(matchIds)
-			]).then(function (arr) {
-				console.log('fixOppositeIsraeliLeagueScores finished');
-			});
-		});
-	},
-	fixOppositeIsraeliLeagueScoresMatches: function (matchIds) {
-		return MatchPrediction.find({matchId: {$in: matchIds}}, function (err, matchPredictions) {
-			if (matchPredictions) {
-				const promises = matchPredictions.map(function (matchPrediction) {
-					const temp = matchPrediction.team1Goals;
-					matchPrediction.team1Goals = matchPrediction.team2Goals;
-					matchPrediction.team2Goals = temp;
-					return MatchPrediction.findOneAndUpdate({_id: matchPrediction._id}, matchPrediction, utils.updateSettings);
-				});
-				return Promise.all(promises);
-			}
-		});
-	},
-	fixOppositeIsraeliLeagueScoresMatcheResults: function (matchIds) {
-		return MatchResult.find({matchId: {$in: matchIds}}, function (err, matchResults) {
-			if (matchResults) {
-				const promises = matchResults.map(function (matchResult) {
-					const temp = matchResult.team1Goals;
-					matchResult.team1Goals = matchResult.team2Goals;
-					matchResult.team2Goals = temp;
-					return MatchResult.findOneAndUpdate({_id: matchResult._id}, matchResult, utils.updateSettings);
 				});
 				return Promise.all(promises);
 			}
