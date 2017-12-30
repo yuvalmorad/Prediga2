@@ -29,11 +29,23 @@ const self = module.exports = {
 			}
 			else {
 				console.log('Next job will start at ' + aMatch.kickofftime);
-				schedule.scheduleJob(aMatch.kickofftime, function () {
-					//TODO just for fun it will send notification for all users when game starts -> should handle logic to send to specific user if no prediction was made for this match
-					pushNotificationUtil.pushToAllRegisterdUsers("Game Has started :)");
+				const now = new Date();
+				const before = new Date();
+				const after = new Date();
+				before.setMinutes(now.getMinutes() - 105);
+				after.setMinutes(now.getMinutes() + 105);
+				// start now
+				if (aMatch.kickofftime >= before && aMatch.kickofftime <= after) {
+					console.log('start get result now');
 					self.getResultsJob(undefined);
-				});
+				} else {
+					schedule.scheduleJob(aMatch.kickofftime, function () {
+						//TODO just for fun it will send notification for all users when game starts -> should handle logic to send to specific user if no prediction was made for this match
+						pushNotificationUtil.pushToAllRegisterdUsers("Game Has started :)");
+						self.getResultsJob(undefined);
+					});
+				}
+
 
 				if (isTestingMode) {
 					self.getResultsJob(undefined);
@@ -265,10 +277,9 @@ const self = module.exports = {
 			completion: relevantGame.Completion
 		};
 
-		if (relevantGame.Events.length < 1) {
+		if (!relevantGame.Events || relevantGame.Events.length < 1) {
 			deferred.resolve(newMatchResult);
 		} else {
-
 			relevantGame.Events.forEach(function (anEvent, index) {
 				if (anEvent.Type === 0) { // type = goal
 					// update firstToScore if is still in initial state

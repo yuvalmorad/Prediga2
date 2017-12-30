@@ -61,18 +61,30 @@ const self = module.exports = {
 		}, function (err, relevantMatches) {
 			if (err) return console.log(err);
 			if (!relevantMatches || !Array.isArray(relevantMatches) || relevantMatches.length === 0) {
-				deferred.resolve();
-				return;
+				Match.find({
+					kickofftime: {$gte: before, $lte: after},
+					team1: team2,
+					team2: team1
+				}, function (err, relevantMatches) {
+					if (!relevantMatches || !Array.isArray(relevantMatches) || relevantMatches.length === 0) {
+						deferred.resolve();
+						return;
+					}
+					deferred.resolve(relevantMatches[0]);
+				});
+			} else {
+				deferred.resolve(relevantMatches[0]);
 			}
-			deferred.resolve(relevantMatches[0]);
+
 		});
 		return deferred.promise;
 	},
 	getNextMatchDate: function () {
 		const now = new Date();
-
+		const before = new Date();
+		before.setMinutes(now.getMinutes() - 105);
 		return Promise.all([
-			Match.findOne({kickofftime: {$gte: now}}).sort({'kickofftime': 1}).limit(1)
+			Match.findOne({kickofftime: {$gte: before}}).sort({'kickofftime': 1}).limit(1)
 		]).then(function (arr) {
 			return arr[0]
 		});
