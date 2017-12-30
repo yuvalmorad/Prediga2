@@ -16,7 +16,7 @@ const socketIo = require('../socketIo');
 const pushNotificationUtil = require('./pushNotification');
 
 const self = module.exports = {
-	run: function () {
+	run: function (isFirstRun) {
 		console.log('Automatic update (run job) wake up');
 		return Promise.all([
 			matchService.getNextMatchDate()
@@ -32,10 +32,10 @@ const self = module.exports = {
 				const now = new Date();
 				const before = new Date();
 				const after = new Date();
-				before.setMinutes(now.getMinutes() - 105);
-				after.setMinutes(now.getMinutes() + 105);
+				before.setMinutes(now.getMinutes() - 150);
+				after.setMinutes(now.getMinutes() + 150);
 				// start now
-				if (aMatch.kickofftime >= before && aMatch.kickofftime <= after) {
+				if (isFirstRun || (aMatch.kickofftime >= before && aMatch.kickofftime <= after)) {
 					console.log('start get result now');
 					self.getResultsJob(undefined);
 				} else {
@@ -45,7 +45,6 @@ const self = module.exports = {
 						self.getResultsJob(undefined);
 					});
 				}
-
 
 				if (isTestingMode) {
 					self.getResultsJob(undefined);
@@ -103,7 +102,7 @@ const self = module.exports = {
 			const htmlRawData = arr[0];
 			if (!htmlRawData || htmlRawData.length < 1) {
 				console.log('No content received from remote host');
-				return [];
+				return false;
 			} else {
 				console.log('Start to parse response...');
 				const soccerContent = self.parseResponse(htmlRawData);
@@ -120,7 +119,7 @@ const self = module.exports = {
 						return self.updateMatchResults(relevantGames, configuration);
 					} else {
 						console.log('There are no relevant games.');
-						return [];
+						return false;
 					}
 				});
 			}

@@ -12,7 +12,7 @@ module.exports = function (app, passport) {
 	const server = require('http').Server(app);
 	socketIo.init(server);
 	initialData.loadAll();
-	automaticUpdater.run();
+	automaticUpdater.run(true);
 	automaticPushNotifications.runAutomaticPushBeforeGame();
 	migrator.run();
 
