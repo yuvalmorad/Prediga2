@@ -6,7 +6,8 @@ var routePages = (function(){
         RulesPage = component.RulesPage,
         AboutPage = component.AboutPage,
         SimulatorPage = component.SimulatorPage,
-        GroupsPage = component.GroupsPage;
+        JoinGroupPage = component.JoinGroupPage,
+        CreateNewGroupPage = component.CreateNewGroupPage;
 
     var routePages = [
         {
@@ -46,17 +47,24 @@ var routePages = (function(){
             component: SimulatorPage
         },
         {
-            path: "/groups",
-            title: "Groups",
-            name: "groups",
+            path: "/joinGroup",
+            title: "Join Group",
+            name: "joinGroup",
             isAuthenticatedPage: true,
-            component: GroupsPage,
-            siteHeaderActionButtons: [
-                {
-                    text: "+",
-                    onClick: function(){}
-                }
-            ]
+            component: JoinGroupPage,
+            siteHeaderConfig: {
+                hideMenuButton: true
+            }
+        },
+        {
+            path: "/createNewGroup",
+            title: "Create New Group",
+            name: "createNewGroup",
+            isAuthenticatedPage: true,
+            component: CreateNewGroupPage,
+            siteHeaderConfig: {
+                hideMenuButton: true
+            }
         },
         {
             path: "/rules",

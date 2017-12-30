@@ -197,7 +197,7 @@ component.SimulatorPage = (function(){
                 re("div", {className: "subHeader"},
                     re("a", {className: "back-button", onClick: this.onBackButtonClicked}, "Back"),
                     re("a", {className: "matches-dropdown-button", onClick: this.toggleMatchesDropDownMenu}, "Select Match"),
-                    re("div", {})
+                    re("div", {style: {width: "42px"}})
                 ),
                 re("div", {className: "matches-dropdown-menu" + (isMatchesDropDownMenuOpen ? "" : " hide")},
                     re("div", {className: "matches"},
