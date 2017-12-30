@@ -233,7 +233,7 @@ const self = module.exports = {
 					const matchResult = arr2[0];
 					// game already ended in db
 					if (matchResult && matchResult.completion >= 100) {
-						console.log('Game already ended in db, for [' + team1 + ' - ' + team2 + ']');
+						console.log('Game already ended, for [' + team1 + ' - ' + team2 + ']');
 						return false;
 					}
 					// game has not started
