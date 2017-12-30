@@ -223,7 +223,7 @@ const self = module.exports = {
 			]).then(function (arr1) {
 				const aMatch = arr1[0];
 				if (!aMatch || aMatch === null) {
-					console.log('No match found [' + team1 + ' - ' + team2 + ']');
+					console.log('No match found or will be in the future, for [' + team1 + ' - ' + team2 + ']');
 					return false;
 				}
 
@@ -233,14 +233,16 @@ const self = module.exports = {
 					const matchResult = arr2[0];
 					// game already ended in db
 					if (matchResult && matchResult.completion >= 100) {
+						console.log('Game already ended in db, for [' + team1 + ' - ' + team2 + ']');
 						return false;
 					}
 					// game has not started
 					if (relevantGame.Completion <= 0 && relevantGame.GT === -1){
+						console.log('Game has not started yet, for [' + team1 + ' - ' + team2 + ']');
 						return false;
 					}
 
-					console.log('Beginning to create new match result for [' + team1 + ' - ' + team2 + ']');
+					console.log('Beginning to create new match result, for [' + team1 + ' - ' + team2 + ']');
 					return Promise.all([
 						self.calculateNewMatchResult(team1, team2, relevantGame)
 					]).then(function (arr3) {

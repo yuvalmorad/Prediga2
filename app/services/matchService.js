@@ -61,17 +61,7 @@ const self = module.exports = {
 		}, function (err, relevantMatches) {
 			if (err) return console.log(err);
 			if (!relevantMatches || !Array.isArray(relevantMatches) || relevantMatches.length === 0) {
-				Match.find({
-					kickofftime: {$gte: before, $lte: after},
-					team1: team2,
-					team2: team1
-				}, function (err, relevantMatches2) {
-					if (!relevantMatches2 || !Array.isArray(relevantMatches2) || relevantMatches2.length === 0) {
-						deferred.resolve(null);
-					} else {
-						deferred.resolve(relevantMatches2[0]);
-					}
-				});
+				deferred.resolve(null);
 			} else {
 				deferred.resolve(relevantMatches[0]);
 			}
