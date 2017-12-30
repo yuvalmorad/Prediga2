@@ -10,7 +10,8 @@ const matchResultSchema = mongoose.Schema({
 	goalDiff: Number,
 	firstToScore: String,
 	completion: Number,
-	gameTime: Number
+	gameTime: Number,
+	active: Boolean
 });
 
 matchResultSchema.options.toJSON = {
