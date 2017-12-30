@@ -21,10 +21,10 @@ component.App = (function(){
                 title = currentPage.title,
                 hideSiteHeader = currentPage.hideSiteHeader,
                 hideSiteNavigation = currentPage.hideSiteNavigation,
-                siteHeaderActionButtons = currentPage.siteHeaderActionButtons;
+                siteHeaderConfig = currentPage.siteHeaderConfig || {};
 
             return re("div", {className: "main"},
-                re(SiteHeader, {title: title, hide: hideSiteHeader, siteHeaderActionButtons: siteHeaderActionButtons}),
+                re(SiteHeader, {title: title, hide: hideSiteHeader, siteHeaderConfig: siteHeaderConfig}),
                 re(Pages, {}),
                 re(SiteNavigation, {hide: hideSiteNavigation}),
                 re(TileDialogContainer, {}),

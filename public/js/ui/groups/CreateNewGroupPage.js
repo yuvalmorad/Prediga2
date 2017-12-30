@@ -1,11 +1,10 @@
-component.GroupsPage = (function(){
+component.CreateNewGroupPage = (function(){
     var connect = ReactRedux.connect;
     var isRequestSent = false;
 
-    var GroupsPage = React.createClass({
+    var CreateNewGroupPage = React.createClass({
         getInitialState: function() {
             if (!isRequestSent) {
-                /*this.props.loadSimulator();*/
                 isRequestSent = true;
             }
 
@@ -17,7 +16,7 @@ component.GroupsPage = (function(){
         render: function() {
             var props = this.props;
 
-            return re("div", { className: "content" }, "Groups");
+            return re("div", { className: "content" }, "create group...");
         }
     });
 
@@ -29,11 +28,11 @@ component.GroupsPage = (function(){
 
     function mapDispatchToProps(dispatch) {
         return {
-            /*loadSimulator: function(){dispatch(action.simulator.loadSimulator())}*/
+
         }
     }
 
-    return connect(mapStateToProps, mapDispatchToProps)(GroupsPage);
+    return connect(mapStateToProps, mapDispatchToProps)(CreateNewGroupPage);
 })();
 
 
