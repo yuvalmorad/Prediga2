@@ -20,14 +20,14 @@ const self = module.exports = {
 				if (res.needUpdate === true) {
 					let matchIds = [];
 					if (obj.matchResults) {
-						matchIds = obj.matchResults.map(function (match) {
-							return match._id;
+						matchIds = obj.matchResults.map(function (matchResult) {
+							return matchResult.matchId;
 						});
 					}
 					let teamsIds = [];
 					if (obj.teamResults) {
-						teamsIds = obj.teamResults.map(function (team) {
-							return team._id;
+						teamsIds = obj.teamResults.map(function (teamResult) {
+							return teamResult.teamId;
 						});
 					}
 
@@ -76,7 +76,7 @@ const self = module.exports = {
 	},
 	checkUpdateNeededForTeams: function (teamResults) {
 		if (teamResults.length === 0) {
-			Promise.resolve([])
+			return Promise.resolve([])
 		}
 
 		const promises = teamResults.map(function (aTeamResult) {
@@ -112,9 +112,15 @@ const self = module.exports = {
 		// for each match result, get all matchPredictions
 		const promises = matchResults.map(function (aMatchResult) {
 			// find leagueId
-			const leagueId = matches.find(x => x._id === aMatchResult.matchId).leagueId;
-			// find all match predictions, update user score
-			return self.updateUserScoreByMatchResult(configuration, aMatchResult, leagueId);
+			const relevantMatch = matches.find(x => x._id.toString() === aMatchResult.matchId);
+			if (relevantMatch) {
+				const leagueId = relevantMatch.league;
+				// find all match predictions, update user score
+				return self.updateUserScoreByMatchResult(configuration, aMatchResult, leagueId);
+			} else {
+				return Promise.resolve();
+			}
+
 		});
 		return Promise.all(promises);
 	},
@@ -149,7 +155,8 @@ const self = module.exports = {
 			});
 			return Promise.all(promises);
 		} else {
-			return self.updateInitialScoreForAllUsers(matchResult.matchId, leagueId);
+			//return self.updateInitialScoreForAllUsers(matchResult.matchId, leagueId);
+			return Promise.resolve([]);
 		}
 	},
 	updateInitialScoreForAllUsers: function (matchId, leagueId) {

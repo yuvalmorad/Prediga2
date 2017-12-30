@@ -22,7 +22,7 @@ const self = module.exports = {
 					arr[0].sort(self.compareAggregatedScores);
 
 					return self.updateAllAggregatedScores(leagueId, arr[0]).then(function () {
-						console.log('finished to update the leader board based on all user scores');
+						console.log('finished to update the leader board based on all user scores for league '+ leagueId);
 					});
 				});
 			});
