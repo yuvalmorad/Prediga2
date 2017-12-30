@@ -248,7 +248,7 @@ const self = module.exports = {
 							return Promise.all([
 								matchResultService.updateMatchResult(newMatchResult)
 							]).then(function (arr4) {
-								if (newMatchResult.active === false) {
+								if (newMatchResult.active === true) {
 									return 'getResultsJob';
 								} else {
 									const leagueId = aMatch.league;
