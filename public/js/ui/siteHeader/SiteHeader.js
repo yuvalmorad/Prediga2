@@ -18,11 +18,11 @@ component.SiteHeader = (function(){
                 return re("div", { className: "site-header" + (hide ? " hide" : "") },
                     re("div", {className: "left"},
                         re("a", {className: "back-button" + (hasBackButton ? "" : " hide"), onClick: this.onBackButtonClicked}, "<"),
-                        re("a", {className: "menu-button" + (hideMenuButton ? " hide" : ""), onClick: props.toggleMenu})
+                        re("a", {className: "menu-button" + (this.props.isMainMenuOpen ? " selected" : "") + (hideMenuButton ? " hide" : ""), onClick: props.toggleMainMenu})
                     ),
                     re("div", {className: "center"}, title),
                     re("div", {className: "right"},
-                        re("a", {className: "menu--groups-button" + (hideMenuGroupsButton ? " hide" : ""), onClick: props.toggleMenuGroups}, "groups")
+                        re("a", {className: "menu-groups-button" + (this.props.isMenuGroupsOpen ? " selected" : "") + (hideMenuGroupsButton ? " hide" : ""), onClick: props.toggleMenuGroups}, "groups")
                     )
             );
         }
@@ -30,13 +30,14 @@ component.SiteHeader = (function(){
 
     function mapStateToProps(state){
         return {
-
+            isMainMenuOpen: state.general.isMainMenuOpen,
+            isMenuGroupsOpen: state.general.isMenuGroupsOpen
         }
     }
 
     function mapDispatchToProps(dispatch) {
         return {
-            toggleMenu: function(){dispatch(action.general.toggleMenu())},
+            toggleMainMenu: function(){dispatch(action.general.toggleMainMenu())},
             toggleMenuGroups: function(){dispatch(action.general.toggleMenuGroups())}
         }
     }

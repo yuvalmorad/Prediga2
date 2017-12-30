@@ -5,11 +5,9 @@ component.Menu = (function(){
             title = props.title,
             className = props.className || "";
 
-        return re("div", { className: "menu " + className + (props.isMenuOpen ? " open" : "")},
+        return re("div", { className: "menu " + className},
             re("div", {className: "menu-header"},
-                re("a", {className: "close-menu", onClick: props.toggleMenu}, "X"),
-                re("div", {}, title),
-                re("div", {})
+                re("div", {}, title)
             ),
             re("div", {className: "menu-content"},
                 re("div", {className: "menu-top-content"},

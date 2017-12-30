@@ -22,15 +22,26 @@ component.App = (function(){
                 title = currentPage.title,
                 hideSiteHeader = currentPage.hideSiteHeader,
                 hideSiteNavigation = currentPage.hideSiteNavigation,
-                siteHeaderConfig = currentPage.siteHeaderConfig || {};
+                siteHeaderConfig = currentPage.siteHeaderConfig || {},
+                siteClassName = "site";
+
+            if (this.props.isMainMenuOpen) {
+                siteClassName += " move-right";
+            }
+
+            if (this.props.isMenuGroupsOpen) {
+                siteClassName += " move-left";
+            }
 
             return re("div", {className: "main"},
-                re(SiteHeader, {title: title, hide: hideSiteHeader, siteHeaderConfig: siteHeaderConfig}),
-                re(Pages, {}),
-                re(SiteNavigation, {hide: hideSiteNavigation}),
+                re("div", {className: siteClassName},
+                    re(SiteHeader, {title: title, hide: hideSiteHeader, siteHeaderConfig: siteHeaderConfig}),
+                    re(Pages, {}),
+                    re(SiteNavigation, {hide: hideSiteNavigation}),
+                    re(MainMenu, {}),
+                    re(GroupsMenu, {})
+                ),
                 re(TileDialogContainer, {}),
-                re(MainMenu, {}),
-                re(GroupsMenu, {}),
                 re(Loading, {})
             )
         }
@@ -38,6 +49,8 @@ component.App = (function(){
 
     function mapStateToProps(state){
         return {
+            isMainMenuOpen: state.general.isMainMenuOpen,
+            isMenuGroupsOpen: state.general.isMenuGroupsOpen
         }
     }
 

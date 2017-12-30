@@ -62,6 +62,25 @@ body {
     display: inline-block;
 }
 
+/* -------  Site -------*/
+
+.site {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transition: transform 0.25s;
+}
+
+.site.move-left {
+    transform: translateX(-50%);
+}
+
+.site.move-right {
+    transform: translateX(50%);
+}
+
 /* -------  Loading -------*/
 
 .loading {
@@ -242,6 +261,7 @@ body {
     color: #229eff;
     top: 0;
     position: relative;
+    align-items: center;
 }
 
 .site-header .left {
@@ -257,6 +277,18 @@ body {
 .site-header .right .action-button {
     margin-right: 1rem;
     font-size: 1.5rem;
+}
+
+.site-header .menu-groups-button {
+    height: 2rem;
+    line-height: 2rem;
+    display: inline-block;
+    padding: 0 0.5rem;
+}
+
+.site-header .menu-groups-button.selected {
+    background-color: #229eff;
+    color: #fff;
 }
 
 .site-header .center {
@@ -296,16 +328,28 @@ body {
     );
 }
 
+.site-header .menu-button.selected:before {
+    background: linear-gradient(
+            to right,
+            #009fff, #009fff 10%,
+            white 10%, white 40%,
+            #009fff 40%, #009fff 50%,
+            white 50%, white 80%,
+            #009fff 80%, #009fff 90%,
+            white 90%, white 100%
+    );
+}
+
 .menu {
     position: absolute;
     top: 0;
     left: 0;
     width: 50%;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.87);
+    background-color: #7A7A7A;
     transform: translateX(-100%);
     transition: transform 0.25s;
-    color: #c5c1c1;
+    color: #fff;
     padding-top: 0.5rem;
     z-index: 100;
 }
@@ -316,39 +360,17 @@ body {
     right: 0;
 }
 
-.menu.open {
-    transform: translateX(0);
-}
-
 .menu .menu-header {
     height: 2rem;
     line-height: 2rem;
     padding: 0 0.5rem;
-    display: flex;
-}
-
-.menu .menu-header > * {
-    display: inline-block;
-    flex: 1
-}
-
-.menu.groups-menu .menu-header {
-    flex-direction: row-reverse;
-}
-
-.menu.groups-menu .menu-header > *:first-child {
-    text-align: right;
+    text-align: center;
 }
 
 .menu .menu-content {
     height: calc(100% - 3rem);
     position: relative;
     margin-top: 1rem;
-}
-
-.menu .menu-header .close-menu {
-    padding: 0 0.5rem;
-    margin-left: -0.5rem;
 }
 
 .menu .menu-bottom-content {
@@ -361,14 +383,6 @@ body {
 .menu .menu-item {
     padding: 0.5rem 0.5rem;
     border-top: 1px solid;
-}
-
-.menu .menu-top-content .menu-item:first-child {
-    border: none;
-}
-
-.menu .menu-top-content .menu-item:last-child {
-    border-bottom: 1px solid;
 }
 
 .menu .menu-item.selected {

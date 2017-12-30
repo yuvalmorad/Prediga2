@@ -7,12 +7,12 @@ action.general = (function(){
         OPEN_TILE_DIALOG: "OPEN_TILE_DIALOG",
         CLOSE_TILE_DIALOG: "CLOSE_TILE_DIALOG",
 
-        TOGGLE_MENU: "TOGGLE_MENU",
+        TOGGLE_MAIN_MENU: "TOGGLE_MAIN_MENU",
         TOGGLE_MENU_GROUPS: "TOGGLE_MENU_GROUPS",
 
-        toggleMenu: function() {
+        toggleMainMenu: function() {
             return {
-                type: general.TOGGLE_MENU
+                type: general.TOGGLE_MAIN_MENU
             }
         },
 

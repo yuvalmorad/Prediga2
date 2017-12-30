@@ -10,7 +10,6 @@ component.GroupsMenu = (function(){
 
         render: function() {
             var props = this.props,
-                isMenuOpen = props.isMenuOpen,
                 groups = [],
                 bottomMenuItems = [];
 
@@ -18,13 +17,13 @@ component.GroupsMenu = (function(){
                 re(MenuItem, {text: "SAP Labs Israel", isSelected: true, onMenuItemClicked: this.onMenuItemClicked, key: "some group1"})
             );
 
-            return re(Menu, {title: "Groups", isMenuOpen: isMenuOpen, toggleMenu: props.toggleMenu, topMenuItems: groups, bottomMenuItems: bottomMenuItems, className: "groups-menu"});
+            return re(Menu, {title: "Groups", toggleMenu: props.toggleMenu, topMenuItems: groups, bottomMenuItems: bottomMenuItems, className: "groups-menu"});
         }
     });
 
     function mapStateToProps(state){
         return {
-            isMenuOpen: state.general.isMenuGroupsOpen
+            isMenuGroupsOpen: state.general.isMenuGroupsOpen
         }
     }
 

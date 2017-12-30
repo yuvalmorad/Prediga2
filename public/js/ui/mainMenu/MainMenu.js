@@ -36,25 +36,24 @@ component.MainMenu = (function(){
 
         render: function() {
             var props = this.props,
-                isMenuOpen = props.isMenuOpen,
                 topMenuItems = this.renderMenuItems("displayInTopMenu"),
                 bottomMenuItems = this.renderMenuItems("displayInBottomMenu");
 
             bottomMenuItems.push(this.renderLogoutMenuItem());
 
-            return re(Menu, {title: "Prediga", isMenuOpen: isMenuOpen, topMenuItems: topMenuItems, bottomMenuItems: bottomMenuItems, toggleMenu: props.toggleMenu});
+            return re(Menu, {title: "Prediga", topMenuItems: topMenuItems, bottomMenuItems: bottomMenuItems, toggleMenu: props.toggleMenu});
         }
     });
 
     function mapStateToProps(state){
         return {
-            isMenuOpen: state.general.isMenuOpen
+            isMainMenuOpen: state.general.isMainMenuOpen
         }
     }
 
     function mapDispatchToProps(dispatch) {
         return {
-            toggleMenu: function(){dispatch(action.general.toggleMenu())}
+            toggleMenu: function(){dispatch(action.general.toggleMainMenu())}
         }
     }
 
