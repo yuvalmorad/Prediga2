@@ -3,27 +3,45 @@ component.SimulatorPage = (function(){
         LeaderBoardTiles = component.LeaderBoardTiles,
         SimulatorMatch = component.SimulatorMatch;
 
-    function createMatchResult(predictionsSimulated, match) {
+    function createMatchPrediction(predictionsSimulated, match, matchResult) {
         var matchId = match._id;
         var predictionSimulated = utils.general.findItemInArrBy(predictionsSimulated, "matchId", matchId);
+        var resultTeam1Goals = matchResult && matchResult[GAME.BET_TYPES.TEAM1_GOALS.key];
+        var resultTeam2Goals = matchResult && matchResult[GAME.BET_TYPES.TEAM2_GOALS.key];
+        var resultFirstToScore = matchResult && matchResult[GAME.BET_TYPES.FIRST_TO_SCORE.key];
+
         //defaults
-        var matchResult = {
+        var matchPrediction = {
             matchId: matchId
         };
-        matchResult[GAME.BET_TYPES.TEAM1_GOALS.key] = 0;
-        matchResult[GAME.BET_TYPES.TEAM2_GOALS.key] = 0;
-        matchResult[GAME.BET_TYPES.FIRST_TO_SCORE.key] = "None";
+        matchPrediction[GAME.BET_TYPES.TEAM1_GOALS.key] = 0;
+        matchPrediction[GAME.BET_TYPES.TEAM2_GOALS.key] = 0;
+        matchPrediction[GAME.BET_TYPES.FIRST_TO_SCORE.key] = "None";
 
-        Object.assign(matchResult, predictionSimulated || {});
+        Object.assign(matchPrediction, predictionSimulated || {});
 
-        var team1Goals = matchResult[GAME.BET_TYPES.TEAM1_GOALS.key];
-        var team2Goals = matchResult[GAME.BET_TYPES.TEAM2_GOALS.key];
+        //check and update predictions against result
+        if (resultFirstToScore !== undefined && !utils.general.isFirstScoreNone(resultFirstToScore)) {
+            matchPrediction[GAME.BET_TYPES.FIRST_TO_SCORE.key] = resultFirstToScore;
+        }
 
-        matchResult[GAME.BET_TYPES.GOAL_DIFF.key] = Math.abs(team1Goals - team2Goals);
-        matchResult[GAME.BET_TYPES.WINNER.key] = team1Goals > team2Goals ? match.team1 :
+        if (resultTeam1Goals !== undefined && matchPrediction[GAME.BET_TYPES.TEAM1_GOALS.key] < resultTeam1Goals) {
+            matchPrediction[GAME.BET_TYPES.TEAM1_GOALS.key] = resultTeam1Goals;
+        }
+
+        if (resultTeam2Goals !== undefined && matchPrediction[GAME.BET_TYPES.TEAM2_GOALS.key] < resultTeam2Goals) {
+            matchPrediction[GAME.BET_TYPES.TEAM2_GOALS.key] = resultTeam2Goals;
+        }
+
+        //update diff and winner
+        var team1Goals = matchPrediction[GAME.BET_TYPES.TEAM1_GOALS.key];
+        var team2Goals = matchPrediction[GAME.BET_TYPES.TEAM2_GOALS.key];
+
+        matchPrediction[GAME.BET_TYPES.GOAL_DIFF.key] = Math.abs(team1Goals - team2Goals);
+        matchPrediction[GAME.BET_TYPES.WINNER.key] = team1Goals > team2Goals ? match.team1 :
             (team1Goals < team2Goals ? match.team2 : "Draw");
 
-        return matchResult;
+        return matchPrediction;
     }
 
     function getClubName(clubId, team1, team2) {
@@ -37,10 +55,10 @@ component.SimulatorPage = (function(){
 
         return clubId; // "None"/"Draw";
     }
-    function updateLeaders(leaders, clubs, predictions, matchResult, matchId, match, groupConfiguration) {
+    function updateLeaders(leaders, clubs, predictions, matchPrediction, matchId, match, groupConfiguration) {
         var predictionsByMatchId = utils.general.findItemsInArrBy(predictions, "matchId", matchId);
         predictionsByMatchId.forEach(function(prediction) {
-            var points = utils.general.calculateTotalPoints(prediction, matchResult, groupConfiguration);
+            var points = utils.general.calculateTotalPoints(prediction, matchPrediction, groupConfiguration);
             var leader = utils.general.findItemInArrBy(leaders, "userId", prediction.userId);
             if (points) {
                 leader.score += points;
@@ -68,6 +86,11 @@ component.SimulatorPage = (function(){
                 if (this.props.leadersStatus === utils.action.REQUEST_STATUS.NOT_LOADED) {
                     this.props.loadLeaderBoard();
                 }
+
+                if (this.props.gamesPredictionsStatus === utils.action.REQUEST_STATUS.NOT_LOADED) {
+                    this.props.loadGamesPredictions();
+                }
+
                 isRequestSent = true;
             }
 
@@ -123,9 +146,10 @@ component.SimulatorPage = (function(){
                 matchElem,
                 selectedLeagueId = props.selectedLeagueId,
                 leagues = props.leagues,
-                groupConfiguration = props.groupConfiguration;
+                groupConfiguration = props.groupConfiguration,
+                gamesPredictionsResults = props.gamesPredictionsResults;
 
-            if (!leaders.length || !users.length || !matches.length || !clubs.length || !groupConfiguration) {
+            if (!leaders.length || !users.length || !matches.length || !clubs.length || !groupConfiguration || this.props.gamesPredictionsStatus === utils.action.REQUEST_STATUS.NOT_LOADED) {
                 return re("div", { className: "content" }, "");
             }
 
@@ -134,10 +158,11 @@ component.SimulatorPage = (function(){
 
             if (selectedMatchId) {
                 var match = utils.general.findItemInArrBy(matches, "_id", selectedMatchId);
-                var matchResult = createMatchResult(predictionsSimulated, match);
-                updateLeaders(leaders, clubs, predictions, matchResult, selectedMatchId, match, groupConfiguration);
+                var matchResult = utils.general.findItemInArrBy(gamesPredictionsResults, "matchId", selectedMatchId);
+                var matchPrediction = createMatchPrediction(predictionsSimulated, match, matchResult);
+                updateLeaders(leaders, clubs, predictions, matchPrediction, selectedMatchId, match, groupConfiguration);
                 var league = utils.general.findItemInArrBy(leagues, "_id", match.league);
-                matchElem = re(SimulatorMatch, {game: match, league: league, clubs:clubs, matchResult: matchResult, updateMatchChange: that.updateMatchChange});
+                matchElem = re(SimulatorMatch, {game: match, league: league, clubs:clubs, matchPrediction: matchPrediction, matchResult: matchResult, updateMatchChange: that.updateMatchChange});
             }
 
             var dropDownMatchesElems = matches.map(function(match){
@@ -198,7 +223,9 @@ component.SimulatorPage = (function(){
             selectedLeagueId: state.leagues.selectedLeagueId,
             leagues: state.leagues.leagues,
             clubs: state.leagues.clubs,
-            groupConfiguration: state.groupConfiguration.groupConfiguration
+            groupConfiguration: state.groupConfiguration.groupConfiguration,
+            gamesPredictionsResults: state.gamesPredictions.results,
+            gamesPredictionsStatus: state.gamesPredictions.status
         }
     }
 
@@ -206,7 +233,8 @@ component.SimulatorPage = (function(){
         return {
             loadSimulator: function(){dispatch(action.simulator.loadSimulator())},
             loadLeaderBoard: function(){dispatch(action.leaderBoard.loadLeaderBoard())},
-            closeTileDialog: function(){dispatch(action.general.closeTileDialog())}
+            closeTileDialog: function(){dispatch(action.general.closeTileDialog())},
+            loadGamesPredictions: function(){dispatch(action.gamesPredictions.loadGames())}
         }
     }
 

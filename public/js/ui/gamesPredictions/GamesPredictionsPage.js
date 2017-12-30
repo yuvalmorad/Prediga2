@@ -4,9 +4,6 @@ component.GamesPredictionsPage = (function(){
         ImageButton = component.ImageButton,
         LeaguesSubHeader = component.LeaguesSubHeader;
 
-
-    var isGamesPredictionsRequestSent = false;
-
     function getTitleDate(date) {
         var daysOfWeak = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
         var dayOfWeek = daysOfWeak[date.getDay()];
@@ -94,9 +91,8 @@ component.GamesPredictionsPage = (function(){
         getInitialState: function() {
             shouldScrollToCurrentDate = true;
 
-            if (!isGamesPredictionsRequestSent) {
+            if (this.props.gamesPredictionsStatus === utils.action.REQUEST_STATUS.NOT_LOADED) {
                 this.props.loadGamesPredictions();
-                isGamesPredictionsRequestSent = true;
             }
 
             return {
@@ -237,6 +233,7 @@ component.GamesPredictionsPage = (function(){
             userPredictions: state.gamesPredictions.userPredictions,
             results: state.gamesPredictions.results,
             predictionsCounters: state.gamesPredictions.predictionsCounters,
+            gamesPredictionsStatus: state.gamesPredictions.status,
             isShowTileDialog: state.general.isShowTileDialog,
             leagues: state.leagues.leagues,
             selectedLeagueId: state.leagues.selectedLeagueId,

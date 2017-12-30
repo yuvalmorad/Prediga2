@@ -5,11 +5,7 @@ action.leaderBoard = (function(){
         loadLeaderBoard: loadLeaderBoard
     };
 
-    function loadLeaderBoard(leadersStatus) {
-        if (leadersStatus === utils.action.REQUEST_STATUS.NOT_LOADED) {
-
-        }
-
+    function loadLeaderBoard() {
         return function(dispatch){
             service.leaderBoard.getAll().then(function(res){
                 var leaderboard = res.data;

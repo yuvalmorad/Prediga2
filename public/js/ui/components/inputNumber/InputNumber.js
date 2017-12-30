@@ -10,12 +10,14 @@ component.InputNumber = (function(){
         },
 
         onDecrement: function() {
-            var num = this.props.num
+            var num = this.props.num;
+            var min = this.props.min;
+
             if (num === undefined) {
                 return;
             }
 
-            if(num !== 0) {
+            if(num !== 0 && num - 1 >= min) {
                 this.props.onChange((num) - 1);
             }
         },
@@ -26,7 +28,14 @@ component.InputNumber = (function(){
             var hasPoints = points !== undefined;
             var num = props.num;
             var isDisabled = props.isDisabled;
+            var min = props.min;
             var className = "input-number";
+
+            if (min !== undefined) {
+                if (num === undefined || num < min) {
+                    num = min;
+                }
+            }
 
             if (hasPoints) {
                 if (points > 0) {

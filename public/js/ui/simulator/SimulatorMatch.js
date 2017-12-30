@@ -25,9 +25,13 @@ component.SimulatorMatch = (function(){
                clubs = props.clubs,
                league = props.league,
                matchResult = props.matchResult,
-               predictionTeam1Goals = matchResult && matchResult[GAME.BET_TYPES.TEAM1_GOALS.key],
-               predictionTeam2Goals = matchResult && matchResult[GAME.BET_TYPES.TEAM2_GOALS.key],
-               predictionFirstToScore = matchResult && matchResult[GAME.BET_TYPES.FIRST_TO_SCORE.key],
+               resultTeam1Goals = matchResult && matchResult[GAME.BET_TYPES.TEAM1_GOALS.key],
+               resultTeam2Goals = matchResult && matchResult[GAME.BET_TYPES.TEAM2_GOALS.key],
+               resultFirstToScore = matchResult && matchResult[GAME.BET_TYPES.FIRST_TO_SCORE.key],
+               matchPrediction = props.matchPrediction,
+               predictionTeam1Goals = matchPrediction && matchPrediction[GAME.BET_TYPES.TEAM1_GOALS.key],
+               predictionTeam2Goals = matchPrediction && matchPrediction[GAME.BET_TYPES.TEAM2_GOALS.key],
+               predictionFirstToScore = matchPrediction && matchPrediction[GAME.BET_TYPES.FIRST_TO_SCORE.key],
                team1 = utils.general.findItemInArrBy(clubs, "_id", game.team1),
                team2 = utils.general.findItemInArrBy(clubs, "_id", game.team2),
                team1Id = team1._id,
@@ -44,7 +48,13 @@ component.SimulatorMatch = (function(){
                team2ShortName = team2.shortName,
                leagueIdName = utils.general.leagueNameToIdName(league.name),
                leagueSprite = utils.general.getLeagueLogoURL(leagueIdName),
-               teamLogoClass = "team-logo " + leagueIdName;
+               teamLogoClass = "team-logo " + leagueIdName,
+               firstToScoreTeamResult;
+
+           if (resultFirstToScore !== undefined && !utils.general.isFirstScoreNone(resultFirstToScore)) {
+               //there was first score
+               firstToScoreTeamResult = resultFirstToScore;
+           }
 
            return re("div", { className: "simulator-match" },
                re("div", {className: "row1"},
@@ -53,8 +63,8 @@ component.SimulatorMatch = (function(){
                        re("div", {className: "team-name"}, team1ShortName)
                    ),
                    re("div", {className: "center"},
-                       re(InputNumber, {num: predictionTeam1Goals, onChange: this.onInputNumberChanged.bind(this, GAME.BET_TYPES.TEAM1_GOALS.key)}),
-                       re(InputNumber, {num: predictionTeam2Goals, onChange: this.onInputNumberChanged.bind(this, GAME.BET_TYPES.TEAM2_GOALS.key)})
+                       re(InputNumber, {num: predictionTeam1Goals, min: resultTeam1Goals, onChange: this.onInputNumberChanged.bind(this, GAME.BET_TYPES.TEAM1_GOALS.key)}),
+                       re(InputNumber, {num: predictionTeam2Goals, min: resultTeam2Goals, onChange: this.onInputNumberChanged.bind(this, GAME.BET_TYPES.TEAM2_GOALS.key)})
                    ),
                    re("div", {className: "right"},
                        re("div", {className: teamLogoClass, style: {backgroundImage: leagueSprite, backgroundPosition: team2LogoPosition}}),
@@ -62,7 +72,7 @@ component.SimulatorMatch = (function(){
                    )
                ),
                re("div", {className: "form-row-title"}, "First to Score"),
-               re(RadioGroup, {className: "first-score", onChange: this.onRadioGroupChanged, _id: "simulatorMatch_" + game._id, name: GAME.BET_TYPES.FIRST_TO_SCORE.key, inputs: [
+               re(RadioGroup, {className: "first-score", onChange: this.onRadioGroupChanged, isDisabled: !!firstToScoreTeamResult, _id: "simulatorMatch_" + game._id, name: GAME.BET_TYPES.FIRST_TO_SCORE.key, inputs: [
                        {bgColor: team1BgColor, textColor: team1Color, text: team1Name, name: team1Id, res: predictionFirstToScore},
                        {bgColor: COLORS.DRAW_COLOR, text: "None", name: "None", res: predictionFirstToScore, isDefault: true},
                        {bgColor: team2BgColor, textColor: team2Color, text: team2Name, name: team2Id, res: predictionFirstToScore}
