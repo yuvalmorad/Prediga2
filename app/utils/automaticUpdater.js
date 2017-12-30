@@ -290,12 +290,12 @@ const self = module.exports = {
 				if (anEvent.Type === 0) { // type = goal
 					// update firstToScore if is still in initial state
 					if (newMatchResult.firstToScore === 'None') {
-						newMatchResult.firstToScore = anEvent.Comp === 1 ? team2 : team1;
+						newMatchResult.firstToScore = anEvent.Comp === 1 ? team1 : team2;
 					}
-					// team2 goals
+
 					if (anEvent.Comp === 1) { // home goals
 						newMatchResult.team1Goals++;
-					} // team1 goals
+					}
 					else if (anEvent.Comp === 2) { // away goals
 						newMatchResult.team2Goals++;
 					}
