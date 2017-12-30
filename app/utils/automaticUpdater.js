@@ -248,7 +248,7 @@ const self = module.exports = {
 							return Promise.all([
 								matchResultService.updateMatchResult(newMatchResult)
 							]).then(function (arr4) {
-								if (newMatchResult.Active === false) {
+								if (newMatchResult.active === false) {
 									return 'getResultsJob';
 								} else {
 									const leagueId = aMatch.league;
@@ -279,7 +279,8 @@ const self = module.exports = {
 			goalDiff: 0,
 			firstToScore: 'None',
 			gameTime: relevantGame.GT,
-			completion: relevantGame.Completion
+			completion: relevantGame.Completion,
+			active: relevantGame.Active
 		};
 
 		if (!relevantGame.Events || relevantGame.Events.length < 1) {
