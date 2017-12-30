@@ -663,6 +663,11 @@ body {
     transition: height 0.3s;
 }
 
+.tile-dialog-container .tile {
+    border-top: none;
+    border-bottom: none;
+}
+
 .tile .tile-wrapper {
     border-left: 4px solid #888282;
     border-right: 4px solid #888282;
