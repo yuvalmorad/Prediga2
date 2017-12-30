@@ -1,6 +1,7 @@
 var pushNotifications = (function(){
     var publicKey = "BI75psBX1HkM6jpcXdEYKNV41ZZdzQU_pJf7sS_1V6r3mE-83ptsqjZ7pIVT9sfHc4ThRgc_YAnaS3XSE-igB98";
     var STATUS_GRANTED = "granted";
+    var supportServiceWorker = 'serviceWorker' in navigator;
 
     function init() {
         //#1 register service worker
@@ -8,7 +9,7 @@ var pushNotifications = (function(){
     }
 
     function registerServiceWorker() {
-        if ('serviceWorker' in navigator) {
+        if (supportServiceWorker) {
             window.addEventListener('load', function() {
                 navigator.serviceWorker.register('/sw.js').then(function(registration) {
                     console.log('ServiceWorker registration successful with scope: ', registration.scope);
@@ -21,6 +22,10 @@ var pushNotifications = (function(){
 
     //should be called once per user (also per device ?)
     function askPermissionAndPersistPushSubscriptionIfNeeded() {
+        if (!supportServiceWorker) {
+            return Promise.reject();
+        }
+
         //don't ask for permission if there is already granted permission
         if (Notification.permission === STATUS_GRANTED) {
             return Promise.resolve();
