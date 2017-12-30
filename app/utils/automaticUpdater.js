@@ -64,9 +64,11 @@ const self = module.exports = {
 
 			if (!activeLeagues && activeLeagues.length < 1) {
 				console.log('No active leagues! going to sleep');
+				const nextJob = new Date();
 				const now = new Date();
-				schedule.scheduleJob(now, function () {
-					self.run()
+				nextJob.setSeconds(now.getSeconds() + 30);
+				schedule.scheduleJob(nextJob, function () {
+					self.run();
 				});
 			}
 			const configuration = arr[1];
@@ -74,19 +76,20 @@ const self = module.exports = {
 				self.getResults(activeLeagues, configuration)
 			]).then(function (arr) {
 				const hasInProgressGames = arr[0];
+				const nextJob = new Date();
+				const now = new Date();
+				nextJob.setSeconds(now.getSeconds() + 30);
 
 				if (hasInProgressGames) {
 					console.log('There are more games in progress');
-					const nextJob = new Date();
-					const now = new Date();
-					nextJob.setSeconds(now.getSeconds() + 30);
+
 					schedule.scheduleJob(nextJob, function () {
 						self.getResultsJob(activeLeagues)
 					});
 				} else {
 					console.log('All games in progress are ended');
-					schedule.scheduleJob(now, function () {
-						self.run()
+					schedule.scheduleJob(nextJob, function () {
+						self.run();
 					});
 				}
 			});
@@ -230,6 +233,10 @@ const self = module.exports = {
 					const matchResult = arr2[0];
 					// game already ended in db
 					if (matchResult && matchResult.completion >= 100) {
+						return false;
+					}
+					// game has not started
+					if (relevantGame.Completion <= 0 && relevantGame.GT === -1){
 						return false;
 					}
 
