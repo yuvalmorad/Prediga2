@@ -44,7 +44,11 @@ var routePages = (function(){
             title: "Simulator",
             name: "simulator",
             isAuthenticatedPage: true,
-            component: SimulatorPage
+            component: SimulatorPage,
+            siteHeaderConfig: {
+                hideMenuButton: true,
+                hasBackButton: true
+            }
         },
         {
             path: "/joinGroup",
@@ -53,7 +57,8 @@ var routePages = (function(){
             isAuthenticatedPage: true,
             component: JoinGroupPage,
             siteHeaderConfig: {
-                hideMenuButton: true
+                hideMenuButton: true,
+                hasBackButton: true
             }
         },
         {
@@ -63,7 +68,8 @@ var routePages = (function(){
             isAuthenticatedPage: true,
             component: CreateNewGroupPage,
             siteHeaderConfig: {
-                hideMenuButton: true
+                hideMenuButton: true,
+                hasBackButton: true
             }
         },
         {

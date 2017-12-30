@@ -1,25 +1,35 @@
 component.SiteHeader = (function(){
     var connect = ReactRedux.connect;
 
-    var SiteHeader = function (props) {
-       var hide = props.hide,
-           title = props.title,
-           siteHeaderConfig = props.siteHeaderConfig;
-           //siteHeaderActionButtons = props.siteHeaderActionButtons,
-           //rightButton;
+    var SiteHeader = React.createClass({
+            onBackButtonClicked: function() {
+                routerHistory.goBack();
+            },
 
-       /*if (siteHeaderActionButtons) {
-           var button = siteHeaderActionButtons[0];
-           rightButton = re("a", {className: "action-button", onClick: button.onClick}, button.text);
-       }*/
-       return re("div", { className: "site-header" + (hide ? " hide" : "") },
-           re("div", {className: "left"},
-               re("a", {className: "menu-button" + (siteHeaderConfig.hideMenuButton ? " hide" : ""), onClick: props.toggleMenu})
-           ),
-           re("div", {className: "center"}, title),
-           re("div", {className: "right"})
-       );
-    };
+            render: function () {
+                var props = this.props,
+                    hide = props.hide,
+                    title = props.title,
+                    siteHeaderConfig = props.siteHeaderConfig,
+                    hideMenuButton = siteHeaderConfig.hideMenuButton,
+                    hasBackButton = siteHeaderConfig.hasBackButton;
+                //siteHeaderActionButtons = props.siteHeaderActionButtons,
+                //rightButton;
+
+                /*if (siteHeaderActionButtons) {
+                    var button = siteHeaderActionButtons[0];
+                    rightButton = re("a", {className: "action-button", onClick: button.onClick}, button.text);
+                }*/
+                return re("div", { className: "site-header" + (hide ? " hide" : "") },
+                    re("div", {className: "left"},
+                        re("a", {className: "back-button" + (hasBackButton ? "" : " hide"), onClick: this.onBackButtonClicked}, "<"),
+                        re("a", {className: "menu-button" + (hideMenuButton ? " hide" : ""), onClick: props.toggleMenu})
+                    ),
+                    re("div", {className: "center"}, title),
+                        re("div", {className: "right"})
+            );
+        }
+    });
 
     function mapStateToProps(state){
         return {

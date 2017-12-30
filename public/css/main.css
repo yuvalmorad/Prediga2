@@ -242,6 +242,12 @@ body {
     color: #229eff;
 }
 
+.site-header .left {
+    left: 10px;
+    top: 0;
+    position: relative;
+}
+
 .site-header .right {
     display: flex;
     justify-content: flex-end;
@@ -259,15 +265,20 @@ body {
     color: #009fff;
 }
 
+
+.site-header .back-button {
+    font-size: 1.2rem;
+    padding: 0 1rem;
+    margin-left: -1rem;
+}
 /* -------  Menu -------*/
 
-.menu-button {
+.site-header .menu-button {
     padding: 2px;
     position: relative;
-    left: 10px;
 }
 
-.menu-button:before {
+.site-header .menu-button:before {
     content: "";
     position: absolute;
     left: 0;
@@ -1078,68 +1089,15 @@ body {
     flex-direction: column;
 }
 
-.simulator-page > .subHeader {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 0.5rem;
-}
 .simulator-matches {
     min-height: 2.3rem;
     position: relative;
-}
-
-.simulator-page .matches-dropdown-button,
-.simulator-page .back-button{
-    background-color: #fff;
-    color: #23a2ff;
-    padding: 0.2rem 0.5rem;
-    font-size: 0.75rem;
 }
 
 .simulator-page .tiles {
     flex: 1;
     height: auto !important;
     padding-top: 0 !important;
-}
-
-.simulator-page .matches-dropdown-menu {
-    position: absolute;
-    top: 1.5rem;
-    left: 0.5rem;
-    right: 0.5rem;
-    background-color: #d4d4d4;
-    z-index: 5;
-    border: 1px solid #848080;
-    box-shadow: 0 6px 10px -3px #484545;
-    max-height: 15rem;
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
-}
-
-.simulator-page .matches-dropdown-menu .match-row {
-    height: 3rem;
-    display: flex;
-    align-items: center;
-}
-
-.simulator-page .matches-dropdown-menu .match-row:nth-child(2n-1) {
-    background-color: #c1bdbd;
-}
-
-.simulator-page .matches-dropdown-menu .match-row.selected {
-    background-color: #66b9f9;
-    color: #fff;
-}
-
-.matches-dropdown-menu .match-row > div:first-child {
-    flex: 1;
-    text-align: center;
-}
-
-.matches-dropdown-menu .match-row > div:last-child {
-    flex: 5;
-    text-align: center;
 }
 
 .simulator-match {

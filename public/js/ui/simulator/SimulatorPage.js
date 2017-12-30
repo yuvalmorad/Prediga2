@@ -96,7 +96,6 @@ component.SimulatorPage = (function(){
 
             return {
                 predictionsSimulated: [], //{matchId: "", team1Goals: 1, ...}
-                isMatchesDropDownMenuOpen: false,
                 selectedMatchId: this.props.match.params.gameId
             };
         },
@@ -118,23 +117,10 @@ component.SimulatorPage = (function(){
             this.forceUpdate();
         },
 
-        toggleMatchesDropDownMenu: function() {
-            this.setState({isMatchesDropDownMenuOpen: !this.state.isMatchesDropDownMenuOpen});
-        },
-
-        onDropDownMatchClicked: function(matchId) {
-            this.setState({selectedMatchId: matchId, isMatchesDropDownMenuOpen: false, predictionsSimulated: []});
-        },
-
-        onBackButtonClicked: function() {
-            routerHistory.goBack();
-        },
-
         render: function() {
             var that = this,
                 props = this.props,
                 state = this.state,
-                isMatchesDropDownMenuOpen = state.isMatchesDropDownMenuOpen,
                 selectedMatchId = state.selectedMatchId,
                 predictionsSimulated = state.predictionsSimulated,
                 leaders = props.leaders,
@@ -165,23 +151,6 @@ component.SimulatorPage = (function(){
                 matchElem = re(SimulatorMatch, {game: match, league: league, clubs:clubs, matchPrediction: matchPrediction, matchResult: matchResult, updateMatchChange: that.updateMatchChange});
             }
 
-            var dropDownMatchesElems = matches.map(function(match){
-                var matchId = match._id;
-                var isSelected = selectedMatchId ? selectedMatchId === matchId : false;
-                var team1 = utils.general.findItemInArrBy(clubs, "_id", match.team1);
-                var team2 = utils.general.findItemInArrBy(clubs, "_id", match.team2);
-                return re("div", {className: "match-row" + (isSelected ? " selected": ""), onClick: that.onDropDownMatchClicked.bind(that, matchId), key: "dropdownMatch_" + matchId},
-                    re("div", {}, utils.general.formatHourMinutesTime(match.kickofftime)),
-                    re("div", {}, team1.name + " - " + team2.name)
-                );
-            });
-
-            dropDownMatchesElems.unshift(
-                re("div", {className: "match-row" + (selectedMatchId ? "": " selected"), onClick: that.onDropDownMatchClicked.bind(that, ""), key: "dropdownMatch_NONE"},
-                    re("div", {}, "None")
-                )
-            );
-
             //sort leaders
             leaders.sort(function(leader1, leader2){
                return leader2.score - leader1.score;
@@ -194,16 +163,6 @@ component.SimulatorPage = (function(){
             });
 
             return re("div", { className: "content simulator-page" },
-                re("div", {className: "subHeader"},
-                    re("a", {className: "back-button", onClick: this.onBackButtonClicked}, "Back"),
-                    re("a", {className: "matches-dropdown-button", onClick: this.toggleMatchesDropDownMenu}, "Select Match"),
-                    re("div", {style: {width: "42px"}})
-                ),
-                re("div", {className: "matches-dropdown-menu" + (isMatchesDropDownMenuOpen ? "" : " hide")},
-                    re("div", {className: "matches"},
-                        dropDownMatchesElems
-                    )
-                ),
                 re("div", { className: "simulator-matches" },
                     matchElem
                 ),
