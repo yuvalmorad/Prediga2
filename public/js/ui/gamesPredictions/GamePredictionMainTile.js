@@ -92,7 +92,7 @@ component.GamePredictionMainTile = (function(){
                     //running game
                     className += " running-game";
                     simulationBtn = re(ReactRouterDOM.Link, {to: "/simulator/" + gameId, className: "simulation-button"}, "Simulation");
-                    dateStr = utils.general.getRunningGameFormat(result.gameTime);
+                    dateStr = utils.general.getRunningGameFormat(result);
                     displayTeam1Goals = result[GAME.BET_TYPES.TEAM1_GOALS.key];
                     displayTeam2Goals = result[GAME.BET_TYPES.TEAM2_GOALS.key];
                 } else if (timeBeforeGame !== undefined) {

@@ -54,7 +54,7 @@ component.SimulatorMatch = (function(){
                dateStr;
 
             if (gameStatus === GAME.STATUS.RUNNING_GAME) {
-                dateStr = utils.general.getRunningGameFormat(matchResult.gameTime);
+                dateStr = utils.general.getRunningGameFormat(matchResult);
             }
 
             var gameDate = re("div", {className: "simulate-game-date"}, dateStr);

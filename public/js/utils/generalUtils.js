@@ -84,8 +84,13 @@ utils.general = (function(){
         return minutes + ":" + seconds;
     }
 
-    function getRunningGameFormat(gameTime) {
-        return "Running " + gameTime + "'";
+    function getRunningGameFormat(result) {
+        var gameTime = result.gameTime;
+        if (!result.AutoProgressGT && gameTime === 45) {
+            return "Half Time";
+        } else {
+            return "Running " + gameTime + "'";
+        }
     }
 
     function getGameStatus(result) {
