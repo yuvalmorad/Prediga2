@@ -22,7 +22,7 @@ const self = module.exports = {
 					arr[0].sort(self.compareAggregatedScores);
 
 					return self.updateAllAggregatedScores(leagueId, arr[0]).then(function () {
-						console.log('finished to update the leader board based on all user scores for league '+ leagueId);
+						console.log('finished to update the leader board based on all user scores for league ' + leagueId);
 					});
 				});
 			});
@@ -110,6 +110,13 @@ const self = module.exports = {
 			return -1;
 		return 0;
 	},
+	compareUserIds: function (a, b) {
+		if (a < b)
+			return 1;
+		if (a > b)
+			return -1;
+		return 0;
+	},
 	getLeaderboardWithNewRegisteredUsers: function (leagueId) {
 		return Promise.all([
 			User.find({}),
@@ -135,6 +142,7 @@ const self = module.exports = {
 		const allUsersIds = allUsers.map(a => a._id.toString());
 		const userIdsNotInLeaderboard = allUsersIds.filter(x => userIdsInLeaderboard.indexOf(x) === -1);
 		if (userIdsNotInLeaderboard && userIdsNotInLeaderboard.length > 0) {
+			userIdsNotInLeaderboard.sort(self.compareUserIds);
 			const promises = userIdsNotInLeaderboard.map(function (userId) {
 				self.amendNewRegisteredUser(leaderboard, userId, leagueId);
 				return leaderboard;

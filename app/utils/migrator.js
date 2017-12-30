@@ -15,7 +15,7 @@ const self = module.exports = {
 			//self.migrateUserScore(),
 			//self.migrateLeaderboard()
 			//self.migrateMatchPredictions()
-			self.migrateMatchResults()
+			//self.migrateMatchResults()
 			//self.migrateTeamPredictions(),
 			//self.migrateTeamResults()
 		]).then(function (arr) {
