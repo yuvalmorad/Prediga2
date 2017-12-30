@@ -257,6 +257,7 @@ const self = module.exports = {
 										console.log('Finish to update all for [' + team1 + ' - ' + team2 + ']');
 										return 'updateLeaderboard';
 									});
+
 								}
 							});
 						});
