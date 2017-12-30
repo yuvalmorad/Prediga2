@@ -237,7 +237,7 @@ const self = module.exports = {
 						return false;
 					}
 					// game has not started
-					if (relevantGame.Completion <= 0 && relevantGame.GT === -1){
+					if (relevantGame.Completion <= 0 && relevantGame.GT === -1) {
 						console.log('Game has not started yet, for [' + team1 + ' - ' + team2 + ']');
 						return false;
 					}
