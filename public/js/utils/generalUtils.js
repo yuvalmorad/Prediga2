@@ -16,6 +16,7 @@ utils.general = (function(){
         getDrawFromObject: getDrawFromObject,
         isGameClosed: isGameClosed,
         getGameStatus: getGameStatus,
+        getRunningGameFormat: getRunningGameFormat,
         formatMinutesSecondsTime: formatMinutesSecondsTime,
         formatHourMinutesTime: formatHourMinutesTime,
         getLeagueLogoURL: getLeagueLogoURL,
@@ -81,6 +82,15 @@ utils.general = (function(){
         var seconds = addZeroToTimeIfNeeded(totalSeconds % 60);
         var minutes = addZeroToTimeIfNeeded(Math.floor(totalSeconds / 60));
         return minutes + ":" + seconds;
+    }
+
+    function getRunningGameFormat(result) {
+        var gameTime = result.gameTime;
+        if (!result.AutoProgressGT && gameTime === 45) {
+            return "Half Time";
+        } else {
+            return "Running " + gameTime + "'";
+        }
     }
 
     function getGameStatus(result) {

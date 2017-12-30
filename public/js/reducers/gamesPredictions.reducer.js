@@ -9,7 +9,8 @@ reducer.gamesPredictions = (function() {
         matches: [],
         userPredictions: [],
         results: [],
-        predictionsCounters: {}
+        predictionsCounters: {},
+        status: utils.action.REQUEST_STATUS.NOT_LOADED
     };
 
     return function gamesPredictions(state, action){
@@ -19,7 +20,7 @@ reducer.gamesPredictions = (function() {
 
         switch (action.type) {
             case LOAD_GAMES_SUCCESS:
-                return Object.assign({}, state, {matches: action.matches, userPredictions: action.userPredictions, results: action.results, predictionsCounters: action.predictionsCounters});
+                return Object.assign({}, state, {matches: action.matches, userPredictions: action.userPredictions, results: action.results, predictionsCounters: action.predictionsCounters, status: utils.action.REQUEST_STATUS.SUCCESS_LOADED});
             case UPDATE_GAME:
                 return Object.assign({}, state, {userPredictions: utils.general.updateOrCreateObject(state.userPredictions, action.prediction)});
             case UPDATE_GAME_RESULT:

@@ -51,8 +51,6 @@ component.GamePredictionMainTile = (function(){
                 team2 = props.team2,
                 prediction = props.prediction,
                 result = props.result,
-                predictionWinner = prediction && prediction[GAME.BET_TYPES.WINNER.key],
-                resultWinner,
                 displayTeam1Goals,
                 displayTeam2Goals,
                 leagueSprite = utils.general.getLeagueLogoURL(leagueIdName),
@@ -78,7 +76,6 @@ component.GamePredictionMainTile = (function(){
                 var points = utils.general.calculateTotalPoints(prediction, result, groupConfiguration);
                 var maxPoints = utils.general.getMaxPoints(groupConfiguration);
 
-                resultWinner = result[GAME.BET_TYPES.WINNER.key];
                 displayTeam1Goals = result[GAME.BET_TYPES.TEAM1_GOALS.key];
                 displayTeam2Goals = result[GAME.BET_TYPES.TEAM2_GOALS.key];
 
@@ -95,7 +92,7 @@ component.GamePredictionMainTile = (function(){
                     //running game
                     className += " running-game";
                     simulationBtn = re(ReactRouterDOM.Link, {to: "/simulator/" + gameId, className: "simulation-button"}, "Simulation");
-                    dateStr = "Running " + result.gameTime + "'";
+                    dateStr = utils.general.getRunningGameFormat(result);
                     displayTeam1Goals = result[GAME.BET_TYPES.TEAM1_GOALS.key];
                     displayTeam2Goals = result[GAME.BET_TYPES.TEAM2_GOALS.key];
                 } else if (timeBeforeGame !== undefined) {
