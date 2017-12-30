@@ -55,7 +55,7 @@ const self = module.exports = {
 	},
 	getResultsJob: function (activeLeagues) {
 		console.log('Automatic update (getResults Job) wake up');
-		const now = new Date();
+
 		return Promise.all([
 			typeof (activeLeagues) === 'undefined' ? leagueService.getActiveLeagues() : activeLeagues,
 			groupConfiguration.find({})
@@ -64,6 +64,7 @@ const self = module.exports = {
 
 			if (!activeLeagues && activeLeagues.length < 1) {
 				console.log('No active leagues! going to sleep');
+				const now = new Date();
 				schedule.scheduleJob(now, function () {
 					self.run()
 				});
@@ -77,7 +78,8 @@ const self = module.exports = {
 				if (hasInProgressGames) {
 					console.log('There are more games in progress');
 					const nextJob = new Date();
-					nextJob.setMinutes(now.getMinutes() + 1);
+					const now = new Date();
+					nextJob.setSeconds(now.getSeconds() + 30);
 					schedule.scheduleJob(nextJob, function () {
 						self.getResultsJob(activeLeagues)
 					});
@@ -217,7 +219,7 @@ const self = module.exports = {
 				matchService.findMatchByTeamsToday(team1, team2)
 			]).then(function (arr1) {
 				const aMatch = arr1[0];
-				if (!aMatch) {
+				if (!aMatch || aMatch === null) {
 					console.log('No match found [' + team1 + ' - ' + team2 + ']');
 					return false;
 				}
