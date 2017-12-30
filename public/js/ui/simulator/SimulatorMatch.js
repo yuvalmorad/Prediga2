@@ -49,20 +49,29 @@ component.SimulatorMatch = (function(){
                leagueIdName = utils.general.leagueNameToIdName(league.name),
                leagueSprite = utils.general.getLeagueLogoURL(leagueIdName),
                teamLogoClass = "team-logo " + leagueIdName,
-               firstToScoreTeamResult;
+               firstToScoreTeamResult,
+               gameStatus = utils.general.getGameStatus(matchResult),
+               dateStr;
 
-           if (resultFirstToScore !== undefined && !utils.general.isFirstScoreNone(resultFirstToScore)) {
+            if (gameStatus === GAME.STATUS.RUNNING_GAME) {
+                dateStr = utils.general.getRunningGameFormat(matchResult.gameTime);
+            }
+
+            var gameDate = re("div", {className: "simulate-game-date"}, dateStr);
+
+            if (resultFirstToScore !== undefined && !utils.general.isFirstScoreNone(resultFirstToScore)) {
                //there was first score
                firstToScoreTeamResult = resultFirstToScore;
-           }
+            }
 
-           return re("div", { className: "simulator-match" },
+            return re("div", { className: "simulator-match" },
                re("div", {className: "row1"},
                    re("div", {className: "left"},
                        re("div", {className: teamLogoClass, style: {backgroundImage: leagueSprite, backgroundPosition: team1LogoPosition}}),
                        re("div", {className: "team-name"}, team1ShortName)
                    ),
                    re("div", {className: "center"},
+                       gameDate,
                        re(InputNumber, {num: predictionTeam1Goals, min: resultTeam1Goals, onChange: this.onInputNumberChanged.bind(this, GAME.BET_TYPES.TEAM1_GOALS.key)}),
                        re(InputNumber, {num: predictionTeam2Goals, min: resultTeam2Goals, onChange: this.onInputNumberChanged.bind(this, GAME.BET_TYPES.TEAM2_GOALS.key)})
                    ),
@@ -78,7 +87,7 @@ component.SimulatorMatch = (function(){
                        {bgColor: team2BgColor, textColor: team2Color, text: team2Name, name: team2Id, res: predictionFirstToScore}
                    ]}
                )
-           );
+            );
         }
     });
 })();

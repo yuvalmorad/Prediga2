@@ -1177,6 +1177,13 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-around;
+    position: relative;
+}
+
+.simulator-match .simulate-game-date {
+    position: absolute;
+    top: 0;
+    font-size: 1rem;
 }
 
 .simulator-match .team-name {
