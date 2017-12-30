@@ -60,10 +60,6 @@ body {
     display: inline-block;
 }
 
-.team-logo.grayed {
-    filter: grayscale(100%);
-}
-
 /* -------  Loading -------*/
 
 .loading {

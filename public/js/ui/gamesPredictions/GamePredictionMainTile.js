@@ -60,8 +60,6 @@ component.GamePredictionMainTile = (function(){
                 team2ShortName = team2 ? team2.shortName : "",
                 team1LogoPosition = team1 ? team1.logoPosition : "",
                 team2LogoPosition = team2 ? team2.logoPosition : "",
-                team1LogoClass = "team-logo " + leagueIdName,
-                team2LogoClass = "team-logo " + leagueIdName,
                 gameDate,
                 graphParts,
                 kickofftime = game.kickofftime,
@@ -87,14 +85,6 @@ component.GamePredictionMainTile = (function(){
                 gameDate = re("div", {className: "final-game"}, "FINAL");
                 gamePoints = re("div", {key: 2, className: "game-points"}, points);
                 graphParts = [{color: "#7ED321", amount: points}, {color: COLORS.DRAW_COLOR, amount: maxPoints - points}];
-
-                if (resultWinner !== team1._id) {
-                    team1LogoClass += " grayed";
-                }
-
-                if (resultWinner !== team2._id) {
-                    team2LogoClass += " grayed";
-                }
             } else {
                 //before game ended
 
@@ -118,17 +108,6 @@ component.GamePredictionMainTile = (function(){
 
                 gameDate = re("div", {}, dateStr);
 
-                if (predictionWinner) {
-                    //add this user to the count
-                    if (predictionWinner !== team1._id) {
-                        team1LogoClass += " grayed";
-                    }
-
-                    if (predictionWinner !== team2._id) {
-                        team2LogoClass += " grayed";
-                    }
-                }
-
                 var predictionCounterWin1 = predictionCounters[team1._id] || 0,
                     predictionCounterWin2 = predictionCounters[team2._id] || 0,
                     predictionCounterDraw = utils.general.getDrawFromObject(predictionCounters) || 0,
@@ -139,7 +118,7 @@ component.GamePredictionMainTile = (function(){
 
             return re("div", {className: className},
                 re("div", {className: "left"},
-                    re("div", {className: team1LogoClass, style: {backgroundImage: leagueSprite, backgroundPosition: team1LogoPosition}}),
+                    re("div", {className: "team-logo " + leagueIdName, style: {backgroundImage: leagueSprite, backgroundPosition: team1LogoPosition}}),
                     re("div", {className: "team-name"}, team1ShortName)
                 ),
                 re("div", {className: "center"},
@@ -158,7 +137,7 @@ component.GamePredictionMainTile = (function(){
                     )
                 ),
                 re("div", {className: "right"},
-                    re("div", {className: team2LogoClass, style: {backgroundImage: leagueSprite, backgroundPosition: team2LogoPosition}}),
+                    re("div", {className: "team-logo " + leagueIdName, style: {backgroundImage: leagueSprite, backgroundPosition: team2LogoPosition}}),
                     re("div", {className: "team-name"}, team2ShortName)
                 )
             );
