@@ -1,8 +1,9 @@
-component.Menu = (function(){
+component.MainMenu = (function(){
     var connect = ReactRedux.connect,
+        Menu = component.Menu,
         MenuItem = component.MenuItem;
 
-    var Menu =  React.createClass({
+    var MainMenu =  React.createClass({
         onMenuItemClicked: function(to) {
             this.props.toggleMenu(); //close menu
             window.routerHistory.push(utils.general.cutUrlPath(to));
@@ -21,7 +22,11 @@ component.Menu = (function(){
                 return page[filterProperty];
             }).map(function(page, index){
                 var to = page.path;
-                return re(MenuItem, {text: page.title, to: to, iconClassName: page.name + "-icon", onMenuItemClicked: that.onMenuItemClicked.bind(that, to), key: filterProperty + index});
+                var isSelected = false;
+                if (to && utils.general.cutUrlPath(routerHistory.location.pathname) === utils.general.cutUrlPath(to)) {
+                    isSelected = true;
+                }
+                return re(MenuItem, {text: page.title, isSelected: isSelected, onMenuItemClicked: that.onMenuItemClicked.bind(that, to), key: filterProperty + index});
             });
         },
 
@@ -31,24 +36,13 @@ component.Menu = (function(){
 
         render: function() {
             var props = this.props,
+                isMenuOpen = props.isMenuOpen,
                 topMenuItems = this.renderMenuItems("displayInTopMenu"),
                 bottomMenuItems = this.renderMenuItems("displayInBottomMenu");
 
             bottomMenuItems.push(this.renderLogoutMenuItem());
 
-            return re("div", { className: "menu" + (props.isMenuOpen ? " open" : "")},
-                re("div", {className: "menu-header"},
-                    re("a", {className: "close-menu", onClick: props.toggleMenu}, "X")
-                ),
-                re("div", {className: "menu-content"},
-                    re("div", {className: "menu-top-content"},
-                        topMenuItems
-                    ),
-                    re("div", {className: "menu-bottom-content"},
-                        bottomMenuItems
-                    )
-                )
-            );
+            return re(Menu, {title: "Prediga", isMenuOpen: isMenuOpen, topMenuItems: topMenuItems, bottomMenuItems: bottomMenuItems, toggleMenu: props.toggleMenu});
         }
     });
 
@@ -64,7 +58,7 @@ component.Menu = (function(){
         }
     }
 
-    return connect(mapStateToProps, mapDispatchToProps)(Menu);
+    return connect(mapStateToProps, mapDispatchToProps)(MainMenu);
 })();
 
 

@@ -240,17 +240,18 @@ body {
     line-height: 2.75rem;
     font-size: 0.75rem;
     color: #229eff;
+    top: 0;
+    position: relative;
 }
 
 .site-header .left {
     left: 10px;
-    top: 0;
-    position: relative;
 }
 
 .site-header .right {
     display: flex;
     justify-content: flex-end;
+    right: 10px;
 }
 
 .site-header .right .action-button {
@@ -309,6 +310,12 @@ body {
     z-index: 100;
 }
 
+.menu.groups-menu {
+    transform: translateX(100%);
+    left: auto;
+    right: 0;
+}
+
 .menu.open {
     transform: translateX(0);
 }
@@ -317,6 +324,20 @@ body {
     height: 2rem;
     line-height: 2rem;
     padding: 0 0.5rem;
+    display: flex;
+}
+
+.menu .menu-header > * {
+    display: inline-block;
+    flex: 1
+}
+
+.menu.groups-menu .menu-header {
+    flex-direction: row-reverse;
+}
+
+.menu.groups-menu .menu-header > *:first-child {
+    text-align: right;
 }
 
 .menu .menu-content {

@@ -3,7 +3,8 @@ component.App = (function(){
         withRouter = ReactRouterDOM.withRouter,
         SiteHeader = component.SiteHeader,
         SiteNavigation = component.SiteNavigation,
-        Menu = component.Menu,
+        MainMenu = component.MainMenu,
+        GroupsMenu = component.GroupsMenu,
         TileDialogContainer = component.TileDialogContainer,
         Loading = component.Loading,
         Pages = component.Pages;
@@ -28,7 +29,8 @@ component.App = (function(){
                 re(Pages, {}),
                 re(SiteNavigation, {hide: hideSiteNavigation}),
                 re(TileDialogContainer, {}),
-                re(Menu, {}),
+                re(MainMenu, {}),
+                re(GroupsMenu, {}),
                 re(Loading, {})
             )
         }

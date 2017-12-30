@@ -8,10 +8,17 @@ action.general = (function(){
         CLOSE_TILE_DIALOG: "CLOSE_TILE_DIALOG",
 
         TOGGLE_MENU: "TOGGLE_MENU",
+        TOGGLE_MENU_GROUPS: "TOGGLE_MENU_GROUPS",
 
         toggleMenu: function() {
             return {
                 type: general.TOGGLE_MENU
+            }
+        },
+
+        toggleMenuGroups: function() {
+            return {
+                type: general.TOGGLE_MENU_GROUPS
             }
         },
 
