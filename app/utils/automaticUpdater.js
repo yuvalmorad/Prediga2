@@ -16,7 +16,7 @@ const socketIo = require('../socketIo');
 const pushNotificationUtil = require('./pushNotification');
 
 const self = module.exports = {
-	run: function () {
+	run: function (isFirstRun) {
 		console.log('Automatic update (run job) wake up');
 		return Promise.all([
 			matchService.getNextMatchDate()
@@ -35,7 +35,7 @@ const self = module.exports = {
 				before.setMinutes(now.getMinutes() - 150);
 				after.setMinutes(now.getMinutes() + 150);
 				// start now
-				if (aMatch.kickofftime >= before && aMatch.kickofftime <= after) {
+				if (isFirstRun || (aMatch.kickofftime >= before && aMatch.kickofftime <= after)) {
 					console.log('start get result now');
 					self.getResultsJob(undefined);
 				} else {
@@ -45,7 +45,6 @@ const self = module.exports = {
 						self.getResultsJob(undefined);
 					});
 				}
-
 
 				if (isTestingMode) {
 					self.getResultsJob(undefined);
