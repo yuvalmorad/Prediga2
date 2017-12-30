@@ -225,7 +225,7 @@ const self = module.exports = {
 	getRelevantDataForUserScore: function () {
 		return Promise.all([
 			groupConfiguration.find({}),
-			MatchResult.find({}),
+			MatchResult.find({completion: {$gte: 100}, completion: {$exists: false}}),
 			TeamResult.find({})
 		]).then(function (arr) {
 			return {
