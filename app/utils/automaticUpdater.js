@@ -43,7 +43,7 @@ const self = module.exports = {
 	},
 	getResultsJob: function (activeLeagues) {
 		console.log('Automatic update (getResults Job) wake up');
-
+		const now = new Date();
 		return Promise.all([
 			typeof (activeLeagues) === 'undefined' ? leagueService.getActiveLeagues() : activeLeagues,
 			groupConfiguration.find({})
@@ -52,14 +52,15 @@ const self = module.exports = {
 
 			if (!activeLeagues && activeLeagues.length < 1) {
 				console.log('No active leagues! going to sleep');
-				return {};
+				schedule.scheduleJob(now, function () {
+					self.run()
+				});
 			}
 			const configuration = arr[1];
 			return Promise.all([
 				self.getResults(activeLeagues, configuration)
 			]).then(function (arr) {
 				const hasInProgressGames = arr[0];
-				const now = new Date();
 
 				if (hasInProgressGames) {
 					console.log('There are more games in progress');
