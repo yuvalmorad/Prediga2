@@ -228,7 +228,8 @@ const self = module.exports = {
 				return Promise.all([
 					MatchResult.findOne({matchId: aMatch._id})
 				]).then(function (arr2) {
-					if ((!arr2[0] && relevantGame.Active === false && relevantGame.Completion >= 100) || relevantGame.Active === true) {
+					const isRelevantGameFinished = relevantGame.Active === false && relevantGame.Completion >= 100;
+					if (relevantGame.Active === true || (!arr2[0] && isRelevantGameFinished) || (arr2[0] && arr2[0].active === true && isRelevantGameFinished)) {
 						console.log('Beginning to create new match result, for [' + team1 + ' - ' + team2 + ']');
 
 						return Promise.all([
