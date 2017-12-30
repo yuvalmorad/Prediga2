@@ -207,7 +207,12 @@ const self = module.exports = {
 	},
 	updateMatchResultsMap: function (relevantGames, configuration) {
 		const promises = relevantGames.map(function (relevantGame) {
-			return self.updateMatchResultsMapInner(relevantGame, configuration);
+			if (relevantGame.Active === true) {
+				return self.updateMatchResultsMapInner(relevantGame, configuration);
+			} else {
+				return false;
+			}
+
 		});
 		return Promise.all(promises);
 	},
@@ -227,49 +232,33 @@ const self = module.exports = {
 					return false;
 				}
 
+				console.log('Beginning to create new match result, for [' + team1 + ' - ' + team2 + ']');
 				return Promise.all([
-					MatchResult.findOne({matchId: aMatch._id})
+					self.calculateNewMatchResult(team1, team2, relevantGame)
 				]).then(function (arr2) {
-					const matchResult = arr2[0];
-					// game already ended in db
-					if (matchResult && matchResult.completion >= 100) {
-						console.log('Game already ended, for [' + team1 + ' - ' + team2 + ']');
-						return false;
-					}
-					// game has not started
-					if (relevantGame.Completion <= 0 && relevantGame.GT === -1) {
-						console.log('Game has not started yet, for [' + team1 + ' - ' + team2 + ']');
-						return false;
-					}
+					const newMatchResult = arr2[0];
+					newMatchResult.matchId = aMatch._id;
 
-					console.log('Beginning to create new match result, for [' + team1 + ' - ' + team2 + ']');
+					// send push notification to client
+					const matchResultUpdate = {
+						"matchResult": newMatchResult,
+						"rawGame": relevantGame
+					};
+					socketIo.emit("matchResultUpdate", matchResultUpdate);
+
 					return Promise.all([
-						self.calculateNewMatchResult(team1, team2, relevantGame)
+						matchResultService.updateMatchResult(newMatchResult)
 					]).then(function (arr3) {
-						const newMatchResult = arr3[0];
-						newMatchResult.matchId = aMatch._id;
-
-						// send push notification to client
-						const matchResultUpdate = {
-							"matchResult": newMatchResult,
-							"rawGame": relevantGame
-						};
-						socketIo.emit("matchResultUpdate", matchResultUpdate);
-
-						return Promise.all([
-							matchResultService.updateMatchResult(newMatchResult)
-						]).then(function (arr4) {
-							if (newMatchResult.completion < 100) {
-								return 'getResultsJob';
-							} else if (newMatchResult.completion >= 100) {
-								const leagueId = aMatch.league;
-								console.log('Beginning to update user score for [' + team1 + ' - ' + team2 + ']');
-								return userScoreService.updateUserScoreByMatchResult(configuration, newMatchResult, leagueId).then(function () {
-									console.log('Finish to update all for [' + team1 + ' - ' + team2 + ']');
-									return 'updateLeaderboard';
-								});
-							}
-						});
+						if (newMatchResult.Active === false) {
+							return 'getResultsJob';
+						} else {
+							const leagueId = aMatch.league;
+							console.log('Beginning to update user score for [' + team1 + ' - ' + team2 + ']');
+							return userScoreService.updateUserScoreByMatchResult(configuration, newMatchResult, leagueId).then(function () {
+								console.log('Finish to update all for [' + team1 + ' - ' + team2 + ']');
+								return 'updateLeaderboard';
+							});
+						}
 					});
 				});
 			});
