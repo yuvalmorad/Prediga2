@@ -207,12 +207,7 @@ const self = module.exports = {
 	},
 	updateMatchResultsMap: function (relevantGames, configuration) {
 		const promises = relevantGames.map(function (relevantGame) {
-			if (relevantGame.Active === true) {
-				return self.updateMatchResultsMapInner(relevantGame, configuration);
-			} else {
-				return false;
-			}
-
+			return self.updateMatchResultsMapInner(relevantGame, configuration);
 		});
 		return Promise.all(promises);
 	},
@@ -231,36 +226,46 @@ const self = module.exports = {
 					console.log('No match found or will be in the future, for [' + team1 + ' - ' + team2 + ']');
 					return false;
 				}
-
-				console.log('Beginning to create new match result, for [' + team1 + ' - ' + team2 + ']');
 				return Promise.all([
-					self.calculateNewMatchResult(team1, team2, relevantGame)
+					MatchResult.findOne({matchId: aMatch._id})
 				]).then(function (arr2) {
-					const newMatchResult = arr2[0];
-					newMatchResult.matchId = aMatch._id;
+					if ((!arr2[0] && relevantGame.Active === false && relevantGame.Completion >= 100) || relevantGame.Active === true) {
+						console.log('Beginning to create new match result, for [' + team1 + ' - ' + team2 + ']');
 
-					// send push notification to client
-					const matchResultUpdate = {
-						"matchResult": newMatchResult,
-						"rawGame": relevantGame
-					};
-					socketIo.emit("matchResultUpdate", matchResultUpdate);
+						return Promise.all([
+							self.calculateNewMatchResult(team1, team2, relevantGame)
+						]).then(function (arr3) {
+							const newMatchResult = arr3[0];
+							newMatchResult.matchId = aMatch._id;
 
-					return Promise.all([
-						matchResultService.updateMatchResult(newMatchResult)
-					]).then(function (arr3) {
-						if (newMatchResult.Active === false) {
-							return 'getResultsJob';
-						} else {
-							const leagueId = aMatch.league;
-							console.log('Beginning to update user score for [' + team1 + ' - ' + team2 + ']');
-							return userScoreService.updateUserScoreByMatchResult(configuration, newMatchResult, leagueId).then(function () {
-								console.log('Finish to update all for [' + team1 + ' - ' + team2 + ']');
-								return 'updateLeaderboard';
+							// send push notification to client
+							const matchResultUpdate = {
+								"matchResult": newMatchResult,
+								"rawGame": relevantGame
+							};
+							socketIo.emit("matchResultUpdate", matchResultUpdate);
+
+							return Promise.all([
+								matchResultService.updateMatchResult(newMatchResult)
+							]).then(function (arr4) {
+								if (newMatchResult.Active === false) {
+									return 'getResultsJob';
+								} else {
+									const leagueId = aMatch.league;
+									console.log('Beginning to update user score for [' + team1 + ' - ' + team2 + ']');
+									return userScoreService.updateUserScoreByMatchResult(configuration, newMatchResult, leagueId).then(function () {
+										console.log('Finish to update all for [' + team1 + ' - ' + team2 + ']');
+										return 'updateLeaderboard';
+									});
+								}
 							});
-						}
-					});
+						});
+					} else {
+						console.log('Game is already finished and we have a match result for it, or it is not started yet.');
+						return 'getResultsJob';
+					}
 				});
+
 			});
 		});
 	},
