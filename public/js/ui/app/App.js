@@ -38,7 +38,7 @@ component.App = (function(){
                     re("div", {className: "site"},
                         re(SiteHeader, {title: title, hide: hideSiteHeader, siteHeaderConfig: siteHeaderConfig}),
                         re(Pages, {}),
-                        re(SiteNavigation, {hide: hideSiteNavigation}),
+                        re(SiteNavigation, {hide: hideSiteNavigation})
                     ),
                     re(MainMenu, {}),
                     re(GroupsMenu, {})
