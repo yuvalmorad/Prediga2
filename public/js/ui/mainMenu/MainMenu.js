@@ -41,7 +41,7 @@ component.MainMenu = (function(){
 
             bottomMenuItems.push(this.renderLogoutMenuItem());
 
-            return re(Menu, {title: "Prediga", topMenuItems: topMenuItems, bottomMenuItems: bottomMenuItems, toggleMenu: props.toggleMenu});
+            return re(Menu, {title: "Prediga", topMenuItems: topMenuItems, bottomMenuItems: bottomMenuItems, toggleMenu: props.toggleMenu, className: "main-menu"});
         }
     });
 

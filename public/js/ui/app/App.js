@@ -23,21 +23,23 @@ component.App = (function(){
                 hideSiteHeader = currentPage.hideSiteHeader,
                 hideSiteNavigation = currentPage.hideSiteNavigation,
                 siteHeaderConfig = currentPage.siteHeaderConfig || {},
-                siteClassName = "site";
+                scrollSiteClassName = "scroll-site";
 
             if (this.props.isMainMenuOpen) {
-                siteClassName += " move-right";
+                scrollSiteClassName += " move-right";
             }
 
             if (this.props.isMenuGroupsOpen) {
-                siteClassName += " move-left";
+                scrollSiteClassName += " move-left";
             }
 
             return re("div", {className: "main"},
-                re("div", {className: siteClassName},
-                    re(SiteHeader, {title: title, hide: hideSiteHeader, siteHeaderConfig: siteHeaderConfig}),
-                    re(Pages, {}),
-                    re(SiteNavigation, {hide: hideSiteNavigation}),
+                re("div", {className: scrollSiteClassName},
+                    re("div", {className: "site"},
+                        re(SiteHeader, {title: title, hide: hideSiteHeader, siteHeaderConfig: siteHeaderConfig}),
+                        re(Pages, {}),
+                        re(SiteNavigation, {hide: hideSiteNavigation}),
+                    ),
                     re(MainMenu, {}),
                     re(GroupsMenu, {})
                 ),
