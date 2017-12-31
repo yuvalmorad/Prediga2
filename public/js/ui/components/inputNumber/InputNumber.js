@@ -17,7 +17,11 @@ component.InputNumber = (function(){
                 return;
             }
 
-            if(num !== 0 && num - 1 >= min) {
+            if (min === undefined && num - 1 >= min) {
+                return;
+            }
+
+            if(num !== 0) {
                 this.props.onChange((num) - 1);
             }
         },
