@@ -1,5 +1,5 @@
 window.reducer = window.reducer || {};
-reducer.simulator = (function() {
+reducer.simulator = function() {
     var simulatorAction = action.simulator,
         LOAD_SIMULATR_SUCCESS = simulatorAction.LOAD_SIMULATOR_SUCCESS;
 
@@ -20,4 +20,4 @@ reducer.simulator = (function() {
                 return state
         }
     }
-})();
+}

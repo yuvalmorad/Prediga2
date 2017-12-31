@@ -1,5 +1,5 @@
 window.reducer = window.reducer || {};
-reducer.leagues = (function() {
+reducer.leagues = function() {
     var leaguesAction = action.leagues,
         SET_SELECTED_LEAGUE_ID = leaguesAction.SET_SELECTED_LEAGUE_ID,
         LOAD_LEAGUES_SUCCESS = leaguesAction.LOAD_LEAGUES_SUCCESS,
@@ -28,4 +28,4 @@ reducer.leagues = (function() {
                 return state
         }
     }
-})();
+}
