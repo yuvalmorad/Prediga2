@@ -63,10 +63,7 @@ const self = module.exports = {
 
 			if (!activeLeagues && activeLeagues.length < 1) {
 				console.log('No active leagues! going to sleep');
-				const nextJob = new Date();
-				const now = new Date();
-				nextJob.setSeconds(now.getSeconds() + 30);
-				schedule.scheduleJob(nextJob, function () {
+				schedule.scheduleJob(self.getNextJobDate(), function () {
 					self.run();
 				});
 			}
@@ -75,19 +72,15 @@ const self = module.exports = {
 				self.getResults(activeLeagues, configuration)
 			]).then(function (arr) {
 				const hasInProgressGames = arr[0];
-				const nextJob = new Date();
-				const now = new Date();
-				nextJob.setSeconds(now.getSeconds() + 30);
-
 				if (hasInProgressGames) {
 					console.log('There are more games in progress');
 
-					schedule.scheduleJob(nextJob, function () {
+					schedule.scheduleJob(self.getNextJobDate(), function () {
 						self.getResultsJob(activeLeagues)
 					});
 				} else {
 					console.log('All games in progress are ended');
-					schedule.scheduleJob(nextJob, function () {
+					schedule.scheduleJob(self.getNextJobDate(), function () {
 						self.run();
 					});
 				}
@@ -129,8 +122,8 @@ const self = module.exports = {
 		return self.updateMatchResultsMap(relevantGames, configuration).then(function (arr) {
 			if (arr.includes('updateLeaderboard')) {
 				console.log('Start to update leaderboard');
-				schedule.scheduleJob(new Date(), function () {
-					userLeaderboardService.updateLeaderboard()
+				schedule.scheduleJob(self.getNextJobDate(), function () {
+					userLeaderboardService.updateLeaderboard();
 				});
 			}
 			if (arr.includes('getResultsJob')) {
@@ -319,5 +312,11 @@ const self = module.exports = {
 		}
 
 		return deferred.promise;
+	},
+	getNextJobDate: function () {
+		const nextJob = new Date();
+		const now = new Date();
+		nextJob.setSeconds(now.getSeconds() + 30);
+		return nextJob;
 	}
 };
