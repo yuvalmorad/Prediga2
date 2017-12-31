@@ -1,3 +1,4 @@
+window.service = window.service || {};
 service.pushSubscription = (function() {
     return {
         addPushSubscription: addPushSubscription

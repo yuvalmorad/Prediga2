@@ -1,3 +1,4 @@
+window.component = window.component || {};
 component.Graph = (function(){
     return function(props){
         var parts = props.parts;

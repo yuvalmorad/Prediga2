@@ -1,3 +1,4 @@
+window.service = window.service || {};
 service.leagues = (function() {
     return {
         getAll: getAll

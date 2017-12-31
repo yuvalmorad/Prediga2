@@ -1,3 +1,4 @@
+window.component = window.component || {};
 component.RadioButton = (function(){
     return function(props){
         var isChecked = props.isChecked,

@@ -1,5 +1,5 @@
+window.action = window.action || {};
 action.leagues = (function(){
-
     var leaguesAction = {
         SET_SELECTED_LEAGUE_ID: "SET_SELECTED_LEAGUE_ID",
         LOAD_LEAGUES_SUCCESS: "LOAD_LEAGUES_SUCCESS",

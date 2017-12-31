@@ -1,3 +1,4 @@
+window.service = window.service || {};
 service.authentication = (function() {
     return {
         logout: logout

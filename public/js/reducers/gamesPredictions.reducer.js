@@ -1,5 +1,5 @@
-reducer.gamesPredictions = (function() {
-
+window.reducer = window.reducer || {};
+reducer.gamesPredictions = function() {
     var gamesPredictionsAction = action.gamesPredictions,
         LOAD_GAMES_SUCCESS = gamesPredictionsAction.LOAD_GAMES_SUCCESS,
         UPDATE_GAME = gamesPredictionsAction.UPDATE_GAME,
@@ -29,4 +29,4 @@ reducer.gamesPredictions = (function() {
                 return state
         }
     }
-})();
+}

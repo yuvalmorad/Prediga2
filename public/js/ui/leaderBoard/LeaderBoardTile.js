@@ -1,3 +1,4 @@
+window.component = window.component || {};
 component.LeaderBoardTile = (function(){
     var Tile = component.Tile,
         LeaderBoardMainTile = component.LeaderBoardMainTile,

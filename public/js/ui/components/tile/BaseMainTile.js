@@ -1,3 +1,4 @@
+window.component = window.component || {};
 component.BaseMainTile = (function(){
     return function(props) {
         var imageSrc = props.imageSrc,

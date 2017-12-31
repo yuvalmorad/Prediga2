@@ -1,3 +1,4 @@
+window.utils = window.utils || {};
 utils.init = (function(){
     return {
         onApplicationAuthenticated: onApplicationAuthenticated

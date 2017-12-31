@@ -1,3 +1,4 @@
+window.action = window.action || {};
 action.groupConfiguration = (function () {
     var groupConfigurationAction = {
         LOAD_GROUP_CONFIGURATION: "LOAD_GROUP_CONFIGURATION",

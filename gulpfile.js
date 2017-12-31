@@ -2,6 +2,7 @@ var gulp = require('gulp');
 
 var usemin = require('gulp-usemin');
 var uglify = require('gulp-uglify');
+var Server = require('karma').Server;
 
 gulp.task('default', function() {
     gulp.start('buildJS', 'copyFolders');
@@ -29,4 +30,12 @@ gulp.task('copyFolders', function(){
     );
 
     return res;
+});
+
+// Run test once and exit
+gulp.task('test', function (done) {
+    new Server({
+        configFile: __dirname + '/karma.conf.js',
+        singleRun: true
+    }, done).start();
 });

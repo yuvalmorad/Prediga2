@@ -1,3 +1,4 @@
+window.component = window.component || {};
 component.SiteHeader = (function(){
     var connect = ReactRedux.connect;
 
@@ -12,34 +13,33 @@ component.SiteHeader = (function(){
                     title = props.title,
                     siteHeaderConfig = props.siteHeaderConfig,
                     hideMenuButton = siteHeaderConfig.hideMenuButton,
+                    hideMenuGroupsButton = siteHeaderConfig.hideMenuGroupsButton,
                     hasBackButton = siteHeaderConfig.hasBackButton;
-                //siteHeaderActionButtons = props.siteHeaderActionButtons,
-                //rightButton;
 
-                /*if (siteHeaderActionButtons) {
-                    var button = siteHeaderActionButtons[0];
-                    rightButton = re("a", {className: "action-button", onClick: button.onClick}, button.text);
-                }*/
                 return re("div", { className: "site-header" + (hide ? " hide" : "") },
                     re("div", {className: "left"},
                         re("a", {className: "back-button" + (hasBackButton ? "" : " hide"), onClick: this.onBackButtonClicked}, "<"),
-                        re("a", {className: "menu-button" + (hideMenuButton ? " hide" : ""), onClick: props.toggleMenu})
+                        re("a", {className: "menu-button" + (this.props.isMainMenuOpen ? " selected" : "") + (hideMenuButton ? " hide" : ""), onClick: props.toggleMainMenu})
                     ),
                     re("div", {className: "center"}, title),
-                        re("div", {className: "right"})
+                    re("div", {className: "right"},
+                        re("a", {className: "menu-groups-button" + (this.props.isMenuGroupsOpen ? " selected" : "") + (hideMenuGroupsButton ? " hide" : ""), onClick: props.toggleMenuGroups}, "groups")
+                    )
             );
         }
     });
 
     function mapStateToProps(state){
         return {
-
+            isMainMenuOpen: state.general.isMainMenuOpen,
+            isMenuGroupsOpen: state.general.isMenuGroupsOpen
         }
     }
 
     function mapDispatchToProps(dispatch) {
         return {
-            toggleMenu: function(){dispatch(action.general.toggleMenu())}
+            toggleMainMenu: function(){dispatch(action.general.toggleMainMenu())},
+            toggleMenuGroups: function(){dispatch(action.general.toggleMenuGroups())}
         }
     }
 

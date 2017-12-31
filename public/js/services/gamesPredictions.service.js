@@ -1,3 +1,4 @@
+window.service = window.service || {};
 service.gamesPredictions = (function() {
     return {
         getAll: getAll,

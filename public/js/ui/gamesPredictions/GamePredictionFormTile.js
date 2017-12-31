@@ -1,3 +1,4 @@
+window.component = window.component || {};
 component.GamePredictionFormTile = (function(){
     var RadioGroup = component.RadioGroup,
         InputNumber = component.InputNumber;

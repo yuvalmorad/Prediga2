@@ -1,3 +1,4 @@
+window.component = window.component || {};
 component.TeamPredictionFormTile = (function(){
     var ImagesPagination = component.ImagesPagination;
 

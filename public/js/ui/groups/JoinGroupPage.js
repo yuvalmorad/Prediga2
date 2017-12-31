@@ -1,3 +1,4 @@
+window.component = window.component || {};
 component.JoinGroupPage = (function(){
     var connect = ReactRedux.connect;
     var isRequestSent = false;

@@ -1,5 +1,5 @@
+window.action = window.action || {};
 action.leaderBoard = (function(){
-
     var leaderBoard = {
         LOAD_LEADER_BOARD_SUCCESS: "LOAD_LEADER_BOARD_SUCCESS",
         loadLeaderBoard: loadLeaderBoard

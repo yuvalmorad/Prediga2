@@ -1,4 +1,5 @@
-reducer.groupConfiguration = (function() {
+window.reducer = window.reducer || {};
+reducer.groupConfiguration = function() {
     var LOAD_GROUP_CONFIGURATION = action.groupConfiguration.LOAD_GROUP_CONFIGURATION,
         initialState = {
             groupConfiguration: undefined
@@ -16,4 +17,4 @@ reducer.groupConfiguration = (function() {
                 return state
         }
     }
-})();
+}

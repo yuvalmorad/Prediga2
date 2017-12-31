@@ -1,3 +1,4 @@
+window.utils = window.utils || {};
 utils.general = (function(){
     return {
         findItemInArrBy: findItemInArrBy,

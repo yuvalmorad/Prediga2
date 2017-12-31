@@ -1,3 +1,4 @@
+window.component = window.component || {};
 component.Pages = (function(){
     var Route = ReactRouterDOM.Route,
         AuthenticateRoute = component.AuthenticateRoute;

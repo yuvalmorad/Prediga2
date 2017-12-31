@@ -1,5 +1,5 @@
+window.component = window.component || {};
 component.TileWrapper = (function(){
-
     function createBorderStyle(borderColor, borderSecondColor) {
         return borderSecondColor ?
             {backgroundImage: "linear-gradient(" + borderColor + " 50%, " + borderSecondColor + " 0%)"} :

@@ -47,7 +47,8 @@ var routePages = (function(){
             component: SimulatorPage,
             siteHeaderConfig: {
                 hideMenuButton: true,
-                hasBackButton: true
+                hasBackButton: true,
+                hideMenuGroupsButton: true
             }
         },
         {
@@ -58,7 +59,8 @@ var routePages = (function(){
             component: JoinGroupPage,
             siteHeaderConfig: {
                 hideMenuButton: true,
-                hasBackButton: true
+                hasBackButton: true,
+                hideMenuGroupsButton: true
             }
         },
         {
@@ -69,7 +71,8 @@ var routePages = (function(){
             component: CreateNewGroupPage,
             siteHeaderConfig: {
                 hideMenuButton: true,
-                hasBackButton: true
+                hasBackButton: true,
+                hideMenuGroupsButton: true
             }
         },
         {

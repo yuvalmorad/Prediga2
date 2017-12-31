@@ -1,3 +1,4 @@
+window.component = window.component || {};
 component.LeaguesSubHeader = (function(){
     var connect = ReactRedux.connect;
 

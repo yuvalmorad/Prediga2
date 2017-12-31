@@ -1,9 +1,11 @@
+window.component = window.component || {};
 component.App = (function(){
     var connect = ReactRedux.connect,
         withRouter = ReactRouterDOM.withRouter,
         SiteHeader = component.SiteHeader,
         SiteNavigation = component.SiteNavigation,
-        Menu = component.Menu,
+        MainMenu = component.MainMenu,
+        GroupsMenu = component.GroupsMenu,
         TileDialogContainer = component.TileDialogContainer,
         Loading = component.Loading,
         Pages = component.Pages;
@@ -21,14 +23,28 @@ component.App = (function(){
                 title = currentPage.title,
                 hideSiteHeader = currentPage.hideSiteHeader,
                 hideSiteNavigation = currentPage.hideSiteNavigation,
-                siteHeaderConfig = currentPage.siteHeaderConfig || {};
+                siteHeaderConfig = currentPage.siteHeaderConfig || {},
+                scrollSiteClassName = "scroll-site";
+
+            if (this.props.isMainMenuOpen) {
+                scrollSiteClassName += " move-right";
+            }
+
+            if (this.props.isMenuGroupsOpen) {
+                scrollSiteClassName += " move-left";
+            }
 
             return re("div", {className: "main"},
-                re(SiteHeader, {title: title, hide: hideSiteHeader, siteHeaderConfig: siteHeaderConfig}),
-                re(Pages, {}),
-                re(SiteNavigation, {hide: hideSiteNavigation}),
+                re("div", {className: scrollSiteClassName},
+                    re("div", {className: "site"},
+                        re(SiteHeader, {title: title, hide: hideSiteHeader, siteHeaderConfig: siteHeaderConfig}),
+                        re(Pages, {}),
+                        re(SiteNavigation, {hide: hideSiteNavigation})
+                    ),
+                    re(MainMenu, {}),
+                    re(GroupsMenu, {})
+                ),
                 re(TileDialogContainer, {}),
-                re(Menu, {}),
                 re(Loading, {})
             )
         }
@@ -36,6 +52,8 @@ component.App = (function(){
 
     function mapStateToProps(state){
         return {
+            isMainMenuOpen: state.general.isMainMenuOpen,
+            isMenuGroupsOpen: state.general.isMenuGroupsOpen
         }
     }
 

@@ -29,7 +29,10 @@
     "passport-twitter": "~1.0.4",
     "q": "1.5.1",
     "socket.io": "^2.0.4",
-    "web-push": "^3.2.5"
-  },
-  "devDependencies": {}
+    "web-push": "^3.2.5",
+    "jasmine": "^2.8.0",
+    "karma": "^2.0.0",
+    "karma-chrome-launcher": "^2.2.0",
+    "karma-jasmine": "^1.1.1"
+  }
 }

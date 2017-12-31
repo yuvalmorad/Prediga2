@@ -1,3 +1,4 @@
+window.component = window.component || {};
 component.Loading = (function(){
     var connect = ReactRedux.connect;
 

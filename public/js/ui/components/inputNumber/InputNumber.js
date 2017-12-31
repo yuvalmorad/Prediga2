@@ -1,7 +1,9 @@
+window.component = window.component || {};
 component.InputNumber = (function(){
     return React.createClass({
         onIncrement: function() {
-            var num = this.props.num;
+            var num = this.calculateNumWithMin(this.props.num, this.props.min);
+
             if (num === undefined) {
                 this.props.onChange(0);
             } else if (num !== 9) {
@@ -10,16 +12,30 @@ component.InputNumber = (function(){
         },
 
         onDecrement: function() {
-            var num = this.props.num;
             var min = this.props.min;
+            var num = this.calculateNumWithMin(this.props.num, min);
 
             if (num === undefined) {
                 return;
             }
 
-            if(num !== 0 && num - 1 >= min) {
+            if (min !== undefined && num - 1 < min) {
+                return;
+            }
+
+            if(num !== 0) {
                 this.props.onChange((num) - 1);
             }
+        },
+
+        calculateNumWithMin: function(num, min) {
+            if (min !== undefined) {
+                if (num === undefined || num < min) {
+                    num = min;
+                }
+            }
+
+            return num
         },
 
         render: function(){
@@ -31,11 +47,7 @@ component.InputNumber = (function(){
             var min = props.min;
             var className = "input-number";
 
-            if (min !== undefined) {
-                if (num === undefined || num < min) {
-                    num = min;
-                }
-            }
+            num = this.calculateNumWithMin(num, min);
 
             if (hasPoints) {
                 if (points > 0) {

@@ -1,3 +1,4 @@
+window.component = window.component || {};
 component.TileDialog = (function(){
     var connect = ReactRedux.connect,
         TileWrapper = component.TileWrapper;

@@ -1,3 +1,4 @@
+window.component = window.component || {};
 component.TeamsPredictionsPage = (function(){
     var connect = ReactRedux.connect,
         TeamPredictionTile = component.TeamPredictionTile,

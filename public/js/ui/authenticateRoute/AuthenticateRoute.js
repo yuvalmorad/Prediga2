@@ -1,3 +1,4 @@
+window.component = window.component || {};
 component.AuthenticateRoute = (function () {
     var Route = ReactRouterDOM.Route,
         Redirect = ReactRouterDOM.Redirect;

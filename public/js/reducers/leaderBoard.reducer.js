@@ -1,4 +1,5 @@
-reducer.leaderBoard = (function() {
+window.reducer = window.reducer || {};
+reducer.leaderBoard = function() {
 
     var leaderBoardAction = action.leaderBoard,
         LOAD_LEADER_BOARD_SUCCESS = leaderBoardAction.LOAD_LEADER_BOARD_SUCCESS;
@@ -20,4 +21,4 @@ reducer.leaderBoard = (function() {
                 return state
         }
     }
-})();
+}

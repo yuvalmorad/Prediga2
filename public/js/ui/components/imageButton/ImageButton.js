@@ -1,3 +1,4 @@
+window.component = window.component || {};
 component.ImageButton = (function(){
     return function(props){
         return re("button", {onClick: props.onClick, disabled: props.disabled},

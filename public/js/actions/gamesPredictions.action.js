@@ -1,5 +1,5 @@
+window.action = window.action || {};
 action.gamesPredictions = (function(){
-
     var gamesPredictions = {
         LOAD_GAMES_SUCCESS: "LOAD_GAMES_SUCCESS",
         loadGames: loadGames,

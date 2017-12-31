@@ -1,3 +1,4 @@
+window.service = window.service || {};
 service.clubs = (function() {
     return {
         getAll: getAll

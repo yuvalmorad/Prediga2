@@ -1,14 +1,17 @@
-reducer.general = (function() {
+window.reducer = window.reducer || {};
+reducer.general = function() {
     var SET_LOADING = action.general.SET_LOADING,
         REMOVE_LOADING = action.general.REMOVE_LOADING,
         OPEN_TILE_DIALOG = action.general.OPEN_TILE_DIALOG,
         CLOSE_TILE_DIALOG = action.general.CLOSE_TILE_DIALOG,
-        TOGGLE_MENU = action.general.TOGGLE_MENU;
+        TOGGLE_MAIN_MENU = action.general.TOGGLE_MAIN_MENU,
+        TOGGLE_MENU_GROUPS = action.general.TOGGLE_MENU_GROUPS;
 
     var initialState = {
         isLoading: false,
         isShowTileDialog: false,
-        isMenuOpen: false
+        isMainMenuOpen: false,
+        isMenuGroupsOpen: false
     };
 
     return function general(state, action){
@@ -17,8 +20,10 @@ reducer.general = (function() {
         }
 
         switch (action.type) {
-            case TOGGLE_MENU:
-                return Object.assign({}, state, {isMenuOpen: !state.isMenuOpen});
+            case TOGGLE_MAIN_MENU:
+                return Object.assign({}, state, {isMainMenuOpen: !state.isMainMenuOpen, isMenuGroupsOpen: false});
+            case TOGGLE_MENU_GROUPS:
+                return Object.assign({}, state, {isMenuGroupsOpen: !state.isMenuGroupsOpen, isMainMenuOpen: false});
             case SET_LOADING:
                 return Object.assign({}, state, {isLoading: true});
             case REMOVE_LOADING:
@@ -31,4 +36,4 @@ reducer.general = (function() {
                 return state
         }
     }
-})();
+}

@@ -1,5 +1,5 @@
-reducer.teamsPredictions = (function() {
-
+window.reducer = window.reducer || {};
+reducer.teamsPredictions = function() {
     var teamsPredictionsAction = action.teamsPredictions,
         LOAD_TEAMS_SUCCESS = teamsPredictionsAction.LOAD_TEAMS_SUCCESS,
         UPDATE_TEAM_SELECTED = teamsPredictionsAction.UPDATE_TEAM_SELECTED;
@@ -24,4 +24,4 @@ reducer.teamsPredictions = (function() {
                 return state
         }
     }
-})();
+}

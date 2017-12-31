@@ -1,3 +1,4 @@
+window.component = window.component || {};
 component.LeaderBoardMatchesHistory = (function(){
     var connect = ReactRedux.connect;
     var leaderBoardService = service.leaderBoard;
