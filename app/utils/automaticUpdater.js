@@ -40,8 +40,6 @@ const self = module.exports = {
 					self.getResultsJob(undefined);
 				} else {
 					schedule.scheduleJob(aMatch.kickofftime, function () {
-						//TODO just for fun it will send notification for all users when game starts -> should handle logic to send to specific user if no prediction was made for this match
-						pushNotificationUtil.pushToAllRegisterdUsers("Game Has started :)");
 						self.getResultsJob(undefined);
 					});
 				}
@@ -224,6 +222,11 @@ const self = module.exports = {
 					const isRelevantGameFinished = relevantGame.Active === false && relevantGame.Completion >= 100;
 					if (relevantGame.Active === true || (!arr2[0] && isRelevantGameFinished) || (arr2[0] && arr2[0].active === true && isRelevantGameFinished)) {
 						console.log('Beginning to create new match result, for [' + team1 + ' - ' + team2 + ']');
+
+						if (relevantGame.Active === true && relevantGame.GT === 0) {
+							//TODO - just for fun it will send notification for all users when game starts -> should handle logic to send to specific user if no prediction was made for this match
+							pushNotificationUtil.pushToAllRegisterdUsers(relevantGame.Comps[1].Name + ' - ' + relevantGame.Comps[0].Name);
+						}
 
 						return Promise.all([
 							self.calculateNewMatchResult(team1, team2, relevantGame)

@@ -15,10 +15,10 @@ const self = module.exports = {
 
 		return Promise.all(promises);
 	},
-	findClubsBy365Name: function (completedGame) {
+	findClubsBy365Name: function (relevantGame) {
 		return Promise.all([
-			Club.findOne({name365: completedGame.Comps[0].Name}), // home
-			Club.findOne({name365: completedGame.Comps[1].Name}), // away
+			Club.findOne({name365: relevantGame.Comps[0].Name}), // home
+			Club.findOne({name365: relevantGame.Comps[1].Name}), // away
 		]).then(function (arr) {
 			return {
 				team1: arr[0]._id,

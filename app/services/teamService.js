@@ -6,6 +6,10 @@ const util = require('../utils/util');
 
 const self = module.exports = {
 	updateTeams: function (teams) {
+		if (!teams){
+			return;
+		}
+
 		console.log('beginning to update ' + teams.length + ' teams');
 		const promises = teams.map(function (team) {
 			return Team.findOneAndUpdate({_id: team._id}, team, util.overrideSettings, function (err, obj) {
