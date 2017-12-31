@@ -1,3 +1,4 @@
+window.component = window.component || {};
 component.GamePredictionMainTile = (function(){
     var Graph = component.Graph;
 

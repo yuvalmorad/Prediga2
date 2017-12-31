@@ -1,3 +1,4 @@
+window.component = window.component || {};
 component.TeamPredictionMainTile = (function(){
     var BaseMainTile = component.BaseMainTile;
 

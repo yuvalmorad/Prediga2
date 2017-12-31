@@ -1,3 +1,4 @@
+window.component = window.component || {};
 component.LoginPage = (function(){
     return function LoginPage(props) {
         return re("div", { className: "login-page" },

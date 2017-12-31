@@ -1,3 +1,4 @@
+window.component = window.component || {};
 component.SiteNavigation = (function(){
     var NavigationTab = component.NavigationTab;
     return function (props) {

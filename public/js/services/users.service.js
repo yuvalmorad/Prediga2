@@ -1,3 +1,4 @@
+window.service = window.service || {};
 service.users = (function() {
     return {
         getAll: getAll

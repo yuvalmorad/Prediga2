@@ -1,3 +1,4 @@
+window.component = window.component || {};
 component.Menu = (function(){
     return function(props) {
         var topMenuItems = props.topMenuItems,

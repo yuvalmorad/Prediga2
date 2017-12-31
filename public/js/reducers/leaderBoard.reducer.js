@@ -1,3 +1,4 @@
+window.reducer = window.reducer || {};
 reducer.leaderBoard = (function() {
 
     var leaderBoardAction = action.leaderBoard,

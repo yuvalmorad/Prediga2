@@ -31,5 +31,10 @@
     "socket.io": "^2.0.4",
     "web-push": "^3.2.5"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "jasmine": "^2.8.0",
+    "karma": "^2.0.0",
+    "karma-chrome-launcher": "^2.2.0",
+    "karma-jasmine": "^1.1.1"
+  }
 }

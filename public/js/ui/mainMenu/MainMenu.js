@@ -1,3 +1,4 @@
+window.component = window.component || {};
 component.MainMenu = (function(){
     var connect = ReactRedux.connect,
         Menu = component.Menu,

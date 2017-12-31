@@ -1,3 +1,4 @@
+window.component = window.component || {};
 component.AboutPage = (function(){
     return function RulesPage(props) {
         return re("div", { className: "" },

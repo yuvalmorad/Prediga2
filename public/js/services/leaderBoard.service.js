@@ -1,3 +1,4 @@
+window.service = window.service || {};
 service.leaderBoard = (function() {
     return {
         getAll: getAll,

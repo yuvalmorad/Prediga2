@@ -1,3 +1,4 @@
+window.component = window.component || {};
 component.GroupsMenu = (function(){
     var connect = ReactRedux.connect,
         Menu = component.Menu,

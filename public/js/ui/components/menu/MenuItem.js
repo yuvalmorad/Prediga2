@@ -1,3 +1,4 @@
+window.component = window.component || {};
 component.MenuItem = (function(){
     return function(props) {
         var className = "menu-item" + (props.isSelected ? " selected" : "");

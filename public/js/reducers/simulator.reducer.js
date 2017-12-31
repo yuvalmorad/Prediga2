@@ -1,5 +1,5 @@
+window.reducer = window.reducer || {};
 reducer.simulator = (function() {
-
     var simulatorAction = action.simulator,
         LOAD_SIMULATR_SUCCESS = simulatorAction.LOAD_SIMULATOR_SUCCESS;
 

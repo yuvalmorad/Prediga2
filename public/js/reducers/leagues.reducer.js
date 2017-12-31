@@ -1,3 +1,4 @@
+window.reducer = window.reducer || {};
 reducer.leagues = (function() {
     var leaguesAction = action.leagues,
         SET_SELECTED_LEAGUE_ID = leaguesAction.SET_SELECTED_LEAGUE_ID,

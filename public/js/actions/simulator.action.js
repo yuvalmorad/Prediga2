@@ -1,5 +1,5 @@
+window.action = window.action || {};
 action.simulator = (function(){
-
     var simulator = {
         LOAD_SIMULATOR_SUCCESS: "LOAD_SIMULATOR_SUCCESS",
         loadSimulator: loadSimulator

@@ -1,3 +1,4 @@
+window.component = window.component || {};
 component.LeaderBoardPage = (function(){
     var connect = ReactRedux.connect,
         LeaderBoardTiles = component.LeaderBoardTiles,

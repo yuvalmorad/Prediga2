@@ -1,3 +1,4 @@
+window.service = window.service || {};
 service.groupConfiguration = (function() {
     return {
         getGroupConfiguration: getGroupConfiguration

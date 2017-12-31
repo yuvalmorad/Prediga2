@@ -1,3 +1,4 @@
+window.component = window.component || {};
 component.SimulatorMatch = (function(){
     var RadioGroup = component.RadioGroup,
         InputNumber = component.InputNumber;

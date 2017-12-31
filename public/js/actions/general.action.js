@@ -1,5 +1,5 @@
+window.action = window.action || {};
 action.general = (function(){
-
     var general = {
         SET_LOADING: "SET_LOADING",
         REMOVE_LOADING: "REMOVE_LOADING",

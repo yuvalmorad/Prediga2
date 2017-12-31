@@ -1,5 +1,5 @@
+window.action = window.action || {};
 action.teamsPredictions = (function(){
-
     var teamsPredictions = {
         LOAD_TEAMS_SUCCESS: "LOAD_TEAMS_SUCCESS",
         loadTeams: loadTeams,

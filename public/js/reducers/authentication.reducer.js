@@ -1,3 +1,4 @@
+window.reducer = window.reducer || {};
 reducer.authentication = (function() {
     var SET_USER_ID = action.authentication.SET_USER_ID;
     var initialState = {

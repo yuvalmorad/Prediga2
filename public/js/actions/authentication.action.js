@@ -1,3 +1,4 @@
+window.action = window.action || {};
 action.authentication = (function () {
 
     var authentication = {

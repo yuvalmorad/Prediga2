@@ -1,3 +1,4 @@
+window.component = window.component || {};
 component.InputNumber = (function(){
     return React.createClass({
         onIncrement: function() {

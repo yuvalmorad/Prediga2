@@ -1,3 +1,4 @@
+window.utils = window.utils || {};
 utils.action = (function(){
     return {
         loadWithPredictions: loadWithPredictions,

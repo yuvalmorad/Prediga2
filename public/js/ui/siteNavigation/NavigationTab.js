@@ -1,3 +1,4 @@
+window.component = window.component || {};
 component.NavigationTab = (function(){
     return function (props) {
         var className = "navigation-tab";

@@ -1,3 +1,4 @@
+window.reducer = window.reducer || {};
 reducer.users = (function() {
     var LOAD_USERS = action.users.LOAD_USERS;
     var initialState = {

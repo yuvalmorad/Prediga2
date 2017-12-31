@@ -1,3 +1,4 @@
+window.reducer = window.reducer || {};
 reducer.general = (function() {
     var SET_LOADING = action.general.SET_LOADING,
         REMOVE_LOADING = action.general.REMOVE_LOADING,

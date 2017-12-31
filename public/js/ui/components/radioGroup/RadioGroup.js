@@ -1,3 +1,4 @@
+window.component = window.component || {};
 component.RadioGroup = (function(){
     var RadioButton = component.RadioButton;
     return React.createClass({

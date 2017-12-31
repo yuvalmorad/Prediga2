@@ -1,3 +1,4 @@
+window.component = window.component || {};
 component.GamePredictionTile = (function(){
     var Tile = component.Tile,
         GamePredictionMainTile = component.GamePredictionMainTile;

@@ -1,3 +1,4 @@
+window.component = window.component || {};
 component.TileDialogContainer = (function(){
     var connect = ReactRedux.connect;
 

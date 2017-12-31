@@ -1,3 +1,4 @@
+window.component = window.component || {};
 component.SiteHeader = (function(){
     var connect = ReactRedux.connect;
 

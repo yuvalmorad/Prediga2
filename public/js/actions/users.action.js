@@ -1,3 +1,4 @@
+window.action = window.action || {};
 action.users = (function () {
     var usersAction = {
         LOAD_USERS: "LOAD_USERS",

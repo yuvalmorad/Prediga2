@@ -1,3 +1,4 @@
+window.component = window.component || {};
 component.ImagesPagination = (function(){
     var ImageButton = component.ImageButton;
 

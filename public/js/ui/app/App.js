@@ -1,3 +1,4 @@
+window.component = window.component || {};
 component.App = (function(){
     var connect = ReactRedux.connect,
         withRouter = ReactRouterDOM.withRouter,
