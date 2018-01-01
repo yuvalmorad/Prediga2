@@ -1340,6 +1340,69 @@ body {
 .create-new-group-page .row-buttons > button:first-child {
     margin-right: 0.5rem;
 }
+
+.create-new-group-page .row-buttons > button:first-child {
+    margin-right: 0.5rem;
+}
+
+/* -------  Join Group -------*/
+
+.join-group-tile.tile {
+    height: 6.5rem;
+}
+.join-group-page .join-group-tile .tile-wrapper{
+    border-left: 1px solid #c1baba;
+    border-right: 1px solid #c1baba;
+}
+
+.join-group-tile .join-group-main-tile {
+    font-size: 0.75rem;
+    color: #4A4A4A;
+    display: flex;
+    height: 100%;
+    padding: 1rem;
+    box-sizing: border-box;
+    justify-content: space-between;
+}
+
+.join-group-tile .join-group-main-tile > .left,
+.join-group-tile .join-group-main-tile > .right{
+    display: flex;
+    align-items: center;
+}
+
+.join-group-tile .join-group-main-tile > .right button{
+    background: transparent;
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: 8px;
+    border: 2px solid #7ED321;
+    color: #7ED321;
+    font-size: 2rem;
+}
+
+.join-group-tile .join-group-main-tile > .center {
+    display: flex;
+    flex-direction: column;
+}
+
+.join-group-tile .join-group-main-tile .group-name {
+    font-weight: bold;
+    color: #000000;
+}
+
+.join-group-tile .join-group-main-tile .leagues-count {
+    flex: 1;
+    margin-top: 0.5rem;
+}
+
+.join-group-tile .join-group-main-tile .admin-name {
+    color: #9B9B9B;
+    font-size: 0.625rem;
+}
+
+
+
 /*
 @-webkit-keyframes animateLeftToCenter {
     0%   { transform:translateX(-100%);}
