@@ -38,7 +38,7 @@ component.App = (function(){
             }
 
             if (!isMainMenuOpen && !isMenuGroupsOpen) {
-                siteCoverClassName += " hide"
+                siteCoverClassName += " hide";
             }
 
             return re("div", {className: "main"},

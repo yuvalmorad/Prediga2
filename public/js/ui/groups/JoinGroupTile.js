@@ -20,11 +20,11 @@ component.JoinGroupTile = (function(){
                     re("div", {className: "center"},
                         re("div", {className: "players-count"}, playersCount + " Players"),
                         re("div", {className: "leagues-count"}, leaguesCount + " Leagues"),
-                        re("div", {className: "admin-name"}, isOpen ? "Open Group" : "Admin: " + adminName),
+                        re("div", {className: "admin-name"}, isOpen ? "Open Group" : "Admin: " + adminName)
                     ),
                     re("div", {className: "right"},
                         re("button", {className: "join-group-button" + (isOpen ? " hide" : "")}, "+")
-                    ),
+                    )
                 )
             );
         }

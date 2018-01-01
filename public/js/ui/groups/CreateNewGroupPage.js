@@ -89,7 +89,7 @@ component.CreateNewGroupPage = (function(){
                     ),
                     re("div", {className: "row-buttons"},
                         re("button", {}, "Cancel"),
-                        re("button", {}, "Save"),
+                        re("button", {}, "Save")
                     )
                 )
             );
