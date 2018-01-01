@@ -17,7 +17,6 @@ var routePages = (function(){
             isAuthenticatedPage: true,
             component: GamesPredictionsPage,
             exact: true,
-            displayInTopMenu: true,
             displayInSiteNavigation: true
         },
         {
@@ -27,7 +26,6 @@ var routePages = (function(){
             isAuthenticatedPage: true,
             component: TeamsPredictionsPage,
             exact: true,
-            displayInTopMenu: true,
             displayInSiteNavigation: true
         },
         {
@@ -36,7 +34,6 @@ var routePages = (function(){
             name: "leaderBoard",
             isAuthenticatedPage: true,
             component: LeaderBoardPage,
-            displayInTopMenu: true,
             displayInSiteNavigation: true
         },
         {

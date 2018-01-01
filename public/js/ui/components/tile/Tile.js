@@ -37,7 +37,7 @@ component.Tile = (function(){
             }
 
             if (state.isInPlaceOpen) {
-                className += " open"
+                className += " open";
             }
 
             var opts = { className: className};
