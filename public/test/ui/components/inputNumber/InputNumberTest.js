@@ -5,14 +5,14 @@ describe("InputNumber", function () {
         expect(document.querySelector(".number").textContent).toEqual("3");
     });
 
-    it("with num with min (1)", function () {
+    it("with num with min less than num", function () {
         var num = 3;
         var min = 2;
         ReactDOM.render(re(component.InputNumber, {num: num, min: min}), document.body);
         expect(document.querySelector(".number").textContent).toEqual("3");
     });
 
-    it("with num with min (2)", function () {
+    it("with num with min greater than num", function () {
         var num = 3;
         var min = 4;
         ReactDOM.render(re(component.InputNumber, {num: num, min: min}), document.body);
@@ -76,6 +76,19 @@ describe("InputNumber", function () {
 
         incrementButton.click();
         expect(onChange).toHaveBeenCalledWith(0);
+    });
+
+    it("disable input number", function () {
+        var onChange = jasmine.createSpy();
+        var num = 1;
+        ReactDOM.render(re(component.InputNumber, {onChange: onChange, num: num, isDisabled: true}), document.body);
+        expect(document.querySelector(".number").textContent).toEqual("1");
+
+        var incrementButton = document.querySelector(".input-number button:first-child");
+        var decrementButton = document.querySelector(".input-number button:last-child");
+        
+        expect(incrementButton.classList.contains("hide")).toBe(true);
+        expect(decrementButton.classList.contains("hide")).toBe(true);
     });
 
 
