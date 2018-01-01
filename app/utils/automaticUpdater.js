@@ -40,8 +40,6 @@ const self = module.exports = {
 					self.getResultsJob(undefined);
 				} else {
 					schedule.scheduleJob(aMatch.kickofftime, function () {
-						//TODO just for fun it will send notification for all users when game starts -> should handle logic to send to specific user if no prediction was made for this match
-						pushNotificationUtil.pushToAllRegisterdUsers("Game Has started :)");
 						self.getResultsJob(undefined);
 					});
 				}
@@ -63,10 +61,7 @@ const self = module.exports = {
 
 			if (!activeLeagues && activeLeagues.length < 1) {
 				console.log('No active leagues! going to sleep');
-				const nextJob = new Date();
-				const now = new Date();
-				nextJob.setSeconds(now.getSeconds() + 30);
-				schedule.scheduleJob(nextJob, function () {
+				schedule.scheduleJob(self.getNextJobDate(), function () {
 					self.run();
 				});
 			}
@@ -75,19 +70,15 @@ const self = module.exports = {
 				self.getResults(activeLeagues, configuration)
 			]).then(function (arr) {
 				const hasInProgressGames = arr[0];
-				const nextJob = new Date();
-				const now = new Date();
-				nextJob.setSeconds(now.getSeconds() + 30);
-
 				if (hasInProgressGames) {
 					console.log('There are more games in progress');
 
-					schedule.scheduleJob(nextJob, function () {
+					schedule.scheduleJob(self.getNextJobDate(), function () {
 						self.getResultsJob(activeLeagues)
 					});
 				} else {
 					console.log('All games in progress are ended');
-					schedule.scheduleJob(nextJob, function () {
+					schedule.scheduleJob(self.getNextJobDate(), function () {
 						self.run();
 					});
 				}
@@ -129,8 +120,8 @@ const self = module.exports = {
 		return self.updateMatchResultsMap(relevantGames, configuration).then(function (arr) {
 			if (arr.includes('updateLeaderboard')) {
 				console.log('Start to update leaderboard');
-				schedule.scheduleJob(new Date(), function () {
-					userLeaderboardService.updateLeaderboard()
+				schedule.scheduleJob(self.getNextJobDate(), function () {
+					userLeaderboardService.updateLeaderboard();
 				});
 			}
 			if (arr.includes('getResultsJob')) {
@@ -228,8 +219,14 @@ const self = module.exports = {
 				return Promise.all([
 					MatchResult.findOne({matchId: aMatch._id})
 				]).then(function (arr2) {
-					if ((!arr2[0] && relevantGame.Active === false && relevantGame.Completion >= 100) || relevantGame.Active === true) {
+					const isRelevantGameFinished = relevantGame.Active === false && relevantGame.Completion >= 100;
+					if (relevantGame.Active === true || (!arr2[0] && isRelevantGameFinished) || (arr2[0] && arr2[0].active === true && isRelevantGameFinished)) {
 						console.log('Beginning to create new match result, for [' + team1 + ' - ' + team2 + ']');
+
+						if (relevantGame.Active === true && relevantGame.GT === 0) {
+							//TODO - just for fun it will send notification for all users when game starts -> should handle logic to send to specific user if no prediction was made for this match
+							pushNotificationUtil.pushToAllRegisterdUsers(relevantGame.Comps[1].Name + ' - ' + relevantGame.Comps[0].Name);
+						}
 
 						return Promise.all([
 							self.calculateNewMatchResult(team1, team2, relevantGame)
@@ -318,5 +315,11 @@ const self = module.exports = {
 		}
 
 		return deferred.promise;
+	},
+	getNextJobDate: function () {
+		const nextJob = new Date();
+		const now = new Date();
+		nextJob.setSeconds(now.getSeconds() + 30);
+		return nextJob;
 	}
 };
