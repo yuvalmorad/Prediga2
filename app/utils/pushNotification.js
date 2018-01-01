@@ -15,8 +15,10 @@ webpush.setVapidDetails(
 
 function pushAllSubscriptionsToSpecificUser(user, text) {
 	if (user) {
+		console.log("before sending push notifications for all devices of user: ", user.userId);
 		const pushSubscriptions = user.pushSubscriptions;
-		pushSubscriptions.forEach(function (pushSubscription) {
+		(pushSubscriptions || []).forEach(function (pushSubscription) {
+            console.log("sending push notification with text: ", text);
 			webpush.sendNotification(pushSubscription, text).catch(function (err) {
 				console.log("error sending push notification", err);
 			});
