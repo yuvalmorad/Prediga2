@@ -24,14 +24,21 @@ component.App = (function(){
                 hideSiteHeader = currentPage.hideSiteHeader,
                 hideSiteNavigation = currentPage.hideSiteNavigation,
                 siteHeaderConfig = currentPage.siteHeaderConfig || {},
-                scrollSiteClassName = "scroll-site";
+                isMainMenuOpen = this.props.isMainMenuOpen,
+                isMenuGroupsOpen = this.props.isMenuGroupsOpen,
+                scrollSiteClassName = "scroll-site",
+                siteCoverClassName = "site-cover";
 
-            if (this.props.isMainMenuOpen) {
+            if (isMainMenuOpen) {
                 scrollSiteClassName += " move-right";
             }
 
-            if (this.props.isMenuGroupsOpen) {
+            if (isMenuGroupsOpen) {
                 scrollSiteClassName += " move-left";
+            }
+
+            if (!isMainMenuOpen && !isMenuGroupsOpen) {
+                siteCoverClassName += " hide"
             }
 
             return re("div", {className: "main"},
@@ -42,7 +49,8 @@ component.App = (function(){
                         re(SiteNavigation, {hide: hideSiteNavigation})
                     ),
                     re(MainMenu, {}),
-                    re(GroupsMenu, {})
+                    re(GroupsMenu, {}),
+                    re("div", {className: siteCoverClassName, onClick: this.props.closeAllMenus})
                 ),
                 re(TileDialogContainer, {}),
                 re(Loading, {})
@@ -61,7 +69,8 @@ component.App = (function(){
         return {
             loadUsers: function(){dispatch(action.users.loadUsers())},
             loadLeaguesAndClubs: function(){dispatch(action.leagues.loadLeaguesAndClubs())},
-            loadGroupConfiguration: function(){dispatch(action.groupConfiguration.load())}
+            loadGroupConfiguration: function(){dispatch(action.groupConfiguration.load())},
+            closeAllMenus: function(){dispatch(action.general.closeAllMenus())}
         }
     }
 

@@ -9,6 +9,13 @@ action.general = (function(){
 
         TOGGLE_MAIN_MENU: "TOGGLE_MAIN_MENU",
         TOGGLE_MENU_GROUPS: "TOGGLE_MENU_GROUPS",
+        CLOSE_ALL_MENUS: "CLOSE_ALL_MENUS",
+
+        closeAllMenus: function() {
+            return {
+                type: general.CLOSE_ALL_MENUS
+            }
+        },
 
         toggleMainMenu: function() {
             return {
