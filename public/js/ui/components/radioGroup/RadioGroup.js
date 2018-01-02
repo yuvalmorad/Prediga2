@@ -12,13 +12,13 @@ component.RadioGroup = (function(){
                 isOneChecked = false;
 
             props.inputs.forEach(function(input){
-                if (input.name === input.res) {
+                if (utils.general.compareStringsLowerCase(input.name, input.res)) {
                     isOneChecked = true;
                 }
             });
 
             var inputs = props.inputs.map(function(input, index){
-                var isChecked = input.name === input.res;
+                var isChecked = utils.general.compareStringsLowerCase(input.name, input.res);
                 if (input.isDefault && !isOneChecked) {
                     isChecked = true;
                 }

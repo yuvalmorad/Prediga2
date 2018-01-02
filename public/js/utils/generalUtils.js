@@ -24,8 +24,17 @@ utils.general = (function(){
         leagueNameToIdName: leagueNameToIdName,
         cutUrlPath: cutUrlPath,
         getLeadersByLeagueId: getLeadersByLeagueId,
-        getTeamsUniqueGraphColor: getTeamsUniqueGraphColor
+        getTeamsUniqueGraphColor: getTeamsUniqueGraphColor,
+        compareStringsLowerCase: compareStringsLowerCase
     };
+
+    function compareStringsLowerCase(str1, str2) {
+        if (!str1 || !str2 || !str1.toLowerCase || !str2.toLowerCase){
+             return false;
+        }
+
+        return str1.toLowerCase() === str2.toLowerCase();
+    }
 
     function getTeamsUniqueGraphColor(team1, team2) {
         var team1Color = team1.graphColors[0];
