@@ -1094,7 +1094,19 @@ body {
 }
 
 .game-prediction-tile .game-date {
+    position: relative;
     text-align: center;
+}
+
+.game-prediction-tile .running-game .game-date {
+    content: '';
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background-color: #7ED321;
+    right: -7px;
+    top: -1px;
 }
 
 .game-prediction-tile .final-game {
