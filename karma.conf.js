@@ -15,6 +15,7 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
+      'public/css/main.css',
       'public/lib/react.min.js',
       'public/lib/react-dom.min.js',
       'public/lib/redux.min.js',

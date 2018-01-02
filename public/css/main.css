@@ -1098,7 +1098,8 @@ body {
     text-align: center;
 }
 
-.game-prediction-tile .running-game .game-date {
+.game-prediction-tile .running-game .game-date:before,
+.simulator-match .simulate-game-date:before {
     content: '';
     position: absolute;
     width: 5px;
