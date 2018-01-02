@@ -8,6 +8,17 @@
     -webkit-tap-highlight-color:rgba(0,0,0,0);;
 }
 
+/* For Firefox */
+input[type='number'] {
+    -moz-appearance:textfield;
+}
+/* Webkit browsers like Safari and Chrome */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
 a, u {
     text-decoration: none;
 }
@@ -1348,6 +1359,12 @@ body {
     border: 1px solid #4A90E2;
     color: #4A90E2;
     border-radius: 4px;
+}
+
+.create-new-group-page .row-buttons > button[disabled] {
+    background-color: transparent;
+    border: 1px solid #9B9B9B;
+    color: #9B9B9B;
 }
 
 .create-new-group-page .row-buttons > button:first-child {
