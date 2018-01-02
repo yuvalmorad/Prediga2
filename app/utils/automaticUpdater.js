@@ -7,7 +7,6 @@ const leagueService = require("../services/leagueService");
 const matchResultService = require("../services/matchResultService");
 const userScoreService = require("../services/userScoreService");
 const userLeaderboardService = require("../services/usersLeaderboardService");
-const groupConfiguration = require("../models/groupConfiguration");
 const MatchResult = require("../models/matchResult");
 const Q = require('q');
 const mock365Html = require('../initialData/helpers/365Mock');
@@ -54,8 +53,7 @@ const self = module.exports = {
 		console.log('Automatic update (getResults Job) wake up');
 
 		return Promise.all([
-			typeof (activeLeagues) === 'undefined' ? leagueService.getActiveLeagues() : activeLeagues,
-			groupConfiguration.find({})
+			typeof (activeLeagues) === 'undefined' ? leagueService.getActiveLeagues() : activeLeagues
 		]).then(function (arr) {
 			const activeLeagues = arr[0];
 
@@ -65,9 +63,8 @@ const self = module.exports = {
 					self.run();
 				});
 			}
-			const configuration = arr[1];
 			return Promise.all([
-				self.getResults(activeLeagues, configuration)
+				self.getResults(activeLeagues)
 			]).then(function (arr) {
 				const hasInProgressGames = arr[0];
 				if (hasInProgressGames) {
@@ -85,7 +82,7 @@ const self = module.exports = {
 			});
 		});
 	},
-	getResults: function (activeLeagues, configuration) {
+	getResults: function (activeLeagues) {
 		console.log('Start to get results...');
 		return Promise.all([
 			self.getLatestData()
@@ -107,7 +104,7 @@ const self = module.exports = {
 						if (isTestingMode) {
 							socketIo.emit("relevantGames", relevantGames);
 						}
-						return self.updateMatchResults(relevantGames, configuration);
+						return self.updateMatchResults(relevantGames);
 					} else {
 						console.log('There are no relevant games.');
 						return false;
@@ -116,20 +113,9 @@ const self = module.exports = {
 			}
 		});
 	},
-	updateMatchResults: function (relevantGames, configuration) {
-		return self.updateMatchResultsMap(relevantGames, configuration).then(function (arr) {
-			if (arr.includes('updateLeaderboard')) {
-				console.log('Start to update leaderboard');
-				schedule.scheduleJob(self.getNextJobDate(), function () {
-					userLeaderboardService.updateLeaderboard();
-				});
-			}
-			if (arr.includes('getResultsJob')) {
-				return true;
-			} else {
-				return false;
-			}
-
+	updateMatchResults: function (relevantGames) {
+		return self.updateMatchResultsMap(relevantGames).then(function (arr) {
+			return arr.includes('getResultsJob');
 		});
 	},
 	getLatestData: function () {
@@ -195,13 +181,13 @@ const self = module.exports = {
 		});
 		return deferred.promise;
 	},
-	updateMatchResultsMap: function (relevantGames, configuration) {
+	updateMatchResultsMap: function (relevantGames) {
 		const promises = relevantGames.map(function (relevantGame) {
-			return self.updateMatchResultsMapInner(relevantGame, configuration);
+			return self.updateMatchResultsMapInner(relevantGame);
 		});
 		return Promise.all(promises);
 	},
-	updateMatchResultsMapInner: function (relevantGame, configuration) {
+	updateMatchResultsMapInner: function (relevantGame) {
 		return Promise.all([
 			clubService.findClubsBy365Name(relevantGame)
 		]).then(function (arr) {
@@ -249,9 +235,11 @@ const self = module.exports = {
 								} else {
 									const leagueId = aMatch.league;
 									console.log('Beginning to update user score for [' + team1 + ' - ' + team2 + ']');
-									return userScoreService.updateUserScoreByMatchResult(configuration, newMatchResult, leagueId).then(function () {
-										console.log('Finish to update all for [' + team1 + ' - ' + team2 + ']');
-										return 'updateLeaderboard';
+									return userScoreService.updateUserScoreByMatchResult(newMatchResult, leagueId).then(function () {
+										console.log('Beginning to update leaderboard from the automatic updater');
+										schedule.scheduleJob(self.getNextJobDate(), function () {
+											userLeaderboardService.updateLeaderboardByGameIds(leagueId, [newMatchResult.matchId]);
+										});
 									});
 
 								}
@@ -259,7 +247,7 @@ const self = module.exports = {
 						});
 					} else {
 						console.log('Game is already finished and we have a match result for it, or it is not started yet.');
-						return 'getResultsJob';
+						return false;
 					}
 				});
 
@@ -277,7 +265,8 @@ const self = module.exports = {
 			firstToScore: 'None',
 			gameTime: relevantGame.GT,
 			completion: relevantGame.Completion,
-			active: relevantGame.Active
+			active: relevantGame.Active,
+			resultTime: new Date()
 		};
 
 		if (!relevantGame.Events || relevantGame.Events.length < 1) {

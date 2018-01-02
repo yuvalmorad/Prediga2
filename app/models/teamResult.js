@@ -5,7 +5,8 @@ const mongoose = require('mongoose');
 const teamResultSchema = mongoose.Schema({
 	teamId: String,
 	team: String,
-	type: String // winner, runnerUp, *
+	type: String, // winner, runnerUp, *
+	resultTime: Date,
 });
 
 teamResultSchema.options.toJSON = {

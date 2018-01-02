@@ -15,15 +15,8 @@ const self = module.exports = {
 			self.updateLeagueData(require('../initialData/leagues/Tournament_Worldcup_18.json')),
 			self.updateLeagueData(require('../initialData/leagues/League_Israel_17-18.json')),
 		]).then(function (arr) {
-			UserScoreService.updateAllUserScores().then(function (obj) {
-				if (obj.needUpdate === true) {
-					UsersLeaderboardService.updateLeaderboard().then(function (obj) {
-						console.log('Succeed to update all initial data');
-					});
-				} else {
-					console.log('Succeed to update all initial data (w/o update leader board)');
-				}
-			});
+			console.log('Succeed to update all initial data');
+			return Promise.resolve();
 		});
 	},
 
@@ -36,7 +29,29 @@ const self = module.exports = {
 			MatchResultService.updateMatchResults(leagueJson.matchResults),
 			TeamResultService.updateTeamResults(leagueJson.teamResults)
 		]).then(function (arr) {
-			console.log('update league data finished');
+			return Promise.all([
+				UserScoreService.updateUserScoreByMatchResults(arr[4], arr[2]),
+				UserScoreService.updateUserScoreByTeamResults(arr[5], arr[3])
+			]).then(function (arr) {
+				let matchIds = [];
+				if (arr[4]) {
+					matchIds = arr[4].map(function (matchResults) {
+						return matchResults.matchId;
+					});
+				}
+				let teamIds = [];
+				if (arr[5]) {
+					teamIds = arr[5].map(function (teamResults) {
+						return teamResults.teamId;
+					});
+				}
+				let gameIds = matchIds.concat(teamIds);
+				if (gameIds.length < 1) {
+					return Promise.resolve();
+				} else {
+					return UsersLeaderboardService.updateLeaderboardByGameIds(leagueJson.league._id, gameIds);
+				}
+			});
 		});
 	}
 };

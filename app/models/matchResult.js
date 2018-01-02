@@ -11,7 +11,8 @@ const matchResultSchema = mongoose.Schema({
 	firstToScore: String,
 	completion: Number,
 	gameTime: Number,
-	active: Boolean
+	active: Boolean,
+	resultTime: Date
 });
 
 matchResultSchema.options.toJSON = {

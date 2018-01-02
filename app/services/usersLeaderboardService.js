@@ -1,112 +1,160 @@
-const Q = require('q');
 const User = require('../models/user');
 const League = require('../models/league');
 const UserScore = require('../models/userScore');
+const Match = require('../models/match');
+const MatchResult = require('../models/matchResult');
+const Team = require('../models/team');
+const TeamResult = require('../models/teamResult');
 const UsersLeaderboard = require('../models/usersLeaderboard');
 const utils = require('../utils/util');
 
 const self = module.exports = {
-	updateLeaderboard: function () {
+	resetLeaderboard: function () {
 		return Promise.all([
-			User.find({}),
-			League.find({})
+			UsersLeaderboard.remove({})
 		]).then(function (arr) {
-			const users = arr[0];
-			const promises = arr[1].map(function (league) {
-				const leagueId = league._id;
-				console.log('Beginning to updateLeaderboard for league ' + league.name);
-				return Promise.all([
-					self.calculatedAggregatedUserScores(leagueId, users)
-				]).then(function (arr) {
-					// sort aggregated scores by score desc.
-					arr[0].sort(self.compareAggregatedScores);
+			return Promise.all([
+				League.find({})
+			]).then(function (arr2) {
+				const promises = arr2[0].map(function (league) {
+					const leagueId = league._id;
+					return Promise.all([
+						Match.find({league: leagueId}),
+						Team.find({league: leagueId})
+					]).then(function (arr3) {
+						const matchIds = arr3[0].map(function (match) {
+							return match._id;
+						});
 
-					return self.updateAllAggregatedScores(leagueId, arr[0]).then(function () {
-						console.log('finished to update the leader board based on all user scores for league ' + leagueId);
+						const teamIds = arr3[1].map(function (team) {
+							return team._id;
+						});
+
+						return Promise.all([
+							MatchResult.find({matchId: {$in: matchIds}, active: false}),
+							TeamResult.find({teamId: {$in: teamIds}})
+						]).then(function (arr4) {
+							let combined = [].concat(arr4[0]);
+							combined = combined.concat(arr4[1]);
+							combined.sort(self.compareResultsAsc);
+							const gameIds = combined.map(function (result) {
+								return result.matchId || result.teamId;
+							});
+							if (gameIds.length > 0) {
+								return self.updateLeaderboardByGameIds(leagueId, gameIds).then(function () {
+									console.log('Finish updateLeaderboardByGameIds');
+									return Promise.resolve();
+								});
+							} else {
+								console.log('No game results to this league');
+								return Promise.resolve();
+							}
+
+						});
 					});
 				});
+
+				return Promise.all(promises);
 			});
-
-			return Promise.all(promises);
 		});
 	},
-	updateAllAggregatedScores: function (leagueId, aggregatedScores) {
-		const promises = aggregatedScores.map(function (aggregatedScore, index) {
-			return self.updateOneAggregatedScore(leagueId, aggregatedScore, index);
+	updateLeaderboardByGameIds: function (leagueId, gameIds) {
+		console.log('Beginning to update ' + gameIds.length + ' match results for league:' + leagueId);
+		return Promise.all([
+			UsersLeaderboard.find({leagueId: leagueId})
+		]).then(function (arr) {
+			self.proccessGamesArray(arr[0], leagueId, gameIds, self.updateLeaderboardForGameId);
+			console.log('Finish to process game array');
+			return Promise.resolve();
 		});
-
-		return Promise.all(promises);
 	},
-	updateOneAggregatedScore: function (leagueId, aggregatedScore, index) {
-		const deferred = Q.defer();
+	proccessGamesArray: function (leaderboard, leagueId, gameIds, fn) {
+		let index = -1;
 
-		UsersLeaderboard.find({userId: aggregatedScore.userId, leagueId: leagueId}, function (err, obj) {
-			let placeBeforeLastGame = -1;
-			if (obj && obj.length > 0 && typeof(obj[0].placeCurrent) !== 'undefined') {
-				placeBeforeLastGame = obj[0].placeCurrent;
+		function next() {
+			//console.log('next(' + index + ')');
+			if (index < gameIds.length - 1) {
+				index = index + 1;
+				fn(leaderboard, leagueId, gameIds[index], index).then(next);
 			}
+		}
 
-			aggregatedScore.placeCurrent = index + 1;
-			aggregatedScore.placeBeforeLastGame = placeBeforeLastGame;
-			UsersLeaderboard.findOneAndUpdate({
-					userId: aggregatedScore.userId,
-					leagueId: leagueId
-				}, aggregatedScore, utils.updateSettings,
-				function () {
-					deferred.resolve();
-				}
-			);
-		});
-		return deferred.promise;
+		next();
 	},
-	calculatedAggregatedUserScores: function (leagueId, users) {
-		const promises = users.map(function (aUser) {
-			return self.calculatedAggregatedUserScore(leagueId, aUser);
-		});
-
-		return Promise.all(promises);
-	},
-	calculatedAggregatedUserScore: function (leagueId, aUser) {
-		const deferred = Q.defer();
-
-		UserScore.find({userId: aUser._id, leagueId: leagueId}, function (err, userScores) {
-			const aggregrateScore = {
-				leagueId: leagueId,
-				userId: aUser._id,
-				score: 0,
-				strikes: 0
-			};
-			if (userScores && userScores.length > 0) {
-				self.calculatedAggregatedUserScoreForEachUserScore(leagueId, aUser, userScores, aggregrateScore).then(function (aggregrateScore) {
-					deferred.resolve(aggregrateScore);
+	updateLeaderboardForGameId: function (leaderboard, leagueId, gameId, index) {
+		console.log('Beginning to update leaderboard game: ' + index);
+		return UserScore.find({
+			leagueId: leagueId.toString(),
+			gameId: gameId.toString()
+		}).then(function (newUserScores) {
+			if (newUserScores && newUserScores.length > 0) {
+				console.log('Beginning to append (step 1) game');
+				// append
+				newUserScores.forEach(function (newUserScore) {
+					self.appendUserScoreToLeaderboard(newUserScore, leaderboard);
 				});
+
+				// sort
+				console.log('Beginning to sort (step 2) game');
+				leaderboard.sort(self.compareAggregatedScores);
+
+				// fix places & update
+				console.log('Beginning to update (step 3) game');
+				const promises = (leaderboard || []).map(function (leaderboardItem, index2) {
+					return self.updateLeaderboardItem(leaderboardItem, index2);
+				});
+
+				return Promise.all(promises);
+
 			} else {
-				deferred.resolve(aggregrateScore);
+				console.log('No user scores');
+				return Promise.resolve();
 			}
 		});
-		return deferred.promise;
 	},
-	calculatedAggregatedUserScoreForEachUserScore: function (leagueId, aUser, userScores, aggregrateScore) {
-		const deferred = Q.defer();
+	updateLeaderboardItem: function (leaderboardItem, index) {
+		// fix places
+		let placeBeforeLastGame = -1;
+		if (leaderboardItem && typeof(leaderboardItem.placeCurrent) !== 'undefined') {
+			placeBeforeLastGame = leaderboardItem.placeCurrent;
+		}
 
-		userScores.forEach(function (aUserScore, index) {
-			if (aUserScore.score) {
-				aggregrateScore.score += aUserScore.score;
-			}
-			if (aUserScore.strikes) {
-				aggregrateScore.strikes += aUserScore.strikes;
-			}
+		leaderboardItem.placeCurrent = index + 1;
+		leaderboardItem.placeBeforeLastGame = placeBeforeLastGame;
 
-			if (index === userScores.length - 1) {
-				deferred.resolve(aggregrateScore);
-			}
+		// update
+		return UsersLeaderboard.findOneAndUpdate({
+			userId: leaderboardItem.userId,
+			leagueId: leaderboardItem.leagueId
+		}, leaderboardItem, utils.updateSettings);
+	},
+	appendUserScoreToLeaderboard: function (userScore, leaderboard) {
+		const leaderboardItemForUser = leaderboard.filter(function (leaderboardItem) {
+			return leaderboardItem.userId === userScore.userId;
 		});
-		return deferred.promise;
+
+		if (leaderboardItemForUser.length < 1) {
+			leaderboard.push({
+				leagueId: userScore.leagueId,
+				userId: userScore.userId,
+				score: userScore.score,
+				strikes: userScore.strikes,
+				placeCurrent: -1,
+				placeBeforeLastGame: -1,
+			});
+		} else {
+			leaderboardItemForUser[0].score += userScore.score;
+			leaderboardItemForUser[0].strikes += userScore.strikes;
+		}
 	},
 	compareAggregatedScores: function (a, b) {
 		if (a.score < b.score)
 			return 1;
 		if (a.score > b.score)
+			return -1;
+		if (a.userId < b.userId)
+			return 1;
+		if (a.userId > b.userId)
 			return -1;
 		return 0;
 	},
@@ -117,9 +165,16 @@ const self = module.exports = {
 			return -1;
 		return 0;
 	},
+	compareResultsAsc: function (a, b) {
+		if (a.resultTime > b.resultTime)
+			return 1;
+		if (a.resultTime < b.resultTime)
+			return -1;
+		return 0;
+	},
 	getLeaderboardWithNewRegisteredUsers: function (leagueId) {
 		return Promise.all([
-			User.find({}),
+			User.find({}), // TODO - only users relevant to this league/group
 			typeof(leagueId) === 'undefined' ?
 				League.find({}) :
 				League.find({_id: leagueId})
@@ -136,7 +191,8 @@ const self = module.exports = {
 
 			return Promise.all(promises);
 		});
-	},
+	}
+	,
 	amendNewRegisteredUsers: function (leaderboard, allUsers, leagueId) {
 		const userIdsInLeaderboard = leaderboard.map(a => a.userId.toString());
 		const allUsersIds = allUsers.map(a => a._id.toString());
@@ -151,9 +207,10 @@ const self = module.exports = {
 		} else {
 			return leaderboard;
 		}
-	},
+	}
+	,
 	amendNewRegisteredUser: function (leaderboard, userId, leagueId) {
-		const userItem = {
+		const leaderboardItem = {
 			leagueId: leagueId,
 			userId: userId,
 			score: 0,
@@ -162,9 +219,12 @@ const self = module.exports = {
 			placeBeforeLastGame: -1,
 		};
 		return Promise.all([
-			UsersLeaderboard.findOneAndUpdate({userId: userId, leagueId: leagueId}, userItem, utils.updateSettings)
+			UsersLeaderboard.findOneAndUpdate({
+				userId: userId,
+				leagueId: leagueId
+			}, leaderboardItem, utils.updateSettings)
 		]).then(function (arr) {
-			leaderboard.splice(leaderboard.length - 1, 0, userItem);
+			leaderboard.splice(leaderboard.length - 1, 0, leaderboardItem);
 			return {}
 		});
 	}

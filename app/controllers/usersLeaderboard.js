@@ -3,6 +3,13 @@ const app = express.Router();
 const UsersLeaderboardService = require('../services/usersLeaderboardService');
 const util = require('../utils/util.js');
 
+app.get('/reset', util.isAdmin, function (req, res) {
+	UsersLeaderboardService.resetLeaderboard().then(function () {
+		console.log('finish reset');
+		res.status(200).json();
+	});
+});
+
 app.get('/:leagueId', util.isLoggedIn, function (req, res) {
 	const leagueId = req.params.leagueId;
 	if (!leagueId) {
@@ -20,10 +27,6 @@ app.get('/', util.isLoggedIn, function (req, res) {
 	});
 });
 
-app.post('/', util.isAdmin, function (req, res) {
-	UsersLeaderboardService.updateLeaderboard().then(function () {
-		res.status(200).json();
-	});
-});
+
 
 module.exports = app;
