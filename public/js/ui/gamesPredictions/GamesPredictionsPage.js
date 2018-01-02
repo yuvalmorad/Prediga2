@@ -8,7 +8,7 @@ component.GamesPredictionsPage = (function(){
     function getTitleDate(date) {
         var daysOfWeak = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
         var dayOfWeek = daysOfWeak[date.getDay()];
-        return dayOfWeek + " " + date.getDate() + "." + (date.getMonth() + 1);
+        return dayOfWeek + " " + utils.general.formatDateByMonthAndDate(date);
     }
 
     function isOnSameDay(date1, date2) {

@@ -25,8 +25,17 @@ utils.general = (function(){
         cutUrlPath: cutUrlPath,
         getLeadersByLeagueId: getLeadersByLeagueId,
         getTeamsUniqueGraphColor: getTeamsUniqueGraphColor,
-        compareStringsLowerCase: compareStringsLowerCase
+        compareStringsLowerCase: compareStringsLowerCase,
+        formatDateByMonthAndDate: formatDateByMonthAndDate
     };
+
+    function formatDateByMonthAndDate(dateObj) {
+        var date = addZeroToTimeIfNeeded(dateObj.getDate());
+        var month = addZeroToTimeIfNeeded(dateObj.getMonth() + 1);
+
+
+        return date + "." + month;
+    }
 
     function compareStringsLowerCase(str1, str2) {
         if (!str1 || !str2 || !str1.toLowerCase || !str2.toLowerCase){
