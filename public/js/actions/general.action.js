@@ -11,6 +11,15 @@ action.general = (function(){
         TOGGLE_MENU_GROUPS: "TOGGLE_MENU_GROUPS",
         CLOSE_ALL_MENUS: "CLOSE_ALL_MENUS",
 
+        SET_SITE_HEADER_TITLE: "SET_SITE_HEADER_TITLE",
+
+        setSiteHeaderTitle: function(title) {
+            return {
+                type: general.SET_SITE_HEADER_TITLE,
+                title: title
+            }
+        },
+
         closeAllMenus: function() {
             return {
                 type: general.CLOSE_ALL_MENUS

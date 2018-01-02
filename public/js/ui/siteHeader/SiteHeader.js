@@ -14,14 +14,16 @@ component.SiteHeader = (function(){
                     siteHeaderConfig = props.siteHeaderConfig,
                     hideMenuButton = siteHeaderConfig.hideMenuButton,
                     hideMenuGroupsButton = siteHeaderConfig.hideMenuGroupsButton,
-                    hasBackButton = siteHeaderConfig.hasBackButton;
+                    hasBackButton = siteHeaderConfig.hasBackButton,
+                    isDynamicTitle = siteHeaderConfig.isDynamicTitle,
+                    siteHeaderTitle = props.siteHeaderTitle;
 
                 return re("div", { className: "site-header" + (hide ? " hide" : "") },
                     re("div", {className: "left"},
                         re("a", {className: "back-button" + (hasBackButton ? "" : " hide"), onClick: this.onBackButtonClicked}, "<"),
                         re("a", {className: "menu-button" + (this.props.isMainMenuOpen ? " selected" : "") + (hideMenuButton ? " hide" : ""), onClick: props.toggleMainMenu})
                     ),
-                    re("div", {className: "center"}, title),
+                    re("div", {className: "center"}, isDynamicTitle ? siteHeaderTitle: title),
                     re("div", {className: "right"},
                         re("a", {className: "menu-groups-button" + (this.props.isMenuGroupsOpen ? " selected" : "") + (hideMenuGroupsButton ? " hide" : ""), onClick: props.toggleMenuGroups}, "groups")
                     )
@@ -31,6 +33,7 @@ component.SiteHeader = (function(){
 
     function mapStateToProps(state){
         return {
+            siteHeaderTitle: state.general.siteHeaderTitle,
             isMainMenuOpen: state.general.isMainMenuOpen,
             isMenuGroupsOpen: state.general.isMenuGroupsOpen
         }

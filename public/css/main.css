@@ -1388,17 +1388,20 @@ body {
     margin-right: 0.5rem;
 }
 
-/* -------  Join Group -------*/
+/* -------  Join Group & Edit Group-------*/
 
-.join-group-tile.tile {
+.join-group-tile.tile,
+.edit-group-tile.tile{
     height: 6.5rem;
 }
-.join-group-page .join-group-tile .tile-wrapper{
+.join-group-page .join-group-tile .tile-wrapper,
+.edit-group-page .edit-group-tile .tile-wrapper {
     border-left: 1px solid #c1baba;
     border-right: 1px solid #c1baba;
 }
 
-.join-group-tile .join-group-main-tile {
+.join-group-tile .join-group-main-tile,
+.edit-group-tile .edit-group-main-tile {
     font-size: 0.75rem;
     color: #4A4A4A;
     display: flex;
@@ -1409,12 +1412,21 @@ body {
 }
 
 .join-group-tile .join-group-main-tile > .left,
-.join-group-tile .join-group-main-tile > .right{
+.join-group-tile .join-group-main-tile > .right,
+.edit-group-tile .edit-group-main-tile > .left,
+.edit-group-tile .edit-group-main-tile > .right {
     display: flex;
     align-items: center;
 }
 
-.join-group-tile .join-group-main-tile > .right button{
+.edit-group-tile .edit-group-main-tile > .left img {
+    border-radius: 50%;
+    height: 4rem;
+    width: 4rem;
+}
+
+.join-group-tile .join-group-main-tile > .right button,
+.edit-group-tile .edit-group-main-tile > .right button {
     background: transparent;
     width: 2.75rem;
     height: 2.75rem;
@@ -1424,22 +1436,31 @@ body {
     font-size: 2rem;
 }
 
-.join-group-tile .join-group-main-tile > .center {
+.edit-group-tile .edit-group-main-tile > .right button {
+    color: #D0021B;
+    border-color: #D0021B;
+}
+
+.join-group-tile .join-group-main-tile > .center,
+.edit-group-tile .edit-group-main-tile > .center {
     display: flex;
     flex-direction: column;
 }
 
-.join-group-tile .join-group-main-tile .group-name {
+.join-group-tile .join-group-main-tile .group-name,
+.edit-group-tile .edit-group-main-tile .user-name {
     font-weight: bold;
     color: #000000;
 }
 
-.join-group-tile .join-group-main-tile .leagues-count {
+.join-group-tile .join-group-main-tile .leagues-count,
+.edit-group-tile .edit-group-main-tile .user-place {
     flex: 1;
-    margin-top: 0.5rem;
+    margin-top: 0.3rem;
 }
 
-.join-group-tile .join-group-main-tile .admin-name {
+.join-group-tile .join-group-main-tile .admin-name,
+.edit-group-tile .edit-group-main-tile .joined-date {
     color: #9B9B9B;
     font-size: 0.625rem;
 }

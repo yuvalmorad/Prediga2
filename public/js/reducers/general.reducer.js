@@ -6,13 +6,15 @@ reducer.general = function() {
         CLOSE_TILE_DIALOG = action.general.CLOSE_TILE_DIALOG,
         TOGGLE_MAIN_MENU = action.general.TOGGLE_MAIN_MENU,
         TOGGLE_MENU_GROUPS = action.general.TOGGLE_MENU_GROUPS,
-        CLOSE_ALL_MENUS = action.general.CLOSE_ALL_MENUS;
+        CLOSE_ALL_MENUS = action.general.CLOSE_ALL_MENUS,
+        SET_SITE_HEADER_TITLE = action.general.SET_SITE_HEADER_TITLE;
 
     var initialState = {
         isLoading: false,
         isShowTileDialog: false,
         isMainMenuOpen: false,
-        isMenuGroupsOpen: false
+        isMenuGroupsOpen: false,
+        siteHeaderTitle: ""
     };
 
     return function general(state, action){
@@ -35,6 +37,8 @@ reducer.general = function() {
                 return Object.assign({}, state, {isShowTileDialog: true, tileDailogComponentName: action.componentName, tileDialogComponentProps: action.componentProps});
             case CLOSE_TILE_DIALOG:
                 return Object.assign({}, state, {isShowTileDialog: false, tileDailogComponentName: null, tileDialogComponentProps: null});
+            case SET_SITE_HEADER_TITLE:
+                return Object.assign({}, state, {siteHeaderTitle: action.title});
             default:
                 return state
         }
