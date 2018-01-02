@@ -913,9 +913,23 @@ body {
     display: inline-block;
 }
 
+.leaderboard-match-row .teams-score {
+    flex: 1;
+    display: flex;
+}
+
 .leaderboard-match-row .teams-score > div:nth-child(1),
+.leaderboard-match-row .teams-score > div:nth-child(3){
+    flex: 1;
+}
+
 .leaderboard-match-row .teams-score > div:nth-child(2) {
-    margin-right: 0.5rem;
+    margin: 0 0.5rem;
+    font-weight: bold;
+}
+
+.leaderboard-match-row .teams-score > div:nth-child(1) {
+    text-align: right;
 }
 
 .leaderboard-match-row .points {
@@ -928,7 +942,6 @@ body {
     text-align: center;
     line-height: 1.2rem;
 }
-
 /* -------  team prediction tile -------*/
 .tile-dialog-container .team-prediction-tile.tile {
     height: 18rem;
