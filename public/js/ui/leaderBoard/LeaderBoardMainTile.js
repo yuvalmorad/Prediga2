@@ -26,8 +26,7 @@ component.LeaderBoardMainTile = (function(){
             };
 
         if (!photo) {
-            opts.imageBackground = SPRITES.ASSETS;
-            opts.logoPosition = "-130px 1px";
+            //handle no photo?
         }
 
         return re(BaseMainTile, opts);

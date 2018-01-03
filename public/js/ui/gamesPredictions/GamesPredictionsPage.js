@@ -2,7 +2,6 @@ window.component = window.component || {};
 component.GamesPredictionsPage = (function(){
     var connect = ReactRedux.connect,
         GamePredictionTile = component.GamePredictionTile,
-        ImageButton = component.ImageButton,
         LeaguesSubHeader = component.LeaguesSubHeader;
 
     function getTitleDate(date) {
@@ -217,9 +216,9 @@ component.GamesPredictionsPage = (function(){
             return re("div", { className: "games-prediction-page content hasTilesHeader hasSubHeader"},
                 re(LeaguesSubHeader, {}),
                 re("div", {className: "tiles-header"},
-                    re(ImageButton, {onClick: this.onPreviousPage, disabled: isLeftButtonDisabled, backgroundPosition: "-19px 0px", backgroundPositionDisabled: "-28px 0px"}),
+                    re("button", {onClick: this.onPreviousPage, disabled: isLeftButtonDisabled}, ""),
                     re("div", {className: "title"}, closestPage ? closestPage.type : ""),
-                    re(ImageButton, {onClick: this.onNextPage, disabled: isRightButtonDisabled, backgroundPosition: "0 0", backgroundPositionDisabled: "-10px 0px"})
+                    re("button", {onClick: this.onNextPage, disabled: isRightButtonDisabled}, "")
                 ),
                 re("div", {ref: this.assignTilesRef, className: "tiles" + (props.isShowTileDialog ? " no-scroll" : "")},
                     tilesInPage

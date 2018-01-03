@@ -61,7 +61,23 @@ body {
     margin-bottom: 1rem;
 }
 
+
+/* -------  FONTS -------*/
+
+@font-face {
+    font-family: 'prediga';
+    src: url('../fonts/prediga.eot?12808858');
+    src: url('../fonts/prediga.eot?12808858#iefix') format('embedded-opentype'),
+    url('../fonts/prediga.woff2?12808858') format('woff2'),
+    url('../fonts/prediga.woff?12808858') format('woff'),
+    url('../fonts/prediga.ttf?12808858') format('truetype'),
+    url('../fonts/prediga.svg?12808858#prediga') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
 /* -------  TEAM LOGO -------*/
+
 .team-logo.israel {
     background-size: 52.5rem;
 }
@@ -145,17 +161,8 @@ body {
 
 .page > .content {
     height: 100%;
-    /*animation-duration: 0.3s;
-    animation-fill-mode: forwards;*/
 }
 
-/*.page.animate-right-to-center > .content{
-    animation-name: animateRightToCenter;
-}
-
-.page.animate-left-to-center > .content {
-    animation-name: animateLeftToCenter;
-}*/
 
 .page > .content > .tiles,
 .page > .content > .scroll-container{
@@ -176,25 +183,27 @@ body {
 
 .content > .subHeader {
     height: 1.5rem;
-    background-color: #009fff;
+    background-color: #F8F8F8;
 }
 
 .content > .leagues-sub-header {
     display: flex;
-    color: #ccc;
+    color: #CDCDCD;
     font-size: 0.875rem;
     padding: 0 0.5rem;
+    border-bottom: 1px solid #4A90E2;
 }
 
 .leagues-sub-header .league-item {
     line-height: 1.5rem;
     flex: 1;
     text-align: center;
+    font-weight: bold;
 }
 
 .leagues-sub-header .league-item.selected {
-    color: #fff;
-    border-bottom: 3px solid #cae2f5;
+    color: #4A90E2;
+    border-bottom: 3px solid #4A90E2;
 }
 
 .page > .content.hasTilesHeader > .tiles {
@@ -270,16 +279,8 @@ body {
     left: 0;
     right: 0;
     height: 2.75rem;
-
     display: flex;
-    align-items: stretch;
-    flex-wrap: nowrap;
-    background: #fafafa;
-    background-size: 100% 1px;
-    background-repeat: no-repeat;
-    background-position: bottom;
-    background-image: -webkit-linear-gradient(bottom, #b2b2b2, #b2b2b2 100%);
-    background-image: linear-gradient(0deg, #b2b2b2, #b2b2b2 100%);
+    background-color: #F8F8F8;
 }
 
 .site-header .left,
@@ -287,7 +288,7 @@ body {
     width: 27%;
     line-height: 2.75rem;
     font-size: 0.75rem;
-    color: #229eff;
+    color: #4A90E2;
     top: 0;
     position: relative;
     align-items: center;
@@ -324,7 +325,7 @@ body {
     width: 46%;
     text-align: center;
     line-height: 44px;
-    color: #009fff;
+    color: #4A90E2;
 }
 
 
@@ -336,37 +337,20 @@ body {
 /* -------  Menu -------*/
 
 .site-header .menu-button {
-    padding: 2px;
-    position: relative;
+    font-family: "prediga";
+    color: #4A90E2;
+    font-size: 1rem;
+    width: 2rem;
+    height: 2rem;
+    line-height: 2rem;
+    display: inline-block;
+    text-align: center;
+    margin-left: -0.3rem;
 }
 
-.site-header .menu-button:before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 0.21rem;
-    bottom: 0.21rem;
-    width: 1.2rem;
-    background: linear-gradient(
-            to bottom,
-            #009fff, #009fff 20%,
-            white 20%, white 40%,
-            #009fff 40%, #009fff 60%,
-            white 60%, white 80%,
-            #009fff 80%, #009fff 100%
-    );
-}
-
-.site-header .menu-button.selected:before {
-    background: linear-gradient(
-            to right,
-            #009fff, #009fff 10%,
-            white 10%, white 40%,
-            #009fff 40%, #009fff 50%,
-            white 50%, white 80%,
-            #009fff 80%, #009fff 90%,
-            white 90%, white 100%
-    );
+.site-header .menu-button.selected {
+    background-color: #4A90E2;
+    color: #fff;
 }
 
 .menu {
@@ -440,8 +424,13 @@ body {
     flex-basis: 0;
     text-align: center;
     line-height: 49px;
-    color: #717171;
     border-right: 1px solid #dadada;
+    color: #4A90E2;
+}
+
+.navigation-tab.selected {
+    background-color: #4A90E2;
+    color: #fff;
 }
 
 .navigation-tab:last-child {
@@ -449,43 +438,39 @@ body {
 }
 
 .navigation-tab:before {
-    content: '';
-    position: absolute;
-    background-repeat: no-repeat;
-    left: 50%;
-    right: 0;
-    bottom: 0;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    width: 1.5rem;
-    height: 1.5rem;
-    background-size: 4.5rem;
-    background-image: url(../images/sprites/assets.png);
+    font-family: "prediga";
+    font-size: 24px;
 }
 
 .gamesPredictions-tab:before {
-    background-position: -24px -40px;
-}
-
-.gamesPredictions-tab.selected:before {
-    background-position: -24px -16px;
+    content: '';
 }
 
 .teamsPredictions-tab:before {
-    background-position: -48px -16px;
-}
-
-.teamsPredictions-tab.selected:before {
-    background-position: 0 -16px;
+    content: '';
 }
 
 .leaderBoard-tab:before {
-    background-position: 0 -40px;
+    content: '';
+}
+
+
+/*.teamsPredictions-tab.selected:before {
+    background-position: 0 -16px;
 }
 
 .leaderBoard-tab.selected:before {
     background-position: -48px -40px;
 }
+
+.gamesPredictions-tab.selected:before {
+    background-position: -24px -16px;
+}
+*/
+
+
+
+
 
 
 /* -------  images pagination -------*/
@@ -515,17 +500,17 @@ body {
 }
 
 .images-pagination .button-area button {
+    font-family: "prediga";
     background: transparent;
     border: none;
     padding: 0;
     height: 100%;
+    font-size: 2.5rem;
+    color: #4A90E2;
 }
 
-.images-pagination .button-area button div {
-    height: 2.5rem;
-    width: 2em;
-    display: inline-block;
-    background-size: 11.3rem;
+.images-pagination .button-area button[disabled] {
+    color: #d0dae1;
 }
 
 .images-pagination .scroll {
@@ -973,22 +958,21 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    color: #009fff;
+    color: #fff;
     font-size: 0.875rem;
-    background-color: #fff;
+    background-color: #4A90E2;
 }
 
 .games-prediction-page .tiles-header button {
+    font-family: "prediga";
     background: transparent;
     border: none;
     padding: 0 1rem;
+    color: #fff;
 }
 
-.games-prediction-page .tiles-header button div {
-    height: 1rem;
-    width: 0.55rem;
-    display: inline-block;
-    background-size: 4.7rem;
+.games-prediction-page .tiles-header button[disabled] {
+    color: #d0dae1;
 }
 
 .game-prediction-tile .main > .left,
@@ -1464,46 +1448,3 @@ body {
     color: #9B9B9B;
     font-size: 0.625rem;
 }
-
-
-
-/*
-@-webkit-keyframes animateLeftToCenter {
-    0%   { transform:translateX(-100%);}
-    100% { transform:translateX(0);}
-}
-
-@-webkit-keyframes animateRightToCenter {
-    0%   { transform:translateX(100%);}
-    100% { transform:translateX(0);}
-}
-
-@-moz-keyframes animateLeftToCenter {
-    0%   { transform:translateX(-100%);}
-    100% { transform:translateX(0);}
-}
-
-@-moz-keyframes animateRightToCenter {
-    0%   { transform:translateX(100%);}
-    100% { transform:translateX(0);}
-}
-
-@-o-keyframes animateLeftToCenter {
-    0%   { transform:translateX(-100%);}
-    100% { transform:translateX(0);}
-}
-
-@-o-keyframes animateRightToCenter {
-    0%   { transform:translateX(100%);}
-    100% { transform:translateX(0);}
-}
-
-@keyframes animateLeftToCenter {
-    0%   { transform:translateX(-100%);}
-    100% { transform:translateX(0);}
-}
-
-@keyframes animateRightToCenter {
-    0%   { transform:translateX(100%);}
-    100% { transform:translateX(0);}
-}*/

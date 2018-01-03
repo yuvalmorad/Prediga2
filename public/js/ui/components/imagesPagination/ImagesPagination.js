@@ -1,6 +1,5 @@
 window.component = window.component || {};
 component.ImagesPagination = (function(){
-    var ImageButton = component.ImageButton;
 
     return React.createClass({
         getInitialState: function() {
@@ -96,13 +95,13 @@ component.ImagesPagination = (function(){
             return re("div", {className: "images-pagination", ref: this.assignRefElem},
                 re("div", {className: "images-pagination-container"},
                     re("div", {className: "button-area left"},
-                        re(ImageButton, {onClick: this.onPreviousClicked.bind(this, currentIndex), disabled: isLeftButtonDisabled, backgroundPosition: "-45px 0px", backgroundPositionDisabled: "-68px 0px"})
+                        re("button", {onClick: this.onPreviousClicked.bind(this, currentIndex), disabled: isLeftButtonDisabled}, "")
                     ),
                     re("div", {className: scrollClassName, style: {transform: "translateX(" + scrollX + "px)"}},
                         itemsElements
                     ),
                     re("div", {className: "button-area right"},
-                        re(ImageButton, {onClick: this.onNextClicked.bind(this,currentIndex), disabled: isRightButtonDisabled, backgroundPosition: "0 0", backgroundPositionDisabled: "-23px 0px"})
+                        re("button", {onClick: this.onNextClicked.bind(this,currentIndex), disabled: isRightButtonDisabled}, "")
                     )
                 )
             );

@@ -22,7 +22,3 @@ var COLORS = {
 };
 
 var NUM_OF_BADGES = 2;
-
-var SPRITES = {
-    ASSETS: "url('../images/sprites/assets.png')"
-};
