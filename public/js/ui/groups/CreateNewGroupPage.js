@@ -14,6 +14,7 @@ component.CreateNewGroupPage = (function(){
             var state = {
                 displaySelectGroupIconPage: false,
                 selectedIcon: "",
+                selectedIconColor: "",
                 groupName: "sample name",
                 winPoints: "4",
                 goalsPoints: "2",
@@ -87,8 +88,8 @@ component.CreateNewGroupPage = (function(){
             this.setState({displaySelectGroupIconPage: true});
         },
 
-        onSelectGroupIconSave: function(selectedIcon) {
-            this.setState({displaySelectGroupIconPage: false, selectedIcon: selectedIcon});
+        onSelectGroupIconSave: function(selectedIcon, selectedColor) {
+            this.setState({displaySelectGroupIconPage: false, selectedIcon: selectedIcon, selectedIconColor: selectedColor});
         },
 
         onSelectGroupIconCancel: function() {
@@ -101,6 +102,7 @@ component.CreateNewGroupPage = (function(){
             var saveObj = {
                 groupName: state.groupName,
                 icon: state.selectedIcon,
+                iconColor: state.selectedIconColor,
                 configuration: {
                     winPoints: state.winPoints,
                     firstToScorePoints: state.firstToScorePoints,
@@ -127,11 +129,12 @@ component.CreateNewGroupPage = (function(){
             var leagues = props.leagues;
             var isFormValid = true;
             var selectedIcon = state.selectedIcon;
+            var selectedIconColor = state.selectedIconColor;
             var mainElement;
 
 
             if (this.state.displaySelectGroupIconPage) {
-                mainElement = re(SelectGroupIcon, {selectedIcon: selectedIcon, onSave: this.onSelectGroupIconSave, onCancel: this.onSelectGroupIconCancel});
+                mainElement = re(SelectGroupIcon, {selectedIcon: selectedIcon, selectedIconColor: selectedIconColor, onSave: this.onSelectGroupIconSave, onCancel: this.onSelectGroupIconCancel});
             } else {
                 for (i = 0; i < SECRET_LENGTH; i++) {
                     var secretProperty = "secret" + i;
@@ -162,7 +165,7 @@ component.CreateNewGroupPage = (function(){
                         re("div", {className: "sub-title"}, "Group Icon:")
                     ),
                     re("div", {className: "select-icon-row"},
-                        re("div", {className: "group-icon"}, selectedIcon),
+                        re("div", {className: "group-icon", style: {color: selectedIconColor}}, selectedIcon),
                         re("button", {onClick: this.openSelectIconPage}, "Select Icon")
                     ),
                     re("div", {className: "title"}, "Group Leagues"),

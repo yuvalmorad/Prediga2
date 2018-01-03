@@ -1487,6 +1487,9 @@ body {
 }
 
 /* -------  select group icon page-------*/
+.page > .content > .select-group-icon.scroll-container {
+    padding: 0;
+}
 
 .select-group-icon .icons {
     margin-top: 1rem;
@@ -1494,16 +1497,33 @@ body {
 
 .select-group-icon .icons .icon {
     font-family: "prediga-groups";
-    display: inline-block;
-    width: 3rem;
-    height: 3rem;
-    line-height: 3rem;
     text-align: center;
-    font-size: 2.5rem;
-    margin: 0.2rem 0.2rem 0 0;
+    font-size: calc(100vw / 6 - 6vw);
+    display: inline-block;
+    box-sizing: border-box;
+    width: calc(100vw / 6 - 6vw);
+    height: calc(100vw / 6 - 6vw);
+    margin: 3vw;
 }
 
-.select-group-icon .icons .icon.selected {
-    color: blue;
+.select-group-icon .color-pallete {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: #E5E5E5;
+    box-shadow: inset 0 1px 3px 0 rgba(0,0,0,0.5);
+    z-index: 100;
 }
 
+.select-group-icon .color-pallete .color {
+    display: inline-block;
+    box-sizing: border-box;
+    width: calc(100vw / 6 - 6vw);
+    height: calc(100vw / 6 - 6vw);
+    margin: 3vw;
+}
+
+.select-group-icon .color-pallete .color.selected {
+    border: 2px solid #4A4A4A;
+}
