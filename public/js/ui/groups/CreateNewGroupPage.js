@@ -91,6 +91,10 @@ component.CreateNewGroupPage = (function(){
             this.setState({displaySelectGroupIconPage: false, selectedIcon: selectedIcon});
         },
 
+        onSelectGroupIconCancel: function() {
+            this.setState({displaySelectGroupIconPage: false});
+        },
+
         onSave: function() {
             var state = this.state;
 
@@ -127,7 +131,7 @@ component.CreateNewGroupPage = (function(){
 
 
             if (this.state.displaySelectGroupIconPage) {
-                mainElement = re(SelectGroupIcon, {selectedIcon: selectedIcon, onSave: this.onSelectGroupIconSave});
+                mainElement = re(SelectGroupIcon, {selectedIcon: selectedIcon, onSave: this.onSelectGroupIconSave, onCancel: this.onSelectGroupIconCancel});
             } else {
                 for (i = 0; i < SECRET_LENGTH; i++) {
                     var secretProperty = "secret" + i;

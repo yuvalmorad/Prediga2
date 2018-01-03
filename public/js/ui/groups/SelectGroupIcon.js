@@ -38,7 +38,7 @@ component.SelectGroupIcon = (function(){
                     iconsElem
                 ),
                 re("div", {className: "row-buttons"},
-                    re("button", {}, "Cancel"),
+                    re("button", {onClick: this.props.onCancel}, "Cancel"),
                     re("button", {onClick: this.onSave}, "Save")
                 )
             )
