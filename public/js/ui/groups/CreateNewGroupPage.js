@@ -1,8 +1,9 @@
 window.component = window.component || {};
 component.CreateNewGroupPage = (function(){
     var connect = ReactRedux.connect;
+    var SelectGroupIcon = component.SelectGroupIcon;
     var isRequestSent = false;
-    var SCRET_LENGTH = 6;
+    var SECRET_LENGTH = 6;
 
     var CreateNewGroupPage = React.createClass({
         getInitialState: function() {
@@ -11,6 +12,8 @@ component.CreateNewGroupPage = (function(){
             }
 
             var state = {
+                displaySelectGroupIconPage: false,
+                selectedIcon: "",
                 groupName: "sample name",
                 winPoints: "4",
                 goalsPoints: "2",
@@ -19,7 +22,7 @@ component.CreateNewGroupPage = (function(){
                 selectedLeagueIds: ["id1"]
             };
 
-            for (var i = 0; i < SCRET_LENGTH; i++) {
+            for (var i = 0; i < SECRET_LENGTH; i++) {
                 state["secret" + i] = "1";
             }
 
@@ -80,11 +83,20 @@ component.CreateNewGroupPage = (function(){
             this.setState({selectedLeagueIds: selectedLeagueIdsCopy});
         },
 
+        openSelectIconPage: function() {
+            this.setState({displaySelectGroupIconPage: true});
+        },
+
+        onSelectGroupIconSave: function(selectedIcon) {
+            this.setState({displaySelectGroupIconPage: false, selectedIcon: selectedIcon});
+        },
+
         onSave: function() {
             var state = this.state;
 
             var saveObj = {
                 groupName: state.groupName,
+                icon: state.selectedIcon,
                 configuration: {
                     winPoints: state.winPoints,
                     firstToScorePoints: state.firstToScorePoints,
@@ -94,7 +106,7 @@ component.CreateNewGroupPage = (function(){
                 }
             };
 
-            for (var i = 0; i < SCRET_LENGTH; i++) {
+            for (var i = 0; i < SECRET_LENGTH; i++) {
                 saveObj.configuration.secret += state["secret" + i];
             }
 
@@ -110,20 +122,25 @@ component.CreateNewGroupPage = (function(){
             var i;
             var leagues = props.leagues;
             var isFormValid = true;
+            var selectedIcon = state.selectedIcon;
+            var mainElement;
 
-            for (i = 0; i < SCRET_LENGTH; i++) {
-                var secretProperty = "secret" + i;
-                secretInputs.push(
-                    re("input", {type: "number", key: "secret" + i, value: state[secretProperty], name: secretProperty, onKeyDown: this.onNumberKeyDown})
-                );
-            }
 
-            var leaguesElems = leagues.map(function(league){
-                return re("div", {className: selectedLeagueIds.indexOf(league._id) >= 0 ? "selected" : "", onClick: that.onLeagueClicked.bind(that, league._id)}, league.name);
-            });
+            if (this.state.displaySelectGroupIconPage) {
+                mainElement = re(SelectGroupIcon, {selectedIcon: selectedIcon, onSave: this.onSelectGroupIconSave});
+            } else {
+                for (i = 0; i < SECRET_LENGTH; i++) {
+                    var secretProperty = "secret" + i;
+                    secretInputs.push(
+                        re("input", {type: "number", key: "secret" + i, value: state[secretProperty], name: secretProperty, onKeyDown: this.onNumberKeyDown})
+                    );
+                }
 
-            return re("div", { className: "create-new-group-page content" },
-                re("div", { className: "scroll-container" },
+                var leaguesElems = leagues.map(function(league){
+                    return re("div", {className: selectedLeagueIds.indexOf(league._id) >= 0 ? "selected" : "", onClick: that.onLeagueClicked.bind(that, league._id)}, league.name);
+                });
+
+                mainElement = re("div", { className: "scroll-container" },
                     re("div", {className: "title"}, "Group Details"),
                     re("div", {className: "sub-title-container"},
                         re("div", {className: "sub-title"}, "Group Name:"),
@@ -141,8 +158,8 @@ component.CreateNewGroupPage = (function(){
                         re("div", {className: "sub-title"}, "Group Icon:")
                     ),
                     re("div", {className: "select-icon-row"},
-                        re("div", {className: "group-icon"}),
-                        re("button", {}, "Select Icon")
+                        re("div", {className: "group-icon"}, selectedIcon),
+                        re("button", {onClick: this.openSelectIconPage}, "Select Icon")
                     ),
                     re("div", {className: "title"}, "Group Leagues"),
                     re("div", {className: "sub-title-container"},
@@ -179,7 +196,11 @@ component.CreateNewGroupPage = (function(){
                         re("button", {}, "Cancel"),
                         re("button", {disabled: !isFormValid, onClick: this.onSave}, "Save")
                     )
-                )
+                );
+            }
+
+            return re("div", { className: "create-new-group-page content" },
+                mainElement
             );
         }
     });
@@ -205,7 +226,6 @@ component.CreateNewGroupPage = (function(){
 
     function mapDispatchToProps(dispatch) {
         return {
-
         }
     }
 

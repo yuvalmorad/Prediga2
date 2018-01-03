@@ -76,6 +76,18 @@ body {
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'prediga-groups';
+    src: url('../fonts/prediga-groups.eot?36480419');
+    src: url('../fonts/prediga-groups.eot?36480419#iefix') format('embedded-opentype'),
+    url('../fonts/prediga-groups.woff2?36480419') format('woff2'),
+    url('../fonts/prediga-groups.woff?36480419') format('woff'),
+    url('../fonts/prediga-groups.ttf?36480419') format('truetype'),
+    url('../fonts/prediga-groups.svg?36480419#prediga-groups') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
 /* -------  TEAM LOGO -------*/
 
 .team-logo.israel {
@@ -1307,12 +1319,16 @@ body {
 }
 
 .create-new-group-page .select-icon-row .group-icon {
+    font-family: "prediga-groups";
     width: 4.625rem;
     height: 4.625rem;
     background-color: #fff;
     border: 1px solid #cdcdcd;
     border-radius: 4px;
     margin-right: 1rem;
+    font-size: 3.5rem;
+    text-align: center;
+    line-height: 4.625rem;
 }
 
 .create-new-group-page .select-icon-row button {
@@ -1387,10 +1403,6 @@ body {
     background-color: transparent;
     border: 1px solid #9B9B9B;
     color: #9B9B9B;
-}
-
-.create-new-group-page .row-buttons > button:first-child {
-    margin-right: 0.5rem;
 }
 
 .create-new-group-page .row-buttons > button:first-child {
@@ -1473,3 +1485,25 @@ body {
     color: #9B9B9B;
     font-size: 0.625rem;
 }
+
+/* -------  select group icon page-------*/
+
+.select-group-icon .icons {
+    margin-top: 1rem;
+}
+
+.select-group-icon .icons .icon {
+    font-family: "prediga-groups";
+    display: inline-block;
+    width: 3rem;
+    height: 3rem;
+    line-height: 3rem;
+    text-align: center;
+    font-size: 2.5rem;
+    margin: 0.2rem 0.2rem 0 0;
+}
+
+.select-group-icon .icons .icon.selected {
+    color: blue;
+}
+

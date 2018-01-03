@@ -8,7 +8,6 @@ var routePages = (function(){
         SimulatorPage = component.SimulatorPage,
         JoinGroupPage = component.JoinGroupPage,
         CreateNewGroupPage = component.CreateNewGroupPage,
-        SelectGroupIconPage = component.SelectGroupIconPage,
         EditGroupPage = component.EditGroupPage;
 
     var routePages = [
@@ -68,18 +67,6 @@ var routePages = (function(){
             name: "createNewGroup",
             isAuthenticatedPage: true,
             component: CreateNewGroupPage,
-            siteHeaderConfig: {
-                hideMenuButton: true,
-                hasBackButton: true,
-                hideMenuGroupsButton: true
-            }
-        },
-        {
-            path: "/selectGroupIcon",
-            title: "Group Icon",
-            name: "selectGroupIcon",
-            isAuthenticatedPage: true,
-            component: SelectGroupIconPage,
             siteHeaderConfig: {
                 hideMenuButton: true,
                 hasBackButton: true,
