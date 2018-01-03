@@ -1281,6 +1281,7 @@ body {
 
 .create-new-group-page .secret-container {
     display: flex;
+    margin-bottom: 0.5rem;
 }
 
 .create-new-group-page .secret-container input {
@@ -1298,6 +1299,30 @@ body {
 
 .create-new-group-page .secret-container input:last-child {
     margin-right: 0;
+}
+
+.create-new-group-page .select-icon-row {
+    display: flex;
+    align-items: center;
+}
+
+.create-new-group-page .select-icon-row .group-icon {
+    width: 4.625rem;
+    height: 4.625rem;
+    background-color: #fff;
+    border: 1px solid #cdcdcd;
+    border-radius: 4px;
+    margin-right: 1rem;
+}
+
+.create-new-group-page .select-icon-row button {
+    width: 7.875rem;
+    height: 2rem;
+    background-color: transparent;
+    border: 1px solid #4A90E2;
+    color: #4A90E2;
+    font-size: 0.875rem;
+    border-radius: 4px;
 }
 
 .create-new-group-page .select-all-container {

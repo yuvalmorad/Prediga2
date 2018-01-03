@@ -137,6 +137,13 @@ component.CreateNewGroupPage = (function(){
                     re("div", {className: "secret-container"},
                         secretInputs
                     ),
+                    re("div", {className: "sub-title-container"},
+                        re("div", {className: "sub-title"}, "Group Icon:")
+                    ),
+                    re("div", {className: "select-icon-row"},
+                        re("div", {className: "group-icon"}),
+                        re("button", {}, "Select Icon")
+                    ),
                     re("div", {className: "title"}, "Group Leagues"),
                     re("div", {className: "sub-title-container"},
                         re("div", {className: "sub-title"}, "Select Leagues:"),
