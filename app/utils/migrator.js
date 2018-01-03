@@ -15,7 +15,7 @@ const self = module.exports = {
 			//self.migrateUserScore(),
 			//self.migrateLeaderboard()
 			//self.migrateMatchPredictions()
-			self.migrateMatchResults()
+			//self.migrateMatchResults()
 			//self.migrateTeamPredictions(),
 			//self.migrateTeamResults()
 		]).then(function (arr) {
@@ -56,11 +56,7 @@ const self = module.exports = {
 		return MatchResult.find({}, function (err, matchResults) {
 			if (matchResults) {
 				const promises = matchResults.map(function (matchResult) {
-					return Match.find({_id: matchResult.matchId}, function (err, aMatch) {
-						matchResult.resultTime = aMatch.kickofftime;
-						return MatchResult.findOneAndUpdate({_id: matchResult._id}, matchResult, utils.updateSettings);
-					});
-
+                    return MatchResult.findOneAndUpdate({_id: matchResult._id}, matchResult, utils.updateSettings);
 				});
 				return Promise.all(promises);
 			}
