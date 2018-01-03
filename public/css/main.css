@@ -874,6 +874,10 @@ body {
     height: 6rem;
 }
 
+.leader-board-tile.tile.is-user {
+    background-color: #F5EFBF;
+}
+
 .leader-board-tile.tile .main {
     height: 6rem;
 }

@@ -70,6 +70,7 @@ component.LeaderBoardTiles = (function(){
                 props = this.props,
                 leaders = props.leaders,
                 users = props.users,
+                authenticatedUserId = props.userId,
                 disableOpen = props.disableOpen,
                 badgesByUserId = getBadgesByUserId(leaders),
                 userIdFocus = props.userIdFocus,
@@ -96,6 +97,11 @@ component.LeaderBoardTiles = (function(){
                 if (userIdFocus && userId === userIdFocus) {
                     leaderBoardTileProps.ref = that.assignTileFocusRef;
                 }
+
+                if (authenticatedUserId === userId) {
+                    leaderBoardTileProps.isAuthenticatedUser = true;
+                }
+
                 return re(LeaderBoardTile, leaderBoardTileProps);
             });
 

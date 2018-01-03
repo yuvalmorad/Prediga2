@@ -20,7 +20,8 @@ component.LeaderBoardPage = (function(){
             var props = this.props,
                 selectedLeagueId = props.selectedLeagueId,
                 leaders = props.leaders,
-                users = props.users;
+                users = props.users,
+                userId = props.userId;
 
             if (!leaders.length || !users.length) {
                 return re("div", {className: "content"});
@@ -29,7 +30,7 @@ component.LeaderBoardPage = (function(){
             leaders = utils.general.getLeadersByLeagueId(leaders, selectedLeagueId);
             return re("div", { className: "content hasSubHeader" },
                 re(LeaguesSubHeader, {}),
-                re(LeaderBoardTiles, {leaders: leaders, users: users, selectedLeagueId: selectedLeagueId})
+                re(LeaderBoardTiles, {leaders: leaders, users: users, userId: userId, selectedLeagueId: selectedLeagueId})
             );
         }
     });
@@ -39,7 +40,8 @@ component.LeaderBoardPage = (function(){
             leaders: state.leaderBoard.leaders,
             leadersStatus: state.leaderBoard.status,
             users: state.users.users,
-            selectedLeagueId: state.leagues.selectedLeagueId
+            selectedLeagueId: state.leagues.selectedLeagueId,
+            userId: state.authentication.userId
         }
     }
 

@@ -18,13 +18,14 @@ component.LeaderBoardTile = (function(){
                 state = this.state,
                 borderColor = props.borderColor,
                 disableOpen = props.disableOpen,
+                isAuthenticatedUser = props.isAuthenticatedUser,
                 leaderBoardMatchesHistoryElem;
 
             if (state.wasOpenInPlace) {
                 leaderBoardMatchesHistoryElem = re(LeaderBoardMatchesHistory, {userId: props.user._id});
             }
 
-            return re(Tile, {disableOpen: disableOpen, borderLeftColor: borderColor, borderRightColor: borderColor, className: "leader-board-tile", openInPlace: true, onOpenInPlace: this.onOpenInPlace},
+            return re(Tile, {disableOpen: disableOpen, borderLeftColor: borderColor, borderRightColor: borderColor, className: "leader-board-tile" + (isAuthenticatedUser ? " is-user" : ""), openInPlace: true, onOpenInPlace: this.onOpenInPlace},
                 re(LeaderBoardMainTile, props),
                 leaderBoardMatchesHistoryElem
             );
