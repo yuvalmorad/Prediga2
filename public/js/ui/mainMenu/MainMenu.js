@@ -47,6 +47,11 @@ component.MainMenu = (function(){
             return re(MenuItem, {text: "Log out", icon: "", onMenuItemClicked: this.onLogout, key: "logout1"});
         },
 
+        onCreateGroupClicked: function() {
+            routerHistory.push("/createNewGroup");
+            this.props.toggleMenu();
+        },
+
         render: function() {
             var props = this.props,
                 topMenuItems = this.renderGroupsMenuItems(),
@@ -54,7 +59,7 @@ component.MainMenu = (function(){
 
             bottomMenuItems.push(this.renderLogoutMenuItem());
 
-            return re(Menu, {topMenuTitle: "My Groups", topMenuItems: topMenuItems, bottomMenuTitle: "Options", bottomMenuItems: bottomMenuItems, toggleMenu: props.toggleMenu, className: "main-menu"});
+            return re(Menu, {topMenuTitle: "My Groups", topMenuItems: topMenuItems, bottomMenuTitle: "Options", bottomMenuItems: bottomMenuItems, toggleMenu: props.toggleMenu, onCreateGroupClicked: this.onCreateGroupClicked, className: "main-menu"});
         }
     });
 

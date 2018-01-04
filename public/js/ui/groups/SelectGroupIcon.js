@@ -2,6 +2,7 @@ window.component = window.component || {};
 component.SelectGroupIcon = (function(){
     var icons = ["","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","",""];
     var colors = ["#D0021B", "#F5A623", "#F8E71C", "#7ED321", "#4A90E2", "#000000", "#710CCA", "#9B9B9B", "#50E3C2", "#E010B4", "#417505", "#0D61C4"];
+    var platteColorsMargin = 10;
 
     return React.createClass({
         getInitialState: function() {
@@ -16,9 +17,29 @@ component.SelectGroupIcon = (function(){
 
         componentDidUpdate: function() {
             var platteColorsRef = this.platteColorsRef;
-            if (platteColorsRef && platteColorsRef.offsetTop + platteColorsRef.offsetHeight + 20 > document.body.offsetHeight) {
-                platteColorsRef.style.top = (this.state.iconTop - platteColorsRef.offsetHeight - 20) + "px";
+            if (platteColorsRef) {
+                var platteColorsHeight = platteColorsRef.offsetHeight;
+                /*if (platteColorsRef.offsetTop + platteColorsHeight + platteColorsMargin + 30 > document.body.offsetHeight) {
+                    platteColorsRef.style.top = (this.state.iconTop - platteColorsHeight - platteColorsMargin) + "px";
+                }*/
+
+                if (this.iconsRef) {
+                    var iconsElems = this.iconsRef.children;
+                    if (this.state.displayPlatteColors) {
+                        var nextIndex = this.state.selectedIconIndex + (6 - this.state.selectedIconIndex % 6);
+                        var translateY = "translateY(" + platteColorsHeight + "px)";
+                        for (var i = nextIndex; i < iconsElems.length; i++) {
+                            iconsElems[i].style.transform = translateY
+                        }
+
+                        if (this.rowButtonsRef) {
+                            this.rowButtonsRef.style.transform = translateY;
+                        }
+                    }
+                }
+
             }
+
         },
 
         onSave: function() {
@@ -30,18 +51,22 @@ component.SelectGroupIcon = (function(){
             var icon = target.textContent;
             var color = colors[0];
 
-            if (this.state.selectedIcon === icon) {
+            if (this.state.displayPlatteColors) {
+                return this.setState({
+                    displayPlatteColors: false
+                });
+            } else if (this.state.selectedIcon === icon) {
                 //icon is already selected
                 color = this.state.selectedIconColor;
             }
 
             this.setState({
                 selectedIcon: icon,
+                selectedIconIndex: icons.indexOf(icon),
                 selectedIconColor: color,
                 displayPlatteColors: true,
                 iconTop: target.getBoundingClientRect().top,
                 iconHeight: target.offsetHeight
-
             });
         },
 
@@ -69,6 +94,14 @@ component.SelectGroupIcon = (function(){
             this.platteColorsRef = platteColorsRef;
         },
 
+        assignIconsRef: function(iconsRef) {
+            this.iconsRef = iconsRef;
+        },
+
+        assignRowButtonsRef: function(rowButtonsRef) {
+            this.rowButtonsRef = rowButtonsRef;
+        },
+
         render: function() {
             var that = this;
             var state = this.state;
@@ -80,7 +113,15 @@ component.SelectGroupIcon = (function(){
 
             var iconsElem = icons.map(function(icon) {
                 var isSelected = selectedIcon === icon;
-                return re("div", {className: "icon", style: {color: isSelected ? selectedIconColor : ""}, onClick: that.onIconClicked}, icon);
+                var style = {color: isSelected ? selectedIconColor : ""};
+                if (displayPlatteColors) {
+                    if (!isSelected) {
+                        style.opacity = 0.5;
+                    }
+                } else {
+                    style.transform = "";
+                }
+                return re("div", {className: "icon", style: style, onClick: that.onIconClicked}, icon);
             });
 
             var colorElem = colors.map(function(color){
@@ -90,18 +131,18 @@ component.SelectGroupIcon = (function(){
             var platteColorsElem;
 
             if (displayPlatteColors) {
-                platteColorsElem = re("div", {ref: this.assignPlatteColorsRef, className: "color-pallete", style: {top: iconTop + iconHeight + 20}},
+                platteColorsElem = re("div", {ref: this.assignPlatteColorsRef, className: "color-pallete", style: {top: iconTop + iconHeight + platteColorsMargin}},
                     colorElem
                 );
             }
 
             return re("div", {className: "scroll-container select-group-icon", onClick: this.onContainerClicked},
                 re("div", {className: "title"}, "Select Icon"),
-                re("div", {className: "icons"},
+                re("div", {className: "icons", ref: this.assignIconsRef},
                     iconsElem
                 ),
                 platteColorsElem,
-                re("div", {className: "row-buttons"},
+                re("div", {ref: this.assignRowButtonsRef, className: "row-buttons", style: {transform: (displayPlatteColors ? undefined : "")}},
                     re("button", {onClick: this.props.onCancel}, "Cancel"),
                     re("button", {onClick: this.onSave}, "Save")
                 )

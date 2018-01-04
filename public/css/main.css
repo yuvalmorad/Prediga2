@@ -316,6 +316,11 @@ body {
     right: 10px;
 }
 
+.site-header .right .group-icon {
+    font-family: "prediga-groups";
+    font-size: 2rem;
+}
+
 .site-header .right .action-button {
     margin-right: 1rem;
     font-size: 1.5rem;

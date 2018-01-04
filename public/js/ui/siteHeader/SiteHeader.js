@@ -23,7 +23,9 @@ component.SiteHeader = (function(){
                         re("a", {className: "menu-button" + (this.props.isMainMenuOpen ? " selected" : "") + (hideMenuButton ? " hide" : ""), onClick: props.toggleMainMenu}, "")
                     ),
                     re("div", {className: "center"}, isDynamicTitle ? siteHeaderTitle: title),
-                    re("div", {className: "right"})
+                    re("div", {className: "right"},
+                        re("div", {className: "group-icon"}, "")
+                    )
             );
         }
     });
