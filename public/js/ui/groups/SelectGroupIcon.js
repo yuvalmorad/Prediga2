@@ -26,6 +26,7 @@ component.SelectGroupIcon = (function(){
                 if (this.iconsRef) {
                     var iconsElems = this.iconsRef.children;
                     if (this.state.displayPlatteColors) {
+                        platteColorsRef.style.opacity = 1;
                         var nextIndex = this.state.selectedIconIndex + (6 - this.state.selectedIconIndex % 6);
                         var translateY = "translateY(" + platteColorsHeight + "px)";
                         for (var i = nextIndex; i < iconsElems.length; i++) {
