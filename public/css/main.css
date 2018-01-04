@@ -616,6 +616,10 @@ body {
     margin-bottom: 1px;
 }
 
+.input-number button[disabled] {
+    color: #dcd6d6;
+}
+
 .input-number .number {
     width: 40px;
     background-color: #fff;

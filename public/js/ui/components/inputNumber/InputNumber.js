@@ -60,11 +60,11 @@ component.InputNumber = (function(){
             }
 
             return re("div", {className: className, style: {backgroundColor: isDisabled ? "transparent" : ""}},
-                re("button", {onClick: this.onIncrement, className: isDisabled ? "hide" : ""},
+                re("button", {disabled: num === 9, onClick: this.onIncrement, className: isDisabled ? "hide" : ""},
                     re("span", {}, "+")
                 ),
                 re("div", {className: "number"}, num === undefined ? "-" : num),
-                re("button", {onClick: this.onDecrement, className: isDisabled ? "hide" : ""},
+                re("button", {disabled: !num, onClick: this.onDecrement, className: isDisabled ? "hide" : ""},
                     re("span", {}, "-")
                 )
             );
