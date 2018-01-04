@@ -19,7 +19,7 @@ component.SiteHeader = (function(){
 
                 return re("div", { className: "site-header" + (hide ? " hide" : "") },
                     re("div", {className: "left"},
-                        re("a", {className: "back-button" + (hasBackButton ? "" : " hide"), onClick: this.onBackButtonClicked}, "<"),
+                        re("a", {className: "back-button" + (hasBackButton ? "" : " hide"), onClick: this.onBackButtonClicked}, ""),
                         re("a", {className: "menu-button" + (this.props.isMainMenuOpen ? " selected" : "") + (hideMenuButton ? " hide" : ""), onClick: props.toggleMainMenu}, "")
                     ),
                     re("div", {className: "center"}, isDynamicTitle ? siteHeaderTitle: title),
