@@ -8,7 +8,6 @@ action.general = (function(){
         CLOSE_TILE_DIALOG: "CLOSE_TILE_DIALOG",
 
         TOGGLE_MAIN_MENU: "TOGGLE_MAIN_MENU",
-        TOGGLE_MENU_GROUPS: "TOGGLE_MENU_GROUPS",
         CLOSE_ALL_MENUS: "CLOSE_ALL_MENUS",
 
         SET_SITE_HEADER_TITLE: "SET_SITE_HEADER_TITLE",
@@ -29,12 +28,6 @@ action.general = (function(){
         toggleMainMenu: function() {
             return {
                 type: general.TOGGLE_MAIN_MENU
-            }
-        },
-
-        toggleMenuGroups: function() {
-            return {
-                type: general.TOGGLE_MENU_GROUPS
             }
         },
 

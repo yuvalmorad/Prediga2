@@ -5,7 +5,6 @@ component.App = (function(){
         SiteHeader = component.SiteHeader,
         SiteNavigation = component.SiteNavigation,
         MainMenu = component.MainMenu,
-        GroupsMenu = component.GroupsMenu,
         TileDialogContainer = component.TileDialogContainer,
         Loading = component.Loading,
         Pages = component.Pages;
@@ -49,7 +48,6 @@ component.App = (function(){
                         re(SiteNavigation, {hide: hideSiteNavigation})
                     ),
                     re(MainMenu, {}),
-                    re(GroupsMenu, {}),
                     re("div", {className: siteCoverClassName, onClick: this.props.closeAllMenus})
                 ),
                 re(TileDialogContainer, {}),

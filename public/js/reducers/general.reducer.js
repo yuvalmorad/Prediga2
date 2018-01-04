@@ -5,7 +5,6 @@ reducer.general = function() {
         OPEN_TILE_DIALOG = action.general.OPEN_TILE_DIALOG,
         CLOSE_TILE_DIALOG = action.general.CLOSE_TILE_DIALOG,
         TOGGLE_MAIN_MENU = action.general.TOGGLE_MAIN_MENU,
-        TOGGLE_MENU_GROUPS = action.general.TOGGLE_MENU_GROUPS,
         CLOSE_ALL_MENUS = action.general.CLOSE_ALL_MENUS,
         SET_SITE_HEADER_TITLE = action.general.SET_SITE_HEADER_TITLE;
 
@@ -13,7 +12,6 @@ reducer.general = function() {
         isLoading: false,
         isShowTileDialog: false,
         isMainMenuOpen: false,
-        isMenuGroupsOpen: false,
         siteHeaderTitle: ""
     };
 
@@ -24,11 +22,9 @@ reducer.general = function() {
 
         switch (action.type) {
             case CLOSE_ALL_MENUS:
-                return Object.assign({}, state, {isMainMenuOpen: false, isMenuGroupsOpen: false});
+                return Object.assign({}, state, {isMainMenuOpen: false});
             case TOGGLE_MAIN_MENU:
-                return Object.assign({}, state, {isMainMenuOpen: !state.isMainMenuOpen, isMenuGroupsOpen: false});
-            case TOGGLE_MENU_GROUPS:
-                return Object.assign({}, state, {isMenuGroupsOpen: !state.isMenuGroupsOpen, isMainMenuOpen: false});
+                return Object.assign({}, state, {isMainMenuOpen: !state.isMainMenuOpen});
             case SET_LOADING:
                 return Object.assign({}, state, {isLoading: true});
             case REMOVE_LOADING:

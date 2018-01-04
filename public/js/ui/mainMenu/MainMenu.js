@@ -10,6 +10,12 @@ component.MainMenu = (function(){
             window.routerHistory.push(utils.general.cutUrlPath(to));
         },
 
+        onGroupMenuItemClicked: function() {
+            this.props.toggleMenu(); //close menu
+            //TODO select group
+            window.routerHistory.push("/");
+        },
+
         onLogout: function() {
             this.props.toggleMenu(); //close menu
             service.authentication.logout().then(function(){
@@ -31,18 +37,24 @@ component.MainMenu = (function(){
             });
         },
 
+        renderGroupsMenuItems: function() {
+            return [
+                re(MenuItem, {text: "SAP Labs IL", isSelected: true, onMenuItemClicked: this.onGroupMenuItemClicked, hasButton: true, key: "some group1"})
+            ];
+        },
+
         renderLogoutMenuItem: function() {
-            return re(MenuItem, {text: "Log out", onMenuItemClicked: this.onLogout, key: "logout1"});
+            return re(MenuItem, {text: "Log out", icon: "", onMenuItemClicked: this.onLogout, key: "logout1"});
         },
 
         render: function() {
             var props = this.props,
-                topMenuItems = this.renderMenuItems("displayInTopMenu"),
+                topMenuItems = this.renderGroupsMenuItems(),
                 bottomMenuItems = this.renderMenuItems("displayInBottomMenu");
 
             bottomMenuItems.push(this.renderLogoutMenuItem());
 
-            return re(Menu, {title: "Prediga", topMenuItems: topMenuItems, bottomMenuItems: bottomMenuItems, toggleMenu: props.toggleMenu, className: "main-menu"});
+            return re(Menu, {topMenuTitle: "My Groups", topMenuItems: topMenuItems, bottomMenuTitle: "Options", bottomMenuItems: bottomMenuItems, toggleMenu: props.toggleMenu, className: "main-menu"});
         }
     });
 

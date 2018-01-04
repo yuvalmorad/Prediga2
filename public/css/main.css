@@ -113,11 +113,11 @@ body {
 }
 
 .scroll-site.move-left {
-    transform: translateX(-200px);
+    transform: translateX(-250px);
 }
 
 .scroll-site.move-right {
-    transform: translateX(200px);
+    transform: translateX(250px);
 }
 
 .site {
@@ -368,31 +368,29 @@ body {
 .menu {
     position: absolute;
     top: 0;
-    width: 200px;
+    width: 250px;
     bottom: 0;
-    background-color: #7A7A7A;
     color: #fff;
     padding-top: 0.5rem;
     z-index: 100;
+    background-image: url(../images/football-stadium-small.png);
+    background-size: cover;
 }
 
 .menu.main-menu {
-    left: -200px;
-}
-
-.menu.groups-menu {
-    right: -200px;
+    left: -250px;
 }
 
 .menu .menu-header {
-    height: 2rem;
-    line-height: 2rem;
-    padding: 0 0.5rem;
-    text-align: center;
+    height: 4rem;
+    background-image: url(../images/prediga_logo_transparent.png);
+    background-size: 6rem 6rem;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
 }
 
 .menu .menu-content {
-    height: calc(100% - 3rem);
+    height: calc(100% - 5rem);
     position: relative;
     margin-top: 1rem;
 }
@@ -404,13 +402,43 @@ body {
     right: 0;
 }
 
+.menu .menu-items-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 0.5rem 0.5rem 0.5rem;
+    font-size: 0.875rem;
+}
+
+.menu button{
+    font-family: "prediga";
+    color: #fff;
+    background-color: transparent;
+    border: none;
+    font-size: 1rem;
+}
+
 .menu .menu-item {
-    padding: 0.5rem 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem 0.5rem 0.5rem 1rem;
     border-top: 1px solid;
 }
 
 .menu .menu-item.selected {
     background-color: #009fff;
+}
+
+.menu .menu-item button {
+    opacity: 0.5;
+}
+
+.menu .menu-item-text .menu-icon {
+    font-family: "prediga";
+    margin-right: 0.3rem;
+}
+
+.menu .menu-item-text > div {
+    display: inline-block;
 }
 
 /* -------  Site Navigation -------*/
