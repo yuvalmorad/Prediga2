@@ -4,9 +4,10 @@ component.MenuItem = (function(){
         var className = "menu-item" + (props.isSelected ? " selected" : "");
         var button;
         var icon;
+        var actionButton = props.actionButton;
 
-        if (props.hasButton) {
-            button = re("button", {}, "");
+        if (actionButton) {
+            button = re("button", {onClick: actionButton.onClick}, actionButton.icon);
         }
 
         if (props.icon) {
