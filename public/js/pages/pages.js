@@ -45,8 +45,7 @@ var routePages = (function(){
             component: SimulatorPage,
             siteHeaderConfig: {
                 hideMenuButton: true,
-                hasBackButton: true,
-                hideMenuGroupsButton: true
+                hasBackButton: true
             }
         },
         {
@@ -58,7 +57,7 @@ var routePages = (function(){
             siteHeaderConfig: {
                 hideMenuButton: true,
                 hasBackButton: true,
-                hideMenuGroupsButton: true
+                hideGroupsIcon: true
             }
         },
         {
@@ -70,7 +69,7 @@ var routePages = (function(){
             siteHeaderConfig: {
                 hideMenuButton: true,
                 hasBackButton: true,
-                hideMenuGroupsButton: true
+                hideGroupsIcon: true
             }
         },
         {
@@ -81,7 +80,6 @@ var routePages = (function(){
             siteHeaderConfig: {
                 hideMenuButton: true,
                 hasBackButton: true,
-                hideMenuGroupsButton: true,
                 isDynamicTitle: true
             }
         },

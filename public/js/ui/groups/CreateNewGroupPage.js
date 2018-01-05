@@ -96,6 +96,10 @@ component.CreateNewGroupPage = (function(){
             this.setState({displaySelectGroupIconPage: false});
         },
 
+        onCancel: function() {
+            routerHistory.goBack();
+        },
+
         onSave: function() {
             var state = this.state;
 
@@ -172,8 +176,8 @@ component.CreateNewGroupPage = (function(){
                     re("div", {className: "sub-title-container"},
                         re("div", {className: "sub-title"}, "Select Leagues:"),
                         re("div", {className: "select-all-container"},
-                            re("label", {className: "small-text"}, "Select All"),
-                            re("input", {type: "checkbox", onChange: this.selectAllLeaguesChanged})
+                            re("label", {className: "small-text", htmlFor: "selectAllCheckbox"}, "Select All"),
+                            re("input", {type: "checkbox", id: "selectAllCheckbox", onChange: this.selectAllLeaguesChanged})
                         )
                     ),
                     re("div", {className: "group-leagues"},
@@ -200,7 +204,7 @@ component.CreateNewGroupPage = (function(){
                         re("div", {}, "Diff Goals")
                     ),
                     re("div", {className: "row-buttons"},
-                        re("button", {}, "Cancel"),
+                        re("button", {onClick: this.onCancel}, "Cancel"),
                         re("button", {disabled: !isFormValid, onClick: this.onSave}, "Save")
                     )
                 );

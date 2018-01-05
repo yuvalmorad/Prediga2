@@ -1300,7 +1300,7 @@ body {
 .create-new-group-page .title{
     font-weight: bold;
     font-size: 1.125rem;
-    margin: 0.8rem 0;
+    margin: 1rem;
 }
 
 .create-new-group-page .sub-title-container {
@@ -1531,10 +1531,6 @@ body {
 /* -------  select group icon page-------*/
 .page > .content > .select-group-icon.scroll-container {
     padding: 0;
-}
-
-.select-group-icon .icons {
-    margin-top: 1rem;
 }
 
 .select-group-icon .icons .icon {

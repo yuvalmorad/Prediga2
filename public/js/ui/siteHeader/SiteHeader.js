@@ -15,6 +15,7 @@ component.SiteHeader = (function(){
                     hideMenuButton = siteHeaderConfig.hideMenuButton,
                     hasBackButton = siteHeaderConfig.hasBackButton,
                     isDynamicTitle = siteHeaderConfig.isDynamicTitle,
+                    hideGroupsIcon = siteHeaderConfig.hideGroupsIcon,
                     siteHeaderTitle = props.siteHeaderTitle;
 
                 return re("div", { className: "site-header" + (hide ? " hide" : "") },
@@ -24,7 +25,7 @@ component.SiteHeader = (function(){
                     ),
                     re("div", {className: "center"}, isDynamicTitle ? siteHeaderTitle: title),
                     re("div", {className: "right"},
-                        re("div", {className: "group-icon"}, "")
+                        re("div", {className: "group-icon" + (hideGroupsIcon ? " hide" : "")}, "")
                     )
             );
         }
