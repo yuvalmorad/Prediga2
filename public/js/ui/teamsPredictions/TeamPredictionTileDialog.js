@@ -30,9 +30,9 @@ component.TeamPredictionTileDialog = (function(){
             this.props.onDialogSave(this.onDialogSave);
         },
 
-        onSelectedTeamChanged: function(teamName) {
+        onSelectedTeamChanged: function(teamId) {
             this.setState({
-                prediction: Object.assign({}, this.state.prediction, {team: teamName})
+                prediction: Object.assign({}, this.state.prediction, {team: teamId})
             });
         },
 

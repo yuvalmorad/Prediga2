@@ -1,49 +1,74 @@
 window.component = window.component || {};
 component.TeamPredictionFormTile = (function(){
-    var ImagesPagination = component.ImagesPagination;
+    var ImagesPagination = component.ImagesPagination,
+        Search = component.Search;
 
-    return function(props) {
-        var teamsOptions,
-            selectedTeam = props.selectedTeam,
-            team = props.team,
-            clubs = props.clubs,
-            league = props.league;
+    return React.createClass({
+        getInitialState: function() {
+            return {
+                teamOptions: this.getTeamOptions()
+            }
+        },
 
-        var clubsIds = league.clubs;
-        clubs = clubs.filter(function(club){
-            return clubsIds.indexOf(club._id) >= 0;
-        });
+        onSearch: function(str) {
+            var teamSerached = this.state.teamOptions.filter(function(team){
+                return team.name.toLowerCase().indexOf(str.toLowerCase()) >= 0;
+            })[0];
 
-        if (team.options.length) {
-            teamsOptions = team.options.map(function(teamOptionId){
-               return utils.general.findItemInArrBy(clubs, "_id", teamOptionId);
-            });
-        } else {
-            teamsOptions = clubs
-        }
+            if (teamSerached) {
+                this.props.onSelectedTeamChanged(teamSerached._id);
+            }
+        },
 
-        var items = teamsOptions.sort(function(team1, team2){
-                return team1.name.localeCompare(team2.name);
-            }).map(function(teamOption){
-                var isSelected = false;
-                var teamId = teamOption._id;
-                if (selectedTeam && selectedTeam._id === teamId) {
-                    isSelected = true;
-                }
+        getTeamOptions: function() {
+            var props = this.props,
+                team = props.team,
+                clubs = props.clubs,
+                league = props.league;
 
-                return {
-                    isSelected: isSelected,
-                    id: teamOption._id,
-                    shortName: teamOption.shortName,
-                    logoPosition: teamOption.logoPosition,
-                    leagueIdName: utils.general.leagueNameToIdName(league.name)
-                }
+            var clubsIds = league.clubs;
+            clubs = clubs.filter(function(club){
+                return clubsIds.indexOf(club._id) >= 0;
             });
 
-        return re("div", {className: "team-prediction-form"},
-            re(ImagesPagination, {items: items, onSelectedTeamChanged: props.onSelectedTeamChanged})
-        );
-    };
+            if (team.options.length) {
+                return team.options.map(function(teamOptionId){
+                    return utils.general.findItemInArrBy(clubs, "_id", teamOptionId);
+                });
+            } else {
+                return clubs
+            }
+        },
+
+        render: function() {
+           var props = this.props,
+               selectedTeam = props.selectedTeam,
+               league = props.league;
+
+           var items = this.state.teamOptions.sort(function(team1, team2){
+               return team1.name.localeCompare(team2.name);
+           }).map(function(teamOption){
+               var isSelected = false;
+               var teamId = teamOption._id;
+               if (selectedTeam && selectedTeam._id === teamId) {
+                   isSelected = true;
+               }
+
+               return {
+                   isSelected: isSelected,
+                   id: teamOption._id,
+                   shortName: teamOption.shortName,
+                   logoPosition: teamOption.logoPosition,
+                   leagueIdName: utils.general.leagueNameToIdName(league.name)
+               }
+           });
+
+           return re("div", {className: "team-prediction-form"},
+               re(Search, {onSearch: this.onSearch}),
+               re(ImagesPagination, {items: items, onSelectedTeamChanged: props.onSelectedTeamChanged})
+           );
+       }
+    });
 })();
 
 

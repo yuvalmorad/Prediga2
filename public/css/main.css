@@ -88,6 +88,40 @@ body {
     font-style: normal;
 }
 
+
+
+/* -------  Search -------*/
+
+.search-component {
+    position: relative;
+    width: 12rem;
+    height: 1.5rem;
+    align-self: flex-end;
+    margin-bottom: 1rem;
+}
+
+.search-component > input {
+    width: 100%;
+    box-sizing: border-box;
+    height: 100%;
+    border: none;
+    border-bottom: 1px solid #9B9B9B;
+    color: #9B9B9B;
+}
+
+.search-component > span {
+    font-family: "prediga";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 2rem;
+    line-height: 1.5rem;
+    color: #9B9B9B;
+    text-align: center;
+    font-size: 0.875rem;
+    pointer-events: none;
+}
 /* -------  TEAM LOGO -------*/
 
 .team-logo.israel {
@@ -994,16 +1028,18 @@ body {
 }
 /* -------  team prediction tile -------*/
 .tile-dialog-container .team-prediction-tile.tile {
-    height: 18rem;
+    height: 19rem;
 }
 
 .tile-dialog-container.TeamPredictionTileDialog .dialog-button {
-    height: calc((100% - 14rem)/2);
+    height: calc((100% - 16rem)/2);
 }
 
 .team-prediction-form {
     padding: 0.5rem;
     box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
 }
 
 /* -------  game prediction -------*/
