@@ -9,7 +9,7 @@ component.EditGroupPage = (function(){
         },
 
         componentDidMount: function() {
-            this.props.setSiteHeaderTitle("some group name test");
+            this.props.setSiteHeaderTitle("SAP Labs IL");
         },
 
         render: function() {
