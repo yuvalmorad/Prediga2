@@ -1,6 +1,6 @@
 window.component = window.component || {};
 component.SelectGroupIcon = (function(){
-    var icons = ["","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","",""];
+    var icons = ["","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","",""];
     var colors = ["#D0021B", "#F5A623", "#F8E71C", "#7ED321", "#4A90E2", "#000000", "#710CCA", "#9B9B9B", "#50E3C2", "#E010B4", "#417505", "#0D61C4"];
     var platteColorsMargin = 10;
 
@@ -19,7 +19,10 @@ component.SelectGroupIcon = (function(){
             var platteColorsRef = this.platteColorsRef;
             if (platteColorsRef) {
                 var platteColorsHeight = platteColorsRef.offsetHeight;
+                var isOnTop = false;
                 if (platteColorsRef.offsetTop + platteColorsHeight + platteColorsMargin + 30 > document.body.offsetHeight) {
+                    //put plateeColors on top of the icon
+                    isOnTop = true;
                     platteColorsRef.style.top = (this.state.iconTop - platteColorsHeight - platteColorsMargin) + "px";
                 }
 
@@ -27,15 +30,25 @@ component.SelectGroupIcon = (function(){
                     var iconsElems = this.iconsRef.children;
                     if (this.state.displayPlatteColors) {
                         platteColorsRef.style.opacity = 1;
-                        var nextIndex = this.state.selectedIconIndex + (6 - this.state.selectedIconIndex % 6);
-                        var translateY = "translateY(" + platteColorsHeight + "px)";
-                        for (var i = nextIndex; i < iconsElems.length; i++) {
-                            iconsElems[i].style.transform = translateY
+
+                        if (isOnTop) {
+                            var prevIndex = this.state.selectedIconIndex - (this.state.selectedIconIndex % 6);
+                            var translateY = "translateY(-" + platteColorsHeight + "px)";
+                            for (var i = 0; i < prevIndex; i++) {
+                                iconsElems[i].style.transform = translateY
+                            }
+                        } else {
+                            var nextIndex = this.state.selectedIconIndex + (6 - this.state.selectedIconIndex % 6);
+                            var translateY = "translateY(" + platteColorsHeight + "px)";
+                            for (var i = nextIndex; i < iconsElems.length; i++) {
+                                iconsElems[i].style.transform = translateY
+                            }
+
+                            if (this.rowButtonsRef) {
+                                this.rowButtonsRef.style.transform = translateY;
+                            }
                         }
 
-                        if (this.rowButtonsRef) {
-                            this.rowButtonsRef.style.transform = translateY;
-                        }
                     }
                 }
 
