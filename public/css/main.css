@@ -355,6 +355,11 @@ body {
     font-size: 2rem;
 }
 
+.site-header .right .action-icon {
+    font-family: "prediga";
+    font-size: 1.5rem;
+}
+
 .site-header .right .action-button {
     margin-right: 1rem;
     font-size: 1.5rem;

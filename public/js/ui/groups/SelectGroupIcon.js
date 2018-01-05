@@ -19,9 +19,9 @@ component.SelectGroupIcon = (function(){
             var platteColorsRef = this.platteColorsRef;
             if (platteColorsRef) {
                 var platteColorsHeight = platteColorsRef.offsetHeight;
-                /*if (platteColorsRef.offsetTop + platteColorsHeight + platteColorsMargin + 30 > document.body.offsetHeight) {
+                if (platteColorsRef.offsetTop + platteColorsHeight + platteColorsMargin + 30 > document.body.offsetHeight) {
                     platteColorsRef.style.top = (this.state.iconTop - platteColorsHeight - platteColorsMargin) + "px";
-                }*/
+                }
 
                 if (this.iconsRef) {
                     var iconsElems = this.iconsRef.children;

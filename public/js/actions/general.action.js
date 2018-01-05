@@ -12,6 +12,22 @@ action.general = (function(){
 
         SET_SITE_HEADER_TITLE: "SET_SITE_HEADER_TITLE",
 
+        FIRE_SITE_HEADER_EVENT: "FIRE_SITE_HEADER_EVENT",
+        RESET_SITE_HEADER_EVENT: "RESET_SITE_HEADER_EVENT",
+
+        resetSiteHeaderEvent: function () {
+            return {
+                type: general.RESET_SITE_HEADER_EVENT
+            }
+        },
+
+        fireSiteHeaderEvent: function(eventName) {
+            return {
+                type: general.FIRE_SITE_HEADER_EVENT,
+                eventName: eventName
+            }
+        },
+
         setSiteHeaderTitle: function(title) {
             return {
                 type: general.SET_SITE_HEADER_TITLE,

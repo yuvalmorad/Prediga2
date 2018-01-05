@@ -57,7 +57,13 @@ var routePages = (function(){
             siteHeaderConfig: {
                 hideMenuButton: true,
                 hasBackButton: true,
-                hideGroupsIcon: true
+                hideGroupsIcon: true,
+                actions: [
+                    {
+                        icon: "",
+                        eventName: "onOpenCreateNewGroup"
+                    }
+                ]
             }
         },
         {
@@ -66,6 +72,7 @@ var routePages = (function(){
             name: "createNewGroup",
             isAuthenticatedPage: true,
             component: CreateNewGroupPage,
+            hideSiteNavigation: true,
             siteHeaderConfig: {
                 hideMenuButton: true,
                 hasBackButton: true,

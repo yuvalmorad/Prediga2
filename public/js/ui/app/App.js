@@ -40,6 +40,10 @@ component.App = (function(){
                 siteCoverClassName += " hide";
             }
 
+            if (siteHeaderConfig.actions) {
+
+            }
+
             return re("div", {className: "main"},
                 re("div", {className: scrollSiteClassName},
                     re("div", {className: "site"},

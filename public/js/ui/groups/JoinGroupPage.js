@@ -15,6 +15,13 @@ component.JoinGroupPage = (function(){
             };
         },
 
+        componentWillReceiveProps: function(nextProps) {
+            if (nextProps.siteHeaderFiredEvent === "onOpenCreateNewGroup") {
+                this.props.resetSiteHeaderEvent();
+                routerHistory.push("/createNewGroup");
+            }
+        },
+
         render: function() {
             var props = this.props;
             var allGroups = [
@@ -57,13 +64,13 @@ component.JoinGroupPage = (function(){
 
     function mapStateToProps(state){
         return {
-
+            siteHeaderFiredEvent: state.general.siteHeaderFiredEvent
         }
     }
 
     function mapDispatchToProps(dispatch) {
         return {
-
+            resetSiteHeaderEvent: function(){dispatch(action.general.resetSiteHeaderEvent())}
         }
     }
 

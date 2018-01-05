@@ -7,8 +7,13 @@ component.SiteHeader = (function(){
                 routerHistory.goBack();
             },
 
+            onActionClicked: function(action) {
+                this.props.fireSiteHeaderEvent(action.eventName);
+            },
+
             render: function () {
-                var props = this.props,
+                var that = this,
+                    props = this.props,
                     hide = props.hide,
                     title = props.title,
                     siteHeaderConfig = props.siteHeaderConfig,
@@ -16,7 +21,12 @@ component.SiteHeader = (function(){
                     hasBackButton = siteHeaderConfig.hasBackButton,
                     isDynamicTitle = siteHeaderConfig.isDynamicTitle,
                     hideGroupsIcon = siteHeaderConfig.hideGroupsIcon,
+                    actions = siteHeaderConfig.actions || [],
                     siteHeaderTitle = props.siteHeaderTitle;
+
+                var actionsElems = actions.map(function(action) {
+                    return re("div", {className: "action-icon", onClick: that.onActionClicked.bind(that, action)}, action.icon);
+                });
 
                 return re("div", { className: "site-header" + (hide ? " hide" : "") },
                     re("div", {className: "left"},
@@ -25,7 +35,8 @@ component.SiteHeader = (function(){
                     ),
                     re("div", {className: "center"}, isDynamicTitle ? siteHeaderTitle: title),
                     re("div", {className: "right"},
-                        re("div", {className: "group-icon" + (hideGroupsIcon ? " hide" : "")}, "")
+                        re("div", {className: "group-icon" + (hideGroupsIcon ? " hide" : "")}, ""),
+                        actionsElems
                     )
             );
         }
@@ -40,7 +51,8 @@ component.SiteHeader = (function(){
 
     function mapDispatchToProps(dispatch) {
         return {
-            toggleMainMenu: function(){dispatch(action.general.toggleMainMenu())}
+            toggleMainMenu: function(){dispatch(action.general.toggleMainMenu())},
+            fireSiteHeaderEvent: function(eventName){dispatch(action.general.fireSiteHeaderEvent(eventName))}
         }
     }
 
