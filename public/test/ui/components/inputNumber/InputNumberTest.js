@@ -1,28 +1,28 @@
 describe("InputNumber", function () {
     it("with num", function () {
         var num = 3;
-        ReactDOM.render(re(component.InputNumber, {num: num}), document.body);
+        testHelper.renderComponent(component.InputNumber, {num: num});
         expect(document.querySelector(".number").textContent).toEqual("3");
     });
 
     it("with num with min less than num", function () {
         var num = 3;
         var min = 2;
-        ReactDOM.render(re(component.InputNumber, {num: num, min: min}), document.body);
+        testHelper.renderComponent(component.InputNumber, {num: num, min: min});
         expect(document.querySelector(".number").textContent).toEqual("3");
     });
 
     it("with num with min greater than num", function () {
         var num = 3;
         var min = 4;
-        ReactDOM.render(re(component.InputNumber, {num: num, min: min}), document.body);
+        testHelper.renderComponent(component.InputNumber, {num: num, min: min});
         expect(document.querySelector(".number").textContent).toEqual("4");
     });
 
     it("with num add remove num", function () {
         var num = 3;
         var onChange = jasmine.createSpy();
-        ReactDOM.render(re(component.InputNumber, {num: num, onChange: onChange}), document.body);
+        testHelper.renderComponent(component.InputNumber, {num: num, onChange: onChange});
         expect(document.querySelector(".number").textContent).toEqual("3");
 
         var incrementButton = document.querySelector(".input-number button:first-child");
@@ -38,7 +38,7 @@ describe("InputNumber", function () {
     it("with min add remove num", function () {
         var min = 4;
         var onChange = jasmine.createSpy();
-        ReactDOM.render(re(component.InputNumber, {min: min, onChange: onChange}), document.body);
+        testHelper.renderComponent(component.InputNumber, {min: min, onChange: onChange});
         expect(document.querySelector(".number").textContent).toEqual("4");
 
         var incrementButton = document.querySelector(".input-number button:first-child");
@@ -53,18 +53,18 @@ describe("InputNumber", function () {
     });
 
     it("without num", function () {
-        ReactDOM.render(re(component.InputNumber, {}), document.body);
+        testHelper.renderComponent(component.InputNumber, {});
         expect(document.querySelector(".number").textContent).toEqual("-");
     });
 
     it("without num with min", function () {
-        ReactDOM.render(re(component.InputNumber, {min: 4}), document.body);
+        testHelper.renderComponent(component.InputNumber, {min: 4});
         expect(document.querySelector(".number").textContent).toEqual("4");
     });
 
     it("without num add remove num", function () {
         var onChange = jasmine.createSpy();
-        ReactDOM.render(re(component.InputNumber, {onChange: onChange}), document.body);
+        testHelper.renderComponent(component.InputNumber, {onChange: onChange});
         expect(document.querySelector(".number").textContent).toEqual("-");
 
         var incrementButton = document.querySelector(".input-number button:first-child");
@@ -81,7 +81,7 @@ describe("InputNumber", function () {
     it("disable input number", function () {
         var onChange = jasmine.createSpy();
         var num = 1;
-        ReactDOM.render(re(component.InputNumber, {onChange: onChange, num: num, isDisabled: true}), document.body);
+        testHelper.renderComponent(component.InputNumber, {onChange: onChange, num: num, isDisabled: true});
         expect(document.querySelector(".number").textContent).toEqual("1");
 
         var incrementButton = document.querySelector(".input-number button:first-child");
