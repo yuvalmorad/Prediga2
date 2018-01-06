@@ -106,17 +106,24 @@ component.GamePredictionMainTile = (function(){
 
                 gameDate = re("div", {}, dateStr);
 
-                var predictionCounterWin1 = predictionCounters[team1._id] || 0,
-                    predictionCounterWin2 = predictionCounters[team2._id] || 0,
-                    predictionCounterDraw = utils.general.getDrawFromObject(predictionCounters) || 0,
-                    teamsGraphColors = utils.general.getTeamsUniqueGraphColor(team1, team2);
+                var predictionCounterWin1,
+                    predictionCounterWin2,
+                    predictionCounterDraw,
+                    teamsGraphColors = [];
+
+                if (team1 && team2) {
+                    predictionCounterWin1 = predictionCounters[team1._id] || 0,
+                        predictionCounterWin2 = predictionCounters[team2._id] || 0,
+                        predictionCounterDraw = utils.general.getDrawFromObject(predictionCounters) || 0,
+                        teamsGraphColors = utils.general.getTeamsUniqueGraphColor(team1, team2);
+                }
 
                 graphParts = [{color: teamsGraphColors[0], amount: predictionCounterWin1}, {color: COLORS.DRAW_COLOR, amount: predictionCounterDraw}, {color: teamsGraphColors[1], amount: predictionCounterWin2}];
             }
 
             return re("div", {className: className},
                 re("div", {className: "left"},
-                    re("div", {className: "team-logo " + leagueIdName, style: {backgroundImage: leagueSprite, backgroundPosition: team1LogoPosition}}),
+                    re("div", {className: "team-logo " + leagueIdName, style: {backgroundImage: team1 ? leagueSprite : "", backgroundPosition: team1LogoPosition}}),
                     re("div", {className: "team-name"}, team1ShortName)
                 ),
                 re("div", {className: "center"},
@@ -135,7 +142,7 @@ component.GamePredictionMainTile = (function(){
                     )
                 ),
                 re("div", {className: "right"},
-                    re("div", {className: "team-logo " + leagueIdName, style: {backgroundImage: leagueSprite, backgroundPosition: team2LogoPosition}}),
+                    re("div", {className: "team-logo " + leagueIdName, style: {backgroundImage: team2 ? leagueSprite : "", backgroundPosition: team2LogoPosition}}),
                     re("div", {className: "team-name"}, team2ShortName)
                 )
             );
