@@ -1,3 +1,9 @@
+var link = document.createElement('link');
+link.id = 'cssForTest';
+link.rel = 'stylesheet';
+link.href = 'base/public/css/main.css';
+document.head.appendChild(link);
+
 var testHelper = {
     createStore: function() {
         return initStore();
@@ -12,10 +18,6 @@ var testHelper = {
         );
     }
 };
-
-beforeEach(function() {
-
-});
 
 afterEach(function() {
     ReactDOM.unmountComponentAtNode(document.body)
