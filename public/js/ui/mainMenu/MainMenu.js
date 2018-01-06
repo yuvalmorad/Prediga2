@@ -37,10 +37,37 @@ component.MainMenu = (function(){
             });
         },
 
+        onGroupSettingsClicked: function(groupId, event) {
+            event.stopPropagation();
+            this.props.toggleMenu(); //close menu
+            window.routerHistory.push("/editGroup/" + groupId);
+        },
+
         renderGroupsMenuItems: function() {
-            return [
-                re(MenuItem, {text: "SAP Labs IL", isSelected: true, onMenuItemClicked: this.onGroupMenuItemClicked, hasButton: true, key: "some group1"})
+            var that = this;
+            var groups = [
+                {
+                    name: "SAP Labs IL",
+                    isSelected: true,
+                    actionButton: {
+                        icon: "",
+                        onClick: this.onGroupSettingsClicked.bind(this, "groupId1")
+                    },
+                    _id: "groupId1"
+                },
+                {
+                    name: "Dummy group",
+                    isSelected: false,
+                    actionButton: {
+                        icon: ""
+                    },
+                    _id: "groupId2"
+                }
             ];
+
+            return groups.map(function(group){
+                return re(MenuItem, {text: group.name, isSelected: group.isSelected, onMenuItemClicked: that.onGroupMenuItemClicked, actionButton: group.actionButton, key: group._id});
+            });
         },
 
         renderLogoutMenuItem: function() {

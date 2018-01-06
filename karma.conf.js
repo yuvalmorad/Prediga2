@@ -29,6 +29,10 @@ module.exports = function(config) {
       'public/js/constants.js',
       'public/js/utils/*.js',
 
+      'public/js/ui/components/tile/TileWrapper.js',//run before Tile.js
+      'public/js/ui/components/**/*.js',
+
+
 
       'public/js/**/*.js',
       'public/test/**/*Test.js'

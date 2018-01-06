@@ -1467,10 +1467,10 @@ body {
 }
 
 .create-new-group-page .row-buttons {
-    margin-top: 1rem;
-    margin-bottom: 0.5rem;
+    margin: 1rem 1rem 0.5rem 0;
     display: flex;
     justify-content: flex-end;
+    transition: 0.3s transform;
 }
 
 .create-new-group-page .row-buttons > button {

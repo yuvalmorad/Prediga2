@@ -9,7 +9,7 @@ component.EditGroupPage = (function(){
         },
 
         componentDidMount: function() {
-            this.props.setSiteHeaderTitle("some group name test");
+            this.props.setSiteHeaderTitle("SAP Labs IL");
         },
 
         render: function() {
@@ -22,7 +22,7 @@ component.EditGroupPage = (function(){
                     id: "userId1",
                     photo: "https://lh4.googleusercontent.com/-xQQur_W0nRU/AAAAAAAAAAI/AAAAAAAAGAw/KFtaUU1Ri2I/photo.jpg?sz=50",
                     place: 2,
-                    joinedDate: "some date",
+                    joinedDate: "some date"
                 },
                 {
                     name: "Shachar Witkovsky",

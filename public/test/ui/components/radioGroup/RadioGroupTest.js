@@ -20,7 +20,7 @@ describe("RadioGroup", function () {
         var groupName = "group1";
         var className = "class1";
 
-        ReactDOM.render(re(component.RadioGroup, {onChange: onChange, inputs: inputs, _id: id, name: groupName, className: className}), document.body);
+        testHelper.renderComponent(component.RadioGroup, {onChange: onChange, inputs: inputs, _id: id, name: groupName, className: className});
         var buttons = document.querySelectorAll("button.radio-button");
         expect(buttons.length).toEqual(3);
         expect(buttons[0].textContent).toEqual(inputs[0].text);

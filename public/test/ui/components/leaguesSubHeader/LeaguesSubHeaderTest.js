@@ -10,9 +10,11 @@ describe("LeaguesSubHeader", function () {
                 name: "league2"
             }
         ];
-        store.dispatch({type: action.leagues.LOAD_LEAGUES_SUCCESS, leagues: leagues});
 
-        ReactDOM.render(re(component.LeaguesSubHeader, {store: store}), document.body);
+        var store = testHelper.createStore();
+        store.dispatch({type: action.leagues.LOAD_LEAGUES_SUCCESS, leagues: leagues});
+        testHelper.renderComponent(component.LeaguesSubHeader, {}, store);
+
         expect(document.querySelector(".leagues-sub-header .league-item.selected").textContent).toEqual("league2");
     });
 
@@ -27,9 +29,10 @@ describe("LeaguesSubHeader", function () {
                 name: "league2"
             }
         ];
+        var store = testHelper.createStore();
         store.dispatch({type: action.leagues.LOAD_LEAGUES_SUCCESS, leagues: leagues});
 
-        ReactDOM.render(re(component.LeaguesSubHeader, {store: store}), document.body);
+        testHelper.renderComponent(component.LeaguesSubHeader, {}, store);
         expect(document.querySelector(".leagues-sub-header .league-item.selected").textContent).toEqual("league2");
 
         document.querySelector(".leagues-sub-header .league-item:first-child").click();

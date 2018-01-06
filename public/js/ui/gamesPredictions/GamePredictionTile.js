@@ -25,7 +25,7 @@ component.GamePredictionTile = (function(){
 
             var dialogComponentProps = Object.assign({}, props, {isDialogFormDisabled: isDialogFormDisabled});
 
-            return re(Tile, {hasPrediction: !!prediction, borderLeftColor: borderLeftColor, borderLeftSecondColor: borderLeftSecondColor, borderRightColor: borderRightColor, borderRightSecondColor: borderRightSecondColor, className: "game-prediction-tile", dialogComponent: "GamePredictionTileDialog", dialogComponentProps: dialogComponentProps},
+            return re(Tile, {disableOpen: !team1 || !team2, hasPrediction: !!prediction, borderLeftColor: borderLeftColor, borderLeftSecondColor: borderLeftSecondColor, borderRightColor: borderRightColor, borderRightSecondColor: borderRightSecondColor, className: "game-prediction-tile", dialogComponent: "GamePredictionTileDialog", dialogComponentProps: dialogComponentProps},
                 re(GamePredictionMainTile, props)
             );
         }
