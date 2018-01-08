@@ -21,20 +21,20 @@ var routePages = (function(){
             displayInSiteNavigation: true
         },
         {
+            path: "/leaderBoard",
+            title: "Leader Board",
+            name: "leaderBoard",
+            isAuthenticatedPage: true,
+            component: LeaderBoardPage,
+            displayInSiteNavigation: true
+        },
+        {
             path: "/teamsPredictions",
             title: "Teams Predictions",
             name: "teamsPredictions",
             isAuthenticatedPage: true,
             component: TeamsPredictionsPage,
             exact: true,
-            displayInSiteNavigation: true
-        },
-        {
-            path: "/leaderBoard",
-            title: "Leader Board",
-            name: "leaderBoard",
-            isAuthenticatedPage: true,
-            component: LeaderBoardPage,
             displayInSiteNavigation: true
         },
         {

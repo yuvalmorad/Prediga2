@@ -1523,6 +1523,18 @@ body {
     align-items: center;
 }
 
+.join-group-tile .join-group-main-tile > .left {
+    flex-direction: column;
+    justify-content: space-between;
+    margin-right: 2rem;
+    flex: 1;
+}
+
+.join-group-tile .join-group-main-tile > .right {
+    justify-content: flex-end;
+    flex: 1
+}
+
 
 .edit-group-tile .edit-group-main-tile > .left img {
     border-radius: 50%;
@@ -1556,8 +1568,7 @@ body {
 
 .join-group-tile .join-group-main-tile .icon {
     font-family: "prediga-groups";
-    font-size: 1.5rem;
-    margin-right: 0.5rem;
+    font-size: 3.5rem;
 }
 
 .join-group-tile .join-group-main-tile .group-name,

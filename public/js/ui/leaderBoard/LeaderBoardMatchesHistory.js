@@ -34,7 +34,6 @@ component.LeaderBoardMatchesHistory = (function(){
                     team1: utils.general.findItemInArrBy(props.clubs, "_id", match.team1),
                     team2: utils.general.findItemInArrBy(props.clubs, "_id", match.team2),
                     league: utils.general.findItemInArrBy(props.leagues, "_id", props.selectedLeagueId),
-                    hideMutualFriends: true,
                     isDialogFormDisabled: true
                 };
 
