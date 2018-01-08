@@ -20,7 +20,8 @@ component.CreateNewGroupPage = (function(){
                 goalsPoints: "2",
                 firstToScorePoints: "2",
                 diffGoalsPoints: "2",
-                selectedLeagueIds: ["id1"]
+                selectedLeagueIds: ["id1"],
+                secretFocusIndex: undefined
             };
 
             for (var i = 0; i < SECRET_LENGTH; i++) {
@@ -44,7 +45,7 @@ component.CreateNewGroupPage = (function(){
             this.setState(newState);
         },
 
-        onNumberKeyPress: function() {
+        onNumberKeyPress: function(index) {
             var name = event.target.name;
             var zeroCode = 48;
             var nineCode = 57;
@@ -56,7 +57,9 @@ component.CreateNewGroupPage = (function(){
 
             var num = (keyCode - zeroCode) + "";
 
-            var newState = {};
+            var newState = {
+                secretFocusIndex: (index + 1) % 6
+            };
             newState[name] = num;
             this.setState(newState);
         },
@@ -126,6 +129,16 @@ component.CreateNewGroupPage = (function(){
             console.log("save: ", saveObj);
         },
 
+        assignInputToFocus: function(input) {
+            this.focusInput = input;
+        },
+
+        componentDidUpdate: function() {
+            if (this.state.secretFocusIndex !== undefined) {
+                this.focusInput.focus();
+            }
+        },
+
         render: function() {
             var that = this;
             var props = this.props;
@@ -137,16 +150,20 @@ component.CreateNewGroupPage = (function(){
             var isFormValid = true;
             var selectedIcon = state.selectedIcon;
             var selectedIconColor = state.selectedIconColor;
+            var secretFocusIndex = state.secretFocusIndex;
             var mainElement;
-
 
             if (this.state.displaySelectGroupIconPage) {
                 mainElement = re(SelectGroupIcon, {selectedIcon: selectedIcon, selectedIconColor: selectedIconColor, onSave: this.onSelectGroupIconSave, onCancel: this.onSelectGroupIconCancel});
             } else {
                 for (i = 0; i < SECRET_LENGTH; i++) {
                     var secretProperty = "secret" + i;
+                    var inputProps = {focus: i === 3, type: "number", pattern: "\\d*", key: "secret" + i, value: state[secretProperty], name: secretProperty, onKeyPress: this.onNumberKeyPress.bind(this, i)};
+                    if (secretFocusIndex === i) {
+                        inputProps.ref = this.assignInputToFocus;
+                    }
                     secretInputs.push(
-                        re("input", {type: "number", pattern: "\\d*", key: "secret" + i, value: state[secretProperty], name: secretProperty, onKeyPress: this.onNumberKeyPress})
+                        re("input", inputProps)
                     );
                 }
 
