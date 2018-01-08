@@ -7,6 +7,8 @@ component.JoinGroupTile = (function(){
             var props = this.props,
                 group = props.group,
                 name = group.name,
+                icon = group.icon,
+                iconColor = group.iconColor,
                 playersCount = group.playersCount,
                 leaguesCount = group.leaguesCount,
                 isOpen = group.isOpen,
@@ -15,6 +17,7 @@ component.JoinGroupTile = (function(){
             return re(Tile, {disableOpen: true, className: "join-group-tile"},
                 re("div", {className: "join-group-main-tile"},
                     re("div", {className: "left"},
+                        re("div", {className: "icon", style: {color: iconColor}}, icon),
                         re("div", {className: "group-name"}, name)
                     ),
                     re("div", {className: "center"},

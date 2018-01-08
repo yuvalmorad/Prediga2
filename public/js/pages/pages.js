@@ -54,6 +54,7 @@ var routePages = (function(){
             name: "joinGroup",
             isAuthenticatedPage: true,
             component: JoinGroupPage,
+            hideSiteNavigation: true,
             siteHeaderConfig: {
                 hideMenuButton: true,
                 hasBackButton: true,

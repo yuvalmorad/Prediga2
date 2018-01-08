@@ -1523,6 +1523,7 @@ body {
     align-items: center;
 }
 
+
 .edit-group-tile .edit-group-main-tile > .left img {
     border-radius: 50%;
     height: 4rem;
@@ -1549,6 +1550,12 @@ body {
 .edit-group-tile .edit-group-main-tile > .center {
     display: flex;
     flex-direction: column;
+}
+
+.join-group-tile .join-group-main-tile .icon {
+    font-family: "prediga-groups";
+    font-size: 1.5rem;
+    margin-right: 0.5rem;
 }
 
 .join-group-tile .join-group-main-tile .group-name,
