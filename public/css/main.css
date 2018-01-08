@@ -1,5 +1,5 @@
 /* -------  Global -------*/
-* {
+*:not(input) {
     -webkit-user-select: none;  /* Chrome all / Safari all */
     -moz-user-select: none;     /* Firefox all */
     -ms-user-select: none;      /* IE 10+ */
@@ -1539,6 +1539,8 @@ body {
     border: 2px solid #7ED321;
     color: #7ED321;
     font-size: 2rem;
+    padding: 0;
+    vertical-align: middle;
 }
 
 .edit-group-tile .edit-group-main-tile > .right button {
