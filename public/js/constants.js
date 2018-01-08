@@ -22,3 +22,5 @@ var COLORS = {
 };
 
 var NUM_OF_BADGES = 2;
+
+var SECRET_LENGTH = 6;

@@ -2,8 +2,8 @@ window.component = window.component || {};
 component.CreateNewGroupPage = (function(){
     var connect = ReactRedux.connect;
     var SelectGroupIcon = component.SelectGroupIcon;
+    var Secret = component.Secret;
     var isRequestSent = false;
-    var SECRET_LENGTH = 6;
 
     var CreateNewGroupPage = React.createClass({
         getInitialState: function() {
@@ -20,8 +20,7 @@ component.CreateNewGroupPage = (function(){
                 goalsPoints: "2",
                 firstToScorePoints: "2",
                 diffGoalsPoints: "2",
-                selectedLeagueIds: ["id1"],
-                secretFocusIndex: undefined
+                selectedLeagueIds: ["id1"]
             };
 
             for (var i = 0; i < SECRET_LENGTH; i++) {
@@ -45,21 +44,8 @@ component.CreateNewGroupPage = (function(){
             this.setState(newState);
         },
 
-        onNumberKeyPress: function(index) {
-            var name = event.target.name;
-            var zeroCode = 48;
-            var nineCode = 57;
-            var keyCode = event.keyCode;
-
-            if (keyCode < zeroCode || keyCode > nineCode) {
-                return; //not a number
-            }
-
-            var num = (keyCode - zeroCode) + "";
-
-            var newState = {
-                secretFocusIndex: (index + 1) % 6
-            };
+        onSecretNumberChanged: function(name, num) {
+            var newState = {};
             newState[name] = num;
             this.setState(newState);
         },
@@ -129,47 +115,32 @@ component.CreateNewGroupPage = (function(){
             console.log("save: ", saveObj);
         },
 
-        assignInputToFocus: function(input) {
-            this.focusInput = input;
-        },
-
-        componentDidUpdate: function() {
-            if (this.state.secretFocusIndex !== undefined) {
-                this.focusInput.focus();
-            }
-        },
-
         render: function() {
             var that = this;
             var props = this.props;
             var state = this.state;
             var selectedLeagueIds = state.selectedLeagueIds;
-            var secretInputs = [];
-            var i;
             var leagues = props.leagues;
             var isFormValid = true;
             var selectedIcon = state.selectedIcon;
             var selectedIconColor = state.selectedIconColor;
-            var secretFocusIndex = state.secretFocusIndex;
             var mainElement;
 
             if (this.state.displaySelectGroupIconPage) {
                 mainElement = re(SelectGroupIcon, {selectedIcon: selectedIcon, selectedIconColor: selectedIconColor, onSave: this.onSelectGroupIconSave, onCancel: this.onSelectGroupIconCancel});
             } else {
-                for (i = 0; i < SECRET_LENGTH; i++) {
-                    var secretProperty = "secret" + i;
-                    var inputProps = {focus: i === 3, type: "number", pattern: "\\d*", key: "secret" + i, value: state[secretProperty], name: secretProperty, onKeyPress: this.onNumberKeyPress.bind(this, i)};
-                    if (secretFocusIndex === i) {
-                        inputProps.ref = this.assignInputToFocus;
-                    }
-                    secretInputs.push(
-                        re("input", inputProps)
-                    );
-                }
 
                 var leaguesElems = leagues.map(function(league){
                     return re("div", {className: selectedLeagueIds.indexOf(league._id) >= 0 ? "selected" : "", onClick: that.onLeagueClicked.bind(that, league._id)}, league.name);
                 });
+
+                var secretProps = {
+                    onNumberChanged: this.onSecretNumberChanged
+                };
+
+                for (var i = 0; i < SECRET_LENGTH; i++) {
+                    secretProps["secret" + i] = state["secret" + i];
+                }
 
                 mainElement = re("div", { className: "scroll-container" },
                     re("div", {className: "title"}, "Group Details"),
@@ -182,9 +153,7 @@ component.CreateNewGroupPage = (function(){
                         re("div", {className: "sub-title"}, "Group Secret:"),
                         re("div", {className: "small-text"}, "Only Numbers")
                     ),
-                    re("div", {className: "secret-container"},
-                        secretInputs
-                    ),
+                    re(Secret, secretProps),
                     re("div", {className: "sub-title-container"},
                         re("div", {className: "sub-title"}, "Group Icon:")
                     ),
