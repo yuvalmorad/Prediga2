@@ -522,41 +522,10 @@ body {
     border-right: none;
 }
 
-.navigation-tab:before {
+.navigation-tab span {
     font-family: "prediga";
     font-size: 24px;
 }
-
-.gamesPredictions-tab:before {
-    content: '';
-}
-
-.teamsPredictions-tab:before {
-    content: '';
-}
-
-.leaderBoard-tab:before {
-    content: '';
-}
-
-
-/*.teamsPredictions-tab.selected:before {
-    background-position: 0 -16px;
-}
-
-.leaderBoard-tab.selected:before {
-    background-position: -48px -40px;
-}
-
-.gamesPredictions-tab.selected:before {
-    background-position: -24px -16px;
-}
-*/
-
-
-
-
-
 
 /* -------  images pagination -------*/
 

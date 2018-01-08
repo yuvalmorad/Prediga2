@@ -7,7 +7,9 @@ component.NavigationTab = (function(){
             className += " selected"
         }
 
-        return re(ReactRouterDOM.Link, {to: props.to, className: className + " " + props.className});
+        return re(ReactRouterDOM.Link, {to: props.to, className: className},
+            re("span", {}, props.icon)
+        );
     };
 })();
 

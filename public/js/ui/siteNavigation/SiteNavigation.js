@@ -5,7 +5,7 @@ component.SiteNavigation = (function(){
         var tabs = routePages.getPages().filter(function(page){
             return page.displayInSiteNavigation;
         }).map(function(page, index){
-            return re(NavigationTab, {to: page.path, className: page.name + "-tab", key: index});
+            return re(NavigationTab, {to: page.path, icon: page.icon, key: index});
         });
 
         return re("div", { className: "site-navigation" + (props.hide ? " hide" : "") },

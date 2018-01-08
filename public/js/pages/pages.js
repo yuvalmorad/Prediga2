@@ -14,7 +14,7 @@ var routePages = (function(){
         {
             path: "/",
             title: "Games Predictions",
-            name: "gamesPredictions",
+            icon: "",
             isAuthenticatedPage: true,
             component: GamesPredictionsPage,
             exact: true,
@@ -23,7 +23,7 @@ var routePages = (function(){
         {
             path: "/leaderBoard",
             title: "Leader Board",
-            name: "leaderBoard",
+            icon: "",
             isAuthenticatedPage: true,
             component: LeaderBoardPage,
             displayInSiteNavigation: true
@@ -31,7 +31,7 @@ var routePages = (function(){
         {
             path: "/teamsPredictions",
             title: "Teams Predictions",
-            name: "teamsPredictions",
+            icon: "",
             isAuthenticatedPage: true,
             component: TeamsPredictionsPage,
             exact: true,
@@ -40,7 +40,6 @@ var routePages = (function(){
         {
             path: "/simulator/:gameId?",
             title: "Simulator",
-            name: "simulator",
             isAuthenticatedPage: true,
             component: SimulatorPage,
             siteHeaderConfig: {
@@ -51,7 +50,6 @@ var routePages = (function(){
         {
             path: "/joinGroup",
             title: "Join Group",
-            name: "joinGroup",
             isAuthenticatedPage: true,
             component: JoinGroupPage,
             hideSiteNavigation: true,
@@ -70,7 +68,6 @@ var routePages = (function(){
         {
             path: "/createNewGroup",
             title: "Create New Group",
-            name: "createNewGroup",
             isAuthenticatedPage: true,
             component: CreateNewGroupPage,
             hideSiteNavigation: true,
@@ -82,7 +79,6 @@ var routePages = (function(){
         },
         {
             path: "/editGroup",
-            name: "editGroup",
             isAuthenticatedPage: true,
             component: EditGroupPage,
             siteHeaderConfig: {
@@ -94,7 +90,6 @@ var routePages = (function(){
         {
             path: "/rules",
             title: "Rules of the Game",
-            name: "rulesOfTheGame",
             isAuthenticatedPage: true,
             component: RulesPage,
             displayInBottomMenu: true
@@ -102,7 +97,6 @@ var routePages = (function(){
         {
             path: "/about",
             title: "About",
-            name: "about",
             isAuthenticatedPage: true,
             component: AboutPage,
             displayInBottomMenu: true
