@@ -23,10 +23,11 @@ component.JoinGroupPage = (function(){
         },
 
         render: function() {
-            var props = this.props;
             var allGroups = [
                 {
                     name: "Prediga",
+                    icon: "",
+                    iconColor: "#0d61c4",
                     id: "_group1",
                     playersCount: 3654,
                     leaguesCount: 11,
@@ -34,6 +35,8 @@ component.JoinGroupPage = (function(){
                 },
                 {
                     name: "SAP Labs Israel",
+                    icon: "",
+                    iconColor: "#4a90e2",
                     id: "_group2",
                     playersCount: 261,
                     leaguesCount: 3,
@@ -42,6 +45,8 @@ component.JoinGroupPage = (function(){
                 },
                 {
                     name: "Man.Utd Ultras",
+                    icon: "",
+                    iconColor: "#d0021b",
                     id: "_group3",
                     playersCount: 80,
                     leaguesCount: 2,

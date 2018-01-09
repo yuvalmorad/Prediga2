@@ -13,6 +13,17 @@ component.GamePredictionMainTile = (function(){
                     this.state.timeBeforeGame !== nextState.timeBeforeGame;
         },
 
+        onTeamLogoClicked: function(teamId) {
+            if (this.props.isDialogFormDisabled) {
+                return;
+            }
+
+            var prediction = {};
+            prediction[GAME.BET_TYPES.WINNER.key] = teamId;
+
+            this.props.updateGameForm(prediction);
+        },
+
         onTick: function() {
             var currentDate = new Date();
             var kickofftime = new Date(this.props.game.kickofftime);
@@ -123,7 +134,7 @@ component.GamePredictionMainTile = (function(){
 
             return re("div", {className: className},
                 re("div", {className: "left"},
-                    re("div", {className: "team-logo " + leagueIdName, style: {backgroundImage: team1 ? leagueSprite : "", backgroundPosition: team1LogoPosition}}),
+                    re("div", {className: "team-logo " + leagueIdName, onClick: this.onTeamLogoClicked.bind(this, team1._id), style: {backgroundImage: team1 ? leagueSprite : "", backgroundPosition: team1LogoPosition}}),
                     re("div", {className: "team-name"}, team1ShortName)
                 ),
                 re("div", {className: "center"},
@@ -142,7 +153,7 @@ component.GamePredictionMainTile = (function(){
                     )
                 ),
                 re("div", {className: "right"},
-                    re("div", {className: "team-logo " + leagueIdName, style: {backgroundImage: team2 ? leagueSprite : "", backgroundPosition: team2LogoPosition}}),
+                    re("div", {className: "team-logo " + leagueIdName, onClick: this.onTeamLogoClicked.bind(this, team2._id), style: {backgroundImage: team2 ? leagueSprite : "", backgroundPosition: team2LogoPosition}}),
                     re("div", {className: "team-name"}, team2ShortName)
                 )
             );

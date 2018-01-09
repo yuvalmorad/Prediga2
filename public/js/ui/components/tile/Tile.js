@@ -9,7 +9,8 @@ component.Tile = (function(){
         },
 
         onTileClicked: function(e) {
-            if (e.target.tagName === "A") {
+            var tagName = e.target.tagName;
+            if (tagName === "A" || tagName === "INPUT") {
                 return;
             }
 

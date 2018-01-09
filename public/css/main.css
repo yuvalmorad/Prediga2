@@ -1,5 +1,5 @@
 /* -------  Global -------*/
-* {
+*:not(input) {
     -webkit-user-select: none;  /* Chrome all / Safari all */
     -moz-user-select: none;     /* Firefox all */
     -ms-user-select: none;      /* IE 10+ */
@@ -522,41 +522,10 @@ body {
     border-right: none;
 }
 
-.navigation-tab:before {
+.navigation-tab span {
     font-family: "prediga";
     font-size: 24px;
 }
-
-.gamesPredictions-tab:before {
-    content: '';
-}
-
-.teamsPredictions-tab:before {
-    content: '';
-}
-
-.leaderBoard-tab:before {
-    content: '';
-}
-
-
-/*.teamsPredictions-tab.selected:before {
-    background-position: 0 -16px;
-}
-
-.leaderBoard-tab.selected:before {
-    background-position: -48px -40px;
-}
-
-.gamesPredictions-tab.selected:before {
-    background-position: -24px -16px;
-}
-*/
-
-
-
-
-
 
 /* -------  images pagination -------*/
 
@@ -1498,6 +1467,11 @@ body {
 .edit-group-tile.tile{
     height: 6.5rem;
 }
+
+.join-group-tile.tile.open {
+    height: calc(9rem + (100vw / 6 - 5vw));
+}
+
 .join-group-page .join-group-tile .tile-wrapper,
 .edit-group-page .edit-group-tile .tile-wrapper {
     border-left: 1px solid #c1baba;
@@ -1506,10 +1480,10 @@ body {
 
 .join-group-tile .join-group-main-tile,
 .edit-group-tile .edit-group-main-tile {
+    height: 6.5rem;
     font-size: 0.75rem;
     color: #4A4A4A;
     display: flex;
-    height: 100%;
     padding: 1rem;
     box-sizing: border-box;
     justify-content: space-between;
@@ -1522,6 +1496,19 @@ body {
     display: flex;
     align-items: center;
 }
+
+.join-group-tile .join-group-main-tile > .left {
+    flex-direction: column;
+    justify-content: space-between;
+    margin-right: 2rem;
+    flex: 1;
+}
+
+.join-group-tile .join-group-main-tile > .right {
+    justify-content: flex-end;
+    flex: 1
+}
+
 
 .edit-group-tile .edit-group-main-tile > .left img {
     border-radius: 50%;
@@ -1538,6 +1525,8 @@ body {
     border: 2px solid #7ED321;
     color: #7ED321;
     font-size: 2rem;
+    padding: 0;
+    vertical-align: middle;
 }
 
 .edit-group-tile .edit-group-main-tile > .right button {
@@ -1549,6 +1538,11 @@ body {
 .edit-group-tile .edit-group-main-tile > .center {
     display: flex;
     flex-direction: column;
+}
+
+.join-group-tile .join-group-main-tile .icon {
+    font-family: "prediga-groups";
+    font-size: 3.5rem;
 }
 
 .join-group-tile .join-group-main-tile .group-name,
@@ -1569,7 +1563,40 @@ body {
     font-size: 0.625rem;
 }
 
-/* -------  select group icon page-------*/
+.join-group-tile .join-group-form-tile {
+    padding: 0.5rem 1rem;
+    border-top: 1px solid #eaeaea;
+    color: #4A4A4A;
+}
+
+.join-group-tile .join-group-form-tile .secret-container {
+    display: flex;
+    margin-bottom: 0.5rem;
+}
+
+.join-group-tile .join-group-form-tile .secret-container input {
+    margin-right: 4vw;
+    box-sizing: border-box;
+    width: calc(100% / 6);
+    height: calc(100vw / 6 - 5vw);
+    border: 1px solid rgba(0, 0, 0, 0.25);
+    border-radius: 4px;
+    text-align: center;
+    color: rgba(0, 0, 0, 0.4);
+    font-weight: bold;
+    font-size: 8vw;
+}
+
+.join-group-tile .join-group-form-tile .secret-container input:last-child {
+    margin-right: 0;
+}
+
+.join-group-tile .join-group-form-tile .sub-title {
+    font-size: 0.75rem;
+    margin-bottom: 0.5rem;
+}
+
+    /* -------  select group icon page-------*/
 .page > .content > .select-group-icon.scroll-container {
     padding: 0;
 }

@@ -2,8 +2,8 @@ window.component = window.component || {};
 component.CreateNewGroupPage = (function(){
     var connect = ReactRedux.connect;
     var SelectGroupIcon = component.SelectGroupIcon;
+    var Secret = component.Secret;
     var isRequestSent = false;
-    var SECRET_LENGTH = 6;
 
     var CreateNewGroupPage = React.createClass({
         getInitialState: function() {
@@ -44,15 +44,7 @@ component.CreateNewGroupPage = (function(){
             this.setState(newState);
         },
 
-        onNumberKeyDown: function() {
-            var name = event.target.name;
-            var num = event.key;
-            var keyCode = event.keyCode;
-
-            if (keyCode < 48 || keyCode > 57) {
-                return; //not a number
-            }
-
+        onSecretNumberChanged: function(name, num) {
             var newState = {};
             newState[name] = num;
             this.setState(newState);
@@ -128,28 +120,27 @@ component.CreateNewGroupPage = (function(){
             var props = this.props;
             var state = this.state;
             var selectedLeagueIds = state.selectedLeagueIds;
-            var secretInputs = [];
-            var i;
             var leagues = props.leagues;
             var isFormValid = true;
             var selectedIcon = state.selectedIcon;
             var selectedIconColor = state.selectedIconColor;
             var mainElement;
 
-
             if (this.state.displaySelectGroupIconPage) {
                 mainElement = re(SelectGroupIcon, {selectedIcon: selectedIcon, selectedIconColor: selectedIconColor, onSave: this.onSelectGroupIconSave, onCancel: this.onSelectGroupIconCancel});
             } else {
-                for (i = 0; i < SECRET_LENGTH; i++) {
-                    var secretProperty = "secret" + i;
-                    secretInputs.push(
-                        re("input", {type: "number", key: "secret" + i, value: state[secretProperty], name: secretProperty, onKeyDown: this.onNumberKeyDown})
-                    );
-                }
 
                 var leaguesElems = leagues.map(function(league){
                     return re("div", {className: selectedLeagueIds.indexOf(league._id) >= 0 ? "selected" : "", onClick: that.onLeagueClicked.bind(that, league._id)}, league.name);
                 });
+
+                var secretProps = {
+                    onNumberChanged: this.onSecretNumberChanged
+                };
+
+                for (var i = 0; i < SECRET_LENGTH; i++) {
+                    secretProps["secret" + i] = state["secret" + i];
+                }
 
                 mainElement = re("div", { className: "scroll-container" },
                     re("div", {className: "title"}, "Group Details"),
@@ -162,9 +153,7 @@ component.CreateNewGroupPage = (function(){
                         re("div", {className: "sub-title"}, "Group Secret:"),
                         re("div", {className: "small-text"}, "Only Numbers")
                     ),
-                    re("div", {className: "secret-container"},
-                        secretInputs
-                    ),
+                    re(Secret, secretProps),
                     re("div", {className: "sub-title-container"},
                         re("div", {className: "sub-title"}, "Group Icon:")
                     ),
@@ -188,19 +177,19 @@ component.CreateNewGroupPage = (function(){
                         re("div", {className: "sub-title"}, "Select Points:")
                     ),
                     re("div", {className: "row-scoring"},
-                        re("input", {type: "number", value: state.winPoints, name: "winPoints", onChange: this.onNumberChange}),
+                        re("input", {type: "number", pattern: "\\d*", value: state.winPoints, name: "winPoints", onChange: this.onNumberChange}),
                         re("div", {}, "Win, Draw, Lost")
                     ),
                     re("div", {className: "row-scoring"},
-                        re("input", {type: "number", value: state.goalsPoints, name: "goalsPoints", onChange: this.onNumberChange}),
+                        re("input", {type: "number", pattern: "\\d*", value: state.goalsPoints, name: "goalsPoints", onChange: this.onNumberChange}),
                         re("div", {}, "Goals")
                     ),
                     re("div", {className: "row-scoring"},
-                        re("input", {type: "number", value: state.firstToScorePoints, name: "firstToScorePoints", onChange: this.onNumberChange}),
+                        re("input", {type: "number", pattern: "\\d*", value: state.firstToScorePoints, name: "firstToScorePoints", onChange: this.onNumberChange}),
                         re("div", {}, "First to Score")
                     ),
                     re("div", {className: "row-scoring"},
-                        re("input", {type: "number", value: state.diffGoalsPoints, name: "diffGoalsPoints", onChange: this.onNumberChange}),
+                        re("input", {type: "number", pattern: "\\d*", value: state.diffGoalsPoints, name: "diffGoalsPoints", onChange: this.onNumberChange}),
                         re("div", {}, "Diff Goals")
                     ),
                     re("div", {className: "row-buttons"},
