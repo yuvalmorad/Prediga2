@@ -52,7 +52,7 @@ const self = module.exports = {
 		const after = new Date();
 		const before = new Date();
 		after.setMinutes(today.getMinutes() + 200);
-		before.setDate(today.getDate() - 200);
+		before.setMinutes(today.getMinutes() - 200);
 
 		Match.find({
 			kickofftime: {$gte: before, $lte: after},
