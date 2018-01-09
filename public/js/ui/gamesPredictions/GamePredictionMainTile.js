@@ -134,7 +134,7 @@ component.GamePredictionMainTile = (function(){
 
             return re("div", {className: className},
                 re("div", {className: "left"},
-                    re("div", {className: "team-logo " + leagueIdName, onClick: this.onTeamLogoClicked.bind(this, team1._id), style: {backgroundImage: team1 ? leagueSprite : "", backgroundPosition: team1LogoPosition}}),
+                    re("div", {className: "team-logo " + leagueIdName, onClick: team1 && this.onTeamLogoClicked.bind(this, team1._id), style: {backgroundImage: team1 ? leagueSprite : "", backgroundPosition: team1LogoPosition}}),
                     re("div", {className: "team-name"}, team1ShortName)
                 ),
                 re("div", {className: "center"},
@@ -153,7 +153,7 @@ component.GamePredictionMainTile = (function(){
                     )
                 ),
                 re("div", {className: "right"},
-                    re("div", {className: "team-logo " + leagueIdName, onClick: this.onTeamLogoClicked.bind(this, team2._id), style: {backgroundImage: team2 ? leagueSprite : "", backgroundPosition: team2LogoPosition}}),
+                    re("div", {className: "team-logo " + leagueIdName, onClick: team2 && this.onTeamLogoClicked.bind(this, team2._id), style: {backgroundImage: team2 ? leagueSprite : "", backgroundPosition: team2LogoPosition}}),
                     re("div", {className: "team-name"}, team2ShortName)
                 )
             );
