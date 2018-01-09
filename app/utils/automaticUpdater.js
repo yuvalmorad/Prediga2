@@ -268,6 +268,9 @@ const self = module.exports = {
 			active: relevantGame.Active,
 			resultTime: new Date()
 		};
+		if (relevantGame.AutoProgressGT === false && relevantGame.Completion === 50) {
+			newMatchResult.gameTime = 45;
+		}
 
 		if (!relevantGame.Events || relevantGame.Events.length < 1) {
 			deferred.resolve(newMatchResult);
