@@ -205,15 +205,16 @@ const self = module.exports = {
 				return Promise.all([
 					MatchResult.findOne({matchId: aMatch._id})
 				]).then(function (arr2) {
+					let currentMatchResult = arr2[0];
 					const isRelevantGameFinished = relevantGame.Active === false && relevantGame.AutoProgressGT === false && relevantGame.Completion >= 100;
 					// entering update match result if game in progress or game has finished but we don't have match result
-					if (relevantGame.Active === true || (!arr2[0] && isRelevantGameFinished) || (arr2[0] && arr2[0].active === true && isRelevantGameFinished)) {
+					if (relevantGame.Active === true || (!currentMatchResult && isRelevantGameFinished) || (currentMatchResult && currentMatchResult.active === true && isRelevantGameFinished)) {
 						console.log('Beginning to create new match result, for [' + team1 + ' - ' + team2 + ']');
 
-						if (relevantGame.Active === true && relevantGame.GT === 0) {
+						if (relevantGame.Active === true && !currentMatchResult) {
+							// this is the first update of match result.
 							console.log("sending push notification about game starts!");
-							//TODO - just for fun it will send notification for all users when game starts -> should handle logic to send to specific user if no prediction was made for this match
-							pushNotificationUtil.pushToAllRegisterdUsers(relevantGame.Comps[1].Name + ' - ' + relevantGame.Comps[0].Name);
+							pushNotificationUtil.pushToAllRegisterdUsers(relevantGame.Comps[1].Name + ' - ' + relevantGame.Comps[0].Name + ' started');
 						}
 
 						return Promise.all([
