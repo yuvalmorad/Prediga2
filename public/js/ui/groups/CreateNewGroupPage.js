@@ -39,6 +39,9 @@ component.CreateNewGroupPage = (function(){
             var name = event.target.name;
             var value = event.target.value;
 
+            if (value.length > 3) {
+                return;
+            }
             var newState = {};
             newState[name] = value;
             this.setState(newState);

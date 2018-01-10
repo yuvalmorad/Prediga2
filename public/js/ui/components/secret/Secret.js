@@ -35,6 +35,10 @@ component.Secret = (function(){
             this.props.onNumberChanged(name, num);
         },
 
+        onInputBlur: function() {
+            this.setState({secretFocusIndex: undefined});
+        },
+
         render: function() {
             var state = this.state;
             var props = this.props;
@@ -44,7 +48,7 @@ component.Secret = (function(){
 
             for (i = 0; i < SECRET_LENGTH; i++) {
                 var secretProperty = "secret" + i;
-                var inputProps = {focus: i === 3, type: "number", pattern: "\\d*", key: "secret" + i, value: props[secretProperty], name: secretProperty, onKeyPress: this.onNumberKeyPress.bind(this, i)};
+                var inputProps = {onBlur: this.onInputBlur, focus: i === 3, type: "number", pattern: "\\d*", key: "secret" + i, value: props[secretProperty], name: secretProperty, onKeyPress: this.onNumberKeyPress.bind(this, i)};
                 if (secretFocusIndex === i) {
                     inputProps.ref = this.assignInputToFocus;
                 }
