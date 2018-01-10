@@ -183,8 +183,9 @@ const self = module.exports = {
 			const promises = arr[1].map(function (league) {
 				const leagueId = league._id;
 				return Promise.all([
-					UsersLeaderboard.find({leagueId: leagueId}).sort({'score': -1})
+					UsersLeaderboard.find({leagueId: leagueId})
 				]).then(function (arr) {
+					arr[0].sort(self.compareAggregatedScores);
 					return self.amendNewRegisteredUsers(arr[0], allUsers, leagueId);
 				});
 			});
