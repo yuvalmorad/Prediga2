@@ -23,7 +23,7 @@ describe("SimulatorMatch", function () {
                 name: "some league 1"
             },
             matchResult: {
-                completion: 20,
+                active: true,
                 gameTime: 32
             }
         };
