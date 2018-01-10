@@ -5,19 +5,19 @@ link.href = 'base/public/css/main.css';
 document.head.appendChild(link);
 
 var testHelper = {
-    createStore: function() {
-        return initStore();
-    },
-
-    renderComponent: function(comonent, props, _store) {
+    renderComponent: function(comonent, props) {
         return ReactDOM.render(
-            re(ReactRedux.Provider, {store: _store || testHelper.createStore()},
+            re(ReactRedux.Provider, {store: window.storeMock},
                 re(comonent, props)
             ),
             document.body
         );
     }
 };
+
+beforeEach(function(){
+    window.storeMock = initStore();
+});
 
 afterEach(function() {
     ReactDOM.unmountComponentAtNode(document.body)
