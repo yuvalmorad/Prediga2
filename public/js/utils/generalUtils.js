@@ -114,16 +114,11 @@ utils.general = (function(){
 
     function getGameStatus(result) {
         if (result) {
-            if (result.completion === undefined) {
-                //old games ended without completion
-                return GAME.STATUS.POST_GAME;
+            if (result.active) {
+                //not complete yet -> game is running
+                return GAME.STATUS.RUNNING_GAME;
             } else {
-                if (result.completion >= 100) {
-                    return GAME.STATUS.POST_GAME;
-                } else {
-                    //not complete yet -> game is running
-                    return GAME.STATUS.RUNNING_GAME;
-                }
+                return GAME.STATUS.POST_GAME;
             }
         } else {
             //no result yet -> before game kickoff
