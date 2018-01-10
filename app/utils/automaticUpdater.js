@@ -238,7 +238,12 @@ const self = module.exports = {
 									return userScoreService.updateUserScoreByMatchResult(newMatchResult, leagueId).then(function () {
 										console.log('Beginning to update leaderboard from the automatic updater');
 										schedule.scheduleJob(self.getNextJobDate(), function () {
-											userLeaderboardService.updateLeaderboardByGameIds(leagueId, [newMatchResult.matchId]);
+											userLeaderboardService.updateLeaderboardByGameIds(leagueId, [newMatchResult.matchId]).then(function(){
+												//send socket with all leader boards
+                                                userLeaderboardService.getLeaderboardWithNewRegisteredUsers().then(function (leaderboards) {
+                                                    socketIo.emit("leaderboardUpdate", leaderboards);
+                                                });
+											});
 										});
 									});
 
