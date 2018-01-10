@@ -21,6 +21,10 @@ var socket = (function(){
             var matchResult = data.matchResult;
             store.dispatch(action.gamesPredictions.updateGameResult(matchResult));
         });
+
+        socket.on('leaderboardUpdate', function(leaders){
+            store.dispatch(action.leaderBoard.updateLeaderBoard(leaders));
+        });
     }
 
     return {
