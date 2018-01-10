@@ -205,7 +205,8 @@ const self = module.exports = {
 				return Promise.all([
 					MatchResult.findOne({matchId: aMatch._id})
 				]).then(function (arr2) {
-					const isRelevantGameFinished = relevantGame.Active === false && relevantGame.Completion >= 100;
+					const isRelevantGameFinished = relevantGame.Active === false && relevantGame.AutoProgressGT === false && relevantGame.Completion >= 100;
+					// entering update match result if game in progress or game has finished but we don't have match result
 					if (relevantGame.Active === true || (!arr2[0] && isRelevantGameFinished) || (arr2[0] && arr2[0].active === true && isRelevantGameFinished)) {
 						console.log('Beginning to create new match result, for [' + team1 + ' - ' + team2 + ']');
 
@@ -215,10 +216,9 @@ const self = module.exports = {
 						}
 
 						return Promise.all([
-							self.calculateNewMatchResult(team1, team2, relevantGame)
+							self.calculateNewMatchResult(team1, team2, relevantGame, aMatch._id)
 						]).then(function (arr3) {
 							const newMatchResult = arr3[0];
-							newMatchResult.matchId = aMatch._id;
 
 							// send push notification to client
 							const matchResultUpdate = {
@@ -230,7 +230,7 @@ const self = module.exports = {
 							return Promise.all([
 								matchResultService.updateMatchResult(newMatchResult)
 							]).then(function (arr4) {
-								if (newMatchResult.active === true) {
+								if (isRelevantGameFinished === false) {
 									return 'getResultsJob';
 								} else {
 									const leagueId = aMatch.league;
@@ -255,52 +255,49 @@ const self = module.exports = {
 		});
 	},
 	// TODO - refactor this method to more beautify method and not to calculate again all events
-	calculateNewMatchResult: function (team1, team2, relevantGame) {
+	calculateNewMatchResult: function (team1, team2, relevantGame, matchId) {
 		const deferred = Q.defer();
 		const newMatchResult = {
 			winner: 'Draw',
-			team1Goals: 0,
-			team2Goals: 0,
-			goalDiff: 0,
-			firstToScore: 'None',
+			team1Goals: relevantGame.Scrs[0],
+			team2Goals: relevantGame.Scrs[1],
+			goalDiff: Math.abs(relevantGame.Scrs[0] - relevantGame.Scrs[1]),
+			firstToScore: 'None', // will be calculated from the first event
 			gameTime: relevantGame.GT,
 			completion: relevantGame.Completion,
 			active: relevantGame.Active,
-			resultTime: new Date()
+			resultTime: new Date(),
+			matchId: matchId
 		};
 
-		if (!relevantGame.Events || relevantGame.Events.length < 1) {
-			deferred.resolve(newMatchResult);
+		// fix for half time
+		if (relevantGame.AutoProgressGT === false && relevantGame.Completion === 50) {
+			newMatchResult.gameTime = 45;
+		}
+
+		// calculate winner
+		if (newMatchResult.team2Goals > newMatchResult.team1Goals) {
+			newMatchResult.winner = team2;
+		} else if (newMatchResult.team2Goals < newMatchResult.team1Goals) {
+			newMatchResult.winner = team1;
+		}
+
+		// filter events for goals to calculate first to score
+		if (newMatchResult.firstToScore === 'None' && (newMatchResult.team1Goals > 0 || newMatchResult.team2Goals > 0)) {
+			if (!relevantGame.Events || relevantGame.Events.length < 1) {
+				deferred.resolve(newMatchResult);
+			} else {
+				let goalsEvents = relevantGame.Events.filter(function (anEvent) {
+					return anEvent.Type === 0;
+				});
+
+				if (goalsEvents && goalsEvents.length > 0) {
+					newMatchResult.firstToScore = goalsEvents[0].Comp === 1 ? team1 : team2;
+				}
+				deferred.resolve(newMatchResult);
+			}
 		} else {
-			relevantGame.Events.forEach(function (anEvent, index) {
-				if (anEvent.Type === 0) { // type = goal
-					// update firstToScore if is still in initial state
-					if (newMatchResult.firstToScore === 'None') {
-						newMatchResult.firstToScore = anEvent.Comp === 1 ? team1 : team2;
-					}
-
-					if (anEvent.Comp === 1) { // home goals
-						newMatchResult.team1Goals++;
-					}
-					else if (anEvent.Comp === 2) { // away goals
-						newMatchResult.team2Goals++;
-					}
-				}
-				if (index === relevantGame.Events.length - 1) {
-					// calculate winner
-					if (newMatchResult.team2Goals > newMatchResult.team1Goals) {
-						newMatchResult.winner = team2;
-					} else if (newMatchResult.team2Goals < newMatchResult.team1Goals) {
-						newMatchResult.winner = team1;
-					}
-
-					// calculate diff
-					newMatchResult.goalDiff = Math.abs(newMatchResult.team1Goals - newMatchResult.team2Goals);
-
-					// return result
-					deferred.resolve(newMatchResult);
-				}
-			});
+			deferred.resolve(newMatchResult);
 		}
 
 		return deferred.promise;
