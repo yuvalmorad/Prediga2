@@ -211,6 +211,7 @@ const self = module.exports = {
 						console.log('Beginning to create new match result, for [' + team1 + ' - ' + team2 + ']');
 
 						if (relevantGame.Active === true && relevantGame.GT === 0) {
+							console.log("sending push notification about game starts!");
 							//TODO - just for fun it will send notification for all users when game starts -> should handle logic to send to specific user if no prediction was made for this match
 							pushNotificationUtil.pushToAllRegisterdUsers(relevantGame.Comps[1].Name + ' - ' + relevantGame.Comps[0].Name);
 						}
