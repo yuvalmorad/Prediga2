@@ -68,6 +68,11 @@ body {
     margin-bottom: 1rem;
 }
 
+@media only screen and (max-width : 380px) {
+    html {
+        font-size: 14px;
+    }
+}
 
 /* -------  FONTS -------*/
 
@@ -132,17 +137,17 @@ body {
 /* -------  TEAM LOGO -------*/
 
 .team-logo.israel {
-    background-size: 52.5rem;
+    background-size: 840px;
 }
 
 .team-logo.world_cup {
-    background-size: 7rem;
+    background-size: 112px;
 }
 
 .team-logo {
     background-repeat: no-repeat;
-    height: 3.5rem;
-    width: 3.5rem;
+    height: 56px;
+    width: 56px;
     display: inline-block;
 }
 
@@ -661,11 +666,23 @@ body {
     color: #fff;
 }
 
+@media only screen and (max-width : 380px) {
+    .input-number .number {
+        width: 25px;
+    }
+
+    .input-number button {
+        width: 25px;
+    }
+}
+
 /* -------  Radio Button -------*/
 
 .radio-button-wrapper {
     flex: 1;
     position: relative;
+    min-width: 50px;
+    overflow: hidden;
 }
 
 .radio-button {
@@ -693,6 +710,7 @@ body {
     width: 100%;
     font-weight: bold;
     font-size: 0.625rem;
+    white-space: nowrap;
 }
 
 .radio-button.selected > div {
