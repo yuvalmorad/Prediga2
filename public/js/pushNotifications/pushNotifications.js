@@ -39,10 +39,9 @@ var pushNotifications = (function(){
                 //#4 send pushSubscription to server in order to persist it
                 return service.pushSubscription.addPushSubscription(pushSubscription);
             })
-        }).catch(err => {
-            console.log(err);
-        });
-
+        }).catch(function (err) {
+			console.log('error');
+		});
     }
 
     function askPermission() {
