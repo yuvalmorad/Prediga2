@@ -111,5 +111,10 @@ module.exports = function (app, passport) {
 		});
 	});
 
+    app.get('/auth/isLoggedIn', function (req, res) {
+    	var isLoggedIn = req.isAuthenticated();
+        res.status(200).json({isLoggedIn: isLoggedIn});
+    });
+
 	return server;
 };

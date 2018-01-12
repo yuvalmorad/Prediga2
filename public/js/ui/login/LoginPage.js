@@ -1,6 +1,14 @@
 window.component = window.component || {};
 component.LoginPage = (function(){
     return React.createClass({
+        componentDidMount: function() {
+            service.authentication.isLoggedIn().then(function(res){
+                if (res.data.isLoggedIn) {
+                    routerHistory.push("/");
+                }
+            });
+        },
+
         onLoginClicked: function(event) {
             //workaround for ios - keep the home app after login and don't open safari
             var target = event.target;
