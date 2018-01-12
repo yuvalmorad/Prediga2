@@ -39,8 +39,9 @@ var pushNotifications = (function(){
                 //#4 send pushSubscription to server in order to persist it
                 return service.pushSubscription.addPushSubscription(pushSubscription);
             })
-        });
-
+        }).catch(function (err) {
+			console.log('error');
+		});
     }
 
     function askPermission() {
@@ -56,7 +57,8 @@ var pushNotifications = (function(){
             .then(function(permissionResult) {
                 console.log(permissionResult);
                 if (permissionResult !== STATUS_GRANTED) {
-                    throw new Error('We weren\'t granted permission.');
+					console.log('We weren\'t granted permission.');
+					return Promise.reject('We weren\'t granted permission.');
                 }
             });
     }
