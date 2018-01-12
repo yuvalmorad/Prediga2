@@ -12,6 +12,7 @@ let morgan = require('morgan');
 let cookieParser = require('cookie-parser');
 let bodyParser = require('body-parser');
 let session = require('express-session');
+let MongoStore = require('connect-mongo')(session);
 let sslRedirect = require('heroku-ssl-redirect');
 
 // configuration ===============================================================
@@ -39,8 +40,9 @@ app.set('view engine', 'ejs'); // set up ejs for templating
 // required for passport
 app.use(session({
     secret: 'predigaloginboilerplate', // session secret
-    resave: true,
-    saveUninitialized: true
+    resave: false,
+    saveUninitialized: true,
+    store: new MongoStore({ mongooseConnection: mongoose.connection })
 }));
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
