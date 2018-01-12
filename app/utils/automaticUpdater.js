@@ -191,8 +191,10 @@ const self = module.exports = {
 		return Promise.all([
 			clubService.findClubsBy365Name(relevantGame)
 		]).then(function (arr) {
-			const team1 = arr[0].team1;
-			const team2 = arr[0].team2;
+			let team1Club = arr[0].team1;
+			let team2Club = arr[0].team2;
+			const team1 = team1Club._id;
+			const team2 = team2Club._id;
 
 			return Promise.all([
 				matchService.findMatchByTeamsToday(team1, team2)
@@ -214,7 +216,7 @@ const self = module.exports = {
 						if (relevantGame.Active === true && !currentMatchResult) {
 							// this is the first update of match result.
 							console.log("sending push notification about game starts!");
-							pushNotificationUtil.pushToAllRegisterdUsers({text: relevantGame.Comps[1].Name + ' - ' + relevantGame.Comps[0].Name + ' started', url: "/simulator/" + aMatch._id});
+							pushNotificationUtil.pushToAllRegisterdUsers({text: team1Club.name + ' vs ' + team2Club.name + ' started now', url: "/simulator/" + aMatch._id});
 						}
 
 						return Promise.all([
@@ -240,11 +242,11 @@ const self = module.exports = {
 									return userScoreService.updateUserScoreByMatchResult(newMatchResult, leagueId).then(function () {
 										console.log('Beginning to update leaderboard from the automatic updater');
 										schedule.scheduleJob(self.getNextJobDate(), function () {
-											userLeaderboardService.updateLeaderboardByGameIds(leagueId, [newMatchResult.matchId]).then(function(){
+											userLeaderboardService.updateLeaderboardByGameIds(leagueId, [newMatchResult.matchId]).then(function () {
 												//send socket with all leader boards
-                                                userLeaderboardService.getLeaderboardWithNewRegisteredUsers().then(function (leaderboards) {
-                                                    socketIo.emit("leaderboardUpdate", leaderboards);
-                                                });
+												userLeaderboardService.getLeaderboardWithNewRegisteredUsers().then(function (leaderboards) {
+													socketIo.emit("leaderboardUpdate", leaderboards);
+												});
 											});
 										});
 									});
