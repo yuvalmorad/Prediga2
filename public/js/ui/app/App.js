@@ -23,24 +23,13 @@ component.App = (function(){
                 hideSiteNavigation = currentPage.hideSiteNavigation,
                 siteHeaderConfig = currentPage.siteHeaderConfig || {},
                 isMainMenuOpen = this.props.isMainMenuOpen,
-                isMenuGroupsOpen = this.props.isMenuGroupsOpen,
                 scrollSiteClassName = "scroll-site",
                 siteCoverClassName = "site-cover";
 
             if (isMainMenuOpen) {
                 scrollSiteClassName += " move-right";
-            }
-
-            if (isMenuGroupsOpen) {
-                scrollSiteClassName += " move-left";
-            }
-
-            if (!isMainMenuOpen && !isMenuGroupsOpen) {
+            } else {
                 siteCoverClassName += " hide";
-            }
-
-            if (siteHeaderConfig.actions) {
-
             }
 
             return re("div", {className: "main"},
@@ -60,8 +49,7 @@ component.App = (function(){
 
     function mapStateToProps(state){
         return {
-            isMainMenuOpen: state.general.isMainMenuOpen,
-            isMenuGroupsOpen: state.general.isMenuGroupsOpen
+            isMainMenuOpen: state.general.isMainMenuOpen
         }
     }
 
