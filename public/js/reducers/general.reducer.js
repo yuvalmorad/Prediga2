@@ -1,8 +1,6 @@
 window.reducer = window.reducer || {};
 reducer.general = function() {
-    var SET_LOADING = action.general.SET_LOADING,
-        REMOVE_LOADING = action.general.REMOVE_LOADING,
-        OPEN_TILE_DIALOG = action.general.OPEN_TILE_DIALOG,
+    var OPEN_TILE_DIALOG = action.general.OPEN_TILE_DIALOG,
         CLOSE_TILE_DIALOG = action.general.CLOSE_TILE_DIALOG,
         TOGGLE_MAIN_MENU = action.general.TOGGLE_MAIN_MENU,
         CLOSE_ALL_MENUS = action.general.CLOSE_ALL_MENUS,
@@ -12,7 +10,6 @@ reducer.general = function() {
 
 
     var initialState = {
-        isLoading: false,
         isShowTileDialog: false,
         isMainMenuOpen: false,
         siteHeaderTitle: "",
@@ -29,10 +26,6 @@ reducer.general = function() {
                 return Object.assign({}, state, {isMainMenuOpen: false});
             case TOGGLE_MAIN_MENU:
                 return Object.assign({}, state, {isMainMenuOpen: !state.isMainMenuOpen});
-            case SET_LOADING:
-                return Object.assign({}, state, {isLoading: true});
-            case REMOVE_LOADING:
-                return Object.assign({}, state, {isLoading: false});
             case OPEN_TILE_DIALOG:
                 return Object.assign({}, state, {isShowTileDialog: true, tileDailogComponentName: action.componentName, tileDialogComponentProps: action.componentProps});
             case CLOSE_TILE_DIALOG:

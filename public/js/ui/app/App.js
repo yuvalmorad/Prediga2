@@ -6,7 +6,6 @@ component.App = (function(){
         SiteNavigation = component.SiteNavigation,
         MainMenu = component.MainMenu,
         TileDialogContainer = component.TileDialogContainer,
-        Loading = component.Loading,
         Pages = component.Pages;
 
     var App = React.createClass({
@@ -54,8 +53,7 @@ component.App = (function(){
                     re(MainMenu, {}),
                     re("div", {className: siteCoverClassName, onClick: this.props.closeAllMenus})
                 ),
-                re(TileDialogContainer, {}),
-                re(Loading, {})
+                re(TileDialogContainer, {})
             )
         }
     });

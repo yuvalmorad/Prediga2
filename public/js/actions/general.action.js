@@ -1,9 +1,6 @@
 window.action = window.action || {};
 action.general = (function(){
     var general = {
-        SET_LOADING: "SET_LOADING",
-        REMOVE_LOADING: "REMOVE_LOADING",
-
         OPEN_TILE_DIALOG: "OPEN_TILE_DIALOG",
         CLOSE_TILE_DIALOG: "CLOSE_TILE_DIALOG",
 
@@ -44,18 +41,6 @@ action.general = (function(){
         toggleMainMenu: function() {
             return {
                 type: general.TOGGLE_MAIN_MENU
-            }
-        },
-
-        setLoading: function() {
-            return {
-                type: general.SET_LOADING
-            }
-        },
-
-        removeLoading: function() {
-            return {
-                type: general.REMOVE_LOADING
             }
         },
 
