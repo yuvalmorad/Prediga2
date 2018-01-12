@@ -1181,7 +1181,31 @@ body {
     background-color: #7ED321;
     right: -7px;
     top: -1px;
+    -webkit-animation: flickerAnim 1.2s infinite;
+    -moz-animation:    flickerAnim 1.2s infinite;
+    -o-animation:      flickerAnim 1.2s infinite;
+    animation:         flickerAnim 1.2s infinite;
+    animation-timing-function: ease-in-out;
+    animation-direction: alternate;
 }
+
+@-webkit-keyframes flickerAnim {
+    0%   { opacity: 0; }
+    100% { opacity: 1; }
+}
+@-moz-keyframes flickerAnim {
+    0%   { opacity: 0; }
+    100% { opacity: 1; }
+}
+@-o-keyframes flickerAnim {
+    0%   { opacity: 0; }
+    100% { opacity: 1; }
+}
+@keyframes flickerAnim {
+    0%   { opacity: 0; }
+    100% { opacity: 1; }
+}
+
 
 .game-prediction-tile .final-game {
     font-weight: bold;
