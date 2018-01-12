@@ -22,15 +22,21 @@ component.SiteHeader = (function(){
                     isDynamicTitle = siteHeaderConfig.isDynamicTitle,
                     hideGroupsIcon = siteHeaderConfig.hideGroupsIcon,
                     actions = siteHeaderConfig.actions || [],
-                    siteHeaderTitle = props.siteHeaderTitle;
+                    siteHeaderTitle = props.siteHeaderTitle,
+                    displayBackButton = hasBackButton;
 
                 var actionsElems = actions.map(function(action) {
                     return re("div", {className: "action-icon", onClick: that.onActionClicked.bind(that, action)}, action.icon);
                 });
 
+                if (!window.lastHistoryPath) {
+                    //no prev
+                    displayBackButton = false;
+                }
+
                 return re("div", { className: "site-header" + (hide ? " hide" : "") },
                     re("div", {className: "left"},
-                        re("a", {className: "back-button" + (hasBackButton ? "" : " hide"), onClick: this.onBackButtonClicked}, ""),
+                        re("a", {className: "back-button" + (displayBackButton ? "" : " hide"), onClick: this.onBackButtonClicked}, ""),
                         re("a", {className: "menu-button" + (this.props.isMainMenuOpen ? " selected" : "") + (hideMenuButton ? " hide" : ""), onClick: props.toggleMainMenu}, "")
                     ),
                     re("div", {className: "center"}, isDynamicTitle ? siteHeaderTitle: title),

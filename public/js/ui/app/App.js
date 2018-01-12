@@ -9,6 +9,11 @@ component.App = (function(){
         Pages = component.Pages;
 
     var App = React.createClass({
+
+        componentWillReceiveProps: function() {
+            window.lastHistoryPath = routerHistory.location.pathname;
+        },
+
         componentDidMount: function() {
             this.props.loadGroupConfiguration();
             this.props.loadUsers();

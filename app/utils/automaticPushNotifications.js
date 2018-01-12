@@ -27,7 +27,7 @@ function scheduleJobBeforeGameKickoffTime() {
 							if (!matchPrediction) {
 								//user didn't fill a match prediction -> push notification for reminder
 								console.log("sending push notification about not filling prediction for user: ", this.userId);
-								pushNotificationUtil.pushWithSubscription(this, "Please fill your prediction, the game is about to start!!!");
+								pushNotificationUtil.pushWithSubscription(this, {text: "Please fill your prediction, the game is about to start!!!"});
 							} else {
 								console.log('user:' + user + ' has fill match prediction');
 							}

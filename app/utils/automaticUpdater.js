@@ -214,7 +214,7 @@ const self = module.exports = {
 						if (relevantGame.Active === true && !currentMatchResult) {
 							// this is the first update of match result.
 							console.log("sending push notification about game starts!");
-							pushNotificationUtil.pushToAllRegisterdUsers(relevantGame.Comps[1].Name + ' - ' + relevantGame.Comps[0].Name + ' started');
+							pushNotificationUtil.pushToAllRegisterdUsers({text: relevantGame.Comps[1].Name + ' - ' + relevantGame.Comps[0].Name + ' started', url: "/simulator/" + aMatch._id});
 						}
 
 						return Promise.all([

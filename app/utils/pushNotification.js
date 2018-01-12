@@ -13,13 +13,14 @@ webpush.setVapidDetails(
 	vapidKeys.privateKey
 );
 
-function pushAllSubscriptionsToSpecificUser(user, text) {
+function pushAllSubscriptionsToSpecificUser(user, pushObj) {
+    pushObj.url = pushObj.url || "/";
 	if (user) {
 		console.log("before sending push notifications for all devices of user: ", user.userId);
 		const pushSubscriptions = user.pushSubscriptions;
 		(pushSubscriptions || []).forEach(function (pushSubscription) {
-            console.log("sending push notification with text: ", text);
-			webpush.sendNotification(pushSubscription, text).catch(function (err) {
+            console.log("sending push notification with text: ", pushObj);
+			webpush.sendNotification(pushSubscription, JSON.stringify(pushObj)).catch(function (err) {
 				console.log("error sending push notification", err);
 			});
 		});
@@ -27,22 +28,22 @@ function pushAllSubscriptionsToSpecificUser(user, text) {
 }
 
 const self = module.exports = {
-	pushToAllRegisterdUsers: function (text) {
+	pushToAllRegisterdUsers: function (pushObj) {
 		pushSubscription.find({}).then(function (users) {
 			(users || []).forEach(function (user) {
-				pushAllSubscriptionsToSpecificUser(user, text);
+				pushAllSubscriptionsToSpecificUser(user, pushObj);
 			});
 		});
 	},
 
-	pushToSpecificUser: function (userId, text) {
+	pushToSpecificUser: function (userId, pushObj) {
 		pushSubscription.findOne({userId: userId}).then(function (user) {
-			pushAllSubscriptionsToSpecificUser(user, text);
+			pushAllSubscriptionsToSpecificUser(user, pushObj);
 		});
 	},
 
-	pushWithSubscription: function (user, text) {
-		pushAllSubscriptionsToSpecificUser(user, text);
+	pushWithSubscription: function (user, pushObj) {
+		pushAllSubscriptionsToSpecificUser(user, pushObj);
 	}
 };
 

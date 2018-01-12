@@ -20,7 +20,7 @@ module.exports = function (app, passport) {
 	//TODO remove once we are sure push notification work correct
 	app.post('/api/pushTest', util.isAdmin, function (req, res) {
 		console.log("pushTest!");
-		pushNotificationUtil.pushToAllRegisterdUsers("push notification TEST from server!");
+		pushNotificationUtil.pushToAllRegisterdUsers({text: "push notification TEST from server!"});
 		res.status(200).json({});
 	});
 
