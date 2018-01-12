@@ -103,18 +103,18 @@ component.CreateNewGroupPage = (function(){
                 icon: state.selectedIcon,
                 iconColor: state.selectedIconColor,
                 leagueIds: state.selectedLeagueIds,
+                secret: "",
                 configuration: {
                     winner: state.winPoints,
                     team1Goals: state.winPoints,
                     team2Goals: state.winPoints,
                     firstToScore: state.firstToScorePoints,
-                    goalDiff: state.diffGoalsPoints,
-                    secret: ""
+                    goalDiff: state.diffGoalsPoints
                 }
             };
 
             for (var i = 0; i < SECRET_LENGTH; i++) {
-                saveObj.configuration.secret += state["secret" + i];
+                saveObj.secret += state["secret" + i];
             }
 
             console.log("save: ", saveObj);
