@@ -16,10 +16,10 @@ component.CreateNewGroupPage = (function(){
                 selectedIcon: "",
                 selectedIconColor: "",
                 groupName: "sample name",
-                winPoints: "4",
-                goalsPoints: "2",
-                firstToScorePoints: "2",
-                diffGoalsPoints: "2",
+                winPoints: 4,
+                goalsPoints: 2,
+                firstToScorePoints: 2,
+                diffGoalsPoints: 2,
                 selectedLeagueIds: ["id1"]
             };
 
@@ -43,7 +43,7 @@ component.CreateNewGroupPage = (function(){
                 return;
             }
             var newState = {};
-            newState[name] = value;
+            newState[name] = parseInt(value);
             this.setState(newState);
         },
 
@@ -99,14 +99,16 @@ component.CreateNewGroupPage = (function(){
             var state = this.state;
 
             var saveObj = {
-                groupName: state.groupName,
+                name: state.groupName,
                 icon: state.selectedIcon,
                 iconColor: state.selectedIconColor,
+                leagueIds: state.selectedLeagueIds,
                 configuration: {
-                    winPoints: state.winPoints,
-                    firstToScorePoints: state.firstToScorePoints,
-                    diffGoalsPoints: state.diffGoalsPoints,
-                    leagueIds: state.selectedLeagueIds,
+                    winner: state.winPoints,
+                    team1Goals: state.winPoints,
+                    team2Goals: state.winPoints,
+                    firstToScore: state.firstToScorePoints,
+                    goalDiff: state.diffGoalsPoints,
                     secret: ""
                 }
             };
