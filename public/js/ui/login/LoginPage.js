@@ -1,12 +1,12 @@
 window.component = window.component || {};
 component.LoginPage = (function(){
     return React.createClass({
-        onLoginClicked: function(event) {
+        /*onLoginClicked: function(event) {
             //workaround for ios - keep the home app after login and don't open safari
             var target = event.target;
             window.location = target.getAttribute("href");
             event.preventDefault();
-        },
+        },*/
 
         render: function LoginPage(props) {
            return re("div", { className: "login-page" },
@@ -16,7 +16,7 @@ component.LoginPage = (function(){
                        re("a", {className: "facebook-login", href: "/auth/facebook"}, "Login with Facebook")
                    ),*/
                    re("div", {className: "login-button-wrapper"},
-                       re("a", {className: "google-login", href: "/auth/google", traget: "_self", onClick: this.onLoginClicked}, "Login with Google")
+                       re("a", {className: "google-login", href: "/auth/google", traget: "_self"/*, onClick: this.onLoginClicked*/}, "Login with Google")
                    )
                )
            );
