@@ -6,7 +6,7 @@ const util = require('../utils/util');
 
 const self = module.exports = {
 	updateTeams: function (teams) {
-		if (!teams){
+		if (!teams) {
 			return;
 		}
 
@@ -46,5 +46,15 @@ const self = module.exports = {
 			});
 		});
 		return Promise.all(promises);
+	},
+	getNextTeamDate: function () {
+		const now = new Date();
+		const before = new Date();
+		before.setMinutes(now.getMinutes() - 105);
+		return Promise.all([
+			Team.findOne({deadline: {$gte: before}}).sort({'deadline': 1}).limit(1)
+		]).then(function (arr) {
+			return arr[0]
+		});
 	}
 };

@@ -141,11 +141,11 @@ const self = module.exports = {
 			return Promise.all([
 				MatchPrediction.find({matchId: {$in: matchIds}})
 			]).then(function (arr2) {
-				return self.aggegrateFuturePredictions(arr2[0]);
+				return self.aggregateFuturePredictions(arr2[0]);
 			});
 		});
 	},
-	aggegrateFuturePredictions: function (matchPredictions) {
+	aggregateFuturePredictions: function (matchPredictions) {
 		const deferred = Q.defer();
 		const result = {};
 		if (matchPredictions && matchPredictions.length > 0) {

@@ -21,8 +21,8 @@ const self = module.exports = {
 			Club.findOne({name365: relevantGame.Comps[1].Name}), // away
 		]).then(function (arr) {
 			return {
-				team1: arr[0]._id,
-				team2: arr[1]._id,
+				team1: arr[0],
+				team2: arr[1],
 			}
 		});
 	},
