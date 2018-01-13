@@ -126,7 +126,6 @@ component.CreateNewGroupPage = (function(){
             var state = this.state;
             var selectedLeagueIds = state.selectedLeagueIds;
             var leagues = props.leagues;
-            var isFormValid = true;
             var selectedIcon = state.selectedIcon;
             var selectedIconColor = state.selectedIconColor;
             var mainElement;
@@ -134,6 +133,14 @@ component.CreateNewGroupPage = (function(){
             if (this.state.displaySelectGroupIconPage) {
                 mainElement = re(SelectGroupIcon, {selectedIcon: selectedIcon, selectedIconColor: selectedIconColor, onSave: this.onSelectGroupIconSave, onCancel: this.onSelectGroupIconCancel});
             } else {
+                var isFormValid = true;
+                var groupNameClassName = "group-name";
+                var groupIconClassName = "group-icon";
+                var selectLeaguesClassName = "sub-title";
+                var winInputClassName = "";
+                var goalsInputClassName = "";
+                var firstToScoreInputClassName = "";
+                var diffGoalsInputClassName = "";
 
                 var leaguesElems = leagues.map(function(league){
                     return re("div", {className: selectedLeagueIds.indexOf(league._id) >= 0 ? "selected" : "", onClick: that.onLeagueClicked.bind(that, league._id)}, league.name);
@@ -147,13 +154,48 @@ component.CreateNewGroupPage = (function(){
                     secretProps["secret" + i] = state["secret" + i];
                 }
 
+                if (!state.groupName) {
+                    isFormValid = false;
+                    groupNameClassName += " invalid";
+                }
+
+                if (!selectedIcon) {
+                    isFormValid = false;
+                    groupIconClassName += " invalid";
+                }
+
+                if (!selectedLeagueIds.length) {
+                    isFormValid = false;
+                    selectLeaguesClassName += " invalid";
+                }
+
+                if (!state.winPoints) {
+                    isFormValid = false;
+                    winInputClassName += "invalid";
+                }
+
+                if (!state.goalsPoints) {
+                    isFormValid = false;
+                    goalsInputClassName += "invalid";
+                }
+
+                if (!state.firstToScorePoints) {
+                    isFormValid = false;
+                    firstToScoreInputClassName += "invalid";
+                }
+
+                if (!state.diffGoalsPoints) {
+                    isFormValid = false;
+                    diffGoalsInputClassName += "invalid";
+                }
+
                 mainElement = re("div", { className: "scroll-container" },
                     re("div", {className: "title"}, "Group Details"),
                     re("div", {className: "sub-title-container"},
                         re("div", {className: "sub-title"}, "Group Name:"),
                         re("div", {className: "small-text"}, "Max 64 Characters")
                     ),
-                    re("input", {type: "text", className: "group-name", value: state.groupName, onChange: this.onGroupChange}),
+                    re("input", {type: "text", className: groupNameClassName, value: state.groupName, onChange: this.onGroupChange}),
                     re("div", {className: "sub-title-container"},
                         re("div", {className: "sub-title"}, "Group Secret:"),
                         re("div", {className: "small-text"}, "Only Numbers")
@@ -163,12 +205,12 @@ component.CreateNewGroupPage = (function(){
                         re("div", {className: "sub-title"}, "Group Icon:")
                     ),
                     re("div", {className: "select-icon-row"},
-                        re("div", {className: "group-icon", style: {color: selectedIconColor}}, selectedIcon),
+                        re("div", {className: groupIconClassName, style: {color: selectedIconColor}}, selectedIcon),
                         re("button", {onClick: this.openSelectIconPage}, "Select Icon")
                     ),
                     re("div", {className: "title"}, "Group Leagues"),
                     re("div", {className: "sub-title-container"},
-                        re("div", {className: "sub-title"}, "Select Leagues:"),
+                        re("div", {className: selectLeaguesClassName}, "Select Leagues:"),
                         re("div", {className: "select-all-container"},
                             re("label", {className: "small-text", htmlFor: "selectAllCheckbox"}, "Select All"),
                             re("input", {type: "checkbox", id: "selectAllCheckbox", onChange: this.selectAllLeaguesChanged})
@@ -182,19 +224,19 @@ component.CreateNewGroupPage = (function(){
                         re("div", {className: "sub-title"}, "Select Points:")
                     ),
                     re("div", {className: "row-scoring"},
-                        re("input", {type: "number", pattern: "\\d*", value: state.winPoints, name: "winPoints", onChange: this.onNumberChange}),
+                        re("input", {type: "number", pattern: "\\d*", className: winInputClassName, value: state.winPoints, name: "winPoints", onChange: this.onNumberChange}),
                         re("div", {}, "Win, Draw, Lost")
                     ),
                     re("div", {className: "row-scoring"},
-                        re("input", {type: "number", pattern: "\\d*", value: state.goalsPoints, name: "goalsPoints", onChange: this.onNumberChange}),
+                        re("input", {type: "number", pattern: "\\d*", className: goalsInputClassName, value: state.goalsPoints, name: "goalsPoints", onChange: this.onNumberChange}),
                         re("div", {}, "Goals")
                     ),
                     re("div", {className: "row-scoring"},
-                        re("input", {type: "number", pattern: "\\d*", value: state.firstToScorePoints, name: "firstToScorePoints", onChange: this.onNumberChange}),
+                        re("input", {type: "number", pattern: "\\d*", className: firstToScoreInputClassName, value: state.firstToScorePoints, name: "firstToScorePoints", onChange: this.onNumberChange}),
                         re("div", {}, "First to Score")
                     ),
                     re("div", {className: "row-scoring"},
-                        re("input", {type: "number", pattern: "\\d*", value: state.diffGoalsPoints, name: "diffGoalsPoints", onChange: this.onNumberChange}),
+                        re("input", {type: "number", pattern: "\\d*", className: diffGoalsInputClassName, value: state.diffGoalsPoints, name: "diffGoalsPoints", onChange: this.onNumberChange}),
                         re("div", {}, "Diff Goals")
                     ),
                     re("div", {className: "row-buttons"},
