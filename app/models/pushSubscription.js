@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const pushSubscriptionSchema = mongoose.Schema({
 	userId: String,
-	pushSubscriptions: Array
+	pushSubscriptions: [String]
 });
 
 pushSubscriptionSchema.options.toJSON = {

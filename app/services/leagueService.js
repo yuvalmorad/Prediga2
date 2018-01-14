@@ -1,6 +1,7 @@
 const League = require('../models/league');
 const utils = require('../utils/util');
 const Match = require('../models/match');
+const Group = require('../models/group');
 
 const self = module.exports = {
 	updateLeague: function (league) {
@@ -26,16 +27,24 @@ const self = module.exports = {
 			}
 		});
 	},
-	getUsersMatchesByLeagues: function () {
+	getMatchesByGroupId: function (groupId, userId) {
 		return Promise.all([
-			// TODO - find user's groups + group's leagues
-			League.find({})
-		]).then(function (arr2) {
-			const leagueIds = arr2[0].map(function (league) {
-				return league._id;
-			});
+			Group.findOne({_id: groupId, users: userId})
+		]).then(function (group) {
+			if (group) {
+				let leagueIds = group[0].leagueIds;
+				return Promise.all([
+					League.find({_id: {$in: leagueIds}})
+				]).then(function (arr2) {
+					const leagueIds = arr2[0].map(function (league) {
+						return league._id;
+					});
 
-			return Match.find({league: {$in: leagueIds}});
+					return Match.find({league: {$in: leagueIds}});
+				});
+			} else {
+				return [];
+			}
 		});
 	}
 };

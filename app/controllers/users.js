@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express.Router();
 const User = require('../models/user');
+const Group = require('../models/group');
 const util = require('../utils/util.js');
 
 app.get('/:userId', util.isLoggedIn, function (req, res) {
@@ -34,14 +35,26 @@ app.delete('/:userId', util.isAdmin, function (req, res) {
 });
 
 app.get('/', util.isLoggedIn, function (req, res) {
-	User.find({}, function (err, obj) {
-		if (err) {
-			res.status(500).json(util.getErrorResponse('error'));
+	const userId = req.user._id;
+	return Promise.all([
+		Group.find({users: userId})
+	]).then(function (groups) {
+		if (groups[0]) {
+			const usersArr = groups[0].map(function (group) {
+				return group.users;
+			});
+			let mergedUsers = [].concat.apply([], usersArr);
+			return User.find({_id: {$in: mergedUsers}}, function (err, relevantUsers) {
+				if (err) {
+					res.status(500).json(util.getErrorResponse('error'));
+				} else {
+					res.status(200).json(relevantUsers);
+				}
+			});
 		} else {
-			res.status(200).json(obj);
+			return [];
 		}
 	});
-
 });
 
 

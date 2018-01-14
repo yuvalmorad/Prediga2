@@ -25,7 +25,7 @@ app.get('/', util.isLoggedIn, function (req, res) {
 });
 
 app.delete('/:teamId', util.isAdmin, function (req, res) {
-	var teamId = req.params.teamId;
+	const teamId = req.params.teamId;
 	if (!teamId) {
 		res.status(500).json(util.getErrorResponse('provide teamId'));
 		return;

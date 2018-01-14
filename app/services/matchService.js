@@ -1,7 +1,5 @@
 const Q = require('q');
 const Match = require('../models/match');
-const MatchResult = require('../models/matchResult');
-const UserScore = require('../models/userScore');
 const util = require('../utils/util');
 
 const self = module.exports = {
@@ -17,42 +15,13 @@ const self = module.exports = {
 		});
 		return Promise.all(promises);
 	},
-
-	/**
-	 * Remove all (matches, match results, user scores).
-	 */
-	removeMatches: function (league) {
-		const deferred = Q.defer();
-		Match.find({league: league}, function (err, leagueMatches) {
-			if (err) return console.log(err);
-			if (!leagueMatches || !Array.isArray(leagueMatches) || leagueMatches.length === 0) {
-				deferred.resolve();
-				return;
-			}
-
-			//console.log('removing ' + leagueMatches.length + ' matches for ' + league);
-			self.removeLeagueMatches(leagueMatches).then(function () {
-				deferred.resolve();
-			});
-		});
-		return deferred.promise;
-	},
-	removeLeagueMatches: function (leagueMatches) {
-		const promises = leagueMatches.map(function (aMatch) {
-			aMatch.remove();
-			return MatchResult.remove({matchId: aMatch._id}, function (err, obj) {
-				return UserScore.remove({gameId: aMatch._id});
-			});
-		});
-		return Promise.all(promises);
-	},
 	findMatchByTeamsToday: function (team1, team2) {
 		const deferred = Q.defer();
 		const today = new Date();
 		const after = new Date();
 		const before = new Date();
-		after.setMinutes(today.getMinutes() + 200);
-		before.setMinutes(today.getMinutes() - 200);
+		after.setHours(today.getHours() + 12);
+		before.setHours(today.getHours() - 12);
 
 		Match.find({
 			kickofftime: {$gte: before, $lte: after},
@@ -83,7 +52,7 @@ const self = module.exports = {
 		const deferred = Q.defer();
 		const now = new Date();
 		const after = new Date();
-		after.setMinutes(after.getMinutes() - 105);
+		after.setMinutes(after.getMinutes() - 150);
 
 		Match.find({
 			kickofftime: {$gte: after, $lte: now}, _id: {$in: matchIds}

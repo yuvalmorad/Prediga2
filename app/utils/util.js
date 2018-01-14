@@ -1,4 +1,5 @@
 module.exports = {
+	DEFAULT_GROUP: '5a3eac97d3ca76dbd12bf638',
 	okResponse: {"status": "OK"},
 	updateSettings: {
 		upsert: true, setDefaultsOnInsert: true, isNew: true, new: true

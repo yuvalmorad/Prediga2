@@ -7,7 +7,7 @@ const teamSchema = mongoose.Schema({
 	title: String,
 	type: String, // `winner`, `runnerUp`
 	league: String,
-	options: Array
+	options: [String]
 });
 
 teamSchema.options.toJSON = {

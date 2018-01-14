@@ -3,7 +3,8 @@ let FacebookStrategy = require('passport-facebook').Strategy;
 let GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 // load up the user model
 let User = require('../app/models/user');
-
+let Group = require('../app/models/group');
+let util = require('../app/utils/util');
 // load the auth variables
 let configAuth = require('./auth'); // use this one for testing
 
@@ -90,10 +91,14 @@ module.exports = function (passport, configFBPassport, configGooglePassport) {
                             newUser.name = profile.name.givenName + ' ' + profile.name.familyName;
                             newUser.email = email;
                             newUser.photo = photo;
-                            newUser.save(function (err) {
+                            newUser.save(function (err, newUser) {
                                 if (err)
                                     return done(err);
-                                return done(null, newUser);
+
+                                // adding the user to the default group
+								Group.findOneAndUpdate({_id: util.DEFAULT_GROUP}, {$addToSet: {users: newUser._id}}).then(function () {
+									return done(null, newUser);
+								});
                             });
                         }
                     });
@@ -185,11 +190,14 @@ module.exports = function (passport, configFBPassport, configGooglePassport) {
                                 return done(err);
                             }
 
-                            newUser.save(function (err) {
+                            newUser.save(function (err, newUser) {
                                 if (err)
                                     return done(err);
 
-                                return done(null, newUser);
+                                // adding the user to the default group
+								Group.findOneAndUpdate({_id: util.DEFAULT_GROUP}, {$addToSet: {users: newUser._id}}).then(function () {
+									return done(null, newUser);
+								});
                             });
                         }
                     });

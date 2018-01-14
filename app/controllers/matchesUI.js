@@ -5,44 +5,72 @@ const matchPredictionService = require('../services/matchPredictionsService');
 const util = require('../utils/util.js');
 const MatchResult = require('../models/matchResult');
 const League = require('../models/league');
+const Group = require('../models/group');
 
 app.get('/', util.isLoggedIn, function (req, res) {
 	const user = req.user;
-	getData(user._id).then(function (matchesCombined) {
+	let groupId = req.query.groupId;
+	if (!groupId) {
+		groupId = util.DEFAULT_GROUP;
+	}
+
+	getData(user._id, groupId).then(function (matchesCombined) {
 		res.status(200).json(matchesCombined);
 	});
 });
 
-function getData(me) {
+function getData(me, groupId) {
 	return Promise.all([
-		// TODO - find user's groups + group's leagues
-		League.find({})
-	]).then(function (arr2) {
-		const leagueIds = arr2[0].map(function (league) {
-			return league._id;
-		});
-
-		return Promise.all([
-			Match.find({league: {$in: leagueIds}})
-		]).then(function (arr1) {
-			const matches = arr1[0];
-			const matchIds = arr1[0].map(function (match) {
-				return match._id;
-			});
-
+		Group.findOne({_id: groupId, users: me})
+	]).then(function (group) {
+		if (group[0]) {
+			let leagueIds = group[0].leagueIds;
 			return Promise.all([
-				matchPredictionService.getPredictionsByUserId(me, true, me, matchIds),
-				MatchResult.find({matchId: {$in: matchIds}}),
-				matchPredictionService.getFutureGamesPredictionsCounters(matchIds),
-			]).then(function (arr) {
-				return {
-					matches: matches,
-					predictions: arr[0],
-					results: arr[1],
-					predictionsCounters: arr[2]
-				}
+				League.find({_id: {$in: leagueIds}})
+			]).then(function (arr2) {
+				const leagueIds = arr2[0].map(function (league) {
+					return league._id;
+				});
+
+				return Promise.all([
+					Match.find({league: {$in: leagueIds}})
+				]).then(function (arr1) {
+					const matches = arr1[0];
+					const matchIds = matches.map(function (match) {
+						return match._id;
+					});
+
+					const predictionRequest = {
+						userId: me,
+						isForMe: true,
+						me: me,
+						groupId: groupId,
+						matchIds: matchIds
+					};
+
+					return Promise.all([
+						matchPredictionService.getPredictionsByUserId(predictionRequest),
+						matchPredictionService.getFutureGamesPredictionsCounters(groupId, matchIds),
+						MatchResult.find({matchId: {$in: matchIds}}),
+					]).then(function (arr) {
+						return {
+							matches: matches,
+							predictions: arr[0],
+							predictionsCounters: arr[1],
+							results: arr[2]
+						}
+					});
+				});
 			});
-		});
+		} else {
+			return {
+				matches: [],
+				predictions: [],
+				predictionsCounters: [],
+				results: []
+			}
+		}
+
 	});
 }
 

@@ -32,7 +32,7 @@ app.get('/', util.isLoggedIn, function (req, res) {
 });
 
 app.delete('/:matchId', util.isAdmin, function (req, res) {
-	var matchId = req.params.matchId;
+	const matchId = req.params.matchId;
 	if (!matchId) {
 		res.status(403).json(util.getErrorResponse('provide matchId'));
 		return;

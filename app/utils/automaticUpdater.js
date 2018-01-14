@@ -22,9 +22,10 @@ const self = module.exports = {
 		]).then(function (arr) {
 			const aMatch = arr[0];
 			if (!aMatch) {
-				console.log('No more matches in the future! going to sleep');
-				// TODO - schedule job to check again every day
-				return {};
+				console.log('No more matches in the future! going to sleep for one day.');
+				schedule.scheduleJob(self.getNextDayDate(), function () {
+					self.run();
+				});
 			}
 			else {
 				console.log('Next job will start at ' + aMatch.kickofftime);
@@ -93,23 +94,29 @@ const self = module.exports = {
 				return false;
 			} else {
 				console.log('Start to parse response...');
-				const soccerContent = self.parseResponse(htmlRawData);
-				console.log('Start to sync all relevant games...');
-				return Promise.all([
-					self.getRelevantGames(soccerContent, activeLeagues)
-				]).then(function (arr2) {
-					const relevantGames = arr2[0];
-					if (relevantGames.length > 0) {
-						console.log('Found ' + relevantGames.length + ' relevant games to update.');
-						if (isTestingMode) {
-							socketIo.emit("relevantGames", relevantGames);
+				let soccerContent = '';
+				try {
+					soccerContent = self.parseResponse(htmlRawData);
+					console.log('Start to sync all relevant games...');
+					return Promise.all([
+						self.getRelevantGames(soccerContent, activeLeagues)
+					]).then(function (arr2) {
+						const relevantGames = arr2[0];
+						if (relevantGames.length > 0) {
+							console.log('Found ' + relevantGames.length + ' relevant games to update.');
+							if (isTestingMode) {
+								socketIo.emit("relevantGames", relevantGames);
+							}
+							return self.updateMatchResults(relevantGames);
+						} else {
+							console.log('There are no relevant games.');
+							return false;
 						}
-						return self.updateMatchResults(relevantGames);
-					} else {
-						console.log('There are no relevant games.');
-						return false;
-					}
-				});
+					});
+				} catch (err) {
+					console.log('Error with parsing result. ' + err);
+					return false;
+				}
 			}
 		});
 	},
@@ -193,6 +200,10 @@ const self = module.exports = {
 		]).then(function (arr) {
 			let team1Club = arr[0].team1;
 			let team2Club = arr[0].team2;
+			if (!team1Club || team1Club === null || !team2Club || team2Club === null) {
+				console.log('Error to find clubs by 365 name');
+				return false;
+			}
 			const team1 = team1Club._id;
 			const team2 = team2Club._id;
 
@@ -216,7 +227,10 @@ const self = module.exports = {
 						if (relevantGame.Active === true && !currentMatchResult) {
 							// this is the first update of match result.
 							console.log("sending push notification about game starts!");
-							pushNotificationUtil.pushToAllRegisterdUsers({text: team1Club.name + ' vs ' + team2Club.name + ' started now', url: "/simulator/" + aMatch._id});
+							pushNotificationUtil.pushToAllRegisterdUsers({
+								text: team1Club.name + ' vs ' + team2Club.name + ' started now',
+								url: "/simulator/" + aMatch._id
+							});
 						}
 
 						return Promise.all([
@@ -229,6 +243,7 @@ const self = module.exports = {
 								"matchResult": newMatchResult,
 								"rawGame": relevantGame
 							};
+							// TODO - verify it is relevant for the user, he is in a group with this game
 							socketIo.emit("matchResultUpdate", matchResultUpdate);
 
 							return Promise.all([
@@ -244,9 +259,10 @@ const self = module.exports = {
 										schedule.scheduleJob(self.getNextJobDate(), function () {
 											userLeaderboardService.updateLeaderboardByGameIds(leagueId, [newMatchResult.matchId]).then(function () {
 												//send socket with all leader boards
-												userLeaderboardService.getLeaderboardWithNewRegisteredUsers().then(function (leaderboards) {
+												// How to know to emit the right leaderboard to the right user?
+												/*userLeaderboardService.getLeaderboardWithNewRegisteredUsers(leagueId).then(function (leaderboards) {
 													socketIo.emit("leaderboardUpdate", leaderboards);
-												});
+												});*/
 											});
 										});
 									});
@@ -263,7 +279,6 @@ const self = module.exports = {
 			});
 		});
 	},
-	// TODO - refactor this method to more beautify method and not to calculate again all events
 	calculateNewMatchResult: function (team1, team2, relevantGame, matchId) {
 		const deferred = Q.defer();
 		const newMatchResult = {
@@ -316,5 +331,12 @@ const self = module.exports = {
 		const now = new Date();
 		nextJob.setSeconds(now.getSeconds() + 30);
 		return nextJob;
+	},
+	getNextDayDate: function () {
+		const nextJob = new Date();
+		const now = new Date();
+		nextJob.setHours(now.getHours() + 24);
+		return nextJob;
 	}
+
 };

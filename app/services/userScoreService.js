@@ -3,6 +3,7 @@ const UserScore = require('../models/userScore');
 const MatchPrediction = require('../models/matchPrediction');
 const TeamPrediction = require('../models/teamPrediction');
 const GroupConfiguration = require('../models/groupConfiguration');
+const Group = require('../models/group');
 const util = require('../utils/util');
 
 const self = module.exports = {
@@ -23,32 +24,58 @@ const self = module.exports = {
 		return Promise.all(promises);
 	},
 	updateUserScoreByMatchResult: function (matchResult, leagueId) {
-		const deferred = Q.defer();
-		MatchPrediction.find({matchId: matchResult.matchId}, function (err, anUserMatchPredictions) {
-			if (anUserMatchPredictions && anUserMatchPredictions.length > 0){
-				// TODO - get all group Ids and with them the group's configurations
-				GroupConfiguration.find({}).then(function (groupConfigurations) {
-					self.updateUserScoreByMatchResultAndUserPredictions(matchResult, groupConfigurations, anUserMatchPredictions, leagueId).then(function () {
-						deferred.resolve({});
+		return Promise.all([
+			MatchPrediction.find({matchId: matchResult.matchId})
+		]).then(function (arr) {
+			if (arr[0]) {
+				let matchPredictions = arr[0];
+				const groupIds = matchPredictions.map(function (matchPrediction) {
+					return matchPrediction.groupId;
+				});
+				return Promise.all([
+					Group.find({_id: {$in: groupIds}})
+				]).then(function (arr1) {
+					let groups = arr1[0];
+					const groupConfigurationIds = groups.map(function (group) {
+						return group.configurationId;
+					});
+					return Promise.all([
+						GroupConfiguration.find({_id: {$in: groupConfigurationIds}})
+					]).then(function (arr2) {
+						let groupConfigurations = arr2[0];
+						return self.updateUserScoreByMatchResultAndUserPredictions(matchResult, matchPredictions, groups, groupConfigurations, leagueId);
 					});
 				});
 			} else {
-				deferred.resolve({});
+				return {};
+			}
+		});
+	},
+	updateUserScoreByMatchResultAndUserPredictions: function (matchResult, matchPredictions, groups, groupConfigurations, leagueId) {
+		//console.log('found ' + anUserMatchPredictions.length + ' user MatchPredictions');
+		const promises = matchPredictions.map(function (userPrediction) {
+			let groupRelevant = groups.filter(function (group) {
+				return group._id === userPrediction.groupId;
+			});
+			if (!groupRelevant || groupRelevant.length < 1) {
+				return;
 			}
 
-		});
-		return deferred.promise;
-	},
-	updateUserScoreByMatchResultAndUserPredictions: function (matchResult, groupConfigurations, anUserMatchPredictions, leagueId) {
-		//console.log('found ' + anUserMatchPredictions.length + ' user MatchPredictions');
-		const promises = anUserMatchPredictions.map(function (userPrediction) {
+			let groupConfigurationsRelevant = groupConfigurations.filter(function (groupConfiguration) {
+				return groupConfiguration._id === groupRelevant[0].configurationId;
+			});
+
+			if (!groupConfigurationsRelevant || groupConfigurationsRelevant.length < 1) {
+				return;
+			}
 
 			// calculate score for user
-			const score = self.calculateUserPredictionScore(userPrediction, matchResult, groupConfigurations[0]);
-			const isStrikeCount = self.isScoreIsStrike(score, groupConfigurations[0]);
+			const score = self.calculateUserPredictionScore(userPrediction, matchResult, groupConfigurationsRelevant[0]);
+			const isStrikeCount = self.isScoreIsStrike(score, groupConfigurationsRelevant[0]);
 
 			// score to update
 			const userScore = {
+				groupId: userPrediction.groupId,
 				leagueId: leagueId,
 				userId: userPrediction.userId,
 				gameId: userPrediction.matchId,
@@ -78,28 +105,56 @@ const self = module.exports = {
 		return Promise.all(promises);
 	},
 	updateUserScoreByTeamResult: function (teamResult, leagueId) {
-		const deferred = Q.defer();
-		TeamPrediction.find({teamId: teamResult.teamId}, function (err, anUserTeamPredictions) {
-			if (anUserTeamPredictions && anUserTeamPredictions.length > 0) {
-				// TODO - get all group Ids and with them the group's configurations
-				GroupConfiguration.find({}).then(function (groupConfigurations) {
-					self.updateUserScoreByTeamResultAndUserPredictions(teamResult, groupConfigurations, anUserTeamPredictions, leagueId).then(function () {
-						deferred.resolve({});
+		return Promise.all([
+			TeamPrediction.find({teamId: teamResult.teamId})
+		]).then(function (arr) {
+			if (arr[0]) {
+				let teamPredictions = arr[0];
+				const groupIds = teamPredictions.map(function (teamPrediction) {
+					return teamPrediction.groupId;
+				});
+				return Promise.all([
+					Group.find({_id: {$in: groupIds}})
+				]).then(function (arr1) {
+					let groups = arr1[0];
+					const groupConfigurationIds = groups.map(function (group) {
+						return group.configurationId;
+					});
+					return Promise.all([
+						GroupConfiguration.find({_id: {$in: groupConfigurationIds}})
+					]).then(function (arr2) {
+						let groupConfigurations = arr2[0];
+						return self.updateUserScoreByTeamResultAndUserPredictions(teamResult, teamPredictions, groups, groupConfigurations, leagueId);
 					});
 				});
 			} else {
-				deferred.resolve({});
+				return {};
 			}
 		});
-		return deferred.promise;
 	},
-	updateUserScoreByTeamResultAndUserPredictions: function (teamResult, groupConfigurations, anUserTeamPredictions, leagueId) {
+	updateUserScoreByTeamResultAndUserPredictions: function (teamResult, teamPredictions, groups, groupConfigurations, leagueId) {
 		//console.log('found ' + anUserTeamPredictions.length + ' user MatchPredictions');
-		const promises = anUserTeamPredictions.map(function (userPrediction) {
+		const promises = teamPredictions.map(function (userPrediction) {
+			let groupRelevant = groups.filter(function (group) {
+				return group._id === userPrediction.groupId;
+			});
+			if (!groupRelevant || groupRelevant.length < 1) {
+				return;
+			}
+
+			let groupConfigurationsRelevant = groupConfigurations.filter(function (groupConfiguration) {
+				return groupConfiguration._id === groupRelevant[0].configurationId;
+			});
+
+			if (!groupConfigurationsRelevant || groupConfigurationsRelevant.length < 1) {
+				return;
+			}
+
 			let score = 0;
-			const configScore = self.convertTeamTypeToConfigScore(teamResult.type, groupConfigurations[0]);
+			const configScore = self.convertTeamTypeToConfigScore(teamResult.type, groupConfigurationsRelevant[0]);
 			score += util.calculateResult(userPrediction.team, teamResult.team, configScore);
 			return self.updateScore({
+				groupId: userPrediction.groupId,
 				leagueId: leagueId,
 				userId: userPrediction.userId,
 				gameId: userPrediction.teamId,
@@ -145,6 +200,7 @@ const self = module.exports = {
 		//console.log('beginning to update score:' + userScore.gameId);
 		const deferred = Q.defer();
 		UserScore.findOneAndUpdate({
+				groupId: userScore.groupId,
 				userId: userScore.userId,
 				gameId: userScore.gameId,
 				leagueId: userScore.leagueId

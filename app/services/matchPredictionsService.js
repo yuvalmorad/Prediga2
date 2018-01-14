@@ -2,14 +2,10 @@ const Q = require('q');
 const Match = require('../models/match');
 const MatchPrediction = require('../models/matchPrediction');
 const utils = require('../utils/util');
+const socketIo = require('../socketIo');
 
 const self = module.exports = {
-	/**
-	 * NOT SECURE API, USED BY /SIMULATOR AND MATCHES ARE FILTERED BEFORE CALLING TO THIS METHOD
-	 * @param matches
-	 * @returns {*|PromiseLike<any>|Promise}
-	 */
-	findPredictionsByMatchIds: function (matches) {
+	findPredictionsByMatchIds: function (groupId, matches) {
 		const deferred = Q.defer();
 		if (matches && matches.length < 1) {
 			deferred.resolve([]);
@@ -17,12 +13,12 @@ const self = module.exports = {
 		const matchIds = matches.map(function (match) {
 			return match._id;
 		});
-		MatchPrediction.find({matchId: {$in: matchIds}}).then(function (predictions) {
+		MatchPrediction.find({matchId: {$in: matchIds}, groupId: groupId}).then(function (predictions) {
 			deferred.resolve(predictions);
 		});
 		return deferred.promise;
 	},
-	createMatchPredictions(matchPredictions, userId, minBefore) {
+	createMatchPredictions(groupId, matchPredictions, userId, minBefore) {
 		const now = new Date();
 		const deadline = new Date();
 		deadline.setMinutes(now.getMinutes() + minBefore);
@@ -45,8 +41,13 @@ const self = module.exports = {
 					}
 
 					matchPrediction.userId = userId;
+					matchPrediction.groupId = groupId;
+					// TODO - verify the user is relevant for this game
+					socketIo.emit("matchPredictionUpdate", matchPrediction);
+
 					return MatchPrediction.findOneAndUpdate({
 						matchId: matchPrediction.matchId,
+						groupId: groupId,
 						userId: userId
 					}, matchPrediction, utils.updateSettings);
 				} else {
@@ -57,28 +58,32 @@ const self = module.exports = {
 
 		return Promise.all(promises);
 	},
-	getPredictionsForOtherUsersInner: function (matches, userId, me) {
+	getPredictionsForOtherUsersInner: function (matches, userId, me, groupId) {
 		const promises = matches.map(function (aMatch) {
 			if (userId) {
-				return MatchPrediction.find({matchId: aMatch._id, userId: userId});
+				return MatchPrediction.find({matchId: aMatch._id, userId: userId, groupId: groupId});
 			} else {
-				return MatchPrediction.find({matchId: aMatch._id, userId: {$ne: me}});
+				return MatchPrediction.find({matchId: aMatch._id, userId: {$ne: me}, groupId: groupId});
 			}
 		});
 		return Promise.all(promises);
 	},
-	getPredictionsForOtherUsers: function (userId, me, matchIds) {
+	getPredictionsForOtherUsers: function (predictionRequest) {
 		const now = new Date();
 		return Promise.all([
-			typeof(matchIds) === 'undefined' ?
+			typeof(predictionRequest.matchIds) === 'undefined' ?
 				Match.find({kickofftime: {$lt: now}}) :
-				Match.find({kickofftime: {$lt: now}, _id: {$in: matchIds}})
+				Match.find({kickofftime: {$lt: now}, _id: {$in: predictionRequest.matchIds}})
 		]).then(function (arr) {
 			return Promise.all([
-				self.getPredictionsForOtherUsersInner(arr[0], userId, me),
-				typeof(matchIds) === 'undefined' ?
-					MatchPrediction.find({userId: me}) :
-					MatchPrediction.find({matchId: {$in: matchIds}, userId: me})
+				self.getPredictionsForOtherUsersInner(arr[0], predictionRequest.userId, predictionRequest.me, predictionRequest.groupId),
+				typeof(predictionRequest.matchIds) === 'undefined' ?
+					MatchPrediction.find({userId: predictionRequest.me, groupId: predictionRequest.groupId}) :
+					MatchPrediction.find({
+						matchId: {$in: predictionRequest.matchIds},
+						userId: predictionRequest.me,
+						groupId: predictionRequest.groupId
+					})
 			]).then(function (arr2) {
 				let mergedPredictions = [];
 				// merging between others & My predictions
@@ -92,44 +97,51 @@ const self = module.exports = {
 			});
 		});
 	},
-	getPredictionsByUserId: function (userId, isForMe, me, matchIds) {
+	getPredictionsByUserId: function (predictionRequest) {
 		const deferred = Q.defer();
 
-		if (isForMe) {
-			if (typeof(matchIds) !== 'undefined') {
-				MatchPrediction.find({userId: userId, matchId: {$in: matchIds}}, function (err, aMatchPredictions) {
+		if (predictionRequest.isForMe) {
+			if (typeof(predictionRequest.matchIds) !== 'undefined') {
+				MatchPrediction.find({
+					userId: predictionRequest.userId,
+					groupId: predictionRequest.groupId,
+					matchId: {$in: predictionRequest.matchIds}
+				}, function (err, aMatchPredictions) {
 					deferred.resolve(aMatchPredictions);
 				});
 			} else {
-				MatchPrediction.find({userId: userId}, function (err, aMatchPredictions) {
+				MatchPrediction.find({
+					userId: predictionRequest.userId,
+					groupId: predictionRequest.groupId
+				}, function (err, aMatchPredictions) {
 					deferred.resolve(aMatchPredictions);
 				});
 			}
 
 		} else {
-			self.getPredictionsForOtherUsers(userId, me, matchIds).then(function (aMatchPredictions) {
+			self.getPredictionsForOtherUsers(predictionRequest).then(function (aMatchPredictions) {
 				deferred.resolve(aMatchPredictions);
 			});
 		}
 
 		return deferred.promise;
 	},
-	getPredictionsByMatchIds: function (matchIds, isForMe, me) {
+	getPredictionsByMatchIds: function (predictionRequest) {
 		const deferred = Q.defer();
 
-		if (isForMe) {
-			MatchPrediction.find({matchId: matchIds}, function (err, aMatchPredictions) {
+		if (predictionRequest.isForMe) {
+			MatchPrediction.find({matchId: predictionRequest.matchIds}, function (err, aMatchPredictions) {
 				deferred.resolve(aMatchPredictions);
 			});
 		} else {
-			self.getPredictionsForOtherUsers(undefined, me, matchIds).then(function (aMatchPredictions) {
+			self.getPredictionsForOtherUsers(predictionRequest).then(function (aMatchPredictions) {
 				deferred.resolve(aMatchPredictions);
 			});
 		}
 
 		return deferred.promise;
 	},
-	getFutureGamesPredictionsCounters: function (matchIdsRelevant) {
+	getFutureGamesPredictionsCounters: function (groupId, matchIdsRelevant) {
 		const now = new Date();
 		return Promise.all([
 			Match.find({kickofftime: {$gte: now}, _id: {$in: matchIdsRelevant}})
@@ -139,7 +151,7 @@ const self = module.exports = {
 			});
 
 			return Promise.all([
-				MatchPrediction.find({matchId: {$in: matchIds}})
+				MatchPrediction.find({matchId: {$in: matchIds}, groupId: groupId})
 			]).then(function (arr2) {
 				return self.aggregateFuturePredictions(arr2[0]);
 			});

@@ -8,15 +8,28 @@ const MatchResult = require('../models/matchResult');
 app.get('/:userId', util.isLoggedIn, function (req, res) {
 	const userId = req.params.userId;
 	const leagueId = req.query.leagueId;
-	getData(userId, leagueId).then(function (obj) {
+	let groupId = req.query.groupId;
+	if (!groupId) {
+		groupId = util.DEFAULT_GROUP;
+	}
+	const user = req.user;
+	const request = {
+		userId: userId,
+		isForMe: user._id.toString() === userId || typeof(userId) === 'undefined',
+		me: user._id,
+		groupId: groupId,
+		leagueId: leagueId
+	};
+
+	getData(request).then(function (obj) {
 		res.status(200).json(obj);
 	});
 });
 
-function getData(userId, leagueId) {
+function getData(request) {
 	// TODO - improve this method in performance
 	return Promise.all([
-		matchPredictionsService.getPredictionsByUserId(userId, false)
+		matchPredictionsService.getPredictionsByUserId(request)
 
 	]).then(function (arr) {
 		const predictionsMatchIds = arr[0].map(function (prediction) {
@@ -33,8 +46,11 @@ function getData(userId, leagueId) {
 				return relevantMatchIds.indexOf(prediction.matchId) >= 0;
 			});
 			return Promise.all([
-				typeof (leagueId) !== 'undefined' ?
-					Match.find({_id: {$in: relevantMatchIds}, league: leagueId}).sort({'kickofftime': -1}).limit(6) :
+				typeof (request.leagueId) !== 'undefined' ?
+					Match.find({
+						_id: {$in: relevantMatchIds},
+						league: request.leagueId
+					}).sort({'kickofftime': -1}).limit(6) :
 					Match.find({_id: {$in: relevantMatchIds}}).sort({'kickofftime': -1}).limit(6)
 			]).then(function (arr3) {
 				const isMatchesExist = !!(arr3[0] && arr3[0].length > 0);

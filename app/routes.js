@@ -6,7 +6,6 @@ const migrator = require('./utils/migrator');
 const mongoose = require('mongoose');
 const socketIo = require('./socketIo');
 mongoose.Promise = Promise;
-const pushNotificationUtil = require('./utils/pushNotification');
 
 module.exports = function (app, passport) {
 	const server = require('http').Server(app);
@@ -15,14 +14,6 @@ module.exports = function (app, passport) {
 	automaticUpdater.run(true);
 	automaticPushNotifications.runAutomaticPushBeforeGame();
 	migrator.run();
-
-
-	//TODO remove once we are sure push notification work correct
-	app.post('/api/pushTest', util.isAdmin, function (req, res) {
-		console.log("pushTest!");
-		pushNotificationUtil.pushToAllRegisterdUsers({text: "push notification TEST from server!"});
-		res.status(200).json({});
-	});
 
 	/********************************************
 	 * All routes mapping
@@ -36,6 +27,7 @@ module.exports = function (app, passport) {
 	app.use('/api/matchPredictions', require('./controllers/matchPredictions.js'));
 	app.use('/api/teamPredictions', require('./controllers/teamPredictions.js'));
 	app.use('/api/groupConfiguration', require('./controllers/groupConfiguration.js'));
+	app.use('/api/group', require('./controllers/groups.js'));
 	app.use('/api/matchResult', require('./controllers/matchResult.js'));
 	app.use('/api/teamResult', require('./controllers/teamResult.js'));
 	app.use('/api/userScore', require('./controllers/userScore.js'));
@@ -111,10 +103,10 @@ module.exports = function (app, passport) {
 		});
 	});
 
-    app.get('/auth/isLoggedIn', function (req, res) {
-    	var isLoggedIn = req.isAuthenticated();
-        res.status(200).json({isLoggedIn: isLoggedIn});
-    });
+	app.get('/auth/isLoggedIn', function (req, res) {
+		var isLoggedIn = req.isAuthenticated();
+		res.status(200).json({isLoggedIn: isLoggedIn});
+	});
 
 	return server;
 };

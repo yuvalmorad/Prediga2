@@ -2,6 +2,7 @@ const express = require('express');
 const app = express.Router();
 const UsersLeaderboardService = require('../services/usersLeaderboardService');
 const util = require('../utils/util.js');
+const Group = require('../models/group.js');
 
 app.get('/reset', util.isAdmin, function (req, res) {
 	UsersLeaderboardService.resetLeaderboard().then(function () {
@@ -10,23 +11,23 @@ app.get('/reset', util.isAdmin, function (req, res) {
 	});
 });
 
-app.get('/:leagueId', util.isLoggedIn, function (req, res) {
-	const leagueId = req.params.leagueId;
-	if (!leagueId) {
-		res.status(500).json(util.getErrorResponse('provide leagueId'));
-		return;
-	}
-	UsersLeaderboardService.getLeaderboardWithNewRegisteredUsers(leagueId).then(function (leaderboards) {
-		res.status(200).json(leaderboards);
-	});
-});
-
+// get user leaderboards
 app.get('/', util.isLoggedIn, function (req, res) {
-	UsersLeaderboardService.getLeaderboardWithNewRegisteredUsers().then(function (leaderboards) {
-		res.status(200).json(leaderboards);
+	const userId = req.user._id;
+	let groupId = req.query.groupId;
+	if (!groupId) {
+		groupId = util.DEFAULT_GROUP;
+	}
+
+	Group.findOne({users: userId, _id: groupId}, function (err, group) {
+		if (group) {
+			UsersLeaderboardService.getLeaderboardWithNewRegisteredUsers(group.leagueIds, group.users, group._id).then(function (leaderboards) {
+				res.status(200).json(leaderboards);
+			});
+		} else {
+			res.status(200).json([]);
+		}
 	});
 });
-
-
 
 module.exports = app;

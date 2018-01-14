@@ -9,7 +9,7 @@ const userSchema = mongoose.Schema({
 	email: String,
 	name: String,
 	photo: String,
-	roles: Array
+	roles: [String]
 });
 
 userSchema.options.toJSON = {

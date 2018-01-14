@@ -1,4 +1,4 @@
-const User = require('../models/user');
+const Group = require('../models/group');
 const League = require('../models/league');
 const UserScore = require('../models/userScore');
 const Match = require('../models/match');
@@ -59,33 +59,42 @@ const self = module.exports = {
 		});
 	},
 	updateLeaderboardByGameIds: function (leagueId, gameIds) {
-		console.log('Beginning to update ' + gameIds.length + ' match results for league:' + leagueId);
 		return Promise.all([
-			UsersLeaderboard.find({leagueId: leagueId})
+			Group.find({leagueIds: leagueId})
 		]).then(function (arr) {
-			self.proccessGamesArray(arr[0], leagueId, gameIds, self.updateLeaderboardForGameId);
-			console.log('Finish to process game array');
-			return Promise.resolve();
+			const promises = arr[0].map(function (group) {
+				let groupId = group._id;
+				console.log('Beginning to update ' + gameIds.length + ' match results for league: ' + leagueId + ' for group: ' + groupId);
+				return Promise.all([
+					UsersLeaderboard.find({leagueId: leagueId, groupId: groupId})
+				]).then(function (arr2) {
+					self.proccessGamesArray(arr2[0], leagueId, groupId, gameIds, self.updateLeaderboardForGameId);
+					console.log('Finish to process game array');
+					return Promise.resolve();
+				});
+			});
+			return Promise.all(promises);
 		});
 	},
-	proccessGamesArray: function (leaderboard, leagueId, gameIds, fn) {
+	proccessGamesArray: function (leaderboard, leagueId, groupId, gameIds, fn) {
 		let index = -1;
 
 		function next() {
 			//console.log('next(' + index + ')');
 			if (index < gameIds.length - 1) {
 				index = index + 1;
-				fn(leaderboard, leagueId, gameIds[index], index).then(next);
+				fn(leaderboard, leagueId, groupId, gameIds[index], index).then(next);
 			}
 		}
 
 		next();
 	},
-	updateLeaderboardForGameId: function (leaderboard, leagueId, gameId, index) {
+	updateLeaderboardForGameId: function (leaderboard, leagueId, groupId, gameId, index) {
 		console.log('Beginning to update leaderboard game: ' + index);
 		return UserScore.find({
 			leagueId: leagueId.toString(),
-			gameId: gameId.toString()
+			gameId: gameId.toString(),
+			groupId: groupId
 		}).then(function (newUserScores) {
 			if (newUserScores && newUserScores.length > 0) {
 				console.log('Beginning to append (step 1) game');
@@ -124,6 +133,7 @@ const self = module.exports = {
 
 		// update
 		return UsersLeaderboard.findOneAndUpdate({
+			groupId: leaderboardItem.groupId,
 			userId: leaderboardItem.userId,
 			leagueId: leaderboardItem.leagueId
 		}, leaderboardItem, utils.updateSettings);
@@ -135,6 +145,7 @@ const self = module.exports = {
 
 		if (leaderboardItemForUser.length < 1) {
 			leaderboard.push({
+				groupId: userScore.groupId,
 				leagueId: userScore.leagueId,
 				userId: userScore.userId,
 				score: userScore.score,
@@ -172,46 +183,39 @@ const self = module.exports = {
 			return -1;
 		return 0;
 	},
-	getLeaderboardWithNewRegisteredUsers: function (leagueId) {
+	getLeaderboardWithNewRegisteredUsers: function (leagueIds, allUsers, groupId) {
 		return Promise.all([
-			User.find({}), // TODO - only users relevant to this league/group
-			typeof(leagueId) === 'undefined' ?
-				League.find({}) :
-				League.find({_id: leagueId})
+			League.find({_id: {$in: leagueIds}})
 		]).then(function (arr) {
-			const allUsers = arr[0];
-			const promises = arr[1].map(function (league) {
+			const promises = arr[0].map(function (league) {
 				const leagueId = league._id;
 				return Promise.all([
-					UsersLeaderboard.find({leagueId: leagueId})
+					UsersLeaderboard.find({leagueId: leagueId, groupId: groupId})
 				]).then(function (arr) {
 					arr[0].sort(self.compareAggregatedScores);
-					return self.amendNewRegisteredUsers(arr[0], allUsers, leagueId);
+					return self.amendNewRegisteredUsers(arr[0], allUsers, leagueId, groupId);
 				});
 			});
-
 			return Promise.all(promises);
 		});
-	}
-	,
-	amendNewRegisteredUsers: function (leaderboard, allUsers, leagueId) {
+	},
+	amendNewRegisteredUsers: function (leaderboard, allUsers, leagueId, groupId) {
 		const userIdsInLeaderboard = leaderboard.map(a => a.userId.toString());
-		const allUsersIds = allUsers.map(a => a._id.toString());
-		const userIdsNotInLeaderboard = allUsersIds.filter(x => userIdsInLeaderboard.indexOf(x) === -1);
+		const userIdsNotInLeaderboard = allUsers.filter(x => userIdsInLeaderboard.indexOf(x.toString()) === -1);
 		if (userIdsNotInLeaderboard && userIdsNotInLeaderboard.length > 0) {
 			userIdsNotInLeaderboard.sort(self.compareUserIds);
-			const promises = userIdsNotInLeaderboard.map(function (userId) {
-				self.amendNewRegisteredUser(leaderboard, userId, leagueId);
-				return leaderboard;
+
+			userIdsNotInLeaderboard.forEach(function (userIdToAdd) {
+				self.amendNewRegisteredUser(leaderboard, userIdToAdd, leagueId, groupId);
 			});
-			return Promise.all(promises);
+			return leaderboard;
 		} else {
 			return leaderboard;
 		}
-	}
-	,
-	amendNewRegisteredUser: function (leaderboard, userId, leagueId) {
+	},
+	amendNewRegisteredUser: function (leaderboard, userId, leagueId, groupId) {
 		const leaderboardItem = {
+			groupId: groupId,
 			leagueId: leagueId,
 			userId: userId,
 			score: 0,
@@ -219,14 +223,13 @@ const self = module.exports = {
 			placeCurrent: -1,
 			placeBeforeLastGame: -1,
 		};
-		return Promise.all([
-			UsersLeaderboard.findOneAndUpdate({
-				userId: userId,
-				leagueId: leagueId
-			}, leaderboardItem, utils.updateSettings)
-		]).then(function (arr) {
-			leaderboard.splice(leaderboard.length - 1, 0, leaderboardItem);
-			return {}
-		});
+
+		UsersLeaderboard.findOneAndUpdate({
+			groupId: groupId,
+			userId: userId,
+			leagueId: leagueId
+		}, leaderboardItem, utils.updateSettings);
+
+		leaderboard.splice(leaderboard.length - 1, 0, leaderboardItem);
 	}
 };

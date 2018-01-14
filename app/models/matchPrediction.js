@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 
 // define the schema for our match predictions model
 const matchPredictionSchema = mongoose.Schema({
+	groupId: {type: String, default: '5a3eac97d3ca76dbd12bf638'},
 	matchId: String,
 	userId: String,
 	winner: String,

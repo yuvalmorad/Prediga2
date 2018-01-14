@@ -6,6 +6,7 @@ const schedule = require('node-schedule');
 const MatchPrediction = require('../models/matchPrediction');
 const TeamPrediction = require('../models/teamPrediction');
 
+// TODO - push only games the user is part of.
 const self = module.exports = {
 	runAutomaticPushBeforeGame: function () {
 		self.scheduleJobBeforeGameKickoffTime();
@@ -35,7 +36,7 @@ const self = module.exports = {
 								if (!matchPrediction) {
 									//user didn't fill a match prediction -> push notification for reminder
 									console.log("sending push notification about not filling prediction for user: ", this.userId);
-                                    pushNotificationUtil.pushWithSubscription(this, {text: "Please fill your prediction, the game is about to start!!!"});
+									pushNotificationUtil.pushWithSubscription(this, {text: "Please fill your prediction, the game is about to start!!!"});
 								} else {
 									console.log('user:' + user + ' has fill match prediction');
 								}
@@ -73,7 +74,7 @@ const self = module.exports = {
 								if (!teamPrediction) {
 									//user didn't fill a team prediction -> push notification for reminder
 									console.log("sending push notification about not filling prediction for user: ", this.userId);
-                                    pushNotificationUtil.pushWithSubscription(this, {text: "Please fill your prediction, the teams prediction is about to end!!!"});
+									pushNotificationUtil.pushWithSubscription(this, {text: "Please fill your prediction, the teams prediction is about to end!!!"});
 								} else {
 									console.log('user:' + user + ' has fill team prediction');
 								}

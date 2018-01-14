@@ -2,6 +2,7 @@ const express = require('express');
 const app = express.Router();
 const util = require('../utils/util');
 const pushSubscription = require('../models/pushSubscription');
+const pushNotificationUtil = require('../utils/pushNotification');
 
 app.post('/', util.isLoggedIn, function (req, res) {
 	const userId = req.user._id;
@@ -26,6 +27,12 @@ app.get('/', util.isLoggedIn, function (req, res) {
 			pushSubscriptions: obj ? obj.pushSubscriptions : []
 		});
 	});
+});
+
+app.post('/pushTest', util.isAdmin, function (req, res) {
+	console.log("pushTest!");
+	pushNotificationUtil.pushToAllRegisterdUsers({text: "push notification TEST from prediga!"});
+	res.status(200).json({});
 });
 
 module.exports = app;

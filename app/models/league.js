@@ -8,7 +8,7 @@ const leagueSchema = mongoose.Schema({
 	year: String,
 	competition365: Number,
 	syncResults365: {type: Boolean, default: false},
-	clubs: Array
+	clubs: [String]
 });
 
 leagueSchema.options.toJSON = {
