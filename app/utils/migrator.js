@@ -14,11 +14,11 @@ const self = module.exports = {
 
 	run: function () {
 		return Promise.all([
-			self.migrateUserScore(),
-			self.migrateLeaderboard(),
-			self.migrateMatchPredictions(),
-			self.migrateTeamPredictions(),
-			self.migrateUsers(),
+			//self.migrateUserScore(),
+			//self.migrateLeaderboard(),
+			//self.migrateMatchPredictions(),
+			//self.migrateTeamPredictions(),
+			//self.migrateUsers(),
 			//self.migrateMatchResults()
 			//self.migrateTeamResults()
 		]).then(function (arr) {
