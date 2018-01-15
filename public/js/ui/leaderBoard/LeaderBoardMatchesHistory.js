@@ -50,13 +50,13 @@ component.LeaderBoardMatchesHistory = (function(){
                 matches = state.matches || [],
                 predictions = state.predictions || [],
                 results = state.results || [],
-                groupConfiguration = props.groupConfiguration;
+                groupsConfiguration = props.groupsConfiguration;
 
             if (isLoading) {
                 return re("div", {}, "");
             }
 
-            if (!matches.length || !groupConfiguration) {
+            if (!matches.length || !groupsConfiguration.length) {
                 return re("div", {className: "no-content"}, "No Predictions Finished");
             }
 
@@ -80,7 +80,7 @@ component.LeaderBoardMatchesHistory = (function(){
                     team1GoalsResult = matchPrediction && matchPrediction[GAME.BET_TYPES.TEAM1_GOALS.key],
                     team2GoalsResult = matchPrediction && matchPrediction[GAME.BET_TYPES.TEAM2_GOALS.key],
                     score = matchPrediction ? team1GoalsResult + " - " + team2GoalsResult : "(No Prediction)",
-                    points = utils.general.calculateTotalPoints(matchPrediction, matchResult, groupConfiguration);
+                    points = utils.general.calculateTotalPoints(matchPrediction, matchResult, groupsConfiguration[0]); //TODO by selected group
 
                 return re("div", {className: "leaderboard-match-row", onClick: that.onLeaderboardMatchClicked.bind(that, matchId)},
                     re ("div", {className: "match-date"}, dateStr),
@@ -104,7 +104,7 @@ component.LeaderBoardMatchesHistory = (function(){
             clubs: state.leagues.clubs,
             leagues: state.leagues.leagues,
             selectedLeagueId: state.leagues.selectedLeagueId,
-            groupConfiguration: state.groupConfiguration.groupConfiguration
+            groupsConfiguration: state.groupsConfiguration.groupsConfiguration
         }
     }
 

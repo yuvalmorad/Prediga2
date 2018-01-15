@@ -154,10 +154,10 @@ component.GamesPredictionsPage = (function(){
                 selectedLeagueId = props.selectedLeagueId,
                 leagues = props.leagues,
                 clubs = props.clubs,
-                groupConfiguration = props.groupConfiguration,
+                groupsConfiguration = props.groupsConfiguration,
                 predictionsCounters = props.predictionsCounters || {};
 
-            if (!matches.length || !clubs.length || !selectedLeagueId || !groupConfiguration) {
+            if (!matches.length || !clubs.length || !selectedLeagueId || !groupsConfiguration.length) {
                 return re("div", { className: "content"});
             }
 
@@ -192,7 +192,7 @@ component.GamesPredictionsPage = (function(){
                         team1: team1,
                         team2: team2,
                         league: league,
-                        groupConfiguration: groupConfiguration,
+                        groupConfiguration: groupsConfiguration[0], //TODO by selected group
                         predictionCounters: predictionsCounters[matchId] || {},
                         key: matchId
                     });
@@ -238,7 +238,7 @@ component.GamesPredictionsPage = (function(){
             leagues: state.leagues.leagues,
             selectedLeagueId: state.leagues.selectedLeagueId,
             clubs: state.leagues.clubs,
-            groupConfiguration: state.groupConfiguration.groupConfiguration
+            groupsConfiguration: state.groupsConfiguration.groupsConfiguration
         }
     }
 

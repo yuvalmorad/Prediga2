@@ -15,7 +15,8 @@ component.App = (function(){
         },
 
         componentDidMount: function() {
-            this.props.loadGroupConfiguration();
+            this.props.loadGroups();
+            this.props.loadGroupsConfiguration();
             this.props.loadUsers();
             this.props.loadLeaguesAndClubs();
         },
@@ -60,9 +61,10 @@ component.App = (function(){
 
     function mapDispatchToProps(dispatch) {
         return {
+            loadGroups: function(){dispatch(action.groups.load())},
             loadUsers: function(){dispatch(action.users.loadUsers())},
             loadLeaguesAndClubs: function(){dispatch(action.leagues.loadLeaguesAndClubs())},
-            loadGroupConfiguration: function(){dispatch(action.groupConfiguration.load())},
+            loadGroupsConfiguration: function(){dispatch(action.groupsConfiguration.load())},
             closeAllMenus: function(){dispatch(action.general.closeAllMenus())}
         }
     }

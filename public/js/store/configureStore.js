@@ -15,7 +15,8 @@ function initStore() {
         leaderBoard: reducer.leaderBoard(),
         simulator: reducer.simulator(),
         users: reducer.users(),
-        groupConfiguration: reducer.groupConfiguration()
+        groupsConfiguration: reducer.groupsConfiguration(),
+        groups: reducer.groups()
     });
 
     return store = Redux.createStore(rootReducer, {}, compose(applyMiddleware(thunkMiddleware)));
