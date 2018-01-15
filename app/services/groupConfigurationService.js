@@ -20,9 +20,9 @@ module.exports = {
 		return Promise.all([
 			Group.findOne({_id: groupId})
 		]).then(function (group) {
-			if (group) {
-				groupConfiguration.findOne({_id: group.configurationId}, function (err, config) {
-					return config[key];
+			if (group[0]) {
+				return groupConfiguration.findOne({_id: group[0].configurationId}).then(function(config){
+                    return config[key];
 				});
 			} else {
 				return null;
