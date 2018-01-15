@@ -5,8 +5,8 @@ service.gamesPredictions = (function() {
         updatePrediction: updatePrediction
     };
 
-    function getAll() {
-        return httpInstnace.get("/api/matchesUI");
+    function getAll(groupId) {
+        return httpInstnace.get("/api/matchesUI?groupId=" + groupId);
     }
 
     function updatePrediction(prediction) {

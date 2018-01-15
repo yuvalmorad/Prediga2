@@ -43,30 +43,16 @@ component.MainMenu = (function(){
             window.routerHistory.push("/editGroup/" + groupId);
         },
 
-        renderGroupsMenuItems: function() {
+        renderGroupsMenuItems: function(groups, selectedGroupId) {
             var that = this;
-            var groups = [
-                {
-                    name: "SAP Labs IL",
-                    isSelected: true,
-                    actionButton: {
-                        icon: "",
-                        onClick: this.onGroupSettingsClicked.bind(this, "groupId1")
-                    },
-                    _id: "groupId1"
-                },
-                {
-                    name: "Dummy group",
-                    isSelected: false,
-                    actionButton: {
-                        icon: ""
-                    },
-                    _id: "groupId2"
-                }
-            ];
-
+            //icon: "" for none admin
             return groups.map(function(group){
-                return re(MenuItem, {text: group.name, isSelected: group.isSelected, onMenuItemClicked: that.onGroupMenuItemClicked, actionButton: group.actionButton, key: group._id});
+                var groupId = group._id;
+                var editActionButton = {
+                    icon: "",
+                    onClick: that.onGroupSettingsClicked.bind(that, groupId)
+                };
+                return re(MenuItem, {text: group.name, isSelected: selectedGroupId === groupId, onMenuItemClicked: that.onGroupMenuItemClicked, actionButton: editActionButton, key: groupId});
             });
         },
 
@@ -81,7 +67,9 @@ component.MainMenu = (function(){
 
         render: function() {
             var props = this.props,
-                topMenuItems = this.renderGroupsMenuItems(),
+                groups = props.groups,
+                selectedGroupId = props.selectedGroupId,
+                topMenuItems = this.renderGroupsMenuItems(groups, selectedGroupId),
                 bottomMenuItems = this.renderMenuItems("displayInBottomMenu");
 
             bottomMenuItems.push(this.renderLogoutMenuItem());
@@ -92,7 +80,9 @@ component.MainMenu = (function(){
 
     function mapStateToProps(state){
         return {
-            isMainMenuOpen: state.general.isMainMenuOpen
+            isMainMenuOpen: state.general.isMainMenuOpen,
+            groups: state.groups.groups,
+            selectedGroupId: state.groups.selectedGroupId
         }
     }
 

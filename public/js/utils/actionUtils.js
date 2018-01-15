@@ -12,9 +12,9 @@ utils.action = (function(){
     };
 
     //mainObjectProperty = "teams"/"matches"
-    function loadWithPredictions(serviceObj, mainObjectProperty, successType) {
+    function loadWithPredictions(serviceObj, mainObjectProperty, successType, groupId) {
         return function(dispatch){
-            serviceObj.getAll().then(function(res){
+            serviceObj.getAll(groupId).then(function(res){
                 var data = res.data;
                 dispatch(success(data[mainObjectProperty], data.predictions, data.results, data.predictionsCounters));
             }, function(error){

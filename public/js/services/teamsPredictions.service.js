@@ -5,7 +5,7 @@ service.teamsPredictions = (function() {
         updatePrediction: updatePrediction
     };
 
-    function getAll() {
+    function getAll(groupId) {
         return httpInstnace.get("/api/teamsUI");
     }
 

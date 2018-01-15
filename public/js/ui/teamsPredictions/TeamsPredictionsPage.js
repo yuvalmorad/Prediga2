@@ -4,16 +4,20 @@ component.TeamsPredictionsPage = (function(){
         TeamPredictionTile = component.TeamPredictionTile,
         LeaguesSubHeader = component.LeaguesSubHeader;
 
-    var isTeamsPredictionsRequestSent = false;
-
     var TeamsPredictionsPage = React.createClass({
         getInitialState: function() {
-            if (!isTeamsPredictionsRequestSent) {
-                this.props.loadTeamsPredictions();
-                isTeamsPredictionsRequestSent = true;
+            if (this.props.selectedGroupId) {
+                this.props.loadTeamsPredictions(this.props.selectedGroupId);
             }
 
             return {};
+        },
+
+        componentWillReceiveProps: function(nextProps) {
+            if (nextProps.selectedGroupId !== this.props.selectedGroupId) {
+                //changed group selection -> load matches of selected group id
+                this.props.loadTeamsPredictions(nextProps.selectedGroupId);
+            }
         },
 
         render: function() {
@@ -58,13 +62,14 @@ component.TeamsPredictionsPage = (function(){
             isShowTileDialog: state.general.isShowTileDialog,
             leagues: state.leagues.leagues,
             selectedLeagueId: state.leagues.selectedLeagueId,
-            clubs: state.leagues.clubs
+            clubs: state.leagues.clubs,
+            selectedGroupId: state.groups.selectedGroupId
         }
     }
 
     function mapDispatchToProps(dispatch) {
         return {
-            loadTeamsPredictions: function(){dispatch(action.teamsPredictions.loadTeams())}
+            loadTeamsPredictions: function(groupId){dispatch(action.teamsPredictions.loadTeams(groupId))}
         }
     }
 

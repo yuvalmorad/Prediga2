@@ -12,8 +12,8 @@ action.teamsPredictions = (function(){
         return utils.action.updatePrediction(prediction, service.teamsPredictions, teamsPredictions.UPDATE_TEAM_SELECTED);
     }
 
-    function loadTeams() {
-        return utils.action.loadWithPredictions(service.teamsPredictions, "teams", teamsPredictions.LOAD_TEAMS_SUCCESS);
+    function loadTeams(groupId) {
+        return utils.action.loadWithPredictions(service.teamsPredictions, "teams", teamsPredictions.LOAD_TEAMS_SUCCESS, groupId);
     }
 
     return teamsPredictions;

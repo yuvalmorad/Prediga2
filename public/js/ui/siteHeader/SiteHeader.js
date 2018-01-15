@@ -11,6 +11,15 @@ component.SiteHeader = (function(){
                 this.props.fireSiteHeaderEvent(action.eventName);
             },
 
+            getSelectedGroupIcon: function() {
+                var props = this.props;
+                var group = props.groups.filter(function(group){
+                    return group._id ===  props.selectedGroupId;
+                })[0];
+
+                return group ? group.icon : "";
+            },
+
             render: function () {
                 var that = this,
                     props = this.props,
@@ -41,7 +50,7 @@ component.SiteHeader = (function(){
                     ),
                     re("div", {className: "center"}, isDynamicTitle ? siteHeaderTitle: title),
                     re("div", {className: "right"},
-                        re("div", {className: "group-icon" + (hideGroupsIcon ? " hide" : "")}, ""),
+                        re("div", {className: "group-icon" + (hideGroupsIcon ? " hide" : "")}, this.getSelectedGroupIcon()),
                         actionsElems
                     )
             );
@@ -51,7 +60,9 @@ component.SiteHeader = (function(){
     function mapStateToProps(state){
         return {
             siteHeaderTitle: state.general.siteHeaderTitle,
-            isMainMenuOpen: state.general.isMainMenuOpen
+            isMainMenuOpen: state.general.isMainMenuOpen,
+            groups: state.groups.groups,
+            selectedGroupId: state.groups.selectedGroupId
         }
     }
 

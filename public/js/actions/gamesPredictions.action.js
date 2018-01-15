@@ -15,8 +15,8 @@ action.gamesPredictions = (function(){
         return utils.action.updatePrediction(prediction, service.gamesPredictions, gamesPredictions.UPDATE_GAME);
     }
 
-    function loadGames() {
-        return utils.action.loadWithPredictions(service.gamesPredictions, "matches", gamesPredictions.LOAD_GAMES_SUCCESS);
+    function loadGames(groupId) {
+        return utils.action.loadWithPredictions(service.gamesPredictions, "matches", gamesPredictions.LOAD_GAMES_SUCCESS, groupId);
     }
 
     function updateGameResult(result) {

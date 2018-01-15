@@ -91,8 +91,8 @@ component.GamesPredictionsPage = (function(){
         getInitialState: function() {
             shouldScrollToCurrentDate = true;
 
-            if (this.props.gamesPredictionsStatus === utils.action.REQUEST_STATUS.NOT_LOADED) {
-                this.props.loadGamesPredictions();
+            if (this.props.selectedGroupId) {
+                this.props.loadGamesPredictions(this.props.selectedGroupId);
             }
 
             return {
@@ -108,9 +108,14 @@ component.GamesPredictionsPage = (function(){
             this.setState({offsetPageIndex: this.state.offsetPageIndex + 1});
         },
 
-        componentWillReceiveProps: function(prevProps) {
-            if (prevProps.selectedLeagueId !== this.props.selectedLeagueId) {
+        componentWillReceiveProps: function(nextProps) {
+            if (nextProps.selectedLeagueId !== this.props.selectedLeagueId) {
                 this.setState({offsetPageIndex: 0});
+            }
+
+            if (nextProps.selectedGroupId !== this.props.selectedGroupId) {
+                //changed group selection -> load matches of selected group id
+                this.props.loadGamesPredictions(nextProps.selectedGroupId);
             }
         },
 
@@ -238,13 +243,14 @@ component.GamesPredictionsPage = (function(){
             leagues: state.leagues.leagues,
             selectedLeagueId: state.leagues.selectedLeagueId,
             clubs: state.leagues.clubs,
-            groupsConfiguration: state.groupsConfiguration.groupsConfiguration
+            groupsConfiguration: state.groupsConfiguration.groupsConfiguration,
+            selectedGroupId: state.groups.selectedGroupId
         }
     }
 
     function mapDispatchToProps(dispatch) {
         return {
-            loadGamesPredictions: function(){dispatch(action.gamesPredictions.loadGames())}
+            loadGamesPredictions: function(groupId){dispatch(action.gamesPredictions.loadGames(groupId))}
         }
     }
 
