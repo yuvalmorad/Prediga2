@@ -73,4 +73,14 @@ app.get('/', util.isLoggedIn, function (req, res) {
 	});
 });
 
+app.get('/allClubs', util.isLoggedIn, function (req, res) {
+	Club.find({}, function (err, obj) {
+		if (err || !obj) {
+			res.status(403).json(util.getErrorResponse('error'));
+		} else {
+			res.status(200).json(obj);
+		}
+	});
+});
+
 module.exports = app;
