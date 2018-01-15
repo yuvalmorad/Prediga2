@@ -178,8 +178,7 @@ component.GamesPredictionsPage = (function(){
             var currentDate = new Date();
             pages = getPagesByTypes(matches);
             closestIndex = findClosestPagesIndex(pages, currentDate) + offsetPageIndex;
-            closestPage = pages[closestIndex];
-
+            closestPage = pages[closestIndex] || {groups: []};
 
             //var wasScroll = false;
             tilesInPage = closestPage.groups.map(function (group, groupIndex) {
@@ -241,7 +240,7 @@ component.GamesPredictionsPage = (function(){
             gamesPredictionsStatus: state.gamesPredictions.status,
             isShowTileDialog: state.general.isShowTileDialog,
             leagues: state.leagues.leagues,
-            selectedLeagueId: state.leagues.selectedLeagueId,
+            selectedLeagueId: state.groups.selectedLeagueId,
             clubs: state.leagues.clubs,
             groupsConfiguration: state.groupsConfiguration.groupsConfiguration,
             selectedGroupId: state.groups.selectedGroupId

@@ -5,9 +5,16 @@ component.LeaguesSubHeader = (function(){
     var LeaguesSubHeader = function(props) {
         var that = this,
             leagues = props.leagues,
-            selectedLeagueId = props.selectedLeagueId;
+            selectedLeagueId = props.selectedLeagueId,
+            groups = props.groups,
+            selectedGroupId = props.selectedGroupId;
 
-        var leagueItemsElem = leagues.map(function (league) {
+        var group = utils.general.findItemInArrBy(groups, "_id", selectedGroupId);
+        var groupLeagues = leagues.filter(function(league){
+            return group.leagueIds.indexOf(league._id) >= 0;
+        });
+
+        var leagueItemsElem = groupLeagues.map(function (league) {
             var leagueId = league._id;
             return re("div", {
                 className: "league-item" + (leagueId === selectedLeagueId ? " selected" : ""),
@@ -23,14 +30,16 @@ component.LeaguesSubHeader = (function(){
 
     function mapStateToProps(state){
         return {
-            selectedLeagueId: state.leagues.selectedLeagueId,
+            selectedLeagueId: state.groups.selectedLeagueId,
+            groups: state.groups.groups,
+            selectedGroupId: state.groups.selectedGroupId,
             leagues: state.leagues.leagues
         }
     }
 
     function mapDispatchToProps(dispatch) {
         return {
-            setSelectedLeagueId: function(leagueId){dispatch(action.leagues.setSelectedLeagueId(leagueId))}
+            setSelectedLeagueId: function(leagueId){dispatch(action.groups.setSelectedLeagueId(leagueId))}
         }
     }
 

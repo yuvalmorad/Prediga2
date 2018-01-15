@@ -61,7 +61,7 @@ component.TeamsPredictionsPage = (function(){
             userPredictions: state.teamsPredictions.userPredictions,
             isShowTileDialog: state.general.isShowTileDialog,
             leagues: state.leagues.leagues,
-            selectedLeagueId: state.leagues.selectedLeagueId,
+            selectedLeagueId: state.groups.selectedLeagueId,
             clubs: state.leagues.clubs,
             selectedGroupId: state.groups.selectedGroupId
         }

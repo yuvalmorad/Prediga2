@@ -69,7 +69,7 @@ component.TeamPredictionTileDialog = (function(){
     function mapStateToProps(state){
         return {
             leagues: state.leagues.leagues,
-            selectedLeagueId: state.leagues.selectedLeagueId,
+            selectedLeagueId: state.groups.selectedLeagueId,
             clubs: state.leagues.clubs
         }
     }

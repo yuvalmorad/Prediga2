@@ -103,7 +103,7 @@ component.LeaderBoardMatchesHistory = (function(){
         return {
             clubs: state.leagues.clubs,
             leagues: state.leagues.leagues,
-            selectedLeagueId: state.leagues.selectedLeagueId,
+            selectedLeagueId: state.groups.selectedLeagueId,
             groupsConfiguration: state.groupsConfiguration.groupsConfiguration
         }
     }

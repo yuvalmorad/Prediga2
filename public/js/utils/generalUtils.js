@@ -9,6 +9,7 @@ utils.general = (function(){
         getMaxPoints: getMaxPoints,
         isPointsStrike: isPointsStrike,
         updateOrCreateObject: updateOrCreateObject,
+        copyArrAndAdd: copyArrAndAdd,
         getOtherPredictionsUserIdsByWinner: getOtherPredictionsUserIdsByWinner,
         mapUsersIdsToUsersObjects: mapUsersIdsToUsersObjects,
         isMatchDraw: isMatchDraw,
@@ -164,6 +165,12 @@ utils.general = (function(){
             res[prediction[winnerKey]].push(prediction.userId);
         });
 
+        return res;
+    }
+
+    function copyArrAndAdd(arr, obj) {
+        var res = arr.slice();
+        res.push(obj);
         return res;
     }
 

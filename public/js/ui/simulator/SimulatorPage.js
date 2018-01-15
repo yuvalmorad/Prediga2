@@ -180,7 +180,7 @@ component.SimulatorPage = (function(){
             leadersStatus: state.leaderBoard.status,
             userId: state.authentication.userId,
             users: state.users.users,
-            selectedLeagueId: state.leagues.selectedLeagueId,
+            selectedLeagueId: state.groups.selectedLeagueId,
             leagues: state.leagues.leagues,
             clubs: state.leagues.clubs,
             groupsConfiguration: state.groupsConfiguration.groupsConfiguration,

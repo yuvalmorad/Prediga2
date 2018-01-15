@@ -1,7 +1,6 @@
 window.action = window.action || {};
 action.leagues = (function(){
     var leaguesAction = {
-        SET_SELECTED_LEAGUE_ID: "SET_SELECTED_LEAGUE_ID",
         LOAD_LEAGUES_SUCCESS: "LOAD_LEAGUES_SUCCESS",
         LOAD_CLUBS_SUCCESS: "LOAD_CLUBS_SUCCESS",
 
@@ -16,13 +15,6 @@ action.leagues = (function(){
             };
             function successLeagues(leagues) { return { type: leaguesAction.LOAD_LEAGUES_SUCCESS, leagues: leagues } }
             function successClubs(clubs) { return { type: leaguesAction.LOAD_CLUBS_SUCCESS, clubs: clubs } }
-        },
-
-        setSelectedLeagueId: function(leagueId) {
-            return {
-                type: leaguesAction.SET_SELECTED_LEAGUE_ID,
-                leagueId: leagueId
-            }
         }
     };
 

@@ -10,9 +10,9 @@ component.MainMenu = (function(){
             window.routerHistory.push(utils.general.cutUrlPath(to));
         },
 
-        onGroupMenuItemClicked: function() {
+        onGroupMenuItemClicked: function(groupId) {
+            this.props.selectGroup(groupId);
             this.props.toggleMenu(); //close menu
-            //TODO select group
             window.routerHistory.push("/");
         },
 
@@ -52,7 +52,7 @@ component.MainMenu = (function(){
                     icon: "",
                     onClick: that.onGroupSettingsClicked.bind(that, groupId)
                 };
-                return re(MenuItem, {text: group.name, isSelected: selectedGroupId === groupId, onMenuItemClicked: that.onGroupMenuItemClicked, actionButton: editActionButton, key: groupId});
+                return re(MenuItem, {text: group.name, isSelected: selectedGroupId === groupId, onMenuItemClicked: that.onGroupMenuItemClicked.bind(that, groupId), actionButton: editActionButton, key: groupId});
             });
         },
 
@@ -88,7 +88,8 @@ component.MainMenu = (function(){
 
     function mapDispatchToProps(dispatch) {
         return {
-            toggleMenu: function(){dispatch(action.general.toggleMainMenu())}
+            toggleMenu: function(){dispatch(action.general.toggleMainMenu())},
+            selectGroup: function(groupId){dispatch(action.groups.selectGroup(groupId))}
         }
     }
 

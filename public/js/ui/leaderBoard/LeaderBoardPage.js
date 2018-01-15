@@ -40,7 +40,7 @@ component.LeaderBoardPage = (function(){
             leaders: state.leaderBoard.leaders,
             leadersStatus: state.leaderBoard.status,
             users: state.users.users,
-            selectedLeagueId: state.leagues.selectedLeagueId,
+            selectedLeagueId: state.groups.selectedLeagueId,
             userId: state.authentication.userId
         }
     }

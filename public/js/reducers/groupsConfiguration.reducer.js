@@ -1,6 +1,7 @@
 window.reducer = window.reducer || {};
 reducer.groupsConfiguration = function() {
     var LOAD_GROUP_CONFIGURATION = action.groupsConfiguration.LOAD_GROUP_CONFIGURATION,
+        ADD_GROUP_CONFIGURATION = action.groupsConfiguration.ADD_GROUP_CONFIGURATION,
         initialState = {
             groupsConfiguration: undefined
         };
@@ -13,6 +14,8 @@ reducer.groupsConfiguration = function() {
         switch (action.type) {
             case LOAD_GROUP_CONFIGURATION:
                 return Object.assign({}, state, {groupsConfiguration: action.groupsConfiguration});
+            case ADD_GROUP_CONFIGURATION:
+                return Object.assign({}, state, {groupsConfiguration: utils.general.copyArrAndAdd(state.groupsConfiguration, action.groupConfiguration)});
             default:
                 return state
         }

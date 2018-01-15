@@ -20,7 +20,7 @@ component.CreateNewGroupPage = (function(){
                 goalsPoints: 2,
                 firstToScorePoints: 2,
                 diffGoalsPoints: 2,
-                selectedLeagueIds: ["id1"]
+                selectedLeagueIds: []
             };
 
             for (var i = 0; i < SECRET_LENGTH; i++) {
@@ -98,7 +98,7 @@ component.CreateNewGroupPage = (function(){
         onSave: function() {
             var state = this.state;
 
-            var saveObj = {
+            var groupToCreate = {
                 name: state.groupName,
                 icon: state.selectedIcon,
                 iconColor: state.selectedIconColor,
@@ -114,10 +114,13 @@ component.CreateNewGroupPage = (function(){
             };
 
             for (var i = 0; i < SECRET_LENGTH; i++) {
-                saveObj.secret += state["secret" + i];
+                groupToCreate.secret += state["secret" + i];
             }
 
-            console.log("save: ", saveObj);
+            console.log("saving: ", groupToCreate);
+
+            this.props.createGroup(groupToCreate);
+            routerHistory.goBack();
         },
 
         render: function() {
@@ -254,18 +257,14 @@ component.CreateNewGroupPage = (function(){
 
     function mapStateToProps(state){
         return {
-            leagues: [
+            leagues: [ //TODO get available leagues from server
                 {
                     name: "Israel Premier League",
-                    _id: "id1"
+                    _id: "5a21a7c1a3f89181074e9769"
                 },
                 {
                     name: "2018 FIFA World Cup",
-                    _id: "id2"
-                },
-                {
-                    name: "English Premier League",
-                    _id: "id3"
+                    _id: "4a21a7c1a3f89181074e9762"
                 }
             ]
         }
@@ -273,6 +272,7 @@ component.CreateNewGroupPage = (function(){
 
     function mapDispatchToProps(dispatch) {
         return {
+            createGroup: function(group){dispatch(action.groups.createGroup(group))}
         }
     }
 
