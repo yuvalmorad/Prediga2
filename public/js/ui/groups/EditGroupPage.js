@@ -28,7 +28,12 @@ component.EditGroupPage = (function(){
             return group;
         },
 
+        onRemoveUserFromGroup: function() {
+
+        },
+
         render: function() {
+            var that = this;
             var props = this.props;
             var state = this.state;
             var group = state.group;
@@ -57,7 +62,8 @@ component.EditGroupPage = (function(){
 
                 return user1.name.localeCompare(user2.name);
             }).map(function(user){
-                return re(EditGroupTile, {user: user, key: user._id});
+                var userId = user._id;
+                return re(EditGroupTile, {user: user, onRemoveUserFromGroup: that.onRemoveUserFromGroup.bind(that, userId), key: userId});
             });
 
             return re("div", { className: "edit-group-page content" },

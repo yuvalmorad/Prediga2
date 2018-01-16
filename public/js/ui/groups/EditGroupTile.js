@@ -23,7 +23,7 @@ component.EditGroupTile = (function(){
                         re("div", {className: "joined-date"}, isAdmin ? "Admin" : joinedDate)
                     ),
                     re("div", {className: "right"},
-                        re("button", {className: "remove-user-button" + (isAdmin ? " hide" : "")}, "X")
+                        re("button", {className: "remove-user-button" + (isAdmin ? " hide" : ""), onClick: this.props.onRemoveUserFromGroup}, "X")
                     )
                 )
             );
