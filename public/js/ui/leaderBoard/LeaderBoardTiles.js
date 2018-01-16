@@ -51,9 +51,9 @@ component.LeaderBoardTiles = (function(){
             this.focusElem = focusElem;
         },
 
-        componentDidUpdate: function(prevProps, prevState) {
+        /*componentDidUpdate: function(prevProps, prevState) {
             this.scrollToFocusElem();
-        },
+        },*/
 
         componentDidMount: function() {
             this.scrollToFocusElem();
