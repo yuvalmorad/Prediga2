@@ -6,6 +6,7 @@ reducer.groups = function() {
         ADD_GROUP = action.groups.ADD_GROUP,
         SET_SELECTED_LEAGUE_ID = action.groups.SET_SELECTED_LEAGUE_ID,
         UPDATE_GROUP = action.groups.UPDATE_GROUP,
+        LOCAL_STORAGE_SELCTED_GROUP_ID_KEY = "prediga_selected_group_id";
         initialState = {
             groups: [],
             allAvailableGroups: [],
@@ -19,6 +20,21 @@ reducer.groups = function() {
         return leagueIds.length ? leagueIds[0] : "";
     }
 
+    function getSelectedGroupId(groups) {
+        var selectedGroupId = localStorage.getItem(LOCAL_STORAGE_SELCTED_GROUP_ID_KEY);
+
+        if (selectedGroupId && utils.general.findItemInArrBy(groups, "_id", selectedGroupId)) {
+            //selected key from local storage and exists in groups
+            return selectedGroupId
+        } else {
+            return groups.length ? groups[0]._id : "";
+        }
+    }
+
+    function setSelectedGroupIdInLocalStorage(selectedGroupId) {
+        localStorage.setItem(LOCAL_STORAGE_SELCTED_GROUP_ID_KEY, selectedGroupId);
+    }
+
     return function groupsConfiguration(state, action){
         if (state === undefined) {
             state = initialState;
@@ -27,11 +43,12 @@ reducer.groups = function() {
         switch (action.type) {
             case LOAD_GROUPS:
                 var groups = action.groups;
-                var selectedGroupId = groups.length ? groups[0]._id : "";
+                var selectedGroupId = getSelectedGroupId(groups);
                 var selectedLeagueId = getSelectedLeagueId(groups, selectedGroupId);
                 return Object.assign({}, state, {groups: groups, selectedGroupId: selectedGroupId, selectedLeagueId: selectedLeagueId});
             case SELECT_GROUP:
                 var selectedGroupId = action.groupId;
+                setSelectedGroupIdInLocalStorage(selectedGroupId);
                 var selectedLeagueId = getSelectedLeagueId(state.groups, selectedGroupId);
                 return Object.assign({}, state, {selectedGroupId: selectedGroupId, selectedLeagueId: selectedLeagueId});
             case SET_SELECTED_LEAGUE_ID:

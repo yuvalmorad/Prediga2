@@ -31,12 +31,14 @@ component.EditGroupPage = (function(){
         onRemoveUserFromGroup: function(userId) {
             var that = this;
             var group = this.state.group;
-            service.groups.kickUser(group._id, userId).then(function(){
-                group.users.splice(group.users.indexOf(userId),1);
-                that.props.updateGroup(group);
-            }, function() {
-                alert("failed kick user");
-            });
+            if (confirm("Are you sure?")) {
+                service.groups.kickUser(group._id, userId).then(function(){
+                    group.users.splice(group.users.indexOf(userId), 1);
+                    that.props.updateGroup(group);
+                }, function() {
+                    alert("failed kick user");
+                });
+            }
         },
 
         render: function() {
