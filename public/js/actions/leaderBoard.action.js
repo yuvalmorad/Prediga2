@@ -8,9 +8,9 @@ action.leaderBoard = (function(){
         updateLeaderBoard: updateLeaderBoard
     };
 
-    function loadLeaderBoard() {
+    function loadLeaderBoard(groupId) {
         return function(dispatch){
-            service.leaderBoard.getAll().then(function(res){
+            service.leaderBoard.getAll(groupId).then(function(res){
                 var leaderboard = res.data;
                 dispatch(success(leaderboard));
             }, function(error){

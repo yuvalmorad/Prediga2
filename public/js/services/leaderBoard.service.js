@@ -5,11 +5,11 @@ service.leaderBoard = (function() {
         getUserMatchPredictions: getUserMatchPredictions
     };
 
-    function getAll() {
-        return httpInstnace.get("/api/usersLeaderboard");
+    function getAll(groupId) {
+        return httpInstnace.get("/api/usersLeaderboard?groupId=" + groupId);
     }
 
-    function getUserMatchPredictions(userId, leagueId) {
-        return httpInstnace.get("/api/userMatchPredictions/" + userId + "?leagueId=" + leagueId);
+    function getUserMatchPredictions(userId, leagueId, groupId) {
+        return httpInstnace.get("/api/userMatchPredictions/" + userId + "?leagueId=" + leagueId + "&groupId=" + groupId);
     }
 })();

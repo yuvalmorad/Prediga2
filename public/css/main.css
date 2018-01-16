@@ -350,7 +350,7 @@ body {
 
 .site-header .right .group-icon {
     font-family: "prediga-groups";
-    font-size: 2rem;
+    font-size: 1.25rem;
 }
 
 .site-header .right .action-icon {
@@ -1167,11 +1167,11 @@ body {
     background-color: #7ED321;
     right: -7px;
     top: -1px;
-    -webkit-animation: flickerAnim 1.2s infinite;
-    -moz-animation:    flickerAnim 1.2s infinite;
-    -o-animation:      flickerAnim 1.2s infinite;
-    animation:         flickerAnim 1.2s infinite;
-    animation-timing-function: ease-in-out;
+    -webkit-animation: flickerAnim 0.6s infinite;
+    -moz-animation:    flickerAnim 0.6s infinite;
+    -o-animation:      flickerAnim 0.6s infinite;
+    animation:         flickerAnim 0.6s infinite;
+    animation-timing-function: linear;
     animation-direction: alternate;
 }
 
@@ -1449,12 +1449,23 @@ body {
     border: 1px solid #979797;
     border-radius: 4px;
     line-height: 4rem;
-    padding: 0 2rem;
+    padding: 0 1rem;
     font-weight: bold;
+    display: flex;
+    align-items: center;
 }
 
 .create-new-group-page .group-leagues > div.selected {
     background-color: #fff;
+}
+
+.create-new-group-page .group-leagues > div > .team-logo {
+    margin-right: 0.5rem;
+    filter: grayscale(100%);
+}
+
+.create-new-group-page .group-leagues > div.selected > .team-logo {
+    filter: grayscale(0);
 }
 
 .create-new-group-page .row-scoring {

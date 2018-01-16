@@ -132,6 +132,7 @@ component.SimulatorPage = (function(){
                 userId = props.userId,
                 matchElem,
                 selectedLeagueId = props.selectedLeagueId,
+                selectedGroupId = props.selectedGroupId,
                 leagues = props.leagues,
                 groupsConfiguration = props.groupsConfiguration,
                 gamesPredictionsResults = props.gamesPredictionsResults;
@@ -167,7 +168,7 @@ component.SimulatorPage = (function(){
                 re("div", { className: "simulator-matches" },
                     matchElem
                 ),
-                re(LeaderBoardTiles, {leaders: leaders, users: users, selectedLeagueId: selectedLeagueId, disableOpen: true, userIdFocus: userId, selectedLeagueId: selectedLeagueId})
+                re(LeaderBoardTiles, {leaders: leaders, users: users, selectedLeagueId: selectedLeagueId, disableOpen: true, userIdFocus: userId, selectedLeagueId: selectedLeagueId, selectedGroupId: selectedGroupId})
             );
         }
     });
@@ -185,7 +186,8 @@ component.SimulatorPage = (function(){
             clubs: state.leagues.clubs,
             groupsConfiguration: state.groupsConfiguration.groupsConfiguration,
             gamesPredictionsResults: state.gamesPredictions.results,
-            gamesPredictionsStatus: state.gamesPredictions.status
+            gamesPredictionsStatus: state.gamesPredictions.status,
+            selectedGroupId: state.groups.selectedGroupId
         }
     }
 

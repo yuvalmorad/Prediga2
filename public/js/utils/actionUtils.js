@@ -32,9 +32,9 @@ utils.action = (function(){
         }
     }
 
-    function updatePrediction(prediction, serviceObj, updateType) {
+    function updatePrediction(prediction, serviceObj, updateType, groupId) {
         return function(dispatch){
-            serviceObj.updatePrediction(prediction).then(function(predictionRes){
+            serviceObj.updatePrediction(prediction, groupId).then(function(predictionRes){
                 dispatch(updatePredictionState(predictionRes));
                 console.log("success");
             }, function(error){

@@ -12,7 +12,7 @@ component.LeaderBoardMatchesHistory = (function(){
 
         componentDidMount: function() {
             var that = this;
-            leaderBoardService.getUserMatchPredictions(this.props.userId, this.props.selectedLeagueId).then(function(res){
+            leaderBoardService.getUserMatchPredictions(this.props.userId, this.props.selectedLeagueId, this.props.selectedGroupId).then(function(res){
                 var data = res.data;
                 that.setState({
                     matches: data.matches,
@@ -104,7 +104,8 @@ component.LeaderBoardMatchesHistory = (function(){
             clubs: state.leagues.clubs,
             leagues: state.leagues.leagues,
             selectedLeagueId: state.groups.selectedLeagueId,
-            groupsConfiguration: state.groupsConfiguration.groupsConfiguration
+            groupsConfiguration: state.groupsConfiguration.groupsConfiguration,
+            selectedGroupId: state.groups.selectedGroupId
         }
     }
 

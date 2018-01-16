@@ -37,7 +37,7 @@ component.TeamPredictionTileDialog = (function(){
         },
 
         onDialogSave: function() {
-            this.props.updateTeamSelected(this.state.prediction);
+            this.props.updateTeamSelected(this.state.prediction, this.props.selectedGroupId);
         },
 
         render: function() {
@@ -70,13 +70,14 @@ component.TeamPredictionTileDialog = (function(){
         return {
             leagues: state.leagues.leagues,
             selectedLeagueId: state.groups.selectedLeagueId,
-            clubs: state.leagues.clubs
+            clubs: state.leagues.clubs,
+            selectedGroupId: state.groups.selectedGroupId
         }
     }
 
     function mapDispatchToProps(dispatch) {
         return {
-            updateTeamSelected: function(prediction){dispatch(action.teamsPredictions.updateTeamSelected(prediction))}
+            updateTeamSelected: function(prediction, groupId){dispatch(action.teamsPredictions.updateTeamSelected(prediction, groupId))}
         }
     }
 

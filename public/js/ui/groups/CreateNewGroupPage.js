@@ -3,12 +3,12 @@ component.CreateNewGroupPage = (function(){
     var connect = ReactRedux.connect;
     var SelectGroupIcon = component.SelectGroupIcon;
     var Secret = component.Secret;
-    var isRequestSent = false;
 
     var CreateNewGroupPage = React.createClass({
         getInitialState: function() {
-            if (!isRequestSent) {
-                isRequestSent = true;
+            if (!this.props.leagues.length) {
+                //no available leagues yet-> load all
+                this.props.loadAllAvailableLeagues();
             }
 
             var state = {
@@ -146,7 +146,12 @@ component.CreateNewGroupPage = (function(){
                 var diffGoalsInputClassName = "";
 
                 var leaguesElems = leagues.map(function(league){
-                    return re("div", {className: selectedLeagueIds.indexOf(league._id) >= 0 ? "selected" : "", onClick: that.onLeagueClicked.bind(that, league._id)}, league.name);
+                    var leagueName = league.name;
+                    var leagueIdName = utils.general.leagueNameToIdName(leagueName);
+                    return re("div", {className: selectedLeagueIds.indexOf(league._id) >= 0 ? "selected" : "", onClick: that.onLeagueClicked.bind(that, league._id)},
+                        re("div", {className: "team-logo " + leagueIdName, style: {backgroundImage: utils.general.getLeagueLogoURL(leagueIdName), backgroundPosition: league.logoPosition}}),
+                        re("div", {}, leagueName)
+                    );
                 });
 
                 var secretProps = {
@@ -257,22 +262,14 @@ component.CreateNewGroupPage = (function(){
 
     function mapStateToProps(state){
         return {
-            leagues: [ //TODO get available leagues from server
-                {
-                    name: "Israel Premier League",
-                    _id: "5a21a7c1a3f89181074e9769"
-                },
-                {
-                    name: "2018 FIFA World Cup",
-                    _id: "4a21a7c1a3f89181074e9762"
-                }
-            ]
+            leagues: state.leagues.allAvailableLeagues
         }
     }
 
     function mapDispatchToProps(dispatch) {
         return {
-            createGroup: function(group){dispatch(action.groups.createGroup(group))}
+            createGroup: function(group){dispatch(action.groups.createGroup(group))},
+            loadAllAvailableLeagues: function(group){dispatch(action.leagues.loadAllAvailableLeagues())}
         }
     }
 
