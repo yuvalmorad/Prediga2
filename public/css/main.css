@@ -1449,12 +1449,23 @@ body {
     border: 1px solid #979797;
     border-radius: 4px;
     line-height: 4rem;
-    padding: 0 2rem;
+    padding: 0 1rem;
     font-weight: bold;
+    display: flex;
+    align-items: center;
 }
 
 .create-new-group-page .group-leagues > div.selected {
     background-color: #fff;
+}
+
+.create-new-group-page .group-leagues > div > .team-logo {
+    margin-right: 0.5rem;
+    filter: grayscale(100%);
+}
+
+.create-new-group-page .group-leagues > div.selected > .team-logo {
+    filter: grayscale(0);
 }
 
 .create-new-group-page .row-scoring {

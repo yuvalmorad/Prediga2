@@ -146,7 +146,12 @@ component.CreateNewGroupPage = (function(){
                 var diffGoalsInputClassName = "";
 
                 var leaguesElems = leagues.map(function(league){
-                    return re("div", {className: selectedLeagueIds.indexOf(league._id) >= 0 ? "selected" : "", onClick: that.onLeagueClicked.bind(that, league._id)}, league.name);
+                    var leagueName = league.name;
+                    var leagueIdName = utils.general.leagueNameToIdName(leagueName);
+                    return re("div", {className: selectedLeagueIds.indexOf(league._id) >= 0 ? "selected" : "", onClick: that.onLeagueClicked.bind(that, league._id)},
+                        re("div", {className: "team-logo " + leagueIdName, style: {backgroundImage: utils.general.getLeagueLogoURL(leagueIdName), backgroundPosition: league.logoPosition}}),
+                        re("div", {}, leagueName)
+                    );
                 });
 
                 var secretProps = {
