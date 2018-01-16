@@ -36,6 +36,8 @@ app.delete('/:userId', util.isAdmin, function (req, res) {
 
 app.get('/', util.isLoggedIn, function (req, res) {
 	const userId = req.user._id;
+
+	// requested users from the same group
 	return Promise.all([
 		Group.find({users: userId})
 	]).then(function (groups) {
@@ -53,6 +55,22 @@ app.get('/', util.isLoggedIn, function (req, res) {
 			});
 		} else {
 			return [];
+		}
+	});
+});
+
+// get users by specific ids
+app.post('/', util.isLoggedIn, function (req, res) {
+	const ids = req.body.ids;
+	if (!ids || !Array.isArray(ids)) {
+		res.status(500).json(util.getErrorResponse('provide ids'));
+		return;
+	}
+	return User.find({_id: {$in: ids}}, function (err, relevantUsers) {
+		if (err) {
+			res.status(500).json(util.getErrorResponse('error'));
+		} else {
+			res.status(200).json(relevantUsers);
 		}
 	});
 });
