@@ -26,7 +26,6 @@ component.JoinGroupPage = (function(){
         joinGroup: function(groupId, secret) {
             var props = this.props;
             service.groups.joinGroup(groupId, secret).then(function(){
-                alert("succeed join group!");
                 props.loadAllAvailableGroups(); //TODO only update current group
             }, function(){
                 alert("failed to join group");
