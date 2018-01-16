@@ -668,7 +668,7 @@ body {
     flex: 1;
     position: relative;
     min-width: 50px;
-    overflow: hidden;
+    /*overflow: hidden;*/
 }
 
 .radio-button {
