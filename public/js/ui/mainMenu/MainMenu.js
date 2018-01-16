@@ -13,7 +13,7 @@ component.MainMenu = (function(){
         onGroupMenuItemClicked: function(groupId) {
             this.props.selectGroup(groupId);
             this.props.toggleMenu(); //close menu
-            window.routerHistory.push("/");
+            //window.routerHistory.push("/");
         },
 
         onLogout: function() {

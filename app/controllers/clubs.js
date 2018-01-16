@@ -5,6 +5,16 @@ const League = require('../models/league');
 const Group = require('../models/group');
 const util = require('../utils/util.js');
 
+app.get('/allClubs', util.isLoggedIn, function (req, res) {
+    Club.find({}, function (err, obj) {
+        if (err || !obj) {
+            res.status(403).json(util.getErrorResponse('error'));
+        } else {
+            res.status(200).json(obj);
+        }
+    });
+});
+
 app.get('/:clubId', util.isLoggedIn, function (req, res) {
 	const clubId = req.params.clubId;
 	if (!clubId) {
@@ -69,16 +79,6 @@ app.get('/', util.isLoggedIn, function (req, res) {
 			});
 		} else {
 			return [];
-		}
-	});
-});
-
-app.get('/allClubs', util.isLoggedIn, function (req, res) {
-	Club.find({}, function (err, obj) {
-		if (err || !obj) {
-			res.status(403).json(util.getErrorResponse('error'));
-		} else {
-			res.status(200).json(obj);
 		}
 	});
 });

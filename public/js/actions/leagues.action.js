@@ -3,6 +3,17 @@ action.leagues = (function(){
     var leaguesAction = {
         LOAD_LEAGUES_SUCCESS: "LOAD_LEAGUES_SUCCESS",
         LOAD_CLUBS_SUCCESS: "LOAD_CLUBS_SUCCESS",
+        LOAD_ALL_AVAILABLE_LEAGUES: "LOAD_ALL_AVAILABLE_LEAGUES",
+
+        loadAllAvailableLeagues: function() {
+            return function(dispatch){
+                service.leagues.getAllAvailableLeagues().then(function(leagues){
+                    dispatch(success(leagues));
+                });
+            };
+
+            function success(leagues) { return { type: leaguesAction.LOAD_ALL_AVAILABLE_LEAGUES, leagues: leagues } }
+        },
 
         loadLeaguesAndClubs: function() {
             return function(dispatch){

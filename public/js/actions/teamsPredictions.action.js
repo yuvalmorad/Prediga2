@@ -8,8 +8,8 @@ action.teamsPredictions = (function(){
         updateTeamSelected: updateTeamSelected
     };
 
-    function updateTeamSelected(prediction) {
-        return utils.action.updatePrediction(prediction, service.teamsPredictions, teamsPredictions.UPDATE_TEAM_SELECTED);
+    function updateTeamSelected(prediction, groupId) {
+        return utils.action.updatePrediction(prediction, service.teamsPredictions, teamsPredictions.UPDATE_TEAM_SELECTED, groupId);
     }
 
     function loadTeams(groupId) {

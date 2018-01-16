@@ -22,7 +22,7 @@ component.GamePredictionTileDialog = (function(){
         },
 
         onDialogSave: function() {
-            this.props.updateGame(this.state.prediction);
+            this.props.updateGame(this.state.prediction, this.props.selectedGroupId);
         },
 
         updateGameForm: function(predictionToUpdate) {
@@ -57,13 +57,14 @@ component.GamePredictionTileDialog = (function(){
 
     function mapStateToProps(state){
         return {
-            groupsConfiguration: state.groupsConfiguration.groupsConfiguration
+            groupsConfiguration: state.groupsConfiguration.groupsConfiguration,
+            selectedGroupId: state.groups.selectedGroupId
         }
     }
 
     function mapDispatchToProps(dispatch) {
         return {
-            updateGame: function(prediction){dispatch(action.gamesPredictions.updateGame(prediction))}
+            updateGame: function(prediction, groupId){dispatch(action.gamesPredictions.updateGame(prediction, groupId))}
         }
     }
 

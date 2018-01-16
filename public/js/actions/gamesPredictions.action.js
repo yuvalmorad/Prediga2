@@ -11,8 +11,8 @@ action.gamesPredictions = (function(){
         updateGameResult: updateGameResult
     };
 
-    function updateGame(prediction) {
-        return utils.action.updatePrediction(prediction, service.gamesPredictions, gamesPredictions.UPDATE_GAME);
+    function updateGame(prediction, groupId) {
+        return utils.action.updatePrediction(prediction, service.gamesPredictions, gamesPredictions.UPDATE_GAME, groupId);
     }
 
     function loadGames(groupId) {

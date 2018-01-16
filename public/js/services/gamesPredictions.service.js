@@ -9,8 +9,8 @@ service.gamesPredictions = (function() {
         return httpInstnace.get("/api/matchesUI?groupId=" + groupId);
     }
 
-    function updatePrediction(prediction) {
-        return httpInstnace.post("/api/matchPredictions", {matchPredictions: [prediction]}).then(function(predictions){
+    function updatePrediction(prediction, groupId) {
+        return httpInstnace.post("/api/matchPredictions?groupId=" + groupId, {matchPredictions: [prediction]}).then(function(predictions){
             return predictions && predictions.data && predictions.data[0];
         });
     }

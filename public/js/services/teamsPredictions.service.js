@@ -6,11 +6,11 @@ service.teamsPredictions = (function() {
     };
 
     function getAll(groupId) {
-        return httpInstnace.get("/api/teamsUI");
+        return httpInstnace.get("/api/teamsUI?groupId=" + groupId);
     }
 
-    function updatePrediction(prediction) {
-        return httpInstnace.post("/api/teamPredictions", {teamPredictions: [prediction]}).then(function(predictions){
+    function updatePrediction(prediction, groupId) {
+        return httpInstnace.post("/api/teamPredictions?groupId=" + groupId, {teamPredictions: [prediction]}).then(function(predictions){
             return predictions && predictions.data && predictions.data[0];
         });
     }
