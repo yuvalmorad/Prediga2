@@ -85,11 +85,11 @@ component.SimulatorPage = (function(){
             if (!isRequestSent) {
                 this.props.loadSimulator();
                 if (this.props.leadersStatus === utils.action.REQUEST_STATUS.NOT_LOADED) {
-                    this.props.loadLeaderBoard();
+                    this.props.loadLeaderBoard(this.props.selectedGroupId);
                 }
 
                 if (this.props.gamesPredictionsStatus === utils.action.REQUEST_STATUS.NOT_LOADED) {
-                    this.props.loadGamesPredictions();
+                    this.props.loadGamesPredictions(this.props.selectedGroupId);
                 }
 
                 isRequestSent = true;
@@ -193,10 +193,10 @@ component.SimulatorPage = (function(){
 
     function mapDispatchToProps(dispatch) {
         return {
-            loadSimulator: function(){dispatch(action.simulator.loadSimulator())},
+            loadSimulator: function(groupId){dispatch(action.simulator.loadSimulator(groupId))},
             loadLeaderBoard: function(){dispatch(action.leaderBoard.loadLeaderBoard())},
             closeTileDialog: function(){dispatch(action.general.closeTileDialog())},
-            loadGamesPredictions: function(){dispatch(action.gamesPredictions.loadGames())}
+            loadGamesPredictions: function(groupId){dispatch(action.gamesPredictions.loadGames(groupId))}
         }
     }
 

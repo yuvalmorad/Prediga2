@@ -5,9 +5,9 @@ action.simulator = (function(){
         loadSimulator: loadSimulator
     };
 
-    function loadSimulator() {
+    function loadSimulator(groupId) {
         return function(dispatch){
-            service.simulator.getAll().then(function(res){
+            service.simulator.getAll(groupId).then(function(res){
                 var data = res.data;
                 dispatch(success(data.leaderboard, data.matches, data.predictions));
             }, function(error){
