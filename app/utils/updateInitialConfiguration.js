@@ -36,22 +36,28 @@ const self = module.exports = {
 				UserScoreService.updateUserScoreByTeamResults(arr[5], arr[3])
 			]).then(function (arr) {
 				let matchIds = [];
-				if (arr[4]) {
-					matchIds = arr[4].map(function (matchResults) {
-						return matchResults.matchId;
+				if (arr[0]) {
+					matchIds = arr[0][0].map(function (matchResults) {
+						return matchResults.gameId;
 					});
 				}
 				let teamIds = [];
-				if (arr[5]) {
-					teamIds = arr[5].map(function (teamResults) {
-						return teamResults.teamId;
+				if (arr[1]) {
+					teamIds = arr[1][0].map(function (teamResults) {
+						return teamResults.gameId;
 					});
 				}
 				let gameIds = matchIds.concat(teamIds);
-				if (gameIds.length < 1) {
+				let uniqueGameIds = [];
+				gameIds.forEach(function (gameId) {
+					if (uniqueGameIds.indexOf(gameId) === -1) {
+						uniqueGameIds.push(gameId)
+					}
+				});
+				if (uniqueGameIds.length < 1) {
 					return Promise.resolve();
 				} else {
-					return UsersLeaderboardService.updateLeaderboardByGameIds(leagueJson.league._id, gameIds);
+					return UsersLeaderboardService.updateLeaderboardByGameIds(leagueJson.league._id, uniqueGameIds);
 				}
 			});
 		});

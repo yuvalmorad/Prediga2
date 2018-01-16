@@ -6,10 +6,8 @@ const Group = require('../models/group');
 const self = module.exports = {
 	updateLeague: function (league) {
 		console.log('beginning to update league');
-		return League.findOneAndUpdate({_id: league._id}, league, utils.overrideSettings, function (err, obj) {
-				if (err) {
-					return Promise.reject('general error');
-				}
+		League.findOneAndUpdate({_id: league._id}, league, utils.overrideSettings).then(function (obj) {
+				return obj;
 			}
 		);
 	},

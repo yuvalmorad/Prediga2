@@ -5,12 +5,8 @@ const util = require('../utils/util');
 const self = module.exports = {
 	updateTeamResult: function (teamResult) {
 		const deferred = Q.defer();
-		TeamResult.findOneAndUpdate({teamId: teamResult.teamId}, teamResult, util.updateSettings, function (err, obj) {
-				if (err) {
-					deferred.resolve(util.getErrorResponse('error'));
-				} else {
-					deferred.resolve(obj);
-				}
+		TeamResult.findOneAndUpdate({teamId: teamResult.teamId}, teamResult, util.updateSettings).then(function (obj) {
+				deferred.resolve(obj);
 			}
 		);
 		return deferred.promise;

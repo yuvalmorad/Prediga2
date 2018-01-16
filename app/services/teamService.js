@@ -9,10 +9,8 @@ const self = module.exports = {
 
 		console.log('beginning to update ' + teams.length + ' teams');
 		const promises = teams.map(function (team) {
-			return Team.findOneAndUpdate({_id: team._id}, team, util.overrideSettings, function (err, obj) {
-					if (err) {
-						return Promise.reject('general error');
-					}
+			return Team.findOneAndUpdate({_id: team._id}, team, util.overrideSettings).then(function (obj) {
+					return obj;
 				}
 			);
 		});
