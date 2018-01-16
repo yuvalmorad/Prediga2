@@ -84,7 +84,7 @@ component.JoinGroupTile = (function(){
                         re("div", {className: "admin-name"}, isOpenGroup ? "Open Group" : (isUserInGroup ? "You are in this group" : "Admin: " + adminName))
                     ),
                     re("div", {className: "right"},
-                        re("button", {className: "join-group-button" + (isOpenGroup ? " hide" : "")}, "+")
+                        re("button", {className: "join-group-button" + (isOpenGroup || isUserInGroup ? " hide" : "")}, "+")
                     )
                 ),
                 re("div", {className: "join-group-form-tile"},
