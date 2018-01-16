@@ -52,4 +52,14 @@ app.get('/', util.isLoggedIn, function (req, res) {
 	});
 });
 
+app.get('/allLeagues', util.isLoggedIn, function (req, res) {
+	League.find({}, function (err, obj) {
+		if (err || !obj) {
+			res.status(403).json(util.getErrorResponse('error'));
+		} else {
+			res.status(200).json(obj);
+		}
+	});
+});
+
 module.exports = app;
