@@ -5,6 +5,7 @@ action.groups = (function () {
         load: load,
 
         LOAD_ALL_AVAILABLE_GROUPS: "LOAD_ALL_AVAILABLE_GROUPS",
+        LOAD_ALL_AVAILABLE_GROUPS_ADMINS: "LOAD_ALL_AVAILABLE_GROUPS_ADMINS",
         loadAllAvailableGroups: loadAllAvailableGroups,
 
         ADD_GROUP: "ADD_GROUP",
@@ -37,13 +38,20 @@ action.groups = (function () {
     function loadAllAvailableGroups() {
         return function(dispatch){
             service.groups.getAllAvailableGroups().then(function(groups){
-                dispatch(success(groups));
+                dispatch(successAllAvailableGroups(groups));
+                var usersAdmins = groups.map(function(group){
+                    return group.createdBy;
+                });
+                service.users.getSpecificUsers(usersAdmins).then(function(admins){
+                    dispatch(successAllAvailableGroupsAdmins(admins));
+                })
             }, function(error){
 
             });
         };
 
-        function success(groups) { return { type: groupsAction.LOAD_ALL_AVAILABLE_GROUPS, groups: groups } }
+        function successAllAvailableGroups(groups) { return { type: groupsAction.LOAD_ALL_AVAILABLE_GROUPS, groups: groups } }
+        function successAllAvailableGroupsAdmins(admins) { return { type: groupsAction.LOAD_ALL_AVAILABLE_GROUPS_ADMINS, admins: admins } }
     }
 
     function addGroup(group) {

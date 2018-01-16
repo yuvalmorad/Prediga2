@@ -43,8 +43,7 @@ component.GamePredictionTileDialog = (function(){
                 team2 = props.team2,
                 league = props.league,
                 result = props.result,
-                groupsConfiguration = props.groupsConfiguration,
-                groupConfiguration = groupsConfiguration[0], //TODO by group selected
+                groupConfiguration = utils.general.getGroupConfiguration(props.groups, props.selectedGroupId, props.groupsConfiguration),
                 predictionCounters = props.predictionCounters,
                 isDialogFormDisabled = props.isDialogFormDisabled;
 
@@ -58,7 +57,8 @@ component.GamePredictionTileDialog = (function(){
     function mapStateToProps(state){
         return {
             groupsConfiguration: state.groupsConfiguration.groupsConfiguration,
-            selectedGroupId: state.groups.selectedGroupId
+            selectedGroupId: state.groups.selectedGroupId,
+            groups: state.groups.groups
         }
     }
 

@@ -668,7 +668,7 @@ body {
     flex: 1;
     position: relative;
     min-width: 50px;
-    overflow: hidden;
+    /*overflow: hidden;*/
 }
 
 .radio-button {
@@ -1556,7 +1556,6 @@ body {
 .join-group-tile .join-group-main-tile > .left {
     flex-direction: column;
     justify-content: space-between;
-    margin-right: 2rem;
     flex: 1;
 }
 
@@ -1565,7 +1564,9 @@ body {
     flex: 1
 }
 
-
+.edit-group-tile .edit-group-main-tile > .left {
+    margin-right: 1rem;
+}
 .edit-group-tile .edit-group-main-tile > .left img {
     border-radius: 50%;
     height: 4rem;
@@ -1599,6 +1600,7 @@ body {
 .edit-group-tile .edit-group-main-tile > .center {
     display: flex;
     flex-direction: column;
+    flex: 1;
 }
 
 .join-group-tile .join-group-main-tile .icon {

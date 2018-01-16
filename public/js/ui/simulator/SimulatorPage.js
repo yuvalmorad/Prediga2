@@ -135,11 +135,14 @@ component.SimulatorPage = (function(){
                 selectedGroupId = props.selectedGroupId,
                 leagues = props.leagues,
                 groupsConfiguration = props.groupsConfiguration,
+                groupConfiguration,
                 gamesPredictionsResults = props.gamesPredictionsResults;
 
             if (!leaders.length || !users.length || !matches.length || !clubs.length || !groupsConfiguration.length || this.props.gamesPredictionsStatus === utils.action.REQUEST_STATUS.NOT_LOADED) {
                 return re("div", { className: "content" }, "");
             }
+
+            groupConfiguration = utils.general.getGroupConfiguration(props.groups, selectedGroupId, groupsConfiguration);
 
             leaders = utils.general.getLeadersByLeagueId(leaders, selectedLeagueId);
             leaders = JSON.parse(JSON.stringify(leaders)); //copy leaders
@@ -148,7 +151,7 @@ component.SimulatorPage = (function(){
                 var match = utils.general.findItemInArrBy(matches, "_id", selectedMatchId);
                 var matchResult = utils.general.findItemInArrBy(gamesPredictionsResults, "matchId", selectedMatchId);
                 var matchPrediction = createMatchPrediction(predictionsSimulated, match, matchResult);
-                updateLeaders(leaders, clubs, predictions, matchPrediction, selectedMatchId, match, groupsConfiguration[0]);//TODO by selected group
+                updateLeaders(leaders, clubs, predictions, matchPrediction, selectedMatchId, match, groupConfiguration);
                 var league = utils.general.findItemInArrBy(leagues, "_id", match.league);
                 matchElem = re(SimulatorMatch, {game: match, league: league, clubs:clubs, matchPrediction: matchPrediction, matchResult: matchResult, updateMatchChange: that.updateMatchChange});
             }
@@ -187,7 +190,8 @@ component.SimulatorPage = (function(){
             groupsConfiguration: state.groupsConfiguration.groupsConfiguration,
             gamesPredictionsResults: state.gamesPredictions.results,
             gamesPredictionsStatus: state.gamesPredictions.status,
-            selectedGroupId: state.groups.selectedGroupId
+            selectedGroupId: state.groups.selectedGroupId,
+            groups: state.groups.groups
         }
     }
 

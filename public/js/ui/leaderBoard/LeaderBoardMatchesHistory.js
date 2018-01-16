@@ -50,7 +50,8 @@ component.LeaderBoardMatchesHistory = (function(){
                 matches = state.matches || [],
                 predictions = state.predictions || [],
                 results = state.results || [],
-                groupsConfiguration = props.groupsConfiguration;
+                groupsConfiguration = props.groupsConfiguration,
+                groupConfiguration;
 
             if (isLoading) {
                 return re("div", {}, "");
@@ -59,6 +60,8 @@ component.LeaderBoardMatchesHistory = (function(){
             if (!matches.length || !groupsConfiguration.length) {
                 return re("div", {className: "no-content"}, "No Predictions Finished");
             }
+
+            groupConfiguration = utils.general.getGroupConfiguration(props.groups, props.selectedGroupId, groupsConfiguration);
 
             matches = matches.filter(function(match){
                 var matchId = match._id;
@@ -80,7 +83,7 @@ component.LeaderBoardMatchesHistory = (function(){
                     team1GoalsResult = matchPrediction && matchPrediction[GAME.BET_TYPES.TEAM1_GOALS.key],
                     team2GoalsResult = matchPrediction && matchPrediction[GAME.BET_TYPES.TEAM2_GOALS.key],
                     score = matchPrediction ? team1GoalsResult + " - " + team2GoalsResult : "(No Prediction)",
-                    points = utils.general.calculateTotalPoints(matchPrediction, matchResult, groupsConfiguration[0]); //TODO by selected group
+                    points = utils.general.calculateTotalPoints(matchPrediction, matchResult, groupConfiguration);
 
                 return re("div", {className: "leaderboard-match-row", onClick: that.onLeaderboardMatchClicked.bind(that, matchId)},
                     re ("div", {className: "match-date"}, dateStr),
@@ -105,7 +108,8 @@ component.LeaderBoardMatchesHistory = (function(){
             leagues: state.leagues.leagues,
             selectedLeagueId: state.groups.selectedLeagueId,
             groupsConfiguration: state.groupsConfiguration.groupsConfiguration,
-            selectedGroupId: state.groups.selectedGroupId
+            selectedGroupId: state.groups.selectedGroupId,
+            groups: state.groups.groups
         }
     }
 

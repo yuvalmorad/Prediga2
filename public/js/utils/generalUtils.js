@@ -27,8 +27,14 @@ utils.general = (function(){
         getLeadersByLeagueId: getLeadersByLeagueId,
         getTeamsUniqueGraphColor: getTeamsUniqueGraphColor,
         compareStringsLowerCase: compareStringsLowerCase,
-        formatDateByMonthAndDate: formatDateByMonthAndDate
+        formatDateByMonthAndDate: formatDateByMonthAndDate,
+        getGroupConfiguration: getGroupConfiguration
     };
+
+    function getGroupConfiguration(groups, groupId, groupsConfiguration) {
+        var group = findItemInArrBy(groups, "_id", groupId);
+        return findItemInArrBy(groupsConfiguration, "_id", group.configurationId);
+    }
 
     function formatDateByMonthAndDate(dateObj) {
         var date = addZeroToTimeIfNeeded(dateObj.getDate());
