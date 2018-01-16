@@ -48,10 +48,18 @@ component.MainMenu = (function(){
             //icon: "" for none admin
             return groups.map(function(group){
                 var groupId = group._id;
-                var editActionButton = {
-                    icon: "",
-                    onClick: that.onGroupSettingsClicked.bind(that, groupId)
-                };
+                var editActionButton;
+                if (group.createdBy === that.props.userId) {
+                    editActionButton = {
+                        icon: "",
+                        onClick: that.onGroupSettingsClicked.bind(that, groupId)
+                    };
+                } else {
+                    editActionButton = {
+                        icon: ""
+                    }
+                }
+
                 return re(MenuItem, {text: group.name, isSelected: selectedGroupId === groupId, onMenuItemClicked: that.onGroupMenuItemClicked.bind(that, groupId), actionButton: editActionButton, key: groupId});
             });
         },
@@ -82,7 +90,8 @@ component.MainMenu = (function(){
         return {
             isMainMenuOpen: state.general.isMainMenuOpen,
             groups: state.groups.groups,
-            selectedGroupId: state.groups.selectedGroupId
+            selectedGroupId: state.groups.selectedGroupId,
+            userId: state.authentication.userId
         }
     }
 
