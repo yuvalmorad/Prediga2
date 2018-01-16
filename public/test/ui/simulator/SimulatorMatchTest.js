@@ -8,19 +8,21 @@ describe("SimulatorMatch", function () {
             clubs: [
                 {
                     _id: "club1",
-                    name: "my club name 1",
+                    name: "Hapoel Haifa",
                     shortName: "mc1",
-                    buttonColors: ["blue", "red"]
+                    buttonColors: ["blue", "red"],
+                    logoPosition: "-336px 0"
                 },
                 {
                     _id: "club2",
-                    name: "my club name 2",
+                    name: "Kiryat Shmona",
                     shortName: "mc2",
-                    buttonColors: ["yellow", "green"]
+                    buttonColors: ["yellow", "green"],
+                    logoPosition: "-168px 0"
                 }
             ],
             league: {
-                name: "some league 1"
+                name: "israel"
             },
             matchResult: {
                 active: true,

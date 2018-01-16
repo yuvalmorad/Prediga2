@@ -4,7 +4,7 @@ service.simulator = (function() {
         getAll: getAll
     };
 
-    function getAll() {
-        return httpInstnace.get("/api/simulatorUI");
+    function getAll(groupId) {
+        return httpInstnace.get("/api/simulatorUI?groupId=" + groupId);
     }
 })();

@@ -78,7 +78,7 @@ var routePages = (function(){
             }
         },
         {
-            path: "/editGroup",
+            path: "/editGroup/:groupId",
             isAuthenticatedPage: true,
             component: EditGroupPage,
             siteHeaderConfig: {

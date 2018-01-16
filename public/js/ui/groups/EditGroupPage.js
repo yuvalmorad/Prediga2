@@ -5,34 +5,51 @@ component.EditGroupPage = (function(){
 
     var EditGroupPage = React.createClass({
         getInitialState: function() {
-            return {};
+            var group = this.getGroupAndSetHeader(this.props.groups);
+            return {
+                group: group
+            };
         },
 
-        componentDidMount: function() {
-            this.props.setSiteHeaderTitle("SAP Labs IL");
+        componentWillReceiveProps: function(nextProps) {
+            var groups = nextProps.groups;
+            if (groups.length && groups !== this.props.groups) {
+                var group = this.getGroupAndSetHeader(groups);
+                this.setState({group: group});
+            }
+        },
+
+        getGroupAndSetHeader: function(groups) {
+            var groupId = this.props.match.params.groupId;
+            var group = utils.general.findItemInArrBy(groups, "_id", groupId);
+            if (group) {
+                this.props.setSiteHeaderTitle(group.name);
+            }
+            return group;
+        },
+
+        onRemoveUserFromGroup: function() {
+
         },
 
         render: function() {
+            var that = this;
             var props = this.props;
             var state = this.state;
+            var group = state.group;
+            var users = props.users;
+            var usersInGroup = [];
 
-            var usersInGroup = [
-                {
-                    name: "Eran Lahav",
-                    id: "userId1",
-                    photo: "https://lh4.googleusercontent.com/-xQQur_W0nRU/AAAAAAAAAAI/AAAAAAAAGAw/KFtaUU1Ri2I/photo.jpg?sz=50",
-                    place: 2,
-                    joinedDate: "some date"
-                },
-                {
-                    name: "Shachar Witkovsky",
-                    id: "userId2",
-                    photo: "https://lh4.googleusercontent.com/-Ig3rThuPJ8Y/AAAAAAAAAAI/AAAAAAAAAD0/Y6gGUD7QIs4/photo.jpg?sz=50",
-                    place: 3,
-                    joinedDate: "another date",
-                    isAdmin: true
-                }
-            ];
+            if (group) {
+                usersInGroup = group.users.map(function(userId){
+                    var user = utils.general.findItemInArrBy(users, "_id", userId);
+                    return Object.assign({}, user, {
+                        isAdmin: userId === group.createdBy,
+                        place: "some place", //TODO
+                        joinedDate: "some date" //TODO
+                    });
+                });
+            }
 
             var tiles = usersInGroup.sort(function(user1, user2){
                 if (user1.isAdmin) {
@@ -44,9 +61,9 @@ component.EditGroupPage = (function(){
                 }
 
                 return user1.name.localeCompare(user2.name);
-
             }).map(function(user){
-                return re(EditGroupTile, {user: user, key: user.id});
+                var userId = user._id;
+                return re(EditGroupTile, {user: user, onRemoveUserFromGroup: that.onRemoveUserFromGroup.bind(that, userId), key: userId});
             });
 
             return re("div", { className: "edit-group-page content" },
@@ -59,7 +76,8 @@ component.EditGroupPage = (function(){
 
     function mapStateToProps(state){
         return {
-
+            groups: state.groups.groups,
+            users: state.users.users
         };
     }
 

@@ -19,20 +19,50 @@ component.JoinGroupTile = (function(){
         onSecretNumberChanged: function(name, num) {
             var newState = {};
             newState[name] = num;
-            this.setState(newState);
+            this.setState(newState, function(){
+                if (this.allSecretFilled()) {
+                    this.props.joinGroup(this.props.group._id, this.getSecret());
+                }
+            });
+        },
+
+        allSecretFilled: function() {
+            var state = this.state;
+            for (var i = 0; i < SECRET_LENGTH; i++) {
+                var currentSecret = state["secret" + i];
+                if (currentSecret === undefined || currentSecret === "") {
+                    return false;
+                }
+            }
+
+            return true;
+        },
+
+        getSecret: function() {
+            var secret = "";
+            var state = this.state;
+            for (var i = 0; i < SECRET_LENGTH; i++) {
+                secret += state["secret" + i];
+            }
+
+            return secret;
         },
 
         render: function() {
             var state = this.state,
                 props = this.props,
+                userId = props.userId,
                 group = props.group,
                 name = group.name,
                 icon = group.icon,
                 iconColor = group.iconColor,
-                playersCount = group.playersCount,
-                leaguesCount = group.leaguesCount,
-                isOpenGroup = group.isOpen,
-                adminName = group.adminName;
+                users = group.users,
+                playersCount = users.length,
+                leaguesCount = group.leagueIds.length,
+                isOpenGroup = false, //TODO
+                adminName = "some admin name"; //TODO
+
+            var isUserInGroup = users.indexOf(userId) >= 0;
 
             var secretProps = {
                 onNumberChanged: this.onSecretNumberChanged
@@ -42,7 +72,7 @@ component.JoinGroupTile = (function(){
                 secretProps["secret" + i] = state["secret" + i];
             }
 
-            return re(Tile, {disableOpen: isOpenGroup, openInPlace: true, className: "join-group-tile"},
+            return re(Tile, {disableOpen: isOpenGroup || isUserInGroup, openInPlace: true, className: "join-group-tile"},
                 re("div", {className: "join-group-main-tile"},
                     re("div", {className: "left"},
                         re("div", {className: "icon", style: {color: iconColor}}, icon),
@@ -51,7 +81,7 @@ component.JoinGroupTile = (function(){
                     re("div", {className: "center"},
                         re("div", {className: "players-count"}, playersCount + " Players"),
                         re("div", {className: "leagues-count"}, leaguesCount + " Leagues"),
-                        re("div", {className: "admin-name"}, isOpenGroup ? "Open Group" : "Admin: " + adminName)
+                        re("div", {className: "admin-name"}, isOpenGroup ? "Open Group" : (isUserInGroup ? "You are in this group" : "Admin: " + adminName))
                     ),
                     re("div", {className: "right"},
                         re("button", {className: "join-group-button" + (isOpenGroup ? " hide" : "")}, "+")

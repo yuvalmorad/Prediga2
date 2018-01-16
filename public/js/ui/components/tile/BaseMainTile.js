@@ -1,8 +1,10 @@
 window.component = window.component || {};
 component.BaseMainTile = (function(){
+    var TeamLogo = component.TeamLogo;
+
     return function(props) {
         var imageSrc = props.imageSrc,
-            imageBackground = props.imageBackground,
+            leagueName = props.leagueName,
             trend = props.trend,
             title = props.title,
             description = props.description,
@@ -12,8 +14,7 @@ component.BaseMainTile = (function(){
             rankTitle = props.rankTitle,
             points = props.points,
             badgeName = props.badgeName,
-            logoPosition = props.logoPosition,
-            logoClassName = props.logoClassName;
+            logoPosition = props.logoPosition;
 
         var trendElement = null;
 
@@ -40,8 +41,8 @@ component.BaseMainTile = (function(){
 
         var imageElem;
 
-        if (imageBackground) {
-            imageElem = re("div", {className: "team-logo" + (logoClassName ? " " + logoClassName : ""), style: {backgroundImage: imageBackground, backgroundPosition: (logoPosition ? logoPosition : "")}});
+        if (leagueName) {
+            imageElem = re(TeamLogo, {leagueName: leagueName, logoPosition: logoPosition});
         } else {
             imageElem = re("img", {src: imageSrc});
         }

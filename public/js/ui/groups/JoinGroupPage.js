@@ -7,6 +7,7 @@ component.JoinGroupPage = (function(){
     var JoinGroupPage = React.createClass({
         getInitialState: function() {
             if (!isRequestSent) {
+                this.props.loadAllAvailableGroups();
                 isRequestSent = true;
             }
 
@@ -22,41 +23,24 @@ component.JoinGroupPage = (function(){
             }
         },
 
-        render: function() {
-            var allGroups = [
-                {
-                    name: "Prediga",
-                    icon: "",
-                    iconColor: "#0d61c4",
-                    id: "_group1",
-                    playersCount: 3654,
-                    leaguesCount: 11,
-                    isOpen: true
-                },
-                {
-                    name: "SAP Labs Israel",
-                    icon: "",
-                    iconColor: "#4a90e2",
-                    id: "_group2",
-                    playersCount: 261,
-                    leaguesCount: 3,
-                    isOpen: false,
-                    adminName: "Yuval Morad"
-                },
-                {
-                    name: "Man.Utd Ultras",
-                    icon: "",
-                    iconColor: "#d0021b",
-                    id: "_group3",
-                    playersCount: 80,
-                    leaguesCount: 2,
-                    isOpen: false,
-                    adminName: "Gilad Keinan"
-                }
-            ];
+        joinGroup: function(groupId, secret) {
+            var props = this.props;
+            service.groups.joinGroup(groupId, secret).then(function(){
+                alert("succeed join group!");
+                props.loadAllAvailableGroups(); //TODO only update current group
+            }, function(){
+                alert("failed to join group");
+            });
+        },
 
-            var tiles = allGroups.map(function(group){
-                return re(JoinGroupTile, {group: group, key: group.id});
+        render: function() {
+            var that = this,
+                props = this.props,
+                allAvailableGroups = props.allAvailableGroups,
+                userId = props.userId;
+
+            var tiles = allAvailableGroups.map(function(group){
+                return re(JoinGroupTile, {group: group, userId: userId, joinGroup: that.joinGroup, key: group._id});
             });
 
             return re("div", { className: "join-group-page content" },
@@ -69,13 +53,16 @@ component.JoinGroupPage = (function(){
 
     function mapStateToProps(state){
         return {
-            siteHeaderFiredEvent: state.general.siteHeaderFiredEvent
+            siteHeaderFiredEvent: state.general.siteHeaderFiredEvent,
+            allAvailableGroups: state.groups.allAvailableGroups,
+            userId: state.authentication.userId
         }
     }
 
     function mapDispatchToProps(dispatch) {
         return {
-            resetSiteHeaderEvent: function(){dispatch(action.general.resetSiteHeaderEvent())}
+            resetSiteHeaderEvent: function(){dispatch(action.general.resetSiteHeaderEvent())},
+            loadAllAvailableGroups: function(){dispatch(action.groups.loadAllAvailableGroups())}
         }
     }
 

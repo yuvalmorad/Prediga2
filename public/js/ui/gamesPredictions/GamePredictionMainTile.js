@@ -1,6 +1,7 @@
 window.component = window.component || {};
 component.GamePredictionMainTile = (function(){
-    var Graph = component.Graph;
+    var Graph = component.Graph,
+        TeamLogo = component.TeamLogo;
 
     var GamePredictionMainTile = React.createClass({
         getInitialState: function() {
@@ -58,14 +59,12 @@ component.GamePredictionMainTile = (function(){
                 predictionCounters = props.predictionCounters || {},
                 league = props.league,
                 leagueName = league.name,
-                leagueIdName = utils.general.leagueNameToIdName(leagueName),
                 team1 = props.team1,
                 team2 = props.team2,
                 prediction = props.prediction,
                 result = props.result,
                 displayTeam1Goals,
                 displayTeam2Goals,
-                leagueSprite = utils.general.getLeagueLogoURL(leagueIdName),
                 team1ShortName = team1 ? team1.shortName : "",
                 team2ShortName = team2 ? team2.shortName : "",
                 team1LogoPosition = team1 ? team1.logoPosition : "",
@@ -134,7 +133,7 @@ component.GamePredictionMainTile = (function(){
 
             return re("div", {className: className},
                 re("div", {className: "left"},
-                    re("div", {className: "team-logo " + leagueIdName, onClick: team1 && props.updateGameForm && this.onTeamLogoClicked.bind(this, team1._id), style: {backgroundImage: team1 ? leagueSprite : "", backgroundPosition: team1LogoPosition}}),
+                    re(TeamLogo, {leagueName: leagueName, logoPosition: team1LogoPosition, isHide: !team1, onClick: props.updateGameForm && this.onTeamLogoClicked.bind(this, team1._id)}),
                     re("div", {className: "team-name"}, team1ShortName)
                 ),
                 re("div", {className: "center"},
@@ -153,7 +152,7 @@ component.GamePredictionMainTile = (function(){
                     )
                 ),
                 re("div", {className: "right"},
-                    re("div", {className: "team-logo " + leagueIdName, onClick: team2 && props.updateGameForm && this.onTeamLogoClicked.bind(this, team2._id), style: {backgroundImage: team2 ? leagueSprite : "", backgroundPosition: team2LogoPosition}}),
+                    re(TeamLogo, {leagueName: leagueName, logoPosition: team2LogoPosition, isHide: !team2, onClick: props.updateGameForm && this.onTeamLogoClicked.bind(this, team2._id)}),
                     re("div", {className: "team-name"}, team2ShortName)
                 )
             );

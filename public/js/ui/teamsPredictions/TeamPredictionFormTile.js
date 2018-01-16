@@ -59,7 +59,7 @@ component.TeamPredictionFormTile = (function(){
                    id: teamOption._id,
                    shortName: teamOption.shortName,
                    logoPosition: teamOption.logoPosition,
-                   leagueIdName: utils.general.leagueNameToIdName(league.name)
+                   leagueName: league.name
                }
            });
 

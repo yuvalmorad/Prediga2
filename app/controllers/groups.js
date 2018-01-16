@@ -20,6 +20,17 @@ app.get('/', util.isLoggedIn, function (req, res) {
 	});
 });
 
+// Get All groups
+app.get('/allGroups', util.isLoggedIn, function (req, res) {
+    Group.find({}, function (err, obj) {
+        if (err || !obj) {
+            res.status(403).json(util.getErrorResponse('error'));
+        } else {
+            res.status(200).json(obj);
+        }
+    });
+});
+
 // Get group by (user & groupId) and populate group configuration.
 app.get('/:groupId', util.isLoggedIn, function (req, res) {
 	const userId = req.user._id;
@@ -38,17 +49,6 @@ app.get('/:groupId', util.isLoggedIn, function (req, res) {
 				res.status(200).json(groupObj);
 			});
 
-		}
-	});
-});
-
-// Get All groups
-app.get('/allGroups', util.isLoggedIn, function (req, res) {
-	Group.find({}, function (err, obj) {
-		if (err || !obj) {
-			res.status(403).json(util.getErrorResponse('error'));
-		} else {
-			res.status(200).json(obj);
 		}
 	});
 });
