@@ -77,7 +77,7 @@ app.post('/', util.isLoggedIn, function (req, res) {
 		}
 
 		if (isOkToCreate) {
-			let isValid = checkInput(group);
+			let isValid = groupService.checkInput(group);
 			if (isValid) {
 				let groupConfiguration = group.configuration;
 				if (!groupConfiguration._id) {
@@ -105,53 +105,6 @@ app.post('/', util.isLoggedIn, function (req, res) {
 	});
 });
 
-function checkInput(group) {
-	if (!group.leagueIds || !Array.isArray(group.leagueIds)) {
-		return false;
-	}
-	let isAllValidIds = true;
-	group.leagueIds.forEach(function (leagueId) {
-		if (!mongoose.Types.ObjectId.isValid(leagueId)) {
-			isAllValidIds = false;
-		}
-	});
-	if (!isAllValidIds) {
-		return false;
-	}
-
-	if (group.users) {
-		if (!Array.isArray(group.users)) {
-			return false;
-		}
-		group.users.forEach(function (user) {
-			if (!mongoose.Types.ObjectId.isValid(user)) {
-				isAllValidIds = false;
-			}
-		});
-	}
-
-	if (!isAllValidIds) {
-		return false;
-	}
-
-	if (!group.name || group.name.length < 1) {
-		return false;
-	}
-	group.name = group.name.trim();
-
-	if (!group.secret || group.secret.length < 1) {
-		return false;
-	}
-	group.secret = group.secret.trim();
-
-	if (!group.configuration) {
-		group.configuration = {
-			_id: mongoose.Types.ObjectId()
-		}
-	}
-	return true;
-}
-
 // Delete group & configuration
 app.delete('/:groupId', util.isLoggedIn, function (req, res) {
 	const userId = req.user._id;
@@ -160,14 +113,8 @@ app.delete('/:groupId', util.isLoggedIn, function (req, res) {
 		res.status(500).json(util.getErrorResponse('provide groupId'));
 		return;
 	}
-	Group.findOneAndRemove({_id: groupId, createdBy: userId}, function (err, obj) {
-		if (err || !obj) {
-			res.status(500).json(util.getErrorResponse('error'));
-		} else {
-			GroupConfiguration.findOneAndRemove({_id: obj.configurationId}, function (err, obj) {
-				res.status(200).json(util.okResponse);
-			});
-		}
+	groupService.removeGroupContent(groupId, userId).then(function () {
+		res.status(200).json(util.okResponse);
 	});
 });
 
@@ -192,7 +139,7 @@ app.post('/:groupId/register', util.isLoggedIn, function (req, res) {
 	});
 });
 
-// Leave group
+// Leave group by user
 app.delete('/:groupId/unregister', util.isLoggedIn, function (req, res) {
 	const userId = req.user._id;
 	const groupId = req.params.groupId;
@@ -204,7 +151,29 @@ app.delete('/:groupId/unregister', util.isLoggedIn, function (req, res) {
 		if (!obj) {
 			res.status(500).json({});
 		} else {
-			res.status(200).json({});
+			groupService.removeGroupContentOfOneUser(groupId, userId).then(function () {
+				res.status(200).json({});
+			});
+		}
+	});
+});
+
+// Leave group by group owner
+app.delete('/:groupId/kick', util.isLoggedIn, function (req, res) {
+	const owner = req.user._id;
+	const userId = req.query.userId;
+	const groupId = req.params.groupId;
+	if (!groupId) {
+		res.status(500).json(util.getErrorResponse('provide groupId'));
+		return;
+	}
+	Group.findOneAndUpdate({_id: groupId, createdBy: owner}, {$pull: {users: userId}}).then(function (obj) {
+		if (!obj) {
+			res.status(500).json({});
+		} else {
+			groupService.removeGroupContentOfOneUser(groupId, userId).then(function () {
+				res.status(200).json({});
+			});
 		}
 	});
 });
