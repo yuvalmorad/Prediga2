@@ -2,7 +2,6 @@ const Q = require('q');
 const Match = require('../models/match');
 const MatchPrediction = require('../models/matchPrediction');
 const utils = require('../utils/util');
-const socketIo = require('../socketIo');
 
 const self = module.exports = {
 	findPredictionsByMatchIds: function (groupId, matches) {
@@ -42,8 +41,6 @@ const self = module.exports = {
 
 					matchPrediction.userId = userId;
 					matchPrediction.groupId = groupId;
-					// TODO - verify the user is relevant for this game
-					socketIo.emit("matchPredictionUpdate", matchPrediction);
 
 					return MatchPrediction.findOneAndUpdate({
 						matchId: matchPrediction.matchId,
