@@ -7,13 +7,11 @@ component.TeamPredictionMainTile = (function(){
             selectedTeam = props.selectedTeam,
             league = props.league,
             leagueName = league.name,
-            leagueIdName = utils.general.leagueNameToIdName(leagueName),
             title = team.title,
             opts = {
-                imageBackground: utils.general.getLeagueLogoURL(leagueIdName),
+                leagueName: leagueName,
                 description: leagueName,
-                rankTitle: title,
-                logoClassName: leagueIdName
+                rankTitle: title
             };
 
         if (selectedTeam) {

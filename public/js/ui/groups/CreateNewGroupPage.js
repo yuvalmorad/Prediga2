@@ -3,6 +3,7 @@ component.CreateNewGroupPage = (function(){
     var connect = ReactRedux.connect;
     var SelectGroupIcon = component.SelectGroupIcon;
     var Secret = component.Secret;
+    var TeamLogo = component.TeamLogo;
 
     var CreateNewGroupPage = React.createClass({
         getInitialState: function() {
@@ -147,9 +148,8 @@ component.CreateNewGroupPage = (function(){
 
                 var leaguesElems = leagues.map(function(league){
                     var leagueName = league.name;
-                    var leagueIdName = utils.general.leagueNameToIdName(leagueName);
                     return re("div", {className: selectedLeagueIds.indexOf(league._id) >= 0 ? "selected" : "", onClick: that.onLeagueClicked.bind(that, league._id)},
-                        re("div", {className: "team-logo " + leagueIdName, style: {backgroundImage: utils.general.getLeagueLogoURL(leagueIdName), backgroundPosition: league.logoPosition}}),
+                        re(TeamLogo, {leagueName: leagueName, logoPosition: league.logoPosition}),
                         re("div", {}, leagueName)
                     );
                 });

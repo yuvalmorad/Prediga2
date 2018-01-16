@@ -1,7 +1,8 @@
 window.component = window.component || {};
 component.SimulatorMatch = (function(){
     var RadioGroup = component.RadioGroup,
-        InputNumber = component.InputNumber;
+        InputNumber = component.InputNumber,
+        TeamLogo = component.TeamLogo;
 
     return React.createClass({
         onRadioGroupChanged: function(groupName, radioName) {
@@ -47,9 +48,6 @@ component.SimulatorMatch = (function(){
                team2Name = team2.name,
                team1ShortName = team1.shortName,
                team2ShortName = team2.shortName,
-               leagueIdName = utils.general.leagueNameToIdName(league.name),
-               leagueSprite = utils.general.getLeagueLogoURL(leagueIdName),
-               teamLogoClass = "team-logo " + leagueIdName,
                firstToScoreTeamResult,
                gameStatus = utils.general.getGameStatus(matchResult),
                dateStr;
@@ -68,7 +66,7 @@ component.SimulatorMatch = (function(){
             return re("div", { className: "simulator-match" },
                re("div", {className: "row1"},
                    re("div", {className: "left"},
-                       re("div", {className: teamLogoClass, style: {backgroundImage: leagueSprite, backgroundPosition: team1LogoPosition}}),
+                       re(TeamLogo, {leagueName: league.name, logoPosition: team1LogoPosition}),
                        re("div", {className: "team-name"}, team1ShortName)
                    ),
                    re("div", {className: "center"},
@@ -77,7 +75,7 @@ component.SimulatorMatch = (function(){
                        re(InputNumber, {num: predictionTeam2Goals, min: resultTeam2Goals, onChange: this.onInputNumberChanged.bind(this, GAME.BET_TYPES.TEAM2_GOALS.key)})
                    ),
                    re("div", {className: "right"},
-                       re("div", {className: teamLogoClass, style: {backgroundImage: leagueSprite, backgroundPosition: team2LogoPosition}}),
+                       re(TeamLogo, {leagueName: league.name, logoPosition: team2LogoPosition}),
                        re("div", {className: "team-name"}, team2ShortName)
                    )
                ),

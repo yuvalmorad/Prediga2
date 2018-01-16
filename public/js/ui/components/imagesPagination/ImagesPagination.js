@@ -1,5 +1,6 @@
 window.component = window.component || {};
 component.ImagesPagination = (function(){
+    var TeamLogo = component.TeamLogo;
 
     return React.createClass({
         getInitialState: function() {
@@ -62,7 +63,7 @@ component.ImagesPagination = (function(){
                 var isSelected = item.isSelected;
                 var shortName = item.shortName;
                 var id = item.id;
-                var leagueIdName = item.leagueIdName;
+                var leagueName = item.leagueName;
                 var logoPosition = item.logoPosition;
 
                 if (isSelected) {
@@ -70,7 +71,7 @@ component.ImagesPagination = (function(){
                 }
 
                 return re("div", {key: id, className: "item" + (isSelected ? " selected" : ""), style: {marginRight: spaceBetweenItems}},
-                    re("div", {className: "team-logo " + leagueIdName, style: {width: itemWidth, height: itemWidth, backgroundImage: utils.general.getLeagueLogoURL(leagueIdName), backgroundPosition: logoPosition}}),
+                    re(TeamLogo, {leagueName: leagueName, logoPosition: logoPosition}),
                     re("div", {className: "title"}, shortName)
                 );
             });
