@@ -1965,19 +1965,6 @@
     }
   ],
   "matchResults": [
-    {
-      "_id": "5a5cfab042abc3f02abb4a95",
-      "matchId": "6a21a7c1a3f89181074e9891",
-      "winner": "3a21a7c1a3f89181074e9780",
-      "team1Goals": 1,
-      "team2Goals": 3,
-      "goalDiff": 2,
-      "firstToScore": "3a21a7c1a3f89181074e9780",
-      "gameTime": 90,
-      "completion": 100,
-      "active": false,
-      "resultTime": "2018-01-15T20:52:48.135Z"
-    }
   ],
   "teamResults": [
   ]
