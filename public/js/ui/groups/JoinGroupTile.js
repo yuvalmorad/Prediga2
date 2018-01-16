@@ -52,6 +52,7 @@ component.JoinGroupTile = (function(){
             var state = this.state,
                 props = this.props,
                 userId = props.userId,
+                admin = props.admin || {},
                 group = props.group,
                 name = group.name,
                 icon = group.icon,
@@ -60,7 +61,7 @@ component.JoinGroupTile = (function(){
                 playersCount = users.length,
                 leaguesCount = group.leagueIds.length,
                 isOpenGroup = false, //TODO
-                adminName = "some admin name"; //TODO
+                adminName = admin.name;
 
             var isUserInGroup = users.indexOf(userId) >= 0;
 
@@ -81,7 +82,7 @@ component.JoinGroupTile = (function(){
                     re("div", {className: "center"},
                         re("div", {className: "players-count"}, playersCount + " Players"),
                         re("div", {className: "leagues-count"}, leaguesCount + " Leagues"),
-                        re("div", {className: "admin-name"}, isOpenGroup ? "Open Group" : (isUserInGroup ? "You are in this group" : "Admin: " + adminName))
+                        re("div", {className: "admin-name"}, isOpenGroup ? "Open Group" : ((isUserInGroup ? "You are in this group. " : "")  + (adminName ? "Admin: " + adminName : "")))
                     ),
                     re("div", {className: "right"},
                         re("button", {className: "join-group-button" + (isOpenGroup || isUserInGroup ? " hide" : "")}, "+")

@@ -37,10 +37,12 @@ component.JoinGroupPage = (function(){
             var that = this,
                 props = this.props,
                 allAvailableGroups = props.allAvailableGroups,
+                allAvailableGroupsAdmins = props.allAvailableGroupsAdmins,
                 userId = props.userId;
 
             var tiles = allAvailableGroups.map(function(group){
-                return re(JoinGroupTile, {group: group, userId: userId, joinGroup: that.joinGroup, key: group._id});
+                var admin = utils.general.findItemInArrBy(allAvailableGroupsAdmins, "_id", group.createdBy);
+                return re(JoinGroupTile, {group: group, userId: userId, admin: admin, joinGroup: that.joinGroup, key: group._id});
             });
 
             return re("div", { className: "join-group-page content" },
@@ -55,6 +57,7 @@ component.JoinGroupPage = (function(){
         return {
             siteHeaderFiredEvent: state.general.siteHeaderFiredEvent,
             allAvailableGroups: state.groups.allAvailableGroups,
+            allAvailableGroupsAdmins: state.groups.allAvailableGroupsAdmins,
             userId: state.authentication.userId
         }
     }
