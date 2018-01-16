@@ -5,8 +5,8 @@ service.leaderBoard = (function() {
         getUserMatchPredictions: getUserMatchPredictions
     };
 
-    function getAll() {
-        return httpInstnace.get("/api/usersLeaderboard");
+    function getAll(groupId) {
+        return httpInstnace.get("/api/usersLeaderboard?groupId=" + groupId);
     }
 
     function getUserMatchPredictions(userId, leagueId) {

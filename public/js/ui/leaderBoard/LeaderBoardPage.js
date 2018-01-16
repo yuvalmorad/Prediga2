@@ -4,16 +4,20 @@ component.LeaderBoardPage = (function(){
         LeaderBoardTiles = component.LeaderBoardTiles,
         LeaguesSubHeader = component.LeaguesSubHeader;
 
-    var isLeaderBoardRequestSent = false;
-
     var LeaderBoardPage = React.createClass({
         getInitialState: function() {
-            if (!isLeaderBoardRequestSent && this.props.leadersStatus === utils.action.REQUEST_STATUS.NOT_LOADED) {
-                this.props.loadLeaderBoard(this.props.leadersStatus);
-                isLeaderBoardRequestSent = true;
+            if (this.props.selectedGroupId) {
+                this.props.loadLeaderBoard(this.props.selectedGroupId);
             }
 
             return {};
+        },
+
+        componentWillReceiveProps: function(nextProps) {
+            if (nextProps.selectedGroupId !== this.props.selectedGroupId) {
+                //changed group selection -> load leader board of selected group id
+                this.props.loadLeaderBoard(nextProps.selectedGroupId);
+            }
         },
 
         render: function() {
@@ -41,13 +45,14 @@ component.LeaderBoardPage = (function(){
             leadersStatus: state.leaderBoard.status,
             users: state.users.users,
             selectedLeagueId: state.groups.selectedLeagueId,
-            userId: state.authentication.userId
+            userId: state.authentication.userId,
+            selectedGroupId: state.groups.selectedGroupId
         }
     }
 
     function mapDispatchToProps(dispatch) {
         return {
-            loadLeaderBoard: function(){dispatch(action.leaderBoard.loadLeaderBoard())}
+            loadLeaderBoard: function(groupId){dispatch(action.leaderBoard.loadLeaderBoard(groupId))}
         }
     }
 
