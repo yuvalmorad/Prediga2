@@ -4,6 +4,9 @@ action.groups = (function () {
         LOAD_GROUPS: "LOAD_GROUPS",
         load: load,
 
+        LOAD_ALL_AVAILABLE_GROUPS: "LOAD_ALL_AVAILABLE_GROUPS",
+        loadAllAvailableGroups: loadAllAvailableGroups,
+
         ADD_GROUP: "ADD_GROUP",
         addGroup: addGroup,
 
@@ -26,6 +29,18 @@ action.groups = (function () {
         };
 
         function success(groups) { return { type: groupsAction.LOAD_GROUPS, groups: groups } }
+    }
+
+    function loadAllAvailableGroups() {
+        return function(dispatch){
+            service.groups.getAllAvailableGroups().then(function(groups){
+                dispatch(success(groups));
+            }, function(error){
+
+            });
+        };
+
+        function success(groups) { return { type: groupsAction.LOAD_ALL_AVAILABLE_GROUPS, groups: groups } }
     }
 
     function addGroup(group) {
