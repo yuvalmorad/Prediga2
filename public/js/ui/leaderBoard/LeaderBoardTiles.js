@@ -92,7 +92,7 @@ component.LeaderBoardTiles = (function(){
                 var badgeName = badgesByUserId[userId];
 
                 //adding selected league id to rerender tiles when selecting new league
-                var leaderBoardTileProps = {disableOpen: disableOpen, user: user, badgeName: badgeName, score: leader.score, trend: trend, borderColor: borderColor, description: description, additionalDescription: leader.additionalDescription, additionalDescription2: leader.additionalDescription2, rank: index + 1, key: userId + (props.selectedLeagueId || "")};
+                var leaderBoardTileProps = {disableOpen: disableOpen, user: user, badgeName: badgeName, score: leader.score, trend: trend, borderColor: borderColor, description: description, additionalDescription: leader.additionalDescription, additionalDescription2: leader.additionalDescription2, rank: index + 1, key: userId + (props.selectedLeagueId || "") + (props.selectedGroupId || "")};
 
                 if (userIdFocus && userId === userIdFocus) {
                     leaderBoardTileProps.ref = that.assignTileFocusRef;

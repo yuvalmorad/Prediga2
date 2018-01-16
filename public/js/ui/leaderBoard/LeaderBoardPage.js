@@ -23,6 +23,7 @@ component.LeaderBoardPage = (function(){
         render: function() {
             var props = this.props,
                 selectedLeagueId = props.selectedLeagueId,
+                selectedGroupId = props.selectedGroupId,
                 leaders = props.leaders,
                 users = props.users,
                 userId = props.userId;
@@ -34,7 +35,7 @@ component.LeaderBoardPage = (function(){
             leaders = utils.general.getLeadersByLeagueId(leaders, selectedLeagueId);
             return re("div", { className: "content hasSubHeader" },
                 re(LeaguesSubHeader, {}),
-                re(LeaderBoardTiles, {leaders: leaders, users: users, userId: userId, selectedLeagueId: selectedLeagueId})
+                re(LeaderBoardTiles, {leaders: leaders, users: users, userId: userId, selectedLeagueId: selectedLeagueId, selectedGroupId: selectedGroupId})
             );
         }
     });
