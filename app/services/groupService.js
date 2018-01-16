@@ -5,12 +5,8 @@ const util = require('../utils/util');
 module.exports = {
 	updateGroup: function (groupObj) {
 		const deferred = Q.defer();
-		Groups.findOneAndUpdate({_id: groupObj._id}, groupObj, util.updateSettings, function (err, obj) {
-				if (err) {
-					deferred.resolve(util.getErrorResponse('error'));
-				} else {
-					deferred.resolve(obj);
-				}
+		Groups.findOneAndUpdate({_id: groupObj._id}, groupObj, util.updateSettings).then(function (obj) {
+				deferred.resolve(obj);
 			}
 		);
 		return deferred.promise;

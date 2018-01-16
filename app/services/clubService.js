@@ -5,10 +5,8 @@ const self = module.exports = {
 	updateClubs: function (clubs) {
 		console.log('beginning to update ' + clubs.length + ' clubs');
 		const promises = clubs.map(function (club) {
-			return Club.findOneAndUpdate({_id: club._id}, club, utils.overrideSettings, function (err, obj) {
-					if (err) {
-						return Promise.reject('general error');
-					}
+			Club.findOneAndUpdate({_id: club._id}, club, utils.overrideSettings).then(function (obj) {
+					return obj;
 				}
 			);
 		});

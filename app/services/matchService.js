@@ -6,10 +6,8 @@ const self = module.exports = {
 	updateMatches: function (matches) {
 		console.log('beginning to update ' + matches.length + ' matches');
 		const promises = matches.map(function (match) {
-			return Match.findOneAndUpdate({_id: match._id}, match, util.overrideSettings, function (err, obj) {
-					if (err) {
-						return Promise.reject('general error');
-					}
+			return Match.findOneAndUpdate({_id: match._id}, match, util.overrideSettings).then(function (obj) {
+					return obj;
 				}
 			);
 		});

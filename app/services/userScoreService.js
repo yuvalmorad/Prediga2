@@ -18,7 +18,7 @@ const self = module.exports = {
 				const leagueId = relevantMatch.league;
 				return self.updateUserScoreByMatchResult(aMatchResult, leagueId);
 			} else {
-				return Promise.resolve();
+				return Promise.resolve([]);
 			}
 		});
 		return Promise.all(promises);
@@ -47,7 +47,7 @@ const self = module.exports = {
 					});
 				});
 			} else {
-				return {};
+				return [];
 			}
 		});
 	},
@@ -55,14 +55,14 @@ const self = module.exports = {
 		//console.log('found ' + anUserMatchPredictions.length + ' user MatchPredictions');
 		const promises = matchPredictions.map(function (userPrediction) {
 			let groupRelevant = groups.filter(function (group) {
-				return group._id === userPrediction.groupId;
+				return group._id.toString() === userPrediction.groupId;
 			});
 			if (!groupRelevant || groupRelevant.length < 1) {
 				return;
 			}
 
 			let groupConfigurationsRelevant = groupConfigurations.filter(function (groupConfiguration) {
-				return groupConfiguration._id === groupRelevant[0].configurationId;
+				return groupConfiguration._id.toString() === groupRelevant[0].configurationId;
 			});
 
 			if (!groupConfigurationsRelevant || groupConfigurationsRelevant.length < 1) {
@@ -200,17 +200,12 @@ const self = module.exports = {
 		//console.log('beginning to update score:' + userScore.gameId);
 		const deferred = Q.defer();
 		UserScore.findOneAndUpdate({
-				groupId: userScore.groupId,
-				userId: userScore.userId,
-				gameId: userScore.gameId,
-				leagueId: userScore.leagueId
-			}, userScore, util.updateSettings, function (err, obj) {
-				if (err) {
-					deferred.resolve();
-				} else {
-					//console.log('succeed to update score:' + userScore.gameId);
-					deferred.resolve();
-				}
+			groupId: userScore.groupId,
+			userId: userScore.userId,
+			gameId: userScore.gameId,
+			leagueId: userScore.leagueId
+		}, userScore, util.updateSettings).then(function (obj) {
+				deferred.resolve(obj);
 			}
 		);
 		return deferred.promise;
