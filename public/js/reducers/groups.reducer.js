@@ -5,6 +5,7 @@ reducer.groups = function() {
         SELECT_GROUP = action.groups.SELECT_GROUP,
         ADD_GROUP = action.groups.ADD_GROUP,
         SET_SELECTED_LEAGUE_ID = action.groups.SET_SELECTED_LEAGUE_ID,
+        UPDATE_GROUP = action.groups.UPDATE_GROUP,
         initialState = {
             groups: [],
             allAvailableGroups: [],
@@ -39,6 +40,8 @@ reducer.groups = function() {
                 return Object.assign({}, state, {groups: utils.general.copyArrAndAdd(state.groups, action.group)});
             case LOAD_ALL_AVAILABLE_GROUPS:
                 return Object.assign({}, state, {allAvailableGroups: action.groups});
+            case UPDATE_GROUP:
+                return Object.assign({}, state, {groups: utils.general.updateOrCreateObject(state.groups, action.group)});
             default:
                 return state
         }

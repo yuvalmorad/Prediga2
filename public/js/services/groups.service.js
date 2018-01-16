@@ -4,7 +4,8 @@ service.groups = (function() {
         getAll: getAll,
         getAllAvailableGroups: getAllAvailableGroups,
         create: create,
-        joinGroup: joinGroup
+        joinGroup: joinGroup,
+        kickUser: kickUser
     };
 
     function getAll() {
@@ -27,5 +28,9 @@ service.groups = (function() {
 
     function joinGroup(groupId, secret) {
         return httpInstnace.post("/api/group/" + groupId + "/register?secret=" + secret);
+    }
+
+    function kickUser(groupId, userId) {
+        return httpInstnace.delete("/api/group/" + groupId + "/kick?userId=" + userId);
     }
 })();

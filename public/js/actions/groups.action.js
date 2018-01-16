@@ -16,7 +16,10 @@ action.groups = (function () {
         SELECT_GROUP: "SELECT_GROUP",
 
         setSelectedLeagueId: setSelectedLeagueId,
-        SET_SELECTED_LEAGUE_ID: "SET_SELECTED_LEAGUE_ID"
+        SET_SELECTED_LEAGUE_ID: "SET_SELECTED_LEAGUE_ID",
+
+        updateGroup: updateGroup,
+        UPDATE_GROUP: "UPDATE_GROUP"
     };
 
     function load() {
@@ -76,6 +79,13 @@ action.groups = (function () {
         return {
             type: groupsAction.SET_SELECTED_LEAGUE_ID,
             leagueId: leagueId
+        }
+    }
+
+    function updateGroup(group) {
+        return {
+            type: groupsAction.UPDATE_GROUP,
+            group: group
         }
     }
 

@@ -28,8 +28,15 @@ component.EditGroupPage = (function(){
             return group;
         },
 
-        onRemoveUserFromGroup: function() {
-
+        onRemoveUserFromGroup: function(userId) {
+            var that = this;
+            var group = this.state.group;
+            service.groups.kickUser(group._id, userId).then(function(){
+                group.users.splice(group.users.indexOf(userId),1);
+                that.props.updateGroup(group);
+            }, function() {
+                alert("failed kick user");
+            });
         },
 
         render: function() {
@@ -83,7 +90,8 @@ component.EditGroupPage = (function(){
 
     function mapDispatchToProps(dispatch) {
         return {
-            setSiteHeaderTitle: function(title){dispatch(action.general.setSiteHeaderTitle(title))}
+            setSiteHeaderTitle: function(title){dispatch(action.general.setSiteHeaderTitle(title))},
+            updateGroup: function(group){dispatch(action.groups.updateGroup(group))}
         };
     }
 
