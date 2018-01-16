@@ -1572,6 +1572,11 @@ body {
     width: 4rem;
 }
 
+.join-group-tile .join-group-main-tile > .right,
+.edit-group-tile .edit-group-main-tile > .right {
+    width: 2.75rem;
+}
+
 .join-group-tile .join-group-main-tile > .right button,
 .edit-group-tile .edit-group-main-tile > .right button {
     background: transparent;
