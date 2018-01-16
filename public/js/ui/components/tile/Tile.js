@@ -27,7 +27,8 @@ component.Tile = (function(){
         render: function() {
             var props = this.props,
                 state = this.state,
-                className = "tile";
+                className = "tile",
+                disableOpen = props.disableOpen;
 
             if (props.className) {
                 className += " " + props.className
@@ -37,12 +38,12 @@ component.Tile = (function(){
                 className += " no-prediction";
             }
 
-            if (state.isInPlaceOpen) {
+            if (state.isInPlaceOpen && !disableOpen) {
                 className += " open";
             }
 
             var opts = { className: className};
-            if (!this.props.disableOpen) {
+            if (!disableOpen) {
                 opts.onClick = this.onTileClicked;
             }
 
