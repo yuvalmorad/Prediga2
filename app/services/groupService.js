@@ -1,10 +1,10 @@
 const Q = require('q');
 const Groups = require('../models/group');
-const GroupConfiguration = require('../models/group');
-const UsersLeaderboard = require('../models/group');
-const UserScore = require('../models/group');
-const MatchPrediction = require('../models/group');
-const TeamPrediction = require('../models/group');
+const GroupConfiguration = require('../models/groupConfiguration');
+const UsersLeaderboard = require('../models/usersLeaderboard');
+const UserScore = require('../models/userScore');
+const MatchPrediction = require('../models/matchPrediction');
+const TeamPrediction = require('../models/teamPrediction');
 const util = require('../utils/util');
 const mongoose = require('mongoose');
 
