@@ -26,8 +26,13 @@ component.JoinGroupPage = (function(){
         joinGroup: function(groupId, secret) {
             var props = this.props;
             service.groups.joinGroup(groupId, secret).then(function(){
-                props.loadAllAvailableGroups(); //TODO only add current group
-                props.loadGroups(); //TODO only add current group
+                //TODO only add current group
+
+                //refresh the current page
+                props.loadAllAvailableGroups();
+
+                //load groups and all related data
+                props.initAll();
             }, function(){
                 alert("failed to join group");
             });
@@ -66,7 +71,7 @@ component.JoinGroupPage = (function(){
         return {
             resetSiteHeaderEvent: function(){dispatch(action.general.resetSiteHeaderEvent())},
             loadAllAvailableGroups: function(){dispatch(action.groups.loadAllAvailableGroups())},
-            loadGroups: function(){dispatch(action.groups.load())}
+            initAll: function(){dispatch(action.init.initAll())}
         }
     }
 
