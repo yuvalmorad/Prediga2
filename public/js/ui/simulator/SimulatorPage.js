@@ -83,7 +83,7 @@ component.SimulatorPage = (function(){
     var SimulatorPage = React.createClass({
         getInitialState: function() {
             if (!isRequestSent) {
-                this.props.loadSimulator();
+                this.props.loadSimulator(this.props.selectedGroupId);
                 if (this.props.leadersStatus === utils.action.REQUEST_STATUS.NOT_LOADED) {
                     this.props.loadLeaderBoard(this.props.selectedGroupId);
                 }
@@ -198,7 +198,7 @@ component.SimulatorPage = (function(){
     function mapDispatchToProps(dispatch) {
         return {
             loadSimulator: function(groupId){dispatch(action.simulator.loadSimulator(groupId))},
-            loadLeaderBoard: function(){dispatch(action.leaderBoard.loadLeaderBoard())},
+            loadLeaderBoard: function(groupId){dispatch(action.leaderBoard.loadLeaderBoard(groupId))},
             closeTileDialog: function(){dispatch(action.general.closeTileDialog())},
             loadGamesPredictions: function(groupId){dispatch(action.gamesPredictions.loadGames(groupId))}
         }
