@@ -43,7 +43,7 @@ const self = module.exports = {
 
 		// validation:
 		return !(((matchPrediction.winner !== match.team1) && (matchPrediction.winner !== match.team2) && (matchPrediction.winner.toLowerCase() !== utils.MATCH_CONSTANTS.DRAW)) ||
-			((matchPrediction.firstToScore !== match.team1) && (matchPrediction.firstToScore !== aMatch.team2) && matchPrediction.firstToScore.toLowerCase() !== utils.MATCH_CONSTANTS.NONE) ||
+			((matchPrediction.firstToScore !== match.team1) && (matchPrediction.firstToScore !== match.team2) && matchPrediction.firstToScore.toLowerCase() !== utils.MATCH_CONSTANTS.NONE) ||
 			matchPrediction.team1Goals < 0 || matchPrediction.team2Goals < 0 || matchPrediction.goalDiff < 0);
 	},
 	getPredictionsForOtherUsersInner: function (matches, userId, groupId) {
