@@ -32,7 +32,6 @@ module.exports = {
 			res.status(403).json({});
 		}
 	},
-
 	calculateResult: function (userPrediction, realResult, configScore) {
 		if (userPrediction.toString().toLowerCase() === realResult.toString().toLowerCase()) {
 			return configScore;

@@ -18,13 +18,15 @@ const self = module.exports = {
 
 		return Promise.all(promises);
 	},
-	getPredictionsForOtherUsersInner: function (teams, userId, me, groupId) {
+	getPredictionsForOtherUsersInner: function (teams, userId, groupId) {
 		const promises = teams.map(function (aTeam) {
-			if (userId) {
-				return self.byTeamIdUserIdGroupId(aTeam._id, userId, groupId);
-			} else {
-				return self.byTeamIdGroupId(aTeam._id, groupId);
-			}
+			return self.byTeamIdUserIdGroupId(aTeam._id, userId, groupId).then(function (teamPrediction) {
+				if (teamPrediction){
+					return Promise.resolve(teamPrediction);
+				} else {
+					return Promise.resolve({});
+				}
+			})
 		});
 		return Promise.all(promises);
 	},
@@ -37,11 +39,14 @@ const self = module.exports = {
 	},
 	getPredictionsForOtherUsers: function (predictionRequest) {
 		return teamService.getStartedTeams(predictionRequest.teamIds).then(function (teams) {
-			return Promise.all([
-				self.getPredictionsForOtherUsersInner(teams, predictionRequest.userId, predictionRequest.me, predictionRequest.groupId),
-				self.getPredictionsForMeInner(predictionRequest.teamIds, predictionRequest.me, predictionRequest.groupId)
-			]).then(function (predictionsArr) {
-				return utils.mergeArr(predictionsArr);
+			return self.getPredictionsForOtherUsersInner(teams, predictionRequest.userId, predictionRequest.groupId).then(function (predictions) {
+				let predArr = [];
+				predictions.forEach(function (prediction) {
+					if (prediction && prediction.length > 0) {
+						predArr.push(prediction[0]);
+					}
+				});
+				return Promise.resolve(predArr);
 			});
 		});
 	},

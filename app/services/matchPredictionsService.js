@@ -46,13 +46,15 @@ const self = module.exports = {
 			((matchPrediction.firstToScore !== match.team1) && (matchPrediction.firstToScore !== aMatch.team2) && matchPrediction.firstToScore.toLowerCase() !== utils.MATCH_CONSTANTS.NONE) ||
 			matchPrediction.team1Goals < 0 || matchPrediction.team2Goals < 0 || matchPrediction.goalDiff < 0);
 	},
-	getPredictionsForOtherUsersInner: function (matches, userId, me, groupId) {
+	getPredictionsForOtherUsersInner: function (matches, userId, groupId) {
 		const promises = matches.map(function (aMatch) {
-			if (userId) {
-				return self.byMatchIdUserIdGroupId(aMatch._id, userId, groupId);
-			} else {
-				return self.byMatchIdNotUserIdGroupId(aMatch._id, me, groupId);
-			}
+			return self.byMatchIdUserIdGroupId(aMatch._id, userId, groupId).then(function (matchPrediction) {
+				if (matchPrediction) {
+					return Promise.resolve(matchPrediction);
+				} else {
+					return Promise.reject({});
+				}
+			});
 		});
 		return Promise.all(promises);
 	},
@@ -65,11 +67,14 @@ const self = module.exports = {
 	},
 	getPredictionsForOtherUsers: function (predictionRequest) {
 		return matchService.filterIdsByMatchesAlreadyStarted(predictionRequest.matchIds).then(function (matches) {
-			return Promise.all([
-				self.getPredictionsForOtherUsersInner(matches, predictionRequest.userId, predictionRequest.me, predictionRequest.groupId),
-				self.getPredictionsForMeInner(predictionRequest.matchIds, predictionRequest.me, predictionRequest.groupId)
-			]).then(function (predictionsArr) {
-				return utils.mergeArr(predictionsArr);
+			return self.getPredictionsForOtherUsersInner(matches, predictionRequest.userId, predictionRequest.groupId).then(function (predictions) {
+				let predArr = [];
+				predictions.forEach(function (prediction) {
+					if (prediction && prediction.length > 0) {
+						predArr.push(prediction[0]);
+					}
+				});
+				return Promise.resolve(predArr);
 			});
 		});
 	},
@@ -83,7 +88,7 @@ const self = module.exports = {
 		}
 	},
 	getFutureGamesPredictionsCounters: function (groupId, matchIds) {
-		if (!matchIds){
+		if (!matchIds) {
 			return Promise.resolve([]);
 		}
 		//return Promise.resolve([]);
