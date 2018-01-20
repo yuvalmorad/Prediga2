@@ -22,7 +22,7 @@ const self = module.exports = {
 			//self.migrateMatchResults()
 			//self.migrateTeamResults()
 		]).then(function (arr) {
-			console.log('migration finished');
+			console.log('[Init] - Migration finished');
 		});
 	},
 	migrateUserScore: function () {

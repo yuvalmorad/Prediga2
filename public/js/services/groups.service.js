@@ -16,7 +16,7 @@ service.groups = (function() {
     }
 
     function getAllAvailableGroups() {
-        return httpInstnace.get("/api/group/allGroups").then(function(res){
+        return httpInstnace.get("/api/group/all").then(function(res){
             return res.data;
         });
     }

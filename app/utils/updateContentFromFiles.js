@@ -8,6 +8,7 @@ const UsersLeaderboardService = require('../services/usersLeaderboardService');
 const UserScoreService = require('../services/userScoreService');
 const ClubService = require('../services/clubService');
 const LeagueService = require('../services/leagueService');
+const utils = require('../utils/util');
 
 const self = module.exports = {
 	loadAll: function () {
@@ -17,11 +18,10 @@ const self = module.exports = {
 			self.updateLeagueData(require('../initialData/leagues/Tournament_Worldcup_18.json')),
 			self.updateLeagueData(require('../initialData/leagues/League_Israel_17-18.json')),
 		]).then(function (arr) {
-			console.log('Succeed to update all initial data');
-			return Promise.resolve();
+			console.log('[Init] - Update initial data finished');
+			return Promise.resolve({});
 		});
 	},
-
 	updateLeagueData: function (leagueJson) {
 		return Promise.all([
 			LeagueService.updateLeague(leagueJson.league),
@@ -34,32 +34,26 @@ const self = module.exports = {
 			return Promise.all([
 				UserScoreService.updateUserScoreByMatchResults(arr[4], arr[2]),
 				UserScoreService.updateUserScoreByTeamResults(arr[5], arr[3])
-			]).then(function (arr) {
-				let matchIds = [];
-				if (arr[0]) {
-					matchIds = arr[0][0].map(function (matchResults) {
-						return matchResults.gameId;
-					});
-				}
-				let teamIds = [];
-				if (arr[1]) {
-					teamIds = arr[1][0].map(function (teamResults) {
-						return teamResults.gameId;
-					});
-				}
-				let gameIds = matchIds.concat(teamIds);
-				let uniqueGameIds = [];
-				gameIds.forEach(function (gameId) {
-					if (uniqueGameIds.indexOf(gameId) === -1) {
-						uniqueGameIds.push(gameId)
+			]).then(function (userScoreArr) {
+				self.conbineUserScoreAndRemoveDuplicates(userScoreArr).then(function (uniqueGameIds) {
+					if (uniqueGameIds.length < 1) {
+						return Promise.resolve();
+					} else {
+						return UsersLeaderboardService.updateLeaderboardByGameIds(leagueJson.league._id, uniqueGameIds);
 					}
 				});
-				if (uniqueGameIds.length < 1) {
-					return Promise.resolve();
-				} else {
-					return UsersLeaderboardService.updateLeaderboardByGameIds(leagueJson.league._id, uniqueGameIds);
-				}
 			});
 		});
+	},
+	conbineUserScoreAndRemoveDuplicates: function (userScoreArr) {
+		let mergedScores = utils.mergeArr(userScoreArr);
+		let mergedScoresIds = UserScoreService.getGameIdArr(mergedScores);
+		let uniqueGameIds = [];
+		mergedScoresIds.forEach(function (gameId) {
+			if (uniqueGameIds.indexOf(gameId) === -1) {
+				uniqueGameIds.push(gameId)
+			}
+		});
+		return Promise.resolve(uniqueGameIds);
 	}
 };

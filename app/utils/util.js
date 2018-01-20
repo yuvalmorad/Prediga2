@@ -1,14 +1,20 @@
 module.exports = {
 	DEFAULT_GROUP: '5a3eac97d3ca76dbd12bf638',
-	okResponse: {"status": "OK"},
+	MINUTES_BEFORE_START_MATCH_PROPERTY_NAME: 'minutesBeforeCloseMathPrediction',
+	LAST_PREDICTIONS_LIMIT_UI: 6,
+	MATCH_CONSTANTS: {
+		DRAW: 'draw',
+		NONE: 'none'
+	},
 	updateSettings: {
 		upsert: true, setDefaultsOnInsert: true, isNew: true, new: true
 	},
 	overrideSettings: {
 		overwrite: true, setDefaultsOnInsert: true, isNew: true, new: true
 	},
-	getErrorResponse: function (msg) {
-		return {"status": "Error", "message": msg};
+	AUTOMATIC_UPDATE_URL: 'http://365scores.sport5.co.il:3333?SID=1',
+	getErrorResponse: function () {
+		return {"status": "Error", "message": "Bad Input"};
 	},
 	isLoggedIn: function (req, res, next) {
 		if (req.isAuthenticated()) {
@@ -33,5 +39,24 @@ module.exports = {
 		} else {
 			return 0;
 		}
+	},
+	mergeArr: function (arr) {
+		let mergedArr = [];
+		arr.forEach(function (item) {
+			mergedArr = mergedArr.concat(item);
+		});
+		return mergedArr;
+	},
+	processEachItemSynchronic: function (fn, arr, input) {
+		let index = -1;
+
+		function next() {
+			if (index < arr.length - 1) {
+				index = index + 1;
+				fn(input, arr[index], index).then(next);
+			}
+		}
+
+		next();
 	}
 };

@@ -10,7 +10,7 @@ service.leagues = (function() {
     }
 
     function getAllAvailableLeagues() {
-        return httpInstnace.get("/api/leagues/allLeagues").then(function(res){
+        return httpInstnace.get("/api/leagues/all").then(function(res){
             return res.data;
         });
     }

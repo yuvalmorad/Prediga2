@@ -1,41 +1,42 @@
-const util = require('./utils/util.js');
-const initialData = require('./utils/updateInitialConfiguration');
-const automaticUpdater = require('./utils/automaticUpdater');
-const automaticPushNotifications = require('./utils/automaticPushNotifications');
-const migrator = require('./utils/migrator');
 const mongoose = require('mongoose');
-const socketIo = require('./socketIo');
+const http = require('http');
+const util = require('./utils/util.js');
+const updateContentFromFiles = require('./utils/updateContentFromFiles');
+const automaticUpdater = require('./utils/automaticUpdater');
+const migrator = require('./utils/migrator');
+const socketIo = require('./utils/socketIo');
+const pushSubscriptionService = require('./services/pushSubscriptionService');
 mongoose.Promise = Promise;
 
 module.exports = function (app, passport) {
-	const server = require('http').Server(app);
+	const server = http.Server(app);
 	socketIo.init(server);
-	initialData.loadAll();
+	updateContentFromFiles.loadAll();
 	automaticUpdater.run(true);
-	automaticPushNotifications.runAutomaticPushBeforeGame();
+	pushSubscriptionService.runAutomaticPushBeforeGame();
 	migrator.run();
 
 	/********************************************
 	 * All routes mapping
 	 ********************************************* */
-	app.use('/api/users', require('./controllers/users.js'));
-	app.use('/api/matches', require('./controllers/matches.js'));
-	app.use('/api/matchesUI', require('./controllers/matchesUI.js'));
-	app.use('/api/userMatchPredictions', require('./controllers/userMatchPredictions.js'));
-	app.use('/api/teams', require('./controllers/teams.js'));
-	app.use('/api/teamsUI', require('./controllers/teamsUI.js'));
-	app.use('/api/matchPredictions', require('./controllers/matchPredictions.js'));
-	app.use('/api/teamPredictions', require('./controllers/teamPredictions.js'));
-	app.use('/api/groupConfiguration', require('./controllers/groupConfiguration.js'));
-	app.use('/api/group', require('./controllers/groups.js'));
-	app.use('/api/matchResult', require('./controllers/matchResult.js'));
-	app.use('/api/teamResult', require('./controllers/teamResult.js'));
-	app.use('/api/userScore', require('./controllers/userScore.js'));
-	app.use('/api/usersLeaderboard', require('./controllers/usersLeaderboard.js'));
-	app.use('/api/simulatorUI', require('./controllers/simulatorUI.js'));
-	app.use('/api/leagues', require('./controllers/leagues.js'));
-	app.use('/api/clubs', require('./controllers/clubs.js'));
-	app.use('/api/pushSubscription', require('./controllers/pushSubscription.js'));
+	app.use('/api/users', require('./controllers/userController.js'));
+	app.use('/api/matches', require('./controllers/matchController.js'));
+	app.use('/api/matchesUI', require('./controllers/matchesUIController.js'));
+	app.use('/api/userMatchPredictions', require('./controllers/lastPredictionsUIController.js'));
+	app.use('/api/teams', require('./controllers/teamController.js'));
+	app.use('/api/teamsUI', require('./controllers/teamsUIController.js'));
+	app.use('/api/matchPredictions', require('./controllers/matchPredictionController.js'));
+	app.use('/api/teamPredictions', require('./controllers/teamPredictionController.js'));
+	app.use('/api/groupConfiguration', require('./controllers/groupConfigurationController.js'));
+	app.use('/api/group', require('./controllers/groupController.js'));
+	app.use('/api/matchResult', require('./controllers/matchResultController.js'));
+	app.use('/api/teamResult', require('./controllers/teamResultController.js'));
+	app.use('/api/userScore', require('./controllers/userScoreController.js'));
+	app.use('/api/usersLeaderboard', require('./controllers/usersLeaderboardController.js'));
+	app.use('/api/simulatorUI', require('./controllers/simulatorUIController.js'));
+	app.use('/api/leagues', require('./controllers/leagueController.js'));
+	app.use('/api/clubs', require('./controllers/clubController.js'));
+	app.use('/api/pushSubscription', require('./controllers/pushSubscriptionController.js'));
 
 	/********************************************
 	 * Automatic Update (Immediate)
@@ -96,7 +97,7 @@ module.exports = function (app, passport) {
 		}));
 
 	app.get('/auth/unlink/facebook', util.isLoggedIn, function (req, res) {
-		var user = req.user;
+		let user = req.user;
 		user.token = undefined;
 		user.save(function (err) {
 			res.redirect('/');
@@ -104,7 +105,7 @@ module.exports = function (app, passport) {
 	});
 
 	app.get('/auth/isLoggedIn', function (req, res) {
-		var isLoggedIn = req.isAuthenticated();
+		let isLoggedIn = req.isAuthenticated();
 		res.status(200).json({isLoggedIn: isLoggedIn});
 	});
 
