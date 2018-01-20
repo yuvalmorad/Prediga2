@@ -148,6 +148,7 @@ const self = module.exports = {
 		const isActive = relevantGame.Active === true;
 		if (!isActive && !isFinished) {
 			// game not yet started
+			console.log('[Auotmatic Updater] - Game is not yet started, for [' + team1 + ' - ' + team2 + ']');
 			return Promise.resolve(false);
 		}
 
@@ -163,7 +164,7 @@ const self = module.exports = {
 
 			return matchService.findFirstMatchByTeamsStarted(team1, team2).then(function (match) {
 				if (!match || match === null) {
-					console.log('[Auotmatic Updater] - No match found or will be in the future, for [' + team1 + ' - ' + team2 + ']');
+					console.log('[Auotmatic Updater] - Game already finished, for [' + team1 + ' - ' + team2 + ']');
 					return Promise.resolve(false);
 				}
 
