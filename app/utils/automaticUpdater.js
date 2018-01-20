@@ -148,7 +148,7 @@ const self = module.exports = {
 		const isActive = relevantGame.Active === true;
 		if (!isActive && !isFinished) {
 			// game not yet started
-			console.log('[Auotmatic Updater] - Game is not yet started, for [' + team1 + ' - ' + team2 + ']');
+			console.log('[Auotmatic Updater] - Game is not yet started, for [' + relevantGame.Comps[0] + ' - ' + relevantGame.Comps[1] + ']');
 			return Promise.resolve(false);
 		}
 
