@@ -13,7 +13,7 @@ const matchPredictionService = require('../services/matchPredictionsService');
 app.get('/', util.isLoggedIn, function (req, res) {
 	const user = req.user;
 	let groupId = req.query.groupId;
-	if (!groupId) {
+	if (!groupId || groupId === 'undefined') {
 		groupId = util.DEFAULT_GROUP;
 	}
 

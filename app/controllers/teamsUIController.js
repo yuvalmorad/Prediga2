@@ -13,7 +13,7 @@ const groupService = require('../services/groupService');
 app.get('/', util.isLoggedIn, function (req, res) {
 	const user = req.user;
 	let groupId = req.query.groupId;
-	if (!groupId) {
+	if (!groupId || groupId === 'undefined') {
 		groupId = util.DEFAULT_GROUP;
 	}
 	getData(user._id, groupId).then(function (teamsCombined) {

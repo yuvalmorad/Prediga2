@@ -20,7 +20,7 @@ app.get('/reset', util.isAdmin, function (req, res) {
 app.get('/', util.isLoggedIn, function (req, res) {
 	const userId = req.user._id;
 	let groupId = req.query.groupId;
-	if (!groupId) {
+	if (!groupId || groupId === 'undefined') {
 		groupId = util.DEFAULT_GROUP;
 	}
 

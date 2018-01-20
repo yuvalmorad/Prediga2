@@ -13,7 +13,7 @@ const matchPredictionsService = require('../services/matchPredictionsService');
 app.get('/', util.isLoggedIn, function (req, res) {
 	const userId = req.user._id;
 	let groupId = req.query.groupId;
-	if (!groupId) {
+	if (!groupId || groupId === 'undefined') {
 		groupId = util.DEFAULT_GROUP;
 	}
 
@@ -23,12 +23,12 @@ app.get('/', util.isLoggedIn, function (req, res) {
 });
 
 function getData(groupId, userId) {
-	return groupService.byUserIdAndId(userId, groupId).then(function (group) {
+	return groupService.byUserIdAndId(userId.toString(), groupId).then(function (group) {
 		if (!group) {
 			return Promise.resolve([]);
 		}
 		return leagueService.byIds(group.leagueIds).then(function (leagues) {
-			const leagueIds = self.getIdArr(leagues);
+			const leagueIds = leagueService.getIdArr(leagues);
 			return matchService.byLeagueIds(leagueIds).then(function (matches) {
 				const matchIds = matchService.getIdArr(matches);
 				return matchResultService.byMatchIdsAndAndActiveStatus(matchIds, true).then(function (inProgressMatchResults) {

@@ -14,7 +14,8 @@ const Q = require('q');
 const self = module.exports = {
 	run: function (isFirstRun) {
 		//console.log('Automatic update (run job) wake up');
-		return matchService.getFirstGameToStartByDate(new Date()).then(function (match) {
+		const startTime = new Date().setHours(new Date().getHours() - 2);
+		return matchService.getFirstGameToStartByDate(startTime).then(function (match) {
 			if (!match) {
 				//console.log('No more matches in the future! going to sleep for one day.');
 				schedule.scheduleJob(self.getNextDayDate(), function () {
@@ -188,7 +189,7 @@ const self = module.exports = {
 						socketIo.emit("matchResultUpdate", matchResultUpdate);
 
 						return matchResultService.updateMatchResult(newMatchResult).then(function () {
-							if (isRelevantGameFinished === false) {
+							if (isFinished === false) {
 								return Promise.resolve('getResultsJob');
 							} else {
 								const leagueId = match.league;

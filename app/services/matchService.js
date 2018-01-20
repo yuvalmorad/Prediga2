@@ -18,7 +18,7 @@ const self = module.exports = {
 			kickofftime: {$gte: startTime},
 			team1: team1,
 			team2: team2
-		}).sort({'kickofftime': -1}).limit(limit);
+		}).sort({'kickofftime': -1}).limit(1);
 	},
 	filterIdsByMatchesAlreadyStarted: function (matchIds) {
 		if (typeof(matchIds) === 'undefined') {
@@ -32,6 +32,9 @@ const self = module.exports = {
 	},
 	byId: function (matchId) {
 		return Match.findOne({_id: matchId});
+	},
+	byIds: function (ids) {
+		return Match.find({_id: {$in: ids}});
 	},
 	all: function () {
 		return Match.find({});

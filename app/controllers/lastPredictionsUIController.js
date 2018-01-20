@@ -16,7 +16,7 @@ app.get('/:userId', util.isLoggedIn, function (req, res) {
 		res.status(400).json({});
 	}
 	let groupId = req.query.groupId;
-	if (!groupId) {
+	if (!groupId || groupId === 'undefined') {
 		groupId = util.DEFAULT_GROUP;
 	}
 	const loggedInUser = req.user._id;
