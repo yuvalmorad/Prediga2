@@ -78,22 +78,11 @@ component.SimulatorPage = (function(){
         });
     }
 
-    var isRequestSent = false;
-
     var SimulatorPage = React.createClass({
         getInitialState: function() {
-            if (!isRequestSent) {
-                this.props.loadSimulator(this.props.selectedGroupId);
-                if (this.props.leadersStatus === utils.action.REQUEST_STATUS.NOT_LOADED) {
-                    this.props.loadLeaderBoard(this.props.selectedGroupId);
-                }
-
-                if (this.props.gamesPredictionsStatus === utils.action.REQUEST_STATUS.NOT_LOADED) {
-                    this.props.loadGamesPredictions(this.props.selectedGroupId);
-                }
-
-                isRequestSent = true;
-            }
+            this.props.loadSimulator(this.props.selectedGroupId);
+            this.props.loadLeaderBoard(this.props.selectedGroupId);
+            this.props.loadGamesPredictions(this.props.selectedGroupId);
 
             return {
                 predictionsSimulated: [], //{matchId: "", team1Goals: 1, ...}
