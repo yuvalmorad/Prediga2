@@ -1,91 +1,114 @@
-const Q = require('q');
-const Groups = require('../models/group');
-const GroupConfiguration = require('../models/groupConfiguration');
-const UsersLeaderboard = require('../models/usersLeaderboard');
-const UserScore = require('../models/userScore');
-const MatchPrediction = require('../models/matchPrediction');
-const TeamPrediction = require('../models/teamPrediction');
 const util = require('../utils/util');
 const mongoose = require('mongoose');
+const Groups = require('../models/group');
 
-module.exports = {
+const self = module.exports = {
 	updateGroup: function (groupObj) {
-		const deferred = Q.defer();
-		Groups.findOneAndUpdate({_id: groupObj._id}, groupObj, util.updateSettings).then(function (obj) {
-				deferred.resolve(obj);
-			}
-		);
-		return deferred.promise;
+		return Groups.findOneAndUpdate({
+			_id: groupObj._id, createdBy: groupObj.createdBy
+		}, groupObj, util.updateSettings);
 	},
 	removeGroupContent: function (groupId, userId) {
-		return Promise.all([
-			Groups.findOneAndRemove({_id: groupId, createdBy: userId}),
-			GroupConfiguration.findOneAndRemove({_id: obj.configurationId}),
-			UsersLeaderboard.remove({groupId: groupId}),
-			UserScore.remove({groupId: groupId}),
-			MatchPrediction.remove({groupId: groupId}),
-			TeamPrediction.remove({groupId: groupId}),
-
-		]).then(function (arr) {
-			return Promise.resolve();
+		return Groups.findOneAndRemove({_id: groupId, createdBy: userId}).then(function (groupRemoved) {
+			return Promise.resolve(groupRemoved);
 		});
 	},
-	removeGroupContentOfOneUser: function (groupId, userId) {
-		return Promise.all([
-			UsersLeaderboard.remove({groupId: groupId, userId: userId}),
-			UserScore.remove({groupId: groupId, userId: userId}),
-			MatchPrediction.remove({groupId: groupId, userId: userId}),
-			TeamPrediction.remove({groupId: groupId, userId: userId}),
+	validateBeforeCreateOrUpdate: function (group) {
+		if (!self.validateArr(group.leagueIds)) {
+			return false;
+		}
 
-		]).then(function (arr) {
-			// TODO - update leaderboard for group
-			return Promise.resolve();
-		});
+		if (!self.validateArr(group.users)) {
+			return false;
+		}
+
+		if (!self.validateStringNotEmpty(group.name)) {
+			return false;
+		}
+
+		if (!self.validateStringNotEmpty(group.secret)) {
+			return false;
+		}
+		return true;
 	},
-	checkInput: function (group) {
-		if (!group.leagueIds || !Array.isArray(group.leagueIds)) {
+	validateStringNotEmpty: function (str) {
+		return !(!str || str.length < 1);
+	},
+	validateArr: function (arr) {
+		if (!arr || !Array.isArray(arr)) {
 			return false;
 		}
 		let isAllValidIds = true;
-		group.leagueIds.forEach(function (leagueId) {
-			if (!mongoose.Types.ObjectId.isValid(leagueId)) {
+		arr.forEach(function (item) {
+			if (!mongoose.Types.ObjectId.isValid(item)) {
 				isAllValidIds = false;
 			}
 		});
-		if (!isAllValidIds) {
-			return false;
+		return isAllValidIds;
+	},
+	getLeagueIdMap: function (groups) {
+		const leagueIdsArr = groups.map(function (group) {
+			return group.leagueIds;
+		});
+		return [].concat.apply([], leagueIdsArr);
+	},
+	getConfigurationIdMap: function (groups) {
+		const configurationIdArr = groups.map(function (group) {
+			return group.configurationId;
+		});
+		return [].concat.apply([], configurationIdArr);
+	},
+	getUsersMap: function (groups) {
+		const usersArr = groups.map(function (group) {
+			return group.users;
+		});
+		return [].concat.apply([], usersArr);
+	},
+	byId: function (id) {
+		return Groups.findOne({_id: id});
+	},
+	byIds: function (ids) {
+		return Groups.find({_id: {$in: ids}});
+	},
+	byUserId: function (userId) {
+		return Groups.find({users: userId});
+	},
+	byUserIdAndId: function (userId, id) {
+		return Groups.findOne({users: userId, _id: id});
+	},
+	byUserIdAndLeagueId: function (userId, leagueId) {
+		return Groups.find({users: userId, leagueIds: leagueId});
+	},
+	byLeagueId: function (leagueId) {
+		return Groups.find({leagueIds: leagueId});
+	},
+	byUsrIdAndConfigurationId: function (userId, configurationId) {
+		return Groups.find({users: userId, configurationId: configurationId});
+	},
+	all: function () {
+		return Groups.find({});
+	},
+	detachConfiguration: function (group) {
+		let configuration = group.configuration;
+		if (!configuration._id) {
+			configuration._id = mongoose.Types.ObjectId();
 		}
-
-		if (group.users) {
-			if (!Array.isArray(group.users)) {
-				return false;
-			}
-			group.users.forEach(function (user) {
-				if (!mongoose.Types.ObjectId.isValid(user)) {
-					isAllValidIds = false;
-				}
-			});
-		}
-
-		if (!isAllValidIds) {
-			return false;
-		}
-
-		if (!group.name || group.name.length < 1) {
-			return false;
-		}
-		group.name = group.name.trim();
-
-		if (!group.secret || group.secret.length < 1) {
-			return false;
-		}
-		group.secret = group.secret.trim();
-
-		if (!group.configuration) {
-			group.configuration = {
-				_id: mongoose.Types.ObjectId()
-			}
-		}
-		return true;
+		group.configurationId = configuration._id;
+		delete group.configuration;
+		return configuration;
+	},
+	addUser: function (id, secret, userId) {
+		return Groups.findOneAndUpdate({_id: id, secret: secret}, {$addToSet: {users: userId}});
+	},
+	removeUser: function (id, userId) {
+		return Groups.findOneAndUpdate({_id: id}, {$pull: {users: userId}});
+	},
+	removeUserByOwner: function (id, owner, userId) {
+		return Groups.findOneAndUpdate({_id: id, createdBy: owner}, {$pull: {users: userId}});
+	},
+	filterByGroupId: function (groups, groupId) {
+		return groups.filter(function (group) {
+			return group._id.toString() === groupId;
+		});
 	}
 };

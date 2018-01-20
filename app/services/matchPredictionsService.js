@@ -1,182 +1,167 @@
-const Q = require('q');
-const Match = require('../models/match');
 const MatchPrediction = require('../models/matchPrediction');
 const utils = require('../utils/util');
+const matchService = require('./matchService.js');
 
 const self = module.exports = {
-	findPredictionsByMatchIds: function (groupId, matches) {
-		const deferred = Q.defer();
-		if (matches && matches.length < 1) {
-			deferred.resolve([]);
+	byGroupIdAndMatches: function (groupId, matches) {
+		if (!matches || matches.length < 1) {
+			return Promise.resolve([]);
 		}
-		const matchIds = matches.map(function (match) {
-			return match._id;
+		const matchIds = matchService.getIdArr(matches);
+		return self.byMatchIdsGroupId(matchIds, groupId).then(function (predictions) {
+			return Promise.resolve(predictions);
 		});
-		MatchPrediction.find({matchId: {$in: matchIds}, groupId: groupId}).then(function (predictions) {
-			deferred.resolve(predictions);
-		});
-		return deferred.promise;
 	},
-	createMatchPredictions(groupId, matchPredictions, userId, minBefore) {
-		const now = new Date();
-		const deadline = new Date();
-		deadline.setMinutes(now.getMinutes() + minBefore);
+	createMatchPredictions(groupId, matchPredictions, userId, minutesBeforeStartGameDeadline) {
+		const deadline = new Date().setMinutes(new Date().getMinutes() + minutesBeforeStartGameDeadline);
 		const promises = matchPredictions.map(function (matchPrediction) {
 			// we can update only until 5 minutes before kick off time.
-			return Match.findOne({kickofftime: {$gte: deadline}, _id: matchPrediction.matchId}).then(function (aMatch) {
-				if (aMatch) {
-					// fixing wrong input
-					if (typeof(matchPrediction.winner) === 'undefined') {
-						matchPrediction.winner = 'draw';
-					}
-					if (typeof(matchPrediction.firstToScore) === 'undefined') {
-						matchPrediction.firstToScore = 'none';
-					}
-					// validation:
-					if (((matchPrediction.winner !== aMatch.team1) && (matchPrediction.winner !== aMatch.team2) && (matchPrediction.winner.toLowerCase() !== "draw")) ||
-						((matchPrediction.firstToScore !== aMatch.team1) && (matchPrediction.firstToScore !== aMatch.team2) && matchPrediction.firstToScore.toLowerCase() !== "none") ||
-						matchPrediction.team1Goals < 0 || matchPrediction.team2Goals < 0 || matchPrediction.goalDiff < 0) {
-						return Promise.reject('general error');
-					}
-
-					matchPrediction.userId = userId;
-					matchPrediction.groupId = groupId;
-
-					return MatchPrediction.findOneAndUpdate({
-						matchId: matchPrediction.matchId,
-						groupId: groupId,
-						userId: userId
-					}, matchPrediction, utils.updateSettings);
-				} else {
-					return Promise.reject('general error');
+			return matchService.byIdAndStartBeforeDate(matchPrediction.matchId, deadline).then(function (match) {
+				if (!match) {
+					return Promise.reject();
 				}
+				if (!self.validateAndCorrectInput(match, matchPrediction, userId, groupId)) {
+					return Promise.reject();
+				}
+				return self.updatePrediction(matchPrediction, userId, groupId).then(function (newPrediction) {
+					return Promise.resolve(newPrediction);
+				});
 			});
 		});
 
 		return Promise.all(promises);
 	},
-	getPredictionsForOtherUsersInner: function (matches, userId, me, groupId) {
+	validateAndCorrectInput: function (match, matchPrediction, userId, groupId) {
+		if (typeof(matchPrediction.winner) === 'undefined') {
+			matchPrediction.winner = utils.MATCH_CONSTANTS.DRAW;
+		}
+		if (typeof(matchPrediction.firstToScore) === 'undefined') {
+			matchPrediction.firstToScore = utils.MATCH_CONSTANTS.NONE;
+		}
+		matchPrediction.userId = userId;
+		matchPrediction.groupId = groupId;
+
+		// validation:
+		return !(((matchPrediction.winner !== match.team1) && (matchPrediction.winner !== match.team2) && (matchPrediction.winner.toLowerCase() !== utils.MATCH_CONSTANTS.DRAW)) ||
+			((matchPrediction.firstToScore !== match.team1) && (matchPrediction.firstToScore !== aMatch.team2) && matchPrediction.firstToScore.toLowerCase() !== utils.MATCH_CONSTANTS.NONE) ||
+			matchPrediction.team1Goals < 0 || matchPrediction.team2Goals < 0 || matchPrediction.goalDiff < 0);
+	},
+	getPredictionsForOtherUsersInner: function (matches, userId, groupId) {
 		const promises = matches.map(function (aMatch) {
-			if (userId) {
-				return MatchPrediction.find({matchId: aMatch._id, userId: userId, groupId: groupId});
-			} else {
-				return MatchPrediction.find({matchId: aMatch._id, userId: {$ne: me}, groupId: groupId});
-			}
+			return self.byMatchIdUserIdGroupId(aMatch._id, userId, groupId).then(function (matchPrediction) {
+				if (matchPrediction) {
+					return Promise.resolve(matchPrediction);
+				} else {
+					return Promise.reject({});
+				}
+			});
 		});
 		return Promise.all(promises);
 	},
+	getPredictionsForMeInner: function (matchIds, me, groupId) {
+		if (typeof(matchIds) === 'undefined') {
+			return self.byUserIdGroupId(me, groupId);
+		} else {
+			return self.byMatchIdsUserIdGroupId(matchIds, me, groupId);
+		}
+	},
 	getPredictionsForOtherUsers: function (predictionRequest) {
-		const now = new Date();
-		return Promise.all([
-			typeof(predictionRequest.matchIds) === 'undefined' ?
-				Match.find({kickofftime: {$lt: now}}) :
-				Match.find({kickofftime: {$lt: now}, _id: {$in: predictionRequest.matchIds}})
-		]).then(function (arr) {
-			return Promise.all([
-				self.getPredictionsForOtherUsersInner(arr[0], predictionRequest.userId, predictionRequest.me, predictionRequest.groupId),
-				typeof(predictionRequest.matchIds) === 'undefined' ?
-					MatchPrediction.find({userId: predictionRequest.me, groupId: predictionRequest.groupId}) :
-					MatchPrediction.find({
-						matchId: {$in: predictionRequest.matchIds},
-						userId: predictionRequest.me,
-						groupId: predictionRequest.groupId
-					})
-			]).then(function (arr2) {
-				let mergedPredictions = [];
-				// merging between others & My predictions
-				if (arr2[0]) {
-					mergedPredictions = mergedPredictions.concat.apply([], arr2[0]);
-				}
-				if (arr2[1]) {
-					mergedPredictions = mergedPredictions.concat(arr2[1]);
-				}
-				return mergedPredictions;
+		return matchService.filterIdsByMatchesAlreadyStarted(predictionRequest.matchIds).then(function (matches) {
+			return self.getPredictionsForOtherUsersInner(matches, predictionRequest.userId, predictionRequest.groupId).then(function (predictions) {
+				let predArr = [];
+				predictions.forEach(function (prediction) {
+					if (prediction && prediction.length > 0) {
+						predArr.push(prediction[0]);
+					}
+				});
+				return Promise.resolve(predArr);
 			});
 		});
 	},
 	getPredictionsByUserId: function (predictionRequest) {
-		const deferred = Q.defer();
-
 		if (predictionRequest.isForMe) {
-			if (typeof(predictionRequest.matchIds) !== 'undefined') {
-				MatchPrediction.find({
-					userId: predictionRequest.userId,
-					groupId: predictionRequest.groupId,
-					matchId: {$in: predictionRequest.matchIds}
-				}, function (err, aMatchPredictions) {
-					deferred.resolve(aMatchPredictions);
-				});
-			} else {
-				MatchPrediction.find({
-					userId: predictionRequest.userId,
-					groupId: predictionRequest.groupId
-				}, function (err, aMatchPredictions) {
-					deferred.resolve(aMatchPredictions);
-				});
+			return self.getPredictionsForMeInner(predictionRequest.matchIds, predictionRequest.userId, predictionRequest.groupId);
+		} else {
+			return self.getPredictionsForOtherUsers(predictionRequest).then(function (aMatchPredictions) {
+				return Promise.resolve(aMatchPredictions);
+			});
+		}
+	},
+	getFutureGamesPredictionsCounters: function (groupId, matchIds) {
+		if (!matchIds) {
+			return Promise.resolve([]);
+		}
+		//return Promise.resolve([]);
+		return matchService.getNotStartedMatches(matchIds).then(function (matches) {
+			if (!matches) {
+				return Promise.resolve([]);
 			}
-
-		} else {
-			self.getPredictionsForOtherUsers(predictionRequest).then(function (aMatchPredictions) {
-				deferred.resolve(aMatchPredictions);
-			});
-		}
-
-		return deferred.promise;
-	},
-	getPredictionsByMatchIds: function (predictionRequest) {
-		const deferred = Q.defer();
-
-		if (predictionRequest.isForMe) {
-			MatchPrediction.find({matchId: predictionRequest.matchIds}, function (err, aMatchPredictions) {
-				deferred.resolve(aMatchPredictions);
-			});
-		} else {
-			self.getPredictionsForOtherUsers(predictionRequest).then(function (aMatchPredictions) {
-				deferred.resolve(aMatchPredictions);
-			});
-		}
-
-		return deferred.promise;
-	},
-	getFutureGamesPredictionsCounters: function (groupId, matchIdsRelevant) {
-		const now = new Date();
-		return Promise.all([
-			Match.find({kickofftime: {$gte: now}, _id: {$in: matchIdsRelevant}})
-		]).then(function (arr) {
-			const matchIds = arr[0].map(function (match) {
-				return match._id;
-			});
-
-			return Promise.all([
-				MatchPrediction.find({matchId: {$in: matchIds}, groupId: groupId})
-			]).then(function (arr2) {
-				return self.aggregateFuturePredictions(arr2[0]);
+			const relevantMatchIds = matchService.getIdArr(matches);
+			return self.byMatchIdsGroupId(relevantMatchIds, groupId).then(function (predictions) {
+				return self.aggregateFuturePredictions(predictions);
 			});
 		});
 	},
-	aggregateFuturePredictions: function (matchPredictions) {
-		const deferred = Q.defer();
-		const result = {};
-		if (matchPredictions && matchPredictions.length > 0) {
-			matchPredictions.forEach(function (matchPrediction, index) {
-				if (!result.hasOwnProperty(matchPrediction.matchId)) {
-					result[matchPrediction.matchId] = {};
-				}
-
-				if (!result[matchPrediction.matchId].hasOwnProperty(matchPrediction.winner)) {
-					result[matchPrediction.matchId][matchPrediction.winner] = 1;
-				} else {
-					result[matchPrediction.matchId][matchPrediction.winner]++;
-				}
-
-				if (index === matchPredictions.length - 1) {
-					deferred.resolve(result);
-				}
-			});
-		} else {
-			deferred.resolve(result);
+	aggregateFuturePredictions: function (predictions) {
+		if (!predictions || predictions.length < 0) {
+			return Promise.resolve([]);
 		}
+		let result = {};
+		predictions.forEach(function (prediction) {
+			if (!result.hasOwnProperty(prediction.matchId)) {
+				result[prediction.matchId] = {};
+			}
 
-		return deferred.promise;
+			if (!result[prediction.matchId].hasOwnProperty(prediction.winner)) {
+				result[prediction.matchId][prediction.winner] = 1;
+			} else {
+				result[prediction.matchId][prediction.winner]++;
+			}
+		});
+		return Promise.resolve(result);
+	},
+	getMatchIdsArr: function (predictions) {
+		return predictions.map(function (prediction) {
+			return prediction.matchId;
+		});
+	},
+	getGroupIdArr: function (predictions) {
+		return predictions.map(function (prediction) {
+			return prediction.groupId;
+		});
+	},
+	removeByGroupId: function (groupId) {
+		return MatchPrediction.remove({groupId: groupId});
+	},
+	removeByGroupIdAndUserId: function (groupId, userId) {
+		return MatchPrediction.remove({groupId: groupId, userId: userId});
+	},
+	updatePrediction: function (matchPrediction, userId, groupId) {
+		return MatchPrediction.findOneAndUpdate({
+			matchId: matchPrediction.matchId,
+			groupId: groupId,
+			userId: userId
+		}, matchPrediction, utils.updateSettings);
+	},
+	byMatchIdUserIdGroupId: function (matchId, userId, groupId) {
+		return MatchPrediction.find({matchId: matchId, userId: userId, groupId: groupId});
+	},
+	byMatchIdsUserIdGroupId: function (matchIds, userId, groupId) {
+		return MatchPrediction.find({matchId: {$in: matchIds}, userId: userId, groupId: groupId})
+	},
+	byMatchIdsGroupId: function (matchIds, groupId) {
+		return MatchPrediction.find({matchId: {$in: matchIds}, groupId: groupId})
+	},
+	byUserIdGroupId: function (userId, groupId) {
+		return MatchPrediction.find({userId: userId, groupId: groupId});
+	},
+	byMatchIdNotUserIdGroupId: function (matchId, userId, groupId) {
+		return MatchPrediction.find({matchId: matchId, userId: {$ne: userId}, groupId: groupId});
+	},
+	byMatchId: function (matchId) {
+		return MatchPrediction.find({matchId: matchId});
+	},
+	byMatchIdUserId: function (matchId, userId) {
+		return MatchPrediction.findOne({matchId: matchId, userId: userId});
 	}
 };

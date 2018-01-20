@@ -1,28 +1,27 @@
-const Q = require('q');
-const groupConfiguration = require('../models/groupConfiguration');
-const Group = require('../models/group');
+const GroupConfiguration = require('../models/groupConfiguration');
 const util = require('../utils/util');
 
-module.exports = {
+const self = module.exports = {
 	updateConfiguration: function (groupConfigurationObj) {
-		const deferred = Q.defer();
-		groupConfiguration.findOneAndUpdate({_id: groupConfigurationObj._id}, groupConfigurationObj, util.updateSettings).then(function (obj) {
-				deferred.resolve(obj);
-			}
-		);
-		return deferred.promise;
+		return GroupConfiguration.findOneAndUpdate({_id: groupConfigurationObj._id}, groupConfigurationObj, util.updateSettings);
 	},
-	getConfigurationValue: function (groupId, key) {
-		return Promise.all([
-			Group.findOne({_id: groupId})
-		]).then(function (group) {
-			if (group[0]) {
-				return groupConfiguration.findOne({_id: group[0].configurationId}).then(function (config) {
-					return config[key];
-				});
-			} else {
-				return null;
-			}
+	getConfigurationValue: function (configurationId, key) {
+		return GroupConfiguration.findOne({_id: configurationId}).then(function (config) {
+			return Promise.resolve(config[key]);
+		});
+	},
+	byId: function (configurationId) {
+		return GroupConfiguration.findOne({_id: configurationId});
+	},
+	byIds: function (configurationIdArr) {
+		return GroupConfiguration.find({_id: {$in: configurationIdArr}});
+	},
+	removeById: function (id) {
+		return GroupConfiguration.findOneAndRemove({_id: id});
+	},
+	filterById: function (configurations, id) {
+		return configurations.filter(function (groupConfiguration) {
+			return groupConfiguration._id.toString() === id;
 		});
 	}
 };

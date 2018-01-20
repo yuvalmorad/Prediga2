@@ -13,7 +13,7 @@ var routePages = (function(){
     var routePages = [
         {
             path: "/",
-            title: "Games Predictions",
+            title: "Match Predictions",
             icon: "",
             isAuthenticatedPage: true,
             component: GamesPredictionsPage,
@@ -30,7 +30,7 @@ var routePages = (function(){
         },
         {
             path: "/teamsPredictions",
-            title: "Teams Predictions",
+            title: "Team Predictions",
             icon: "",
             isAuthenticatedPage: true,
             component: TeamsPredictionsPage,

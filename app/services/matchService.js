@@ -1,62 +1,59 @@
-const Q = require('q');
 const Match = require('../models/match');
 const util = require('../utils/util');
 
 const self = module.exports = {
 	updateMatches: function (matches) {
-		console.log('beginning to update ' + matches.length + ' matches');
+		//console.log('beginning to update ' + matches.length + ' matches');
 		const promises = matches.map(function (match) {
-			return Match.findOneAndUpdate({_id: match._id}, match, util.overrideSettings).then(function (obj) {
-					return obj;
+			return Match.findOneAndUpdate({_id: match._id}, match, util.overrideSettings).then(function (newMatch) {
+					return Promise.resolve(newMatch);
 				}
 			);
 		});
 		return Promise.all(promises);
 	},
-	findMatchByTeamsToday: function (team1, team2) {
-		const deferred = Q.defer();
-		const today = new Date();
-		const after = new Date();
-		const before = new Date();
-		after.setHours(today.getHours() + 12);
-		before.setHours(today.getHours() - 12);
-
-		Match.find({
-			kickofftime: {$gte: before, $lte: after},
+	findFirstMatchByTeamsStarted: function (team1, team2) {
+		const startTime = new Date().setHours(new Date().getHours() - 2);
+		return Match.findOne({
+			kickofftime: {$gte: startTime},
 			team1: team1,
 			team2: team2
-		}, function (err, relevantMatches) {
-			if (err) return console.log(err);
-			if (!relevantMatches || !Array.isArray(relevantMatches) || relevantMatches.length === 0) {
-				deferred.resolve(null);
-			} else {
-				deferred.resolve(relevantMatches[0]);
-			}
-
-		});
-		return deferred.promise;
+		}).sort({'kickofftime': -1}).limit(1);
 	},
-	getNextMatchDate: function () {
-		const now = new Date();
-		const before = new Date();
-		before.setMinutes(now.getMinutes() - 105);
-		return Promise.all([
-			Match.findOne({kickofftime: {$gte: before}}).sort({'kickofftime': 1}).limit(1)
-		]).then(function (arr) {
-			return arr[0]
+	filterIdsByMatchesAlreadyStarted: function (matchIds) {
+		if (typeof(matchIds) === 'undefined') {
+			return Match.find({kickofftime: {$lt: new Date()}});
+		} else {
+			return Match.find({kickofftime: {$lt: new Date()}, _id: {$in: matchIds}});
+		}
+	},
+	getNotStartedMatches: function (matchIds) {
+		return Match.find({kickofftime: {$gte: new Date()}, _id: {$in: matchIds}});
+	},
+	byId: function (matchId) {
+		return Match.findOne({_id: matchId});
+	},
+	byIds: function (ids) {
+		return Match.find({_id: {$in: ids}});
+	},
+	all: function () {
+		return Match.find({});
+	},
+	byLeagueIds: function (leagueIds) {
+		return Match.find({league: {$in: leagueIds}});
+	},
+	byLeagueIdAndIdsWithLimit: function (leagueId, ids, limit) {
+		return Match.find({_id: {$in: ids}, league: leagueId}).sort({'kickofftime': -1}).limit(limit); // sorted desc
+	},
+	getIdArr: function (matches) {
+		return matches.map(function (match) {
+			return match._id.toString();
 		});
 	},
-	findMatchesThatAreClosedAndNotFinished: function (matchIds) {
-		const deferred = Q.defer();
-		const now = new Date();
-		const after = new Date();
-		after.setMinutes(after.getMinutes() - 150);
-
-		Match.find({
-			kickofftime: {$gte: after, $lte: now}, _id: {$in: matchIds}
-		}, function (err, relevantMatches) {
-			deferred.resolve(relevantMatches);
-		});
-		return deferred.promise;
+	byIdAndStartBeforeDate: function (id, date) {
+		return Match.findOne({kickofftime: {$gte: date}, _id: id}).sort({'kickofftime': 1});
+	},
+	getFirstGameToStartByDate: function (date) {
+		return Match.findOne({kickofftime: {$gte: date}}).sort({'kickofftime': 1});
 	}
 };

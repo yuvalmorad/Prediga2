@@ -1,109 +1,93 @@
-const Q = require('q');
-const Team = require('../models/team');
 const TeamPrediction = require('../models/teamPrediction');
+const teamService = require('../services/teamService');
 const utils = require('../utils/util');
+
 const self = module.exports = {
 	createTeamPredictions(groupId, teamPredictions, userId) {
-		const now = new Date();
 		const promises = teamPredictions.map(function (teamPrediction) {
-			// we can update only if the kickofftime is not passed
-			return Team.findOne({deadline: {$gte: now}, _id: teamPrediction.teamId}).then(function (aTeam) {
-				if (aTeam) {
-					teamPrediction.userId = userId;
-					return TeamPrediction.findOneAndUpdate({
-						teamId: teamPrediction.teamId,
-						groupId: groupId,
-						userId: userId
-					}, teamPrediction, utils.updateSettings);
-				} else {
-					return Promise.reject('general error');
+			return teamService.byIdBeforeDate(teamPrediction.teamId).then(function (team) {
+				if (!team) {
+					return Promise.reject();
 				}
+				teamPrediction.userId = userId;
+				return TeamPrediction.findOneAndUpdate({
+					teamId: teamPrediction.teamId, groupId: groupId, userId: userId
+				}, teamPrediction, utils.updateSettings);
 			});
 		});
 
 		return Promise.all(promises);
 	},
-	getPredictionsForOtherUsersInner: function (teams, userId, me, groupId) {
+	getPredictionsForOtherUsersInner: function (teams, userId, groupId) {
 		const promises = teams.map(function (aTeam) {
-			if (userId) {
-				return TeamPrediction.find({teamId: aTeam._id, userId: userId, groupId: groupId});
-			} else {
-				return TeamPrediction.find({teamId: aTeam._id, groupId: groupId});
-			}
+			return self.byTeamIdUserIdGroupId(aTeam._id, userId, groupId).then(function (teamPrediction) {
+				if (teamPrediction){
+					return Promise.resolve(teamPrediction);
+				} else {
+					return Promise.resolve({});
+				}
+			})
 		});
 		return Promise.all(promises);
 	},
+	getPredictionsForMeInner: function (me, groupId, teamIds) {
+		if (typeof(teamIds) === 'undefined') {
+			return self.byUserIdGroupId(me, groupId);
+		} else {
+			return self.byTeamIdsUserIdGroupId(teamIds, me, groupId);
+		}
+	},
 	getPredictionsForOtherUsers: function (predictionRequest) {
-		const now = new Date();
-		return Promise.all([
-			typeof(predictionRequest.teamIds) === 'undefined' ?
-				Team.find({deadline: {$lt: now}}) :
-				Team.find({deadline: {$lt: now}, _id: {$in: predictionRequest.teamIds}})
-		]).then(function (arr) {
-			return Promise.all([
-				self.getPredictionsForOtherUsersInner(arr[0], predictionRequest.userId, predictionRequest.me, predictionRequest.groupId),
-				typeof(predictionRequest.teamIds) === 'undefined' ?
-					TeamPrediction.find({userId: predictionRequest.me, groupId: predictionRequest.groupId}) :
-					TeamPrediction.find({
-						teamId: {$in: predictionRequest.teamIds},
-						userId: predictionRequest.me,
-						groupId: predictionRequest.groupId
-					})
-			]).then(function (arr2) {
-				let mergedPredictions = [];
-
-				// Merging between other & My predictions
-				if (arr2[0]) {
-					mergedPredictions = mergedPredictions.concat.apply([], arr2[0]);
-				}
-				if (arr2[1]) {
-					mergedPredictions = mergedPredictions.concat(arr2[1]);
-				}
-				return mergedPredictions;
+		return teamService.getStartedTeams(predictionRequest.teamIds).then(function (teams) {
+			return self.getPredictionsForOtherUsersInner(teams, predictionRequest.userId, predictionRequest.groupId).then(function (predictions) {
+				let predArr = [];
+				predictions.forEach(function (prediction) {
+					if (prediction && prediction.length > 0) {
+						predArr.push(prediction[0]);
+					}
+				});
+				return Promise.resolve(predArr);
 			});
 		});
 	},
 	getPredictionsByUserId: function (predictionRequest) {
-		const deferred = Q.defer();
-
 		if (predictionRequest.isForMe) {
-			if (typeof(predictionRequest.teamIds) !== 'undefined') {
-				TeamPrediction.find({
-					userId: predictionRequest.userId,
-					teamId: {$in: predictionRequest.teamIds},
-					groupId: predictionRequest.groupId
-				}, function (err, aTeamPredictions) {
-					deferred.resolve(aTeamPredictions);
-				});
-			} else {
-				TeamPrediction.find({userId: predictionRequest.userId}, function (err, aTeamPredictions) {
-					deferred.resolve(aTeamPredictions);
-				});
-			}
-
+			return self.getPredictionsForMeInner(predictionRequest.userId, predictionRequest.groupId, predictionRequest.teamIds);
 		} else {
-			self.getPredictionsForOtherUsers(predictionRequest).then(function (aTeamPredictions) {
-				deferred.resolve(aTeamPredictions);
+			return self.getPredictionsForOtherUsers(predictionRequest).then(function (teamPredictions) {
+				return Promise.resolve(teamPredictions);
 			});
 		}
-
-		return deferred.promise;
 	},
-	getPredictionsByTeamId: function (predictionRequest) {
-		const deferred = Q.defer();
-
-		if (predictionRequest.isForMe) {
-			TeamPrediction.find({
-				teamId: {$in: predictionRequest.teamIds}, groupId: predictionRequest.groupId
-			}, function (err, aTeamPredictions) {
-				deferred.resolve(aTeamPredictions);
-			});
-		} else {
-			self.getPredictionsForOtherUsers(predictionRequest).then(function (aTeamPredictions) {
-				deferred.resolve(aTeamPredictions);
-			});
-		}
-
-		return deferred.promise;
+	removeByGroupId: function (groupId) {
+		return TeamPrediction.remove({groupId: groupId});
+	},
+	removeByGroupIdAndUserId: function (groupId, userId) {
+		return TeamPrediction.remove({groupId: groupId, userId: userId});
+	},
+	byTeamIdUserIdGroupId: function (teamId, userId, groupId) {
+		return TeamPrediction.find({teamId: teamId, userId: userId, groupId: groupId});
+	},
+	byTeamIdsUserIdGroupId: function (teamIds, userId, groupId) {
+		return TeamPrediction.find({
+			teamId: {$in: teamIds}, userId: userId, groupId: groupId
+		});
+	},
+	byTeamIdGroupId: function (teamId, groupId) {
+		return TeamPrediction.find({teamId: teamId, groupId: groupId});
+	},
+	byUserIdGroupId: function (userId, groupId) {
+		return TeamPrediction.find({userId: userId, groupId: groupId});
+	},
+	byTeamId: function (teamId) {
+		return TeamPrediction.find({teamId: teamId});
+	},
+	getGroupIdArr: function (teamPredictions) {
+		return teamPredictions.map(function (teamPrediction) {
+			return teamPrediction.groupId;
+		});
+	},
+	byTeamIdUserId: function (teamId, userId) {
+		return TeamPrediction.findOne({teamId: teamId, userId: userId});
 	}
 };

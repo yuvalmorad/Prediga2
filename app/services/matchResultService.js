@@ -1,24 +1,38 @@
-const Q = require('q');
 const MatchResult = require('../models/matchResult');
 const util = require('../utils/util');
 
 const self = module.exports = {
 	updateMatchResult: function (matchResult) {
-		const deferred = Q.defer();
-		MatchResult.findOneAndUpdate({matchId: matchResult.matchId}, matchResult, util.updateSettings).then(function (obj) {
-				deferred.resolve(obj);
+		return MatchResult.findOneAndUpdate({matchId: matchResult.matchId}, matchResult, util.updateSettings).then(function (newMatchResult) {
+				return Promise.resolve(newMatchResult);
 			}
 		);
-		return deferred.promise;
 	},
 	updateMatchResults: function (matchResults) {
 		if (matchResults.length === 0) {
-			return;
+			return Promise.resolve([]);
 		}
-		console.log('beginning to update ' + matchResults.length + ' matchResults');
+		//console.log('beginning to update ' + matchResults.length + ' matchResults');
 		const promises = matchResults.map(function (matchResult) {
 			return self.updateMatchResult(matchResult);
 		});
 		return Promise.all(promises);
+	},
+	byMatchIds: function (matchIds) {
+		return MatchResult.find({matchId: {$in: matchIds}});
+	},
+	byMatchIdsAndAndActiveStatus: function (matchIds, isActive) {
+		return MatchResult.find({matchId: {$in: matchIds}, active: isActive});
+	},
+	byMatchId: function (matchId) {
+		return MatchResult.findOne({matchId: matchId});
+	},
+	all: function () {
+		return MatchResult.find({});
+	},
+	getMatchIdsArr: function (matchResults) {
+		return matchResults.map(function (matchResult) {
+			return matchResult.matchId;
+		});
 	}
 };
