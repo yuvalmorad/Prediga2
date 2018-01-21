@@ -176,7 +176,7 @@ const self = module.exports = {
 						console.log("[Auotmatic Updater] - sending push notification about game starts!");
 						pushSubscriptionService.pushToAllRegisterdUsers({text: team1Club.name + ' vs ' + team2Club.name + ' started now'});
 					}
-					if (isFinished && currentMatchResult.active === false) {
+					if (isFinished && (currentMatchResult && currentMatchResult.active === false)) {
 						return Promise.resolve(false);
 					}
 
