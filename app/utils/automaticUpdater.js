@@ -10,7 +10,7 @@ const matchResultService = require("../services/matchResultService");
 const userScoreService = require("../services/userScoreService");
 const userLeaderboardService = require("../services/usersLeaderboardService");
 const pushSubscriptionService = require('../services/pushSubscriptionService');
-const Q = require('q');
+
 const self = module.exports = {
 	run: function (isFirstRun) {
 		//console.log('Automatic update (run job) wake up');
@@ -66,7 +66,7 @@ const self = module.exports = {
 		return self.getLatestData().then(function (htmlRawData) {
 			if (!htmlRawData || htmlRawData.length < 1) {
 				console.log('[Auotmatic Updater] - No content received from remote host');
-				return Promise.resolve(false);
+				return Promise.resolve('getResultsJob');
 			} else {
 				try {
 					console.log('[Auotmatic Updater] - Start to parse response...');
@@ -81,7 +81,7 @@ const self = module.exports = {
 					});
 				} catch (err) {
 					console.log('[Auotmatic Updater] - Error with parsing result. ' + err);
-					return Promise.resolve(false);
+					return Promise.resolve('getResultsJob'); // trying again.
 				}
 			}
 		});
@@ -92,23 +92,23 @@ const self = module.exports = {
 		});
 	},
 	getLatestData: function () {
-		const deferred = Q.defer();
-		http.get(utils.AUTOMATIC_UPDATE_URL, function (res) {
-			let str = '';
-			res.on('data', function (chunk) {
-				//console.log('BODY: ' + chunk);
-				str += chunk;
-			});
+		return new Promise(function (resolve, reject) {
+			http.get(utils.AUTOMATIC_UPDATE_URL, function (res) {
+				let str = '';
+				res.on('data', function (chunk) {
+					//console.log('BODY: ' + chunk);
+					str += chunk;
+				});
 
-			res.on('end', function () {
-				deferred.resolve(str);
-			});
+				res.on('end', function () {
+					resolve(str);
+				});
 
-			res.on('error', function (err) {
-				deferred.resolve('');
+				res.on('error', function (err) {
+					resolve({});
+				});
 			});
 		});
-		return deferred.promise;
 	},
 	parseResponse: function (htmlRawData) {
 		let txt = '';
