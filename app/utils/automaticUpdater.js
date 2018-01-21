@@ -14,7 +14,7 @@ const Q = require('q');
 const self = module.exports = {
 	run: function (isFirstRun) {
 		//console.log('Automatic update (run job) wake up');
-		const startTime = new Date().setHours(new Date().getHours() - 2);
+		const startTime = new Date().setHours(new Date().getHours() - 3);
 		return matchService.getFirstGameToStartByDate(startTime).then(function (match) {
 			if (!match) {
 				//console.log('No more matches in the future! going to sleep for one day.');

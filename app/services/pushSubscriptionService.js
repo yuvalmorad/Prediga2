@@ -6,7 +6,6 @@ const matchService = require("../services/matchService");
 const teamService = require("../services/teamService");
 const matchPredictionsService = require('../services/matchPredictionsService');
 const teamPredictionsService = require('../services/teamPredictionsService');
-const pushSubscriptionService = require('../services/pushSubscriptionService');
 
 const vapidKeys = {
 	publicKey: process.env.WEB_PUSH_PUBLIC_KEY,
@@ -80,7 +79,7 @@ const self = module.exports = {
 								if (!matchPrediction) {
 									//user didn't fill a match prediction -> push notification for reminder
 									//console.log("sending push notification about not filling prediction for user: ", this.userId);
-									pushSubscriptionService.pushWithSubscription(subscription, {text: "Please fill your prediction, the game is about to start!!!"});
+									self.pushWithSubscription(subscription, {text: "Please fill your prediction, the game is about to start!!!"});
 								}
 							});
 						});
@@ -113,7 +112,7 @@ const self = module.exports = {
 								if (!teamPrediction) {
 									//user didn't fill a team prediction -> push notification for reminder
 									//console.log("sending push notification about not filling prediction for user: ", this.userId);
-									pushNotificationUtil.pushWithSubscription(subcription, {text: "Please fill your prediction, the teams prediction is about to end!!!"});
+									self.pushWithSubscription(subcription, {text: "Please fill your prediction, the teams prediction is about to end!!!"});
 								}
 							});
 						});
