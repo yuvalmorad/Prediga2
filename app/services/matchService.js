@@ -54,6 +54,7 @@ const self = module.exports = {
 		return Match.findOne({kickofftime: {$gte: date}, _id: id}).sort({'kickofftime': 1});
 	},
 	getNextMatch: function () {
-		return Match.findOne({kickofftime: {$gte: new Date()}}).sort({'kickofftime': 1});
+		const time = new Date().setMinutes(new Date().getMinutes() - 10);
+		return Match.findOne({kickofftime: {$gte: time}}).sort({'kickofftime': 1});
 	},
 };
