@@ -60,7 +60,7 @@ const self = module.exports = {
 	},
 
 	scheduleJobBeforeGameKickoffTime: function () {
-		return matchService.getFirstGameToStartByDate(new Date()).then(function (match) {
+		return matchService.getNextMatch().then(function (match) {
 			if (!match) {
 				return Promise.resolve({});
 			}

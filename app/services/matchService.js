@@ -53,7 +53,7 @@ const self = module.exports = {
 	byIdAndStartBeforeDate: function (id, date) {
 		return Match.findOne({kickofftime: {$gte: date}, _id: id}).sort({'kickofftime': 1});
 	},
-	getFirstGameToStartByDate: function (date) {
-		return Match.findOne({kickofftime: {$gte: date}}).sort({'kickofftime': 1});
-	}
+	getNextMatch: function () {
+		return Match.findOne({kickofftime: {$gte: new Date()}}).sort({'kickofftime': 1});
+	},
 };

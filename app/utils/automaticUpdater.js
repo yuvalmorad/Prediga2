@@ -14,8 +14,7 @@ const pushSubscriptionService = require('../services/pushSubscriptionService');
 const self = module.exports = {
 	run: function (isFirstRun) {
 		//console.log('Automatic update (run job) wake up');
-		const startTime = new Date().setHours(new Date().getHours() - 3);
-		return matchService.getFirstGameToStartByDate(startTime).then(function (match) {
+		return matchService.getNextMatch().then(function (match) {
 			if (!match) {
 				//console.log('No more matches in the future! going to sleep for one day.');
 				schedule.scheduleJob(self.getNextDayDate(), function () {
@@ -76,7 +75,7 @@ const self = module.exports = {
 							console.log('[Auotmatic Updater] - There are no relevant games.');
 							return Promise.resolve(false);
 						}
-						console.log('[Auotmatic Updater] - Found ' + relevantMatches.length + ' relevant matches to update...');
+						console.log('[Auotmatic Updater] - ' + relevantMatches.length + ' + relevant matches to found...');
 						return self.updateMatchResults(relevantMatches);
 					});
 				} catch (err) {
@@ -193,8 +192,9 @@ const self = module.exports = {
 							if (isFinished === false) {
 								return Promise.resolve('getResultsJob');
 							} else {
+								console.log('[Auotmatic Updater] - Game has dinished, for [' + team1 + ' - ' + team2 + ']');
 								const leagueId = match.league;
-								console.log('[Auotmatic Updater] - Beginning to update user score for [' + team1 + ' - ' + team2 + ']');
+								console.log('[Auotmatic Updater] - Beginning to update user score, for [' + team1 + ' - ' + team2 + ']');
 								return userScoreService.updateUserScoreByMatchResult(newMatchResult, leagueId).then(function () {
 									console.log('[Auotmatic Updater] - Beginning to update leaderboard from the automatic updater');
 									return userLeaderboardService.updateLeaderboardByGameIds(leagueId, [newMatchResult.matchId]).then(function () {
