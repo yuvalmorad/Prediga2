@@ -9,13 +9,7 @@ module.exports = {
 	updateSettings: {
 		upsert: true, setDefaultsOnInsert: true, isNew: true, new: true
 	},
-	overrideSettings: {
-		overwrite: true, setDefaultsOnInsert: true, isNew: true, new: true
-	},
 	AUTOMATIC_UPDATE_URL: 'http://365scores.sport5.co.il:3333?SID=1',
-	getErrorResponse: function () {
-		return {"status": "Error", "message": "Bad Input"};
-	},
 	isLoggedIn: function (req, res, next) {
 		if (req.isAuthenticated()) {
 			res.header('userId', req.user.id);

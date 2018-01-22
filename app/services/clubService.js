@@ -37,7 +37,7 @@ const self = module.exports = {
 		return [].concat.apply([], clubsArr);
 	},
 	updateClub: function (club) {
-		return Club.findOneAndUpdate({_id: club._id}, club, utils.overrideSettings).then(function (newClub) {
+		return Club.findOneAndUpdate({_id: club._id}, club, utils.updateSettings).then(function (newClub) {
 				return Promise.resolve(newClub);
 			}
 		);

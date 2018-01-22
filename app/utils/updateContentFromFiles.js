@@ -15,8 +15,9 @@ const self = module.exports = {
 		return Promise.all([
 			groupConfigurationService.updateConfiguration(require('../initialData/configuration/groupConfiguration.json').defaultConfiguration),
 			groupService.updateGroup(require('../initialData/configuration/groups.json').defaultGroup),
-			self.updateLeagueData(require('../initialData/leagues/Tournament_Worldcup_18.json')),
-			self.updateLeagueData(require('../initialData/leagues/League_Israel_17-18.json')),
+			self.updateLeagueData(require('../initialData/leagues/Worldcup_18.json')),
+			self.updateLeagueData(require('../initialData/leagues/Israel_17-18.json')),
+			self.updateLeagueData(require('../initialData/leagues/England_17-18.json'))
 		]).then(function (arr) {
 			console.log('[Init] - Update initial data finished');
 			return Promise.resolve({});
@@ -50,7 +51,7 @@ const self = module.exports = {
 		let mergedScoresIds = UserScoreService.getGameIdArr(mergedScores);
 		let uniqueGameIds = [];
 		mergedScoresIds.forEach(function (gameId) {
-			if (uniqueGameIds.indexOf(gameId) === -1) {
+			if (gameId && (typeof (gameId) !== 'undefined') && uniqueGameIds.indexOf(gameId) === -1) {
 				uniqueGameIds.push(gameId)
 			}
 		});

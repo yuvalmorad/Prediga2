@@ -5,7 +5,7 @@ const self = module.exports = {
 	updateMatches: function (matches) {
 		//console.log('beginning to update ' + matches.length + ' matches');
 		const promises = matches.map(function (match) {
-			return Match.findOneAndUpdate({_id: match._id}, match, util.overrideSettings).then(function (newMatch) {
+			return Match.findOneAndUpdate({_id: match._id}, match, util.updateSettings).then(function (newMatch) {
 					return Promise.resolve(newMatch);
 				}
 			);

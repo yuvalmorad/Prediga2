@@ -4,7 +4,7 @@ const League = require('../models/league');
 const self = module.exports = {
 	updateLeague: function (league) {
 		//console.log('beginning to update league: ' + league.name);
-		return League.findOneAndUpdate({_id: league._id}, league, utils.overrideSettings).then(function (newLeague) {
+		return League.findOneAndUpdate({_id: league._id}, league, utils.updateSettings).then(function (newLeague) {
 				return Promise.resolve(newLeague);
 			}
 		);
