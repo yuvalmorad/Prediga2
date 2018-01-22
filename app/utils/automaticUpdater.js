@@ -75,7 +75,7 @@ const self = module.exports = {
 							console.log('[Auotmatic Updater] - There are no relevant games.');
 							return Promise.resolve(false);
 						}
-						console.log('[Auotmatic Updater] - ' + relevantMatches.length + ' + relevant matches to found...');
+						console.log('[Auotmatic Updater] - ' + relevantMatches.length + ' relevant matches found...');
 						return self.updateMatchResults(relevantMatches);
 					});
 				} catch (err) {
@@ -147,7 +147,7 @@ const self = module.exports = {
 		const isActive = relevantGame.Active === true;
 		if (!isActive && !isFinished) {
 			// game not yet started
-			console.log('[Auotmatic Updater] - Game is not yet started, for [' + relevantGame.Comps[0] + ' - ' + relevantGame.Comps[1] + ']');
+			console.log('[Auotmatic Updater] - Game is not yet started, for [' + relevantGame.Comps[0].Name + ' - ' + relevantGame.Comps[1].Name + ']');
 			return Promise.resolve(false);
 		}
 
@@ -163,12 +163,12 @@ const self = module.exports = {
 
 			return matchService.findFirstMatchByTeamsStarted(team1, team2).then(function (match) {
 				if (!match || match === null) {
-					console.log('[Auotmatic Updater] - Game already finished, for [' + team1 + ' - ' + team2 + ']');
+					console.log('[Auotmatic Updater] - Game already finished, for [' + team1Club.name + ' vs ' + team2Club.name + ']');
 					return Promise.resolve(false);
 				}
 
 				return matchResultService.byMatchId(match._id).then(function (currentMatchResult) {
-					console.log('[Auotmatic Updater] - Beginning to create new match result, for [' + team1 + ' - ' + team2 + ']');
+					console.log('[Auotmatic Updater] - Beginning to create new match result, for [' + team1Club.name + ' vs ' + team2Club.name + ']');
 
 					if (relevantGame.Active === true && !currentMatchResult) {
 						// this is the first update of match result.
@@ -192,9 +192,9 @@ const self = module.exports = {
 							if (isFinished === false) {
 								return Promise.resolve('getResultsJob');
 							} else {
-								console.log('[Auotmatic Updater] - Game has dinished, for [' + team1 + ' - ' + team2 + ']');
+								console.log('[Auotmatic Updater] - Game has dinished, for [' + team1Club.name + ' vs ' + team2Club.name + ']');
 								const leagueId = match.league;
-								console.log('[Auotmatic Updater] - Beginning to update user score, for [' + team1 + ' - ' + team2 + ']');
+								console.log('[Auotmatic Updater] - Beginning to update user score, for [' + team1Club.name + ' vs ' + team2Club.name + ']');
 								return userScoreService.updateUserScoreByMatchResult(newMatchResult, leagueId).then(function () {
 									console.log('[Auotmatic Updater] - Beginning to update leaderboard from the automatic updater');
 									return userLeaderboardService.updateLeaderboardByGameIds(leagueId, [newMatchResult.matchId]).then(function () {
