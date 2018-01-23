@@ -1,8 +1,7 @@
 {
   "name": "prediga-2.0",
   "scripts": {
-    "start": "npm run build | node server.js",
-    "build": "gulp"
+    "start": "npm run build | node server.js"
   },
   "dependencies": {
     "bcrypt-nodejs": "latest",
