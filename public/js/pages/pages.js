@@ -89,7 +89,7 @@ var routePages = (function(){
         },
         {
             path: "/rules",
-            title: "Rules of the Game",
+            title: "Features",
             isAuthenticatedPage: true,
             component: RulesPage,
             displayInBottomMenu: true

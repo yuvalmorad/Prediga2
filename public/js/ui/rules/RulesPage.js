@@ -1,41 +1,55 @@
 window.component = window.component || {};
-component.RulesPage = (function(){
-    return function RulesPage(props) {
-        return re("div", { className: "content" },
-            re("div", { className: "scroll-container" },
-                re("h3", {className: "smallMarginBottom"}, "Rules"),
+component.RulesPage = (function () {
+	return function RulesPage(props) {
+		return re("div", {className: "content"},
+			re("div", {className: "scroll-container"},
+				re("h1", {className: "smallMarginBottom"}, "Features"),
 
-                re("h5", {}, "Match Predictions"),
-                re("ul", {className: "smallMarginBottom"}, "Enter your prediction until 5 minutes before game kickoff time"),
-                re("ul", {className: "smallMarginBottom"}, "The prediction is what will be the score after 90minutes, without extra time"),
-                re("ul", {className: "smallMarginBottom"}, "You can set non logical score, e.g. 2:1 (diff 0) to increase the possibility gain points but the maximum points will be reduced, you can't win it all"),
+				re("h4", {}, "Groups - play with your freinds"),
+				re("li", {className: "small"}, "Create Group - Create a group and choose leagues, users to play with."),
+				re("li", {className: "small"}, "Edit Group - override any group configuration like scoring."),
+				re("li", {className: "small"}, "Delete Group"),
+				re("li", {className: "small"}, "Join Group"),
+				re("li", {className: "small"}, "Leave Group"),
+				re("br"),
 
-                re("h5", {}, "Team Predictions"),
-                re("ul", {className: "smallMarginBottom"}, "Enter your prediction until the deadline"),
+				re("h4", {}, "Match Predictions"),
+				re("li", {className: "small"}, "Submit your prediction 5 minutes before game kickoff time, this can be configurable in a private group."),
+				re("li", {className: "small"}, "Predict the final score after 90 minutes."),
+				re("br"),
 
-                re("h5", {}, "Score"),
-                re("h7", {}, "Match Score"),
-                re("ul", {className: "smallMarginBottom"}, "Winner - 4pts"),
-                re("ul", {className: "smallMarginBottom"}, "First to score - 2pts"),
-                re("ul", {className: "smallMarginBottom"}, "Goals (team1, team2, diff) - 2pts"),
-                re("h7", {}, "Team Score"),
-                re("ul", {className: "smallMarginBottom"}, "Winning - 20pts"),
-                re("ul", {className: "smallMarginBottom"}, "Runner-up - 15pts"),
-                re("ul", {className: "smallMarginBottom"}, "3rd place - 10pts"),
-                re("ul", {className: "smallMarginBottom"}, "4th place - 10pts"),
-                re("ul", {className: "smallMarginBottom"}, "2nd last place - 10pts"),
-                re("ul", {className: "smallMarginBottom"}, "Last place - 10pts"),
-                re("ul", {className: "smallMarginBottom"}, "Group stage - 4pts"),
+				re("h4", {}, "Team Predictions"),
+				re("li", {className: "small"}, "Submit your prediction before the deadline of each prediction."),
+				re("br"),
 
-                re("h5", {}, "Leaderboard"),
-                re("ul", {className: "smallMarginBottom"}, "Score are aggregated from all match and team predictions"),
-                re("ul", {className: "smallMarginBottom"}, "Strike is when you predict right all options in one match"),
+				re("h4", {}, "Scores"),
+				re("h7", {}, "Match Score"),
+				re("li", {className: "small"}, "Winner - 4pts"),
+				re("li", {className: "small"}, "First to score - 2pts"),
+				re("li", {className: "small"}, "Right on Goals - 2pts"),
+				re("br"),
 
-                re("h5", {}, "Groups"),
-                re("ul", {className: "smallMarginBottom"}, "TBD")
-            )
-        );
-    };
+				re("h4", {}, "Team Score"),
+				re("li", {className: "small"}, "Winning - 20pts"),
+				re("li", {className: "small"}, "Runner-up - 15pts"),
+				re("li", {className: "small"}, "3rd place - 10pts"),
+				re("li", {className: "small"}, "4th place - 10pts"),
+				re("li", {className: "small"}, "2nd last place - 10pts"),
+				re("li", {className: "small"}, "Last place - 10pts"),
+				re("li", {className: "small"}, "Group stage - 4pts"),
+				re("br"),
+
+				re("h4", {}, "Leaderboard"),
+				re("li", {className: "small"}, "Score are aggregated from all match and team predictions"),
+				re("li", {className: "small"}, "Strike is when you predict right all options in one match"),
+				re("br"),
+
+				re("h4", {}, "Simulator"),
+				re("li", {className: "small"}, "Simulate your standings while the game is in progress."),
+				re("br")
+			)
+		);
+	};
 })();
 
 

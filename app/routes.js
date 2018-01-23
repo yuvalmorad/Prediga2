@@ -50,12 +50,6 @@ module.exports = function (app, passport) {
 	/********************************************
 	 * Authentications APIs
 	 ********************************************* */
-	app.get('/auth/profile', util.isLoggedIn, function (req, res) {
-		res.render('profile.ejs', {
-			user: req.user
-		});
-	});
-
 	app.get('/auth/logout', function (req, res) {
 		req.logout();
 		res.sendStatus(200);

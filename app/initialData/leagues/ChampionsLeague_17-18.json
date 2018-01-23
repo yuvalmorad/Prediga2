@@ -1,0 +1,390 @@
+{
+  "league": {
+    "_id": "1a21a7c1a3f89181074e9769",
+    "name": "Champions League",
+    "logoPosition": "",
+    "year": "2017/2018",
+    "competition365": -1,
+    "syncResults365": false,
+    "clubs": [
+      "1a21a7c1a3f89181074e9962",
+      "1a21a7c1a3f89181074e9963",
+      "1a21a7c1a3f89181074e9964",
+      "1a21a7c1a3f89181074e9965",
+      "1a21a7c1a3f89181074e9966",
+      "1a21a7c1a3f89181074e9967",
+      "1a21a7c1a3f89181074e9968",
+      "1a21a7c1a3f89181074e9969",
+      "1a21a7c1a3f89181074e9970",
+      "1a21a7c1a3f89181074e9971",
+      "1a21a7c1a3f89181074e9972",
+      "1a21a7c1a3f89181074e9973",
+      "1a21a7c1a3f89181074e9974",
+      "1a21a7c1a3f89181074e9975",
+      "1a21a7c1a3f89181074e9976",
+      "1a21a7c1a3f89181074e9977"
+    ]
+  },
+  "clubs": [
+    {
+      "_id": "1a21a7c1a3f89181074e9962",
+      "name": "Juventus",
+      "name365": "יובנטוס",
+      "shortName": "JUV",
+      "colors": ["#EA0000", "#000"],
+      "buttonColors": ["#EA0000", "#000"],
+      "graphColors": ["#000", "#EA0000"],
+      "logoPosition": "",
+      "stadium": "Juventus Stadium, Turin"
+    },
+    {
+      "_id": "1a21a7c1a3f89181074e9963",
+      "name": "Tottenham Hotspur",
+      "name365": "טוטנהאם",
+      "shortName": "TOT",
+      "colors": ["#EA0000", "#000"],
+      "buttonColors": ["#EA0000", "#000"],
+      "graphColors": ["#000", "#EA0000"],
+      "logoPosition": "",
+      "stadium": "Wembley Stadium, London"
+    },
+    {
+      "_id": "1a21a7c1a3f89181074e9964",
+      "name": "Basel",
+      "name365": "באזל",
+      "shortName": "BAS",
+      "colors": ["#EA0000", "#000"],
+      "buttonColors": ["#EA0000", "#000"],
+      "graphColors": ["#000", "#EA0000"],
+      "logoPosition": "",
+      "stadium": "St. Jakob-Park, Basel"
+    },
+    {
+      "_id": "1a21a7c1a3f89181074e9965",
+      "name": "Manchester City",
+      "name365": "מנצ'סטר סיטי",
+      "shortName": "MC",
+      "colors": ["#EA0000", "#000"],
+      "buttonColors": ["#EA0000", "#000"],
+      "graphColors": ["#000", "#EA0000"],
+      "logoPosition": "",
+      "stadium": "City of Manchester Stadium, Manchester"
+    },
+    {
+      "_id": "1a21a7c1a3f89181074e9966",
+      "name": "Porto",
+      "name365": "פורטו",
+      "shortName": "POR",
+      "colors": ["#EA0000", "#000"],
+      "buttonColors": ["#EA0000", "#000"],
+      "graphColors": ["#000", "#EA0000"],
+      "logoPosition": "",
+      "stadium": "Estádio do Dragão, Porto"
+    },
+    {
+      "_id": "1a21a7c1a3f89181074e9967",
+      "name": "Liverpool",
+      "name365": "ליברפול",
+      "shortName": "LIV",
+      "colors": ["#EA0000", "#000"],
+      "buttonColors": ["#EA0000", "#000"],
+      "graphColors": ["#000", "#EA0000"],
+      "logoPosition": "",
+      "stadium": "Anfield, Liverpool"
+    },
+    {
+      "_id": "1a21a7c1a3f89181074e9968",
+      "name": "Sevilla",
+      "name365": "סביליה",
+      "shortName": "SEV",
+      "colors": ["#EA0000", "#000"],
+      "buttonColors": ["#EA0000", "#000"],
+      "graphColors": ["#000", "#EA0000"],
+      "logoPosition": "",
+      "stadium": "Ramón Sánchez Pizjuán, Seville"
+    },
+    {
+      "_id": "1a21a7c1a3f89181074e9969",
+      "name": "Manchester United",
+      "name365": "מנצ'סטר יונייטד",
+      "shortName": "MU",
+      "colors": ["#EA0000", "#000"],
+      "buttonColors": ["#EA0000", "#000"],
+      "graphColors": ["#000", "#EA0000"],
+      "logoPosition": "",
+      "stadium": "Old Trafford, Manchester"
+    },
+    {
+      "_id": "1a21a7c1a3f89181074e9970",
+      "name": "Real Madrid",
+      "name365": "ריאל מדריד",
+      "shortName": "RM",
+      "colors": ["#EA0000", "#000"],
+      "buttonColors": ["#EA0000", "#000"],
+      "graphColors": ["#000", "#EA0000"],
+      "logoPosition": "",
+      "stadium": "Santiago Bernabéu, Madrid"
+    },
+    {
+      "_id": "1a21a7c1a3f89181074e9971",
+      "name": "Paris Saint-Germain",
+      "name365": "פ.ס.ז'",
+      "shortName": "PSG",
+      "colors": ["#EA0000", "#000"],
+      "buttonColors": ["#EA0000", "#000"],
+      "graphColors": ["#000", "#EA0000"],
+      "logoPosition": "",
+      "stadium": "Parc des Princes, Paris"
+    },
+    {
+      "_id": "1a21a7c1a3f89181074e9972",
+      "name": "Shakhtar Donetsk",
+      "name365": "שחטאר דונייצק",
+      "shortName": "SHA",
+      "colors": ["#EA0000", "#000"],
+      "buttonColors": ["#EA0000", "#000"],
+      "graphColors": ["#000", "#EA0000"],
+      "logoPosition": "",
+      "stadium": "Metalist Stadium, Kharkiv"
+    },
+    {
+      "_id": "1a21a7c1a3f89181074e9973",
+      "name": "Roma",
+      "name365": "רומא",
+      "shortName": "ROM",
+      "colors": ["#EA0000", "#000"],
+      "buttonColors": ["#EA0000", "#000"],
+      "graphColors": ["#000", "#EA0000"],
+      "logoPosition": "",
+      "stadium": "Stadio Olimpico, Rome"
+    },
+    {
+      "_id": "1a21a7c1a3f89181074e9974",
+      "name": "Chelsea",
+      "name365": "צ'לסי",
+      "shortName": "CHE",
+      "colors": ["#EA0000", "#000"],
+      "buttonColors": ["#EA0000", "#000"],
+      "graphColors": ["#000", "#EA0000"],
+      "logoPosition": "",
+      "stadium": "Stamford Bridge, London"
+    },
+    {
+      "_id": "1a21a7c1a3f89181074e9975",
+      "name": "Barcelona",
+      "name365": "ברצלונה",
+      "shortName": "BAR",
+      "colors": ["#EA0000", "#000"],
+      "buttonColors": ["#EA0000", "#000"],
+      "graphColors": ["#000", "#EA0000"],
+      "logoPosition": "",
+      "stadium": "Camp Nou, Barcelona"
+    },
+    {
+      "_id": "1a21a7c1a3f89181074e9976",
+      "name": "Bayern Munich",
+      "name365": "באיירן מינכן",
+      "shortName": "BAY",
+      "colors": ["#EA0000", "#000"],
+      "buttonColors": ["#EA0000", "#000"],
+      "graphColors": ["#000", "#EA0000"],
+      "logoPosition": "",
+      "stadium": "Allianz Arena, Munich"
+    },
+    {
+      "_id": "1a21a7c1a3f89181074e9977",
+      "name": "Beşiktaş",
+      "name365": "בשיקטאש",
+      "shortName": "BES",
+      "colors": ["#EA0000", "#000"],
+      "buttonColors": ["#EA0000", "#000"],
+      "graphColors": ["#000", "#EA0000"],
+      "logoPosition": "",
+      "stadium": "Vodafone Park, Istanbul"
+    }
+  ],
+  "matches": [
+    {
+      "_id": "1a21a7c1a3f89181074e9862",
+      "team1": "1a21a7c1a3f89181074e9962",
+      "team2": "1a21a7c1a3f89181074e9963",
+      "kickofftime": "2018-02-13T19:45:00.000Z",
+      "stadium": "Juventus Stadium, Turin",
+      "type": "Round of 16 - leg 1",
+      "league": "1a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "1a21a7c1a3f89181074e9863",
+      "team1": "1a21a7c1a3f89181074e9963",
+      "team2": "1a21a7c1a3f89181074e9962",
+      "kickofftime": "2018-03-07T19:45:00.000Z",
+      "stadium": "Wembley Stadium, London",
+      "type": "Round of 16 - leg 2",
+      "league": "1a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "1a21a7c1a3f89181074e9864",
+      "team1": "1a21a7c1a3f89181074e9964",
+      "team2": "1a21a7c1a3f89181074e9965",
+      "kickofftime": "2018-02-13T19:45:00.000Z",
+      "stadium": "St. Jakob-Park, Basel",
+      "type": "Round of 16 - leg 1",
+      "league": "1a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "1a21a7c1a3f89181074e9865",
+      "team1": "1a21a7c1a3f89181074e9965",
+      "team2": "1a21a7c1a3f89181074e9964",
+      "kickofftime": "2018-03-07T19:45:00.000Z",
+      "stadium": "City of Manchester Stadium, Manchester",
+      "type": "Round of 16 - leg 2",
+      "league": "1a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "1a21a7c1a3f89181074e9866",
+      "team1": "1a21a7c1a3f89181074e9966",
+      "team2": "1a21a7c1a3f89181074e9967",
+      "kickofftime": "2018-02-14T19:45:00.000Z",
+      "stadium": "Estádio do Dragão, Porto",
+      "type": "Round of 16 - leg 1",
+      "league": "1a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "1a21a7c1a3f89181074e9867",
+      "team1": "1a21a7c1a3f89181074e9967",
+      "team2": "1a21a7c1a3f89181074e9966",
+      "kickofftime": "2018-03-06T19:45:00.000Z",
+      "stadium": "Anfield, Liverpool",
+      "type": "Round of 16 - leg 2",
+      "league": "1a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "1a21a7c1a3f89181074e9868",
+      "team1": "1a21a7c1a3f89181074e9968",
+      "team2": "1a21a7c1a3f89181074e9969",
+      "kickofftime": "2018-02-21T19:45:00.000Z",
+      "stadium": "Ramón Sánchez Pizjuán, Seville",
+      "type": "Round of 16 - leg 1",
+      "league": "1a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "1a21a7c1a3f89181074e9869",
+      "team1": "1a21a7c1a3f89181074e9969",
+      "team2": "1a21a7c1a3f89181074e9968",
+      "kickofftime": "2018-03-13T19:45:00.000Z",
+      "stadium": "Old Trafford, Manchester",
+      "type": "Round of 16 - leg 2",
+      "league": "1a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "1a21a7c1a3f89181074e9870",
+      "team1": "1a21a7c1a3f89181074e9970",
+      "team2": "1a21a7c1a3f89181074e9971",
+      "kickofftime": "2018-02-14T19:45:00.000Z",
+      "stadium": "Santiago Bernabéu, Madrid",
+      "type": "Round of 16 - leg 1",
+      "league": "1a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "1a21a7c1a3f89181074e9871",
+      "team1": "1a21a7c1a3f89181074e9971",
+      "team2": "1a21a7c1a3f89181074e9970",
+      "kickofftime": "2018-03-06T19:45:00.000Z",
+      "stadium": "Parc des Princes, Paris",
+      "type": "Round of 16 - leg 2",
+      "league": "1a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "1a21a7c1a3f89181074e9872",
+      "team1": "1a21a7c1a3f89181074e9972",
+      "team2": "1a21a7c1a3f89181074e9973",
+      "kickofftime": "2018-02-21T19:45:00.000Z",
+      "stadium": "Metalist Stadium, Kharkiv",
+      "type": "Round of 16 - leg 1",
+      "league": "1a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "1a21a7c1a3f89181074e9873",
+      "team1": "1a21a7c1a3f89181074e9973",
+      "team2": "1a21a7c1a3f89181074e9972",
+      "kickofftime": "2018-03-13T19:45:00.000Z",
+      "stadium": "Stadio Olimpico, Rome",
+      "type": "Round of 16 - leg 2",
+      "league": "1a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "1a21a7c1a3f89181074e9874",
+      "team1": "1a21a7c1a3f89181074e9974",
+      "team2": "1a21a7c1a3f89181074e9975",
+      "kickofftime": "2018-02-20T19:45:00.000Z",
+      "stadium": "Stamford Bridge, London",
+      "type": "Round of 16 - leg 1",
+      "league": "1a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "1a21a7c1a3f89181074e9875",
+      "team1": "1a21a7c1a3f89181074e9975",
+      "team2": "1a21a7c1a3f89181074e9974",
+      "kickofftime": "2018-03-14T19:45:00.000Z",
+      "stadium": "Camp Nou, Barcelona",
+      "type": "Round of 16 - leg 2",
+      "league": "1a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "1a21a7c1a3f89181074e9876",
+      "team1": "1a21a7c1a3f89181074e9976",
+      "team2": "1a21a7c1a3f89181074e9977",
+      "kickofftime": "2018-02-20T19:45:00.000Z",
+      "stadium": "Allianz Arena, Munich",
+      "type": "Round of 16 - leg 1",
+      "league": "1a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "1a21a7c1a3f89181074e9877",
+      "team1": "1a21a7c1a3f89181074e9977",
+      "team2": "1a21a7c1a3f89181074e9976",
+      "kickofftime": "2018-03-14T19:45:00.000Z",
+      "stadium": "Vodafone Park, Istanbul",
+      "type": "Round of 16 - leg 2",
+      "league": "1a21a7c1a3f89181074e9769"
+    }
+  ],
+  "matchResults": [
+  ],
+  "teams": [
+    {
+      "_id": "5a1342399017dfc4e2faf694",
+      "title": "1st place",
+      "type": "1st",
+      "deadline": "2018-03-14T15:00:00.000Z",
+      "league": "1a21a7c1a3f89181074e9769",
+      "options": []
+    },
+    {
+      "_id": "5a1342399017dfc4e2faf695",
+      "title": "2nd place",
+      "type": "2nd",
+      "deadline": "2018-03-14T15:00:00.001Z",
+      "league": "1a21a7c1a3f89181074e9769",
+      "options": []
+    },
+    {
+      "_id": "5a1342399017dfc4e2faf696",
+      "title": "3st place",
+      "type": "3rd",
+      "deadline": "2018-03-14T15:00:00.002Z",
+      "league": "1a21a7c1a3f89181074e9769",
+      "options": []
+    },
+    {
+      "_id": "5a1342399017dfc4e2faf697",
+      "title": "4th place",
+      "type": "4th",
+      "deadline": "2018-03-14T15:00:00.003Z",
+      "league": "1a21a7c1a3f89181074e9769",
+      "options": []
+    }
+  ],
+  "teamResults": [
+  ]
+}
