@@ -36,8 +36,6 @@ app.use(bodyParser.urlencoded({extended: true}));
 //app.use(express.static(clientFolder));
 app.use(express.static(__dirname + '/public'));
 
-app.set('view engine', 'ejs'); // set up ejs for templating
-
 // required for passport
 app.use(session({
     secret: 'predigaloginboilerplate', // session secret
