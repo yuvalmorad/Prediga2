@@ -1,6 +1,9 @@
 {
   "name": "prediga-2.0",
-  "main": "server.js",
+  "scripts": {
+    "start": "npm run build | node server.js",
+    "build": "gulp"
+  },
   "dependencies": {
     "bcrypt-nodejs": "latest",
     "body-parser": "~1.15.2",
