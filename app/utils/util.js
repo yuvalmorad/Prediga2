@@ -7,7 +7,7 @@ module.exports = {
 		NONE: 'none'
 	},
 	updateSettings: {
-		upsert: true, setDefaultsOnInsert: true, isNew: true, new: true
+		upsert: true, setDefaultsOnInsert: true, isNew: true, new: true, returnNewDocument: true
 	},
 	AUTOMATIC_UPDATE_URL: 'http://365scores.sport5.co.il:3333?SID=1',
 	isLoggedIn: function (req, res, next) {
