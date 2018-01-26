@@ -581,7 +581,7 @@
       "kickofftime": "2017-08-19T17:00:00.000Z",
       "type": "Round 2",
       "league": "3a21a7c1a3f89181074e9769",
-      "Stadium": "Liberty Stadium"
+      "stadium": "Liberty Stadium"
     },
     {
       "_id": "4a21a7c1a3f89181074e9120",
@@ -761,7 +761,7 @@
       "kickofftime": "2017-09-10T17:00:00.000Z",
       "type": "Round 4",
       "league": "3a21a7c1a3f89181074e9769",
-      "Stadium": "Liberty Stadium"
+      "stadium": "Liberty Stadium"
     },
     {
       "_id": "4a21a7c1a3f89181074e9140",
@@ -941,7 +941,7 @@
       "kickofftime": "2017-09-23T17:00:00.000Z",
       "type": "Round 6",
       "league": "3a21a7c1a3f89181074e9769",
-      "Stadium": "Liberty Stadium"
+      "stadium": "Liberty Stadium"
     },
     {
       "_id": "4a21a7c1a3f89181074e9160",
@@ -1112,7 +1112,7 @@
       "kickofftime": "2017-10-14T17:00:00.000Z",
       "type": "Round 8",
       "league": "3a21a7c1a3f89181074e9769",
-      "Stadium": "Liberty Stadium"
+      "stadium": "Liberty Stadium"
     },
     {
       "_id": "4a21a7c1a3f89181074e9179",
@@ -1202,7 +1202,7 @@
       "kickofftime": "2017-10-21T17:00:00.000Z",
       "type": "Round 9",
       "league": "3a21a7c1a3f89181074e9769",
-      "Stadium": "Liberty Stadium"
+      "stadium": "Liberty Stadium"
     },
     {
       "_id": "4a21a7c1a3f89181074e9189",
@@ -1382,7 +1382,7 @@
       "kickofftime": "2017-11-04T18:00:00.000Z",
       "type": "Round 11",
       "league": "3a21a7c1a3f89181074e9769",
-      "Stadium": "Liberty Stadium"
+      "stadium": "Liberty Stadium"
     },
     {
       "_id": "4a21a7c1a3f89181074e9209",
@@ -1562,7 +1562,7 @@
       "kickofftime": "2017-11-25T18:00:00.000Z",
       "type": "Round 13",
       "league": "3a21a7c1a3f89181074e9769",
-      "Stadium": "Liberty Stadium"
+      "stadium": "Liberty Stadium"
     },
     {
       "_id": "4a21a7c1a3f89181074e9229",
@@ -1832,7 +1832,7 @@
       "kickofftime": "2017-12-09T18:00:00.000Z",
       "type": "Round 16",
       "league": "3a21a7c1a3f89181074e9769",
-      "Stadium": "Liberty Stadium"
+      "stadium": "Liberty Stadium"
     },
     {
       "_id": "4a21a7c1a3f89181074e9259",
@@ -1877,7 +1877,7 @@
       "kickofftime": "2017-12-13T18:00:00.000Z",
       "type": "Round 17",
       "league": "3a21a7c1a3f89181074e9769",
-      "Stadium": "Liberty Stadium"
+      "stadium": "Liberty Stadium"
     },
     {
       "_id": "4a21a7c1a3f89181074e9264",
@@ -2111,7 +2111,7 @@
       "kickofftime": "2017-12-23T18:00:00.000Z",
       "type": "Round 19",
       "league": "3a21a7c1a3f89181074e9769",
-      "Stadium": "Liberty Stadium"
+      "stadium": "Liberty Stadium"
     },
     {
       "_id": "4a21a7c1a3f89181074e9290",
@@ -2381,7 +2381,7 @@
       "kickofftime": "2018-01-02T18:00:00.000Z",
       "type": "Round 22",
       "league": "3a21a7c1a3f89181074e9769",
-      "Stadium": "Liberty Stadium"
+      "stadium": "Liberty Stadium"
     },
     {
       "_id": "4a21a7c1a3f89181074e9320",
@@ -2570,7 +2570,7 @@
       "kickofftime": "2018-01-22T20:00:00.000Z",
       "type": "Round 24",
       "league": "3a21a7c1a3f89181074e9769",
-      "Stadium": "Liberty Stadium"
+      "stadium": "Liberty Stadium"
     },
     {
       "_id": "4a21a7c1a3f89181074e9341",
@@ -2822,7 +2822,7 @@
       "kickofftime": "2018-02-10T15:00:00.000Z",
       "type": "Round 27",
       "league": "3a21a7c1a3f89181074e9769",
-      "Stadium": "Liberty Stadium"
+      "stadium": "Liberty Stadium"
     },
     {
       "_id": "4a21a7c1a3f89181074e9369",
@@ -3002,7 +3002,7 @@
       "kickofftime": "2018-03-03T18:01:00.000Z",
       "type": "Round 29",
       "league": "3a21a7c1a3f89181074e9769",
-      "Stadium": "Liberty Stadium"
+      "stadium": "Liberty Stadium"
     },
     {
       "_id": "4a21a7c1a3f89181074e9389",
@@ -3182,7 +3182,7 @@
       "kickofftime": "2018-03-17T18:01:00.000Z",
       "type": "Round 31",
       "league": "3a21a7c1a3f89181074e9769",
-      "Stadium": "Liberty Stadium"
+      "stadium": "Liberty Stadium"
     },
     {
       "_id": "4a21a7c1a3f89181074e9409",
@@ -3452,7 +3452,7 @@
       "kickofftime": "2018-04-14T17:01:00.000Z",
       "type": "Round 34",
       "league": "3a21a7c1a3f89181074e9769",
-      "Stadium": "Liberty Stadium"
+      "stadium": "Liberty Stadium"
     },
     {
       "_id": "4a21a7c1a3f89181074e9439",
@@ -3632,7 +3632,7 @@
       "kickofftime": "2018-04-28T17:01:00.000Z",
       "type": "Round 36",
       "league": "3a21a7c1a3f89181074e9769",
-      "Stadium": "Liberty Stadium"
+      "stadium": "Liberty Stadium"
     },
     {
       "_id": "4a21a7c1a3f89181074e9459",
@@ -3812,7 +3812,7 @@
       "kickofftime": "2018-05-13T17:01:00.000Z",
       "type": "Round 38",
       "league": "3a21a7c1a3f89181074e9769",
-      "Stadium": "Liberty Stadium"
+      "stadium": "Liberty Stadium"
     },
     {
       "_id": "4a21a7c1a3f89181074e9479",
