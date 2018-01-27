@@ -47,66 +47,80 @@ component.LeaderBoardTiles = (function(){
 
     var LeaderBoardTiles = React.createClass({
 
-        assignTileFocusRef: function(focusElem) {
-            this.focusElem = focusElem;
-        },
-
-        /*componentDidUpdate: function(prevProps, prevState) {
-            this.scrollToFocusElem();
-        },*/
-
-        componentDidMount: function() {
-            this.scrollToFocusElem();
-        },
-
-        scrollToFocusElem: function() {
-            if (this.focusElem) {
-                ReactDOM.findDOMNode(this.focusElem).scrollIntoView();
+        componentWillUpdate: function(nextProps, nextState) {
+            if (nextProps.leaders !== this.props.leaders) {
+                this.setBadgesByUserId(nextProps.leaders);
             }
         },
 
-        render: function() {
-            var that = this,
-                props = this.props,
+        getInitialState: function() {
+            this.setBadgesByUserId(this.props.leaders);
+            return {};
+        },
+
+        setBadgesByUserId: function(leaders) {
+            this.badgesByUserId = getBadgesByUserId(leaders);
+        },
+
+        renderLeader: function(index, key) {
+            var props = this.props,
                 leaders = props.leaders,
+                leader = leaders[index],
                 users = props.users,
                 authenticatedUserId = props.userId,
-                disableOpen = props.disableOpen,
-                badgesByUserId = getBadgesByUserId(leaders),
+                disableOpen = props.disableOpen;
+
+            var userId = leader.userId;
+            var user = utils.general.findItemInArrBy(users, "_id", userId);
+            var trend = leader.placeBeforeLastGame === -1 ? 0 :  leader.placeBeforeLastGame - leader.placeCurrent;
+            var borderColor = "#a7a4a4";
+
+            if (trend > 0) {
+                borderColor = "#00ff00";
+            } else if (trend < 0) {
+                borderColor = "red";
+            }
+
+            var description = leader.description || leader.strikes + " strikes";
+            var badgeName = this.badgesByUserId[userId];
+
+            //adding selected league id to rerender tiles when selecting new league
+            var leaderBoardTileProps = {disableOpen: disableOpen, user: user, badgeName: badgeName, score: leader.score, trend: trend, borderColor: borderColor, description: description, additionalDescription: leader.additionalDescription, additionalDescription2: leader.additionalDescription2, rank: index + 1, key: userId + (props.selectedLeagueId || "") + (props.selectedGroupId || "")};
+
+            if (authenticatedUserId === userId) {
+                leaderBoardTileProps.isAuthenticatedUser = true;
+            }
+
+            return re(LeaderBoardTile, leaderBoardTileProps);
+        },
+
+        render: function() {
+            var props = this.props,
+                leaders = props.leaders,
                 userIdFocus = props.userIdFocus,
-                tiles;
+                i,
+                index,
+                ReactListProps = {
+                    itemRenderer: this.renderLeader,
+                    length: leaders.length,
+                    type: 'uniform'
+                };
 
-            tiles = leaders.map(function(leader, index){
-                var userId = leader.userId;
-                var user = utils.general.findItemInArrBy(users, "_id", userId);
-                var trend = leader.placeBeforeLastGame === -1 ? 0 :  leader.placeBeforeLastGame - leader.placeCurrent;
-                var borderColor = "#a7a4a4";
+           if (userIdFocus) {
+               for (i = 0; i < leaders.length; i++) {
+                   if (leaders[i].userId === userIdFocus) {
+                       index = i;
+                       break;
+                   }
+               }
+           }
 
-                if (trend > 0) {
-                    borderColor = "#00ff00";
-                } else if (trend < 0) {
-                    borderColor = "red";
-                }
-
-                var description = leader.description || leader.strikes + " strikes";
-                var badgeName = badgesByUserId[userId];
-
-                //adding selected league id to rerender tiles when selecting new league
-                var leaderBoardTileProps = {disableOpen: disableOpen, user: user, badgeName: badgeName, score: leader.score, trend: trend, borderColor: borderColor, description: description, additionalDescription: leader.additionalDescription, additionalDescription2: leader.additionalDescription2, rank: index + 1, key: userId + (props.selectedLeagueId || "") + (props.selectedGroupId || "")};
-
-                if (userIdFocus && userId === userIdFocus) {
-                    leaderBoardTileProps.ref = that.assignTileFocusRef;
-                }
-
-                if (authenticatedUserId === userId) {
-                    leaderBoardTileProps.isAuthenticatedUser = true;
-                }
-
-                return re(LeaderBoardTile, leaderBoardTileProps);
-            });
+           if (index !== undefined) {
+               ReactListProps.initialIndex = index;
+           }
 
             return re("div", {className: "tiles"},
-                tiles
+                re(ReactList, ReactListProps)
             )
         }
     });
