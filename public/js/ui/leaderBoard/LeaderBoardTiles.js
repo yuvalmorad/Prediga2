@@ -103,7 +103,7 @@ component.LeaderBoardTiles = (function(){
                 ReactListProps = {
                     itemRenderer: this.renderLeader,
                     length: leaders.length,
-                    type: 'uniform'
+                    type: 'variable' //uniform
                 };
 
            if (userIdFocus) {
