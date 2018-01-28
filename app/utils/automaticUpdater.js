@@ -148,7 +148,7 @@ const self = module.exports = {
 		if (!isActive && !isFinished) {
 			// game not yet started
 			console.log('[Auotmatic Updater] - Game is not yet started, for [' + relevantGame.Comps[0].Name + ' - ' + relevantGame.Comps[1].Name + ']');
-			return Promise.resolve(false);
+			return Promise.resolve('getResultsJob');
 		}
 
 		return clubService.findClubsBy365Name(relevantGame).then(function (clubsArr) {
@@ -156,7 +156,7 @@ const self = module.exports = {
 			let team2Club = clubsArr.team2;
 			if (!team1Club || team1Club === null || !team2Club || team2Club === null) {
 				console.log('[Auotmatic Updater] - Error to find clubs by 365 name');
-				return Promise.resolve(false);
+				return Promise.resolve('getResultsJob');
 			}
 			const team1 = team1Club._id;
 			const team2 = team2Club._id;
@@ -164,7 +164,7 @@ const self = module.exports = {
 			return matchService.findFirstMatchByTeamsStarted(team1, team2).then(function (match) {
 				if (!match || match === null) {
 					console.log('[Auotmatic Updater] - Game already finished, for [' + team1Club.name + ' vs ' + team2Club.name + ']');
-					return Promise.resolve(false);
+					return Promise.resolve('getResultsJob');
 				}
 
 				return matchResultService.byMatchId(match._id).then(function (currentMatchResult) {
@@ -176,7 +176,7 @@ const self = module.exports = {
 						pushSubscriptionService.pushToAllRegisterdUsers({text: team1Club.name + ' vs ' + team2Club.name + ' started now'});
 					}
 					if (isFinished && (currentMatchResult && currentMatchResult.active === false)) {
-						return Promise.resolve(false);
+						return Promise.resolve('getResultsJob');
 					}
 
 					return self.calculateNewMatchResult(team1, team2, relevantGame, match._id).then(function (newMatchResult) {
