@@ -13,7 +13,7 @@ const self = module.exports = {
 		return Promise.all(promises);
 	},
 	findFirstMatchByTeamsStarted: function (team1, team2) {
-		const startTime = new Date().setHours(new Date().getHours() - 3);
+		const startTime = new Date().setHours(new Date().getHours() - 10);
 		return Match.findOne({
 			kickofftime: {$gte: startTime},
 			team1: team1,
