@@ -34,7 +34,7 @@ app.use(cookieParser()); // read cookies (needed for auth)
 app.use(bodyParser.json()); // get information from html forms
 app.use(bodyParser.urlencoded({extended: true}));
 //app.use(express.static(clientFolder));
-app.use(express.static(__dirname + '/public'));
+app.use(express.static(clientFolder));
 
 // required for passport
 app.use(session({
