@@ -2,7 +2,7 @@
   "league": {
     "_id": "3a21a7c1a3f89181074e9769",
     "name": "England",
-    "logoPosition": "",
+    "logoPosition": "-56px -336px",
     "year": "2017/2018",
     "competition365": 7,
     "syncResults365": true,
@@ -47,7 +47,7 @@
         "#AA0001",
         "#AA0001"
       ],
-      "logoPosition": ""
+      "logoPosition": "0 0"
     },
     {
       "_id": "1a21a7c1a3f89181074e9763",
@@ -66,7 +66,7 @@
         "#0659E4",
         "#0659E4"
       ],
-      "logoPosition": ""
+      "logoPosition": "0 -224px"
     },
     {
       "_id": "1a21a7c1a3f89181074e9764",
@@ -85,7 +85,7 @@
         "#DE000A",
         "#DE000A"
       ],
-      "logoPosition": ""
+      "logoPosition": "-56px 0"
     },
     {
       "_id": "1a21a7c1a3f89181074e9765",
@@ -104,7 +104,7 @@
         "#1E01FF",
         "#1E01FF"
       ],
-      "logoPosition": ""
+      "logoPosition": "0 -56px"
     },
     {
       "_id": "1a21a7c1a3f89181074e9766",
@@ -123,7 +123,7 @@
         "#44B1FD",
         "#44B1FD"
       ],
-      "logoPosition": ""
+      "logoPosition": "0 -280px"
     },
     {
       "_id": "1a21a7c1a3f89181074e9767",
@@ -142,7 +142,7 @@
         "#0045B8",
         "#0045B8"
       ],
-      "logoPosition": ""
+      "logoPosition": "0 -112px"
     },
     {
       "_id": "1a21a7c1a3f89181074e9768",
@@ -161,7 +161,7 @@
         "#990001",
         "#990001"
       ],
-      "logoPosition": ""
+      "logoPosition": "-56px -56px"
     },
     {
       "_id": "1a21a7c1a3f89181074e9769",
@@ -180,7 +180,7 @@
         "#4102FF",
         "#4102FF"
       ],
-      "logoPosition": ""
+      "logoPosition": "-56px -112px"
     },
     {
       "_id": "1a21a7c1a3f89181074e9770",
@@ -199,7 +199,7 @@
         "#44B1FD",
         "#44B1FD"
       ],
-      "logoPosition": ""
+      "logoPosition": "-56px -168px"
     },
     {
       "_id": "1a21a7c1a3f89181074e9771",
@@ -218,7 +218,7 @@
         "#0659E4",
         "#0659E4"
       ],
-      "logoPosition": ""
+      "logoPosition": "0 -168px"
     },
     {
       "_id": "1a21a7c1a3f89181074e9772",
@@ -237,7 +237,7 @@
         "#DE000A",
         "#DE000A"
       ],
-      "logoPosition": ""
+      "logoPosition": "-56px -392px"
     },
     {
       "_id": "1a21a7c1a3f89181074e9773",
@@ -256,7 +256,7 @@
         "#DE000A",
         "#DE000A"
       ],
-      "logoPosition": ""
+      "logoPosition": "-56px -280px"
     },
     {
       "_id": "1a21a7c1a3f89181074e9774",
@@ -275,7 +275,7 @@
         "#7C2838",
         "#7C2838"
       ],
-      "logoPosition": ""
+      "logoPosition": "0 -560px"
     },
     {
       "_id": "1a21a7c1a3f89181074e9775",
@@ -294,7 +294,7 @@
         "#599FEA",
         "#599FEA"
       ],
-      "logoPosition": ""
+      "logoPosition": "0 -336px"
     },
     {
       "_id": "1a21a7c1a3f89181074e9776",
@@ -313,7 +313,8 @@
         "#0A2555",
         "#0A2555"
       ],
-      "logoPosition": ""
+      "logoPosition": "-56px -448px"
+
     },
     {
       "_id": "1a21a7c1a3f89181074e9777",
@@ -332,7 +333,7 @@
         "#DE000A",
         "#DE000A"
       ],
-      "logoPosition": ""
+      "logoPosition": "0 -392px"
     },
     {
       "_id": "1a21a7c1a3f89181074e9778",
@@ -351,7 +352,7 @@
         "#000000",
         "#000000"
       ],
-      "logoPosition": ""
+      "logoPosition": "0 -448px"
     },
     {
       "_id": "1a21a7c1a3f89181074e9779",
@@ -370,7 +371,7 @@
         "#FEFF59",
         "#FEFF59"
       ],
-      "logoPosition": ""
+      "logoPosition": "0 -504px"
     },
     {
       "_id": "1a21a7c1a3f89181074e9780",
@@ -389,7 +390,7 @@
         "#990001",
         "#990001"
       ],
-      "logoPosition": ""
+      "logoPosition": "-56px -224px"
     },
     {
       "_id": "1a21a7c1a3f89181074e9781",
@@ -408,7 +409,7 @@
         "#0B008C",
         "#0B008C"
       ],
-      "logoPosition": ""
+      "logoPosition": "-56px -504px"
     }
   ],
   "matches": [
