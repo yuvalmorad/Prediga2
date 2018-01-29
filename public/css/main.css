@@ -140,7 +140,8 @@ body {
     background-size: 840px;
 }
 
-.team-logo.world_cup {
+.team-logo.world_cup,
+.team-logo.spain {
     background-size: 112px;
 }
 

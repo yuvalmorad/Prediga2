@@ -2,7 +2,7 @@
   "league": {
     "_id": "2a21a7c1a3f89181074e9769",
     "name": "Spain",
-    "logoPosition": "",
+    "logoPosition": "-56px -280px",
     "year": "2017/2018",
     "competition365": 11,
     "syncResults365": true,
@@ -48,7 +48,7 @@
         "#0659E4",
         "#FFFFFF"
       ],
-      "logoPosition": "",
+      "logoPosition": "-56px -112px",
       "stadium": "Abanca-Riazor"
     },
     {
@@ -68,7 +68,7 @@
         "#23A6BF",
         "#23A6BF"
       ],
-      "logoPosition": "",
+      "logoPosition": "0 -448px",
       "stadium": "Santiago Bernabéu"
     },
     {
@@ -88,7 +88,7 @@
         "#FF1716",
         "#FF1716"
       ],
-      "logoPosition": "",
+      "logoPosition": "0 -280px",
       "stadium": "Montilivi"
     },
     {
@@ -108,7 +108,7 @@
         "#AA0001",
         "#AA0001"
       ],
-      "logoPosition": "",
+      "logoPosition": "-56px 0",
       "stadium": "Wanda Metropolitano"
     },
     {
@@ -128,7 +128,7 @@
         "#0659E4",
         "#0659E4"
       ],
-      "logoPosition": "",
+      "logoPosition": "0 -392px",
       "stadium": "La Rosaleda"
     },
     {
@@ -148,7 +148,7 @@
         "#09007A",
         "#09007A"
       ],
-      "logoPosition": "",
+      "logoPosition": "-56px -168px",
       "stadium": "Ipurua"
     },
     {
@@ -168,7 +168,7 @@
         "#DE000A",
         "#DE000A"
       ],
-      "logoPosition": "",
+      "logoPosition": "0 0",
       "stadium": "San Mamés"
     },
     {
@@ -188,7 +188,7 @@
         "#0659E4",
         "#0659E4"
       ],
-      "logoPosition": "",
+      "logoPosition": "-56px -224px",
       "stadium": "Coliseum Alfonso Pérez"
     },
     {
@@ -208,7 +208,7 @@
         "#FF1716",
         "#FF1716"
       ],
-      "logoPosition": "",
+      "logoPosition": "0 -504px",
       "stadium": "Ramón Sánchez Pizjuán"
     },
     {
@@ -228,7 +228,7 @@
         "#0659E4",
         "#FFFFFF"
       ],
-      "logoPosition": "",
+      "logoPosition": "0 -224px",
       "stadium": "RCDE Stadium"
     },
     {
@@ -248,7 +248,7 @@
         "#0659E4",
         "#0659E4"
       ],
-      "logoPosition": "",
+      "logoPosition": "0 -168px",
       "stadium": "Butarque"
     },
     {
@@ -268,7 +268,7 @@
         "#0659E4",
         "#0659E4"
       ],
-      "logoPosition": "",
+      "logoPosition": "0 -112px",
       "stadium": "Mendizorrotza"
     },
     {
@@ -288,7 +288,7 @@
         "#990001",
         "#FFFFFF"
       ],
-      "logoPosition": "",
+      "logoPosition": "0 -56px",
       "stadium": "Camp Nou"
     },
     {
@@ -308,7 +308,7 @@
         "#009B02",
         "#009B02"
       ],
-      "logoPosition": "",
+      "logoPosition": "-56px -392px",
       "stadium": "Benito Villamarín"
     },
     {
@@ -328,7 +328,7 @@
         "#599FEA",
         "#FFFFFF"
       ],
-      "logoPosition": "",
+      "logoPosition": "-56px -56px",
       "stadium": "Balaídos"
     },
     {
@@ -348,7 +348,7 @@
         "#0659E4",
         "#0659E4"
       ],
-      "logoPosition": "",
+      "logoPosition": "-56px -448px",
       "stadium": "Anoeta"
     },
     {
@@ -368,7 +368,7 @@
         "#09007A",
         "#09007A"
       ],
-      "logoPosition": "",
+      "logoPosition": "-56px -336px",
       "stadium": "Ciutat de València"
     },
     {
@@ -388,7 +388,7 @@
         "#FEFF00",
         "#FEFF00"
       ],
-      "logoPosition": "",
+      "logoPosition": "0 -560px",
       "stadium": "Estadio de la Cerámica"
     },
     {
@@ -408,7 +408,7 @@
         "#FEDD22",
         "#FEDD22"
       ],
-      "logoPosition": "",
+      "logoPosition": "-56px -504px",
       "stadium": "Mestalla"
     },
     {
@@ -428,7 +428,7 @@
         "#0045B8",
         "#0045B8"
       ],
-      "logoPosition": "",
+      "logoPosition": "0 -336px",
       "stadium": "Gran Canaria"
     }
   ],
