@@ -144,9 +144,12 @@ body {
     background-size: 112px;
 }
 
-.team-logo.israel,
-.team-logo.champions {
+.team-logo.israel {
     background-size: 840px;
+}
+
+.team-logo.champions {
+    background-size: 952px;
 }
 
 /* -------  Site -------*/
