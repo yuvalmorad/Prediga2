@@ -2,7 +2,7 @@
   "league": {
     "_id": "1a21a7c1a3f89181074e9769",
     "name": "Champions",
-    "logoPosition": "",
+    "logoPosition": "-168px 0",
     "year": "2017/2018",
     "competition365": -1,
     "syncResults365": false,
@@ -34,7 +34,7 @@
       "colors": ["#000000", "#000000"],
       "buttonColors": ["#000000", "#FFFFFF"],
       "graphColors": ["#000000", "#000000"],
-      "logoPosition": "",
+      "logoPosition": "-280px 0",
       "stadium": "Juventus Stadium, Turin"
     },
     {
@@ -54,7 +54,7 @@
         "#0A2555",
         "#0A2555"
       ],
-      "logoPosition": "",
+      "logoPosition": "-784px 0",
       "stadium": "Wembley Stadium, London"
     },
     {
@@ -65,7 +65,7 @@
       "colors": ["#DE000A", "#4102FF"],
       "buttonColors": ["#DE000A", "#FFFFFF"],
       "graphColors": ["#DE000A", "#DE000A"],
-      "logoPosition": "",
+      "logoPosition": "0 0",
       "stadium": "St. Jakob-Park, Basel"
     },
     {
@@ -85,7 +85,7 @@
         "#44B1FD",
         "#44B1FD"
       ],
-      "logoPosition": "",
+      "logoPosition": "-392px 0",
       "stadium": "City of Manchester Stadium, Manchester"
     },
     {
@@ -96,7 +96,7 @@
       "colors": ["#1E01FF", "#1E01FF"],
       "buttonColors": ["#1E01FF", "#FFFFFF"],
       "graphColors": ["#1E01FF", "#1E01FF"],
-      "logoPosition": "",
+      "logoPosition": "-560px 0",
       "stadium": "Estádio do Dragão, Porto"
     },
     {
@@ -116,7 +116,7 @@
         "#990001",
         "#990001"
       ],
-      "logoPosition": "",
+      "logoPosition": "-336px 0",
       "stadium": "Anfield, Liverpool"
     },
     {
@@ -136,7 +136,7 @@
         "#FF1716",
         "#FF1716"
       ],
-      "logoPosition": "",
+      "logoPosition": "-672px 0",
       "stadium": "Ramón Sánchez Pizjuán, Seville"
     },
     {
@@ -156,7 +156,7 @@
         "#DE000A",
         "#DE000A"
       ],
-      "logoPosition": "",
+      "logoPosition": "-448px 0",
       "stadium": "Old Trafford, Manchester"
     },
     {
@@ -176,7 +176,7 @@
         "#23A6BF",
         "#23A6BF"
       ],
-      "logoPosition": "",
+      "logoPosition": "0 0",
       "stadium": "Santiago Bernabéu, Madrid"
     },
     {
@@ -187,7 +187,7 @@
       "colors": ["#7C2838", "#0A2555"],
       "buttonColors": ["#0A2555", "#FFFFFF"],
       "graphColors": ["#0A2555", "#0A2555"],
-      "logoPosition": "",
+      "logoPosition": "-504px 0",
       "stadium": "Parc des Princes, Paris"
     },
     {
@@ -198,7 +198,7 @@
       "colors": ["#FF5902", "#000000"],
       "buttonColors": ["#FF5902", "#FFFFFF"],
       "graphColors": ["#FF5902", "#FF5902"],
-      "logoPosition": "",
+      "logoPosition": "-728px 0",
       "stadium": "Metalist Stadium, Kharkiv"
     },
     {
@@ -209,7 +209,7 @@
       "colors": ["#9D1229", "#9D1229"],
       "buttonColors": ["#9D1229", "#FFFFFF"],
       "graphColors": ["#9D1229", "#9D1229"],
-      "logoPosition": "",
+      "logoPosition": "-616px 0",
       "stadium": "Stadio Olimpico, Rome"
     },
     {
@@ -229,7 +229,7 @@
         "#0045B8",
         "#0045B8"
       ],
-      "logoPosition": "",
+      "logoPosition": "-224px 0",
       "stadium": "Stamford Bridge, London"
     },
     {
@@ -249,7 +249,7 @@
         "#990001",
         "#FFFFFF"
       ],
-      "logoPosition": "",
+      "logoPosition": "0 0",
       "stadium": "Camp Nou, Barcelona"
     },
     {
@@ -260,7 +260,7 @@
       "colors": ["#FF1716", "#FF1716"],
       "buttonColors": ["#FF1716", "#FFFFFF"],
       "graphColors": ["#FF1716", "#FF1716"],
-      "logoPosition": "",
+      "logoPosition": "-56px 0",
       "stadium": "Allianz Arena, Munich"
     },
     {
@@ -271,7 +271,7 @@
       "colors": ["#FF1716", "#000000"],
       "buttonColors": ["#FFFFFF", "#000000"],
       "graphColors": ["#FF1716", "#FF1716"],
-      "logoPosition": "",
+      "logoPosition": "-112px 0",
       "stadium": "Vodafone Park, Istanbul"
     }
   ],

@@ -144,7 +144,8 @@ body {
     background-size: 112px;
 }
 
-.team-logo.israel {
+.team-logo.israel,
+.team-logo.champions {
     background-size: 840px;
 }
 
