@@ -43,7 +43,7 @@ function getData(request) {
 			return Promise.resolve(emptyObj);
 		}
 		const matchIds = matchPredictionsService.getMatchIdsArr(userPredictions);
-		return matchResultService.byMatchIds(matchIds).then(function (matchResults) {
+		return matchResultService.byMatchIdsAndAndActiveStatus(matchIds, false).then(function (matchResults) {
 			if (!matchResults) {
 				return Promise.resolve(emptyObj);
 			}
