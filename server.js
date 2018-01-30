@@ -38,10 +38,11 @@ app.use(express.static(clientFolder));
 
 // required for passport
 app.use(session({
-    secret: 'predigaloginboilerplate', // session secret
+    secret: port !== 3000 ? process.env.SESSION_SECRET : 'loginboilerplate',
     resave: false,
     saveUninitialized: true,
-    store: new MongoStore({ mongooseConnection: mongoose.connection })
+    store: new MongoStore({ mongooseConnection: mongoose.connection }),
+	cookie : { httpOnly: true, maxAge: 2419200000 }
 }));
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
