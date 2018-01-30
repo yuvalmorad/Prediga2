@@ -136,19 +136,20 @@ body {
 }
 /* -------  TEAM LOGO -------*/
 
-.team-logo.israel {
-    background-size: 840px;
-}
-
-.team-logo.world_cup {
-    background-size: 112px;
-}
-
 .team-logo {
     background-repeat: no-repeat;
     height: 56px;
     width: 56px;
     display: inline-block;
+    background-size: 112px;
+}
+
+.team-logo.israel {
+    background-size: 840px;
+}
+
+.team-logo.champions {
+    background-size: 952px;
 }
 
 /* -------  Site -------*/
