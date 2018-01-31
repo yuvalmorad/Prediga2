@@ -35,6 +35,12 @@ component.GamePredictionMainTile = (function(){
                 this.setState({
                     timeBeforeGame: "Start in " + utils.general.formatMinutesSecondsTime(kickofftime.getTime() - currentDate.getTime())
                 })
+            } else if (minutesBeforeKickoffTime < 0 && minutesBeforeKickoffTime > -100){ // -100, just in case some game has no result at all
+                //game already started
+                this.setState({
+                    timeBeforeGame: "Game Is Starting..."
+                });
+                clearInterval(this.timer);
             } else {
                 this.setState({timeBeforeGame: undefined});
                 clearInterval(this.timer);
@@ -107,7 +113,7 @@ component.GamePredictionMainTile = (function(){
                     displayTeam1Goals = result[GAME.BET_TYPES.TEAM1_GOALS.key];
                     displayTeam2Goals = result[GAME.BET_TYPES.TEAM2_GOALS.key];
                 } else if (timeBeforeGame !== undefined) {
-                    //half hour before game
+                    //half hour before game or just started and no result yet
                     dateStr = timeBeforeGame;
                 } else {
                     //more than half hour before game
