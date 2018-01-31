@@ -247,8 +247,8 @@ body {
 }
 
 .leagues-sub-header .league-item.selected {
-    color: #4A90E2;
-    border-bottom: 3px solid #4A90E2;
+    border-bottom-width: 3px;
+    border-bottom-style: solid;
 }
 
 .page > .content.hasTilesHeader > .tiles {
@@ -326,6 +326,7 @@ body {
     height: 2.75rem;
     display: flex;
     background-color: #F8F8F8;
+    color: #4A90E2;
 }
 
 .site-header .left,
@@ -333,7 +334,6 @@ body {
     width: 27%;
     line-height: 2.75rem;
     font-size: 0.75rem;
-    color: #4A90E2;
     top: 0;
     position: relative;
     align-items: center;
@@ -380,7 +380,6 @@ body {
     width: 46%;
     text-align: center;
     line-height: 44px;
-    color: #4A90E2;
 }
 
 
@@ -394,7 +393,6 @@ body {
 
 .site-header .menu-button {
     font-family: "prediga";
-    color: #4A90E2;
     font-size: 1rem;
     width: 2rem;
     height: 2rem;
@@ -405,7 +403,6 @@ body {
 }
 
 .site-header .menu-button.selected {
-    background-color: #4A90E2;
     color: #fff;
 }
 
@@ -497,8 +494,9 @@ body {
     margin: 0;
     padding: 0;
     height: 49px;
-    background-color: #fafafa;
     border-top: 1px solid #dadada;
+    background-color: #4A90E2;
+    color: #4A90E2;
 }
 
 .navigation-tab {
@@ -509,11 +507,12 @@ body {
     text-align: center;
     line-height: 49px;
     border-right: 1px solid #dadada;
-    color: #4A90E2;
+    background-color: #fff;
+    color: inherit;
 }
 
 .navigation-tab.selected {
-    background-color: #4A90E2;
+    background-color: inherit;
     color: #fff;
 }
 
@@ -1036,7 +1035,6 @@ body {
     align-items: center;
     color: #fff;
     font-size: 0.875rem;
-    background-color: #4A90E2;
 }
 
 .games-prediction-page .tiles-header button {

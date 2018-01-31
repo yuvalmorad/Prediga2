@@ -24,7 +24,9 @@ component.SiteHeader = (function(){
                     actions = siteHeaderConfig.actions || [],
                     siteHeaderTitle = props.siteHeaderTitle,
                     displayBackButton = hasBackButton,
-                    group = utils.general.findItemInArrBy(props.groups, "_id", props.selectedGroupId);
+                    group = utils.general.findItemInArrBy(props.groups, "_id", props.selectedGroupId),
+                    league = utils.general.findItemInArrBy(props.leagues, "_id", props.selectedLeagueId),
+                    leagueColor = league ? league.color : "";
 
                 var actionsElems = actions.map(function(action) {
                     return re("div", {className: "action-icon", onClick: that.onActionClicked.bind(that, action)}, action.icon);
@@ -35,10 +37,14 @@ component.SiteHeader = (function(){
                     displayBackButton = false;
                 }
 
-                return re("div", { className: "site-header" + (hide ? " hide" : "") },
+                return re("div", { className: "site-header" + (hide ? " hide" : ""), style: {color: leagueColor}},
                     re("div", {className: "left"},
                         re("a", {className: "back-button" + (displayBackButton ? "" : " hide"), onClick: this.onBackButtonClicked}, ""),
-                        re("a", {className: "menu-button" + (this.props.isMainMenuOpen ? " selected" : "") + (hideMenuButton ? " hide" : ""), onClick: props.toggleMainMenu}, "")
+                        re("a", {
+                                className: "menu-button" + (this.props.isMainMenuOpen ? " selected" : "") + (hideMenuButton ? " hide" : ""),
+                                onClick: props.toggleMainMenu,
+                                style: {backgroundColor: this.props.isMainMenuOpen ? leagueColor : ""}
+                        }, "")
                     ),
                     re("div", {className: "center"}, isDynamicTitle ? siteHeaderTitle: title),
                     re("div", {className: "right"},
@@ -54,7 +60,9 @@ component.SiteHeader = (function(){
             siteHeaderTitle: state.general.siteHeaderTitle,
             isMainMenuOpen: state.general.isMainMenuOpen,
             groups: state.groups.groups,
-            selectedGroupId: state.groups.selectedGroupId
+            selectedGroupId: state.groups.selectedGroupId,
+            selectedLeagueId: state.groups.selectedLeagueId,
+            leagues: state.leagues.leagues
         }
     }
 

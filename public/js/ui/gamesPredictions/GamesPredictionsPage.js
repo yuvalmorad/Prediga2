@@ -187,6 +187,8 @@ component.GamesPredictionsPage = (function(){
             closestIndex = findClosestPagesIndex(pages, currentDate) + offsetPageIndex;
             closestPage = pages[closestIndex] || {groups: []};
 
+            var league = utils.general.findItemInArrBy(leagues, "_id", selectedLeagueId);
+
             //var wasScroll = false;
             tilesInPage = closestPage.groups.map(function (group, groupIndex) {
                 var tilesInGroup = group.matches.map(function (match) {
@@ -195,7 +197,6 @@ component.GamesPredictionsPage = (function(){
                     var result = utils.general.findItemInArrBy(results, "matchId", matchId);
                     var team1 = utils.general.findItemInArrBy(clubs, "_id", match.team1);
                     var team2 = utils.general.findItemInArrBy(clubs, "_id", match.team2);
-                    var league = utils.general.findItemInArrBy(leagues, "_id", selectedLeagueId);
                     return re(GamePredictionTile, {
                         game: match,
                         prediction: prediction,
@@ -226,7 +227,7 @@ component.GamesPredictionsPage = (function(){
 
             return re("div", { className: "games-prediction-page content hasTilesHeader hasSubHeader"},
                 re(LeaguesSubHeader, {}),
-                re("div", {className: "tiles-header"},
+                re("div", {className: "tiles-header", style: {"backgroundColor": league.color}},
                     re("button", {onClick: this.onPreviousPage, disabled: isLeftButtonDisabled}, ""),
                     re("div", {className: "title"}, closestPage ? closestPage.type : ""),
                     re("button", {onClick: this.onNextPage, disabled: isRightButtonDisabled}, "")

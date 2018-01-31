@@ -16,10 +16,13 @@ component.LeaguesSubHeader = (function(){
 
         var leagueItemsElem = groupLeagues.map(function (league) {
             var leagueId = league._id;
+            var isSelected = leagueId === selectedLeagueId;
+            var leagueColor = isSelected ? league.color : "";
             return re("div", {
-                className: "league-item" + (leagueId === selectedLeagueId ? " selected" : ""),
+                className: "league-item" + (isSelected ? " selected" : ""),
                 onClick: props.setSelectedLeagueId.bind(that, leagueId),
-                key: leagueId
+                key: leagueId,
+                style: {color: leagueColor, borderColor: leagueColor}
             }, league.name);
         });
 
