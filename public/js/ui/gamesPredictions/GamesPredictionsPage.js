@@ -120,6 +120,10 @@ component.GamesPredictionsPage = (function(){
         },
 
         componentDidUpdate: function(prevProps, prevState) {
+            if (this.props.selectedLeagueId !== prevProps.selectedLeagueId) {
+                shouldScrollToCurrentDate = true;
+            }
+
             if (this.state.offsetPageIndex !== prevState.offsetPageIndex && this.tilesElem) {
                 this.tilesElem.scrollTo(0,0);
             } else {
