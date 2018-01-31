@@ -45,7 +45,7 @@
       ],
       "graphColors": [
         "#AA0001",
-        "#AA0001"
+        "#000000"
       ],
       "logoPosition": "0 0"
     },
@@ -71,7 +71,7 @@
     {
       "_id": "1a21a7c1a3f89181074e9764",
       "name": "Bournemouth",
-      "name365": "בורנמות'",
+      "name365": "בורנמות",
       "shortName": "BOU",
       "colors": [
         "#DE000A",
@@ -155,7 +155,7 @@
       ],
       "buttonColors": [
         "#990001",
-        "#990001"
+        "#FFFFFF"
       ],
       "graphColors": [
         "#990001",
