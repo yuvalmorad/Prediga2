@@ -36,7 +36,6 @@
       "name365": "ארסנל",
       "shortName": "ARS",
       "colors": [
-        "#AA0001",
         "#AA0001"
       ],
       "buttonColors": [
@@ -55,7 +54,6 @@
       "name365": "לסטר",
       "shortName": "LES",
       "colors": [
-        "#0659E4",
         "#0659E4"
       ],
       "buttonColors": [
@@ -64,7 +62,7 @@
       ],
       "graphColors": [
         "#0659E4",
-        "#0659E4"
+        "#000000"
       ],
       "logoPosition": "0 -224px"
     },
@@ -83,7 +81,7 @@
       ],
       "graphColors": [
         "#DE000A",
-        "#DE000A"
+        "#000000"
       ],
       "logoPosition": "-56px 0"
     },
@@ -93,7 +91,6 @@
       "name365": "ברייטון",
       "shortName": "BRI",
       "colors": [
-        "#1E01FF",
         "#1E01FF"
       ],
       "buttonColors": [
@@ -102,7 +99,7 @@
       ],
       "graphColors": [
         "#1E01FF",
-        "#1E01FF"
+        "#000000"
       ],
       "logoPosition": "0 -56px"
     },
@@ -112,7 +109,6 @@
       "name365": "מנצ'סטר סיטי",
       "shortName": "MC",
       "colors": [
-        "#44B1FD",
         "#44B1FD"
       ],
       "buttonColors": [
@@ -121,7 +117,7 @@
       ],
       "graphColors": [
         "#44B1FD",
-        "#44B1FD"
+        "#000000"
       ],
       "logoPosition": "0 -280px"
     },
@@ -131,7 +127,6 @@
       "name365": "צ'לסי",
       "shortName": "CHE",
       "colors": [
-        "#0045B8",
         "#0045B8"
       ],
       "buttonColors": [
@@ -140,7 +135,7 @@
       ],
       "graphColors": [
         "#0045B8",
-        "#0045B8"
+        "#000000"
       ],
       "logoPosition": "0 -112px"
     },
@@ -159,7 +154,7 @@
       ],
       "graphColors": [
         "#990001",
-        "#990001"
+        "#599FEA"
       ],
       "logoPosition": "-56px -56px"
     },
@@ -178,7 +173,7 @@
       ],
       "graphColors": [
         "#4102FF",
-        "#4102FF"
+        "#DE000A"
       ],
       "logoPosition": "-56px -112px"
     },
@@ -188,7 +183,6 @@
       "name365": "האדרספילד",
       "shortName": "HUD",
       "colors": [
-        "#44B1FD",
         "#44B1FD"
       ],
       "buttonColors": [
@@ -197,7 +191,7 @@
       ],
       "graphColors": [
         "#44B1FD",
-        "#44B1FD"
+        "#000000"
       ],
       "logoPosition": "-56px -168px"
     },
@@ -207,7 +201,6 @@
       "name365": "אברטון",
       "shortName": "EVE",
       "colors": [
-        "#0659E4",
         "#0659E4"
       ],
       "buttonColors": [
@@ -216,7 +209,7 @@
       ],
       "graphColors": [
         "#0659E4",
-        "#0659E4"
+        "#000000"
       ],
       "logoPosition": "0 -168px"
     },
@@ -226,7 +219,6 @@
       "name365": "סטוק סיטי",
       "shortName": "STO",
       "colors": [
-        "#DE000A",
         "#DE000A"
       ],
       "buttonColors": [
@@ -235,7 +227,7 @@
       ],
       "graphColors": [
         "#DE000A",
-        "#DE000A"
+        "#000000"
       ],
       "logoPosition": "-56px -392px"
     },
@@ -245,7 +237,6 @@
       "name365": "מנצ'סטר יונייטד",
       "shortName": "MU",
       "colors": [
-        "#DE000A",
         "#DE000A"
       ],
       "buttonColors": [
@@ -254,7 +245,7 @@
       ],
       "graphColors": [
         "#DE000A",
-        "#DE000A"
+        "#000000"
       ],
       "logoPosition": "-56px -280px"
     },
@@ -273,7 +264,7 @@
       ],
       "graphColors": [
         "#7C2838",
-        "#7C2838"
+        "#44B1FD"
       ],
       "logoPosition": "0 -560px"
     },
@@ -283,7 +274,6 @@
       "name365": "ניוקאסל",
       "shortName": "NEW",
       "colors": [
-        "#000000",
         "#000000"
       ],
       "buttonColors": [
@@ -292,7 +282,7 @@
       ],
       "graphColors": [
         "#599FEA",
-        "#599FEA"
+        "#000000"
       ],
       "logoPosition": "0 -336px"
     },
@@ -302,7 +292,6 @@
       "name365": "טוטנהאם",
       "shortName": "TOT",
       "colors": [
-        "#0A2555",
         "#0A2555"
       ],
       "buttonColors": [
@@ -311,10 +300,9 @@
       ],
       "graphColors": [
         "#0A2555",
-        "#0A2555"
+        "#000000"
       ],
       "logoPosition": "-56px -448px"
-
     },
     {
       "_id": "1a21a7c1a3f89181074e9777",
@@ -331,7 +319,7 @@
       ],
       "graphColors": [
         "#DE000A",
-        "#DE000A"
+        "#000000"
       ],
       "logoPosition": "0 -392px"
     },
@@ -341,7 +329,6 @@
       "name365": "סוונזי",
       "shortName": "SWA",
       "colors": [
-        "#000000",
         "#000000"
       ],
       "buttonColors": [
@@ -349,7 +336,6 @@
         "#000000"
       ],
       "graphColors": [
-        "#000000",
         "#000000"
       ],
       "logoPosition": "0 -448px"
@@ -369,7 +355,7 @@
       ],
       "graphColors": [
         "#FEFF59",
-        "#FEFF59"
+        "#000000"
       ],
       "logoPosition": "0 -504px"
     },
@@ -379,7 +365,6 @@
       "name365": "ליברפול",
       "shortName": "LIV",
       "colors": [
-        "#990001",
         "#990001"
       ],
       "buttonColors": [
@@ -388,7 +373,7 @@
       ],
       "graphColors": [
         "#990001",
-        "#990001"
+        "#000000"
       ],
       "logoPosition": "-56px -224px"
     },
@@ -398,7 +383,6 @@
       "name365": "ווסט ברומיץ'",
       "shortName": "WB",
       "colors": [
-        "#0B008C",
         "#0B008C"
       ],
       "buttonColors": [
@@ -407,7 +391,7 @@
       ],
       "graphColors": [
         "#0B008C",
-        "#0B008C"
+        "#000000"
       ],
       "logoPosition": "-56px -504px"
     }

@@ -31,9 +31,16 @@
       "name": "Juventus",
       "name365": "יובנטוס",
       "shortName": "JUV",
-      "colors": ["#000000", "#000000"],
-      "buttonColors": ["#000000", "#FFFFFF"],
-      "graphColors": ["#000000", "#000000"],
+      "colors": [
+        "#000000"
+      ],
+      "buttonColors": [
+        "#000000",
+        "#FFFFFF"
+      ],
+      "graphColors": [
+        "#000000"
+      ],
       "logoPosition": "-280px 0",
       "stadium": "Juventus Stadium, Turin"
     },
@@ -43,7 +50,6 @@
       "name365": "טוטנהאם",
       "shortName": "TOT",
       "colors": [
-        "#0A2555",
         "#0A2555"
       ],
       "buttonColors": [
@@ -52,7 +58,7 @@
       ],
       "graphColors": [
         "#0A2555",
-        "#0A2555"
+        "#000000"
       ],
       "logoPosition": "-784px 0",
       "stadium": "Wembley Stadium, London"
@@ -62,9 +68,18 @@
       "name": "Basel",
       "name365": "באזל",
       "shortName": "BAS",
-      "colors": ["#DE000A", "#4102FF"],
-      "buttonColors": ["#DE000A", "#FFFFFF"],
-      "graphColors": ["#DE000A", "#DE000A"],
+      "colors": [
+        "#DE000A",
+        "#4102FF"
+      ],
+      "buttonColors": [
+        "#DE000A",
+        "#FFFFFF"
+      ],
+      "graphColors": [
+        "#DE000A",
+        "#4102FF"
+      ],
       "logoPosition": "0 0",
       "stadium": "St. Jakob-Park, Basel"
     },
@@ -74,7 +89,6 @@
       "name365": "מנצ'סטר סיטי",
       "shortName": "MC",
       "colors": [
-        "#44B1FD",
         "#44B1FD"
       ],
       "buttonColors": [
@@ -83,7 +97,7 @@
       ],
       "graphColors": [
         "#44B1FD",
-        "#44B1FD"
+        "#000000"
       ],
       "logoPosition": "-392px 0",
       "stadium": "City of Manchester Stadium, Manchester"
@@ -93,9 +107,17 @@
       "name": "Porto",
       "name365": "פורטו",
       "shortName": "POR",
-      "colors": ["#1E01FF", "#1E01FF"],
-      "buttonColors": ["#1E01FF", "#FFFFFF"],
-      "graphColors": ["#1E01FF", "#1E01FF"],
+      "colors": [
+        "#1E01FF"
+      ],
+      "buttonColors": [
+        "#1E01FF",
+        "#FFFFFF"
+      ],
+      "graphColors": [
+        "#1E01FF",
+        "#000000"
+      ],
       "logoPosition": "-560px 0",
       "stadium": "Estádio do Dragão, Porto"
     },
@@ -105,7 +127,6 @@
       "name365": "ליברפול",
       "shortName": "LIV",
       "colors": [
-        "#990001",
         "#990001"
       ],
       "buttonColors": [
@@ -114,7 +135,7 @@
       ],
       "graphColors": [
         "#990001",
-        "#990001"
+        "#000000"
       ],
       "logoPosition": "-336px 0",
       "stadium": "Anfield, Liverpool"
@@ -125,7 +146,6 @@
       "name365": "סביליה",
       "shortName": "SEV",
       "colors": [
-        "#FF1716",
         "#FF1716"
       ],
       "buttonColors": [
@@ -134,7 +154,7 @@
       ],
       "graphColors": [
         "#FF1716",
-        "#FF1716"
+        "#000000"
       ],
       "logoPosition": "-672px 0",
       "stadium": "Ramón Sánchez Pizjuán, Seville"
@@ -145,7 +165,6 @@
       "name365": "מנצ'סטר יונייטד",
       "shortName": "MU",
       "colors": [
-        "#DE000A",
         "#DE000A"
       ],
       "buttonColors": [
@@ -154,7 +173,7 @@
       ],
       "graphColors": [
         "#DE000A",
-        "#DE000A"
+        "#000000"
       ],
       "logoPosition": "-448px 0",
       "stadium": "Old Trafford, Manchester"
@@ -165,7 +184,6 @@
       "name365": "ריאל מדריד",
       "shortName": "RM",
       "colors": [
-        "#23A6BF",
         "#23A6BF"
       ],
       "buttonColors": [
@@ -174,7 +192,7 @@
       ],
       "graphColors": [
         "#23A6BF",
-        "#23A6BF"
+        "#000000"
       ],
       "logoPosition": "-896px 0",
       "stadium": "Santiago Bernabéu, Madrid"
@@ -184,9 +202,18 @@
       "name": "Paris Saint-Germain",
       "name365": "פ.ס.ז'",
       "shortName": "PSG",
-      "colors": ["#7C2838", "#0A2555"],
-      "buttonColors": ["#0A2555", "#FFFFFF"],
-      "graphColors": ["#0A2555", "#0A2555"],
+      "colors": [
+        "#7C2838",
+        "#0A2555"
+      ],
+      "buttonColors": [
+        "#0A2555",
+        "#FFFFFF"
+      ],
+      "graphColors": [
+        "#0A2555",
+        "#7C2838"
+      ],
       "logoPosition": "-504px 0",
       "stadium": "Parc des Princes, Paris"
     },
@@ -195,9 +222,18 @@
       "name": "Shakhtar Donetsk",
       "name365": "שחטאר דונייצק",
       "shortName": "SHA",
-      "colors": ["#FF5902", "#000000"],
-      "buttonColors": ["#FF5902", "#FFFFFF"],
-      "graphColors": ["#FF5902", "#FF5902"],
+      "colors": [
+        "#FF5902",
+        "#000000"
+      ],
+      "buttonColors": [
+        "#FF5902",
+        "#FFFFFF"
+      ],
+      "graphColors": [
+        "#FF5902",
+        "#000000"
+      ],
       "logoPosition": "-728px 0",
       "stadium": "Metalist Stadium, Kharkiv"
     },
@@ -206,9 +242,17 @@
       "name": "Roma",
       "name365": "רומא",
       "shortName": "ROM",
-      "colors": ["#9D1229", "#9D1229"],
-      "buttonColors": ["#9D1229", "#FFFFFF"],
-      "graphColors": ["#9D1229", "#9D1229"],
+      "colors": [
+        "#9D1229"
+      ],
+      "buttonColors": [
+        "#9D1229",
+        "#FFFFFF"
+      ],
+      "graphColors": [
+        "#9D1229",
+        "#000000"
+      ],
       "logoPosition": "-616px 0",
       "stadium": "Stadio Olimpico, Rome"
     },
@@ -218,7 +262,6 @@
       "name365": "צ'לסי",
       "shortName": "CHE",
       "colors": [
-        "#0045B8",
         "#0045B8"
       ],
       "buttonColors": [
@@ -227,7 +270,7 @@
       ],
       "graphColors": [
         "#0045B8",
-        "#0045B8"
+        "#000000"
       ],
       "logoPosition": "-224px 0",
       "stadium": "Stamford Bridge, London"
@@ -247,7 +290,7 @@
       ],
       "graphColors": [
         "#990001",
-        "#FFFFFF"
+        "#000000"
       ],
       "logoPosition": "-840px 0",
       "stadium": "Camp Nou, Barcelona"
@@ -257,9 +300,17 @@
       "name": "Bayern Munich",
       "name365": "באיירן מינכן",
       "shortName": "BAY",
-      "colors": ["#FF1716", "#FF1716"],
-      "buttonColors": ["#FF1716", "#FFFFFF"],
-      "graphColors": ["#FF1716", "#FF1716"],
+      "colors": [
+        "#FF1716"
+      ],
+      "buttonColors": [
+        "#FF1716",
+        "#FFFFFF"
+      ],
+      "graphColors": [
+        "#FF1716",
+        "#000000"
+      ],
       "logoPosition": "-56px 0",
       "stadium": "Allianz Arena, Munich"
     },
@@ -268,9 +319,18 @@
       "name": "Beşiktaş",
       "name365": "בשיקטאש",
       "shortName": "BES",
-      "colors": ["#FF1716", "#000000"],
-      "buttonColors": ["#FFFFFF", "#000000"],
-      "graphColors": ["#FF1716", "#FF1716"],
+      "colors": [
+        "#FF1716",
+        "#000000"
+      ],
+      "buttonColors": [
+        "#FFFFFF",
+        "#000000"
+      ],
+      "graphColors": [
+        "#FF1716",
+        "#000000"
+      ],
       "logoPosition": "-112px 0",
       "stadium": "Vodafone Park, Istanbul"
     }

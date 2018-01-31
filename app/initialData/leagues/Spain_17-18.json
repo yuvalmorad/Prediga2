@@ -37,7 +37,6 @@
       "name365": "דפורטיבו לה קורוניה",
       "shortName": "DLC",
       "colors": [
-        "#0659E4",
         "#0659E4"
       ],
       "buttonColors": [
@@ -46,7 +45,7 @@
       ],
       "graphColors": [
         "#0659E4",
-        "#FFFFFF"
+        "#000000"
       ],
       "logoPosition": "-56px -112px",
       "stadium": "Abanca-Riazor"
@@ -57,7 +56,6 @@
       "name365": "ריאל מדריד",
       "shortName": "RM",
       "colors": [
-        "#23A6BF",
         "#23A6BF"
       ],
       "buttonColors": [
@@ -66,7 +64,7 @@
       ],
       "graphColors": [
         "#23A6BF",
-        "#23A6BF"
+        "#000000"
       ],
       "logoPosition": "0 -448px",
       "stadium": "Santiago Bernabéu"
@@ -77,7 +75,6 @@
       "name365": "ג'ירונה",
       "shortName": "GIR",
       "colors": [
-        "#FF1716",
         "#FF1716"
       ],
       "buttonColors": [
@@ -86,7 +83,7 @@
       ],
       "graphColors": [
         "#FF1716",
-        "#FF1716"
+        "#000000"
       ],
       "logoPosition": "0 -280px",
       "stadium": "Montilivi"
@@ -97,7 +94,6 @@
       "name365": "אתלטיקו מדריד",
       "shortName": "AM",
       "colors": [
-        "#AA0001",
         "#AA0001"
       ],
       "buttonColors": [
@@ -106,7 +102,7 @@
       ],
       "graphColors": [
         "#AA0001",
-        "#AA0001"
+        "#000000"
       ],
       "logoPosition": "-56px 0",
       "stadium": "Wanda Metropolitano"
@@ -126,7 +122,7 @@
       ],
       "graphColors": [
         "#0659E4",
-        "#0659E4"
+        "#599FEA"
       ],
       "logoPosition": "0 -392px",
       "stadium": "La Rosaleda"
@@ -146,7 +142,7 @@
       ],
       "graphColors": [
         "#09007A",
-        "#09007A"
+        "#AA0001"
       ],
       "logoPosition": "-56px -168px",
       "stadium": "Ipurua"
@@ -166,7 +162,7 @@
       ],
       "graphColors": [
         "#DE000A",
-        "#DE000A"
+        "#000000"
       ],
       "logoPosition": "0 0",
       "stadium": "San Mamés"
@@ -177,7 +173,6 @@
       "name365": "חטאפה",
       "shortName": "GAT",
       "colors": [
-        "#0659E4",
         "#0659E4"
       ],
       "buttonColors": [
@@ -186,7 +181,7 @@
       ],
       "graphColors": [
         "#0659E4",
-        "#0659E4"
+        "#000000"
       ],
       "logoPosition": "-56px -224px",
       "stadium": "Coliseum Alfonso Pérez"
@@ -197,7 +192,6 @@
       "name365": "סביליה",
       "shortName": "SEV",
       "colors": [
-        "#FF1716",
         "#FF1716"
       ],
       "buttonColors": [
@@ -206,7 +200,7 @@
       ],
       "graphColors": [
         "#FF1716",
-        "#FF1716"
+        "#000000"
       ],
       "logoPosition": "0 -504px",
       "stadium": "Ramón Sánchez Pizjuán"
@@ -226,7 +220,7 @@
       ],
       "graphColors": [
         "#0659E4",
-        "#FFFFFF"
+        "#000000"
       ],
       "logoPosition": "0 -224px",
       "stadium": "RCDE Stadium"
@@ -237,7 +231,6 @@
       "name365": "לגאנס",
       "shortName": "LEG",
       "colors": [
-        "#0659E4",
         "#0659E4"
       ],
       "buttonColors": [
@@ -246,7 +239,7 @@
       ],
       "graphColors": [
         "#0659E4",
-        "#0659E4"
+        "#000000"
       ],
       "logoPosition": "0 -168px",
       "stadium": "Butarque"
@@ -266,7 +259,7 @@
       ],
       "graphColors": [
         "#0659E4",
-        "#0659E4"
+        "#599FEA"
       ],
       "logoPosition": "0 -112px",
       "stadium": "Mendizorrotza"
@@ -286,7 +279,7 @@
       ],
       "graphColors": [
         "#990001",
-        "#FFFFFF"
+        "#09007A"
       ],
       "logoPosition": "0 -56px",
       "stadium": "Camp Nou"
@@ -297,7 +290,6 @@
       "name365": "בטיס",
       "shortName": "BET",
       "colors": [
-        "#009B02",
         "#009B02"
       ],
       "buttonColors": [
@@ -306,7 +298,7 @@
       ],
       "graphColors": [
         "#009B02",
-        "#009B02"
+        "#000000"
       ],
       "logoPosition": "-56px -392px",
       "stadium": "Benito Villamarín"
@@ -326,7 +318,7 @@
       ],
       "graphColors": [
         "#599FEA",
-        "#FFFFFF"
+        "#DE000A"
       ],
       "logoPosition": "-56px -56px",
       "stadium": "Balaídos"
@@ -337,7 +329,6 @@
       "name365": "ריאל סוסיאדד",
       "shortName": "SOC",
       "colors": [
-        "#0659E4",
         "#0659E4"
       ],
       "buttonColors": [
@@ -346,7 +337,7 @@
       ],
       "graphColors": [
         "#0659E4",
-        "#0659E4"
+        "#000000"
       ],
       "logoPosition": "-56px -448px",
       "stadium": "Anoeta"
@@ -366,7 +357,7 @@
       ],
       "graphColors": [
         "#09007A",
-        "#09007A"
+        "#AA0001"
       ],
       "logoPosition": "-56px -336px",
       "stadium": "Ciutat de València"
@@ -377,7 +368,6 @@
       "name365": "ויאריאל",
       "shortName": "VIL",
       "colors": [
-        "#FEFF00",
         "#FEFF00"
       ],
       "buttonColors": [
@@ -386,7 +376,7 @@
       ],
       "graphColors": [
         "#FEFF00",
-        "#FEFF00"
+        "#000000"
       ],
       "logoPosition": "0 -560px",
       "stadium": "Estadio de la Cerámica"
@@ -406,7 +396,7 @@
       ],
       "graphColors": [
         "#FEDD22",
-        "#FEDD22"
+        "#FF1716"
       ],
       "logoPosition": "-56px -504px",
       "stadium": "Mestalla"
@@ -426,7 +416,7 @@
       ],
       "graphColors": [
         "#0045B8",
-        "#0045B8"
+        "#FEFF59"
       ],
       "logoPosition": "0 -336px",
       "stadium": "Gran Canaria"
