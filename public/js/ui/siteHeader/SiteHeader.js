@@ -11,15 +11,6 @@ component.SiteHeader = (function(){
                 this.props.fireSiteHeaderEvent(action.eventName);
             },
 
-            getSelectedGroupIcon: function() {
-                var props = this.props;
-                var group = props.groups.filter(function(group){
-                    return group._id ===  props.selectedGroupId;
-                })[0];
-
-                return group ? group.icon : "";
-            },
-
             render: function () {
                 var that = this,
                     props = this.props,
@@ -32,7 +23,8 @@ component.SiteHeader = (function(){
                     hideGroupsIcon = siteHeaderConfig.hideGroupsIcon,
                     actions = siteHeaderConfig.actions || [],
                     siteHeaderTitle = props.siteHeaderTitle,
-                    displayBackButton = hasBackButton;
+                    displayBackButton = hasBackButton,
+                    group = utils.general.findItemInArrBy(props.groups, "_id", props.selectedGroupId);
 
                 var actionsElems = actions.map(function(action) {
                     return re("div", {className: "action-icon", onClick: that.onActionClicked.bind(that, action)}, action.icon);
@@ -50,7 +42,7 @@ component.SiteHeader = (function(){
                     ),
                     re("div", {className: "center"}, isDynamicTitle ? siteHeaderTitle: title),
                     re("div", {className: "right"},
-                        re("div", {className: "group-icon" + (hideGroupsIcon ? " hide" : "")}, this.getSelectedGroupIcon()),
+                        re("div", {className: "group-icon" + (hideGroupsIcon ? " hide" : ""), style: {"color": group ? group.iconColor: ""}}, group ? group.icon : ""),
                         actionsElems
                     )
             );
