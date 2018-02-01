@@ -14,10 +14,15 @@ component.LeaguesSubHeader = (function(){
             return group.leagueIds.indexOf(league._id) >= 0;
         });
 
+        var selectedLeagueColor = "";
+
         var leagueItemsElem = groupLeagues.map(function (league) {
             var leagueId = league._id;
             var isSelected = leagueId === selectedLeagueId;
             var leagueColor = isSelected ? league.color : "";
+            if (isSelected) {
+                selectedLeagueColor = league.color;
+            }
             return re("div", {
                 className: "league-item" + (isSelected ? " selected" : ""),
                 onClick: props.setSelectedLeagueId.bind(that, leagueId),
@@ -26,7 +31,7 @@ component.LeaguesSubHeader = (function(){
             }, league.name);
         });
 
-        return re("div", {className: "subHeader leagues-sub-header"},
+        return re("div", {className: "subHeader leagues-sub-header", style: {borderBottomColor: selectedLeagueColor}},
             leagueItemsElem
         )
     };
