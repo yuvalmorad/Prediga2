@@ -343,7 +343,7 @@
       "team2": "1a21a7c1a3f89181074e9963",
       "kickofftime": "2018-02-13T19:45:00.000Z",
       "stadium": "Juventus Stadium, Turin",
-      "type": "Round of 16 - leg 1",
+      "type": "Round of 16 - leg 1 (A)",
       "league": "1a21a7c1a3f89181074e9769"
     },
     {
@@ -352,7 +352,7 @@
       "team2": "1a21a7c1a3f89181074e9962",
       "kickofftime": "2018-03-07T19:45:00.000Z",
       "stadium": "Wembley Stadium, London",
-      "type": "Round of 16 - leg 2",
+      "type": "Round of 16 - leg 2 (A)",
       "league": "1a21a7c1a3f89181074e9769"
     },
     {
@@ -361,7 +361,7 @@
       "team2": "1a21a7c1a3f89181074e9965",
       "kickofftime": "2018-02-13T19:45:00.000Z",
       "stadium": "St. Jakob-Park, Basel",
-      "type": "Round of 16 - leg 1",
+      "type": "Round of 16 - leg 1 (A)",
       "league": "1a21a7c1a3f89181074e9769"
     },
     {
@@ -370,7 +370,7 @@
       "team2": "1a21a7c1a3f89181074e9964",
       "kickofftime": "2018-03-07T19:45:00.000Z",
       "stadium": "City of Manchester Stadium, Manchester",
-      "type": "Round of 16 - leg 2",
+      "type": "Round of 16 - leg 2 (A)",
       "league": "1a21a7c1a3f89181074e9769"
     },
     {
@@ -379,7 +379,7 @@
       "team2": "1a21a7c1a3f89181074e9967",
       "kickofftime": "2018-02-14T19:45:00.000Z",
       "stadium": "Estádio do Dragão, Porto",
-      "type": "Round of 16 - leg 1",
+      "type": "Round of 16 - leg 1 (A)",
       "league": "1a21a7c1a3f89181074e9769"
     },
     {
@@ -388,7 +388,7 @@
       "team2": "1a21a7c1a3f89181074e9966",
       "kickofftime": "2018-03-06T19:45:00.000Z",
       "stadium": "Anfield, Liverpool",
-      "type": "Round of 16 - leg 2",
+      "type": "Round of 16 - leg 2 (A)",
       "league": "1a21a7c1a3f89181074e9769"
     },
     {
@@ -397,7 +397,7 @@
       "team2": "1a21a7c1a3f89181074e9969",
       "kickofftime": "2018-02-21T19:45:00.000Z",
       "stadium": "Ramón Sánchez Pizjuán, Seville",
-      "type": "Round of 16 - leg 1",
+      "type": "Round of 16 - leg 1 (B)",
       "league": "1a21a7c1a3f89181074e9769"
     },
     {
@@ -406,7 +406,7 @@
       "team2": "1a21a7c1a3f89181074e9968",
       "kickofftime": "2018-03-13T19:45:00.000Z",
       "stadium": "Old Trafford, Manchester",
-      "type": "Round of 16 - leg 2",
+      "type": "Round of 16 - leg 2 (B)",
       "league": "1a21a7c1a3f89181074e9769"
     },
     {
@@ -415,7 +415,7 @@
       "team2": "1a21a7c1a3f89181074e9971",
       "kickofftime": "2018-02-14T19:45:00.000Z",
       "stadium": "Santiago Bernabéu, Madrid",
-      "type": "Round of 16 - leg 1",
+      "type": "Round of 16 - leg 1 (A)",
       "league": "1a21a7c1a3f89181074e9769"
     },
     {
@@ -424,7 +424,7 @@
       "team2": "1a21a7c1a3f89181074e9970",
       "kickofftime": "2018-03-06T19:45:00.000Z",
       "stadium": "Parc des Princes, Paris",
-      "type": "Round of 16 - leg 2",
+      "type": "Round of 16 - leg 2 (A)",
       "league": "1a21a7c1a3f89181074e9769"
     },
     {
@@ -433,7 +433,7 @@
       "team2": "1a21a7c1a3f89181074e9973",
       "kickofftime": "2018-02-21T19:45:00.000Z",
       "stadium": "Metalist Stadium, Kharkiv",
-      "type": "Round of 16 - leg 1",
+      "type": "Round of 16 - leg 1 (B)",
       "league": "1a21a7c1a3f89181074e9769"
     },
     {
@@ -442,7 +442,7 @@
       "team2": "1a21a7c1a3f89181074e9972",
       "kickofftime": "2018-03-13T19:45:00.000Z",
       "stadium": "Stadio Olimpico, Rome",
-      "type": "Round of 16 - leg 2",
+      "type": "Round of 16 - leg 2 (B)",
       "league": "1a21a7c1a3f89181074e9769"
     },
     {
@@ -451,7 +451,7 @@
       "team2": "1a21a7c1a3f89181074e9975",
       "kickofftime": "2018-02-20T19:45:00.000Z",
       "stadium": "Stamford Bridge, London",
-      "type": "Round of 16 - leg 1",
+      "type": "Round of 16 - leg 1 (B)",
       "league": "1a21a7c1a3f89181074e9769"
     },
     {
@@ -460,7 +460,7 @@
       "team2": "1a21a7c1a3f89181074e9974",
       "kickofftime": "2018-03-14T19:45:00.000Z",
       "stadium": "Camp Nou, Barcelona",
-      "type": "Round of 16 - leg 2",
+      "type": "Round of 16 - leg 2 (B)",
       "league": "1a21a7c1a3f89181074e9769"
     },
     {
@@ -469,7 +469,7 @@
       "team2": "1a21a7c1a3f89181074e9977",
       "kickofftime": "2018-02-20T19:45:00.000Z",
       "stadium": "Allianz Arena, Munich",
-      "type": "Round of 16 - leg 1",
+      "type": "Round of 16 - leg 1 (B)",
       "league": "1a21a7c1a3f89181074e9769"
     },
     {
@@ -478,7 +478,7 @@
       "team2": "1a21a7c1a3f89181074e9976",
       "kickofftime": "2018-03-14T19:45:00.000Z",
       "stadium": "Vodafone Park, Istanbul",
-      "type": "Round of 16 - leg 2",
+      "type": "Round of 16 - leg 2 (B)",
       "league": "1a21a7c1a3f89181074e9769"
     }
   ],
