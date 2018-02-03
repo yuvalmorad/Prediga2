@@ -480,6 +480,123 @@
       "stadium": "Vodafone Park, Istanbul",
       "type": "Round of 16 - leg 2 (B)",
       "league": "1a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "1a21a7c1a3f89181074e9878",
+      "team1": "TBD",
+      "team2": "TBD",
+      "kickofftime": "2018-04-03T19:45:00.000Z",
+      "stadium": "TBD",
+      "type": "Quarter-finals - leg 1 (A)",
+      "league": "1a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "1a21a7c1a3f89181074e9879",
+      "team1": "TBD",
+      "team2": "TBD",
+      "kickofftime": "2018-04-03T19:45:00.000Z",
+      "stadium": "TBD",
+      "type": "Quarter-finals - leg 1 (A)",
+      "league": "1a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "1a21a7c1a3f89181074e9880",
+      "team1": "TBD",
+      "team2": "TBD",
+      "kickofftime": "2018-04-04T19:45:00.000Z",
+      "stadium": "TBD",
+      "type": "Quarter-finals - leg 1 (B)",
+      "league": "1a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "1a21a7c1a3f89181074e9881",
+      "team1": "TBD",
+      "team2": "TBD",
+      "kickofftime": "2018-04-04T19:45:00.000Z",
+      "stadium": "TBD",
+      "type": "Quarter-finals - leg 1 (B)",
+      "league": "1a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "1a21a7c1a3f89181074e9882",
+      "team1": "TBD",
+      "team2": "TBD",
+      "kickofftime": "2018-04-10T19:45:00.000Z",
+      "stadium": "TBD",
+      "type": "Quarter-finals - leg 2 (A)",
+      "league": "1a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "1a21a7c1a3f89181074e9883",
+      "team1": "TBD",
+      "team2": "TBD",
+      "kickofftime": "2018-04-10T19:45:00.000Z",
+      "stadium": "TBD",
+      "type": "Quarter-finals - leg 2 (A)",
+      "league": "1a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "1a21a7c1a3f89181074e9884",
+      "team1": "TBD",
+      "team2": "TBD",
+      "kickofftime": "2018-04-11T19:45:00.000Z",
+      "stadium": "TBD",
+      "type": "Quarter-finals - leg 2 (B)",
+      "league": "1a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "1a21a7c1a3f89181074e9885",
+      "team1": "TBD",
+      "team2": "TBD",
+      "kickofftime": "2018-04-11T19:45:00.000Z",
+      "stadium": "TBD",
+      "type": "Quarter-finals - leg 2 (B)",
+      "league": "1a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "1a21a7c1a3f89181074e9886",
+      "team1": "TBD",
+      "team2": "TBD",
+      "kickofftime": "2018-04-24T19:45:00.000Z",
+      "stadium": "TBD",
+      "type": "Semi-finals - leg 1 (A)",
+      "league": "1a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "1a21a7c1a3f89181074e9887",
+      "team1": "TBD",
+      "team2": "TBD",
+      "kickofftime": "2018-04-25T19:45:00.000Z",
+      "stadium": "TBD",
+      "type": "Semi-finals - leg 1 (B)",
+      "league": "1a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "1a21a7c1a3f89181074e9888",
+      "team1": "TBD",
+      "team2": "TBD",
+      "kickofftime": "2018-05-01T19:45:00.000Z",
+      "stadium": "TBD",
+      "type": "Semi-finals - leg 2 (A)",
+      "league": "1a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "1a21a7c1a3f89181074e9889",
+      "team1": "TBD",
+      "team2": "TBD",
+      "kickofftime": "2018-05-02T19:45:00.000Z",
+      "stadium": "TBD",
+      "type": "Semi-finals - leg 2 (B)",
+      "league": "1a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "1a21a7c1a3f89181074e9890",
+      "team1": "TBD",
+      "team2": "TBD",
+      "kickofftime": "2018-05-26T19:45:00.000Z",
+      "stadium": "NSC Olimpiyskiy, Kiev",
+      "type": "Final",
+      "league": "1a21a7c1a3f89181074e9769"
     }
   ],
   "matchResults": [

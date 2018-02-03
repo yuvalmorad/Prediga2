@@ -2408,7 +2408,7 @@
       "_id": "4a21a7c1a3f89181075e9321",
       "team1": "1a21a7c1a3f89181074e9880",
       "team2": "1a21a7c1a3f89181074e9878",
-      "kickofftime": "2018-02-11T19:27:00.000Z",
+      "kickofftime": "2018-02-11T19:45:00.000Z",
       "type": "Round 23",
       "league": "2a21a7c1a3f89181074e9769",
       "stadium": "Mestalla"
@@ -2417,7 +2417,7 @@
       "_id": "4a21a7c1a3f89181075e9322",
       "team1": "1a21a7c1a3f89181074e9863",
       "team2": "1a21a7c1a3f89181074e9877",
-      "kickofftime": "2018-02-11T19:27:00.000Z",
+      "kickofftime": "2018-02-10T19:45:00.000Z",
       "type": "Round 23",
       "league": "2a21a7c1a3f89181074e9769",
       "stadium": "Santiago Bernabéu"
@@ -2426,7 +2426,7 @@
       "_id": "4a21a7c1a3f89181075e9323",
       "team1": "1a21a7c1a3f89181074e9862",
       "team2": "1a21a7c1a3f89181074e9875",
-      "kickofftime": "2018-02-11T19:27:00.000Z",
+      "kickofftime": "2018-02-12T20:00:00.000Z",
       "type": "Round 23",
       "league": "2a21a7c1a3f89181074e9769",
       "stadium": "Abanca-Riazor"
@@ -2435,7 +2435,7 @@
       "_id": "4a21a7c1a3f89181075e9324",
       "team1": "1a21a7c1a3f89181074e9879",
       "team2": "1a21a7c1a3f89181074e9873",
-      "kickofftime": "2018-02-11T19:27:00.000Z",
+      "kickofftime": "2018-02-10T12:00:00.000Z",
       "type": "Round 23",
       "league": "2a21a7c1a3f89181074e9769",
       "stadium": "Estadio de la Cerámica"
@@ -2444,7 +2444,7 @@
       "_id": "4a21a7c1a3f89181075e9325",
       "team1": "1a21a7c1a3f89181074e9876",
       "team2": "1a21a7c1a3f89181074e9871",
-      "kickofftime": "2018-02-11T19:27:00.000Z",
+      "kickofftime": "2018-02-11T17:30:00.000Z",
       "type": "Round 23",
       "league": "2a21a7c1a3f89181074e9769",
       "stadium": "Balaídos"
@@ -2453,7 +2453,7 @@
       "_id": "4a21a7c1a3f89181075e9326",
       "team1": "1a21a7c1a3f89181074e9874",
       "team2": "1a21a7c1a3f89181074e9869",
-      "kickofftime": "2018-02-11T19:27:00.000Z",
+      "kickofftime": "2018-02-11T15:15:00.000Z",
       "type": "Round 23",
       "league": "2a21a7c1a3f89181074e9769",
       "stadium": "Camp Nou"
@@ -2461,8 +2461,8 @@
     {
       "_id": "4a21a7c1a3f89181075e9327",
       "team1": "1a21a7c1a3f89181074e9872",
-      "team2": "1a21a7c1a3f89181074e9867",
-      "kickofftime": "2018-02-11T19:27:00.000Z",
+      "team2": "1a21a7c1a3f89181074e9767",
+      "kickofftime": "2018-02-10T17:30:00.000Z",
       "type": "Round 23",
       "league": "2a21a7c1a3f89181074e9769",
       "stadium": "Butarque"
@@ -2471,7 +2471,7 @@
       "_id": "4a21a7c1a3f89181075e9328",
       "team1": "1a21a7c1a3f89181074e9870",
       "team2": "1a21a7c1a3f89181074e9864",
-      "kickofftime": "2018-02-11T19:27:00.000Z",
+      "kickofftime": "2018-02-11T11:00:00.000Z",
       "type": "Round 23",
       "league": "2a21a7c1a3f89181074e9769",
       "stadium": "Ramón Sánchez Pizjuán"
@@ -2480,7 +2480,7 @@
       "_id": "4a21a7c1a3f89181075e9329",
       "team1": "1a21a7c1a3f89181074e9868",
       "team2": "1a21a7c1a3f89181074e9881",
-      "kickofftime": "2018-02-11T19:27:00.000Z",
+      "kickofftime": "2018-02-09T20:00:00.000Z",
       "type": "Round 23",
       "league": "2a21a7c1a3f89181074e9769",
       "stadium": "San Mamés"
@@ -2489,7 +2489,7 @@
       "_id": "4a21a7c1a3f89181075e9330",
       "team1": "1a21a7c1a3f89181074e9866",
       "team2": "1a21a7c1a3f89181074e9865",
-      "kickofftime": "2018-02-11T19:27:00.000Z",
+      "kickofftime": "2018-02-10T15:15:00.000Z",
       "type": "Round 23",
       "league": "2a21a7c1a3f89181074e9769",
       "stadium": "La Rosaleda"
@@ -2498,7 +2498,7 @@
       "_id": "4a21a7c1a3f89181075e9331",
       "team1": "1a21a7c1a3f89181074e9877",
       "team2": "1a21a7c1a3f89181074e9878",
-      "kickofftime": "2018-02-18T19:27:00.000Z",
+      "kickofftime": "2018-02-18T11:00:00.000Z",
       "type": "Round 24",
       "league": "2a21a7c1a3f89181074e9769",
       "stadium": "Anoeta"
@@ -2507,7 +2507,7 @@
       "_id": "4a21a7c1a3f89181075e9332",
       "team1": "1a21a7c1a3f89181074e9875",
       "team2": "1a21a7c1a3f89181074e9863",
-      "kickofftime": "2018-02-18T19:27:00.000Z",
+      "kickofftime": "2018-02-18T19:45:00.000Z",
       "type": "Round 24",
       "league": "2a21a7c1a3f89181074e9769",
       "stadium": "Benito Villamarín"
@@ -2516,7 +2516,7 @@
       "_id": "4a21a7c1a3f89181075e9333",
       "team1": "1a21a7c1a3f89181074e9873",
       "team2": "1a21a7c1a3f89181074e9862",
-      "kickofftime": "2018-02-18T19:27:00.000Z",
+      "kickofftime": "2018-02-17T17:30:00.000Z",
       "type": "Round 24",
       "league": "2a21a7c1a3f89181074e9769",
       "stadium": "Mendizorrotza"
@@ -2525,7 +2525,7 @@
       "_id": "4a21a7c1a3f89181075e9334",
       "team1": "1a21a7c1a3f89181074e9871",
       "team2": "1a21a7c1a3f89181074e9879",
-      "kickofftime": "2018-02-18T19:27:00.000Z",
+      "kickofftime": "2018-02-18T17:30:00.000Z",
       "type": "Round 24",
       "league": "2a21a7c1a3f89181074e9769",
       "stadium": "RCDE Stadium"
@@ -2534,16 +2534,16 @@
       "_id": "4a21a7c1a3f89181075e9335",
       "team1": "1a21a7c1a3f89181074e9869",
       "team2": "1a21a7c1a3f89181074e9876",
-      "kickofftime": "2018-02-18T19:27:00.000Z",
+      "kickofftime": "2018-02-19T20:00:00.000Z",
       "type": "Round 24",
       "league": "2a21a7c1a3f89181074e9769",
       "stadium": "Coliseum Alfonso Pérez"
     },
     {
       "_id": "4a21a7c1a3f89181075e9336",
-      "team1": "1a21a7c1a3f89181074e9867",
+      "team1": "1a21a7c1a3f89181074e9767",
       "team2": "1a21a7c1a3f89181074e9874",
-      "kickofftime": "2018-02-18T19:27:00.000Z",
+      "kickofftime": "2018-02-17T15:15:00.000Z",
       "type": "Round 24",
       "league": "2a21a7c1a3f89181074e9769",
       "stadium": "Ipurua"
@@ -2552,7 +2552,7 @@
       "_id": "4a21a7c1a3f89181075e9337",
       "team1": "1a21a7c1a3f89181074e9864",
       "team2": "1a21a7c1a3f89181074e9872",
-      "kickofftime": "2018-02-18T19:27:00.000Z",
+      "kickofftime": "2018-02-16T20:00:00.000Z",
       "type": "Round 24",
       "league": "2a21a7c1a3f89181074e9769",
       "stadium": "Montilivi"
@@ -2561,7 +2561,7 @@
       "_id": "4a21a7c1a3f89181075e9338",
       "team1": "1a21a7c1a3f89181074e9881",
       "team2": "1a21a7c1a3f89181074e9870",
-      "kickofftime": "2018-02-18T19:27:00.000Z",
+      "kickofftime": "2018-02-17T12:00:00.000Z",
       "type": "Round 24",
       "league": "2a21a7c1a3f89181074e9769",
       "stadium": "Gran Canaria"
@@ -2570,7 +2570,7 @@
       "_id": "4a21a7c1a3f89181075e9339",
       "team1": "1a21a7c1a3f89181074e9865",
       "team2": "1a21a7c1a3f89181074e9868",
-      "kickofftime": "2018-02-18T19:27:00.000Z",
+      "kickofftime": "2018-02-18T15:15:00.000Z",
       "type": "Round 24",
       "league": "2a21a7c1a3f89181074e9769",
       "stadium": "Wanda Metropolitano"
@@ -2579,7 +2579,7 @@
       "_id": "4a21a7c1a3f89181075e9340",
       "team1": "1a21a7c1a3f89181074e9866",
       "team2": "1a21a7c1a3f89181074e9880",
-      "kickofftime": "2018-02-18T19:27:00.000Z",
+      "kickofftime": "2018-02-17T19:45:00.000Z",
       "type": "Round 24",
       "league": "2a21a7c1a3f89181074e9769",
       "stadium": "La Rosaleda"
