@@ -83,7 +83,7 @@ let clubs = [
 		"stadium": "La Rosaleda"
 	},
 	{
-		"_id": "1a21a7c1a3f89181074e9767",
+		"_id": "1a21a7c1a3f89181074e9867",
 		"name": "Eibar",
 		"name365": "אייבר",
 		"shortName": "EIB",
