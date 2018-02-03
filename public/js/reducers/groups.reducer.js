@@ -7,7 +7,8 @@ reducer.groups = function() {
         ADD_GROUP = action.groups.ADD_GROUP,
         SET_SELECTED_LEAGUE_ID = action.groups.SET_SELECTED_LEAGUE_ID,
         UPDATE_GROUP = action.groups.UPDATE_GROUP,
-        LOCAL_STORAGE_SELCTED_GROUP_ID_KEY = "prediga_selected_group_id";
+        LOCAL_STORAGE_SELCTED_GROUP_ID_KEY = "prediga_selected_group_id",
+        LOCAL_STORAGE_SELCTED_LEAGUE_ID_BY_GROUP_KEY = "prediga_selected_league_id_by_group",
         initialState = {
             groups: [],
             allAvailableGroups: [],
@@ -16,10 +17,8 @@ reducer.groups = function() {
             selectedLeagueId: ""
         };
 
-    function getSelectedLeagueId(groups, selectedGroupId) {
-        var group = utils.general.findItemInArrBy(groups, "_id", selectedGroupId);
-        var leagueIds = group.leagueIds;
-        return leagueIds.length ? leagueIds[0] : "";
+    function setSelectedGroupIdInLocalStorage(selectedGroupId) {
+        localStorage.setItem(LOCAL_STORAGE_SELCTED_GROUP_ID_KEY, selectedGroupId);
     }
 
     function getSelectedGroupId(groups) {
@@ -33,8 +32,30 @@ reducer.groups = function() {
         }
     }
 
-    function setSelectedGroupIdInLocalStorage(selectedGroupId) {
-        localStorage.setItem(LOCAL_STORAGE_SELCTED_GROUP_ID_KEY, selectedGroupId);
+    function setSelectedLeagueIdInLocalStorage(selectedLeagueId, selectedGroupId) {
+        var selectedLeagueIdByGroupObj = getSelectedLeagueIdByGroupFromLocalStorage();
+
+        selectedLeagueIdByGroupObj[selectedGroupId] = selectedLeagueId;
+
+        localStorage.setItem(LOCAL_STORAGE_SELCTED_LEAGUE_ID_BY_GROUP_KEY, JSON.stringify(selectedLeagueIdByGroupObj));
+    }
+
+    function getSelectedLeagueId(groups, selectedGroupId) {
+        var selectedLeagueIdByGroupObj = getSelectedLeagueIdByGroupFromLocalStorage();
+        if (selectedLeagueIdByGroupObj[selectedGroupId]) {
+            //there was selected league id in this group -> return it
+            return selectedLeagueIdByGroupObj[selectedGroupId]
+        } else {
+            //no selected league id in the past for this group -> get the first one
+            var group = utils.general.findItemInArrBy(groups, "_id", selectedGroupId);
+            var leagueIds = group.leagueIds;
+            return leagueIds.length ? leagueIds[0] : "";
+        }
+    }
+
+    function getSelectedLeagueIdByGroupFromLocalStorage() {
+        var selectedLeagueIdByGroupObj = localStorage.getItem(LOCAL_STORAGE_SELCTED_LEAGUE_ID_BY_GROUP_KEY) || "{}";
+        return JSON.parse(selectedLeagueIdByGroupObj);
     }
 
     return function groupsConfiguration(state, action){
@@ -54,7 +75,9 @@ reducer.groups = function() {
                 var selectedLeagueId = getSelectedLeagueId(state.groups, selectedGroupId);
                 return Object.assign({}, state, {selectedGroupId: selectedGroupId, selectedLeagueId: selectedLeagueId});
             case SET_SELECTED_LEAGUE_ID:
-                return Object.assign({}, state, {selectedLeagueId: action.leagueId});
+                var selectedLeagueId = action.leagueId;
+                setSelectedLeagueIdInLocalStorage(selectedLeagueId, state.selectedGroupId);
+                return Object.assign({}, state, {selectedLeagueId: selectedLeagueId});
             case ADD_GROUP:
                 return Object.assign({}, state, {groups: utils.general.copyArrAndAdd(state.groups, action.group)});
             case LOAD_ALL_AVAILABLE_GROUPS:
