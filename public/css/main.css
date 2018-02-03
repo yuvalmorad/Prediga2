@@ -78,24 +78,24 @@ body {
 
 @font-face {
     font-family: 'prediga';
-    src: url('../fonts/prediga.eot?12808858');
-    src: url('../fonts/prediga.eot?12808858#iefix') format('embedded-opentype'),
-    url('../fonts/prediga.woff2?12808858') format('woff2'),
-    url('../fonts/prediga.woff?12808858') format('woff'),
-    url('../fonts/prediga.ttf?12808858') format('truetype'),
-    url('../fonts/prediga.svg?12808858#prediga') format('svg');
+    src: url('../fonts/prediga.eot');
+    src: url('../fonts/prediga.eot#iefix') format('embedded-opentype'),
+    url('../fonts/prediga.woff2') format('woff2'),
+    url('../fonts/prediga.woff') format('woff'),
+    url('../fonts/prediga.ttf') format('truetype'),
+    url('../fonts/prediga.svg#prediga') format('svg');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'prediga-groups';
-    src: url('../fonts/prediga-groups.eot?36480419');
-    src: url('../fonts/prediga-groups.eot?36480419#iefix') format('embedded-opentype'),
-    url('../fonts/prediga-groups.woff2?36480419') format('woff2'),
-    url('../fonts/prediga-groups.woff?36480419') format('woff'),
-    url('../fonts/prediga-groups.ttf?36480419') format('truetype'),
-    url('../fonts/prediga-groups.svg?36480419#prediga-groups') format('svg');
+    src: url('../fonts/prediga-groups.eot');
+    src: url('../fonts/prediga-groups.eot#iefix') format('embedded-opentype'),
+    url('../fonts/prediga-groups.woff2') format('woff2'),
+    url('../fonts/prediga-groups.woff') format('woff'),
+    url('../fonts/prediga-groups.ttf') format('truetype'),
+    url('../fonts/prediga-groups.svg#prediga-groups') format('svg');
     font-weight: normal;
     font-style: normal;
 }

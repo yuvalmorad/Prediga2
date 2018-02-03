@@ -1,9 +1,62 @@
+var cacheList = [
+    "images/sprites/champions_teams.png",
+    "images/sprites/england_teams.png",
+    "images/sprites/israel_teams.png",
+    "images/sprites/spain_teams.png",
+    "images/sprites/world_cup_teams.png",
+    "images/football-stadium-small.png",
+    "images/prediga_logo_transparent.png",
+    "images/badge1.png",
+    "images/badge2.png",
+    "fonts/prediga-groups.woff2",
+    "fonts/prediga-groups.woff",
+    "fonts/prediga.woff2",
+    "fonts/prediga.woff"
+];
+
+var cacheName = "prediga_v0";
+
 self.addEventListener('install', function(event) {
-    console.log("install");
+    event.waitUntil(
+        caches.open(cacheName).then(function(cache) {
+            return cache.addAll(cacheList);
+        }).then(function() {
+            return self.skipWaiting();
+        })
+    );
 });
 
 self.addEventListener('activate', function(event) {
-    console.log("activate");
+    //delete old cache version
+    event.waitUntil(
+        caches.keys().then(function(keys) {
+            return Promise.all(
+                keys.map(function(key){
+                    if (cacheName !== key) {
+                        console.log("deleting cache: " + key );
+                        return caches.delete(key);
+                    }
+                })
+            )
+        })
+    );
+
+    return self.clients.claim();
+});
+
+self.addEventListener('fetch', function(event){
+    var request = event.request;
+    var url = request.url;
+
+    if (url.indexOf("/images/") >= 0 || url.indexOf("/fonts/") >= 0) {
+        //image or font
+        event.respondWith(
+            caches.match(event.request).then(function(response) {
+                // return from cache, otherwise fetch from network
+                return response || fetch(request);
+            })
+        );
+    }
 });
 
 //push from server
