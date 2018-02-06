@@ -1028,7 +1028,7 @@
       "team2": "D2",
       "kickofftime": "2018-06-30T14:00:00.000Z",
       "stadium": "Kazan Arena, Kazan",
-      "type": "Round of 16",
+      "type": "Round of 16 - part 1",
       "league": "4a21a7c1a3f89181074e9762"
     },
     {
@@ -1037,7 +1037,7 @@
       "team2": "B2",
       "kickofftime": "2018-06-30T18:00:00.000Z",
       "stadium": "Fisht Olympic Stadium, Sochi",
-      "type": "Round of 16",
+      "type": "Round of 16 - part 1",
       "league": "4a21a7c1a3f89181074e9762"
     },
     {
@@ -1046,7 +1046,7 @@
       "team2": "A2",
       "kickofftime": "2018-07-01T14:00:00.000Z",
       "stadium": "Luzhniki Stadium, Moscow",
-      "type": "Round of 16",
+      "type": "Round of 16 - part 2",
       "league": "4a21a7c1a3f89181074e9762"
     },
     {
@@ -1055,7 +1055,7 @@
       "team2": "C2",
       "kickofftime": "2018-07-01T18:00:00.000Z",
       "stadium": "Nizhny Novograd Stadium, Nizhny Novograd",
-      "type": "Round of 16",
+      "type": "Round of 16 - part 2",
       "league": "4a21a7c1a3f89181074e9762"
     },
     {
@@ -1064,7 +1064,7 @@
       "team2": "F2",
       "kickofftime": "2018-07-02T14:00:00.000Z",
       "stadium": "Cosmos Arena, Samara",
-      "type": "Round of 16",
+      "type": "Round of 16 - part 3",
       "league": "4a21a7c1a3f89181074e9762"
     },
     {
@@ -1073,7 +1073,7 @@
       "team2": "H2",
       "kickofftime": "2018-07-02T18:00:00.000Z",
       "stadium": "Rostov Arena, Rostov-on-Don",
-      "type": "Round of 16",
+      "type": "Round of 16 - part 3",
       "league": "4a21a7c1a3f89181074e9762"
     },
     {
@@ -1082,7 +1082,7 @@
       "team2": "E2",
       "kickofftime": "2018-07-03T14:00:00.000Z",
       "stadium": "Krestovsky Stadium, Saint Petersburg",
-      "type": "Round of 16",
+      "type": "Round of 16 - part 4",
       "league": "4a21a7c1a3f89181074e9762"
     },
     {
@@ -1091,7 +1091,7 @@
       "team2": "G2",
       "kickofftime": "2018-07-03T18:00:00.000Z",
       "stadium": "Otkrytiye Arena, Moscow",
-      "type": "Round of 16",
+      "type": "Round of 16 - part 4",
       "league": "4a21a7c1a3f89181074e9762"
     },
     {
