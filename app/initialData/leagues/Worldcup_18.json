@@ -596,7 +596,7 @@
       "team2": "2a21a7c1a3f89181074e9788",
       "kickofftime": "2018-06-14T15:00:00.000Z",
       "stadium": "Luzhniki Stadium, Moscow",
-      "type": "Group stage - round 1",
+      "type": "Group stage A - round 1",
       "league": "4a21a7c1a3f89181074e9762"
     },
     {
@@ -605,7 +605,7 @@
       "team2": "2a21a7c1a3f89181074e9766",
       "kickofftime": "2018-06-15T12:00:00.000Z",
       "stadium": "Central Stadium, Yekaterinburg",
-      "type": "Group stage - round 1",
+      "type": "Group stage A - round 1",
       "league": "4a21a7c1a3f89181074e9762"
     },
     {
@@ -614,7 +614,7 @@
       "team2": "2a21a7c1a3f89181074e9789",
       "kickofftime": "2018-06-19T18:00:00.000Z",
       "stadium": "Krestovsky Stadium, Saint Petersburg",
-      "type": "Group stage - round 2",
+      "type": "Group stage A - round 2",
       "league": "4a21a7c1a3f89181074e9762"
     },
     {
@@ -623,7 +623,7 @@
       "team2": "2a21a7c1a3f89181074e9788",
       "kickofftime": "2018-06-20T15:00:00.000Z",
       "stadium": "Rostov Arena, Rostov-on-Don",
-      "type": "Group stage - round 2",
+      "type": "Group stage A - round 2",
       "league": "4a21a7c1a3f89181074e9762"
     },
     {
@@ -632,7 +632,7 @@
       "team2": "2a21a7c1a3f89181074e9779",
       "kickofftime": "2018-06-25T14:00:00.000Z",
       "stadium": "Cosmos Arena, Samara",
-      "type": "Group stage - round 3",
+      "type": "Group stage A - round 3",
       "league": "4a21a7c1a3f89181074e9762"
     },
     {
@@ -641,7 +641,7 @@
       "team2": "2a21a7c1a3f89181074e9789",
       "kickofftime": "2018-06-25T14:00:00.000Z",
       "stadium": "Volgograd Arena, Volgograd",
-      "type": "Group stage - round 3",
+      "type": "Group stage A - round 3",
       "league": "4a21a7c1a3f89181074e9762"
     },
     {
@@ -650,7 +650,7 @@
       "team2": "2a21a7c1a3f89181074e9785",
       "kickofftime": "2018-06-15T15:00:00.000Z",
       "stadium": "Krestovsky Stadium, Saint Petersburg",
-      "type": "Group stage - round 1",
+      "type": "Group stage B - round 1",
       "league": "4a21a7c1a3f89181074e9762"
     },
     {
@@ -659,7 +659,7 @@
       "team2": "2a21a7c1a3f89181074e9781",
       "kickofftime": "2018-06-15T18:00:00.000Z",
       "stadium": "Fisht Olympic Stadium, Sochi",
-      "type": "Group stage - round 1",
+      "type": "Group stage B - round 1",
       "league": "4a21a7c1a3f89181074e9762"
     },
     {
@@ -668,7 +668,7 @@
       "team2": "2a21a7c1a3f89181074e9790",
       "kickofftime": "2018-06-20T12:00:00.000Z",
       "stadium": "Luzhniki Stadium, Moscow",
-      "type": "Group stage - round 2",
+      "type": "Group stage B - round 2",
       "league": "4a21a7c1a3f89181074e9762"
     },
     {
@@ -677,7 +677,7 @@
       "team2": "2a21a7c1a3f89181074e9781",
       "kickofftime": "2018-06-20T18:00:00.000Z",
       "stadium": "Kazan Arena, Kazan",
-      "type": "Group stage - round 2",
+      "type": "Group stage B - round 2",
       "league": "4a21a7c1a3f89181074e9762"
     },
     {
@@ -686,7 +686,7 @@
       "team2": "2a21a7c1a3f89181074e9778",
       "kickofftime": "2018-06-25T18:00:00.000Z",
       "stadium": "Mordovia Arena, Saransk",
-      "type": "Group stage - round 3",
+      "type": "Group stage B - round 3",
       "league": "4a21a7c1a3f89181074e9762"
     },
     {
@@ -695,7 +695,7 @@
       "team2": "2a21a7c1a3f89181074e9790",
       "kickofftime": "2018-06-25T18:00:00.000Z",
       "stadium": "Kaliningrad Stadium, Kaliningrad",
-      "type": "Group stage - round 3",
+      "type": "Group stage B - round 3",
       "league": "4a21a7c1a3f89181074e9762"
     },
     {
@@ -704,7 +704,7 @@
       "team2": "2a21a7c1a3f89181074e9784",
       "kickofftime": "2018-06-16T10:00:00.000Z",
       "stadium": "Kazan Arena, Kazan",
-      "type": "Group stage - round 1",
+      "type": "Group stage C - round 1",
       "league": "4a21a7c1a3f89181074e9762"
     },
     {
@@ -713,7 +713,7 @@
       "team2": "2a21a7c1a3f89181074e9772",
       "kickofftime": "2018-06-16T16:00:00.000Z",
       "stadium": "Mordovia Arena, Saransk",
-      "type": "Group stage - round 1",
+      "type": "Group stage C - round 1",
       "league": "4a21a7c1a3f89181074e9762"
     },
     {
@@ -722,7 +722,7 @@
       "team2": "2a21a7c1a3f89181074e9765",
       "kickofftime": "2018-06-21T12:00:00.000Z",
       "stadium": "Cosmos Arena, Samara",
-      "type": "Group stage - round 2",
+      "type": "Group stage C - round 2",
       "league": "4a21a7c1a3f89181074e9762"
     },
     {
@@ -731,7 +731,7 @@
       "team2": "2a21a7c1a3f89181074e9784",
       "kickofftime": "2018-06-21T15:00:00.000Z",
       "stadium": "Central Stadium, Yekaterinburg",
-      "type": "Group stage - round 2",
+      "type": "Group stage C - round 2",
       "league": "4a21a7c1a3f89181074e9762"
     },
     {
@@ -740,7 +740,7 @@
       "team2": "2a21a7c1a3f89181074e9774",
       "kickofftime": "2018-06-26T14:00:00.000Z",
       "stadium": "Luzhniki Stadium, Moscow",
-      "type": "Group stage - round 3",
+      "type": "Group stage C - round 3",
       "league": "4a21a7c1a3f89181074e9762"
     },
     {
@@ -749,7 +749,7 @@
       "team2": "2a21a7c1a3f89181074e9765",
       "kickofftime": "2018-06-26T14:00:00.000Z",
       "stadium": "Fisht Olympic Stadium, Sochi",
-      "type": "Group stage - round 3",
+      "type": "Group stage C - round 3",
       "league": "4a21a7c1a3f89181074e9762"
     },
     {
@@ -758,7 +758,7 @@
       "team2": "2a21a7c1a3f89181074e9776",
       "kickofftime": "2018-06-16T13:00:00.000Z",
       "stadium": "Otkrytiye Arena, Moscow",
-      "type": "Group stage - round 1",
+      "type": "Group stage D - round 1",
       "league": "4a21a7c1a3f89181074e9762"
     },
     {
@@ -767,7 +767,7 @@
       "team2": "2a21a7c1a3f89181074e9791",
       "kickofftime": "2018-06-16T19:00:00.000Z",
       "stadium": "Kaliningrad Stadium, Kaliningrad",
-      "type": "Group stage - round 1",
+      "type": "Group stage D - round 1",
       "league": "4a21a7c1a3f89181074e9762"
     },
     {
@@ -776,7 +776,7 @@
       "team2": "2a21a7c1a3f89181074e9771",
       "kickofftime": "2018-06-21T18:00:00.000Z",
       "stadium": "Nizhny Novograd Stadium, Nizhny Novograd",
-      "type": "Group stage - round 2",
+      "type": "Group stage D - round 2",
       "league": "4a21a7c1a3f89181074e9762"
     },
     {
@@ -785,7 +785,7 @@
       "team2": "2a21a7c1a3f89181074e9776",
       "kickofftime": "2018-06-22T15:00:00.000Z",
       "stadium": "Volgograd Arena, Volgograd",
-      "type": "Group stage - round 2",
+      "type": "Group stage D - round 2",
       "league": "4a21a7c1a3f89181074e9762"
     },
     {
@@ -794,7 +794,7 @@
       "team2": "2a21a7c1a3f89181074e9762",
       "kickofftime": "2018-06-26T18:00:00.000Z",
       "stadium": "Krestovsky Stadium, Saint Petersburg",
-      "type": "Group stage - round 3",
+      "type": "Group stage D - round 3",
       "league": "4a21a7c1a3f89181074e9762"
     },
     {
@@ -803,7 +803,7 @@
       "team2": "2a21a7c1a3f89181074e9771",
       "kickofftime": "2018-06-26T18:00:00.000Z",
       "stadium": "Rostov Arena, Rostov-on-Don",
-      "type": "Group stage - round 3",
+      "type": "Group stage D - round 3",
       "league": "4a21a7c1a3f89181074e9762"
     },
     {
@@ -812,7 +812,7 @@
       "team2": "2a21a7c1a3f89181074e9780",
       "kickofftime": "2018-06-17T12:00:00.000Z",
       "stadium": "Cosmos Arena, Samara",
-      "type": "Group stage - round 1",
+      "type": "Group stage E - round 1",
       "league": "4a21a7c1a3f89181074e9762"
     },
     {
@@ -821,7 +821,7 @@
       "team2": "2a21a7c1a3f89181074e9783",
       "kickofftime": "2018-06-17T18:00:00.000Z",
       "stadium": "Rostov Arena, Rostov-on-Don",
-      "type": "Group stage - round 1",
+      "type": "Group stage E - round 1",
       "league": "4a21a7c1a3f89181074e9762"
     },
     {
@@ -830,7 +830,7 @@
       "team2": "2a21a7c1a3f89181074e9767",
       "kickofftime": "2018-06-22T12:00:00.000Z",
       "stadium": "Krestovsky Stadium, Saint Petersburg",
-      "type": "Group stage - round 2",
+      "type": "Group stage E - round 2",
       "league": "4a21a7c1a3f89181074e9762"
     },
     {
@@ -839,7 +839,7 @@
       "team2": "2a21a7c1a3f89181074e9783",
       "kickofftime": "2018-06-22T18:00:00.000Z",
       "stadium": "Kaliningrad Stadium, Kaliningrad",
-      "type": "Group stage - round 2",
+      "type": "Group stage E - round 2",
       "league": "4a21a7c1a3f89181074e9762"
     },
     {
@@ -848,7 +848,7 @@
       "team2": "2a21a7c1a3f89181074e9763",
       "kickofftime": "2018-06-27T18:00:00.000Z",
       "stadium": "Otkrytiye Arena, Moscow",
-      "type": "Group stage - round 3",
+      "type": "Group stage E - round 3",
       "league": "4a21a7c1a3f89181074e9762"
     },
     {
@@ -857,7 +857,7 @@
       "team2": "2a21a7c1a3f89181074e9767",
       "kickofftime": "2018-06-27T18:00:00.000Z",
       "stadium": "Nizhny Novograd Stadium, Nizhny Novograd",
-      "type": "Group stage - round 3",
+      "type": "Group stage E - round 3",
       "league": "4a21a7c1a3f89181074e9762"
     },
     {
@@ -866,7 +866,7 @@
       "team2": "2a21a7c1a3f89181074e9768",
       "kickofftime": "2018-06-17T15:00:00.000Z",
       "stadium": "Luzhniki Stadium, Moscow",
-      "type": "Group stage - round 1",
+      "type": "Group stage F - round 1",
       "league": "4a21a7c1a3f89181074e9762"
     },
     {
@@ -875,7 +875,7 @@
       "team2": "2a21a7c1a3f89181074e9787",
       "kickofftime": "2018-06-18T12:00:00.000Z",
       "stadium": "Nizhny Novograd Stadium, Nizhny Novograd",
-      "type": "Group stage - round 1",
+      "type": "Group stage F - round 1",
       "league": "4a21a7c1a3f89181074e9762"
     },
     {
@@ -884,7 +884,7 @@
       "team2": "2a21a7c1a3f89181074e9782",
       "kickofftime": "2018-06-23T15:00:00.000Z",
       "stadium": "Rostov Arena, Rostov-on-Don",
-      "type": "Group stage - round 2",
+      "type": "Group stage F - round 2",
       "league": "4a21a7c1a3f89181074e9762"
     },
     {
@@ -893,7 +893,7 @@
       "team2": "2a21a7c1a3f89181074e9768",
       "kickofftime": "2018-06-23T18:00:00.000Z",
       "stadium": "Fisht Olympic Stadium, Sochi",
-      "type": "Group stage - round 2",
+      "type": "Group stage F - round 2",
       "league": "4a21a7c1a3f89181074e9762"
     },
     {
@@ -902,7 +902,7 @@
       "team2": "2a21a7c1a3f89181074e9775",
       "kickofftime": "2018-06-27T14:00:00.000Z",
       "stadium": "Kazan Arena, Kazan",
-      "type": "Group stage - round 3",
+      "type": "Group stage F - round 3",
       "league": "4a21a7c1a3f89181074e9762"
     },
     {
@@ -911,7 +911,7 @@
       "team2": "2a21a7c1a3f89181074e9782",
       "kickofftime": "2018-06-27T14:00:00.000Z",
       "stadium": "Central Stadium, Yekaterinburg",
-      "type": "Group stage - round 3",
+      "type": "Group stage F - round 3",
       "league": "4a21a7c1a3f89181074e9762"
     },
     {
@@ -920,7 +920,7 @@
       "team2": "2a21a7c1a3f89181074e9769",
       "kickofftime": "2018-06-18T15:00:00.000Z",
       "stadium": "Fisht Olympic Stadium, Sochi",
-      "type": "Group stage - round 1",
+      "type": "Group stage G - round 1",
       "league": "4a21a7c1a3f89181074e9762"
     },
     {
@@ -929,7 +929,7 @@
       "team2": "2a21a7c1a3f89181074e9773",
       "kickofftime": "2018-06-18T18:00:00.000Z",
       "stadium": "Volgograd Arena, Volgograd",
-      "type": "Group stage - round 1",
+      "type": "Group stage G - round 1",
       "league": "4a21a7c1a3f89181074e9762"
     },
     {
@@ -938,7 +938,7 @@
       "team2": "2a21a7c1a3f89181074e9793",
       "kickofftime": "2018-06-23T12:00:00.000Z",
       "stadium": "Otkrytiye Arena, Moscow",
-      "type": "Group stage - round 2",
+      "type": "Group stage G - round 2",
       "league": "4a21a7c1a3f89181074e9762"
     },
     {
@@ -947,7 +947,7 @@
       "team2": "2a21a7c1a3f89181074e9769",
       "kickofftime": "2018-06-24T12:00:00.000Z",
       "stadium": "Nizhny Novograd Stadium, Nizhny Novograd",
-      "type": "Group stage - round 2",
+      "type": "Group stage G - round 2",
       "league": "4a21a7c1a3f89181074e9762"
     },
     {
@@ -956,7 +956,7 @@
       "team2": "2a21a7c1a3f89181074e9770",
       "kickofftime": "2018-06-28T18:00:00.000Z",
       "stadium": "Kaliningrad Stadium, Kaliningrad",
-      "type": "Group stage - round 3",
+      "type": "Group stage G - round 3",
       "league": "4a21a7c1a3f89181074e9762"
     },
     {
@@ -965,7 +965,7 @@
       "team2": "2a21a7c1a3f89181074e9793",
       "kickofftime": "2018-06-28T18:00:00.000Z",
       "stadium": "Mordovia Arena, Saransk",
-      "type": "Group stage - round 3",
+      "type": "Group stage G - round 3",
       "league": "4a21a7c1a3f89181074e9762"
     },
     {
@@ -974,7 +974,7 @@
       "team2": "2a21a7c1a3f89181074e9792",
       "kickofftime": "2018-06-19T12:00:00.000Z",
       "stadium": "Mordovia Arena, Saransk",
-      "type": "Group stage - round 1",
+      "type": "Group stage H - round 1",
       "league": "4a21a7c1a3f89181074e9762"
     },
     {
@@ -983,7 +983,7 @@
       "team2": "2a21a7c1a3f89181074e9786",
       "kickofftime": "2018-06-19T15:00:00.000Z",
       "stadium": "Otkrytiye Arena, Moscow",
-      "type": "Group stage - round 1",
+      "type": "Group stage H - round 1",
       "league": "4a21a7c1a3f89181074e9762"
     },
     {
@@ -992,7 +992,7 @@
       "team2": "2a21a7c1a3f89181074e9792",
       "kickofftime": "2018-06-24T15:00:00.000Z",
       "stadium": "Central Stadium, Yekaterinburg",
-      "type": "Group stage - round 2",
+      "type": "Group stage H - round 2",
       "league": "4a21a7c1a3f89181074e9762"
     },
     {
@@ -1001,7 +1001,7 @@
       "team2": "2a21a7c1a3f89181074e9764",
       "kickofftime": "2018-06-24T18:00:00.000Z",
       "stadium": "Kazan Arena, Kazan",
-      "type": "Group stage - round 2",
+      "type": "Group stage H - round 2",
       "league": "4a21a7c1a3f89181074e9762"
     },
     {
@@ -1010,7 +1010,7 @@
       "team2": "2a21a7c1a3f89181074e9777",
       "kickofftime": "2018-06-28T12:00:00.000Z",
       "stadium": "Volgograd Arena, Volgograd",
-      "type": "Group stage - round 3",
+      "type": "Group stage H - round 3",
       "league": "4a21a7c1a3f89181074e9762"
     },
     {
@@ -1019,7 +1019,7 @@
       "team2": "2a21a7c1a3f89181074e9764",
       "kickofftime": "2018-06-28T12:00:00.000Z",
       "stadium": "Cosmos Arena, Samara",
-      "type": "Group stage - round 3",
+      "type": "Group stage H - round 3",
       "league": "4a21a7c1a3f89181074e9762"
     },
     {
