@@ -88,12 +88,12 @@ app.post('/', util.isLoggedIn, function (req, res) {
 	let configuration = groupService.detachConfiguration(group);
 
 	if (!isNew) {
-		return group.byId(group._id).then(function (existingGroup) {
-			if (existingGroup.createdBy !== req.user._id) {
+		return groupService.byId(group._id).then(function (existingGroup) {
+			if (existingGroup.createdBy !== req.user._id.toString()) {
 				res.status(403).json({});
 				return;
 			}
-			removeLeaguesFromGroup(groupId, existingGroup.leagueIds, group.leagueIds).then(function () {
+			removeLeaguesFromGroup(existingGroup._id.toString(), existingGroup.leagueIds, group.leagueIds).then(function () {
 				return createOrUpdateGroup(group, configuration, res);
 			});
 		});
@@ -205,11 +205,13 @@ function removeLeaguesFromGroup(groupId, existingLeagueIds, newLeagueIds) {
 			usersLeaderboardService.removeByGroupIdLeagueId(groupId, existingLeagueId);
 			userScoreService.removeByGroupIdLeagueId(groupId, existingLeagueId);
 
-			matchService.byLeagueIds([existingLeagueId]).then(function (matchIds) {
+			matchService.byLeagueIds([existingLeagueId]).then(function (matches) {
+				let matchIds = matchService.getIdArr(matches);
 				matchPredictionsService.removeByGroupIdAndMatchIds(groupId, matchIds);
 			});
 
-			teamService.byLeagueIds([existingLeagueId]).then(function (teamIds) {
+			teamService.byLeagueIds([existingLeagueId]).then(function (teams) {
+				let teamIds = teamService.getIdsArr(teams);
 				teamPredictionsService.removeByGroupIdAndTeamsIds(groupId, teamIds);
 			});
 		}
