@@ -207,12 +207,16 @@ function removeLeaguesFromGroup(groupId, existingLeagueIds, newLeagueIds) {
 
 			matchService.byLeagueIds([existingLeagueId]).then(function (matches) {
 				let matchIds = matchService.getIdArr(matches);
-				matchPredictionsService.removeByGroupIdAndMatchIds(groupId, matchIds);
+				matchPredictionsService.removeByGroupIdAndMatchIds(groupId, matchIds).then(function (err) {
+					console.log('Deleting matchPredictions from group ' + groupId + ' and league ' + existingLeagueId);
+				});
 			});
 
 			teamService.byLeagueIds([existingLeagueId]).then(function (teams) {
 				let teamIds = teamService.getIdsArr(teams);
-				teamPredictionsService.removeByGroupIdAndTeamsIds(groupId, teamIds);
+				teamPredictionsService.removeByGroupIdAndTeamsIds(groupId, teamIds).then(function (err) {
+					console.log('Deleting teamPredictions from group ' + groupId + ' and league ' + existingLeagueId);
+				});
 			});
 		}
 	});
