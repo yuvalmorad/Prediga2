@@ -21,7 +21,7 @@ const self = module.exports = {
 	getPredictionsForOtherUsersInner: function (teams, userId, groupId) {
 		const promises = teams.map(function (aTeam) {
 			return self.byTeamIdUserIdGroupId(aTeam._id, userId, groupId).then(function (teamPrediction) {
-				if (teamPrediction){
+				if (teamPrediction) {
 					return Promise.resolve(teamPrediction);
 				} else {
 					return Promise.resolve({});
@@ -61,6 +61,9 @@ const self = module.exports = {
 	},
 	removeByGroupId: function (groupId) {
 		return TeamPrediction.remove({groupId: groupId});
+	},
+	removeByGroupIdAndTeamsIds: function (groupId, teamIds) {
+		return TeamPrediction.remove({groupId: groupId, teamId: {$in: teamIds}});
 	},
 	removeByGroupIdAndUserId: function (groupId, userId) {
 		return TeamPrediction.remove({groupId: groupId, userId: userId});

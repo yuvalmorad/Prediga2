@@ -6,6 +6,8 @@ const groupService = require('../services/groupService');
 const groupConfigurationService = require('../services/groupConfigurationService');
 const usersLeaderboardService = require('../services/usersLeaderboardService');
 const userScoreService = require('../services/userScoreService');
+const matchService = require('../services/matchService');
+const teamService = require('../services/teamService');
 const matchPredictionsService = require('../services/matchPredictionsService');
 const teamPredictionsService = require('../services/teamPredictionsService');
 /**
@@ -26,7 +28,7 @@ app.get('/', util.isLoggedIn, function (req, res) {
  * All, no matter the user's partnership
  */
 app.get('/all', util.isLoggedIn, function (req, res) {
-	return groupService.all().then(function (groups) {
+	return groupService.all(req.user._id).then(function (groups) {
 		if (!groups) {
 			res.status(200).json([]);
 		} else {
@@ -54,6 +56,7 @@ app.get('/:groupId', util.isLoggedIn, function (req, res) {
 				if (configuration) {
 					group.configuration = configuration;
 				}
+				groupService.verifyOnlyAdminCanSeeSecret(group, req.user._id);
 				res.status(200).json(group);
 			});
 		}
@@ -70,9 +73,9 @@ app.post('/', util.isLoggedIn, function (req, res) {
 		return;
 	}
 
+	group.createdBy = req.user._id.toString(); // only admins can update.
 	let isNew = !group._id;
 	if (isNew) {
-		group.createdBy = req.user._id;
 		group._id = mongoose.Types.ObjectId();
 		group.users = [group.createdBy];
 	}
@@ -83,15 +86,20 @@ app.post('/', util.isLoggedIn, function (req, res) {
 		return;
 	}
 	let configuration = groupService.detachConfiguration(group);
-	return groupService.updateGroup(group).then(function (newGroup) {
-		return groupConfigurationService.updateConfiguration(configuration).then(function (newConfig) {
-            delete newConfig._doc.__v; //TODO why it not deleting the __v in the toJson in the group configuration model?
-			newGroup._doc.configuration = newConfig._doc;
-			res.status(200).json(newGroup);
-		}, function (err) {
-			res.status(400).json({error: err});
+
+	if (!isNew) {
+		return group.byId(group._id).then(function (existingGroup) {
+			if (existingGroup.createdBy !== req.user._id) {
+				res.status(403).json({});
+				return;
+			}
+			removeLeaguesFromGroup(groupId, existingGroup.leagueIds, group.leagueIds).then(function () {
+				return createOrUpdateGroup(group, configuration, res);
+			});
 		});
-	});
+	} else {
+		return createOrUpdateGroup(group, configuration, res);
+	}
 });
 
 /**
@@ -188,12 +196,30 @@ function removeGroupContentOfOneUser(groupId, userId) {
 	});
 }
 
+function removeLeaguesFromGroup(groupId, existingLeagueIds, newLeagueIds) {
+	if (!existingLeagueIds) {
+		return Promise.resolve();
+	}
+	existingLeagueIds.forEach(function (existingLeagueId) {
+		if (newLeagueIds.indexOf(existingLeagueId) === -1) {
+			usersLeaderboardService.removeByGroupIdLeagueId(groupId, existingLeagueId);
+			userScoreService.removeByGroupIdLeagueId(groupId, existingLeagueId);
+
+			matchService.byLeagueIds([existingLeagueId]).then(function (matchIds) {
+				matchPredictionsService.removeByGroupIdAndMatchIds(groupId, matchIds);
+			});
+
+			teamService.byLeagueIds([existingLeagueId]).then(function (teamIds) {
+				teamPredictionsService.removeByGroupIdAndTeamsIds(groupId, teamIds);
+			});
+		}
+	});
+	return Promise.resolve();
+}
+
 function removeGroupContent(groupId, userId) {
-	return Promise.all([
-		groupService.removeGroupContent(groupId, userId),
-	]).then(function (arr) {
-		let groupRemoved = arr[0];
-		if (!groupRemoved){
+	return groupService.removeGroupContent(groupId, userId).then(function (groupRemoved) {
+		if (!groupRemoved) {
 			return Promise.reject();
 		}
 		return Promise.all([
@@ -206,7 +232,17 @@ function removeGroupContent(groupId, userId) {
 			return Promise.resolve({});
 		});
 	});
-
-
 }
+
+function createOrUpdateGroup(group, configuration, res) {
+	return groupService.updateGroup(group).then(function (newGroup) {
+		return groupConfigurationService.updateConfiguration(configuration).then(function (newConfig) {
+			newGroup._doc.configuration = newConfig.toJSON();
+			res.status(200).json(newGroup);
+		}, function (err) {
+			res.status(400).json({error: err});
+		});
+	});
+}
+
 module.exports = app;

@@ -17,7 +17,6 @@ const groupSchema = mongoose.Schema({
 groupSchema.options.toJSON = {
 	transform: function (doc, ret, options) {
 		delete ret.__v;
-		delete ret.secret;
 		return ret;
 	}
 };
