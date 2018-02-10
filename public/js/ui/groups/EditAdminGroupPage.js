@@ -3,9 +3,15 @@ component.EditAdminGroupPage = (function(){
     var connect = ReactRedux.connect;
     var EditAdminGroupTile = component.EditAdminGroupTile;
     var SelectGroupIcon = component.SelectGroupIcon;
+    var AvailableLeaguesList = component.AvailableLeaguesList;
 
     var EditAdminGroupPage = React.createClass({
         getInitialState: function() {
+            if (!this.props.allAvailableLeagues.length) {
+                //no available leagues yet-> load all
+                this.props.loadAllAvailableLeagues();
+            }
+
             var group = this.getGroupAndSetHeader(this.props.groups);
             return {
                 group: group,
@@ -13,6 +19,7 @@ component.EditAdminGroupPage = (function(){
                 groupName: group ? group.name : "",
                 groupIcon: group ? group.icon : "",
                 groupIconColor: group ? group.iconColor : "",
+                leagueIds: group ? group.leagueIds : [],
                 isDirty: false
             };
         },
@@ -22,7 +29,7 @@ component.EditAdminGroupPage = (function(){
             if (groups.length && groups !== this.props.groups) {
                 var group = this.getGroupAndSetHeader(groups);
                 if (group) {
-                    this.setState({group: group, groupName: group.name, groupIcon: group.icon, groupIconColor: group.iconColor});
+                    this.setState({group: group, groupName: group.name, groupIcon: group.icon, groupIconColor: group.iconColor, leagueIds: group.leagueIds});
                 }
             }
         },
@@ -64,7 +71,8 @@ component.EditAdminGroupPage = (function(){
             var groupToUpdate = Object.assign({}, state.group, {
                 name: state.groupName,
                 icon: state.groupIcon,
-                iconColor: state.groupIconColor
+                iconColor: state.groupIconColor,
+                leagueIds: state.leagueIds
             });
 
             groupToUpdate.configuration = groupConfiguration;
@@ -81,8 +89,35 @@ component.EditAdminGroupPage = (function(){
                 isDirty: false,
                 groupName: group.name,
                 groupIcon: group.icon,
-                groupIconColor: group.iconColor
+                groupIconColor: group.iconColor,
+                leagueIds: group.leagueIds
             });
+        },
+
+        onLeagueClicked: function(leagueId) {
+            var selectedLeagueIdsCopy = this.state.leagueIds.slice(0);
+            var index = selectedLeagueIdsCopy.indexOf(leagueId);
+            if (index >= 0) {
+                selectedLeagueIdsCopy.splice(index, 1);
+            } else {
+                selectedLeagueIdsCopy.push(leagueId);
+            }
+
+            this.setState({leagueIds: selectedLeagueIdsCopy, isDirty: true});
+        },
+
+        selectAllLeaguesChanged: function(event) {
+            var selectedLeagueIdsCopy;
+            var isSelectedAll = event.target.checked;
+            if (isSelectedAll) {
+                selectedLeagueIdsCopy = this.props.allAvailableLeagues.map(function(league){
+                    return league._id;
+                });
+            } else {
+                selectedLeagueIdsCopy = [];
+            }
+
+            this.setState({leagueIds: selectedLeagueIdsCopy, isDirty: true});
         },
 
         openSelectIconPage: function() {
@@ -118,10 +153,12 @@ component.EditAdminGroupPage = (function(){
             var group = state.group;
             var isDirty = state.isDirty;
             var users = props.users;
+            var allAvailableLeagues = props.allAvailableLeagues;
             var usersInGroup = [];
             var isFormValid = true;
             var groupNameClassName = "group-name";
             var groupIconClassName = "group-icon";
+            var selectLeaguesClassName = "sub-title";
             var mainElement;
 
             if (this.state.displaySelectGroupIconPage) {
@@ -136,6 +173,11 @@ component.EditAdminGroupPage = (function(){
                     if (!state.groupIcon) {
                         isFormValid = false;
                         groupIconClassName += " invalid";
+                    }
+
+                    if (!state.leagueIds.length) {
+                        isFormValid = false;
+                        selectLeaguesClassName += " invalid";
                     }
 
                     usersInGroup = group.users.map(function(userId){
@@ -177,6 +219,15 @@ component.EditAdminGroupPage = (function(){
                         re("div", {className: groupIconClassName, style: {color: state.groupIconColor}}, state.groupIcon),
                         re("button", {onClick: this.openSelectIconPage}, "Select Icon")
                     ),
+                    re("div", {className: "title"}, "Group Leagues"),
+                    re("div", {className: "sub-title-container"},
+                        re("div", {className: selectLeaguesClassName}, "Select Leagues:"),
+                        re("div", {className: "select-all-container"},
+                            re("label", {className: "small-text", htmlFor: "selectAllCheckbox"}, "Select All"),
+                            re("input", {type: "checkbox", id: "selectAllCheckbox", onChange: this.selectAllLeaguesChanged})
+                        )
+                    ),
+                    re(AvailableLeaguesList, {leagues: allAvailableLeagues, selectedLeagueIds: state.leagueIds, onLeagueClicked: this.onLeagueClicked}),
                     re("div", {className: "row-buttons"},
                         re("button", {disabled: !isDirty, onClick: this.onCancel}, "Cancel"),
                         re("button", {disabled: !isDirty || !isFormValid, onClick: this.onSave}, "Save")
@@ -197,7 +248,8 @@ component.EditAdminGroupPage = (function(){
         return {
             groups: state.groups.groups,
             users: state.users.users,
-            groupsConfiguration: state.groupsConfiguration.groupsConfiguration
+            groupsConfiguration: state.groupsConfiguration.groupsConfiguration,
+            allAvailableLeagues: state.leagues.allAvailableLeagues
         };
     }
 
@@ -206,7 +258,8 @@ component.EditAdminGroupPage = (function(){
             setSiteHeaderTitle: function(title){dispatch(action.general.setSiteHeaderTitle(title))},
             updateGroup: function(group){dispatch(action.groups.updateGroup(group))},
             updateGroupConfiguration: function(group){dispatch(action.groups.updateGroupConfiguration(group))},
-            removeGroup: function(group){dispatch(action.groups.removeGroup(group))}
+            removeGroup: function(group){dispatch(action.groups.removeGroup(group))},
+            loadAllAvailableLeagues: function(group){dispatch(action.leagues.loadAllAvailableLeagues())}
         };
     }
 
