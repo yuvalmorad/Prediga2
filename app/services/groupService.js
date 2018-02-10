@@ -13,7 +13,7 @@ const self = module.exports = {
 			return Promise.resolve(groupRemoved);
 		});
 	},
-	validateBeforeCreateOrUpdate: function (group) {
+	validateBeforeCreateOrUpdate: function (group, isNew) {
 		if (!self.validateArr(group.leagueIds)) {
 			return false;
 		}
@@ -26,7 +26,8 @@ const self = module.exports = {
 			return false;
 		}
 
-		if (!self.validateStringNotEmpty(group.secret)) {
+		//if is not new, we don't pass the secret
+		if (isNew && !self.validateStringNotEmpty(group.secret)) {
 			return false;
 		}
 		return true;

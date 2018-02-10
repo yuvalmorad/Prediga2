@@ -8,7 +8,8 @@ var routePages = (function(){
         SimulatorPage = component.SimulatorPage,
         JoinGroupPage = component.JoinGroupPage,
         CreateNewGroupPage = component.CreateNewGroupPage,
-        EditGroupPage = component.EditGroupPage;
+        EditAdminGroupPage = component.EditAdminGroupPage;
+        EditUserGroupPage = component.EditUserGroupPage;
 
     var routePages = [
         {
@@ -59,7 +60,7 @@ var routePages = (function(){
                 hideGroupsIcon: true,
                 actions: [
                     {
-                        icon: "",
+                        buttonText: "Create Group",
                         eventName: "onOpenCreateNewGroup"
                     }
                 ]
@@ -78,9 +79,19 @@ var routePages = (function(){
             }
         },
         {
-            path: "/editGroup/:groupId",
+            path: "/editAdminGroup/:groupId",
             isAuthenticatedPage: true,
-            component: EditGroupPage,
+            component: EditAdminGroupPage,
+            siteHeaderConfig: {
+                hideMenuButton: true,
+                hasBackButton: true,
+                isDynamicTitle: true
+            }
+        },
+        {
+            path: "/editUserGroup/:groupId",
+            isAuthenticatedPage: true,
+            component: EditUserGroupPage,
             siteHeaderConfig: {
                 hideMenuButton: true,
                 hasBackButton: true,

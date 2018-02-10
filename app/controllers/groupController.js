@@ -70,14 +70,14 @@ app.post('/', util.isLoggedIn, function (req, res) {
 		return;
 	}
 
-	let isNew = !group.id;
+	let isNew = !group._id;
 	if (isNew) {
 		group.createdBy = req.user._id;
 		group._id = mongoose.Types.ObjectId();
 		group.users = [group.createdBy];
 	}
 
-	let isInputValid = groupService.validateBeforeCreateOrUpdate(group);
+	let isInputValid = groupService.validateBeforeCreateOrUpdate(group, isNew);
 	if (!isInputValid) {
 		res.status(400).json({});
 		return;
@@ -85,6 +85,7 @@ app.post('/', util.isLoggedIn, function (req, res) {
 	let configuration = groupService.detachConfiguration(group);
 	return groupService.updateGroup(group).then(function (newGroup) {
 		return groupConfigurationService.updateConfiguration(configuration).then(function (newConfig) {
+            delete newConfig._doc.__v; //TODO why it not deleting the __v in the toJson in the group configuration model?
 			newGroup._doc.configuration = newConfig._doc;
 			res.status(200).json(newGroup);
 		}, function (err) {

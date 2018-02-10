@@ -11,7 +11,11 @@ action.groups = (function () {
         ADD_GROUP: "ADD_GROUP",
         addGroup: addGroup,
 
+        REMOVE_GROUP: "REMOVE_GROUP",
+        removeGroup: removeGroup,
+
         createGroup: createGroup,
+        updateGroupConfiguration: updateGroupConfiguration,
 
         selectGroup: selectGroup,
         SELECT_GROUP: "SELECT_GROUP",
@@ -61,13 +65,37 @@ action.groups = (function () {
         }
     }
 
+    function removeGroup(group) {
+        return {
+            type: groupsAction.REMOVE_GROUP,
+            group: group
+        }
+    }
+
+    //TODO merge create and update group to one function
+
     function createGroup(group) {
         return function(dispatch){
-            service.groups.create(group).then(function(groupCreated){
+            service.groups.createOrUpdate(group).then(function(groupCreated){
                 var configuration = groupCreated.configuration;
                 delete groupCreated.configuration;
                 dispatch(action.groupsConfiguration.addGroupConfiguration(configuration));
                 dispatch(action.groups.addGroup(groupCreated));
+
+                console.log("success!");
+            }, function(error){
+                console.log("error!", error);
+            });
+        };
+    }
+
+    function updateGroupConfiguration(group) {
+        return function(dispatch){
+            service.groups.createOrUpdate(group).then(function(groupCreated){
+                var configuration = groupCreated.configuration;
+                delete groupCreated.configuration;
+                dispatch(action.groupsConfiguration.updateGroupConfiguration(configuration));
+                dispatch(action.groups.updateGroup(groupCreated));
 
                 console.log("success!");
             }, function(error){

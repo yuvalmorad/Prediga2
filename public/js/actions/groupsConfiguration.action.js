@@ -5,7 +5,10 @@ action.groupsConfiguration = (function () {
         load: load,
 
         ADD_GROUP_CONFIGURATION: "ADD_GROUP_CONFIGURATION",
-        addGroupConfiguration: addGroupConfiguration
+        addGroupConfiguration: addGroupConfiguration,
+
+        UPDATE_GROUP_CONFIGURATION: "UPDATE_GROUP_CONFIGURATION",
+        updateGroupConfiguration: updateGroupConfiguration
     };
 
     function load() {
@@ -23,6 +26,13 @@ action.groupsConfiguration = (function () {
     function addGroupConfiguration(groupConfiguration) {
         return {
             type: groupsConfigurationAction.ADD_GROUP_CONFIGURATION,
+            groupConfiguration: groupConfiguration
+        }
+    }
+
+    function updateGroupConfiguration(groupConfiguration) {
+        return {
+            type: groupsConfigurationAction.UPDATE_GROUP_CONFIGURATION,
             groupConfiguration: groupConfiguration
         }
     }

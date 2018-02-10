@@ -158,7 +158,7 @@ component.SelectGroupIcon = (function(){
                 platteColorsElem,
                 re("div", {ref: this.assignRowButtonsRef, className: "row-buttons", style: {transform: (displayPlatteColors ? undefined : "")}},
                     re("button", {onClick: this.props.onCancel}, "Cancel"),
-                    re("button", {onClick: this.onSave}, "Save")
+                    re("button", {onClick: this.onSave}, "Select")
                 )
             )
 

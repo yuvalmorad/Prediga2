@@ -37,26 +37,39 @@ component.MainMenu = (function(){
             });
         },
 
-        onGroupSettingsClicked: function(groupId, event) {
+        onGroupAdminSettingsClicked: function(groupId, event) {
             event.stopPropagation();
             this.props.toggleMenu(); //close menu
-            window.routerHistory.push("/editGroup/" + groupId);
+            window.routerHistory.push("/editAdminGroup/" + groupId);
+        },
+
+        onGroupUserSettingsClicked: function(groupId, event) {
+            event.stopPropagation();
+            this.props.toggleMenu(); //close menu
+            window.routerHistory.push("/editUserGroup/" + groupId);
         },
 
         renderGroupsMenuItems: function(groups, selectedGroupId) {
             var that = this;
-            //icon: "" for none admin
             return groups.map(function(group){
                 var groupId = group._id;
                 var editActionButton;
                 if (group.createdBy === that.props.userId) {
+                    //admin
                     editActionButton = {
                         icon: "",
-                        onClick: that.onGroupSettingsClicked.bind(that, groupId)
+                        onClick: that.onGroupAdminSettingsClicked.bind(that, groupId)
                     };
-                } else {
+                } else if (groupId === "5a3eac97d3ca76dbd12bf638") { //TODO change to some property?
+                    //initial public group
                     editActionButton = {
                         icon: ""
+                    }
+                } else {
+                    //user member
+                    editActionButton = {
+                        icon: "",
+                        onClick: that.onGroupUserSettingsClicked.bind(that, groupId)
                     }
                 }
 

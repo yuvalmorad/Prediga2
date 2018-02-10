@@ -5,6 +5,7 @@ reducer.groups = function() {
         LOAD_ALL_AVAILABLE_GROUPS_ADMINS = action.groups.LOAD_ALL_AVAILABLE_GROUPS_ADMINS,
         SELECT_GROUP = action.groups.SELECT_GROUP,
         ADD_GROUP = action.groups.ADD_GROUP,
+        REMOVE_GROUP = action.groups.REMOVE_GROUP,
         SET_SELECTED_LEAGUE_ID = action.groups.SET_SELECTED_LEAGUE_ID,
         UPDATE_GROUP = action.groups.UPDATE_GROUP,
         LOCAL_STORAGE_SELCTED_GROUP_ID_KEY = "prediga_selected_group_id",
@@ -58,6 +59,20 @@ reducer.groups = function() {
         return JSON.parse(selectedLeagueIdByGroupObj);
     }
 
+    function removeGroup(_groups, group) {
+        var groups = _groups.slice();
+        var groupIndex;
+        for (var i = 0; i < groups.length; i++) {
+            if (groups[i] === group._id) {
+                groupIndex = i;
+                break;
+            }
+        }
+
+        groups.splice(groupIndex, 1);
+        return groups;
+    }
+
     return function groupsConfiguration(state, action){
         if (state === undefined) {
             state = initialState;
@@ -80,6 +95,11 @@ reducer.groups = function() {
                 return Object.assign({}, state, {selectedLeagueId: selectedLeagueId});
             case ADD_GROUP:
                 return Object.assign({}, state, {groups: utils.general.copyArrAndAdd(state.groups, action.group)});
+            case REMOVE_GROUP:
+                var groups = removeGroup(state.groups, action.group);
+                var selectedGroupId = getSelectedGroupId(groups);
+                var selectedLeagueId = getSelectedLeagueId(groups, selectedGroupId);
+                return Object.assign({}, state, {groups: groups, selectedGroupId: selectedGroupId, selectedLeagueId: selectedLeagueId});
             case LOAD_ALL_AVAILABLE_GROUPS:
                 return Object.assign({}, state, {allAvailableGroups: action.groups});
             case LOAD_ALL_AVAILABLE_GROUPS_ADMINS:

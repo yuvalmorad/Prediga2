@@ -31,7 +31,7 @@ component.CreateNewGroupPage = (function(){
             return state;
         },
 
-        onGroupChange: function(event) {
+        onGroupNameChange: function(event) {
             var value = event.target.value;
             this.setState({groupName: value});
         },
@@ -203,7 +203,7 @@ component.CreateNewGroupPage = (function(){
                         re("div", {className: "sub-title"}, "Group Name:"),
                         re("div", {className: "small-text"}, "Max 64 Characters")
                     ),
-                    re("input", {type: "text", className: groupNameClassName, value: state.groupName, onChange: this.onGroupChange}),
+                    re("input", {type: "text", className: groupNameClassName, value: state.groupName, onChange: this.onGroupNameChange}),
                     re("div", {className: "sub-title-container"},
                         re("div", {className: "sub-title"}, "Group Secret:"),
                         re("div", {className: "small-text"}, "Only Numbers")

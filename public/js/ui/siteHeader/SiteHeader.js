@@ -29,7 +29,11 @@ component.SiteHeader = (function(){
                     leagueColor = league ? league.color : "";
 
                 var actionsElems = actions.map(function(action) {
-                    return re("div", {className: "action-icon", onClick: that.onActionClicked.bind(that, action)}, action.icon);
+                    if (action.icon) {
+                        return re("div", {className: "action-icon", onClick: that.onActionClicked.bind(that, action)}, action.icon);
+                    } else {
+                        return re("button", {className: "action-button", onClick: that.onActionClicked.bind(that, action)}, action.buttonText);
+                    }
                 });
 
                 if (!window.lastHistoryPath) {

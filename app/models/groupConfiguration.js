@@ -15,7 +15,7 @@ const groupConfiguration = mongoose.Schema({
 	teamForth: {type: Number, default: 10},
 	teamLast: {type: Number, default: 10},
 	team2ndLast: {type: Number, default: 10},
-	minutesBeforeCloseMathPrediction: {type: Number, default: 5},
+	minutesBeforeCloseMathPrediction: {type: Number, default: 5}
 });
 
 groupConfiguration.options.toJSON = {

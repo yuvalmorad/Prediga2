@@ -3,7 +3,7 @@ service.groups = (function() {
     return {
         getAll: getAll,
         getAllAvailableGroups: getAllAvailableGroups,
-        create: create,
+        createOrUpdate: createOrUpdate,
         joinGroup: joinGroup,
         kickUser: kickUser,
         unregister: unregister
@@ -21,7 +21,7 @@ service.groups = (function() {
         });
     }
 
-    function create(group) {
+    function createOrUpdate(group) {
         return httpInstnace.post("/api/group", group).then(function(res){
             return res.data
         });

@@ -1,5 +1,5 @@
 window.component = window.component || {};
-component.EditGroupTile = (function(){
+component.EditAdminGroupTile = (function(){
     var Tile = component.Tile;
 
     return React.createClass({
@@ -19,7 +19,7 @@ component.EditGroupTile = (function(){
                     ),
                     re("div", {className: "center"},
                         re("div", {className: "user-name"}, name),
-                        re("div", {className: "user-place"}, place + " Place"),
+                        re("div", {className: "user-place"}, place),
                         re("div", {className: "joined-date"}, isAdmin ? "Admin" : joinedDate)
                     ),
                     re("div", {className: "right"},

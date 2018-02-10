@@ -362,7 +362,12 @@ body {
 
 .site-header .right .action-button {
     margin-right: 1rem;
-    font-size: 1.5rem;
+    background: transparent;
+    border-radius: 5px;
+    border-style: solid;
+    border-width: 1px;
+    color: inherit;
+    border-color: inherit;
 }
 
 .site-header .menu-groups-button {
@@ -1337,18 +1342,20 @@ body {
     margin-bottom: 0.5rem;
 }
 
-/* -------  Create New Group -------*/
+/* -------  Create New Group / Edit group-------*/
 
-.create-new-group-page {
+.create-new-group-page, .edit-group-page {
     color: #4A4A4A;
 }
-.create-new-group-page .title{
+.create-new-group-page .title,
+.edit-group-page .title{
     font-weight: bold;
     font-size: 1.125rem;
-    margin: 1rem;
+    margin: 1rem 0;
 }
 
-.create-new-group-page .sub-title-container {
+.create-new-group-page .sub-title-container,
+.edit-group-page .sub-title-container {
     display: flex;
     justify-content: space-between;
     margin-bottom: 0.5rem;
@@ -1356,25 +1363,30 @@ body {
     align-items: center;
 }
 
-.create-new-group-page .sub-title {
+.create-new-group-page .sub-title,
+.edit-group-page .sub-title {
     font-size: 0.75rem;
     line-height: 20px;
 }
 
-.create-new-group-page .small-text {
+.create-new-group-page .small-text,
+.edit-group-page .small-text {
     font-size: 0.625rem;
     color: #9B9B9B;
 }
 
-.create-new-group-page label {
+.create-new-group-page label,
+.edit-group-page label {
     margin-right: 0.3rem;
 }
 
-.create-new-group-page .invalid {
+.create-new-group-page .invalid,
+.edit-group-page .invalid {
     border: 1px solid #ff1919 !important;
 }
 
-.create-new-group-page input.group-name {
+.create-new-group-page input.group-name,
+.edit-group-page input.group-name {
     width: 100%;
     height: 2.5rem;
     border-radius: 4px;
@@ -1409,12 +1421,14 @@ body {
     margin-right: 0;
 }
 
-.create-new-group-page .select-icon-row {
+.create-new-group-page .select-icon-row,
+.edit-group-page .select-icon-row {
     display: flex;
     align-items: center;
 }
 
-.create-new-group-page .select-icon-row .group-icon {
+.create-new-group-page .select-icon-row .group-icon,
+.edit-group-page .select-icon-row .group-icon {
     font-family: "prediga-groups";
     width: 4.625rem;
     height: 4.625rem;
@@ -1427,7 +1441,8 @@ body {
     line-height: 4.625rem;
 }
 
-.create-new-group-page .select-icon-row button {
+.create-new-group-page .select-icon-row button,
+.edit-group-page .select-icon-row button {
     width: 7.875rem;
     height: 2rem;
     background-color: transparent;
@@ -1490,14 +1505,16 @@ body {
     font-size: 0.75rem;
 }
 
-.create-new-group-page .row-buttons {
+.create-new-group-page .row-buttons,
+.edit-group-page .row-buttons {
     margin: 1rem 1rem 0.5rem 0;
     display: flex;
     justify-content: flex-end;
     transition: 0.3s transform;
 }
 
-.create-new-group-page .row-buttons > button {
+.create-new-group-page .row-buttons > button,
+.edit-group-page .row-buttons > button {
     width: 7.875rem;
     height: 2rem;
     background-color: #fff;
@@ -1506,14 +1523,26 @@ body {
     border-radius: 4px;
 }
 
-.create-new-group-page .row-buttons > button[disabled] {
+.create-new-group-page .row-buttons > button[disabled],
+.edit-group-page .row-buttons > button[disabled] {
     background-color: transparent;
     border: 1px solid #9B9B9B;
     color: #9B9B9B;
 }
 
-.create-new-group-page .row-buttons > button:first-child {
+.create-new-group-page .row-buttons > button:first-child,
+.edit-group-page .row-buttons > button:first-child {
     margin-right: 0.5rem;
+}
+
+.edit-group-page .leave-group-button {
+    background: transparent;
+    width: 100%;
+    height: 3rem;
+    color: #fff;
+    background-color: #4A90E2;
+    border-radius: 4px;
+    font-size: 0.75rem;
 }
 
 /* -------  Join Group & Edit Group-------*/
