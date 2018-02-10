@@ -21,7 +21,9 @@ component.EditAdminGroupPage = (function(){
             var groups = nextProps.groups;
             if (groups.length && groups !== this.props.groups) {
                 var group = this.getGroupAndSetHeader(groups);
-                this.setState({group: group, groupName: group.name, groupIcon: group.icon, groupIconColor: group.iconColor});
+                if (group) {
+                    this.setState({group: group, groupName: group.name, groupIcon: group.icon, groupIconColor: group.iconColor});
+                }
             }
         },
 
@@ -42,7 +44,7 @@ component.EditAdminGroupPage = (function(){
                     group.users.splice(group.users.indexOf(userId), 1);
                     that.props.updateGroup(group);
                 }, function() {
-                    alert("failed kick user");
+                    alert("failed remove user");
                 });
             }
         },
@@ -93,6 +95,20 @@ component.EditAdminGroupPage = (function(){
 
         onSelectGroupIconCancel: function() {
             this.setState({displaySelectGroupIconPage: false});
+        },
+
+        deleteGroup: function() {
+            var props = this.props;
+            var group = this.state.group;
+
+            if (confirm("Are you sure you want to delete this group?")) {
+                service.groups.deleteGroup(group._id).then(function(){
+                    props.removeGroup(group);
+                    routerHistory.goBack();
+                }, function() {
+                    alert("failed deleting group");
+                });
+            }
         },
 
         render: function() {
@@ -165,6 +181,7 @@ component.EditAdminGroupPage = (function(){
                         re("button", {disabled: !isDirty, onClick: this.onCancel}, "Cancel"),
                         re("button", {disabled: !isDirty || !isFormValid, onClick: this.onSave}, "Save")
                     ),
+                    re("button", {className: "delete-group-button", onClick: this.deleteGroup}, "Delete Group"),
                     re("div", {className: "title"}, "Users"),
                     usersTiles
                 );
@@ -188,7 +205,8 @@ component.EditAdminGroupPage = (function(){
         return {
             setSiteHeaderTitle: function(title){dispatch(action.general.setSiteHeaderTitle(title))},
             updateGroup: function(group){dispatch(action.groups.updateGroup(group))},
-            updateGroupConfiguration: function(group){dispatch(action.groups.updateGroupConfiguration(group))}
+            updateGroupConfiguration: function(group){dispatch(action.groups.updateGroupConfiguration(group))},
+            removeGroup: function(group){dispatch(action.groups.removeGroup(group))}
         };
     }
 

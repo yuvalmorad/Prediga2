@@ -6,7 +6,8 @@ service.groups = (function() {
         createOrUpdate: createOrUpdate,
         joinGroup: joinGroup,
         kickUser: kickUser,
-        unregister: unregister
+        unregister: unregister,
+        deleteGroup: deleteGroup
     };
 
     function getAll() {
@@ -37,5 +38,9 @@ service.groups = (function() {
 
     function unregister(groupId) {
         return httpInstnace.delete("/api/group/" + groupId + "/unregister");
+    }
+
+    function deleteGroup(groupId) {
+        return httpInstnace.delete("/api/group/" + groupId);
     }
 })();
