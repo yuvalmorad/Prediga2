@@ -3,7 +3,7 @@ component.CreateNewGroupPage = (function(){
     var connect = ReactRedux.connect;
     var SelectGroupIcon = component.SelectGroupIcon;
     var Secret = component.Secret;
-    var TeamLogo = component.TeamLogo;
+    var AvailableLeaguesList = component.AvailableLeaguesList;
 
     var CreateNewGroupPage = React.createClass({
         getInitialState: function() {
@@ -146,14 +146,6 @@ component.CreateNewGroupPage = (function(){
                 var firstToScoreInputClassName = "";
                 var diffGoalsInputClassName = "";
 
-                var leaguesElems = leagues.map(function(league){
-                    var leagueName = league.name;
-                    return re("div", {className: selectedLeagueIds.indexOf(league._id) >= 0 ? "selected" : "", onClick: that.onLeagueClicked.bind(that, league._id)},
-                        re(TeamLogo, {leagueName: leagueName, logoPosition: league.logoPosition}),
-                        re("div", {}, leagueName)
-                    );
-                });
-
                 var secretProps = {
                     onNumberChanged: this.onSecretNumberChanged
                 };
@@ -224,9 +216,7 @@ component.CreateNewGroupPage = (function(){
                             re("input", {type: "checkbox", id: "selectAllCheckbox", onChange: this.selectAllLeaguesChanged})
                         )
                     ),
-                    re("div", {className: "group-leagues"},
-                        leaguesElems
-                    ),
+                    re(AvailableLeaguesList, {leagues: leagues, selectedLeagueIds: selectedLeagueIds, onLeagueClicked: this.onLeagueClicked}),
                     re("div", {className: "title"}, "Group Scoring"),
                     re("div", {className: "sub-title-container"},
                         re("div", {className: "sub-title"}, "Select Points:")
