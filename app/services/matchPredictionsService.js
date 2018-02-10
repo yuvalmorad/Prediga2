@@ -133,6 +133,9 @@ const self = module.exports = {
 	removeByGroupId: function (groupId) {
 		return MatchPrediction.remove({groupId: groupId});
 	},
+	removeByGroupIdAndMatchIds: function (groupId, matchIds) {
+		return MatchPrediction.remove({groupId: groupId, matchId: {$in: matchIds}});
+	},
 	removeByGroupIdAndUserId: function (groupId, userId) {
 		return MatchPrediction.remove({groupId: groupId, userId: userId});
 	},

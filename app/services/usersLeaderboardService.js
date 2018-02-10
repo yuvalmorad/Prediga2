@@ -188,6 +188,9 @@ const self = module.exports = {
 	removeByGroupId: function (groupId) {
 		return UsersLeaderboard.remove({groupId: groupId});
 	},
+	removeByGroupIdLeagueId: function (groupId, leagueId) {
+		return UsersLeaderboard.remove({groupId: groupId, leagueId: leagueId});
+	},
 	removeByGroupIdAndUserId: function (groupId, userId) {
 		return UsersLeaderboard.remove({groupId: groupId, userId: userId});
 	},

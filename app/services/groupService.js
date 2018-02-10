@@ -26,7 +26,7 @@ const self = module.exports = {
 			return false;
 		}
 
-		//if is not new, we don't pass the secret
+		// if is not new, we don't pass the secret
 		if (isNew && !self.validateStringNotEmpty(group.secret)) {
 			return false;
 		}
@@ -86,8 +86,20 @@ const self = module.exports = {
 	byUsrIdAndConfigurationId: function (userId, configurationId) {
 		return Groups.find({users: userId, configurationId: configurationId});
 	},
-	all: function () {
-		return Groups.find({});
+	all: function (userRequested) {
+		return Groups.find({}).then(function (allGroups) {
+			allGroups.forEach(function (group) {
+				if (userRequested){
+					self.verifyOnlyAdminCanSeeSecret(group, userRequested);
+				}
+			});
+			return allGroups;
+		});
+	},
+	verifyOnlyAdminCanSeeSecret: function (group, userId) {
+		if (userId.toString() !== group.createdBy) {
+			delete group._doc.secret;
+		}
 	},
 	detachConfiguration: function (group) {
 		let configuration = group.configuration;
