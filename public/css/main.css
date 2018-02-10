@@ -1425,12 +1425,14 @@ body {
     font-weight: bold;
 }
 
-.create-new-group-page .secret-container {
+.create-new-group-page .secret-container,
+.edit-group-page .secret-container {
     display: flex;
     margin-bottom: 0.5rem;
 }
 
-.create-new-group-page .secret-container input {
+.create-new-group-page .secret-container input,
+.edit-group-page .secret-container input {
     margin-right: 4vw;
     box-sizing: border-box;
     width: calc(100% / 6);
@@ -1444,7 +1446,8 @@ body {
     padding: 0;
 }
 
-.create-new-group-page .secret-container input:last-child {
+.create-new-group-page .secret-container input:last-child,
+.edit-group-page .secret-container input:last-child {
     margin-right: 0;
 }
 
