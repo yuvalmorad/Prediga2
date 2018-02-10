@@ -63,7 +63,7 @@ reducer.groups = function() {
         var groups = _groups.slice();
         var groupIndex;
         for (var i = 0; i < groups.length; i++) {
-            if (groups[i] === group._id) {
+            if (groups[i]._id === group._id) {
                 groupIndex = i;
                 break;
             }
@@ -94,7 +94,12 @@ reducer.groups = function() {
                 setSelectedLeagueIdInLocalStorage(selectedLeagueId, state.selectedGroupId);
                 return Object.assign({}, state, {selectedLeagueId: selectedLeagueId});
             case ADD_GROUP:
-                return Object.assign({}, state, {groups: utils.general.copyArrAndAdd(state.groups, action.group)});
+                var group = action.group;
+                var groupId = group._id;
+                var groups = utils.general.copyArrAndAdd(state.groups, group);
+                setSelectedGroupIdInLocalStorage(groupId);
+                var selectedLeagueId = getSelectedLeagueId(groups, groupId);
+                return Object.assign({}, state, {groups: groups, selectedGroupId: groupId, selectedLeagueId: selectedLeagueId});
             case REMOVE_GROUP:
                 var groups = removeGroup(state.groups, action.group);
                 var selectedGroupId = getSelectedGroupId(groups);

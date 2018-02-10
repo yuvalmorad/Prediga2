@@ -14,7 +14,9 @@ component.EditUserGroupPage = (function(){
             var groups = nextProps.groups;
             if (groups.length && groups !== this.props.groups) {
                 var group = this.getGroupAndSetHeader(groups);
-                this.setState({group: group, groupName: group.name, groupIcon: group.icon, groupIconColor: group.iconColor});
+                if (group) {
+                    this.setState({group: group, groupName: group.name, groupIcon: group.icon, groupIconColor: group.iconColor});
+                }
             }
         },
 
@@ -28,10 +30,11 @@ component.EditUserGroupPage = (function(){
         },
 
         leaveGroup: function() {
+            var props = this.props;
+            var state = this.state;
             if (confirm("Are you sure you want to leave this group?")) {
-                service.groups.unregister(this.state.group._id).then(function(){
-                    //remove group
-                    
+                service.groups.unregister(state.group._id).then(function(){
+                    props.removeGroup(state.group);
                     routerHistory.goBack();
                 }, function(){
                     alert("failed leave group");
@@ -56,7 +59,8 @@ component.EditUserGroupPage = (function(){
 
     function mapDispatchToProps(dispatch) {
         return {
-            setSiteHeaderTitle: function(title){dispatch(action.general.setSiteHeaderTitle(title))}
+            setSiteHeaderTitle: function(title){dispatch(action.general.setSiteHeaderTitle(title))},
+            removeGroup: function(group){dispatch(action.groups.removeGroup(group))}
         };
     }
 
