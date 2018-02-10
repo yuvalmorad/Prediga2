@@ -1543,6 +1543,7 @@ body {
     background-color: #4A90E2;
     border-radius: 4px;
     font-size: 0.75rem;
+    border: none;
 }
 
 /* -------  Join Group & Edit Group-------*/
