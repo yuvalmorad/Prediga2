@@ -26,5 +26,10 @@ const self = module.exports = {
 	},
 	byTeamIds: function (teamIds) {
 		return TeamResult.find({teamId: {$in: teamIds}});
+	},
+	getTeamIdsArr: function (teamResults) {
+		return teamResults.map(function (teamResult) {
+			return teamResult.teamId;
+		});
 	}
 };

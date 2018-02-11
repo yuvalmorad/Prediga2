@@ -6,6 +6,9 @@ const leagueService = require('../services/leagueService');
 const matchService = require('../services/matchService');
 const matchResultService = require('../services/matchResultService');
 const matchPredictionsService = require('../services/matchPredictionsService');
+const teamService = require('../services/teamService');
+const teamPredictionsService = require('../services/teamPredictionsService');
+const teamResultService = require('../services/teamResultService');
 
 /**
  * Get data for Simulator screen
@@ -35,10 +38,22 @@ function getData(groupId, userId) {
 					const inProgressMatchIds = matchResultService.getMatchIdsArr(inProgressMatchResults);
 					return matchService.byIds(inProgressMatchIds).then(function (inProgressMatches) {
 						return matchPredictionsService.byGroupIdAndMatches(groupId, inProgressMatches).then(function (predictions) {
-							return {
-								matches: inProgressMatches,
-								predictions: predictions
-							}
+							return teamService.byLeagueIds(leagueIds).then(function (teams) {
+								const teamIds = teamService.getIdsArr(teams);
+								return teamResultService.byTeamIds(teamIds).then(function (endedTeamsResults) {
+									const endedTeamsResultIds = teamResultService.getTeamIdsArr(endedTeamsResults);
+									return teamService.byIds(endedTeamsResultIds).then(function (endedTeams) {
+										return teamPredictionsService.byGroupIdAndTeams(groupId, endedTeams).then(function (teamPredictions) {
+											return {
+												matches: inProgressMatches,
+												predictions: predictions,
+												teamPredictions: teamPredictions,
+												teams: teams
+											}
+										});
+									});
+								});
+							});
 						});
 					});
 				});

@@ -4,8 +4,9 @@ const mongoose = require('mongoose');
 // define the schema for our teams model
 const teamSchema = mongoose.Schema({
 	deadline: Date,
+	resultTime: Date,
 	title: String,
-	type: String, // `winner`, `runnerUp`
+	type: String,
 	league: String,
 	options: [String]
 });

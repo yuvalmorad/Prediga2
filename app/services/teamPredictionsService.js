@@ -71,6 +71,18 @@ const self = module.exports = {
 	byTeamIdUserIdGroupId: function (teamId, userId, groupId) {
 		return TeamPrediction.find({teamId: teamId, userId: userId, groupId: groupId});
 	},
+	byTeamIdsGroupId: function (teamIds, groupId) {
+		return TeamPrediction.find({teamId: {$in: teamIds}, groupId: groupId});
+	},
+	byGroupIdAndTeams: function (groupId, teams) {
+		if (!teams || teams.length < 1) {
+			return Promise.resolve([]);
+		}
+		const teamsIds = teamService.getIdsArr(teams);
+		return self.byTeamIdsGroupId(teamsIds, groupId).then(function (predictions) {
+			return Promise.resolve(predictions);
+		});
+	},
 	byTeamIdsUserIdGroupId: function (teamIds, userId, groupId) {
 		return TeamPrediction.find({
 			teamId: {$in: teamIds}, userId: userId, groupId: groupId
@@ -92,5 +104,42 @@ const self = module.exports = {
 	},
 	byTeamIdUserId: function (teamId, userId) {
 		return TeamPrediction.findOne({teamId: teamId, userId: userId});
+	},
+	getFutureGamesPredictionsCounters: function (groupId, teamIds) {
+		if (!teamIds) {
+			return Promise.resolve([]);
+		}
+		return teamService.getNotStartedTeams(teamIds).then(function (teams) {
+			if (!teams) {
+				return Promise.resolve([]);
+			}
+			const relevantTeamIds = teamService.getIdsArr(teams);
+			return self.byTeamIdsGroupId(relevantTeamIds, groupId).then(function (predictions) {
+				return self.aggregateFuturePredictions(predictions);
+			});
+		});
+	},
+	aggregateFuturePredictions: function (predictions) {
+		if (!predictions || predictions.length < 0) {
+			return Promise.resolve([]);
+		}
+		let result = {};
+		predictions.forEach(function (prediction) {
+			if (!result.hasOwnProperty(prediction.teamId)) {
+				result[prediction.teamId] = {};
+			}
+
+			if (!result[prediction.teamId].hasOwnProperty(prediction.team)) {
+				result[prediction.teamId][prediction.team] = 1;
+			} else {
+				result[prediction.teamId][prediction.team]++;
+			}
+		});
+		return Promise.resolve(result);
+	},
+	getTeamIdsArr: function (predictions) {
+		return predictions.map(function (prediction) {
+			return prediction.teamId;
+		});
 	}
 };

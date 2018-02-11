@@ -27,24 +27,27 @@ function getData(me, groupId) {
 			return Promise.resolve({
 				teams: [],
 				predictions: [],
+				predictionsCounters: [],
 				results: []
 			});
 		}
 		return leagueService.byIds(group.leagueIds).then(function (leagues) {
 			const leagueIds = leagueService.getIdArr(leagues);
 			return teamService.byLeagueIds(leagueIds).then(function (teams) {
-				const teamIds = teamService.getIdsArr(teams);
+				const teamIdArr = teamService.getIdsArr(teams);
 
 				return Promise.all([
 					teamPredictionsService.getPredictionsByUserId({
-						userId: me, isForMe: true, me: me, groupId: groupId, teamIds: teamIds
+						userId: me, isForMe: true, me: me, groupId: groupId, teamIds: teamIdArr
 					}),
-					teamResultService.byTeamIds(teamIds)
+					teamPredictionsService.getFutureGamesPredictionsCounters(groupId, teamIdArr),
+					teamResultService.byTeamIds(teamIdArr)
 				]).then(function (arr) {
 					return {
 						teams: teams,
 						predictions: arr[0],
-						results: arr[1]
+						predictionsCounters: arr[1],
+						results: arr[2]
 					}
 				});
 			});

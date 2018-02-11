@@ -4,7 +4,7 @@
     "name": "Champions",
     "logoPosition": "-168px 0",
     "year": "2017/2018",
-    "competition365": -1,
+    "competition365": 572,
     "syncResults365": false,
     "clubs": [
       "1a21a7c1a3f89181074e9962",
@@ -605,34 +605,20 @@
     {
       "_id": "5a1342399017dfc4e2faf694",
       "title": "1st place",
-      "type": "1st",
+      "type": "teamWinner",
       "deadline": "2018-03-14T15:00:00.000Z",
       "league": "1a21a7c1a3f89181074e9769",
-      "options": []
+      "options": [],
+      "resultTime": "2018-05-26T21:45:00.000Z"
     },
     {
       "_id": "5a1342399017dfc4e2faf695",
       "title": "2nd place",
-      "type": "2nd",
+      "type": "teamRunnerUp",
       "deadline": "2018-03-14T15:00:00.001Z",
       "league": "1a21a7c1a3f89181074e9769",
-      "options": []
-    },
-    {
-      "_id": "5a1342399017dfc4e2faf696",
-      "title": "3st place",
-      "type": "3rd",
-      "deadline": "2018-03-14T15:00:00.002Z",
-      "league": "1a21a7c1a3f89181074e9769",
-      "options": []
-    },
-    {
-      "_id": "5a1342399017dfc4e2faf697",
-      "title": "4th place",
-      "type": "4th",
-      "deadline": "2018-03-14T15:00:00.003Z",
-      "league": "1a21a7c1a3f89181074e9769",
-      "options": []
+      "options": [],
+      "resultTime": "2018-05-26T21:45:00.000Z"
     }
   ],
   "teamResults": [

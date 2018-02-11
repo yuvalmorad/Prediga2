@@ -91,7 +91,6 @@ const self = module.exports = {
 		if (!matchIds) {
 			return Promise.resolve([]);
 		}
-		//return Promise.resolve([]);
 		return matchService.getNotStartedMatches(matchIds).then(function (matches) {
 			if (!matches) {
 				return Promise.resolve([]);

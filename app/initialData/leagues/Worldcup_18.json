@@ -1173,39 +1173,43 @@
     {
       "_id": "5a1342399017dfc4e2faf494",
       "title": "1st place",
-      "type": "1st",
+      "type": "teamWinner",
       "deadline": "2018-06-14T15:00:00.000Z",
       "league": "4a21a7c1a3f89181074e9762",
-      "options": []
+      "options": [],
+      "resultTime": "2018-07-16T15:00:00.000Z"
     },
     {
       "_id": "5a1342399017dfc4e2faf495",
       "title": "2nd place",
-      "type": "2nd",
+      "type": "teamRunnerUp",
       "deadline": "2018-06-14T15:00:00.001Z",
       "league": "4a21a7c1a3f89181074e9762",
-      "options": []
+      "options": [],
+      "resultTime": "2018-07-16T15:00:00.000Z"
     },
     {
       "_id": "5a1342399017dfc4e2faf496",
       "title": "3st place",
-      "type": "3rd",
+      "type": "teamThird",
       "deadline": "2018-06-14T15:00:00.002Z",
       "league": "4a21a7c1a3f89181074e9762",
-      "options": []
+      "options": [],
+      "resultTime": "2018-07-16T15:00:00.000Z"
     },
     {
       "_id": "5a1342399017dfc4e2faf497",
       "title": "4th place",
-      "type": "4th",
+      "type": "teamForth",
       "deadline": "2018-06-14T15:00:00.003Z",
       "league": "4a21a7c1a3f89181074e9762",
-      "options": []
+      "options": [],
+      "resultTime": "2018-07-16T15:00:00.000Z"
     },
     {
       "_id": "5a1342399017dfc4e2faf498",
       "title": "1st place Group A",
-      "type": "A1",
+      "type": "teamGeneral",
       "deadline": "2018-06-14T15:00:00.004Z",
       "league": "4a21a7c1a3f89181074e9762",
       "options": [
@@ -1213,12 +1217,13 @@
         "2a21a7c1a3f89181074e9779",
         "2a21a7c1a3f89181074e9788",
         "2a21a7c1a3f89181074e9766"
-      ]
+      ],
+      "resultTime": "2018-06-29T12:00:00.000Z"
     },
     {
       "_id": "5a1342399017dfc4e2faf499",
       "title": "2nd place Group A",
-      "type": "A2",
+      "type": "teamGeneral",
       "deadline": "2018-06-14T15:00:00.005Z",
       "league": "4a21a7c1a3f89181074e9762",
       "options": [
@@ -1226,12 +1231,13 @@
         "2a21a7c1a3f89181074e9779",
         "2a21a7c1a3f89181074e9788",
         "2a21a7c1a3f89181074e9766"
-      ]
+      ],
+      "resultTime": "2018-06-29T12:00:00.000Z"
     },
     {
       "_id": "5a1342399017dfc4e2faf49a",
       "title": "1st place Group B",
-      "type": "B1",
+      "type": "teamGeneral",
       "deadline": "2018-06-14T15:00:00.006Z",
       "league": "4a21a7c1a3f89181074e9762",
       "options": [
@@ -1239,12 +1245,13 @@
         "2a21a7c1a3f89181074e9790",
         "2a21a7c1a3f89181074e9778",
         "2a21a7c1a3f89181074e9781"
-      ]
+      ],
+      "resultTime": "2018-06-29T12:00:00.000Z"
     },
     {
       "_id": "5a1342399017dfc4e2faf49b",
       "title": "2nd place Group B",
-      "type": "B2",
+      "type": "teamGeneral",
       "deadline": "2018-06-14T15:00:00.007Z",
       "league": "4a21a7c1a3f89181074e9762",
       "options": [
@@ -1252,12 +1259,13 @@
         "2a21a7c1a3f89181074e9790",
         "2a21a7c1a3f89181074e9778",
         "2a21a7c1a3f89181074e9781"
-      ]
+      ],
+      "resultTime": "2018-06-29T12:00:00.000Z"
     },
     {
       "_id": "5a1342399017dfc4e2faf49c",
       "title": "1st place Group C",
-      "type": "C1",
+      "type": "teamGeneral",
       "deadline": "2018-06-14T15:00:00.008Z",
       "league": "4a21a7c1a3f89181074e9762",
       "options": [
@@ -1265,12 +1273,13 @@
         "2a21a7c1a3f89181074e9772",
         "2a21a7c1a3f89181074e9774",
         "2a21a7c1a3f89181074e9765"
-      ]
+      ],
+      "resultTime": "2018-06-29T12:00:00.000Z"
     },
     {
       "_id": "5a1342399017dfc4e2faf49d",
       "title": "2nd place Group C",
-      "type": "C2",
+      "type": "teamGeneral",
       "deadline": "2018-06-14T15:00:00.009Z",
       "league": "4a21a7c1a3f89181074e9762",
       "options": [
@@ -1278,12 +1287,13 @@
         "2a21a7c1a3f89181074e9772",
         "2a21a7c1a3f89181074e9774",
         "2a21a7c1a3f89181074e9765"
-      ]
+      ],
+      "resultTime": "2018-06-29T12:00:00.000Z"
     },
     {
       "_id": "5a1342399017dfc4e2faf49e",
       "title": "1st place Group D",
-      "type": "D1",
+      "type": "teamGeneral",
       "deadline": "2018-06-14T15:00:00.010Z",
       "league": "4a21a7c1a3f89181074e9762",
       "options": [
@@ -1291,12 +1301,13 @@
         "2a21a7c1a3f89181074e9771",
         "2a21a7c1a3f89181074e9776",
         "2a21a7c1a3f89181074e9791"
-      ]
+      ],
+      "resultTime": "2018-06-29T12:00:00.000Z"
     },
     {
       "_id": "5a1342399017dfc4e2faf49f",
       "title": "2nd place Group D",
-      "type": "D2",
+      "type": "teamGeneral",
       "deadline": "2018-06-14T15:00:00.011Z",
       "league": "4a21a7c1a3f89181074e9762",
       "options": [
@@ -1304,12 +1315,13 @@
         "2a21a7c1a3f89181074e9771",
         "2a21a7c1a3f89181074e9776",
         "2a21a7c1a3f89181074e9791"
-      ]
+      ],
+      "resultTime": "2018-06-29T12:00:00.000Z"
     },
     {
       "_id": "5a1342399017dfc4e2faf4a0",
       "title": "1st place Group E",
-      "type": "E1",
+      "type": "teamGeneral",
       "deadline": "2018-06-14T15:00:00.012Z",
       "league": "4a21a7c1a3f89181074e9762",
       "options": [
@@ -1317,12 +1329,13 @@
         "2a21a7c1a3f89181074e9767",
         "2a21a7c1a3f89181074e9780",
         "2a21a7c1a3f89181074e9783"
-      ]
+      ],
+      "resultTime": "2018-06-29T12:00:00.000Z"
     },
     {
       "_id": "5a1342399017dfc4e2faf4a1",
       "title": "2nd place Group E",
-      "type": "E2",
+      "type": "teamGeneral",
       "deadline": "2018-06-14T15:00:00.013Z",
       "league": "4a21a7c1a3f89181074e9762",
       "options": [
@@ -1330,12 +1343,13 @@
         "2a21a7c1a3f89181074e9767",
         "2a21a7c1a3f89181074e9780",
         "2a21a7c1a3f89181074e9783"
-      ]
+      ],
+      "resultTime": "2018-06-29T12:00:00.000Z"
     },
     {
       "_id": "5a1342399017dfc4e2faf4a2",
       "title": "1st place Group F",
-      "type": "F1",
+      "type": "teamGeneral",
       "deadline": "2018-06-14T15:00:00.014Z",
       "league": "4a21a7c1a3f89181074e9762",
       "options": [
@@ -1343,12 +1357,13 @@
         "2a21a7c1a3f89181074e9768",
         "2a21a7c1a3f89181074e9787",
         "2a21a7c1a3f89181074e9782"
-      ]
+      ],
+      "resultTime": "2018-06-29T12:00:00.000Z"
     },
     {
       "_id": "5a1342399017dfc4e2faf4a3",
       "title": "2nd place Group F",
-      "type": "F2",
+      "type": "teamGeneral",
       "deadline": "2018-06-14T15:00:00.015Z",
       "league": "4a21a7c1a3f89181074e9762",
       "options": [
@@ -1356,12 +1371,13 @@
         "2a21a7c1a3f89181074e9768",
         "2a21a7c1a3f89181074e9787",
         "2a21a7c1a3f89181074e9782"
-      ]
+      ],
+      "resultTime": "2018-06-29T12:00:00.000Z"
     },
     {
       "_id": "5a1342399017dfc4e2faf4a4",
       "title": "1st place Group G",
-      "type": "G1",
+      "type": "teamGeneral",
       "deadline": "2018-06-14T15:00:00.016Z",
       "league": "4a21a7c1a3f89181074e9762",
       "options": [
@@ -1369,12 +1385,13 @@
         "2a21a7c1a3f89181074e9773",
         "2a21a7c1a3f89181074e9769",
         "2a21a7c1a3f89181074e9793"
-      ]
+      ],
+      "resultTime": "2018-06-29T12:00:00.000Z"
     },
     {
       "_id": "5a1342399017dfc4e2faf4a5",
       "title": "2nd place Group G",
-      "type": "G2",
+      "type": "teamGeneral",
       "deadline": "2018-06-14T15:00:00.017Z",
       "league": "4a21a7c1a3f89181074e9762",
       "options": [
@@ -1382,12 +1399,13 @@
         "2a21a7c1a3f89181074e9773",
         "2a21a7c1a3f89181074e9769",
         "2a21a7c1a3f89181074e9793"
-      ]
+      ],
+      "resultTime": "2018-06-29T12:00:00.000Z"
     },
     {
       "_id": "5a1342399017dfc4e2faf4a6",
       "title": "1st place Group H",
-      "type": "H1",
+      "type": "teamGeneral",
       "deadline": "2018-06-14T15:00:00.018Z",
       "league": "4a21a7c1a3f89181074e9762",
       "options": [
@@ -1395,12 +1413,13 @@
         "2a21a7c1a3f89181074e9786",
         "2a21a7c1a3f89181074e9777",
         "2a21a7c1a3f89181074e9792"
-      ]
+      ],
+      "resultTime": "2018-06-29T12:00:00.000Z"
     },
     {
       "_id": "5a1342399017dfc4e2faf4a7",
       "title": "2nd place Group H",
-      "type": "H2",
+      "type": "teamGeneral",
       "deadline": "2018-06-14T15:00:00.019Z",
       "league": "4a21a7c1a3f89181074e9762",
       "options": [
@@ -1408,7 +1427,8 @@
         "2a21a7c1a3f89181074e9786",
         "2a21a7c1a3f89181074e9777",
         "2a21a7c1a3f89181074e9792"
-      ]
+      ],
+      "resultTime": "2018-06-29T12:00:00.000Z"
     }
   ],
   "teamResults": [

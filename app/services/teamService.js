@@ -24,11 +24,14 @@ const self = module.exports = {
 		return Team.findOne({deadline: {$gte: new Date()}, _id: teamId}).sort({'deadline': 1});
 	},
 	getStartedTeams: function (teamIds) {
-		if (typeof(predictionRequest.teamIds) === 'undefined') {
+		if (typeof(teamIds) === 'undefined') {
 			return self.byAfterADate(new Date());
 		} else {
 			return self.byAfterADateAndIds(new Date(), teamIds);
 		}
+	},
+	getNotStartedTeams: function (teamsIds) {
+		return Team.find({deadline: {$gte: new Date()}, _id: {$in: teamsIds}});
 	},
 	byAfterADate: function (date) {
 		return Team.find({deadline: {$lt: date}});
@@ -38,6 +41,9 @@ const self = module.exports = {
 	},
 	byId: function (id) {
 		return Team.findOne({_id: id});
+	},
+	byIds: function (ids) {
+		return Team.find({_id: {$in: ids}});
 	},
 	all: function () {
 		return Team.find({});
@@ -49,5 +55,8 @@ const self = module.exports = {
 		return teams.map(function (team) {
 			return team._id.toString();
 		});
+	},
+	byLeagueIdAndIdsWithLimit: function (leagueId, ids) {
+		return Team.find({_id: {$in: ids}, league: leagueId}).sort({'deadline': -1});
 	}
 };

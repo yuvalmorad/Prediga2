@@ -1919,50 +1919,56 @@
     {
       "_id": "5a1342399017dfc4e2faf4a8",
       "title": "1st place",
-      "type": "1st",
+      "type": "teamWinner",
       "deadline": "2018-02-01T00:00:00.000Z",
       "league": "5a21a7c1a3f89181074e9769",
-      "options": []
+      "options": [],
+      "resultTime": "2018-03-10T00:00:00.000Z"
     },
     {
       "_id": "5a1342399017dfc4e2faf4a9",
       "title": "2nd place",
-      "type": "2nd",
+      "type": "teamRunnerUp",
       "deadline": "2018-02-01T00:00:00.001Z",
       "league": "5a21a7c1a3f89181074e9769",
-      "options": []
+      "options": [],
+      "resultTime": "2018-03-10T00:00:00.000Z"
     },
     {
       "_id": "5a1342399017dfc4e2faf4b0",
       "title": "3rd place",
-      "type": "3rd",
+      "type": "teamThird",
       "deadline": "2018-02-01T00:00:00.002Z",
       "league": "5a21a7c1a3f89181074e9769",
-      "options": []
+      "options": [],
+      "resultTime": "2018-03-10T00:00:00.000Z"
     },
     {
       "_id": "5a1342399017dfc4e2faf4b1",
       "title": "4th place",
-      "type": "4th",
+      "type": "teamForth",
       "deadline": "2018-02-01T00:00:00.003Z",
       "league": "5a21a7c1a3f89181074e9769",
-      "options": []
+      "options": [],
+      "resultTime": "2018-03-10T00:00:00.000Z"
     },
     {
       "_id": "5a1342399017dfc4e2faf4b2",
       "title": "13th place",
-      "type": "13th",
+      "type": "team2ndLast",
       "deadline": "2018-02-01T00:00:00.004Z",
       "league": "5a21a7c1a3f89181074e9769",
-      "options": []
+      "options": [],
+      "resultTime": "2018-03-10T00:00:00.000Z"
     },
     {
       "_id": "5a1342399017dfc4e2faf4b3",
       "title": "14th place",
-      "type": "14th",
+      "type": "teamLast",
       "deadline": "2018-02-01T00:00:00.005Z",
       "league": "5a21a7c1a3f89181074e9769",
-      "options": []
+      "options": [],
+      "resultTime": "2018-03-10T00:00:00.000Z"
     }
   ],
   "matchResults": [
