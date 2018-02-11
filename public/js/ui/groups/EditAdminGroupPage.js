@@ -3,6 +3,7 @@ component.EditAdminGroupPage = (function(){
     var connect = ReactRedux.connect;
     var EditAdminGroupTile = component.EditAdminGroupTile;
     var SelectGroupIcon = component.SelectGroupIcon;
+    var Secret = component.Secret;
     var AvailableLeaguesList = component.AvailableLeaguesList;
 
     var EditAdminGroupPage = React.createClass({
@@ -13,7 +14,22 @@ component.EditAdminGroupPage = (function(){
             }
 
             var group = this.getGroupAndSetHeader(this.props.groups);
-            return {
+            return this.createInitState(group);
+        },
+
+        componentWillReceiveProps: function(nextProps) {
+            var groups = nextProps.groups;
+            if (groups.length && groups !== this.props.groups) {
+                var group = this.getGroupAndSetHeader(groups);
+                if (group) {
+                    var state = this.createInitState(group);
+                    this.setState(state);
+                }
+            }
+        },
+
+        createInitState: function(group) {
+            var state = {
                 group: group,
                 displaySelectGroupIconPage: false,
                 groupName: group ? group.name : "",
@@ -22,15 +38,17 @@ component.EditAdminGroupPage = (function(){
                 leagueIds: group ? group.leagueIds : [],
                 isDirty: false
             };
+
+            if (group && group.secret) {
+                this.addSecretToState(state, group);
+            }
+
+            return state;
         },
 
-        componentWillReceiveProps: function(nextProps) {
-            var groups = nextProps.groups;
-            if (groups.length && groups !== this.props.groups) {
-                var group = this.getGroupAndSetHeader(groups);
-                if (group) {
-                    this.setState({group: group, groupName: group.name, groupIcon: group.icon, groupIconColor: group.iconColor, leagueIds: group.leagueIds});
-                }
+        addSecretToState: function(state, group) {
+            for (var i = 0; i < group.secret.length; i++) {
+                state["secret" + i] = group.secret.charAt(i);
             }
         },
 
@@ -68,12 +86,19 @@ component.EditAdminGroupPage = (function(){
             var props = this.props;
             var state = this.state;
             var groupConfiguration = utils.general.getGroupConfiguration(props.groups, state.group._id, props.groupsConfiguration);
-            var groupToUpdate = Object.assign({}, state.group, {
+            var stateToUpdate = {
                 name: state.groupName,
                 icon: state.groupIcon,
                 iconColor: state.groupIconColor,
-                leagueIds: state.leagueIds
-            });
+                leagueIds: state.leagueIds,
+                secret: ""
+            };
+
+            for (var i = 0; i < SECRET_LENGTH; i++) {
+                stateToUpdate.secret += state["secret" + i];
+            }
+
+            var groupToUpdate = Object.assign({}, state.group, stateToUpdate);
 
             groupToUpdate.configuration = groupConfiguration;
 
@@ -85,13 +110,17 @@ component.EditAdminGroupPage = (function(){
 
         onCancel: function() {
             var group = this.state.group;
-            this.setState({
+            var stateToUpdate = {
                 isDirty: false,
                 groupName: group.name,
                 groupIcon: group.icon,
                 groupIconColor: group.iconColor,
                 leagueIds: group.leagueIds
-            });
+            };
+
+            this.addSecretToState(stateToUpdate, group);
+
+            this.setState(stateToUpdate);
         },
 
         onLeagueClicked: function(leagueId) {
@@ -146,6 +175,12 @@ component.EditAdminGroupPage = (function(){
             }
         },
 
+        onSecretNumberChanged: function(name, num) {
+            var newState = {isDirty: true};
+            newState[name] = num;
+            this.setState(newState);
+        },
+
         render: function() {
             var that = this;
             var props = this.props;
@@ -160,6 +195,9 @@ component.EditAdminGroupPage = (function(){
             var groupIconClassName = "group-icon";
             var selectLeaguesClassName = "sub-title";
             var mainElement;
+            var secretProps = {
+                onNumberChanged: this.onSecretNumberChanged
+            };
 
             if (this.state.displaySelectGroupIconPage) {
                 mainElement = re(SelectGroupIcon, {selectedIcon: state.groupIcon, selectedIconColor: state.groupIconColor, onSave: this.onSelectGroupIconSave, onCancel: this.onSelectGroupIconCancel});
@@ -178,6 +216,10 @@ component.EditAdminGroupPage = (function(){
                     if (!state.leagueIds.length) {
                         isFormValid = false;
                         selectLeaguesClassName += " invalid";
+                    }
+
+                    for (var i = 0; i < SECRET_LENGTH; i++) {
+                        secretProps["secret" + i] = state["secret" + i];
                     }
 
                     usersInGroup = group.users.map(function(userId){
@@ -212,6 +254,11 @@ component.EditAdminGroupPage = (function(){
                         re("div", {className: "small-text"}, "Max 64 Characters")
                     ),
                     re("input", {type: "text", className: groupNameClassName, value: state.groupName, onChange: this.onGroupNameChange}),
+                    re("div", {className: "sub-title-container"},
+                        re("div", {className: "sub-title"}, "Group Secret:"),
+                        re("div", {className: "small-text"}, "Only Numbers")
+                    ),
+                    re(Secret, secretProps),
                     re("div", {className: "sub-title-container"},
                         re("div", {className: "sub-title"}, "Group Icon:")
                     ),
