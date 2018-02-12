@@ -3,7 +3,7 @@ const util = require('../utils/util');
 
 const self = module.exports = {
 	updateTeamResult: function (teamResult) {
-		return TeamResult.findOneAndUpdate({teamId: teamResult.teamId}, teamResult, util.updateSettings).then(function (newTeamResult) {
+		return TeamResult.findOneAndUpdate({_id: teamResult._id}, teamResult, util.updateSettings).then(function (newTeamResult) {
 				return Promise.resolve(newTeamResult);
 			}
 		);

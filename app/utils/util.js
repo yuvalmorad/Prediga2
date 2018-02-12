@@ -35,8 +35,10 @@ module.exports = {
 	},
 	mergeArr: function (arr) {
 		let mergedArr = [];
-		arr.forEach(function (item) {
-			mergedArr = mergedArr.concat(item);
+		arr.forEach(function (subArray) {
+			subArray.forEach(function (item) {
+				mergedArr = mergedArr.concat(item);
+			});
 		});
 		return mergedArr;
 	},
