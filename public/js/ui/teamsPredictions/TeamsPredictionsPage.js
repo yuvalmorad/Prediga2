@@ -23,10 +23,18 @@ component.TeamsPredictionsPage = (function(){
         render: function() {
             var props = this.props,
                 teams = props.teams,
+                predictionsCounters = props.predictionsCounters || {},
                 userPredictions = props.userPredictions,
                 selectedLeagueId = props.selectedLeagueId,
                 clubs = props.clubs,
-                leagues = props.leagues;
+                leagues = props.leagues,
+                groups = props.groups,
+                selectedGroupId = props.selectedGroupId,
+                groupsConfiguration = props.groupsConfiguration || [];
+
+            var group = utils.general.findItemInArrBy(groups, "_id", selectedGroupId);
+            var usersInGroupCount = group ? group.users.length : 0;
+           var  groupConfiguration = utils.general.getGroupConfiguration(groups, selectedGroupId, groupsConfiguration);
 
             //filter teams with selected league id
             teams = teams.filter(function(team){
@@ -43,7 +51,16 @@ component.TeamsPredictionsPage = (function(){
                 if (prediction && prediction.team) {
                     selectedTeam = utils.general.findItemInArrBy(clubs, "_id", prediction.team);
                 }
-                return re(TeamPredictionTile, {team: team, selectedTeam: selectedTeam, league: league, prediction: prediction, key: teamId})
+                return re(TeamPredictionTile, {
+                    team: team,
+                    selectedTeam: selectedTeam,
+                    league: league,
+                    prediction: prediction,
+                    predictionCounters: predictionsCounters[teamId] || {},
+                    usersInGroupCount: usersInGroupCount,
+                    groupConfiguration: groupConfiguration,
+                    key: teamId
+                });
             });
 
             return re("div", { className: "content hasSubHeader" },
@@ -59,11 +76,14 @@ component.TeamsPredictionsPage = (function(){
         return {
             teams: state.teamsPredictions.teams,
             userPredictions: state.teamsPredictions.userPredictions,
+            predictionsCounters: state.teamsPredictions.predictionsCounters,
             isShowTileDialog: state.general.isShowTileDialog,
             leagues: state.leagues.leagues,
             selectedLeagueId: state.groups.selectedLeagueId,
             clubs: state.leagues.clubs,
-            selectedGroupId: state.groups.selectedGroupId
+            groups: state.groups.groups,
+            selectedGroupId: state.groups.selectedGroupId,
+            groupsConfiguration: state.groupsConfiguration.groupsConfiguration
         }
     }
 

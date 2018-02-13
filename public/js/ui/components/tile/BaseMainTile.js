@@ -14,6 +14,7 @@ component.BaseMainTile = (function(){
             rankTitle = props.rankTitle,
             points = props.points,
             badgeName = props.badgeName,
+            graphParts = props.graphParts,
             logoPosition = props.logoPosition;
 
         var trendElement = null;

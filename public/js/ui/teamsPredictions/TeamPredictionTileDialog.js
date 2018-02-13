@@ -47,11 +47,13 @@ component.TeamPredictionTileDialog = (function(){
                 leagues = props.leagues,
                 clubs = props.clubs,
                 team = props.team,
+                predictionCounters = props.predictionCounters,
+                usersInGroupCount = props.usersInGroupCount,
+                groupConfiguration = props.groupConfiguration,
                 selectedTeam,
                 borderColor = "gray",
                 borderSecondColor = "",
-                league = utils.general.findItemInArrBy(leagues, "_id", team.league),
-                leagueName = league.name;
+                league = utils.general.findItemInArrBy(leagues, "_id", team.league);
 
             if (prediction && prediction.team) {
                 selectedTeam = utils.general.findItemInArrBy(clubs, "_id", prediction.team);
@@ -60,7 +62,7 @@ component.TeamPredictionTileDialog = (function(){
             }
 
             return re(TileDialog, {borderLeftColor: borderColor, borderLeftSecondColor: borderSecondColor, borderRightColor: borderColor, borderRightSecondColor: borderSecondColor, className: "team-prediction-tile"},
-                re(TeamPredictionMainTile, {team: team, selectedTeam: selectedTeam, league: league, fixedDescription: leagueName}),
+                re(TeamPredictionMainTile, {team: team, selectedTeam: selectedTeam, league: league, predictionCounters: predictionCounters, usersInGroupCount: usersInGroupCount, groupConfiguration: groupConfiguration}),
                 re(TeamPredictionFormTile, {team: team, selectedTeam: selectedTeam, league: league, clubs: clubs, onSelectedTeamChanged: this.onSelectedTeamChanged})
             );
         }

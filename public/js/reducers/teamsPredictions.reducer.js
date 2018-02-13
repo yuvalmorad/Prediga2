@@ -7,7 +7,8 @@ reducer.teamsPredictions = function() {
     var initialState = {
         teams: [],
         userPredictions: [],
-        results: []
+        results: [],
+        predictionsCounters: {}
     };
 
     return function teamsPredictions(state, action){
@@ -17,7 +18,7 @@ reducer.teamsPredictions = function() {
 
         switch (action.type) {
             case LOAD_TEAMS_SUCCESS:
-                return Object.assign({}, state, {teams: action.teams, userPredictions: action.userPredictions, results: action.results});
+                return Object.assign({}, state, {teams: action.teams, userPredictions: action.userPredictions, results: action.results, predictionsCounters: action.predictionsCounters});
             case UPDATE_TEAM_SELECTED:
                 return Object.assign({}, state, {userPredictions: utils.general.updateOrCreateObject(state.userPredictions, action.prediction)});
             default:

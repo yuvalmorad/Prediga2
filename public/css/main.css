@@ -1023,6 +1023,61 @@ body {
 }
 
 /* -------  team prediction tile -------*/
+.team-prediction-tile .center{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 1.7rem 0.8rem;
+}
+
+.team-prediction-tile .main > .left {
+    margin-left: 1rem;
+}
+
+.team-prediction-tile .main > .right {
+    margin-right: 0.5rem;
+}
+
+.team-prediction-tile .team-name {
+    font-weight: bold;
+}
+
+.team-prediction-tile .points {
+    font-size: 0.65rem;
+    color: #ccc;
+    margin-top: 2px;
+    flex: 1;
+}
+
+.team-prediction-tile .team-short-name {
+    margin-top: 0.5rem;
+    font-size: 0.75rem;
+    font-weight: bold;
+}
+
+.team-prediction-tile .rankTitle {
+    font-weight: bold;
+    text-align: center;
+}
+
+.team-prediction-tile .graphContainer {
+    width: 100%;
+}
+
+.team-prediction-tile .graphContainer .graph {
+    height: 0.2rem;
+    display: flex;
+}
+
+.team-prediction-tile .main > .left,
+.team-prediction-tile .main > .right {
+    width: 3.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
 .tile-dialog-container .team-prediction-tile.tile {
     height: 19rem;
 }
