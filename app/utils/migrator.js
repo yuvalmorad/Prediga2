@@ -51,7 +51,6 @@ const self = module.exports = {
 		return MatchPrediction.find({}, function (err, matchPredictions) {
 			if (matchPredictions) {
 				const promises = matchPredictions.map(function (matchPrediction) {
-					matchPrediction.groupId = utils.DEFAULT_GROUP;
 					return MatchPrediction.findOneAndUpdate({_id: matchPrediction._id}, matchPrediction, utils.updateSettings);
 				});
 				return Promise.all(promises);
@@ -72,7 +71,6 @@ const self = module.exports = {
 		return TeamPrediction.find({}, function (err, teamPredictions) {
 			if (teamPredictions) {
 				const promises = teamPredictions.map(function (teamPrediction) {
-					teamPrediction.groupId = utils.DEFAULT_GROUP;
 					return TeamPrediction.findOneAndUpdate({_id: teamPrediction._id}, teamPrediction, utils.updateSettings);
 				});
 				return Promise.all(promises);

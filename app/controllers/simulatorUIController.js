@@ -35,7 +35,7 @@ function getData(groupId, userId) {
 			return matchService.byLeagueIds(leagueIds).then(function (matches) {
 				const matchIds = matchService.getIdArr(matches);
 				return matchResultService.byMatchIdsAndAndActiveStatus(matchIds, true).then(function (inProgressMatchResults) {
-					const inProgressMatchIds = matchResultService.getMatchIdsArr(inProgressMatchResults);
+					let inProgressMatchIds = matchResultService.getMatchIdsArr(inProgressMatchResults);
 					return matchService.byIds(inProgressMatchIds).then(function (inProgressMatches) {
 						return matchPredictionsService.byGroupIdAndMatches(groupId, inProgressMatches).then(function (predictions) {
 							return teamService.byLeagueIds(leagueIds).then(function (teams) {
