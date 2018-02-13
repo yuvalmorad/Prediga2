@@ -1017,6 +1017,11 @@ body {
     text-align: center;
     line-height: 1.2rem;
 }
+
+.leaderboard-match-row .points.zero {
+    background-color: #a7a4a4;
+}
+
 /* -------  team prediction tile -------*/
 .tile-dialog-container .team-prediction-tile.tile {
     height: 19rem;

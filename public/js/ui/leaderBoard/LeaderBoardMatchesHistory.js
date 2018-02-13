@@ -93,7 +93,7 @@ component.LeaderBoardMatchesHistory = (function(){
                         re("div", {}, team2.name)
                     ),
                     re("div", {},
-                        re("div", {className: "points"}, points)
+                        re("div", {className: "points" + (points === 0 ? " zero" : "")}, points)
                     )
                 );
             });
