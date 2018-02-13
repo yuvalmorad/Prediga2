@@ -95,7 +95,7 @@ function getDataForTeams(request) {
 				return finishedTeamIds.indexOf(prediction.teamId) >= 0;
 			});
 
-			return teamService.byLeagueIdAndIdsWithLimit(request.leagueId, finishedTeamIds).then(function (finishedTeams) {
+			return teamService.byLeagueIdAndIds(request.leagueId, finishedTeamIds).then(function (finishedTeams) {
 				if (!finishedTeams) {
 					return emptyObj;
 				} else {

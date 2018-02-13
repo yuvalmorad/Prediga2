@@ -56,7 +56,7 @@ const self = module.exports = {
 			return team._id.toString();
 		});
 	},
-	byLeagueIdAndIdsWithLimit: function (leagueId, ids) {
+	byLeagueIdAndIds: function (leagueId, ids) {
 		return Team.find({_id: {$in: ids}, league: leagueId}).sort({'deadline': -1});
 	}
 };
