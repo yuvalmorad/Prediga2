@@ -15,18 +15,19 @@ component.TeamPredictionMainTile = (function(){
             groupConfiguration = props.groupConfiguration,
             points = groupConfiguration ? groupConfiguration[team.type] : "",
             logoPosition,
-            graphParts = [];
+            graphParts = [],
+            isDeadLine = props.isDeadLine; //only for dialog
 
-        if (selectedTeam) {
+        if (!selectedTeam || (isDeadLine && selectedTeam.isDummySelection)) {
+            teamName = "Team";
+            logoPosition = league.logoPosition
+        } else {
             teamName = selectedTeam.name;
             teamShortName = selectedTeam.shortName;
             logoPosition = selectedTeam.logoPosition;
 
             var usersSelectedTeamCount = predictionCounters[selectedTeam._id] || 0;
             graphParts = [{color: selectedTeam.graphColors[0], amount: usersSelectedTeamCount}, {color: COLORS.DRAW_COLOR, amount: usersInGroupCount - usersSelectedTeamCount}];
-        } else {
-            teamName = "Team";
-            logoPosition = league.logoPosition
         }
 
         return re("div", {className: "main"},
