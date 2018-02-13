@@ -33,7 +33,7 @@ utils.general = (function(){
 
     function getGroupConfiguration(groups, groupId, groupsConfiguration) {
         var group = findItemInArrBy(groups, "_id", groupId);
-        return findItemInArrBy(groupsConfiguration, "_id", group.configurationId);
+        return group ? findItemInArrBy(groupsConfiguration, "_id", group.configurationId) : null;
     }
 
     function formatDateByMonthAndDate(dateObj) {

@@ -1,28 +1,50 @@
 window.component = window.component || {};
 component.TeamPredictionMainTile = (function(){
-    var BaseMainTile = component.BaseMainTile;
+    var TeamLogo = component.TeamLogo;
+    var Graph = component.Graph;
 
     return  function(props) {
         var team = props.team,
             selectedTeam = props.selectedTeam,
             league = props.league,
             leagueName = league.name,
-            title = team.title,
-            opts = {
-                leagueName: leagueName,
-                description: leagueName,
-                rankTitle: title
-            };
+            teamName,
+            teamShortName,
+            predictionCounters = props.predictionCounters,
+            usersInGroupCount = props.usersInGroupCount,
+            groupConfiguration = props.groupConfiguration,
+            points = groupConfiguration ? groupConfiguration[team.type] : "",
+            logoPosition,
+            graphParts = [];
 
         if (selectedTeam) {
-            opts.title = selectedTeam.name;
-            opts.logoPosition = selectedTeam.logoPosition;
+            teamName = selectedTeam.name;
+            teamShortName = selectedTeam.shortName;
+            logoPosition = selectedTeam.logoPosition;
+
+            var usersSelectedTeamCount = predictionCounters[selectedTeam._id] || 0;
+            graphParts = [{color: selectedTeam.graphColors[0], amount: usersSelectedTeamCount}, {color: COLORS.DRAW_COLOR, amount: usersInGroupCount - usersSelectedTeamCount}];
         } else {
-            opts.title = "Team";
-            opts.logoPosition = league.logoPosition
+            teamName = "Team";
+            logoPosition = league.logoPosition
         }
 
-        return re(BaseMainTile, opts);
+        return re("div", {className: "main"},
+            re("div", {className: "left"},
+                re(TeamLogo, {leagueName: leagueName, logoPosition: logoPosition}),
+                re("div", {className: "team-short-name"}, teamShortName)
+            ),
+            re("div", {className: "center"},
+                re("div", {className: "team-name"}, teamName),
+                re("div", {className: "points"}, points + " Points"),
+                re("div", {className: "graphContainer"},
+                    re(Graph, {parts: graphParts})
+                )
+            ),
+            re("div", {className: "right"},
+                re("div", {className: "rankTitle"}, team.title)
+            )
+        );
     }
 })();
 
