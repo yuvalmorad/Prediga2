@@ -92,16 +92,17 @@ component.ImagesPagination = (function(){
 
             var isLeftButtonDisabled = currentIndex === 0;
             var isRightButtonDisabled = currentIndex === items.length - 1;
+            var hasMoreThanOneItem = items.length > 1;
 
             return re("div", {className: "images-pagination", ref: this.assignRefElem},
                 re("div", {className: "images-pagination-container"},
-                    re("div", {className: "button-area left"},
+                    re("div", {className: "button-area left" + (hasMoreThanOneItem ? "" : " hide")},
                         re("button", {onClick: this.onPreviousClicked.bind(this, currentIndex), disabled: isLeftButtonDisabled}, "")
                     ),
                     re("div", {className: scrollClassName, style: {transform: "translateX(" + scrollX + "px)"}},
                         itemsElements
                     ),
-                    re("div", {className: "button-area right"},
+                    re("div", {className: "button-area right" + (hasMoreThanOneItem ? "" : " hide")},
                         re("button", {onClick: this.onNextClicked.bind(this,currentIndex), disabled: isRightButtonDisabled}, "")
                     )
                 )

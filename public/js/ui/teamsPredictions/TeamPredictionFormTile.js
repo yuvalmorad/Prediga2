@@ -43,28 +43,46 @@ component.TeamPredictionFormTile = (function(){
         render: function() {
            var props = this.props,
                selectedTeam = props.selectedTeam,
-               league = props.league;
+               league = props.league,
+               isDeadLine = props.isDeadLine;
 
-           var items = this.state.teamOptions.sort(function(team1, team2){
-               return team1.name.localeCompare(team2.name);
-           }).map(function(teamOption){
-               var isSelected = false;
-               var teamId = teamOption._id;
-               if (selectedTeam && selectedTeam._id === teamId) {
-                   isSelected = true;
-               }
+           var items = [];
 
-               return {
-                   isSelected: isSelected,
-                   id: teamOption._id,
-                   shortName: teamOption.shortName,
-                   logoPosition: teamOption.logoPosition,
-                   leagueName: league.name
+           if (isDeadLine) {
+               if (selectedTeam.isDummySelection) {
+                   //no prediction
+                   items = [];
+               } else {
+                   items = [{
+                       isSelected: true,
+                       id: selectedTeam._id,
+                       shortName: selectedTeam.shortName,
+                       logoPosition: selectedTeam.logoPosition,
+                       leagueName: league.name
+                   }]
                }
-           });
+           } else {
+               items = this.state.teamOptions.sort(function(team1, team2){
+                   return team1.name.localeCompare(team2.name);
+               }).map(function(teamOption){
+                   var isSelected = false;
+                   var teamId = teamOption._id;
+                   if (selectedTeam && selectedTeam._id === teamId) {
+                       isSelected = true;
+                   }
+
+                   return {
+                       isSelected: isSelected,
+                       id: teamOption._id,
+                       shortName: teamOption.shortName,
+                       logoPosition: teamOption.logoPosition,
+                       leagueName: league.name
+                   }
+               });
+           }
 
            return re("div", {className: "team-prediction-form"},
-               re(Search, {onSearch: this.onSearch}),
+               isDeadLine ? null : re(Search, {onSearch: this.onSearch}),
                re(ImagesPagination, {items: items, onSelectedTeamChanged: props.onSelectedTeamChanged})
            );
        }

@@ -18,7 +18,8 @@ component.TeamPredictionTileDialog = (function(){
             if (!predictionCopy.team) {
                 predictionCopy.team = team.options.length ?
                                         team.options[0] :
-                                        utils.general.findItemInArrBy(leagues, "_id", selectedLeagueId).clubs[0]
+                                        utils.general.findItemInArrBy(leagues, "_id", selectedLeagueId).clubs[0];
+                predictionCopy.isDummySelection = true;
             }
 
             return {
@@ -28,6 +29,13 @@ component.TeamPredictionTileDialog = (function(){
 
         componentDidMount: function() {
             this.props.onDialogSave(this.onDialogSave);
+            if (this.isDeadLine()) {
+                this.props.setSaveButtonEnabled(false);
+            }
+        },
+
+        isDeadLine: function() {
+            return new Date() >= new Date(this.props.team.deadline);
         },
 
         onSelectedTeamChanged: function(teamId) {
@@ -57,13 +65,15 @@ component.TeamPredictionTileDialog = (function(){
 
             if (prediction && prediction.team) {
                 selectedTeam = utils.general.findItemInArrBy(clubs, "_id", prediction.team);
+                selectedTeam.isDummySelection = prediction.isDummySelection;
                 borderColor = selectedTeam.colors[0];
                 borderSecondColor = selectedTeam.colors[1];
             }
 
+            var isDeadLine = this.isDeadLine();
             return re(TileDialog, {borderLeftColor: borderColor, borderLeftSecondColor: borderSecondColor, borderRightColor: borderColor, borderRightSecondColor: borderSecondColor, className: "team-prediction-tile"},
-                re(TeamPredictionMainTile, {team: team, selectedTeam: selectedTeam, league: league, predictionCounters: predictionCounters, usersInGroupCount: usersInGroupCount, groupConfiguration: groupConfiguration}),
-                re(TeamPredictionFormTile, {team: team, selectedTeam: selectedTeam, league: league, clubs: clubs, onSelectedTeamChanged: this.onSelectedTeamChanged})
+                re(TeamPredictionMainTile, {team: team, selectedTeam: selectedTeam, league: league, predictionCounters: predictionCounters, usersInGroupCount: usersInGroupCount, groupConfiguration: groupConfiguration, isDeadLine: isDeadLine}),
+                re(TeamPredictionFormTile, {team: team, selectedTeam: selectedTeam, league: league, clubs: clubs, onSelectedTeamChanged: this.onSelectedTeamChanged, isDeadLine: isDeadLine})
             );
         }
     });
