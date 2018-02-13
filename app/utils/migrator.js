@@ -16,10 +16,10 @@ const self = module.exports = {
 		return Promise.all([
 			//self.migrateUserScore(),
 			//self.migrateLeaderboard(),
-			//self.migrateMatchPredictions(),
-			//self.migrateTeamPredictions(),
+			self.migrateMatchPredictions(),
+			self.migrateTeamPredictions(),
 			//self.migrateUsers(),
-			//self.migrateMatchResults()
+			self.migrateMatchResults()
 			//self.migrateTeamResults()
 		]).then(function (arr) {
 			console.log('[Init] - Migration finished');
@@ -51,7 +51,54 @@ const self = module.exports = {
 		return MatchPrediction.find({}, function (err, matchPredictions) {
 			if (matchPredictions) {
 				const promises = matchPredictions.map(function (matchPrediction) {
-					matchPrediction.groupId = utils.DEFAULT_GROUP;
+					if (matchPrediction.firstToScore === '1a21a7c1a3f89181074e9776') {
+						matchPrediction.firstToScore = '1a21a7c1a3f89181074e9963';
+					}
+					if (matchPrediction.winner === '1a21a7c1a3f89181074e9776') {
+						matchPrediction.winner = '1a21a7c1a3f89181074e9963';
+					}
+					if (matchPrediction.firstToScore === '1a21a7c1a3f89181074e9766') {
+						matchPrediction.firstToScore = '1a21a7c1a3f89181074e9965';
+					}
+					if (matchPrediction.winner === '1a21a7c1a3f89181074e9766') {
+						matchPrediction.winner = '1a21a7c1a3f89181074e9965';
+					}
+					if (matchPrediction.firstToScore === '1a21a7c1a3f89181074e9776') {
+						matchPrediction.firstToScore = '1a21a7c1a3f89181074e9963';
+					}
+					if (matchPrediction.winner === '1a21a7c1a3f89181074e9780') {
+						matchPrediction.winner = '1a21a7c1a3f89181074e9967';
+					}
+					if (matchPrediction.firstToScore === '1a21a7c1a3f89181074e9870') {
+						matchPrediction.firstToScore = '1a21a7c1a3f89181074e9968';
+					}
+					if (matchPrediction.winner === '1a21a7c1a3f89181074e9870') {
+						matchPrediction.winner = '1a21a7c1a3f89181074e9968';
+					}
+					if (matchPrediction.firstToScore === '1a21a7c1a3f89181074e9773') {
+						matchPrediction.firstToScore = '1a21a7c1a3f89181074e9969';
+					}
+					if (matchPrediction.winner === '1a21a7c1a3f89181074e9773') {
+						matchPrediction.winner = '1a21a7c1a3f89181074e9969';
+					}
+					if (matchPrediction.firstToScore === '1a21a7c1a3f89181074e9863') {
+						matchPrediction.firstToScore = '1a21a7c1a3f89181074e9970';
+					}
+					if (matchPrediction.winner === '1a21a7c1a3f89181074e9863') {
+						matchPrediction.winner = '1a21a7c1a3f89181074e9970';
+					}
+					if (matchPrediction.firstToScore === '1a21a7c1a3f89181074e9767') {
+						matchPrediction.firstToScore = '1a21a7c1a3f89181074e9974';
+					}
+					if (matchPrediction.winner === '1a21a7c1a3f89181074e9767') {
+						matchPrediction.winner = '1a21a7c1a3f89181074e9974';
+					}
+					if (matchPrediction.firstToScore === '1a21a7c1a3f89181074e9874') {
+						matchPrediction.firstToScore = '1a21a7c1a3f89181074e9975';
+					}
+					if (matchPrediction.winner === '1a21a7c1a3f89181074e9874') {
+						matchPrediction.winner = '1a21a7c1a3f89181074e9975';
+					}
 					return MatchPrediction.findOneAndUpdate({_id: matchPrediction._id}, matchPrediction, utils.updateSettings);
 				});
 				return Promise.all(promises);
@@ -62,6 +109,54 @@ const self = module.exports = {
 		return MatchResult.find({}, function (err, matchResults) {
 			if (matchResults) {
 				const promises = matchResults.map(function (matchResult) {
+					if (matchResult.firstToScore === '1a21a7c1a3f89181074e9776') {
+						matchResult.firstToScore = '1a21a7c1a3f89181074e9963';
+					}
+					if (matchResult.winner === '1a21a7c1a3f89181074e9776') {
+						matchResult.winner = '1a21a7c1a3f89181074e9963';
+					}
+					if (matchResult.firstToScore === '1a21a7c1a3f89181074e9766') {
+						matchResult.firstToScore = '1a21a7c1a3f89181074e9965';
+					}
+					if (matchResult.winner === '1a21a7c1a3f89181074e9766') {
+						matchResult.winner = '1a21a7c1a3f89181074e9965';
+					}
+					if (matchResult.firstToScore === '1a21a7c1a3f89181074e9776') {
+						matchResult.firstToScore = '1a21a7c1a3f89181074e9963';
+					}
+					if (matchResult.winner === '1a21a7c1a3f89181074e9780') {
+						matchResult.winner = '1a21a7c1a3f89181074e9967';
+					}
+					if (matchResult.firstToScore === '1a21a7c1a3f89181074e9870') {
+						matchResult.firstToScore = '1a21a7c1a3f89181074e9968';
+					}
+					if (matchResult.winner === '1a21a7c1a3f89181074e9870') {
+						matchResult.winner = '1a21a7c1a3f89181074e9968';
+					}
+					if (matchResult.firstToScore === '1a21a7c1a3f89181074e9773') {
+						matchResult.firstToScore = '1a21a7c1a3f89181074e9969';
+					}
+					if (matchResult.winner === '1a21a7c1a3f89181074e9773') {
+						matchResult.winner = '1a21a7c1a3f89181074e9969';
+					}
+					if (matchResult.firstToScore === '1a21a7c1a3f89181074e9863') {
+						matchResult.firstToScore = '1a21a7c1a3f89181074e9970';
+					}
+					if (matchResult.winner === '1a21a7c1a3f89181074e9863') {
+						matchResult.winner = '1a21a7c1a3f89181074e9970';
+					}
+					if (matchResult.firstToScore === '1a21a7c1a3f89181074e9767') {
+						matchResult.firstToScore = '1a21a7c1a3f89181074e9974';
+					}
+					if (matchResult.winner === '1a21a7c1a3f89181074e9767') {
+						matchResult.winner = '1a21a7c1a3f89181074e9974';
+					}
+					if (matchResult.firstToScore === '1a21a7c1a3f89181074e9874') {
+						matchResult.firstToScore = '1a21a7c1a3f89181074e9975';
+					}
+					if (matchResult.winner === '1a21a7c1a3f89181074e9874') {
+						matchResult.winner = '1a21a7c1a3f89181074e9975';
+					}
 					return MatchResult.findOneAndUpdate({_id: matchResult._id}, matchResult, utils.updateSettings);
 				});
 				return Promise.all(promises);
@@ -72,7 +167,30 @@ const self = module.exports = {
 		return TeamPrediction.find({}, function (err, teamPredictions) {
 			if (teamPredictions) {
 				const promises = teamPredictions.map(function (teamPrediction) {
-					teamPrediction.groupId = utils.DEFAULT_GROUP;
+					if (teamPrediction.team === '1a21a7c1a3f89181074e9776') {
+						teamPrediction.team = '1a21a7c1a3f89181074e9963';
+					}
+					if (teamPrediction.team === '1a21a7c1a3f89181074e9766') {
+						teamPrediction.team = '1a21a7c1a3f89181074e9965';
+					}
+					if (teamPrediction.team === '1a21a7c1a3f89181074e9780') {
+						teamPrediction.team = '1a21a7c1a3f89181074e9967';
+					}
+					if (teamPrediction.team === '1a21a7c1a3f89181074e9870') {
+						teamPrediction.team = '1a21a7c1a3f89181074e9968';
+					}
+					if (teamPrediction.team === '1a21a7c1a3f89181074e9773') {
+						teamPrediction.team = '1a21a7c1a3f89181074e9969';
+					}
+					if (teamPrediction.team === '1a21a7c1a3f89181074e9863') {
+						teamPrediction.team = '1a21a7c1a3f89181074e9970';
+					}
+					if (teamPrediction.team === '1a21a7c1a3f89181074e9767') {
+						teamPrediction.team = '1a21a7c1a3f89181074e9974';
+					}
+					if (teamPrediction.team === '1a21a7c1a3f89181074e9874') {
+						teamPrediction.team = '1a21a7c1a3f89181074e9975';
+					}
 					return TeamPrediction.findOneAndUpdate({_id: teamPrediction._id}, teamPrediction, utils.updateSettings);
 				});
 				return Promise.all(promises);
