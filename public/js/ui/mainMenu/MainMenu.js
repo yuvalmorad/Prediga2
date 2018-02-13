@@ -51,29 +51,40 @@ component.MainMenu = (function(){
 
         renderGroupsMenuItems: function(groups, selectedGroupId) {
             var that = this;
-            return groups.map(function(group){
-                var groupId = group._id;
-                var editActionButton;
-                if (group.createdBy === that.props.userId) {
-                    //admin
-                    editActionButton = {
-                        icon: "",
-                        onClick: that.onGroupAdminSettingsClicked.bind(that, groupId)
-                    };
-                } else if (groupId === "5a3eac97d3ca76dbd12bf638") { //TODO change to some property?
-                    //initial public group
-                    editActionButton = {
-                        icon: ""
+            return groups
+                .sort(function(g1, g2){
+                    if (g1._id === INITIAL_PUPLIC_GROUP) {
+                        return -1;
                     }
-                } else {
-                    //user member
-                    editActionButton = {
-                        icon: "",
-                        onClick: that.onGroupUserSettingsClicked.bind(that, groupId)
+                    if (g2._id === INITIAL_PUPLIC_GROUP) {
+                        return 1;
                     }
-                }
 
-                return re(MenuItem, {text: group.name, isSelected: selectedGroupId === groupId, onMenuItemClicked: that.onGroupMenuItemClicked.bind(that, groupId), actionButton: editActionButton, key: groupId});
+                    return g1.name.localeCompare(g2.name);
+                })
+                .map(function(group){
+                    var groupId = group._id;
+                    var editActionButton;
+                    if (group.createdBy === that.props.userId) {
+                        //admin
+                        editActionButton = {
+                            icon: "",
+                            onClick: that.onGroupAdminSettingsClicked.bind(that, groupId)
+                        };
+                    } else if (groupId === INITIAL_PUPLIC_GROUP) {
+                        //initial public group
+                        editActionButton = {
+                            icon: ""
+                        }
+                    } else {
+                        //user member
+                        editActionButton = {
+                            icon: "",
+                            onClick: that.onGroupUserSettingsClicked.bind(that, groupId)
+                        }
+                    }
+
+                    return re(MenuItem, {text: group.name, isSelected: selectedGroupId === groupId, onMenuItemClicked: that.onGroupMenuItemClicked.bind(that, groupId), actionButton: editActionButton, key: groupId});
             });
         },
 
