@@ -67,7 +67,7 @@
     {
       "_id": "1a21a7c1a3f89181074e9964",
       "name": "Basel",
-      "name365": "באזל",
+      "name365": "פ.צ. באזל",
       "shortName": "BAS",
       "colors": [
         "#DE000A",
@@ -201,7 +201,7 @@
     {
       "_id": "1a21a7c1a3f89181074e9971",
       "name": "Paris Saint-Germain",
-      "name365": "פ.ס.ז'",
+      "name365": "פריס סן-ז'רמן",
       "shortName": "PSG",
       "colors": [
         "#7C2838",
