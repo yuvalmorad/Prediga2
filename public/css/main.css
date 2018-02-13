@@ -1062,11 +1062,22 @@ body {
 
 .team-prediction-tile .graphContainer {
     width: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 .team-prediction-tile .graphContainer .graph {
     height: 0.2rem;
     display: flex;
+}
+
+.team-prediction-tile .points-win {
+    align-self: flex-end;
+    margin-bottom: 4px;
+}
+
+.team-prediction-tile .points-win.win {
+    color: #7ED321;
 }
 
 .team-prediction-tile .main > .left,

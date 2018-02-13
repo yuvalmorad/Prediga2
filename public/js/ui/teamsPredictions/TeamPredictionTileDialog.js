@@ -58,6 +58,7 @@ component.TeamPredictionTileDialog = (function(){
                 predictionCounters = props.predictionCounters,
                 usersInGroupCount = props.usersInGroupCount,
                 groupConfiguration = props.groupConfiguration,
+                result = props.result,
                 selectedTeam,
                 borderColor = "gray",
                 borderSecondColor = "",
@@ -72,7 +73,7 @@ component.TeamPredictionTileDialog = (function(){
 
             var isDeadLine = this.isDeadLine();
             return re(TileDialog, {borderLeftColor: borderColor, borderLeftSecondColor: borderSecondColor, borderRightColor: borderColor, borderRightSecondColor: borderSecondColor, className: "team-prediction-tile"},
-                re(TeamPredictionMainTile, {team: team, selectedTeam: selectedTeam, league: league, predictionCounters: predictionCounters, usersInGroupCount: usersInGroupCount, groupConfiguration: groupConfiguration, isDeadLine: isDeadLine}),
+                re(TeamPredictionMainTile, {team: team, selectedTeam: selectedTeam, league: league, predictionCounters: predictionCounters, usersInGroupCount: usersInGroupCount, groupConfiguration: groupConfiguration, isDeadLine: isDeadLine, result: result}),
                 re(TeamPredictionFormTile, {team: team, selectedTeam: selectedTeam, league: league, clubs: clubs, onSelectedTeamChanged: this.onSelectedTeamChanged, isDeadLine: isDeadLine})
             );
         }

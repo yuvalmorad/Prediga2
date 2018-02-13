@@ -30,11 +30,12 @@ component.TeamsPredictionsPage = (function(){
                 leagues = props.leagues,
                 groups = props.groups,
                 selectedGroupId = props.selectedGroupId,
-                groupsConfiguration = props.groupsConfiguration || [];
+                groupsConfiguration = props.groupsConfiguration || [],
+                results = props.results;
 
             var group = utils.general.findItemInArrBy(groups, "_id", selectedGroupId);
             var usersInGroupCount = group ? group.users.length : 0;
-           var  groupConfiguration = utils.general.getGroupConfiguration(groups, selectedGroupId, groupsConfiguration);
+            var groupConfiguration = utils.general.getGroupConfiguration(groups, selectedGroupId, groupsConfiguration);
 
             //filter teams with selected league id
             teams = teams.filter(function(team){
@@ -51,6 +52,7 @@ component.TeamsPredictionsPage = (function(){
                 if (prediction && prediction.team) {
                     selectedTeam = utils.general.findItemInArrBy(clubs, "_id", prediction.team);
                 }
+                var result = utils.general.findItemInArrBy(results, "teamId", teamId);
                 return re(TeamPredictionTile, {
                     team: team,
                     selectedTeam: selectedTeam,
@@ -59,6 +61,7 @@ component.TeamsPredictionsPage = (function(){
                     predictionCounters: predictionsCounters[teamId] || {},
                     usersInGroupCount: usersInGroupCount,
                     groupConfiguration: groupConfiguration,
+                    result: result,
                     key: teamId
                 });
             });
@@ -77,6 +80,7 @@ component.TeamsPredictionsPage = (function(){
             teams: state.teamsPredictions.teams,
             userPredictions: state.teamsPredictions.userPredictions,
             predictionsCounters: state.teamsPredictions.predictionsCounters,
+            results: state.teamsPredictions.results,
             isShowTileDialog: state.general.isShowTileDialog,
             leagues: state.leagues.leagues,
             selectedLeagueId: state.groups.selectedLeagueId,
