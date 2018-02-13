@@ -1,7 +1,7 @@
 {
   "league": {
     "_id": "5a21a7c1a3f89181074e9769",
-    "name": "Israel",
+    "name": "Israel 17-18",
     "logoPosition": "-784px 0",
     "year": "2017/2018",
     "competition365": 42,
@@ -1954,7 +1954,7 @@
     },
     {
       "_id": "5a1342399017dfc4e2faf4b2",
-      "title": "13th place",
+      "title": "Second last",
       "type": "team2ndLast",
       "deadline": "2018-02-01T00:00:00.004Z",
       "league": "5a21a7c1a3f89181074e9769",
@@ -1963,7 +1963,7 @@
     },
     {
       "_id": "5a1342399017dfc4e2faf4b3",
-      "title": "14th place",
+      "title": "Last place",
       "type": "teamLast",
       "deadline": "2018-02-01T00:00:00.005Z",
       "league": "5a21a7c1a3f89181074e9769",

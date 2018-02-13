@@ -66,7 +66,7 @@ component.TileDialogContainer = (function(){
                     componentElement,
                     re("div", {className: "dialog-button", style: dialogButtonStyle},
                         re("button", {onClick: this.onCancel, className: isDialogFormDisabled ? "hide" : ""}, "Cancel"),
-                        re("button", {onClick: isSave ?  this.onSave : this.onCancel, className: "main-button", disabled: isSave && !saveButtonEnabled}, isSave ? "Save" : "Close")
+                        re("button", {onClick: isSave ?  this.onSave : this.onCancel, className: "main-button", disabled: isSave && !saveButtonEnabled}, isSave ? "Submit" : "Close")
                     )
                 )
             )

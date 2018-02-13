@@ -1,7 +1,7 @@
 {
   "league": {
     "_id": "4a21a7c1a3f89181074e9762",
-    "name": "World Cup",
+    "name": "World Cup 2018",
     "logoPosition": "0 -672px",
     "year": "2018",
     "clubs": [
@@ -1154,7 +1154,7 @@
       "team2": "L62",
       "kickofftime": "2018-07-14T14:00:00.000Z",
       "stadium": "Krestovsky Stadium, Saint Petersburg",
-      "type": "Third place",
+      "type": "3-4 place",
       "league": "4a21a7c1a3f89181074e9762"
     },
     {

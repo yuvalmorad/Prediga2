@@ -58,7 +58,7 @@ component.LeaderBoardMatchesHistory = (function(){
             }
 
             if (!matches.length || !groupsConfiguration.length) {
-                return re("div", {className: "no-content"}, "No Predictions Finished");
+                return re("div", {className: "no-content"}, "No results");
             }
 
             groupConfiguration = utils.general.getGroupConfiguration(props.groups, props.selectedGroupId, groupsConfiguration);

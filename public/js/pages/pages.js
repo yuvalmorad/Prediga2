@@ -23,7 +23,7 @@ var routePages = (function(){
         },
         {
             path: "/leaderBoard",
-            title: "Leader Board",
+            title: "Leaderboard",
             icon: "",
             isAuthenticatedPage: true,
             component: LeaderBoardPage,
@@ -68,7 +68,7 @@ var routePages = (function(){
         },
         {
             path: "/createNewGroup",
-            title: "Create New Group",
+            title: "Create Group",
             isAuthenticatedPage: true,
             component: CreateNewGroupPage,
             hideSiteNavigation: true,
@@ -100,7 +100,7 @@ var routePages = (function(){
         },
         {
             path: "/rules",
-            title: "Features",
+            title: "How to Play",
             isAuthenticatedPage: true,
             component: RulesPage,
             displayInBottomMenu: true

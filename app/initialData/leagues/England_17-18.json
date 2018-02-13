@@ -1,7 +1,7 @@
 {
   "league": {
     "_id": "3a21a7c1a3f89181074e9769",
-    "name": "England",
+    "name": "England 17-18",
     "logoPosition": "-56px -336px",
     "year": "2017/2018",
     "competition365": 7,
@@ -3858,7 +3858,7 @@
     },
     {
       "_id": "5a1342399017dfc4e2faf4b8",
-      "title": "19th place",
+      "title": "Second last",
       "type": "team2ndLast",
       "deadline": "2018-03-01T00:00:00.004Z",
       "league": "3a21a7c1a3f89181074e9769",
@@ -3867,7 +3867,7 @@
     },
     {
       "_id": "5a1342399017dfc4e2faf4b9",
-      "title": "20th place",
+      "title": "Last place",
       "type": "teamLast",
       "deadline": "2018-03-01T00:00:00.005Z",
       "league": "3a21a7c1a3f89181074e9769",

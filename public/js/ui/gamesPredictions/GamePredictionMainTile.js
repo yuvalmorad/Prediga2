@@ -33,7 +33,7 @@ component.GamePredictionMainTile = (function(){
 
             if (minutesBeforeKickoffTime > 0 && minutesBeforeKickoffTime < 30) {
                 this.setState({
-                    timeBeforeGame: "Start in " + utils.general.formatMinutesSecondsTime(kickofftime.getTime() - currentDate.getTime())
+                    timeBeforeGame: "Kickoff in " + utils.general.formatMinutesSecondsTime(kickofftime.getTime() - currentDate.getTime())
                 })
             } else if (minutesBeforeKickoffTime < 0 && minutesBeforeKickoffTime > -100){ // -100, just in case some game has no result at all
                 //game already started
@@ -108,7 +108,7 @@ component.GamePredictionMainTile = (function(){
                 if (gameStatus === GAME.STATUS.RUNNING_GAME) {
                     //running game
                     className += " running-game";
-                    simulationBtn = re(ReactRouterDOM.Link, {to: "/simulator/" + gameId, className: "simulation-button"}, "Simulation");
+                    simulationBtn = re(ReactRouterDOM.Link, {to: "/simulator/" + gameId, className: "simulation-button"}, "Simulate");
                     dateStr = utils.general.getRunningGameFormat(result);
                     displayTeam1Goals = result[GAME.BET_TYPES.TEAM1_GOALS.key];
                     displayTeam2Goals = result[GAME.BET_TYPES.TEAM2_GOALS.key];

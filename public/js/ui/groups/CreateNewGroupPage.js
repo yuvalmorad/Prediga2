@@ -193,12 +193,12 @@ component.CreateNewGroupPage = (function(){
                     re("div", {className: "title"}, "Group Details"),
                     re("div", {className: "sub-title-container"},
                         re("div", {className: "sub-title"}, "Group Name:"),
-                        re("div", {className: "small-text"}, "Max 64 Characters")
+                        re("div", {className: "small-text"}, "(max. 64 characters)")
                     ),
                     re("input", {type: "text", className: groupNameClassName, value: state.groupName, onChange: this.onGroupNameChange}),
                     re("div", {className: "sub-title-container"},
-                        re("div", {className: "sub-title"}, "Group Secret:"),
-                        re("div", {className: "small-text"}, "Only Numbers")
+                        re("div", {className: "sub-title"}, "Access Code:"),
+                        re("div", {className: "small-text"}, "(numbers only)")
                     ),
                     re(Secret, secretProps),
                     re("div", {className: "sub-title-container"},
@@ -208,26 +208,26 @@ component.CreateNewGroupPage = (function(){
                         re("div", {className: groupIconClassName, style: {color: selectedIconColor}}, selectedIcon),
                         re("button", {onClick: this.openSelectIconPage}, "Select Icon")
                     ),
-                    re("div", {className: "title"}, "Group Leagues"),
+                    re("div", {className: "title"}, "Competitions"),
                     re("div", {className: "sub-title-container"},
-                        re("div", {className: selectLeaguesClassName}, "Select Leagues:"),
+                        re("div", {className: selectLeaguesClassName}, "Choose the leagues and tournaments to be contested in your group"),
                         re("div", {className: "select-all-container"},
                             re("label", {className: "small-text", htmlFor: "selectAllCheckbox"}, "Select All"),
                             re("input", {type: "checkbox", id: "selectAllCheckbox", onChange: this.selectAllLeaguesChanged})
                         )
                     ),
                     re(AvailableLeaguesList, {leagues: leagues, selectedLeagueIds: selectedLeagueIds, onLeagueClicked: this.onLeagueClicked}),
-                    re("div", {className: "title"}, "Group Scoring"),
+                    re("div", {className: "title"}, "Prediction Scores"),
                     re("div", {className: "sub-title-container"},
-                        re("div", {className: "sub-title"}, "Select Points:")
+                        re("div", {className: "sub-title"}, "Enter the points awarded for accurate predictions:")
                     ),
                     re("div", {className: "row-scoring"},
                         re("input", {type: "number", pattern: "\\d*", className: winInputClassName, value: state.winPoints, name: "winPoints", onChange: this.onNumberChange}),
-                        re("div", {}, "Win, Draw, Lost")
+                        re("div", {}, "Match Outcome (Win/Draw/Loss)")
                     ),
                     re("div", {className: "row-scoring"},
                         re("input", {type: "number", pattern: "\\d*", className: goalsInputClassName, value: state.goalsPoints, name: "goalsPoints", onChange: this.onNumberChange}),
-                        re("div", {}, "Goals")
+                        re("div", {}, "Goals Scored")
                     ),
                     re("div", {className: "row-scoring"},
                         re("input", {type: "number", pattern: "\\d*", className: firstToScoreInputClassName, value: state.firstToScorePoints, name: "firstToScorePoints", onChange: this.onNumberChange}),
@@ -235,11 +235,11 @@ component.CreateNewGroupPage = (function(){
                     ),
                     re("div", {className: "row-scoring"},
                         re("input", {type: "number", pattern: "\\d*", className: diffGoalsInputClassName, value: state.diffGoalsPoints, name: "diffGoalsPoints", onChange: this.onNumberChange}),
-                        re("div", {}, "Diff Goals")
+                        re("div", {}, "Goal Difference")
                     ),
                     re("div", {className: "row-buttons"},
                         re("button", {onClick: this.onCancel}, "Cancel"),
-                        re("button", {disabled: !isFormValid, onClick: this.onSave}, "Save")
+                        re("button", {disabled: !isFormValid, onClick: this.onSave}, "Create Group")
                     )
                 );
             }

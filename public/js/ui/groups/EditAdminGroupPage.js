@@ -255,7 +255,7 @@ component.EditAdminGroupPage = (function(){
                     ),
                     re("input", {type: "text", className: groupNameClassName, value: state.groupName, onChange: this.onGroupNameChange}),
                     re("div", {className: "sub-title-container"},
-                        re("div", {className: "sub-title"}, "Group Secret:"),
+                        re("div", {className: "sub-title"}, "Access Code:"),
                         re("div", {className: "small-text"}, "Only Numbers")
                     ),
                     re(Secret, secretProps),
@@ -266,9 +266,9 @@ component.EditAdminGroupPage = (function(){
                         re("div", {className: groupIconClassName, style: {color: state.groupIconColor}}, state.groupIcon),
                         re("button", {onClick: this.openSelectIconPage}, "Select Icon")
                     ),
-                    re("div", {className: "title"}, "Group Leagues"),
+                    re("div", {className: "title"}, "Competitions"),
                     re("div", {className: "sub-title-container"},
-                        re("div", {className: selectLeaguesClassName}, "Select Leagues:"),
+                        re("div", {className: selectLeaguesClassName}, "Choose the leagues and tournaments to be contested in your group"),
                         re("div", {className: "select-all-container"},
                             re("label", {className: "small-text", htmlFor: "selectAllCheckbox"}, "Select All"),
                             re("input", {type: "checkbox", id: "selectAllCheckbox", onChange: this.selectAllLeaguesChanged})
@@ -277,7 +277,7 @@ component.EditAdminGroupPage = (function(){
                     re(AvailableLeaguesList, {leagues: allAvailableLeagues, selectedLeagueIds: state.leagueIds, onLeagueClicked: this.onLeagueClicked}),
                     re("div", {className: "row-buttons"},
                         re("button", {disabled: !isDirty, onClick: this.onCancel}, "Cancel"),
-                        re("button", {disabled: !isDirty || !isFormValid, onClick: this.onSave}, "Save")
+                        re("button", {disabled: !isDirty || !isFormValid, onClick: this.onSave}, "Submit")
                     ),
                     re("button", {className: "delete-group-button", onClick: this.deleteGroup}, "Delete Group"),
                     re("div", {className: "title"}, "Users"),

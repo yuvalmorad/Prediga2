@@ -24,7 +24,7 @@ component.LoginPage = (function(){
                        re("a", {className: "facebook-login", href: "/auth/facebook"}, "Login with Facebook")
                    ),*/
                    re("div", {className: "login-button-wrapper"},
-                       re("a", {className: "google-login", href: "/auth/google", traget: "_self", onClick: this.onLoginClicked}, "Login with Google")
+                       re("a", {className: "google-login", href: "/auth/google", traget: "_self", onClick: this.onLoginClicked}, "Sign me in with Google")
                    )
                )
            );

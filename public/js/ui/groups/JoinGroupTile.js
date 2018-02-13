@@ -89,7 +89,7 @@ component.JoinGroupTile = (function(){
                     )
                 ),
                 re("div", {className: "join-group-form-tile"},
-                    re("div", {className: "sub-title"}, "Group Secret:"),
+                    re("div", {className: "sub-title"}, "Access Code:"),
                     re(Secret, secretProps)
                 )
             );
