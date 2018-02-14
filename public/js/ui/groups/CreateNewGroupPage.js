@@ -118,8 +118,6 @@ component.CreateNewGroupPage = (function(){
                 groupToCreate.secret += state["secret" + i];
             }
 
-            console.log("saving: ", groupToCreate);
-
             this.props.createGroup(groupToCreate);
             routerHistory.goBack();
         },
