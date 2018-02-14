@@ -17,7 +17,8 @@ component.TeamPredictionMainTile = (function(){
             logoPosition,
             graphParts = [],
             isDeadLine = props.isDeadLine, //only for dialog
-            result = props.result;
+            result = props.result,
+            sprite;
 
         if (!selectedTeam || (isDeadLine && selectedTeam.isDummySelection)) {
             teamName = "Team";
@@ -26,6 +27,7 @@ component.TeamPredictionMainTile = (function(){
             teamName = selectedTeam.name;
             teamShortName = selectedTeam.shortName;
             logoPosition = selectedTeam.logoPosition;
+            sprite = selectedTeam.sprite;
 
             var usersSelectedTeamCount = predictionCounters[selectedTeam._id] || 0;
             graphParts = [{color: selectedTeam.graphColors[0], amount: usersSelectedTeamCount}, {color: COLORS.DRAW_COLOR, amount: usersInGroupCount - usersSelectedTeamCount}];
@@ -44,7 +46,7 @@ component.TeamPredictionMainTile = (function(){
 
         return re("div", {className: "main"},
             re("div", {className: "left"},
-                re(TeamLogo, {leagueName: leagueName, logoPosition: logoPosition}),
+                re(TeamLogo, {leagueName: leagueName, logoPosition: logoPosition, sprite: sprite}),
                 re("div", {className: "team-short-name"}, teamShortName)
             ),
             re("div", {className: "center"},
