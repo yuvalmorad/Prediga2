@@ -20,6 +20,24 @@ component.TeamsPredictionsPage = (function(){
             }
         },
 
+        mapTeamsByDeadLines: function(teams) {
+            var deadLines = {};
+
+            teams.forEach(function(team) {
+                var deadLineStr = utils.general.formatDeadLineToDayString(team.deadline);
+                if (!deadLines[deadLineStr]) {
+                    deadLines[deadLineStr] = {
+                        deadline: deadLineStr,
+                        teams: []
+                    }
+                }
+
+                deadLines[deadLineStr].teams.push(team);
+            });
+
+            return Object.keys(deadLines).map(function(key){return deadLines[key]});
+        },
+
         render: function() {
             var props = this.props,
                 teams = props.teams,
@@ -42,29 +60,40 @@ component.TeamsPredictionsPage = (function(){
                 return team.league === selectedLeagueId;
             });
 
-            var tiles = teams.sort(function(team1, team2){
-                return new Date(team1.deadline) - new Date(team2.deadline);
-            }).map(function(team){
-                var teamId = team._id;
-                var prediction = utils.general.findItemInArrBy(userPredictions, "teamId", teamId);
-                var league = utils.general.findItemInArrBy(leagues, "_id", team.league);
-                var selectedTeam;
-                if (prediction && prediction.team) {
-                    selectedTeam = utils.general.findItemInArrBy(clubs, "_id", prediction.team);
-                }
-                var result = utils.general.findItemInArrBy(results, "teamId", teamId);
-                return re(TeamPredictionTile, {
-                    team: team,
-                    selectedTeam: selectedTeam,
-                    league: league,
-                    prediction: prediction,
-                    predictionCounters: predictionsCounters[teamId] || {},
-                    usersInGroupCount: usersInGroupCount,
-                    groupConfiguration: groupConfiguration,
-                    result: result,
-                    key: teamId
+            var deadLines = this.mapTeamsByDeadLines(teams);
+
+            var tiles = deadLines.map(function(deadLineObj, deadLineIndex){
+                var tilesInGroup = deadLineObj.teams.sort(function(team1, team2){
+                    return new Date(team1.deadline) - new Date(team2.deadline);
+                }).map(function(team){
+                    var teamId = team._id;
+                    var prediction = utils.general.findItemInArrBy(userPredictions, "teamId", teamId);
+                    var league = utils.general.findItemInArrBy(leagues, "_id", team.league);
+                    var selectedTeam;
+                    if (prediction && prediction.team) {
+                        selectedTeam = utils.general.findItemInArrBy(clubs, "_id", prediction.team);
+                    }
+                    var result = utils.general.findItemInArrBy(results, "teamId", teamId);
+                    return re(TeamPredictionTile, {
+                        team: team,
+                        selectedTeam: selectedTeam,
+                        league: league,
+                        prediction: prediction,
+                        predictionCounters: predictionsCounters[teamId] || {},
+                        usersInGroupCount: usersInGroupCount,
+                        groupConfiguration: groupConfiguration,
+                        result: result,
+                        key: teamId
+                    });
                 });
+
+                var groupProps = {className: "tiles-group-title", key: "tilesDeadline" + deadLineIndex};
+
+                tilesInGroup.unshift(re("div", groupProps, "Open until " + deadLineObj.deadline));
+                return tilesInGroup;
             });
+
+            tiles = [].concat.apply([], tiles);
 
             return re("div", { className: "content hasSubHeader" },
                 re(LeaguesSubHeader, {}),
