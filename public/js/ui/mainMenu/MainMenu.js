@@ -106,7 +106,7 @@ component.MainMenu = (function(){
 
             bottomMenuItems.push(this.renderLogoutMenuItem());
 
-            return re(Menu, {topMenuTitle: "My Groups", topMenuItems: topMenuItems, bottomMenuTitle: "Options", bottomMenuItems: bottomMenuItems, toggleMenu: props.toggleMenu, onTopTitleActionClicked: this.onTopTitleActionClicked, className: "main-menu"});
+            return re(Menu, {topMenuTitle: "My Groups", topMenuItems: topMenuItems, bottomMenuItems: bottomMenuItems, toggleMenu: props.toggleMenu, onTopTitleActionClicked: this.onTopTitleActionClicked, className: "main-menu"});
         }
     });
 
