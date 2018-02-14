@@ -54,7 +54,7 @@ component.GamePredictionFormTile = (function(){
             }
 
             return re("div", {className: "game-form"},
-                re("div", {className: "form-row-title"}, "Match Outcome"),
+                re("div", {className: "form-row-title"}, "Match Winner"),
                 re(RadioGroup, {className: "game-outcome", points: points[GAME.BET_TYPES.WINNER.key], onChange: this.onRadioGroupChanged, _id: game._id + "0", name: GAME.BET_TYPES.WINNER.key, isDisabled: isDialogFormDisabled, inputs: [
                         {bgColor: team1BgColor, textColor: team1Color, text: team1Name, name: team1Id, res: predictionWinner},
                         {bgColor: COLORS.DRAW_COLOR, text: "Draw", name: "Draw", res: predictionWinner},
@@ -68,7 +68,7 @@ component.GamePredictionFormTile = (function(){
                         re("div", {className: "points"}, team1GoalsPoints ? team1GoalsPoints : "")
                     ),
                     re("div", {},
-                        re("div", {className: "form-row-title"}, "Goals Diff"),
+                        re("div", {className: "form-row-title"}, "Goals Diff."),
                         re(InputNumber, {isDisabled: isDialogFormDisabled, points: diffGoalsPoints, num: predictionGoalDiff, onChange: this.onInputNumberChanged.bind(this, GAME.BET_TYPES.GOAL_DIFF.key)}),
                         re("div", {className: "points"}, diffGoalsPoints ? diffGoalsPoints : "")
                     ),

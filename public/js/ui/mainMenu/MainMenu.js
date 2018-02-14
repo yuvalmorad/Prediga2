@@ -89,7 +89,7 @@ component.MainMenu = (function(){
         },
 
         renderLogoutMenuItem: function() {
-            return re(MenuItem, {text: "Log out", icon: "", onMenuItemClicked: this.onLogout, key: "logout1"});
+            return re(MenuItem, {text: "Sign Out", icon: "", onMenuItemClicked: this.onLogout, key: "logout1"});
         },
 
         onTopTitleActionClicked: function() {
