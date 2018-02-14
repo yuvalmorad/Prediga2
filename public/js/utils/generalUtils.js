@@ -21,6 +21,7 @@ utils.general = (function(){
         getRunningGameFormat: getRunningGameFormat,
         formatMinutesSecondsTime: formatMinutesSecondsTime,
         formatHourMinutesTime: formatHourMinutesTime,
+        formatDeadLineToDayString: formatDeadLineToDayString,
         getLeagueLogoURL: getLeagueLogoURL,
         leagueNameToIdName: leagueNameToIdName,
         cutUrlPath: cutUrlPath,
@@ -85,6 +86,14 @@ utils.general = (function(){
         hours = addZeroToTimeIfNeeded(hours);
         minutes = addZeroToTimeIfNeeded(minutes);
         return hours + ":" + minutes;
+    }
+
+    function formatDeadLineToDayString(deadline) {
+        var d = new Date(deadline);
+        var date = addZeroToTimeIfNeeded(d.getDate());
+        var month = addZeroToTimeIfNeeded(d.getMonth() + 1);
+        var year = d.getFullYear();
+        return date + "." + month + "." + year;
     }
 
     function getLeagueLogoURL(leagueIdName) {

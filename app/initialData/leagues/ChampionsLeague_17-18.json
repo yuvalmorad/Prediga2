@@ -43,6 +43,7 @@
         "#000000"
       ],
       "logoPosition": "-280px 0",
+      "sprite": "champions",
       "stadium": "Juventus Stadium, Turin"
     },
     {
@@ -62,6 +63,7 @@
         "#000000"
       ],
       "logoPosition": "-784px 0",
+      "sprite": "champions",
       "stadium": "Wembley Stadium, London"
     },
     {
@@ -82,6 +84,7 @@
         "#4102FF"
       ],
       "logoPosition": "0 0",
+      "sprite": "champions",
       "stadium": "St. Jakob-Park, Basel"
     },
     {
@@ -101,6 +104,7 @@
         "#000000"
       ],
       "logoPosition": "-392px 0",
+      "sprite": "champions",
       "stadium": "City of Manchester Stadium, Manchester"
     },
     {
@@ -120,6 +124,7 @@
         "#000000"
       ],
       "logoPosition": "-560px 0",
+      "sprite": "champions",
       "stadium": "Estádio do Dragão, Porto"
     },
     {
@@ -139,6 +144,7 @@
         "#000000"
       ],
       "logoPosition": "-336px 0",
+      "sprite": "champions",
       "stadium": "Anfield, Liverpool"
     },
     {
@@ -158,6 +164,7 @@
         "#000000"
       ],
       "logoPosition": "-672px 0",
+      "sprite": "champions",
       "stadium": "Ramón Sánchez Pizjuán, Seville"
     },
     {
@@ -177,6 +184,7 @@
         "#000000"
       ],
       "logoPosition": "-448px 0",
+      "sprite": "champions",
       "stadium": "Old Trafford, Manchester"
     },
     {
@@ -196,6 +204,7 @@
         "#000000"
       ],
       "logoPosition": "-896px 0",
+      "sprite": "champions",
       "stadium": "Santiago Bernabéu, Madrid"
     },
     {
@@ -216,6 +225,7 @@
         "#7C2838"
       ],
       "logoPosition": "-504px 0",
+      "sprite": "champions",
       "stadium": "Parc des Princes, Paris"
     },
     {
@@ -236,6 +246,7 @@
         "#000000"
       ],
       "logoPosition": "-728px 0",
+      "sprite": "champions",
       "stadium": "Metalist Stadium, Kharkiv"
     },
     {
@@ -255,6 +266,7 @@
         "#000000"
       ],
       "logoPosition": "-616px 0",
+      "sprite": "champions",
       "stadium": "Stadio Olimpico, Rome"
     },
     {
@@ -274,6 +286,7 @@
         "#000000"
       ],
       "logoPosition": "-224px 0",
+      "sprite": "champions",
       "stadium": "Stamford Bridge, London"
     },
     {
@@ -294,6 +307,7 @@
         "#000000"
       ],
       "logoPosition": "-840px 0",
+      "sprite": "champions",
       "stadium": "Camp Nou, Barcelona"
     },
     {
@@ -313,6 +327,7 @@
         "#000000"
       ],
       "logoPosition": "-56px 0",
+      "sprite": "champions",
       "stadium": "Allianz Arena, Munich"
     },
     {
@@ -333,6 +348,7 @@
         "#000000"
       ],
       "logoPosition": "-112px 0",
+      "sprite": "champions",
       "stadium": "Vodafone Park, Istanbul"
     }
   ],

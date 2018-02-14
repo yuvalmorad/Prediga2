@@ -9,7 +9,8 @@ const clubSchema = mongoose.Schema({
 	colors: [String],
 	buttonColors: [String],
 	graphColors: [String],
-	logoPosition: String
+	logoPosition: String,
+    sprite: String
 });
 
 clubSchema.options.toJSON = {

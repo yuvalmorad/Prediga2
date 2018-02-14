@@ -57,7 +57,8 @@
         "#42a0c8",
         "#fff"
       ],
-      "logoPosition": "0 0"
+      "logoPosition": "0 0",
+      "sprite": "world_cup"
     },
     {
       "_id": "2a21a7c1a3f89181074e9763",
@@ -75,7 +76,8 @@
         "yellow",
         "blue"
       ],
-      "logoPosition": "-56px -56px"
+      "logoPosition": "-56px -56px",
+      "sprite": "world_cup"
     },
     {
       "_id": "2a21a7c1a3f89181074e9764",
@@ -93,7 +95,8 @@
         "yellow",
         "blue"
       ],
-      "logoPosition": "0 -112px"
+      "logoPosition": "0 -112px",
+      "sprite": "world_cup"
     },
     {
       "_id": "2a21a7c1a3f89181074e9765",
@@ -110,7 +113,8 @@
       "graphColors": [
         "red"
       ],
-      "logoPosition": "0 -560px"
+      "logoPosition": "0 -560px",
+      "sprite": "world_cup"
     },
     {
       "_id": "2a21a7c1a3f89181074e9766",
@@ -127,7 +131,8 @@
       "graphColors": [
         "#60b5ff"
       ],
-      "logoPosition": "0 -896px"
+      "logoPosition": "0 -896px",
+      "sprite": "world_cup"
     },
     {
       "_id": "2a21a7c1a3f89181074e9767",
@@ -144,7 +149,8 @@
       "graphColors": [
         "red"
       ],
-      "logoPosition": "-56px -112px"
+      "logoPosition": "-56px -112px",
+      "sprite": "world_cup"
     },
     {
       "_id": "2a21a7c1a3f89181074e9768",
@@ -161,7 +167,8 @@
       "graphColors": [
         "#1a4d3e"
       ],
-      "logoPosition": "0 -448px"
+      "logoPosition": "0 -448px",
+      "sprite": "world_cup"
     },
     {
       "_id": "2a21a7c1a3f89181074e9769",
@@ -178,7 +185,8 @@
       "graphColors": [
         "red"
       ],
-      "logoPosition": "-56px -504px"
+      "logoPosition": "-56px -504px",
+      "sprite": "world_cup"
     },
     {
       "_id": "2a21a7c1a3f89181074e9770",
@@ -195,7 +203,8 @@
       "graphColors": [
         "red"
       ],
-      "logoPosition": "0 -56px"
+      "logoPosition": "0 -56px",
+      "sprite": "world_cup"
     },
     {
       "_id": "2a21a7c1a3f89181074e9771",
@@ -212,7 +221,8 @@
       "graphColors": [
         "red"
       ],
-      "logoPosition": "0 -168px"
+      "logoPosition": "0 -168px",
+      "sprite": "world_cup"
     },
     {
       "_id": "2a21a7c1a3f89181074e9772",
@@ -229,7 +239,8 @@
       "graphColors": [
         "red"
       ],
-      "logoPosition": "-56px -168px"
+      "logoPosition": "-56px -168px",
+      "sprite": "world_cup"
     },
     {
       "_id": "2a21a7c1a3f89181074e9773",
@@ -246,7 +257,8 @@
       "graphColors": [
         "red"
       ],
-      "logoPosition": "-56px -224px"
+      "logoPosition": "-56px -224px",
+      "sprite": "world_cup"
     },
     {
       "_id": "2a21a7c1a3f89181074e9774",
@@ -263,7 +275,8 @@
       "graphColors": [
         "blue"
       ],
-      "logoPosition": "0 -280px"
+      "logoPosition": "0 -280px",
+      "sprite": "world_cup"
     },
     {
       "_id": "2a21a7c1a3f89181074e9775",
@@ -280,7 +293,8 @@
       "graphColors": [
         "#000"
       ],
-      "logoPosition": "-56px -280px"
+      "logoPosition": "-56px -280px",
+      "sprite": "world_cup"
     },
     {
       "_id": "2a21a7c1a3f89181074e9776",
@@ -297,7 +311,8 @@
       "graphColors": [
         "blue"
       ],
-      "logoPosition": "0 -336px"
+      "logoPosition": "0 -336px",
+      "sprite": "world_cup"
     },
     {
       "_id": "2a21a7c1a3f89181074e9777",
@@ -314,7 +329,8 @@
       "graphColors": [
         "red"
       ],
-      "logoPosition": "-56px -560px"
+      "logoPosition": "-56px -560px",
+      "sprite": "world_cup"
     },
     {
       "_id": "2a21a7c1a3f89181074e9778",
@@ -331,7 +347,8 @@
       "graphColors": [
         "red"
       ],
-      "logoPosition": "0 -616px"
+      "logoPosition": "0 -616px",
+      "sprite": "world_cup"
     },
     {
       "_id": "2a21a7c1a3f89181074e9779",
@@ -348,7 +365,8 @@
       "graphColors": [
         "red"
       ],
-      "logoPosition": "-56px -616px"
+      "logoPosition": "-56px -616px",
+      "sprite": "world_cup"
     },
     {
       "_id": "2a21a7c1a3f89181074e9780",
@@ -365,7 +383,8 @@
       "graphColors": [
         "red"
       ],
-      "logoPosition": "-56px -728px"
+      "logoPosition": "-56px -728px",
+      "sprite": "world_cup"
     },
     {
       "_id": "2a21a7c1a3f89181074e9781",
@@ -382,7 +401,8 @@
       "graphColors": [
         "red"
       ],
-      "logoPosition": "0 -784px"
+      "logoPosition": "0 -784px",
+      "sprite": "world_cup"
     },
     {
       "_id": "2a21a7c1a3f89181074e9782",
@@ -399,7 +419,8 @@
       "graphColors": [
         "yellow"
       ],
-      "logoPosition": "-56px -784px"
+      "logoPosition": "-56px -784px",
+      "sprite": "world_cup"
     },
     {
       "_id": "2a21a7c1a3f89181074e9783",
@@ -416,7 +437,8 @@
       "graphColors": [
         "red"
       ],
-      "logoPosition": "0 -840px"
+      "logoPosition": "0 -840px",
+      "sprite": "world_cup"
     },
     {
       "_id": "2a21a7c1a3f89181074e9784",
@@ -433,7 +455,8 @@
       "graphColors": [
         "green"
       ],
-      "logoPosition": "-56px 0"
+      "logoPosition": "-56px 0",
+      "sprite": "world_cup"
     },
     {
       "_id": "2a21a7c1a3f89181074e9785",
@@ -450,7 +473,8 @@
       "graphColors": [
         "green"
       ],
-      "logoPosition": "-56px -336px"
+      "logoPosition": "-56px -336px",
+      "sprite": "world_cup"
     },
     {
       "_id": "2a21a7c1a3f89181074e9786",
@@ -467,7 +491,8 @@
       "graphColors": [
         "blue"
       ],
-      "logoPosition": "0 -392px"
+      "logoPosition": "0 -392px",
+      "sprite": "world_cup"
     },
     {
       "_id": "2a21a7c1a3f89181074e9787",
@@ -484,7 +509,8 @@
       "graphColors": [
         "red"
       ],
-      "logoPosition": "-56px -392px"
+      "logoPosition": "-56px -392px",
+      "sprite": "world_cup"
     },
     {
       "_id": "2a21a7c1a3f89181074e9788",
@@ -501,7 +527,8 @@
       "graphColors": [
         "green"
       ],
-      "logoPosition": "-56px -672px"
+      "logoPosition": "-56px -672px",
+      "sprite": "world_cup"
     },
     {
       "_id": "2a21a7c1a3f89181074e9789",
@@ -518,7 +545,8 @@
       "graphColors": [
         "red"
       ],
-      "logoPosition": "0 -224px"
+      "logoPosition": "0 -224px",
+      "sprite": "world_cup"
     },
     {
       "_id": "2a21a7c1a3f89181074e9790",
@@ -535,7 +563,8 @@
       "graphColors": [
         "red"
       ],
-      "logoPosition": "-56px -448px"
+      "logoPosition": "-56px -448px",
+      "sprite": "world_cup"
     },
     {
       "_id": "2a21a7c1a3f89181074e9791",
@@ -552,7 +581,8 @@
       "graphColors": [
         "green"
       ],
-      "logoPosition": "0 -504px"
+      "logoPosition": "0 -504px",
+      "sprite": "world_cup"
     },
     {
       "_id": "2a21a7c1a3f89181074e9792",
@@ -569,7 +599,8 @@
       "graphColors": [
         "green"
       ],
-      "logoPosition": "0 -728px"
+      "logoPosition": "0 -728px",
+      "sprite": "world_cup"
     },
     {
       "_id": "2a21a7c1a3f89181074e9793",
@@ -586,7 +617,8 @@
       "graphColors": [
         "red"
       ],
-      "logoPosition": "-56px -840px"
+      "logoPosition": "-56px -840px",
+      "sprite": "world_cup"
     }
   ],
   "matches": [

@@ -47,7 +47,8 @@
         "#AA0001",
         "#000000"
       ],
-      "logoPosition": "0 0"
+      "logoPosition": "0 0",
+      "sprite": "england"
     },
     {
       "_id": "1a21a7c1a3f89181074e9763",
@@ -65,7 +66,8 @@
         "#0659E4",
         "#000000"
       ],
-      "logoPosition": "0 -224px"
+      "logoPosition": "0 -224px",
+      "sprite": "england"
     },
     {
       "_id": "1a21a7c1a3f89181074e9764",
@@ -84,7 +86,8 @@
         "#DE000A",
         "#000000"
       ],
-      "logoPosition": "-56px 0"
+      "logoPosition": "-56px 0",
+      "sprite": "england"
     },
     {
       "_id": "1a21a7c1a3f89181074e9765",
@@ -102,7 +105,8 @@
         "#1E01FF",
         "#000000"
       ],
-      "logoPosition": "0 -56px"
+      "logoPosition": "0 -56px",
+      "sprite": "england"
     },
     {
       "_id": "1a21a7c1a3f89181074e9768",
@@ -121,7 +125,8 @@
         "#990001",
         "#599FEA"
       ],
-      "logoPosition": "-56px -56px"
+      "logoPosition": "-56px -56px",
+      "sprite": "england"
     },
     {
       "_id": "1a21a7c1a3f89181074e9769",
@@ -140,7 +145,8 @@
         "#4102FF",
         "#DE000A"
       ],
-      "logoPosition": "-56px -112px"
+      "logoPosition": "-56px -112px",
+      "sprite": "england"
     },
     {
       "_id": "1a21a7c1a3f89181074e9770",
@@ -158,7 +164,8 @@
         "#44B1FD",
         "#000000"
       ],
-      "logoPosition": "-56px -168px"
+      "logoPosition": "-56px -168px",
+      "sprite": "england"
     },
     {
       "_id": "1a21a7c1a3f89181074e9771",
@@ -176,7 +183,8 @@
         "#0659E4",
         "#000000"
       ],
-      "logoPosition": "0 -168px"
+      "logoPosition": "0 -168px",
+      "sprite": "england"
     },
     {
       "_id": "1a21a7c1a3f89181074e9772",
@@ -194,7 +202,8 @@
         "#DE000A",
         "#000000"
       ],
-      "logoPosition": "-56px -392px"
+      "logoPosition": "-56px -392px",
+      "sprite": "england"
     },
     {
       "_id": "1a21a7c1a3f89181074e9774",
@@ -213,7 +222,8 @@
         "#7C2838",
         "#44B1FD"
       ],
-      "logoPosition": "0 -560px"
+      "logoPosition": "0 -560px",
+      "sprite": "england"
     },
     {
       "_id": "1a21a7c1a3f89181074e9775",
@@ -231,7 +241,8 @@
         "#599FEA",
         "#000000"
       ],
-      "logoPosition": "0 -336px"
+      "logoPosition": "0 -336px",
+      "sprite": "england"
     },
     {
       "_id": "1a21a7c1a3f89181074e9777",
@@ -250,7 +261,8 @@
         "#DE000A",
         "#000000"
       ],
-      "logoPosition": "0 -392px"
+      "logoPosition": "0 -392px",
+      "sprite": "england"
     },
     {
       "_id": "1a21a7c1a3f89181074e9778",
@@ -267,7 +279,8 @@
       "graphColors": [
         "#000000"
       ],
-      "logoPosition": "0 -448px"
+      "logoPosition": "0 -448px",
+      "sprite": "england"
     },
     {
       "_id": "1a21a7c1a3f89181074e9779",
@@ -286,7 +299,8 @@
         "#FEFF59",
         "#000000"
       ],
-      "logoPosition": "0 -504px"
+      "logoPosition": "0 -504px",
+      "sprite": "england"
     },
     {
       "_id": "1a21a7c1a3f89181074e9781",
@@ -304,7 +318,8 @@
         "#0B008C",
         "#000000"
       ],
-      "logoPosition": "-56px -504px"
+      "logoPosition": "-56px -504px",
+      "sprite": "england"
     }
   ],
   "matches": [

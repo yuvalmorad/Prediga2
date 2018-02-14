@@ -5,10 +5,10 @@ component.TeamLogo = (function(){
             logoPosition = props.logoPosition,
             onClick = props.onClick,
             isHide = props.isHide,
-            leagueIdName = utils.general.leagueNameToIdName(leagueName),
-            backgroundImage = utils.general.getLeagueLogoURL(leagueIdName);
+            sprite = props.sprite || utils.general.leagueNameToIdName(leagueName),
+            backgroundImage = utils.general.getLeagueLogoURL(sprite);
 
-        return re("div", {className: "team-logo " + leagueIdName + (isHide ? " hide" : ""), onClick: (!isHide && onClick), style: {backgroundImage: backgroundImage, backgroundPosition: logoPosition}});
+        return re("div", {className: "team-logo " + sprite + (isHide ? " hide" : ""), onClick: (!isHide && onClick), style: {backgroundImage: backgroundImage, backgroundPosition: logoPosition}});
     };
 })();
 

@@ -239,7 +239,7 @@ component.CreateNewGroupPage = (function(){
                     ),
                     re("div", {className: "row-buttons"},
                         re("button", {onClick: this.onCancel}, "Cancel"),
-                        re("button", {disabled: !isFormValid, onClick: this.onSave}, "Create Group")
+                        re("button", {disabled: !isFormValid, onClick: this.onSave}, "Create")
                     )
                 );
             }

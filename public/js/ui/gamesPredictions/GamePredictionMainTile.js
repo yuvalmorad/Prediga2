@@ -75,6 +75,8 @@ component.GamePredictionMainTile = (function(){
                 team2ShortName = team2 ? team2.shortName : "",
                 team1LogoPosition = team1 ? team1.logoPosition : "",
                 team2LogoPosition = team2 ? team2.logoPosition : "",
+                team1Sprite = team1 ? team1.sprite : "",
+                team2Sprite = team2 ? team2.sprite : "",
                 gameDate,
                 graphParts,
                 kickofftime = game.kickofftime,
@@ -139,7 +141,7 @@ component.GamePredictionMainTile = (function(){
 
             return re("div", {className: className},
                 re("div", {className: "left"},
-                    re(TeamLogo, {leagueName: leagueName, logoPosition: team1LogoPosition, isHide: !team1, onClick: props.updateGameForm && this.onTeamLogoClicked.bind(this, team1._id)}),
+                    re(TeamLogo, {leagueName: leagueName, logoPosition: team1LogoPosition, sprite: team1Sprite, isHide: !team1, onClick: props.updateGameForm && this.onTeamLogoClicked.bind(this, team1._id)}),
                     re("div", {className: "team-name"}, team1ShortName)
                 ),
                 re("div", {className: "center"},
@@ -158,7 +160,7 @@ component.GamePredictionMainTile = (function(){
                     )
                 ),
                 re("div", {className: "right"},
-                    re(TeamLogo, {leagueName: leagueName, logoPosition: team2LogoPosition, isHide: !team2, onClick: props.updateGameForm && this.onTeamLogoClicked.bind(this, team2._id)}),
+                    re(TeamLogo, {leagueName: leagueName, logoPosition: team2LogoPosition, sprite: team2Sprite, isHide: !team2, onClick: props.updateGameForm && this.onTeamLogoClicked.bind(this, team2._id)}),
                     re("div", {className: "team-name"}, team2ShortName)
                 )
             );

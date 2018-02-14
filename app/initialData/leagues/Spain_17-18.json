@@ -49,6 +49,7 @@
         "#000000"
       ],
       "logoPosition": "-56px -112px",
+      "sprite": "spain",
       "stadium": "Abanca-Riazor"
     },
     {
@@ -68,6 +69,7 @@
         "#000000"
       ],
       "logoPosition": "0 -280px",
+      "sprite": "spain",
       "stadium": "Montilivi"
     },
     {
@@ -87,6 +89,7 @@
         "#000000"
       ],
       "logoPosition": "-56px 0",
+      "sprite": "spain",
       "stadium": "Wanda Metropolitano"
     },
     {
@@ -107,6 +110,7 @@
         "#599FEA"
       ],
       "logoPosition": "0 -392px",
+      "sprite": "spain",
       "stadium": "La Rosaleda"
     },
     {
@@ -127,6 +131,7 @@
         "#AA0001"
       ],
       "logoPosition": "-56px -168px",
+      "sprite": "spain",
       "stadium": "Ipurua"
     },
     {
@@ -147,6 +152,7 @@
         "#000000"
       ],
       "logoPosition": "0 0",
+      "sprite": "spain",
       "stadium": "San Mamés"
     },
     {
@@ -166,6 +172,7 @@
         "#000000"
       ],
       "logoPosition": "-56px -224px",
+      "sprite": "spain",
       "stadium": "Coliseum Alfonso Pérez"
     },
     {
@@ -186,6 +193,7 @@
         "#000000"
       ],
       "logoPosition": "0 -224px",
+      "sprite": "spain",
       "stadium": "RCDE Stadium"
     },
     {
@@ -205,6 +213,7 @@
         "#000000"
       ],
       "logoPosition": "0 -168px",
+      "sprite": "spain",
       "stadium": "Butarque"
     },
     {
@@ -225,6 +234,7 @@
         "#599FEA"
       ],
       "logoPosition": "0 -112px",
+      "sprite": "spain",
       "stadium": "Mendizorrotza"
     },
     {
@@ -244,6 +254,7 @@
         "#000000"
       ],
       "logoPosition": "-56px -392px",
+      "sprite": "spain",
       "stadium": "Benito Villamarín"
     },
     {
@@ -264,6 +275,7 @@
         "#DE000A"
       ],
       "logoPosition": "-56px -56px",
+      "sprite": "spain",
       "stadium": "Balaídos"
     },
     {
@@ -283,6 +295,7 @@
         "#000000"
       ],
       "logoPosition": "-56px -448px",
+      "sprite": "spain",
       "stadium": "Anoeta"
     },
     {
@@ -303,6 +316,7 @@
         "#AA0001"
       ],
       "logoPosition": "-56px -336px",
+      "sprite": "spain",
       "stadium": "Ciutat de València"
     },
     {
@@ -322,6 +336,7 @@
         "#000000"
       ],
       "logoPosition": "0 -560px",
+      "sprite": "spain",
       "stadium": "Estadio de la Cerámica"
     },
     {
@@ -342,6 +357,7 @@
         "#FF1716"
       ],
       "logoPosition": "-56px -504px",
+      "sprite": "spain",
       "stadium": "Mestalla"
     },
     {
@@ -362,6 +378,7 @@
         "#FEFF59"
       ],
       "logoPosition": "0 -336px",
+      "sprite": "spain",
       "stadium": "Gran Canaria"
     }
   ],

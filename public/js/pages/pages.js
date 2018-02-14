@@ -60,7 +60,7 @@ var routePages = (function(){
                 hideGroupsIcon: true,
                 actions: [
                     {
-                        buttonText: "Create Group",
+                        buttonText: "Create",
                         eventName: "onOpenCreateNewGroup"
                     }
                 ]
