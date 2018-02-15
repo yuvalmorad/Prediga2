@@ -45,17 +45,30 @@ component.SimulatorPage = (function(){
         return matchPrediction;
     }
 
-    function getClubName(clubId, team1, team2) {
+    function getWinnerText(clubId, team1, team2) {
         if (clubId === team1._id) {
-            return team1.name;
+            return team1.name + " wins";
         }
 
         if (clubId === team2._id) {
-            return team2.name;
+            return team2.name + " wins";
         }
 
-        return clubId; // "None"/"Draw";
+        return "Match draws";
     }
+
+    function getFirstScoreText(clubId, team1, team2) {
+        if (clubId === team1._id) {
+            return team1.name + " scores first";
+        }
+
+        if (clubId === team2._id) {
+            return team2.name + " scores first";
+        }
+
+        return "No first scorer";
+    }
+
     function updateLeaders(leaders, clubs, predictions, matchPrediction, matchId, match, groupConfiguration) {
         var predictionsByMatchId = utils.general.findItemsInArrBy(predictions, "matchId", matchId);
         predictionsByMatchId.forEach(function(prediction) {
@@ -72,9 +85,9 @@ component.SimulatorPage = (function(){
             var team1 = utils.general.findItemInArrBy(clubs, "_id", match.team1);
             var team2 = utils.general.findItemInArrBy(clubs, "_id", match.team2);
 
-            leader.description = team1.shortName + " " + prediction[GAME.BET_TYPES.TEAM1_GOALS.key] + " - " + prediction[GAME.BET_TYPES.TEAM2_GOALS.key] + " " + team2.shortName + " (diff: " + prediction[GAME.BET_TYPES.GOAL_DIFF.key] + ")";
-            leader.additionalDescription = "Winner - " + getClubName(prediction[GAME.BET_TYPES.WINNER.key], team1, team2);
-            leader.additionalDescription2 = "1st Goal - " + getClubName(prediction[GAME.BET_TYPES.FIRST_TO_SCORE.key], team1, team2);
+            leader.description = team1.shortName + " " + prediction[GAME.BET_TYPES.TEAM1_GOALS.key] + " - " + prediction[GAME.BET_TYPES.TEAM2_GOALS.key] + " " + team2.shortName + " (Diff: " + prediction[GAME.BET_TYPES.GOAL_DIFF.key] + ")";
+            leader.additionalDescription = getWinnerText(prediction[GAME.BET_TYPES.WINNER.key], team1, team2);
+            leader.additionalDescription2 = getFirstScoreText(prediction[GAME.BET_TYPES.FIRST_TO_SCORE.key], team1, team2);
         });
     }
 

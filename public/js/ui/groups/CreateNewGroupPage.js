@@ -221,7 +221,7 @@ component.CreateNewGroupPage = (function(){
                     ),
                     re("div", {className: "row-scoring"},
                         re("input", {type: "number", pattern: "\\d*", className: winInputClassName, value: state.winPoints, name: "winPoints", onChange: this.onNumberChange}),
-                        re("div", {}, "Match Outcome (Win/Draw/Loss)")
+                        re("div", {}, "Match Winner (Win/Draw/Loss)")
                     ),
                     re("div", {className: "row-scoring"},
                         re("input", {type: "number", pattern: "\\d*", className: goalsInputClassName, value: state.goalsPoints, name: "goalsPoints", onChange: this.onNumberChange}),
