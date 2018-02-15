@@ -85,7 +85,7 @@ component.SimulatorPage = (function(){
             var team1 = utils.general.findItemInArrBy(clubs, "_id", match.team1);
             var team2 = utils.general.findItemInArrBy(clubs, "_id", match.team2);
 
-            leader.description = team1.shortName + " " + prediction[GAME.BET_TYPES.TEAM1_GOALS.key] + " - " + prediction[GAME.BET_TYPES.TEAM2_GOALS.key] + " " + team2.shortName + " (Diff.: " + prediction[GAME.BET_TYPES.GOAL_DIFF.key] + ")";
+            leader.description = team1.shortName + " " + prediction[GAME.BET_TYPES.TEAM1_GOALS.key] + " - " + prediction[GAME.BET_TYPES.TEAM2_GOALS.key] + " " + team2.shortName + " (Diff: " + prediction[GAME.BET_TYPES.GOAL_DIFF.key] + ")";
             leader.additionalDescription = getWinnerText(prediction[GAME.BET_TYPES.WINNER.key], team1, team2);
             leader.additionalDescription2 = getFirstScoreText(prediction[GAME.BET_TYPES.FIRST_TO_SCORE.key], team1, team2);
         });
