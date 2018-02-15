@@ -17,6 +17,7 @@ var testHelper = {
 
 beforeEach(function(){
     window.storeMock = initStore();
+    localStorage.clear();
 });
 
 afterEach(function() {
