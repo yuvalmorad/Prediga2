@@ -68,7 +68,7 @@ component.GamePredictionFormTile = (function(){
                         re("div", {className: "points"}, team1GoalsPoints ? team1GoalsPoints : "")
                     ),
                     re("div", {},
-                        re("div", {className: "form-row-title"}, "Goals Diff."),
+                        re("div", {className: "form-row-title"}, "Goal Diff."),
                         re(InputNumber, {isDisabled: isDialogFormDisabled, points: diffGoalsPoints, num: predictionGoalDiff, onChange: this.onInputNumberChanged.bind(this, GAME.BET_TYPES.GOAL_DIFF.key)}),
                         re("div", {className: "points"}, diffGoalsPoints ? diffGoalsPoints : "")
                     ),
