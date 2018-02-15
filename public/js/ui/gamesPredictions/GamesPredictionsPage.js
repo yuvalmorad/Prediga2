@@ -210,7 +210,7 @@ component.GamesPredictionsPage = (function(){
                     });
                 });
 
-                var groupProps = {className: "tiles-group-title", key: "tilesGroup" + groupIndex};
+                var groupProps = {className: "tiles-group-title" + (isOnSameDay(group.date, currentDate) ? " today" : ""), key: "tilesGroup" + groupIndex};
                 if (group.scrollTo) {
                     groupProps["data-ScrollTo"] = true;
                 }

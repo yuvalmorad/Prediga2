@@ -849,6 +849,11 @@ body {
     z-index: 1;
 }
 
+.tiles-group-title.today {
+    color: #0c0c0c;
+    font-weight: bold;
+}
+
 /* -------  base main tile -------*/
 
 .tile .main.base  {
