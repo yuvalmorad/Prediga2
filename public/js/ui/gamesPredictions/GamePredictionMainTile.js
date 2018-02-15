@@ -98,7 +98,7 @@ component.GamePredictionMainTile = (function(){
                 displayTeam1Goals = result[GAME.BET_TYPES.TEAM1_GOALS.key];
                 displayTeam2Goals = result[GAME.BET_TYPES.TEAM2_GOALS.key];
 
-                gameDate = re("div", {className: "final-game"}, "FINAL");
+                gameDate = re("div", {className: "final-game"}, "FULL-TIME");
                 gamePoints = re("div", {key: 2, className: "game-points"}, points);
                 graphParts = [{color: "#7ED321", amount: points}, {color: COLORS.DRAW_COLOR, amount: maxPoints - points}];
             } else {
