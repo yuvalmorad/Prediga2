@@ -7,6 +7,7 @@ const matchService = require("../services/matchService");
 const clubService = require("../services/clubService");
 const leagueService = require("../services/leagueService");
 const matchResultService = require("../services/matchResultService");
+const matchPredictionsService = require("../services/matchPredictionsService");
 const userScoreService = require("../services/userScoreService");
 const userLeaderboardService = require("../services/usersLeaderboardService");
 const pushSubscriptionService = require('../services/pushSubscriptionService');
@@ -174,6 +175,7 @@ const self = module.exports = {
 						// this is the first update of match result.
 						console.log("[Auotmatic Updater] - sending push notification about game starts!");
 						pushSubscriptionService.pushToAllRegisterdUsers({text: team1Club.name + ' vs ' + team2Club.name + ' started now'});
+						matchPredictionsService.crateRandomPrediction(match._id, utils.MONKEY_USER_ID, utils.DEFAULT_GROUP);
 					}
 					if (isFinished && (currentMatchResult && currentMatchResult.active === false)) {
 						return Promise.resolve('getResultsJob');

@@ -138,6 +138,14 @@ const self = module.exports = {
 	removeByGroupIdAndUserId: function (groupId, userId) {
 		return MatchPrediction.remove({groupId: groupId, userId: userId});
 	},
+	crateRandomPrediction: function (matchId, userId, groupId) {
+		matchService.byId(matchId).then(function (match) {
+			let randomMatchPrediction = self.createRandomMatchPrediction(match, userId, groupId);
+			return self.updatePrediction(randomMatchPrediction, userId, groupId).then(function (newPrediction) {
+				return Promise.resolve(newPrediction);
+			});
+		});
+	},
 	updatePrediction: function (matchPrediction, userId, groupId) {
 		return MatchPrediction.findOneAndUpdate({
 			matchId: matchPrediction.matchId,
@@ -165,5 +173,17 @@ const self = module.exports = {
 	},
 	byMatchIdUserId: function (matchId, userId) {
 		return MatchPrediction.findOne({matchId: matchId, userId: userId});
+	},
+	createRandomMatchPrediction: function (match, userId, groupId) {
+		return {
+			matchId: match._id,
+			groupId: groupId,
+			userId: userId,
+			winner: Math.floor((Math.random() * 2)) === 0 ? match.team1 : match.team2,
+			firstToScore: Math.floor((Math.random() * 2)) === 0 ? match.team1 : match.team2,
+			team1Goals: Math.floor((Math.random() * 4)), // [0-3]
+			team2Goals: Math.floor((Math.random() * 4)), // [0-3]
+			goalDiff: Math.floor((Math.random() * 4)), // [0-3]
+		};
 	}
 };
