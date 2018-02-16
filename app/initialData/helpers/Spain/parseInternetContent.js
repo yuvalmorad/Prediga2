@@ -39,7 +39,7 @@ let clubs = [
 		"stadium": "Abanca-Riazor"
 	},
 	{
-		"_id": "1a21a7c1a3f89181074e9863",
+		"_id": "1a21a7c1a3f89181074e9970",
 		"name": "Real Madrid",
 		"name365": "ריאל מדריד",
 		"shortName": "RM",
@@ -116,7 +116,7 @@ let clubs = [
 		"stadium": "Coliseum Alfonso Pérez"
 	},
 	{
-		"_id": "1a21a7c1a3f89181074e9870",
+		"_id": "1a21a7c1a3f89181074e9968",
 		"name": "Sevilla",
 		"name365": "סביליה",
 		"shortName": "SEV",
@@ -160,7 +160,7 @@ let clubs = [
 		"stadium": "Mendizorrotza"
 	},
 	{
-		"_id": "1a21a7c1a3f89181074e9874",
+		"_id": "1a21a7c1a3f89181074e9975",
 		"name": "Barcelona",
 		"name365": "ברצלונה",
 		"shortName": "BAR",

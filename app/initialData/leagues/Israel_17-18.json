@@ -1730,7 +1730,7 @@
       "team2": "3a21a7c1a3f89181074e9770",
       "team1": "3a21a7c1a3f89181074e9780",
       "stadium": "Netanya",
-      "kickofftime": "2018-02-24T18:33:00.000Z",
+      "kickofftime": "2018-02-24T18:30:00.000Z",
       "type": "Round 24",
       "league": "5a21a7c1a3f89181074e9769"
     },
@@ -1739,16 +1739,16 @@
       "team2": "3a21a7c1a3f89181074e9779",
       "team1": "3a21a7c1a3f89181074e9781",
       "stadium": "Netanya",
-      "kickofftime": "2018-02-24T18:33:00.000Z",
+      "kickofftime": "2018-02-24T14:00:00.000Z",
       "type": "Round 24",
       "league": "5a21a7c1a3f89181074e9769"
     },
     {
       "_id": "6a21a7c1a3f89181074e9932",
-      "team2": "3a21a7c1a3f89181074e9778",
-      "team1": "3a21a7c1a3f89181074e9782",
-      "stadium": "Acre Stadium",
-      "kickofftime": "2018-02-24T18:33:00.000Z",
+      "team2": "3a21a7c1a3f89181074e9782",
+      "team1": "3a21a7c1a3f89181074e9778",
+      "stadium": "Ha-Moshava",
+      "kickofftime": "2018-02-26T18:15:00.000Z",
       "type": "Round 24",
       "league": "5a21a7c1a3f89181074e9769"
     },
@@ -1757,7 +1757,7 @@
       "team2": "3a21a7c1a3f89181074e9777",
       "team1": "3a21a7c1a3f89181074e9774",
       "stadium": "Toto Turner Stadium",
-      "kickofftime": "2018-02-24T18:33:00.000Z",
+      "kickofftime": "2018-02-25T19:00:00.000Z",
       "type": "Round 24",
       "league": "5a21a7c1a3f89181074e9769"
     },
@@ -1766,7 +1766,7 @@
       "team2": "3a21a7c1a3f89181074e9776",
       "team1": "3a21a7c1a3f89181074e9772",
       "stadium": "Ha-Moshava",
-      "kickofftime": "2018-02-24T18:33:00.000Z",
+      "kickofftime": "2018-02-25T17:30:00.000Z",
       "type": "Round 24",
       "league": "5a21a7c1a3f89181074e9769"
     },
@@ -1775,7 +1775,7 @@
       "team2": "3a21a7c1a3f89181074e9775",
       "team1": "3a21a7c1a3f89181074e9769",
       "stadium": "Ashkelon",
-      "kickofftime": "2018-02-24T18:33:00.000Z",
+      "kickofftime": "2018-02-24T16:00:00.000Z",
       "type": "Round 24",
       "league": "5a21a7c1a3f89181074e9769"
     },
@@ -1784,7 +1784,7 @@
       "team2": "3a21a7c1a3f89181074e9773",
       "team1": "3a21a7c1a3f89181074e9771",
       "stadium": "Sami Ofer Stadium",
-      "kickofftime": "2018-02-24T18:33:00.000Z",
+      "kickofftime": "2018-02-24T16:15:00.000Z",
       "type": "Round 24",
       "league": "5a21a7c1a3f89181074e9769"
     },
@@ -1793,7 +1793,7 @@
       "team2": "3a21a7c1a3f89181074e9770",
       "team1": "3a21a7c1a3f89181074e9771",
       "stadium": "Sami Ofer Stadium",
-      "kickofftime": "2018-03-03T18:33:00.000Z",
+      "kickofftime": "2018-03-05T19:00:00.000Z",
       "type": "Round 25",
       "league": "5a21a7c1a3f89181074e9769"
     },
@@ -1802,7 +1802,7 @@
       "team2": "3a21a7c1a3f89181074e9769",
       "team1": "3a21a7c1a3f89181074e9773",
       "stadium": "Netanya",
-      "kickofftime": "2018-03-03T18:33:00.000Z",
+      "kickofftime": "2018-03-03T16:10:00.000Z",
       "type": "Round 25",
       "league": "5a21a7c1a3f89181074e9769"
     },
@@ -1811,7 +1811,7 @@
       "team2": "3a21a7c1a3f89181074e9772",
       "team1": "3a21a7c1a3f89181074e9775",
       "stadium": "Acre Stadium",
-      "kickofftime": "2018-03-03T18:33:00.000Z",
+      "kickofftime": "2018-03-03T16:10:00.000Z",
       "type": "Round 25",
       "league": "5a21a7c1a3f89181074e9769"
     },
@@ -1820,7 +1820,7 @@
       "team2": "3a21a7c1a3f89181074e9774",
       "team1": "3a21a7c1a3f89181074e9776",
       "stadium": "Kiryat Shmona Municipal",
-      "kickofftime": "2018-03-03T18:33:00.000Z",
+      "kickofftime": "2018-03-04T18:00:00.000Z",
       "type": "Round 25",
       "league": "5a21a7c1a3f89181074e9769"
     },
@@ -1829,7 +1829,7 @@
       "team2": "3a21a7c1a3f89181074e9782",
       "team1": "3a21a7c1a3f89181074e9777",
       "stadium": "Teddy Stadium",
-      "kickofftime": "2018-03-03T18:33:00.000Z",
+      "kickofftime": "2018-03-04T19:00:00.000Z",
       "type": "Round 25",
       "league": "5a21a7c1a3f89181074e9769"
     },
@@ -1838,7 +1838,7 @@
       "team2": "3a21a7c1a3f89181074e9781",
       "team1": "3a21a7c1a3f89181074e9778",
       "stadium": "Ha-Moshava",
-      "kickofftime": "2018-03-03T18:33:00.000Z",
+      "kickofftime": "2018-03-03T14:00:00.000Z",
       "type": "Round 25",
       "league": "5a21a7c1a3f89181074e9769"
     },
@@ -1847,7 +1847,7 @@
       "team2": "3a21a7c1a3f89181074e9780",
       "team1": "3a21a7c1a3f89181074e9779",
       "stadium": "Ashdod Stadium",
-      "kickofftime": "2018-03-03T18:33:00.000Z",
+      "kickofftime": "2018-03-03T18:30:00.000Z",
       "type": "Round 25",
       "league": "5a21a7c1a3f89181074e9769"
     },

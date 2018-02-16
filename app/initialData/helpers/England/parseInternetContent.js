@@ -72,7 +72,7 @@ let clubs = [
 		"stadium": "Falmer Stadium"
 	},
 	{
-		"_id": "1a21a7c1a3f89181074e9766",
+		"_id": "1a21a7c1a3f89181074e9965",
 		"name": "Manchester City",
 		"name365": "מנצ'סטר סיטי",
 		"shortName": "MC",
@@ -83,7 +83,7 @@ let clubs = [
 		"stadium": "Etihad Stadium"
 	},
 	{
-		"_id": "1a21a7c1a3f89181074e9767",
+		"_id": "1a21a7c1a3f89181074e9974",
 		"name": "Chelsea",
 		"name365": "צ'לסי",
 		"shortName": "CHE",
@@ -149,7 +149,7 @@ let clubs = [
 		"stadium": "bet365 Stadium"
 	},
 	{
-		"_id": "1a21a7c1a3f89181074e9773",
+		"_id": "1a21a7c1a3f89181074e9969",
 		"name": "Manchester United",
 		"name365": "מנצ'סטר יונייטד",
 		"shortName": "MU",
@@ -182,7 +182,7 @@ let clubs = [
 		"stadium": "St James' Park"
 	},
 	{
-		"_id": "1a21a7c1a3f89181074e9776",
+		"_id": "1a21a7c1a3f89181074e9963",
 		"name": "Tottenham Hotspur",
 		"name365": "טוטנהאם",
 		"shortName": "TOT",
@@ -206,7 +206,7 @@ let clubs = [
 	{
 		"_id": "1a21a7c1a3f89181074e9778",
 		"name": "Swansea City",
-		"name365": "סוונזי",
+		"name365": "סוואנסי",
 		"shortName": "SWA",
 		"colors": ["#EA0000", "#000"],
 		"buttonColors": ["#EA0000", "#000"],
@@ -226,7 +226,7 @@ let clubs = [
 		"stadium": "Vicarage Road"
 	},
 	{
-		"_id": "1a21a7c1a3f89181074e9780",
+		"_id": "1a21a7c1a3f89181074e9967",
 		"name": "Liverpool",
 		"name365": "ליברפול",
 		"shortName": "LIV",
