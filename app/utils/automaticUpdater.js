@@ -175,7 +175,7 @@ const self = module.exports = {
 						// this is the first update of match result.
 						console.log("[Auotmatic Updater] - sending push notification about game starts!");
 						pushSubscriptionService.pushToAllRegisterdUsers({text: team1Club.name + ' vs ' + team2Club.name + ' started now'});
-						matchPredictionsService.crateRandomPrediction(match._id, utils.MONKEY_USER_ID, utils.DEFAULT_GROUP);
+						matchPredictionsService.createRandomPrediction(match._id, utils.MONKEY_USER_ID, utils.DEFAULT_GROUP);
 					}
 					if (isFinished && (currentMatchResult && currentMatchResult.active === false)) {
 						return Promise.resolve('getResultsJob');

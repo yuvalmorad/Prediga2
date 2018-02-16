@@ -3,6 +3,7 @@ const app = express.Router();
 const util = require('../utils/util.js');
 const matchPredictionsService = require('../services/matchPredictionsService');
 const userService = require('../services/userService');
+const matchService = require('../services/matchService');
 const groupConfigurationService = require('../services/groupConfigurationService');
 const groupService = require('../services/groupService');
 
@@ -95,7 +96,7 @@ app.post('/', util.isLoggedIn, function (req, res) {
 	}
 
 	return groupService.byId(groupId).then(function (group) {
-		if (!group){
+		if (!group) {
 			res.status(400).json({});
 		}
 
@@ -105,6 +106,37 @@ app.post('/', util.isLoggedIn, function (req, res) {
 			}, function (msg) {
 				res.status(400).json({error: msg});
 			});
+		});
+	});
+});
+
+/**
+ * Create random match Prediction
+ */
+app.post('/random', util.isLoggedIn, function (req, res) {
+	let groupId = req.query.groupId;
+	let matchId = req.query.matchId;
+	const userId = req.user._id;
+
+	if (!groupId) {
+		groupId = util.DEFAULT_GROUP;
+	}
+
+	return groupService.byId(groupId).then(function (group) {
+		if (!group) {
+			res.status(400).json({});
+		}
+
+		return groupConfigurationService.getConfigurationValue(group.configurationId, util.MINUTES_BEFORE_START_MATCH_PROPERTY_NAME).then(function (minutesBeforeStartGameDeadline) {
+			matchService.byId(matchId).then(function (match) {
+				let matchPredictions = matchPredictionsService.generateMatchPrediction(match, userId, groupId);
+				return matchPredictionsService.createMatchPredictions(groupId, [matchPredictions], userId, minutesBeforeStartGameDeadline).then(function (newPrediction) {
+					res.status(200).json(newPrediction);
+				}, function (msg) {
+					res.status(400).json({error: msg});
+				});
+			});
+
 		});
 	});
 });
