@@ -31,7 +31,7 @@ describe("SimulatorMatch", function () {
         };
 
         testHelper.renderComponent(component.SimulatorMatch, props);
-        expect(document.querySelector(".simulate-game-date").textContent).toEqual("Running 32'");
+        expect(document.querySelector(".simulate-game-date").textContent).toEqual("32'");
         expect(document.querySelector(".left .team-name").textContent).toEqual("mc1");
         expect(document.querySelector(".right .team-name").textContent).toEqual("mc2");
         expect(document.querySelector(".first-score .radio-button-wrapper:nth-child(1) .radio-button").classList.contains("selected")).toBe(false);

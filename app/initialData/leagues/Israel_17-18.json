@@ -40,7 +40,8 @@
       "graphColors": [
         "#0636CA"
       ],
-      "logoPosition": "-728px 0"
+      "logoPosition": "-728px 0",
+      "sprite": "israel"
     },
     {
       "_id": "3a21a7c1a3f89181074e9770",
@@ -59,7 +60,8 @@
         "#000",
         "#EA0000"
       ],
-      "logoPosition": "-336px 0"
+      "logoPosition": "-336px 0",
+      "sprite": "israel"
     },
     {
       "_id": "3a21a7c1a3f89181074e9771",
@@ -76,7 +78,8 @@
       "graphColors": [
         "#006723"
       ],
-      "logoPosition": "-224px 0"
+      "logoPosition": "-224px 0",
+      "sprite": "israel"
     },
     {
       "_id": "3a21a7c1a3f89181074e9772",
@@ -93,7 +96,8 @@
       "graphColors": [
         "#F37620"
       ],
-      "logoPosition": "-616px 0"
+      "logoPosition": "-616px 0",
+      "sprite": "israel"
     },
     {
       "_id": "3a21a7c1a3f89181074e9773",
@@ -112,7 +116,8 @@
         "#000",
         "#FFF500"
       ],
-      "logoPosition": "-672px 0"
+      "logoPosition": "-672px 0",
+      "sprite": "israel"
     },
     {
       "_id": "3a21a7c1a3f89181074e9774",
@@ -129,7 +134,8 @@
       "graphColors": [
         "#D30229"
       ],
-      "logoPosition": "-112px 0"
+      "logoPosition": "-112px 0",
+      "sprite": "israel"
     },
     {
       "_id": "3a21a7c1a3f89181074e9775",
@@ -147,7 +153,8 @@
         "#fff",
         "#FE1403"
       ],
-      "logoPosition": "-280px 0"
+      "logoPosition": "-280px 0",
+      "sprite": "israel"
     },
     {
       "_id": "3a21a7c1a3f89181074e9776",
@@ -165,7 +172,8 @@
         "#002F73",
         "#5488D2"
       ],
-      "logoPosition": "-168px 0"
+      "logoPosition": "-168px 0",
+      "sprite": "israel"
     },
     {
       "_id": "3a21a7c1a3f89181074e9777",
@@ -183,7 +191,8 @@
       "graphColors": [
         "#FEF300"
       ],
-      "logoPosition": "-392px 0"
+      "logoPosition": "-392px 0",
+      "sprite": "israel"
     },
     {
       "_id": "3a21a7c1a3f89181074e9778",
@@ -200,7 +209,8 @@
       "graphColors": [
         "#002F73"
       ],
-      "logoPosition": "-560px 0"
+      "logoPosition": "-560px 0",
+      "sprite": "israel"
     },
     {
       "_id": "3a21a7c1a3f89181074e9779",
@@ -219,7 +229,8 @@
         "#E12E28",
         "#F9E534"
       ],
-      "logoPosition": "-56px 0"
+      "logoPosition": "-56px 0",
+      "sprite": "israel"
     },
     {
       "_id": "3a21a7c1a3f89181074e9780",
@@ -237,7 +248,8 @@
       "graphColors": [
         "#FBD54C"
       ],
-      "logoPosition": "0 0"
+      "logoPosition": "0 0",
+      "sprite": "israel"
     },
     {
       "_id": "3a21a7c1a3f89181074e9781",
@@ -255,7 +267,8 @@
         "#000",
         "#D30202"
       ],
-      "logoPosition": "-504px 0"
+      "logoPosition": "-504px 0",
+      "sprite": "israel"
     },
     {
       "_id": "3a21a7c1a3f89181074e9782",
@@ -272,7 +285,8 @@
       "graphColors": [
         "#5488D2"
       ],
-      "logoPosition": "-448px 0"
+      "logoPosition": "-448px 0",
+      "sprite": "israel"
     }
   ],
   "matches": [
@@ -1920,7 +1934,7 @@
       "_id": "5a1342399017dfc4e2faf4a8",
       "title": "1st place",
       "type": "teamWinner",
-      "deadline": "2018-02-01T00:00:00.000Z",
+      "deadline": "2018-03-10T00:00:00.001Z",
       "league": "5a21a7c1a3f89181074e9769",
       "options": [],
       "resultTime": "2018-03-10T00:00:00.000Z"
@@ -1929,7 +1943,7 @@
       "_id": "5a1342399017dfc4e2faf4a9",
       "title": "2nd place",
       "type": "teamRunnerUp",
-      "deadline": "2018-02-01T00:00:00.001Z",
+      "deadline": "2018-03-10T00:00:00.002Z",
       "league": "5a21a7c1a3f89181074e9769",
       "options": [],
       "resultTime": "2018-03-10T00:00:00.000Z"
@@ -1938,7 +1952,7 @@
       "_id": "5a1342399017dfc4e2faf4b0",
       "title": "3rd place",
       "type": "teamThird",
-      "deadline": "2018-02-01T00:00:00.002Z",
+      "deadline": "2018-03-10T00:00:00.003Z",
       "league": "5a21a7c1a3f89181074e9769",
       "options": [],
       "resultTime": "2018-03-10T00:00:00.000Z"
@@ -1947,7 +1961,7 @@
       "_id": "5a1342399017dfc4e2faf4b1",
       "title": "4th place",
       "type": "teamForth",
-      "deadline": "2018-02-01T00:00:00.003Z",
+      "deadline": "2018-03-10T00:00:00.004Z",
       "league": "5a21a7c1a3f89181074e9769",
       "options": [],
       "resultTime": "2018-03-10T00:00:00.000Z"
@@ -1956,7 +1970,7 @@
       "_id": "5a1342399017dfc4e2faf4b2",
       "title": "Second last",
       "type": "team2ndLast",
-      "deadline": "2018-02-01T00:00:00.004Z",
+      "deadline": "2018-03-10T00:00:00.005Z",
       "league": "5a21a7c1a3f89181074e9769",
       "options": [],
       "resultTime": "2018-03-10T00:00:00.000Z"
@@ -1965,7 +1979,7 @@
       "_id": "5a1342399017dfc4e2faf4b3",
       "title": "Last place",
       "type": "teamLast",
-      "deadline": "2018-02-01T00:00:00.005Z",
+      "deadline": "2018-03-10T00:00:00.006Z",
       "league": "5a21a7c1a3f89181074e9769",
       "options": [],
       "resultTime": "2018-03-10T00:00:00.000Z"

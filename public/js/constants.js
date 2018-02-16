@@ -21,6 +21,8 @@ var COLORS = {
     DRAW_COLOR: "#888282"
 };
 
+var INITIAL_PUPLIC_GROUP = "5a3eac97d3ca76dbd12bf638";
+
 var NUM_OF_BADGES = 2;
 
 var SECRET_LENGTH = 6;

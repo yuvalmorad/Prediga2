@@ -16,7 +16,9 @@ component.TeamPredictionMainTile = (function(){
             points = groupConfiguration ? groupConfiguration[team.type] : "",
             logoPosition,
             graphParts = [],
-            isDeadLine = props.isDeadLine; //only for dialog
+            isDeadLine = props.isDeadLine, //only for dialog
+            result = props.result,
+            sprite;
 
         if (!selectedTeam || (isDeadLine && selectedTeam.isDummySelection)) {
             teamName = "Team";
@@ -25,20 +27,33 @@ component.TeamPredictionMainTile = (function(){
             teamName = selectedTeam.name;
             teamShortName = selectedTeam.shortName;
             logoPosition = selectedTeam.logoPosition;
+            sprite = selectedTeam.sprite;
 
             var usersSelectedTeamCount = predictionCounters[selectedTeam._id] || 0;
             graphParts = [{color: selectedTeam.graphColors[0], amount: usersSelectedTeamCount}, {color: COLORS.DRAW_COLOR, amount: usersInGroupCount - usersSelectedTeamCount}];
         }
 
+        var numOfPointsEarned = 0;
+
+        if (result) {
+            if (selectedTeam && selectedTeam._id === result.team) {
+                numOfPointsEarned = points;
+                graphParts = [{color: "#7ED321", amount: points}];
+            } else {
+                graphParts = [{color: COLORS.DRAW_COLOR, amount: points}];
+            }
+        }
+
         return re("div", {className: "main"},
             re("div", {className: "left"},
-                re(TeamLogo, {leagueName: leagueName, logoPosition: logoPosition}),
+                re(TeamLogo, {leagueName: leagueName, logoPosition: logoPosition, sprite: sprite}),
                 re("div", {className: "team-short-name"}, teamShortName)
             ),
             re("div", {className: "center"},
                 re("div", {className: "team-name"}, teamName),
                 re("div", {className: "points"}, points + " Points"),
                 re("div", {className: "graphContainer"},
+                    re("div", {className: "points-win" + (numOfPointsEarned > 0 ? " win" : "")}, result ? numOfPointsEarned : ""),
                     re(Graph, {parts: graphParts})
                 )
             ),

@@ -71,7 +71,7 @@ component.ImagesPagination = (function(){
                 }
 
                 return re("div", {key: id, className: "item" + (isSelected ? " selected" : ""), style: {marginRight: spaceBetweenItems}},
-                    re(TeamLogo, {leagueName: leagueName, logoPosition: logoPosition}),
+                    re(TeamLogo, {leagueName: leagueName, logoPosition: logoPosition, sprite: item.sprite}),
                     re("div", {className: "title"}, shortName)
                 );
             });

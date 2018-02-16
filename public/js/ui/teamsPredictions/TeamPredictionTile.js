@@ -18,15 +18,16 @@ component.TeamPredictionTile = (function(){
                 league = props.league,
                 predictionCounters = props.predictionCounters,
                 usersInGroupCount = props.usersInGroupCount,
-                groupConfiguration = props.groupConfiguration;
+                groupConfiguration = props.groupConfiguration,
+                result = props.result;
 
             if (selectedTeam) {
                 borderColor = selectedTeam.colors[0];
                 borderSecondColor = selectedTeam.colors[1];
             }
 
-            return re(Tile, {borderLeftColor: borderColor, borderLeftSecondColor: borderSecondColor, borderRightColor: borderColor, borderRightSecondColor: borderSecondColor, className: "team-prediction-tile", dialogComponent: "TeamPredictionTileDialog", dialogComponentProps: {team: team, prediction: prediction, predictionCounters: predictionCounters, usersInGroupCount: usersInGroupCount, groupConfiguration: groupConfiguration, isDialogFormDisabled: false}},
-                re(TeamPredictionMainTile, {team: team, selectedTeam: selectedTeam, league: league, predictionCounters: predictionCounters, usersInGroupCount: usersInGroupCount, groupConfiguration: groupConfiguration})
+            return re(Tile, {borderLeftColor: borderColor, borderLeftSecondColor: borderSecondColor, borderRightColor: borderColor, borderRightSecondColor: borderSecondColor, className: "team-prediction-tile", dialogComponent: "TeamPredictionTileDialog", dialogComponentProps: {team: team, prediction: prediction, predictionCounters: predictionCounters, usersInGroupCount: usersInGroupCount, groupConfiguration: groupConfiguration, result: result, isDialogFormDisabled: false}},
+                re(TeamPredictionMainTile, {team: team, selectedTeam: selectedTeam, league: league, predictionCounters: predictionCounters, usersInGroupCount: usersInGroupCount, groupConfiguration: groupConfiguration, result: result})
             );
         }
     });

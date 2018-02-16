@@ -1,10 +1,7 @@
 window.component = window.component || {};
 component.BaseMainTile = (function(){
-    var TeamLogo = component.TeamLogo;
-
     return function(props) {
         var imageSrc = props.imageSrc,
-            leagueName = props.leagueName,
             trend = props.trend,
             title = props.title,
             description = props.description,
@@ -14,7 +11,6 @@ component.BaseMainTile = (function(){
             rankTitle = props.rankTitle,
             points = props.points,
             badgeName = props.badgeName,
-            graphParts = props.graphParts,
             logoPosition = props.logoPosition;
 
         var trendElement = null;
@@ -40,13 +36,7 @@ component.BaseMainTile = (function(){
         var ranktitleElem = rankTitle && re("div", {className: "rankTitle"}, rankTitle);
         var badgeElem = badgeName && re("div", {className: "badge", style: {backgroundImage: "url('../images/" + badgeName + ".png')"}});
 
-        var imageElem;
-
-        if (leagueName) {
-            imageElem = re(TeamLogo, {leagueName: leagueName, logoPosition: logoPosition});
-        } else {
-            imageElem = re("img", {src: imageSrc});
-        }
+        var imageElem = re("img", {src: imageSrc});
 
         return re("div", {className: "main base"},
             re("div", {className: "left"},

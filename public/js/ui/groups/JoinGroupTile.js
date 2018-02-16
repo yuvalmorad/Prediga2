@@ -51,7 +51,6 @@ component.JoinGroupTile = (function(){
         render: function() {
             var state = this.state,
                 props = this.props,
-                userId = props.userId,
                 admin = props.admin || {},
                 group = props.group,
                 name = group.name,
@@ -61,9 +60,8 @@ component.JoinGroupTile = (function(){
                 playersCount = users.length,
                 leaguesCount = group.leagueIds.length,
                 isOpenGroup = false, //TODO
-                adminName = admin.name;
-
-            var isUserInGroup = users.indexOf(userId) >= 0;
+                adminName = admin.name,
+                isUserInGroup = props.isUserInGroup;
 
             var secretProps = {
                 onNumberChanged: this.onSecretNumberChanged

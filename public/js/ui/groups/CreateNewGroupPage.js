@@ -118,8 +118,6 @@ component.CreateNewGroupPage = (function(){
                 groupToCreate.secret += state["secret" + i];
             }
 
-            console.log("saving: ", groupToCreate);
-
             this.props.createGroup(groupToCreate);
             routerHistory.goBack();
         },
@@ -223,7 +221,7 @@ component.CreateNewGroupPage = (function(){
                     ),
                     re("div", {className: "row-scoring"},
                         re("input", {type: "number", pattern: "\\d*", className: winInputClassName, value: state.winPoints, name: "winPoints", onChange: this.onNumberChange}),
-                        re("div", {}, "Match Outcome (Win/Draw/Loss)")
+                        re("div", {}, "Match Winner (Win/Draw/Loss)")
                     ),
                     re("div", {className: "row-scoring"},
                         re("input", {type: "number", pattern: "\\d*", className: goalsInputClassName, value: state.goalsPoints, name: "goalsPoints", onChange: this.onNumberChange}),
@@ -239,7 +237,7 @@ component.CreateNewGroupPage = (function(){
                     ),
                     re("div", {className: "row-buttons"},
                         re("button", {onClick: this.onCancel}, "Cancel"),
-                        re("button", {disabled: !isFormValid, onClick: this.onSave}, "Create Group")
+                        re("button", {disabled: !isFormValid, onClick: this.onSave}, "Create")
                     )
                 );
             }

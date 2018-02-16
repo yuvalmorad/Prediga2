@@ -58,6 +58,7 @@ component.TeamPredictionFormTile = (function(){
                        id: selectedTeam._id,
                        shortName: selectedTeam.shortName,
                        logoPosition: selectedTeam.logoPosition,
+                       sprite: selectedTeam.sprite,
                        leagueName: league.name
                    }]
                }
@@ -76,6 +77,7 @@ component.TeamPredictionFormTile = (function(){
                        id: teamOption._id,
                        shortName: teamOption.shortName,
                        logoPosition: teamOption.logoPosition,
+                       sprite: teamOption.sprite,
                        leagueName: league.name
                    }
                });

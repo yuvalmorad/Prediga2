@@ -726,6 +726,7 @@ body {
     right: 0;
     bottom: 0;
     background: rgba(0, 0, 0, 0.7);
+    z-index: 5;
 }
 
 .tile-dialog-container-wrapper {
@@ -840,6 +841,17 @@ body {
     padding: 0.3rem 0;
     font-size: 1rem;
     margin-bottom: 0.5rem;
+    position: sticky;
+    top: 0;
+    background: rgba(224, 224, 224, 0.95);
+    border: 1px solid #cccbcb;
+    border-radius: 4px;
+    z-index: 1;
+}
+
+.tiles-group-title.today {
+    color: #0c0c0c;
+    font-weight: bold;
 }
 
 /* -------  base main tile -------*/
@@ -1062,11 +1074,22 @@ body {
 
 .team-prediction-tile .graphContainer {
     width: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 .team-prediction-tile .graphContainer .graph {
     height: 0.2rem;
     display: flex;
+}
+
+.team-prediction-tile .points-win {
+    align-self: flex-end;
+    margin-bottom: 4px;
+}
+
+.team-prediction-tile .points-win.win {
+    color: #7ED321;
 }
 
 .team-prediction-tile .main > .left,
