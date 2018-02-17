@@ -761,10 +761,11 @@ body {
     flex: 1;
     height: 2rem;
     max-width: 49%;
+    margin-right: 0.5rem;
 }
 
-.tile-dialog-container .dialog-button button:first-child {
-    margin-right: 0.5rem;
+.tile-dialog-container .dialog-button button:last-child {
+    margin-right: 0;
 }
 
 .tile-dialog-container .dialog-button button[disabled] {

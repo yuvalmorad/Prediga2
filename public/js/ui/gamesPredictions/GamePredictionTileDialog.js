@@ -18,11 +18,17 @@ component.GamePredictionTileDialog = (function(){
 
         componentDidMount: function() {
           this.props.onDialogSave(this.onDialogSave);
+          this.props.onDialogRandom(this.onDialogRandom);
           this.props.setSaveButtonEnabled(false);
+          this.props.setRandomButtonDisplay(true);
         },
 
         onDialogSave: function() {
             this.props.updateGame(this.state.prediction, this.props.selectedGroupId);
+        },
+
+        onDialogRandom: function() {
+            this.props.randomGamePrediction(this.props.selectedGroupId, this.props.game._id);
         },
 
         updateGameForm: function(predictionToUpdate) {
@@ -64,7 +70,8 @@ component.GamePredictionTileDialog = (function(){
 
     function mapDispatchToProps(dispatch) {
         return {
-            updateGame: function(prediction, groupId){dispatch(action.gamesPredictions.updateGame(prediction, groupId))}
+            updateGame: function(prediction, groupId){dispatch(action.gamesPredictions.updateGame(prediction, groupId))},
+            randomGamePrediction: function(groupId, matchId){dispatch(action.gamesPredictions.randomGamePrediction(groupId, matchId))}
         }
     }
 

@@ -6,7 +6,8 @@ component.TileDialogContainer = (function(){
 
         getInitialState: function() {
             return {
-                saveButtonEnabled: true
+                saveButtonEnabled: true,
+                displayRandomButton: false
             }
         },
 
@@ -21,17 +22,32 @@ component.TileDialogContainer = (function(){
             }
         },
 
+        onRandom: function() {
+            this.closeDialog();
+            if (this.onDialogRandom) {
+                this.onDialogRandom();
+            }
+        },
+
         closeDialog: function() {
             this.props.closeTileDialog();
-            this.setState({saveButtonEnabled: true});
+            this.setState({saveButtonEnabled: true, displayRandomButton: false});
         },
 
         assignDialogSaveFun: function(onDialogSaveFunc) {
             this.onDialogSave = onDialogSaveFunc;
         },
 
+        assignDialogRandomFun: function(onDialogSaveFunc) {
+            this.onDialogRandom = onDialogSaveFunc;
+        },
+
         setSaveButtonEnabled: function(status) {
             this.setState({saveButtonEnabled: status});
+        },
+
+        setRandomButtonDisplay: function(status) {
+            this.setState({displayRandomButton: status});
         },
 
         render: function() {
@@ -41,11 +57,14 @@ component.TileDialogContainer = (function(){
             var componentProps = props.componentProps;
             var isDialogFormDisabled = false;
             var saveButtonEnabled = this.state.saveButtonEnabled;
+            var displayRandomButton = this.state.displayRandomButton;
 
             if (props.isShowTileDialog) {
                 isDialogFormDisabled = !!componentProps.isDialogFormDisabled;
                 componentProps.onDialogSave = this.assignDialogSaveFun;
+                componentProps.onDialogRandom = this.assignDialogRandomFun;
                 componentProps.setSaveButtonEnabled = this.setSaveButtonEnabled;
+                componentProps.setRandomButtonDisplay = this.setRandomButtonDisplay;
                 componentElement = re(component[props.componentName], componentProps);
                 className +=  (" " + props.componentName);
                 if (componentProps.dialogContainerClassName) {
@@ -65,6 +84,7 @@ component.TileDialogContainer = (function(){
                 re("div", { className: "tile-dialog-container-wrapper"},
                     componentElement,
                     re("div", {className: "dialog-button", style: dialogButtonStyle},
+                        re("button", {onClick: this.onRandom, className: displayRandomButton && !isDialogFormDisabled ? "" : "hide"}, "Random"),
                         re("button", {onClick: this.onCancel, className: isDialogFormDisabled ? "hide" : ""}, "Cancel"),
                         re("button", {onClick: isSave ?  this.onSave : this.onCancel, className: "main-button", disabled: isSave && !saveButtonEnabled}, isSave ? "Submit" : "Close")
                     )
