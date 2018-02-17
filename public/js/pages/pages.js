@@ -8,8 +8,9 @@ var routePages = (function(){
         SimulatorPage = component.SimulatorPage,
         JoinGroupPage = component.JoinGroupPage,
         CreateNewGroupPage = component.CreateNewGroupPage,
-        EditAdminGroupPage = component.EditAdminGroupPage;
-        EditUserGroupPage = component.EditUserGroupPage;
+        EditAdminGroupPage = component.EditAdminGroupPage,
+        EditUserGroupPage = component.EditUserGroupPage,
+        UserSettingsPage = component.UserSettingsPage;
 
     var routePages = [
         {
@@ -97,6 +98,13 @@ var routePages = (function(){
                 hasBackButton: true,
                 isDynamicTitle: true
             }
+        },
+        {
+            path: "/userSettings",
+            title: "Settings",
+            isAuthenticatedPage: true,
+            component: UserSettingsPage,
+            displayInBottomMenu: true
         },
         {
             path: "/rules",
