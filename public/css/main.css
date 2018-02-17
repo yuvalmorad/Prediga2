@@ -839,14 +839,12 @@ body {
 .tiles-group-title {
     text-align: center;
     color: #797676;
-    padding: 0.3rem 0;
+    padding: 0.5rem 0;
     font-size: 1rem;
     margin-bottom: 0.5rem;
     position: sticky;
     top: 0;
-    background: rgba(224, 224, 224, 0.95);
-    border: 1px solid #cccbcb;
-    border-radius: 4px;
+    background: rgba(236, 236, 236, 0.95);
     z-index: 1;
 }
 
