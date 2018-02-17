@@ -101,8 +101,8 @@ app.post('/', util.isLoggedIn, function (req, res) {
 		}
 
 		return groupConfigurationService.getConfigurationValue(group.configurationId, util.MINUTES_BEFORE_START_MATCH_PROPERTY_NAME).then(function (minutesBeforeStartGameDeadline) {
-			return matchPredictionsService.createMatchPredictions(groupId, matchPredictions, userId, minutesBeforeStartGameDeadline).then(function (newPrediction) {
-				res.status(200).json(newPrediction);
+			return matchPredictionsService.createMatchPredictions(groupId, matchPredictions, userId, minutesBeforeStartGameDeadline).then(function (newPredictions) {
+				res.status(200).json(newPredictions);
 			}, function (msg) {
 				res.status(400).json({error: msg});
 			});
