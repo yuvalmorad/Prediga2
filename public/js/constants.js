@@ -18,7 +18,7 @@ var GAME = {
 };
 
 var COLORS = {
-    DRAW_COLOR: "#888282"
+    DRAW_COLOR: "#e2dfdf"
 };
 
 var INITIAL_PUPLIC_GROUP = "5a3eac97d3ca76dbd12bf638";

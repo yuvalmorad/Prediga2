@@ -30,6 +30,11 @@ component.TeamPredictionMainTile = (function(){
             sprite = selectedTeam.sprite;
 
             var usersSelectedTeamCount = predictionCounters[selectedTeam._id] || 0;
+            usersSelectedTeamCount *= 1.5; //multiple factor
+            usersSelectedTeamCount = Math.floor(usersSelectedTeamCount);
+            if (usersSelectedTeamCount > usersSelectedTeamCount) {
+                usersSelectedTeamCount = usersSelectedTeamCount;
+            }
             graphParts = [{color: selectedTeam.graphColors[0], amount: usersSelectedTeamCount}, {color: COLORS.DRAW_COLOR, amount: usersInGroupCount - usersSelectedTeamCount}];
         }
 

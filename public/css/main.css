@@ -935,6 +935,10 @@ body {
     line-height: 20px;
 }
 
+.tile.is-user .main.base .trend {
+    border-color: #F5EFBF;
+}
+
 .tile .main.base .trend.positive {
     background-color: #6ECE1A;
 }
