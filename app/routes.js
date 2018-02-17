@@ -37,6 +37,7 @@ module.exports = function (app, passport) {
 	app.use('/api/leagues', require('./controllers/leagueController.js'));
 	app.use('/api/clubs', require('./controllers/clubController.js'));
 	app.use('/api/pushSubscription', require('./controllers/pushSubscriptionController.js'));
+	app.use('/api/userSettings', require('./controllers/userSettingsController.js'));
 
 	/********************************************
 	 * Automatic Update (Immediate)

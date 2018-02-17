@@ -4,18 +4,6 @@ const util = require('../utils/util');
 const pushSubscriptionService = require('../services/pushSubscriptionService');
 
 /**
- * Subscribe user to push notification
- */
-app.post('/', util.isLoggedIn, function (req, res) {
-	const userId = req.user._id;
-	const pushSubscriptionObj = req.body.pushSubscription;
-
-	pushSubscriptionService.subscribeUserToPushNotification(userId, pushSubscriptionObj).then(function () {
-		res.status(200).json({});
-	});
-});
-
-/**
  * Get user's push subscriptions
  */
 app.get('/', util.isLoggedIn, function (req, res) {

@@ -10,6 +10,7 @@ action.init = (function () {
             dispatch(action.users.loadUsers());
             dispatch(action.leagues.loadLeaguesAndClubs());
             dispatch(action.groupsConfiguration.load());
+            dispatch(action.userSettings.load());
         }
     }
 

@@ -134,5 +134,8 @@ const self = module.exports = {
 	},
 	all: function () {
 		return PushSubscription.find({});
+	},
+	removeAllByUser: function(userId) {
+        return PushSubscription.remove({userId: userId});
 	}
 };

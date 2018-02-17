@@ -4,9 +4,9 @@ utils.init = (function(){
         onApplicationAuthenticated: onApplicationAuthenticated
     };
 
-    function onApplicationAuthenticated() {
+    function onApplicationAuthenticated(userSettings) {
         socket.init();
-        pushNotifications.init();
-        pushNotifications.askPermissionAndPersistPushSubscriptionIfNeeded(); //TODO move to other place (maybe a checkbox should trigger this)
+        pushNotifications.init(userSettings);
+        pushNotifications.askPermissionAndPersistPushSubscriptionIfNeeded(true);
     }
 })();

@@ -11,7 +11,6 @@ action.users = (function () {
                 var users = res.data;
                 dispatch(action.authentication.setUserId(res.headers.userid));
                 dispatch(success(users));
-                utils.init.onApplicationAuthenticated();
             }, function(error){
 
             })

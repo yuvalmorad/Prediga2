@@ -2,8 +2,10 @@ var pushNotifications = (function(){
     var publicKey = "BI75psBX1HkM6jpcXdEYKNV41ZZdzQU_pJf7sS_1V6r3mE-83ptsqjZ7pIVT9sfHc4ThRgc_YAnaS3XSE-igB98";
     var STATUS_GRANTED = "granted";
     var supportServiceWorker = 'serviceWorker' in navigator;
+    var _userSettings;
 
-    function init() {
+    function init(userSettings) {
+        _userSettings = userSettings;
         //#1 register service worker
         registerServiceWorker();
     }
@@ -21,13 +23,19 @@ var pushNotifications = (function(){
     }
 
     //should be called once per user (also per device ?)
-    function askPermissionAndPersistPushSubscriptionIfNeeded() {
+    function askPermissionAndPersistPushSubscriptionIfNeeded(checkIsPushEnabled) {
         if (!supportServiceWorker) {
             return Promise.reject();
         }
 
         //don't ask for permission if there is already granted permission
-        if (Notification.permission === STATUS_GRANTED) {
+        //if (Notification.permission === STATUS_GRANTED) { TODO
+        //    return Promise.resolve();
+        //}
+
+        //only for bootstrap load -> return if user settings of push notification has some value (disabled or enabled in the past)
+        if (checkIsPushEnabled && (utils.userSettings.isPushNotificationsHasValue(_userSettings))) {
+            //user already enabled push notification -> return
             return Promise.resolve();
         }
 
@@ -37,7 +45,7 @@ var pushNotifications = (function(){
             //#3 subscribe user to get pushSubscription object
             return subscribeUserToPush().then(function(pushSubscription){
                 //#4 send pushSubscription to server in order to persist it
-                return service.pushSubscription.addPushSubscription(pushSubscription);
+                return store.dispatch(action.userSettings.enablePush(pushSubscription));
             })
         }).catch(function (err) {
 			console.log('error');
