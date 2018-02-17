@@ -175,12 +175,14 @@ const self = module.exports = {
 		return MatchPrediction.findOne({matchId: matchId, userId: userId});
 	},
 	generateMatchPrediction: function (match, userId, groupId) {
+		let winnerRandomValue = Math.floor((Math.random() * 3));
+		let firstToScoreRandomValue = Math.floor((Math.random() * 3));
 		return {
 			matchId: match._id,
 			groupId: groupId,
 			userId: userId,
-			winner: Math.floor((Math.random() * 2)) === 0 ? match.team1 : match.team2,
-			firstToScore: Math.floor((Math.random() * 2)) === 0 ? match.team1 : match.team2,
+			winner: winnerRandomValue === 0 ? match.team1 : winnerRandomValue === 1 ? match.team2 : 'Draw',
+			firstToScore: firstToScoreRandomValue === 0 ? match.team1 : firstToScoreRandomValue === 1 ? match.team2 : 'None',
 			team1Goals: Math.floor((Math.random() * 4)), // [0-3]
 			team2Goals: Math.floor((Math.random() * 4)), // [0-3]
 			goalDiff: Math.floor((Math.random() * 4)), // [0-3]
