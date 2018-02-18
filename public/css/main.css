@@ -805,8 +805,8 @@ body {
 }
 
 .tile .tile-wrapper {
-    border-left: 4px solid #888282;
-    border-right: 4px solid #888282;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
     border-radius: 4px;
     position: relative;
     height: 100%;

@@ -60,7 +60,7 @@ component.TeamPredictionTileDialog = (function(){
                 groupConfiguration = props.groupConfiguration,
                 result = props.result,
                 selectedTeam,
-                borderColor = "gray",
+                borderColor = "#a7a4a4",
                 borderSecondColor = "",
                 league = utils.general.findItemInArrBy(leagues, "_id", team.league);
 

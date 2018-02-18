@@ -73,7 +73,7 @@ component.LeaderBoardTiles = (function(){
             var userId = leader.userId;
             var user = utils.general.findItemInArrBy(users, "_id", userId);
             var trend = leader.placeBeforeLastGame === -1 ? 0 :  leader.placeBeforeLastGame - leader.placeCurrent;
-            var borderColor = "#a7a4a4";
+            var borderColor;
 
             if (trend > 0) {
                 borderColor = "#00ff00";
