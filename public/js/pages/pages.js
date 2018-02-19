@@ -61,7 +61,7 @@ var routePages = (function(){
                 hideGroupsIcon: true,
                 actions: [
                     {
-                        buttonText: "Create",
+                        icon: "",
                         eventName: "onOpenCreateNewGroup"
                     }
                 ]
@@ -83,6 +83,7 @@ var routePages = (function(){
             path: "/editAdminGroup/:groupId",
             isAuthenticatedPage: true,
             component: EditAdminGroupPage,
+            hideSiteNavigation: true,
             siteHeaderConfig: {
                 hideMenuButton: true,
                 hasBackButton: true,
@@ -93,6 +94,7 @@ var routePages = (function(){
             path: "/editUserGroup/:groupId",
             isAuthenticatedPage: true,
             component: EditUserGroupPage,
+            hideSiteNavigation: true,
             siteHeaderConfig: {
                 hideMenuButton: true,
                 hasBackButton: true,

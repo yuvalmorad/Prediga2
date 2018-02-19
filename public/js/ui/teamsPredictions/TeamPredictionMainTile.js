@@ -3,6 +3,15 @@ component.TeamPredictionMainTile = (function(){
     var TeamLogo = component.TeamLogo;
     var Graph = component.Graph;
 
+    function getMaxCount(counters) {
+        return Object.keys(counters).reduce(function(res, counterKey){
+            if (counters[counterKey] > res) {
+                return counters[counterKey];
+            } else {
+                return res;
+            }
+        }, 0);
+    }
     return  function(props) {
         var team = props.team,
             selectedTeam = props.selectedTeam,
@@ -11,7 +20,6 @@ component.TeamPredictionMainTile = (function(){
             teamName,
             teamShortName,
             predictionCounters = props.predictionCounters,
-            usersInGroupCount = props.usersInGroupCount,
             groupConfiguration = props.groupConfiguration,
             points = groupConfiguration ? groupConfiguration[team.type] : "",
             logoPosition,
@@ -29,13 +37,10 @@ component.TeamPredictionMainTile = (function(){
             logoPosition = selectedTeam.logoPosition;
             sprite = selectedTeam.sprite;
 
+            var maxCount = getMaxCount(predictionCounters);
             var usersSelectedTeamCount = predictionCounters[selectedTeam._id] || 0;
-            usersSelectedTeamCount *= 1.5; //multiple factor
-            usersSelectedTeamCount = Math.floor(usersSelectedTeamCount);
-            if (usersSelectedTeamCount > usersSelectedTeamCount) {
-                usersSelectedTeamCount = usersSelectedTeamCount;
-            }
-            graphParts = [{color: selectedTeam.graphColors[0], amount: usersSelectedTeamCount}, {color: COLORS.DRAW_COLOR, amount: usersInGroupCount - usersSelectedTeamCount}];
+
+            graphParts = [{color: selectedTeam.graphColors[0], amount: usersSelectedTeamCount}, {color: COLORS.DRAW_COLOR, amount: maxCount - usersSelectedTeamCount}];
         }
 
         var numOfPointsEarned = 0;

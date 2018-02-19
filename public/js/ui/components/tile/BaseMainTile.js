@@ -15,7 +15,7 @@ component.BaseMainTile = (function(){
 
         var trendElement = null;
 
-        if (trend !== undefined) {
+        if (trend !== undefined && trend !== 0) {
             var trendText = trend,
                 trendClassName = "trend";
 

@@ -279,9 +279,9 @@ component.EditAdminGroupPage = (function(){
                         re("button", {disabled: !isDirty, onClick: this.onCancel}, "Cancel"),
                         re("button", {disabled: !isDirty || !isFormValid, onClick: this.onSave}, "Submit")
                     ),
-                    re("button", {className: "delete-group-button", onClick: this.deleteGroup}, "Delete Group"),
                     re("div", {className: "title"}, "Users"),
-                    usersTiles
+                    usersTiles,
+                    re("button", {className: "delete-group-button", onClick: this.deleteGroup}, "Delete Group")
                 );
             }
 

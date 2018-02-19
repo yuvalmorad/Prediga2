@@ -51,8 +51,6 @@ component.TeamsPredictionsPage = (function(){
                 groupsConfiguration = props.groupsConfiguration || [],
                 results = props.results;
 
-            var group = utils.general.findItemInArrBy(groups, "_id", selectedGroupId);
-            var usersInGroupCount = group ? group.users.length : 0;
             var groupConfiguration = utils.general.getGroupConfiguration(groups, selectedGroupId, groupsConfiguration);
 
             //filter teams with selected league id
@@ -80,7 +78,6 @@ component.TeamsPredictionsPage = (function(){
                         league: league,
                         prediction: prediction,
                         predictionCounters: predictionsCounters[teamId] || {},
-                        usersInGroupCount: usersInGroupCount,
                         groupConfiguration: groupConfiguration,
                         result: result,
                         key: teamId
