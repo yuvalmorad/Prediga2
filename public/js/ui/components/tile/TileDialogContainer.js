@@ -61,6 +61,7 @@ component.TileDialogContainer = (function(){
 
             if (props.isShowTileDialog) {
                 isDialogFormDisabled = !!componentProps.isDialogFormDisabled;
+                componentProps.closeDialog = this.closeDialog;
                 componentProps.onDialogSave = this.assignDialogSaveFun;
                 componentProps.onDialogRandom = this.assignDialogRandomFun;
                 componentProps.setSaveButtonEnabled = this.setSaveButtonEnabled;

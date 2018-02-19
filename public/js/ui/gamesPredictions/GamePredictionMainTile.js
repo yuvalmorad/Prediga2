@@ -69,6 +69,8 @@ component.GamePredictionMainTile = (function(){
                 team2 = props.team2,
                 prediction = props.prediction,
                 result = props.result,
+                isDialogFormDisabled = props.isDialogFormDisabled,
+                randomGamePrediction = props.randomGamePrediction,
                 displayTeam1Goals,
                 displayTeam2Goals,
                 team1ShortName = team1 ? team1.shortName : "",
@@ -83,7 +85,7 @@ component.GamePredictionMainTile = (function(){
                 stadium = game.stadium || "",
                 dateStr,
                 gamePoints,
-                simulationBtn,
+                buttonBetweenScore,
                 timeBeforeGame = state.timeBeforeGame,
                 gameStatus = utils.general.getGameStatus(result),
                 className = "main";
@@ -110,7 +112,7 @@ component.GamePredictionMainTile = (function(){
                 if (gameStatus === GAME.STATUS.RUNNING_GAME) {
                     //running game
                     className += " running-game";
-                    simulationBtn = re(ReactRouterDOM.Link, {to: "/simulator/" + gameId, className: "simulation-button"}, "Simulate");
+                    buttonBetweenScore = re(ReactRouterDOM.Link, {to: "/simulator/" + gameId, className: "simulation-button"}, "Simulate");
                     dateStr = utils.general.getRunningGameFormat(result);
                     displayTeam1Goals = result[GAME.BET_TYPES.TEAM1_GOALS.key];
                     displayTeam2Goals = result[GAME.BET_TYPES.TEAM2_GOALS.key];
@@ -139,6 +141,11 @@ component.GamePredictionMainTile = (function(){
                 graphParts = [{color: teamsGraphColors[0], amount: predictionCounterWin1}, {color: COLORS.DRAW_COLOR, amount: predictionCounterDraw}, {color: teamsGraphColors[1], amount: predictionCounterWin2}];
             }
 
+            if (randomGamePrediction && !buttonBetweenScore && !isDialogFormDisabled) {
+                //it is a dialog, simulator is not visible and dialog is not disabled
+                buttonBetweenScore = re("a", {className: "random-button", onClick: randomGamePrediction}, "Random");
+            }
+
             return re("div", {className: className},
                 re("div", {className: "left"},
                     re(TeamLogo, {leagueName: leagueName, logoPosition: team1LogoPosition, sprite: team1Sprite, isHide: !team1, onClick: props.updateGameForm && this.onTeamLogoClicked.bind(this, team1._id)}),
@@ -151,7 +158,7 @@ component.GamePredictionMainTile = (function(){
                     ),
                     re("div", {className: "status"},
                         re("div", {className: "game-score"}, displayTeam1Goals !== undefined ? displayTeam1Goals : ""),
-                        simulationBtn,
+                        buttonBetweenScore,
                         gamePoints,
                         re("div", {className: "game-score"}, displayTeam2Goals !== undefined ? displayTeam2Goals : "")
                     ),
