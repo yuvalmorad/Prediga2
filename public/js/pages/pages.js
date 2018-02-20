@@ -10,7 +10,8 @@ var routePages = (function(){
         CreateNewGroupPage = component.CreateNewGroupPage,
         EditAdminGroupPage = component.EditAdminGroupPage,
         EditUserGroupPage = component.EditUserGroupPage,
-        UserSettingsPage = component.UserSettingsPage;
+        UserSettingsPage = component.UserSettingsPage,
+        GroupMessagesPage = component.GroupMessagesPage;
 
     var routePages = [
         {
@@ -36,6 +37,15 @@ var routePages = (function(){
             icon: "",
             isAuthenticatedPage: true,
             component: TeamsPredictionsPage,
+            exact: true,
+            displayInSiteNavigation: true
+        },
+        {
+            path: "/groupMessages",
+            title: "Messages",
+            icon: "",
+            isAuthenticatedPage: true,
+            component: GroupMessagesPage,
             exact: true,
             displayInSiteNavigation: true
         },

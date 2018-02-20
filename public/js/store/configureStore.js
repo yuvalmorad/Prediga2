@@ -17,7 +17,8 @@ function initStore() {
         users: reducer.users(),
         groupsConfiguration: reducer.groupsConfiguration(),
         groups: reducer.groups(),
-        userSettings: reducer.userSettings()
+        userSettings: reducer.userSettings(),
+        groupMessages: reducer.groupMessages()
     });
 
     return store = Redux.createStore(rootReducer, {}, compose(applyMiddleware(thunkMiddleware)));

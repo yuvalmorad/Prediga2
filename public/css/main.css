@@ -5,7 +5,7 @@ input:not([type="checkbox"]) {
     appearance: none;
 }
 
-*:not(input) {
+*:not(input, textarea) {
     -webkit-user-select: none;  /* Chrome all / Safari all */
     -moz-user-select: none;     /* Firefox all */
     -ms-user-select: none;      /* IE 10+ */
@@ -1826,4 +1826,96 @@ body {
 
 .select-group-icon .color-pallete .color.selected {
     border: 2px solid #4A4A4A;
+}
+
+
+/* -------  group messages page-------*/
+
+.page > .group-messages-page.content > .scroll-container {
+    height: auto;
+    top: 0;
+    bottom: 36px;
+    left: 0;
+    right: 0;
+    position: absolute;
+}
+
+.group-messages-page .inputs-container {
+    position: absolute;
+    bottom: 0;
+    height: 35px;
+    left: 0;
+    right: 0;
+}
+
+.group-messages-page .input-wrapper {
+    position: absolute;
+    top: 0;
+    left: 5px;
+    right: 35px;
+    bottom: 3px;
+}
+
+.group-messages-page .inputs-container .input-wrapper textarea {
+    width: 100%;
+    resize: none;
+    overflow: hidden;
+    padding: 5px;
+    outline: none;
+    border: none;
+    text-indent: 5px;
+    box-shadow: none;
+    height: 100%;
+    font-size: 1rem;
+    display: block;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border-radius: 10px;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+.group-messages-page .inputs-container .send-message {
+    position: absolute;
+    right: 3px;
+    top: 0;
+    width: 28px;
+    height: 28px;
+    box-sizing: border-box;
+    padding: 0;
+    border-radius: 50%;
+    background-color: #3aaadd;
+    border: none;
+    font-family: "prediga";
+    color: #fff;
+    font-size: 1rem;
+}
+
+.group-messages-page .group-message {
+    background-color: #fff;
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+    border-radius: 4px;
+}
+
+.group-messages-page .group-message.logged-user {
+    background-color: #dcf8c6;
+}
+
+.group-messages-page .group-message .user-name {
+    color: #06a006;
+    margin-bottom: 0.5rem;
+}
+
+.group-messages-page .group-message .message {
+    white-space: pre;
+}
+
+.group-messages-page .group-message .time {
+    font-size: 0.75rem;
+    color: #b7b6b6;
+    text-align: right;
+    margin-top: 4px;
 }

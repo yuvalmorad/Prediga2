@@ -38,6 +38,7 @@ module.exports = function (app, passport) {
 	app.use('/api/clubs', require('./controllers/clubController.js'));
 	app.use('/api/pushSubscription', require('./controllers/pushSubscriptionController.js'));
 	app.use('/api/userSettings', require('./controllers/userSettingsController.js'));
+	app.use('/api/groupMessages', require('./controllers/groupMessagesController.js'));
 
 	/********************************************
 	 * Automatic Update (Immediate)
