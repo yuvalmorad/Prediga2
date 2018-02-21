@@ -114,12 +114,14 @@ component.GroupMessagesPage = (function () {
                     );
 				}
         		return re("div", {className: groupMessageClassName, key: groupMessage._id},
-                    userNameElem,
-                    re("div", {className: "message", style: {direction: getTextDirection(groupMessage.message)}},
-                		groupMessage.message
-                    ),
-                    re("div", {className: "time"},
-                        utils.general.formatHourMinutesTime(groupMessage.creationDate)
+					re("div", {className: "group-message-content"},
+						userNameElem,
+						re("div", {className: "message", style: {direction: getTextDirection(groupMessage.message)}},
+							groupMessage.message
+						),
+						re("div", {className: "time"},
+							utils.general.formatHourMinutesTime(groupMessage.creationDate)
+						)
                     )
 				);
 			});

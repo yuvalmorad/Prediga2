@@ -1894,15 +1894,28 @@ body {
 }
 
 .group-messages-page .group-message {
+    margin-bottom: 0.5rem;
+}
+
+.group-messages-page .group-message-content {
     background-color: #fff;
     padding: 0.5rem;
     margin-bottom: 0.5rem;
     border-radius: 7px;
     box-shadow: 0 1px 0.5px rgba(0,0,0,0.13);
+    display: inline-block;
+    float: left;
 }
 
-.group-messages-page .group-message.logged-user {
+.group-messages-page .group-message:after {
+    content: '';
+    display: table;
+    clear: both;
+}
+
+.group-messages-page .group-message.logged-user .group-message-content {
     background-color: #dcf8c6;
+    float: right;
 }
 
 .group-messages-page .group-message .user-name {
