@@ -134,7 +134,7 @@ component.GroupMessagesPage = (function () {
 				),
                 re("div", {className: "inputs-container"},
                     re("div", {className: "input-wrapper"},
-                    	re("textarea", {value: state.messageStr, style: {direction: state.direction}, onChange: this.onMessageStrChanged})
+                    	re("textarea", {placeholder:"Type a message", value: state.messageStr, style: {direction: state.direction}, onChange: this.onMessageStrChanged})
 					),
                     re("button", {className: "send-message", onClick: this.sendMessage}, "")
 				)
