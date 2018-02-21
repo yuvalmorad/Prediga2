@@ -1838,6 +1838,7 @@ body {
     left: 0;
     right: 0;
     position: absolute;
+    padding: 0.5rem 1rem;
 }
 
 .group-messages-page .inputs-container {
@@ -1905,6 +1906,26 @@ body {
     box-shadow: 0 1px 0.5px rgba(0,0,0,0.13);
     display: inline-block;
     float: left;
+    position: relative;
+}
+
+.group-messages-page .group-message-content:after {
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 15px 17px 0px 5px;
+    border-color: #ffffff transparent transparent transparent;
+    position: absolute;
+    top: 0px;
+    left: -4px;
+    content: '';
+}
+
+.group-messages-page .group-message.logged-user .group-message-content:after {
+    border-width: 15px 5px 0px 17px;
+    border-color: #dcf8c6 transparent transparent transparent;
+    left: auto;
+    right: -4px;
 }
 
 .group-messages-page .group-message:after {
