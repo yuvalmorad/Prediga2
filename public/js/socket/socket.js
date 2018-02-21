@@ -25,6 +25,10 @@ var socket = (function(){
         socket.on('leaderboardUpdate', function(leaders){
             store.dispatch(action.leaderBoard.updateLeaderBoard(leaders));
         });
+
+        socket.on('newGroupMessage', function(groupMessage){
+            store.dispatch(action.groupMessages.addMessage(groupMessage));
+        });
     }
 
     return {

@@ -12,7 +12,6 @@ let morgan = require('morgan');
 let cookieParser = require('cookie-parser');
 let bodyParser = require('body-parser');
 let session = require('express-session');
-let MongoStore = require('connect-mongo')(session);
 let sslRedirect = require('heroku-ssl-redirect');
 
 // configuration ===============================================================
@@ -40,7 +39,7 @@ app.use(session({
     secret: port !== 3000 ? process.env.SESSION_SECRET : 'loginboilerplate',
     resave: false,
     saveUninitialized: true,
-    store: new MongoStore({ mongooseConnection: mongoose.connection }),
+    store: require('./app/mongoStore'),
 	cookie : { httpOnly: true, maxAge: 2419200000 }
 }));
 app.use(passport.initialize());

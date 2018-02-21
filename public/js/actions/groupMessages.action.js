@@ -5,6 +5,8 @@ action.groupMessages = (function(){
         loadGroupMessages: loadGroupMessages,
 
         ADD_MESSAGE_SUCCESS: "ADD_MESSAGE_SUCCESS",
+        addMessage: addMessage,
+
         sendMessage: sendMessage
     };
 
@@ -21,11 +23,18 @@ action.groupMessages = (function(){
     function sendMessage(message, groupId) {
         return function(dispatch){
             service.groupMessages.createMessage(message, groupId).then(function(groupMessage){
-                dispatch({type: groupMessagesAction.ADD_MESSAGE_SUCCESS, groupMessage: groupMessage});
+                dispatch(addMessage(groupMessage));
             }, function(error){
 
             })
         };
+    }
+
+    function addMessage(groupMessage) {
+        return {
+            type: groupMessagesAction.ADD_MESSAGE_SUCCESS,
+            groupMessage: groupMessage
+        }
     }
 
     return groupMessagesAction;
