@@ -1907,6 +1907,7 @@ body {
     display: inline-block;
     float: left;
     position: relative;
+    max-width: 100%;
 }
 
 .group-messages-page .group-message-content:after {
@@ -1945,7 +1946,7 @@ body {
 }
 
 .group-messages-page .group-message .message {
-    white-space: pre;
+    white-space: pre-line;
 }
 
 .group-messages-page .group-message .time {
