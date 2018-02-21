@@ -75,10 +75,15 @@ component.GroupMessagesPage = (function () {
 		},
 
         sendMessage: function() {
-        	var state = this.state;
+        	var state = this.state,
+                messageStr = state.messageStr;
+
+        	if (!messageStr) {
+        		return;
+			}
 
         	var message = {
-                message: state.messageStr
+                message: messageStr
 			};
 
 			this.props.sendMessage(message, this.props.selectedGroupId);
@@ -136,7 +141,7 @@ component.GroupMessagesPage = (function () {
                     re("div", {className: "input-wrapper"},
                     	re("textarea", {placeholder:"Type a message", value: state.messageStr, style: {direction: state.direction}, onChange: this.onMessageStrChanged})
 					),
-                    re("button", {className: "send-message", onClick: this.sendMessage}, "")
+                    re("button", {className: "send-message", disabled: !state.messageStr, onClick: this.sendMessage}, "")
 				)
 			);
 		}

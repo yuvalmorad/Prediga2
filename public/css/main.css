@@ -1844,17 +1844,18 @@ body {
 .group-messages-page .inputs-container {
     position: absolute;
     bottom: 0;
-    height: 35px;
+    height: 40px;
     left: 0;
     right: 0;
+    background-color: #f5f1ee;
 }
 
 .group-messages-page .input-wrapper {
     position: absolute;
-    top: 0;
+    top: 4px;
     left: 5px;
     right: 35px;
-    bottom: 3px;
+    bottom: 4px;
 }
 
 .group-messages-page .inputs-container .input-wrapper textarea {
@@ -1873,29 +1874,41 @@ body {
     color: #555;
     background-color: #fff;
     background-image: none;
-    border-radius: 10px;
+    border-radius: 4px;
     box-sizing: border-box;
     cursor: pointer;
+}
+
+.group-messages-page .inputs-container .input-wrapper textarea::placeholder {
+    color: #e8e8e8;
+    opacity: 1;
 }
 
 .group-messages-page .inputs-container .send-message {
     position: absolute;
     right: 3px;
-    top: 0;
+    top: 6px;
     width: 28px;
     height: 28px;
     box-sizing: border-box;
     padding: 0;
     border-radius: 50%;
-    background-color: #3aaadd;
+    background-color: transparent;
     border: none;
     font-family: "prediga";
-    color: #fff;
     font-size: 1rem;
+    color: #888888;
+    transition: 0.3s color;
+}
+
+.group-messages-page .inputs-container .send-message[disabled] {
+    color: #dad8d8;
 }
 
 .group-messages-page .group-message {
     margin-bottom: 0.5rem;
+    font-size: 0.875rem;
+    color: #262626;
 }
 
 .group-messages-page .group-message-content {
@@ -1950,8 +1963,8 @@ body {
 }
 
 .group-messages-page .group-message .time {
-    font-size: 0.75rem;
-    color: #b7b6b6;
+    color: #00000073;
     text-align: right;
     margin-top: 4px;
+    font-size: 0.666rem;
 }
