@@ -1,18 +1,27 @@
 window.utils = window.utils || {};
 utils.userSettings = (function(){
     var KEYS = {
-        PUSH_NOTIFICATION: "PUSH_NOTIFICATION"
+        PUSH_NOTIFICATION: "PUSH_NOTIFICATION",
+        RANDOM_ALL: "RANDOM_ALL",
+        COPY_ALL_GROUPS: "COPY_ALL_GROUPS"
     };
 
+	var VALUES = {
+		TRUE: "true",
+		FALSE: "false"
+	};
+
     return {
-        isPushNotificationsEnabled: isPushNotificationsEnabled,
-        isPushNotificationsHasValue: isPushNotificationsHasValue
+		KEYS: KEYS,
+		VALUES: VALUES,
+		isUserSettingsEnabled: isUserSettingsEnabled,
+		isUserSettingsHasValue: isUserSettingsHasValue
     };
 
     function isEnabled(userSettings, key) {
         var setting = utils.general.findItemInArrBy(userSettings, "key", key);
         if (setting) {
-            return setting.value === "true";
+            return setting.value === VALUES.TRUE;
         } else {
             return false;
         }
@@ -23,11 +32,11 @@ utils.userSettings = (function(){
         return !!setting;
     }
 
-    function isPushNotificationsEnabled(userSettings) {
-        return isEnabled(userSettings, KEYS.PUSH_NOTIFICATION)
+    function isUserSettingsEnabled(userSettings, key) {
+        return isEnabled(userSettings, key);
     }
 
-    function isPushNotificationsHasValue(userSettings) {
-        return hasValue(userSettings, KEYS.PUSH_NOTIFICATION)
+    function isUserSettingsHasValue(userSettings, key) {
+        return hasValue(userSettings, key);
     }
 })();

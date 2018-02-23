@@ -34,7 +34,7 @@ var pushNotifications = (function(){
         //}
 
         //only for bootstrap load -> return if user settings of push notification has some value (disabled or enabled in the past)
-        if (checkIsPushEnabled && (utils.userSettings.isPushNotificationsHasValue(_userSettings))) {
+        if (checkIsPushEnabled && (utils.userSettings.isUserSettingsHasValue(_userSettings, utils.userSettings.KEYS.PUSH_NOTIFICATION))) {
             //user already enabled push notification -> return
             return Promise.resolve();
         }
@@ -45,7 +45,7 @@ var pushNotifications = (function(){
             //#3 subscribe user to get pushSubscription object
             return subscribeUserToPush().then(function(pushSubscription){
                 //#4 send pushSubscription to server in order to persist it
-                return store.dispatch(action.userSettings.enablePush(pushSubscription));
+				return store.dispatch(action.userSettings.toggleUserSettings(utils.userSettings.KEYS.PUSH_NOTIFICATION, utils.userSettings.VALUES.TRUE, {pushSubscription: pushSubscription}));
             })
         }).catch(function (err) {
 			console.log('error');

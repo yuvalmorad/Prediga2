@@ -30,7 +30,7 @@ const self = module.exports = {
 		return League.find({_id: {$in: leagueIds}});
 	},
 	byId: function (leagueId) {
-		return League.find({_id: leagueId});
+		return League.findOne({_id: leagueId});
 	},
 	all: function () {
 		return League.find({});

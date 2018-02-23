@@ -33,7 +33,7 @@ app.post('/:groupId', util.isLoggedIn, function (req, res) {
 
         groupService.byId(message.groupId).then(function (group) {
             //send to all (logged in) users in group except for the sender
-            var users = group.users.filter(function(user){
+            let users = group.users.filter(function(user){
                 return user !== message.userId.toString();
             });
             SocketIo.emitToSpecificUserIds(users, "newGroupMessage", message);

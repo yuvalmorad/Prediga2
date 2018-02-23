@@ -5,35 +5,33 @@ const PushSubscriptionService = require('../services/pushSubscriptionService');
 const UserSettingsService = require('../services/userSettingsService');
 
 app.get('/', util.isLoggedIn, function (req, res) {
-    const userId = req.user._id;
-    UserSettingsService.getSettingsByUser(userId).then(function(userSettingsRes) {
-        res.status(200).json(userSettingsRes);
-    })
+	const userId = req.user._id;
+	UserSettingsService.getSettingsByUser(userId).then(function (userSettingsRes) {
+		res.status(200).json(userSettingsRes);
+	})
 });
 
-app.post('/enablePush', util.isLoggedIn, function (req, res) {
-    const userId = req.user._id;
-    const pushSubscriptionObj = req.body.pushSubscription;
+app.put('/', util.isLoggedIn, function (req, res) {
+	const userId = req.user._id;
+	let key = req.query.key;
+	let value = req.query.value;
 
-    Promise.all([
-        PushSubscriptionService.subscribeUserToPushNotification(userId, pushSubscriptionObj),
-        UserSettingsService.setPushNotificationState(userId, "true")
-    ]).then(function(){
-        UserSettingsService.getSettingsByUser(userId).then(function(userSettingsRes) {
-            res.status(200).json(userSettingsRes);
-        });
-    });
-});
+	if (!UserSettingsService.isValidInput(key, value)) {
+		res.status(400).json(util.getErrorResponse());
+	}
 
-app.post('/disablePush', util.isLoggedIn, function (req, res) {
-    const userId = req.user._id;
-    Promise.all([
-        PushSubscriptionService.removeAllByUser(userId),
-        UserSettingsService.setPushNotificationState(userId, "false")
-    ]).then(function(){
-        UserSettingsService.getSettingsByUser(userId).then(function(userSettingsRes) {
-            res.status(200).json(userSettingsRes);
-        });
+	UserSettingsService.setState(userId, key, value).then(function () {
+		if (key === util.USER_SETTINGS_KEYS.PUSH_NOTIFICATION) {
+			if (value === util.USER_SETTINGS_VALUES.FALSE) {
+				PushSubscriptionService.removeAllByUser(userId)
+			} else if (value === util.USER_SETTINGS_VALUES.TRUE) {
+				PushSubscriptionService.subscribeUserToPushNotification(userId, req.body.pushSubscription);
+			}
+		}
+
+		UserSettingsService.getSettingsByUser(userId).then(function (userSettingsRes) {
+			res.status(200).json(userSettingsRes);
+		});
 	});
 });
 

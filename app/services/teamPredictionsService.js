@@ -18,6 +18,13 @@ const self = module.exports = {
 
 		return Promise.all(promises);
 	},
+	updatePrediction: function (teamPrediction, userId, groupId) {
+		return TeamPrediction.findOneAndUpdate({
+			teamId: teamPrediction.teamId,
+			groupId: groupId,
+			userId: userId
+		}, teamPrediction, utils.updateSettings);
+	},
 	getPredictionsForOtherUsersInner: function (teams, userId, groupId) {
 		const promises = teams.map(function (aTeam) {
 			return self.byTeamIdUserIdGroupId(aTeam._id, userId, groupId).then(function (teamPrediction) {
@@ -105,6 +112,9 @@ const self = module.exports = {
 	byTeamIdUserId: function (teamId, userId) {
 		return TeamPrediction.findOne({teamId: teamId, userId: userId});
 	},
+	byTeamIdUserIds: function (teamId, userIds) {
+		return TeamPrediction.find({teamId: teamId, userId: {$in: userIds}});
+	},
 	getFutureGamesPredictionsCounters: function (groupId, teamIds) {
 		if (!teamIds) {
 			return Promise.resolve([]);
@@ -140,6 +150,38 @@ const self = module.exports = {
 	getTeamIdsArr: function (predictions) {
 		return predictions.map(function (prediction) {
 			return prediction.teamId;
+		});
+	},
+	getUserIdsWithoutTeamPredictions: function (teamId, relevantUsers) {
+		return self.byTeamIdUserIds(teamId, relevantUsers).then(function (teamPredictions) {
+			if (!teamPredictions) {
+				return Promise.resolve([]);
+			}
+			let usersWithPrediction = [];
+			teamPredictions.forEach(function (teamPrediction) {
+				if (usersWithPrediction.indexOf(teamPrediction.userId) === -1) {
+					usersWithPrediction.push(teamPrediction.userId);
+				}
+			});
+			let usersWithoutPredictions = relevantUsers.filter(function (n) {
+				return usersWithPrediction.indexOf(n) === -1;
+			});
+			return Promise.resolve(usersWithoutPredictions);
+		});
+	},
+	generateTeamPrediction: function (team, userId, clubs, groupId) {
+		let selectedClubIndex = Math.floor((Math.random() * clubs.length));
+		return {
+			teamId: team._id,
+			groupId: groupId,
+			userId: userId,
+			team: clubs[selectedClubIndex]
+		};
+	},
+	createRandomPrediction: function (team, userId, clubs, groupId) {
+		let randomTeamPrediction = self.generateTeamPrediction(team, userId, clubs, groupId);
+		return self.updatePrediction(randomTeamPrediction, userId, groupId).then(function (newPrediction) {
+			return Promise.resolve(newPrediction);
 		});
 	}
 };

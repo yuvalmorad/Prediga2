@@ -11,6 +11,15 @@ module.exports = {
 		upsert: true, setDefaultsOnInsert: true, isNew: true, new: true, returnNewDocument: true
 	},
 	AUTOMATIC_UPDATE_URL: 'http://365scores.sport5.co.il:3333?SID=1',
+	USER_SETTINGS_KEYS: {
+		PUSH_NOTIFICATION: "PUSH_NOTIFICATION",
+		RANDOM_ALL: "RANDOM_ALL",
+		COPY_ALL_GROUPS: "COPY_ALL_GROUPS"
+	},
+	USER_SETTINGS_VALUES: {
+		TRUE: "true",
+		FALSE: "false"
+	},
 	isLoggedIn: function (req, res, next) {
 		if (req.isAuthenticated()) {
 			res.header('userId', req.user.id);

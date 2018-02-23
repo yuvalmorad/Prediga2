@@ -17,8 +17,14 @@ const self = module.exports = {
 
 		return Promise.all(promises);
 	},
-	getNextTeamDate: function () {
-		return Team.findOne({deadline: {$gte: new Date()}}).sort({'deadline': 1});
+	getNextTeam: function (min) {
+		const time = new Date().setMinutes(new Date().getMinutes() + min);
+		return Team.findOne({deadline: {$gte: time}}).sort({'deadline': 1});
+	},
+	getTeamsOneHourBeforeStart: function () {
+		const time1 = new Date().setMinutes(new Date().getMinutes() + 61);
+		const time2 = new Date().setMinutes(new Date().getMinutes() + 59);
+		return Team.find({deadline: {$gte: time2, $lte: time1}}).sort({'deadline': 1});
 	},
 	byIdBeforeDate: function (teamId) {
 		return Team.findOne({deadline: {$gte: new Date()}, _id: teamId}).sort({'deadline': 1});

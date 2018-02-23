@@ -3,26 +3,47 @@ component.UserSettingsPage = (function () {
     var connect = ReactRedux.connect;
 
 	var UserSettingsPage = React.createClass({
-        enablePushChanged: function() {
+		toggleSettings: function(key) {
+			if (!event){
+				return;
+			}
+
             var isSelect = event.target.checked;
 			if (isSelect) {
 				//enable
-                pushNotifications.askPermissionAndPersistPushSubscriptionIfNeeded();
-			} else {
+				if (key === utils.userSettings.KEYS.PUSH_NOTIFICATION){
+					pushNotifications.askPermissionAndPersistPushSubscriptionIfNeeded();
+				} else {
+					this.props.toggleUserSettings(key, utils.userSettings.VALUES.TRUE);
+				}
+			} else if (isSelect === false){
 				//disable
-                this.props.disablePush();
+                this.props.toggleUserSettings(key, utils.userSettings.VALUES.FALSE);
 			}
+			return "false";
 		},
 
 		render: function() {
         	var props = this.props,
-                userSettings = props.userSettings,
-                isPushNotificationsEnabled = utils.userSettings.isPushNotificationsEnabled(userSettings);
+                userSettings = props.userSettings;
 
 			return re("div", {className: "content"},
 				re("div", {className: "sub-title-container"},
-					re("label", {className: "small-text", htmlFor: "enablePushCheckbox"}, "Enable Push Notifications"),
-					re("input", {type: "checkbox", id: "enablePushCheckbox", checked: isPushNotificationsEnabled, onChange: this.enablePushChanged})
+					re("label", {className: "small-text"}, "The setting will apply one hour before the deadline of the match/team")
+
+				),
+				re("div", {className: "sub-title-container"},
+					re("input", {type: "checkbox", id: "enableRandomAllCheckbox", checked: utils.userSettings.isUserSettingsEnabled(userSettings, utils.userSettings.KEYS.RANDOM_ALL), onChange: this.toggleSettings.bind(this, utils.userSettings.KEYS.RANDOM_ALL).bind(this)}),
+					re("label", {className: "small-text", htmlFor: "enableRandomAllCheckbox"}, "Enable automatic random prediction for matches and teams")
+
+				),
+				re("div", {className: "sub-title-container"},
+					re("input", {type: "checkbox", id: "enableCopyPredictionsToAllGroupsCheckbox", checked: utils.userSettings.isUserSettingsEnabled(userSettings, utils.userSettings.KEYS.COPY_ALL_GROUPS), onChange: this.toggleSettings.bind(this, utils.userSettings.KEYS.COPY_ALL_GROUPS)}),
+					re("label", {className: "small-text", htmlFor: "enableCopyPredictionsToAllGroupsCheckbox"}, "Enable copy predictions of matches and teams from default group to all groups")
+				),
+				re("div", {className: "sub-title-container"},
+					re("input", {type: "checkbox", id: "enablePushCheckbox", checked: utils.userSettings.isUserSettingsEnabled(userSettings, utils.userSettings.KEYS.PUSH_NOTIFICATION), onChange: this.toggleSettings.bind(this, utils.userSettings.KEYS.PUSH_NOTIFICATION)}),
+					re("label", {className: "small-text", htmlFor: "enablePushCheckbox"}, "Enable push notifications")
 				)
 			);
 		}
@@ -36,7 +57,7 @@ component.UserSettingsPage = (function () {
 
     function mapDispatchToProps(dispatch) {
         return {
-            disablePush: function(){dispatch(action.userSettings.disablePush())}
+			toggleUserSettings: function(key, value){dispatch(action.userSettings.toggleUserSettings(key, value))}
         }
     }
 
@@ -44,7 +65,7 @@ component.UserSettingsPage = (function () {
 })();
 
 /*
-1. Random all (checkbox) (current - which are not filled and all future )
-2. Copy predictions to all my groups (checkbox) (current and future)
+1. Random all (checkbox) (will have random matches and teams for all open predictions)
+2. Copy predictions to all my current groups (checkbox)
 3. Enable Push Notifications (checkbox)
  */

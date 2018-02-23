@@ -53,8 +53,13 @@ const self = module.exports = {
 	byIdAndStartBeforeDate: function (id, date) {
 		return Match.findOne({kickofftime: {$gte: date}, _id: id}).sort({'kickofftime': 1});
 	},
-	getNextMatch: function () {
-		const time = new Date().setMinutes(new Date().getMinutes() - 10);
+	getNextMatch: function (min) {
+		const time = new Date().setMinutes(new Date().getMinutes() + min);
 		return Match.findOne({kickofftime: {$gte: time}}).sort({'kickofftime': 1});
 	},
+	getMatchesOneHourBeforeStart: function () {
+		const time1 = new Date().setMinutes(new Date().getMinutes() + 61);
+		const time2 = new Date().setMinutes(new Date().getMinutes() + 59);
+		return Match.find({kickofftime: {$gte: time2, $lte: time1}}).sort({'kickofftime': 1});
+	}
 };

@@ -9,5 +9,8 @@ const self = module.exports = {
 	},
 	byIds: function (userIds) {
 		return User.find({_id: {$in: userIds}});
+	},
+	all: function () {
+		return User.find({});
 	}
 };

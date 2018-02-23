@@ -5,7 +5,7 @@ const updateContentFromFiles = require('./utils/updateContentFromFiles');
 const automaticUpdater = require('./utils/automaticUpdater');
 const migrator = require('./utils/migrator');
 const socketIo = require('./utils/socketIo');
-const pushSubscriptionService = require('./services/pushSubscriptionService');
+const jobRunBeforeDeadlineService = require('./utils/jobRunBeforeDeadlineService');
 mongoose.Promise = Promise;
 
 module.exports = function (app, passport) {
@@ -13,8 +13,9 @@ module.exports = function (app, passport) {
 	socketIo.init(server);
 	updateContentFromFiles.loadAll();
 	automaticUpdater.run(true);
-	pushSubscriptionService.runAutomaticPushBeforeGame();
+	jobRunBeforeDeadlineService.run();
 	migrator.run();
+
 
 	/********************************************
 	 * All routes mapping

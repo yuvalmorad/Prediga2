@@ -154,13 +154,13 @@ const self = module.exports = {
 		}, matchPrediction, utils.updateSettings);
 	},
 	byMatchIdUserIdGroupId: function (matchId, userId, groupId) {
-		return MatchPrediction.find({matchId: matchId, userId: userId, groupId: groupId});
+		return MatchPrediction.findOne({matchId: matchId, userId: userId, groupId: groupId});
 	},
 	byMatchIdsUserIdGroupId: function (matchIds, userId, groupId) {
-		return MatchPrediction.find({matchId: {$in: matchIds}, userId: userId, groupId: groupId})
+		return MatchPrediction.find({matchId: {$in: matchIds}, userId: userId, groupId: groupId});
 	},
 	byMatchIdsGroupId: function (matchIds, groupId) {
-		return MatchPrediction.find({matchId: {$in: matchIds}, groupId: groupId})
+		return MatchPrediction.find({matchId: {$in: matchIds}, groupId: groupId});
 	},
 	byUserIdGroupId: function (userId, groupId) {
 		return MatchPrediction.find({userId: userId, groupId: groupId});
@@ -173,6 +173,9 @@ const self = module.exports = {
 	},
 	byMatchIdUserId: function (matchId, userId) {
 		return MatchPrediction.findOne({matchId: matchId, userId: userId});
+	},
+	byMatchIdUserIds: function (matchId, userIds) {
+		return MatchPrediction.find({userId: {$in: userIds}, matchId: matchId});
 	},
 	generateMatchPrediction: function (match, userId, groupId) {
 		let winnerRandomValue = Math.floor((Math.random() * 3));
@@ -187,5 +190,22 @@ const self = module.exports = {
 			team2Goals: Math.floor((Math.random() * 4)), // [0-3]
 			goalDiff: Math.floor((Math.random() * 4)), // [0-3]
 		};
+	},
+	getUserIdsWithoutMatchPredictions: function (matchId, relevantUsers) {
+		return self.byMatchIdUserIds(matchId, relevantUsers).then(function (matchPredictions) {
+			if (!matchPredictions){
+				return Promise.resolve([]);
+			}
+			let usersWithPrediction = [];
+			matchPredictions.forEach(function (matchPrediction) {
+				if (usersWithPrediction.indexOf(matchPrediction.userId) === -1) {
+					usersWithPrediction.push(matchPrediction.userId);
+				}
+			});
+			let usersWithoutPredictions = relevantUsers.filter(function (n) {
+				return usersWithPrediction.indexOf(n) === -1;
+			});
+			return Promise.resolve(usersWithoutPredictions);
+		});
 	}
 };
