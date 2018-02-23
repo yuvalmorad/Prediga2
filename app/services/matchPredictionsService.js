@@ -18,10 +18,10 @@ const self = module.exports = {
 			// we can update only until 5 minutes before kick off time.
 			return matchService.byIdAndStartBeforeDate(matchPrediction.matchId, deadline).then(function (match) {
 				if (!match) {
-					return Promise.reject();
+					return Promise.resolve();
 				}
 				if (!self.validateAndCorrectInput(match, matchPrediction, userId, groupId)) {
-					return Promise.reject();
+					return Promise.resolve();
 				}
 				return self.updatePrediction(matchPrediction, userId, groupId).then(function (newPrediction) {
 					return Promise.resolve(newPrediction);
@@ -52,7 +52,7 @@ const self = module.exports = {
 				if (matchPrediction) {
 					return Promise.resolve(matchPrediction);
 				} else {
-					return Promise.reject({});
+					return Promise.resolve({});
 				}
 			});
 		});
@@ -70,8 +70,8 @@ const self = module.exports = {
 			return self.getPredictionsForOtherUsersInner(matches, predictionRequest.userId, predictionRequest.groupId).then(function (predictions) {
 				let predArr = [];
 				predictions.forEach(function (prediction) {
-					if (prediction && prediction.length > 0) {
-						predArr.push(prediction[0]);
+					if (prediction && prediction !== null) {
+						predArr.push(prediction);
 					}
 				});
 				return Promise.resolve(predArr);

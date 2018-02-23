@@ -49,8 +49,8 @@ const self = module.exports = {
 			return self.getPredictionsForOtherUsersInner(teams, predictionRequest.userId, predictionRequest.groupId).then(function (predictions) {
 				let predArr = [];
 				predictions.forEach(function (prediction) {
-					if (prediction && prediction.length > 0) {
-						predArr.push(prediction[0]);
+					if (prediction && prediction !== null) {
+						predArr.push(prediction);
 					}
 				});
 				return Promise.resolve(predArr);
@@ -76,7 +76,7 @@ const self = module.exports = {
 		return TeamPrediction.remove({groupId: groupId, userId: userId});
 	},
 	byTeamIdUserIdGroupId: function (teamId, userId, groupId) {
-		return TeamPrediction.find({teamId: teamId, userId: userId, groupId: groupId});
+		return TeamPrediction.findOne({teamId: teamId, userId: userId, groupId: groupId});
 	},
 	byTeamIdsGroupId: function (teamIds, groupId) {
 		return TeamPrediction.find({teamId: {$in: teamIds}, groupId: groupId});
