@@ -149,7 +149,7 @@ const self = module.exports = {
 		if (!isActive && !isFinished) {
 			// game not yet started
 			console.log('[Auotmatic Updater] - Game is not yet started, for [' + relevantGame.Comps[0].Name + ' - ' + relevantGame.Comps[1].Name + ']');
-			return Promise.resolve(false); // not relevant yet.
+			return Promise.resolve('getResultsJob'); // not relevant yet.
 		}
 
 		return clubService.findClubsBy365Name(relevantGame).then(function (clubsArr) {
@@ -165,7 +165,7 @@ const self = module.exports = {
 			return matchService.findFirstMatchByTeamsStarted(team1, team2).then(function (match) {
 				if (!match || match === null) {
 					console.log('[Auotmatic Updater] - Game already finished, for [' + team1Club.name + ' vs ' + team2Club.name + ']');
-					return Promise.resolve(false); // not relevant anymore.
+					return Promise.resolve('getResultsJob'); // not relevant anymore.
 				}
 
 				return matchResultService.byMatchId(match._id).then(function (currentMatchResult) {
@@ -178,7 +178,7 @@ const self = module.exports = {
 						matchPredictionsService.createRandomPrediction(match._id, utils.MONKEY_USER_ID, utils.DEFAULT_GROUP);
 					}
 					if (isFinished && (currentMatchResult && currentMatchResult.active === false)) {
-						return Promise.resolve(false); // not relevant anymore.
+						return Promise.resolve('getResultsJob'); // not relevant anymore.
 					}
 
 					return self.calculateNewMatchResult(team1, team2, relevantGame, match._id).then(function (newMatchResult) {
