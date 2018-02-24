@@ -2757,8 +2757,8 @@
       "_id": "4a21a7c1a3f89181074e9371",
       "team1": "1a21a7c1a3f89181074e9762",
       "team2": "1a21a7c1a3f89181074e9965",
-      "kickofftime": "2018-02-25T14:05:00.000Z",
-      "type": "Round 28",
+      "kickofftime": "2018-03-01T19:45:00.000Z",
+      "type": "Round 28 - Postponed",
       "league": "3a21a7c1a3f89181074e9769",
       "stadium": "King Power Stadium"
     },
@@ -2793,7 +2793,7 @@
       "_id": "4a21a7c1a3f89181074e9375",
       "team1": "1a21a7c1a3f89181074e9769",
       "team2": "1a21a7c1a3f89181074e9963",
-      "kickofftime": "2018-02-26T20:00:00.000Z",
+      "kickofftime": "2018-02-25T12:00:00.000Z",
       "type": "Round 28",
       "league": "3a21a7c1a3f89181074e9769",
       "stadium": "Selhurst Park"
