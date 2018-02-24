@@ -174,7 +174,8 @@ const self = module.exports = {
 					if (relevantGame.Active === true && !currentMatchResult) {
 						// this is the first update of match result.
 						console.log("[Auotmatic Updater] - sending push notification about game starts!");
-						pushSubscriptionService.pushToAllRegisterdUsers({text: team1Club.name + ' vs ' + team2Club.name + ' started now'});
+						// TODO - move this to User Settings.
+						// pushSubscriptionService.pushToAllRegisterdUsers({text: team1Club.name + ' vs ' + team2Club.name + ' started now'});
 						matchPredictionsService.createRandomPrediction(match._id, utils.MONKEY_USER_ID, utils.DEFAULT_GROUP);
 					}
 					if (isFinished && (currentMatchResult && currentMatchResult.active === false)) {
