@@ -119,7 +119,7 @@ const self = module.exports = {
 		if (!teamIds) {
 			return Promise.resolve([]);
 		}
-		return teamService.getNotStartedTeams(teamIds).then(function (teams) {
+		return teamService.byIds(teamIds).then(function (teams) {
 			if (!teams) {
 				return Promise.resolve([]);
 			}

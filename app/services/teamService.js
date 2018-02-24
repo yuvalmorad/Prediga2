@@ -36,9 +36,6 @@ const self = module.exports = {
 			return self.byAfterADateAndIds(new Date(), teamIds);
 		}
 	},
-	getNotStartedTeams: function (teamsIds) {
-		return Team.find({deadline: {$gte: new Date()}, _id: {$in: teamsIds}});
-	},
 	byAfterADate: function (date) {
 		return Team.find({deadline: {$lt: date}});
 	},
