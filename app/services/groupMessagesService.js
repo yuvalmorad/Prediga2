@@ -6,7 +6,15 @@ const self = module.exports = {
 	},
 
     getCountMessagesOfGroupFromDate: function(groupId, date) {
-        return GroupMessage.count({groupId: groupId, creationDate: {$gt: date}});
+        var query = {
+            groupId: groupId
+        };
+
+        if (date) {
+            query.creationDate = {$gt: date};
+        }
+
+        return GroupMessage.count(query);
     },
 
     createMessageGroup: function (message) {

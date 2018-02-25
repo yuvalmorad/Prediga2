@@ -31,21 +31,35 @@ app.post('/createTestMessage/:groupId', function (req, res) {
     });
 });
 
-
 /**
- * Get unread messges count of all groups by user
+ * Get unread messages count of all groups by user
  */
 app.get('/getUnReadMessages', util.isLoggedIn, function (req, res) {
     const userId = req.user._id;
-    groupMessagesReadService.getgetUnReadMessagesOfUserInAllGroups(userId).then(function(unreadMessagesByGroups){
-        var promises = unreadMessagesByGroups.map(function(unreadMessagesByGroup){
-            var groupId = unreadMessagesByGroup.groupId;
-            var lastReadDate = unreadMessagesByGroup.lastReadDate;
+
+    Promise.all([
+        groupService.byUserId(userId),
+        groupMessagesReadService.getgetUnReadMessagesOfUserInAllGroups(userId)
+    ]).then(function(promisesRes){
+        var groups = promisesRes[0];
+        var unreadMessagesByGroups = promisesRes[1];
+
+        var promises = groups.map(function(group){
+            var groupId = group._id.toString();
+            var unreadMessagesGroup = unreadMessagesByGroups.filter(function(unreadMessagesGroup){
+                return unreadMessagesGroup.groupId === groupId
+            })[0];
+
+            var lastReadDate;
+            if (unreadMessagesGroup) {
+                lastReadDate = unreadMessagesGroup.lastReadDate;
+            }
+
             return groupMessagesService.getCountMessagesOfGroupFromDate(groupId, lastReadDate).then(function(count){
-               return {
-                   count: count,
-                   groupId: this
-               }
+                return {
+                    count: count,
+                    groupId: this
+                }
             }.bind(groupId));
         });
 
