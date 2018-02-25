@@ -7,7 +7,16 @@ action.groupMessages = (function(){
         ADD_MESSAGE_SUCCESS: "ADD_MESSAGE_SUCCESS",
         addMessage: addMessage,
 
-        sendMessage: sendMessage
+        sendMessage: sendMessage,
+
+        LOAD_UNREAD_MESSAGES_SUCCESS: "LOAD_UNREAD_MESSAGES_SUCCESS",
+        getUnReadMessages: getUnReadMessages,
+
+        INCREMENT_UNREAD_MESSAGE: "INCREMENT_UNREAD_MESSAGE",
+        incrementUnreadMessage: incrementUnreadMessage,
+
+        RESET_UNREAD_MESSAGE: "RESET_UNREAD_MESSAGE",
+        resetUnreadMessage: resetUnreadMessage
     };
 
     function loadGroupMessages(groupId) {
@@ -34,6 +43,30 @@ action.groupMessages = (function(){
         return {
             type: groupMessagesAction.ADD_MESSAGE_SUCCESS,
             groupMessage: groupMessage
+        }
+    }
+
+    function getUnReadMessages() {
+        return function(dispatch){
+            service.groupMessages.getUnReadMessages().then(function(unreadMessagesByGroup){
+                dispatch({type: groupMessagesAction.LOAD_UNREAD_MESSAGES_SUCCESS, unreadMessagesByGroup: unreadMessagesByGroup});
+            }, function(error){
+
+            })
+        };
+    }
+
+    function incrementUnreadMessage(groupId) {
+        return {
+            type: groupMessagesAction.INCREMENT_UNREAD_MESSAGE,
+            groupId: groupId
+        }
+    }
+
+    function resetUnreadMessage(groupId) {
+        return {
+            type: groupMessagesAction.RESET_UNREAD_MESSAGE,
+            groupId: groupId
         }
     }
 

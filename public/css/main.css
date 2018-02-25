@@ -406,10 +406,26 @@ body {
     display: inline-block;
     text-align: center;
     margin-left: -0.3rem;
+    position: relative;
 }
 
 .site-header .menu-button.selected {
     color: #fff;
+}
+
+.site-header .menu-button .unread-messages-indication {
+    position: absolute;
+    top: 2px;
+    right: -2px;
+    background-color: red;
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    font-size: 0.5rem;
+    color: #fff;
+    display: inline-block;
+    line-height: 18px;
+    text-align: center;
 }
 
 .menu {
@@ -486,6 +502,18 @@ body {
 
 .menu .menu-item-text > div {
     display: inline-block;
+}
+
+.menu .text-indication {
+    background-color: red;
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    font-size: 0.5rem;
+    color: #fff;
+    display: inline-block;
+    line-height: 18px;
+    text-align: center;
 }
 
 /* -------  Site Navigation -------*/

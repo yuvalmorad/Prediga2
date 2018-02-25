@@ -2,6 +2,9 @@ let io;
 const cookieParser = require('cookie-parser');
 const cookie = require('cookie');
 const MongoStore = require('../mongoStore');
+const GroupMessagesReadService = require('../services/groupMessagesReadService');
+
+
 let usersSockets = {}; //by userId
 
 function getUserIdFromSocket(socket, callback) {
@@ -35,6 +38,13 @@ const self = module.exports = {
 					delete usersSockets[userId];
                 });
         	});
+            socket.on("groupMessageRead", function(obj){
+                getUserIdFromSocket(socket, function(userId) {
+                    GroupMessagesReadService.setLastReadMessage(userId, obj.groupId).then(function(a){
+
+                    });
+                });
+            });
 		});
 	},
 

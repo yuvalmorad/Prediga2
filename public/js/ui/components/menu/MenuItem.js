@@ -4,10 +4,17 @@ component.MenuItem = (function(){
         var className = "menu-item" + (props.isSelected ? " selected" : "");
         var button;
         var icon;
+        var textIndication;
         var actionButton = props.actionButton;
+        var indication = props.indication;
+
 
         if (actionButton) {
             button = re("button", {onClick: actionButton.onClick}, actionButton.icon);
+        }
+
+        if (indication) {
+            textIndication = re("span", {className: "text-indication"}, indication.text);
         }
 
         if (props.icon) {
@@ -19,6 +26,7 @@ component.MenuItem = (function(){
                 icon,
                 re("div", {}, props.text)
             ),
+            textIndication,
             button
         )
     }

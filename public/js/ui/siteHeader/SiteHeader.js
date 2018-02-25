@@ -26,7 +26,16 @@ component.SiteHeader = (function(){
                     displayBackButton = hasBackButton,
                     group = utils.general.findItemInArrBy(props.groups, "_id", props.selectedGroupId),
                     league = utils.general.findItemInArrBy(props.leagues, "_id", props.selectedLeagueId),
-                    leagueColor = league ? league.color : "";
+                    leagueColor = league ? league.color : "",
+                    unreadMessagesByGroup = props.unreadMessagesByGroup,
+                    unreadMessagesCount = 0;
+
+                var unreadMessagesCountObj = utils.general.findItemInArrBy(unreadMessagesByGroup, "groupId", props.selectedGroupId);
+                if (unreadMessagesCountObj) {
+                    unreadMessagesCount = unreadMessagesCountObj.count;
+                }
+
+
 
                 var actionsElems = actions.map(function(action) {
                     if (action.icon) {
@@ -45,10 +54,13 @@ component.SiteHeader = (function(){
                     re("div", {className: "left"},
                         re("a", {className: "back-button" + (displayBackButton ? "" : " hide"), onClick: this.onBackButtonClicked}, ""),
                         re("a", {
-                                className: "menu-button" + (this.props.isMainMenuOpen ? " selected" : "") + (hideMenuButton ? " hide" : ""),
-                                onClick: props.toggleMainMenu,
-                                style: {backgroundColor: this.props.isMainMenuOpen ? leagueColor : ""}
-                        }, "")
+                                    className: "menu-button" + (this.props.isMainMenuOpen ? " selected" : "") + (hideMenuButton ? " hide" : ""),
+                                    onClick: props.toggleMainMenu,
+                                    style: {backgroundColor: this.props.isMainMenuOpen ? leagueColor : ""}
+                                },
+                           re("span", {}, ""),
+                           re("span", {className: "unread-messages-indication" + (!unreadMessagesCount? " hide" : "")}, unreadMessagesCount) //TODO if 0 hide
+                        )
                     ),
                     re("div", {className: "center"}, isDynamicTitle ? siteHeaderTitle: title),
                     re("div", {className: "right"},
@@ -66,7 +78,8 @@ component.SiteHeader = (function(){
             groups: state.groups.groups,
             selectedGroupId: state.groups.selectedGroupId,
             selectedLeagueId: state.groups.selectedLeagueId,
-            leagues: state.leagues.leagues
+            leagues: state.leagues.leagues,
+            unreadMessagesByGroup: state.groupMessages.unreadMessagesByGroup
         }
     }
 

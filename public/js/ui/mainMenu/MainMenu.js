@@ -25,15 +25,32 @@ component.MainMenu = (function(){
 
         renderMenuItems: function(filterProperty) {
             var that = this;
+            var props = this.props;
+            var unreadMessagesByGroup = props.unreadMessagesByGroup;
+            var unreadMessagesCount = 0;
+
+            var unreadMessagesCountObj = utils.general.findItemInArrBy(unreadMessagesByGroup, "groupId", props.selectedGroupId);
+            if (unreadMessagesCountObj) {
+                unreadMessagesCount = unreadMessagesCountObj.count;
+            }
+
             return routePages.getPages().filter(function(page){
                 return page[filterProperty];
             }).map(function(page, index){
                 var to = page.path;
                 var isSelected = false;
+                var indication;
                 if (to && utils.general.cutUrlPath(routerHistory.location.pathname) === utils.general.cutUrlPath(to)) {
                     isSelected = true;
                 }
-                return re(MenuItem, {text: page.title, isSelected: isSelected, onMenuItemClicked: that.onMenuItemClicked.bind(that, to), key: filterProperty + index});
+
+                if (to === "/groupMessages" && unreadMessagesCount) {
+                    indication = {
+                        text: unreadMessagesCount
+                    }
+                }
+
+                return re(MenuItem, {text: page.title, isSelected: isSelected, onMenuItemClicked: that.onMenuItemClicked.bind(that, to), indication: indication, key: filterProperty + index});
             });
         },
 
@@ -115,7 +132,8 @@ component.MainMenu = (function(){
             isMainMenuOpen: state.general.isMainMenuOpen,
             groups: state.groups.groups,
             selectedGroupId: state.groups.selectedGroupId,
-            userId: state.authentication.userId
+            userId: state.authentication.userId,
+            unreadMessagesByGroup: state.groupMessages.unreadMessagesByGroup
         }
     }
 

@@ -81,7 +81,7 @@ action.groups = (function () {
                 delete groupCreated.configuration;
                 dispatch(action.groupsConfiguration.addGroupConfiguration(configuration));
                 dispatch(action.groups.addGroup(groupCreated));
-                dispatch(action.groups.loadAllAvailableGroups())
+                dispatch(action.groups.loadAllAvailableGroups());
                 console.log("success!");
             }, function(error){
                 console.log("error!", error);

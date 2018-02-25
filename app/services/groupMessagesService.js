@@ -5,6 +5,10 @@ const self = module.exports = {
 		return GroupMessage.find({groupId: groupId});
 	},
 
+    getCountMessagesOfGroupFromDate: function(groupId, date) {
+        return GroupMessage.count({groupId: groupId, creationDate: {$gt: date}});
+    },
+
     createMessageGroup: function (message) {
         return GroupMessage.create(message);
 	}

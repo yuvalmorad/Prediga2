@@ -11,6 +11,7 @@ action.init = (function () {
             dispatch(action.leagues.loadLeaguesAndClubs());
             dispatch(action.groupsConfiguration.load());
             dispatch(action.userSettings.load());
+            dispatch(action.groupMessages.getUnReadMessages());
         }
     }
 
