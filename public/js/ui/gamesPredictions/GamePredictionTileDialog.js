@@ -35,8 +35,28 @@ component.GamePredictionTileDialog = (function(){
         },
 
         randomGamePrediction: function() {
-            this.props.randomGamePrediction(this.props.selectedGroupId, this.props.game._id);
-            this.props.closeDialog();
+            var props = this.props;
+            var team1Id = props.team1._id;
+            var team2Id = props.team2._id;
+            var team1Goals = Math.floor(Math.random() * 3); //0,1,2
+            var team2Goals = Math.floor(Math.random() * 3); //0,1,2
+            var goalDiff = Math.abs(team1Goals - team2Goals);
+            var firstToScoreOptions = [team1Id, "None", team2Id];
+            var winnerOptions = [team1Id, "Draw", team2Id];
+            var firstToScore = firstToScoreOptions[Math.floor(Math.random() * 3)];
+            var winner = winnerOptions[Math.floor(Math.random() * 3)];
+
+            this.setState({
+                prediction: {
+                    firstToScore: firstToScore,
+                    goalDiff: goalDiff,
+                    team1Goals: team1Goals,
+                    team2Goals: team2Goals,
+                    winner: winner,
+                    matchId: this.state.prediction.matchId
+                }
+            });
+            this.props.setSaveButtonEnabled(true);
         },
 
         render: function() {
@@ -69,8 +89,7 @@ component.GamePredictionTileDialog = (function(){
 
     function mapDispatchToProps(dispatch) {
         return {
-            updateGame: function(prediction, groupId){dispatch(action.gamesPredictions.updateGame(prediction, groupId))},
-            randomGamePrediction: function(groupId, matchId){dispatch(action.gamesPredictions.randomGamePrediction(groupId, matchId))}
+            updateGame: function(prediction, groupId){dispatch(action.gamesPredictions.updateGame(prediction, groupId))}
         }
     }
 

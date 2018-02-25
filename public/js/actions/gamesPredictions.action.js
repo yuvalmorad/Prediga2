@@ -8,18 +8,8 @@ action.gamesPredictions = (function(){
         updateGame: updateGame,
 
         UPDATE_GAME_RESULT: "UPDATE_GAME_RESULT",
-        updateGameResult: updateGameResult,
-
-        randomGamePrediction: randomGamePrediction
+        updateGameResult: updateGameResult
     };
-
-    function randomGamePrediction(groupId, matchId) {
-        return function(dispatch){
-            service.gamesPredictions.randomGamePrediction(groupId, matchId).then(function(predictionRes){
-                dispatch({type: gamesPredictions.UPDATE_GAME, prediction: predictionRes});
-            });
-        }
-    }
 
     function updateGame(prediction, groupId) {
         return utils.action.updatePrediction(prediction, service.gamesPredictions, gamesPredictions.UPDATE_GAME, groupId);
