@@ -47,7 +47,12 @@ var routePages = (function(){
             isAuthenticatedPage: true,
             component: GroupMessagesPage,
             exact: true,
-            displayInSiteNavigation: true
+            displayInBottomMenu: true,
+            hideSiteNavigation: true,
+            siteHeaderConfig: {
+                hideMenuButton: true,
+                hasBackButton: true
+            }
         },
         {
             path: "/simulator/:gameId?",
@@ -116,21 +121,36 @@ var routePages = (function(){
             title: "Settings",
             isAuthenticatedPage: true,
             component: UserSettingsPage,
-            displayInBottomMenu: true
+            displayInBottomMenu: true,
+            hideSiteNavigation: true,
+            siteHeaderConfig: {
+                hideMenuButton: true,
+                hasBackButton: true
+            }
         },
         {
             path: "/rules",
             title: "How to Play",
             isAuthenticatedPage: true,
             component: RulesPage,
-            displayInBottomMenu: true
+            displayInBottomMenu: true,
+            hideSiteNavigation: true,
+            siteHeaderConfig: {
+                hideMenuButton: true,
+                hasBackButton: true
+            }
         },
         {
             path: "/about",
             title: "About",
             isAuthenticatedPage: true,
             component: AboutPage,
-            displayInBottomMenu: true
+            displayInBottomMenu: true,
+            hideSiteNavigation: true,
+            siteHeaderConfig: {
+                hideMenuButton: true,
+                hasBackButton: true
+            }
         },
         {
             path: "/login",
