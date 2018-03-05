@@ -730,15 +730,24 @@ body,textarea {
     width: 100%;
 }
 
-.radio-button.left,
 .radio-button.left > div{
     border-radius: 4px 0 0 4px;
     border-right: none;
 }
 
-.radio-button.right,
-.radio-button.right > div{
+.radio-button.left {
+    border-radius: 5px 0 0 5px;
+    border-right: none;
+}
+
+
+.radio-button.right > div {
     border-radius: 0 4px 4px 0;
+    border-left: none;
+}
+
+.radio-button.right {
+    border-radius: 0 5px 5px 0;
     border-left: none;
 }
 
@@ -887,8 +896,7 @@ body,textarea {
     top: 0;
     bottom: 0;
     width: 4px;
-    background-position: right;
-    background-size: 100% 36px;
+    background-size: 100% 38px;
     background-repeat: repeat-y;
 }
 
