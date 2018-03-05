@@ -640,19 +640,25 @@ body,textarea {
 /* -------  Input Number -------*/
 
 .input-number {
-    background-color: #CDCDCD;
     border-radius: 4px;
     display: flex;
     box-sizing: border-box;
     height: 32px;
     align-items: center;
+    border: 1px solid #dad8d8;
+}
+
+.input-number.disabled,
+.input-number.win,
+.input-number.lost {
+    border: none;
 }
 
 .input-number button {
     background: transparent;
     border: none;
     font-size: 1.75rem;
-    color: #fff;
+    color: #695b5b;
     font-weight: bold;
     width: 30px;
     padding: 0;
@@ -662,6 +668,14 @@ body,textarea {
 
 .input-number button[disabled] {
     color: #dcd6d6;
+}
+
+.input-number button:first-child {
+    border-right: 1px solid #dad8d8;
+}
+
+.input-number button:last-child {
+    border-left: 1px solid #dad8d8;
 }
 
 .input-number .number {
@@ -706,25 +720,26 @@ body,textarea {
     flex: 1;
     position: relative;
     min-width: 50px;
-    /*overflow: hidden;*/
 }
 
 .radio-button {
-    border: none;
-    background-color: #CDCDCD;
-    color: #fff;
-    padding: 1px;
+    border: 1px solid #8c868685;
+    background-color: transparent;
+    color: #484141;
+    padding: 0;
     width: 100%;
 }
 
 .radio-button.left,
 .radio-button.left > div{
     border-radius: 4px 0 0 4px;
+    border-right: none;
 }
 
 .radio-button.right,
 .radio-button.right > div{
     border-radius: 0 4px 4px 0;
+    border-left: none;
 }
 
 .radio-button > div {
@@ -738,7 +753,11 @@ body,textarea {
 }
 
 .radio-button.selected > div {
-    border-radius: 4px;
+
+}
+
+.radio-button.selected {
+    color: #000;
 }
 
 .radio-button.win > div {
@@ -747,6 +766,16 @@ body,textarea {
 
 .radio-button.lost > div {
     background-color: #9B9B9B;
+}
+
+.radio-button.win,
+.radio-button.lost {
+    border: none;
+    color: #fff;
+}
+
+.radio-button.disabled {
+    border: 1px solid #8c868685;
 }
 
 /* -------  Tile Dialog -------*/
