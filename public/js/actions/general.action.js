@@ -45,6 +45,7 @@ action.general = (function(){
         },
 
         openTileDialog: function(componentName, componentProps) {
+            routerHistory.push("#dialogOpen");
             return {
                 type: general.OPEN_TILE_DIALOG,
                 componentName: componentName,
@@ -53,6 +54,10 @@ action.general = (function(){
         },
 
         closeTileDialog: function() {
+            routerHistory.goBack();
+        },
+
+        closeTileDialogAction: function() {
             return {
                 type: general.CLOSE_TILE_DIALOG
             }

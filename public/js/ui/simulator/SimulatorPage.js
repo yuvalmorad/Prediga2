@@ -201,7 +201,7 @@ component.SimulatorPage = (function(){
         return {
             loadSimulator: function(groupId){dispatch(action.simulator.loadSimulator(groupId))},
             loadLeaderBoard: function(groupId){dispatch(action.leaderBoard.loadLeaderBoard(groupId))},
-            closeTileDialog: function(){dispatch(action.general.closeTileDialog())},
+            closeTileDialog: function(){action.general.closeTileDialog();},
             loadGamesPredictions: function(groupId){dispatch(action.gamesPredictions.loadGames(groupId))}
         }
     }
