@@ -30,7 +30,7 @@ component.GroupMessagesPage = (function () {
         getInitialState: function() {
             if (this.props.selectedGroupId) {
                 this.props.loadGroupMessages(this.props.selectedGroupId);
-                //this.props.resetUnreadMessage(this.props.selectedGroupId);
+                this.props.resetUnreadMessage(this.props.selectedGroupId);
             }
 
             return {
@@ -59,7 +59,7 @@ component.GroupMessagesPage = (function () {
             if (nextProps.selectedGroupId !== this.props.selectedGroupId) {
                 //changed group selection -> load group messages of selected group id
                 this.props.loadGroupMessages(nextProps.selectedGroupId);
-                //this.props.resetUnreadMessage(nextProps.selectedGroupId);
+                this.props.resetUnreadMessage(nextProps.selectedGroupId);
             }
         },
 
