@@ -104,7 +104,7 @@ component.SimulatorPage = (function(){
         },
 
         componentDidMount: function() {
-            this.props.closeTileDialog();
+            this.props.closeTileDialogAction();
         },
 
         updateMatchChange: function(predictionToUpdate) {
@@ -201,7 +201,7 @@ component.SimulatorPage = (function(){
         return {
             loadSimulator: function(groupId){dispatch(action.simulator.loadSimulator(groupId))},
             loadLeaderBoard: function(groupId){dispatch(action.leaderBoard.loadLeaderBoard(groupId))},
-            closeTileDialog: function(){action.general.closeTileDialog();},
+            closeTileDialogAction: function(){dispatch(action.general.closeTileDialogAction());},
             loadGamesPredictions: function(groupId){dispatch(action.gamesPredictions.loadGames(groupId))}
         }
     }

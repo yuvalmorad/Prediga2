@@ -216,7 +216,7 @@ module.exports = function (passport, configFBPassport, configGooglePassport) {
 
 						// adding the user to the default group
 						Group.findOneAndUpdate({_id: util.DEFAULT_GROUP}, {$addToSet: {users: user._id}}).then(function () {
-							return done(null, newUser);
+							return done(null, user);
 						});
 					});
 				}

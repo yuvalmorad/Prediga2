@@ -125,7 +125,7 @@ component.GamesPredictionsPage = (function(){
             }
 
             if (this.state.offsetPageIndex !== prevState.offsetPageIndex && this.tilesElem) {
-                this.tilesElem.scrollTo(0,0);
+                this.tilesElem.scrollTop = 0;
             } else {
                 this.scrollToCurrentDate();
             }
