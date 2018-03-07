@@ -28,11 +28,6 @@ component.GroupMessagesPage = (function () {
 
 	var GroupMessagesPage = React.createClass({
         getInitialState: function() {
-            if (this.props.selectedGroupId) {
-                this.props.loadGroupMessages(this.props.selectedGroupId);
-                this.props.resetUnreadMessage(this.props.selectedGroupId);
-            }
-
             return {
             	messageStr: "",
                 direction: ""
@@ -41,6 +36,10 @@ component.GroupMessagesPage = (function () {
 
         componentDidMount: function() {
 			this.scrollToBottom();
+            if (this.props.selectedGroupId) {
+                this.props.loadGroupMessages(this.props.selectedGroupId);
+                this.props.resetUnreadMessage(this.props.selectedGroupId);
+            }
 		},
 
 		componentDidUpdate: function(prevProps) {
