@@ -43,6 +43,10 @@ input, button {
     outline: none;
 }
 
+a, button:not([disabled]) {
+    cursor: pointer;
+}
+
 html,
 body,
 #root,
@@ -249,6 +253,7 @@ body,textarea {
     flex: 1;
     text-align: center;
     font-weight: bold;
+    cursor: pointer;
 }
 
 .leagues-sub-header .league-item.selected {
@@ -314,6 +319,12 @@ body,textarea {
     max-width: 400px;
 }
 
+.site-header .right {
+    display: flex;
+    justify-content: flex-end;
+    right: 10px;
+}
+
 .login-page .login-button-wrapper a.facebook-login {
     background-color: #3e6aab;
 }
@@ -348,12 +359,6 @@ body,textarea {
     left: 10px;
 }
 
-.site-header .right {
-    display: flex;
-    justify-content: flex-end;
-    right: 10px;
-}
-
 .site-header .right .group-icon {
     font-family: "prediga-groups";
     font-size: 1.25rem;
@@ -362,6 +367,7 @@ body,textarea {
 .site-header .right .action-icon {
     font-family: "prediga";
     font-size: 1.3rem;
+    cursor: pointer;
 }
 
 .site-header .right .action-button {
@@ -372,6 +378,7 @@ body,textarea {
     color: inherit;
     border-color: inherit;
     font-size: 0.7rem;
+    cursor: pointer;
 }
 
 .site-header .menu-groups-button {
@@ -489,6 +496,7 @@ body,textarea {
     justify-content: space-between;
     padding: 0.5rem 0.5rem 0.5rem 1rem;
     border-top: 1px solid;
+    cursor: pointer;
 }
 
 .menu .menu-item.selected {
@@ -875,11 +883,13 @@ body,textarea {
     margin: 0 auto 0.5rem auto;
     border-radius: 4px;
     transition: height 0.3s;
+    cursor: pointer;
 }
 
 .tile-dialog-container .tile {
     border-top: none;
     border-bottom: none;
+    cursor: initial;
 }
 
 .tile .tile-wrapper {
@@ -1070,6 +1080,7 @@ body,textarea {
     border-bottom: 1px solid #e8e8e8;
     padding: 0.5rem 0;
     align-items: center;
+    cursor: pointer;
 }
 
 .leaderboard-match-row:first-child {
@@ -1519,6 +1530,7 @@ body,textarea {
     font-weight: bold;
     display: flex;
     align-items: center;
+    cursor: pointer;
 }
 
 .available-leagues-list > div.selected {
