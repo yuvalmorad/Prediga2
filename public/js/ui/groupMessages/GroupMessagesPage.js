@@ -51,7 +51,7 @@ component.GroupMessagesPage = (function () {
 
 		scrollToBottom: function() {
         	if (this.scrollElem) {
-                this.scrollElem.scrollTo(0, this.scrollElem.scrollHeight);
+                this.scrollElem.scrollTop = this.scrollElem.scrollHeight;
             }
 		},
 
