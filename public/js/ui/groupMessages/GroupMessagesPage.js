@@ -37,8 +37,10 @@ component.GroupMessagesPage = (function () {
         componentDidMount: function() {
 			this.scrollToBottom();
             if (this.props.selectedGroupId) {
-                this.props.loadGroupMessages(this.props.selectedGroupId);
-                this.props.resetUnreadMessage(this.props.selectedGroupId);
+            	setTimeout(function(){
+                    this.props.loadGroupMessages(this.props.selectedGroupId);
+                    this.props.resetUnreadMessage(this.props.selectedGroupId);
+				}.bind(this), 2000);
             }
 		},
 
