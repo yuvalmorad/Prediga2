@@ -8,6 +8,11 @@ Prediction game using MongoDB, ExpressJS, NodeJS, ReactJS
 ## Instructions
 1. Install: `npm install`
 2. Launch: `node server.js`
+   * Put the following application arguments
+   * WEB_PUSH_PUBLIC_KEY=BAdXhdGDgXJeJadxabiFhmlTyF17HrCsfyIj3XEhg1j-RmT2wXU3lHiBqPSKSotvtfejZlAaPywJ9E
+   * WEB_PUSH_PRIVATE_KEY=VCgMIYe2BnuNA4iCfR94hA6pLPT3u3ES1n1xOTrmyLw    
+   * WEB_PUSH_MAIL_TO = mailto:example_email@example.com
+   
 3. Visit: `http://localhost:3000`
 
 ## Add admin user
