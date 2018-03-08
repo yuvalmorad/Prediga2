@@ -1143,12 +1143,19 @@ body,textarea {
     flex: 1;
     display: flex;
     flex-direction: column;
-    padding: 2rem 0.8rem;
+    margin-left: 0.3rem;
+    justify-content: center;
 }
 
 .team-prediction-category-tile .category-name {
     font-weight: bold;
     margin-bottom: 0.3rem;
+}
+
+.team-prediction-category-tile .category-description {
+    font-size: 0.75rem;
+    margin-bottom: 0.3rem;
+    color: #585858;
 }
 
 .team-prediction-category-tile .category-status {

@@ -6,6 +6,7 @@ component.TeamPredictionCategoryTile = (function(){
         render: function() {
             var props = this.props,
                 categoryName = props.categoryName,
+                categoryDescription = props.categoryDescription,
                 categoryTotalPoints = props.categoryTotalPoints,
                 categoryTotalPointsEarned = props.categoryTotalPointsEarned,
                 categoryId = props.categoryId,
@@ -39,6 +40,7 @@ component.TeamPredictionCategoryTile = (function(){
                         re("img", {className: "category-icon", src: "/images/teamCategories/" + icon})),
                     re("div", {className: "center"},
                         re("div", {className: "category-name"}, categoryName),
+                        re("div", {className: "category-description"}, categoryDescription),
                         re("div", {className: "category-status"}, status)
                     ),
                     re("div", {className: "right"},

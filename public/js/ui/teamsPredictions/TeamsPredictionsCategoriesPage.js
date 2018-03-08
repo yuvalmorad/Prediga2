@@ -72,7 +72,7 @@ component.TeamsPredictionsCategoriesPage = (function(){
                     }
                 });
 
-                return re(TeamPredictionCategoryTile, {categoryName: teamCategory.title, icon: teamCategory.icon, deadline: deadline, resultTime: resultTime, categoryTotalPointsEarned: totalPointsEarned , categoryTotalPoints: totalPoints, categoryId: categoryId, key: categoryId});
+                return re(TeamPredictionCategoryTile, {categoryName: teamCategory.title, categoryDescription: teamCategory.description, icon: teamCategory.icon, deadline: deadline, resultTime: resultTime, categoryTotalPointsEarned: totalPointsEarned , categoryTotalPoints: totalPoints, categoryId: categoryId, key: categoryId});
             });
 
             return re("div", { className: "content hasSubHeader" },

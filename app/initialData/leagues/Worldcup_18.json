@@ -1487,6 +1487,7 @@
       "_id": "9b1342399017dfc4e2faf4a1",
       "league": "4a21a7c1a3f89181074e9762",
       "title": "World Cup Champions",
+      "description": "description about world cup",
       "icon": "champions.png"
     }
   ],

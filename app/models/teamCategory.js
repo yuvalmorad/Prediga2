@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const teamCategorySchema = mongoose.Schema({
     league: String,
     title: String,
+	description: String,
     icon: String
 });
 
