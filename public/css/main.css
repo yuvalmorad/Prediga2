@@ -1125,6 +1125,49 @@ body,textarea {
     background-color: #a7a4a4;
 }
 
+/* -------  team prediction category tile -------*/
+
+.team-prediction-category-tile .main > .left, .team-prediction-category-tile .main > .right {
+    width: 3.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.team-prediction-category-tile .main > .left {
+    margin-left: 1rem;
+}
+
+.team-prediction-category-tile .center {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem 0.8rem;
+}
+
+.team-prediction-category-tile .category-name {
+    font-weight: bold;
+}
+
+.team-prediction-category-tile .category-total-points {
+    text-align: center;
+}
+
+.team-prediction-category-tile .category-total-points > div:first-child {
+    font-weight: bold;
+    margin-bottom: 0.3rem;
+}
+
+.team-prediction-category-tile .category-total-points > div:nth-child(2) {
+    color: #a5a3a3;
+    font-size: 0.75rem;
+}
+
+.team-prediction-category-tile .category-icon {
+    width: 4rem;
+}
+
 /* -------  team prediction tile -------*/
 .team-prediction-tile .center{
     flex: 1;

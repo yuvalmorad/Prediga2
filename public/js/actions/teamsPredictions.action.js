@@ -13,7 +13,7 @@ action.teamsPredictions = (function(){
     }
 
     function loadTeams(groupId) {
-        return utils.action.loadWithPredictions(service.teamsPredictions, "teams", teamsPredictions.LOAD_TEAMS_SUCCESS, groupId);
+        return utils.action.loadWithPredictions(service.teamsPredictions, "teams", teamsPredictions.LOAD_TEAMS_SUCCESS, groupId, "teamCategories");
     }
 
     return teamsPredictions;

@@ -1936,7 +1936,8 @@
       "deadline": "2018-03-10T00:00:00.001Z",
       "league": "5a21a7c1a3f89181074e9769",
       "options": [],
-      "resultTime": "2018-03-10T00:00:00.000Z"
+      "resultTime": "2018-03-10T00:00:00.000Z",
+      "category": "9b1342399017dfc4e2faf4e1"
     },
     {
       "_id": "5a1342399017dfc4e2faf4a9",
@@ -1945,7 +1946,8 @@
       "deadline": "2018-03-10T00:00:00.002Z",
       "league": "5a21a7c1a3f89181074e9769",
       "options": [],
-      "resultTime": "2018-03-10T00:00:00.000Z"
+      "resultTime": "2018-03-10T00:00:00.000Z",
+      "category": "9b1342399017dfc4e2faf4e1"
     },
     {
       "_id": "5a1342399017dfc4e2faf4b0",
@@ -1954,7 +1956,8 @@
       "deadline": "2018-03-10T00:00:00.003Z",
       "league": "5a21a7c1a3f89181074e9769",
       "options": [],
-      "resultTime": "2018-03-10T00:00:00.000Z"
+      "resultTime": "2018-03-10T00:00:00.000Z",
+      "category": "9b1342399017dfc4e2faf4e1"
     },
     {
       "_id": "5a1342399017dfc4e2faf4b1",
@@ -1963,7 +1966,8 @@
       "deadline": "2018-03-10T00:00:00.004Z",
       "league": "5a21a7c1a3f89181074e9769",
       "options": [],
-      "resultTime": "2018-03-10T00:00:00.000Z"
+      "resultTime": "2018-03-10T00:00:00.000Z",
+      "category": "9b1342399017dfc4e2faf4e1"
     },
     {
       "_id": "5a1342399017dfc4e2faf4b2",
@@ -1972,7 +1976,8 @@
       "deadline": "2018-03-10T00:00:00.005Z",
       "league": "5a21a7c1a3f89181074e9769",
       "options": [],
-      "resultTime": "2018-03-10T00:00:00.000Z"
+      "resultTime": "2018-03-10T00:00:00.000Z",
+      "category": "9b1342399017dfc4e2faf4e1"
     },
     {
       "_id": "5a1342399017dfc4e2faf4b3",
@@ -1981,7 +1986,16 @@
       "deadline": "2018-03-10T00:00:00.006Z",
       "league": "5a21a7c1a3f89181074e9769",
       "options": [],
-      "resultTime": "2018-03-10T00:00:00.000Z"
+      "resultTime": "2018-03-10T00:00:00.000Z",
+      "category": "9b1342399017dfc4e2faf4e1"
+    }
+  ],
+  "teamCategories": [
+    {
+      "_id": "9b1342399017dfc4e2faf4e1",
+      "league": "5a21a7c1a3f89181074e9769",
+      "title": "Israel Champions",
+      "icon": "champions.png"
     }
   ],
   "matchResults": [

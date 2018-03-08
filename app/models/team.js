@@ -8,7 +8,8 @@ const teamSchema = mongoose.Schema({
 	title: String,
 	type: String,
 	league: String,
-	options: [String]
+	options: [String],
+	category: String
 });
 
 teamSchema.options.toJSON = {

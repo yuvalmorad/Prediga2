@@ -2,6 +2,7 @@ const express = require('express');
 const app = express.Router();
 const util = require('../utils/util.js');
 const teamService = require('../services/teamService');
+const teamCategoryService = require('../services/teamCategoryService');
 const teamPredictionsService = require('../services/teamPredictionsService');
 const teamResultService = require('../services/teamResultService');
 const leagueService = require('../services/leagueService');
@@ -35,19 +36,22 @@ function getData(me, groupId) {
 			const leagueIds = leagueService.getIdArr(leagues);
 			return teamService.byLeagueIds(leagueIds).then(function (teams) {
 				const teamIdArr = teamService.getIdsArr(teams);
+                const teamCategoriesIdsArr = teamService.getTeamCategoroiesIdsArr(teams);
 
 				return Promise.all([
 					teamPredictionsService.getPredictionsByUserId({
 						userId: me, isForMe: true, me: me, groupId: groupId, teamIds: teamIdArr
 					}),
 					teamPredictionsService.getFutureGamesPredictionsCounters(groupId, teamIdArr),
-					teamResultService.byTeamIds(teamIdArr)
+					teamResultService.byTeamIds(teamIdArr),
+                    teamCategoryService.byIds(teamCategoriesIdsArr)
 				]).then(function (arr) {
 					return {
 						teams: teams,
 						predictions: arr[0],
 						predictionsCounters: arr[1],
-						results: arr[2]
+						results: arr[2],
+						teamCategories: arr[3]
 					}
 				});
 			});
