@@ -60,6 +60,7 @@ var routePages = (function(){
             component: GroupMessagesPage,
             exact: true,
             hideSiteNavigation: true,
+            displayInBottomMenu: true,
             siteHeaderConfig: {
                 hideMenuButton: true,
                 hasBackButton: true
