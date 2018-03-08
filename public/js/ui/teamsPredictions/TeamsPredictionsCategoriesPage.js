@@ -40,13 +40,21 @@ component.TeamsPredictionsCategoriesPage = (function(){
             var tiles = teamCategories.map(function(teamCategory){
                 var categoryId = teamCategory._id;
                 var totalPoints = 0;
+                var deadline;
+                var resultTime;
+
+                //sum total points of all teams and get the deadline + resultTime of the first team (all should be the same)
                 teams.forEach(function(team) {
                     if (team.category === categoryId) {
                         totalPoints += (groupConfiguration ? groupConfiguration[team.type] : 0);
+                        if (!deadline) {
+                            deadline = team.deadline;
+                            resultTime = team.resultTime;
+                        }
                     }
                 });
 
-                return re(TeamPredictionCategoryTile, {categoryName: teamCategory.title, icon: teamCategory.icon, categoryTotalPoints: totalPoints, categoryId: categoryId, key: categoryId});
+                return re(TeamPredictionCategoryTile, {categoryName: teamCategory.title, icon: teamCategory.icon, deadline: deadline, resultTime: resultTime, categoryTotalPoints: totalPoints, categoryId: categoryId, key: categoryId});
             });
 
             return re("div", { className: "content hasSubHeader" },

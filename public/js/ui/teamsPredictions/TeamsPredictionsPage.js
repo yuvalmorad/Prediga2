@@ -24,7 +24,7 @@ component.TeamsPredictionsPage = (function(){
             var deadLines = {};
 
             teams.forEach(function(team) {
-                var deadLineStr = utils.general.formatDeadLineToDayString(team.deadline);
+                var deadLineStr = utils.general.formatDateToDateMonthYearString(team.deadline);
                 if (!deadLines[deadLineStr]) {
                     deadLines[deadLineStr] = {
                         deadline: deadLineStr,
