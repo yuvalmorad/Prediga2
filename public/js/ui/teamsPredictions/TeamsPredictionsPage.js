@@ -87,7 +87,7 @@ component.TeamsPredictionsPage = (function(){
 
                 var groupProps = {className: "tiles-group-title", key: "tilesDeadline" + deadLineIndex};
 
-                tilesInGroup.unshift(re("div", groupProps, todayDate > new Date(deadLineObj.teams[0].deadline) ? "Open until " + deadLineObj.deadline : "Closed"));
+                tilesInGroup.unshift(re("div", groupProps, todayDate > new Date(deadLineObj.teams[0].deadline) ? "Closed" : "Open until " + deadLineObj.deadline));
                 return tilesInGroup;
             });
 
