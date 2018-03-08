@@ -93,7 +93,7 @@ component.TeamsPredictionsPage = (function(){
 
             tiles = [].concat.apply([], tiles);
 
-            return re("div", { className: "content hasSubHeader" },
+            return re("div", { className: "content" },
                 re("div", {className: "tiles" + (props.isShowTileDialog ? " no-scroll" : "")},
                     tiles
                 )
