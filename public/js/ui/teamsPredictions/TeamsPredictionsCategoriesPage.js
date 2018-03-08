@@ -24,6 +24,8 @@ component.TeamsPredictionsCategoriesPage = (function(){
         render: function() {
             var props = this.props,
                 teams = props.teams,
+                results = props.results,
+                userPredictions = props.userPredictions,
                 teamCategories = props.teamCategories,
                 selectedLeagueId = props.selectedLeagueId,
                 groups = props.groups,
@@ -40,21 +42,37 @@ component.TeamsPredictionsCategoriesPage = (function(){
             var tiles = teamCategories.map(function(teamCategory){
                 var categoryId = teamCategory._id;
                 var totalPoints = 0;
+                var totalPointsEarned; //if undefined than no results
                 var deadline;
                 var resultTime;
 
                 //sum total points of all teams and get the deadline + resultTime of the first team (all should be the same)
                 teams.forEach(function(team) {
                     if (team.category === categoryId) {
-                        totalPoints += (groupConfiguration ? groupConfiguration[team.type] : 0);
+                        var teamId = team._id;
+                        var points = (groupConfiguration ? groupConfiguration[team.type] : 0);
+                        totalPoints += points;
                         if (!deadline) {
                             deadline = team.deadline;
                             resultTime = team.resultTime;
                         }
+
+                        var result = utils.general.findItemInArrBy(results, "teamId", teamId);
+                        var prediction = utils.general.findItemInArrBy(userPredictions, "teamId", teamId);
+                        if (result) {
+                            if (!totalPointsEarned) {
+                                totalPointsEarned = 0;
+                            }
+
+                            if (prediction && prediction.team === result.team) {
+                                totalPointsEarned += points;
+                            }
+                        }
+
                     }
                 });
 
-                return re(TeamPredictionCategoryTile, {categoryName: teamCategory.title, icon: teamCategory.icon, deadline: deadline, resultTime: resultTime, categoryTotalPoints: totalPoints, categoryId: categoryId, key: categoryId});
+                return re(TeamPredictionCategoryTile, {categoryName: teamCategory.title, icon: teamCategory.icon, deadline: deadline, resultTime: resultTime, categoryTotalPointsEarned: totalPointsEarned , categoryTotalPoints: totalPoints, categoryId: categoryId, key: categoryId});
             });
 
             return re("div", { className: "content hasSubHeader" },
@@ -71,6 +89,8 @@ component.TeamsPredictionsCategoriesPage = (function(){
             teams: state.teamsPredictions.teams,
             loadedSuccessGroupId: state.teamsPredictions.loadedSuccessGroupId,
             teamCategories: state.teamsPredictions.teamCategories,
+            results: state.teamsPredictions.results,
+            userPredictions: state.teamsPredictions.userPredictions,
             selectedLeagueId: state.groups.selectedLeagueId,
             groups: state.groups.groups,
             selectedGroupId: state.groups.selectedGroupId,

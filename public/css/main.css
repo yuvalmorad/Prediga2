@@ -1165,6 +1165,17 @@ body,textarea {
     margin-bottom: 0.3rem;
 }
 
+.team-prediction-category-tile.hasResult .category-total-points > div:first-child {
+    background-color: #7ED321;
+    color: #fff;
+    border-radius: 4px;
+    padding: 4px;
+}
+
+.team-prediction-category-tile.hasResult.zero .category-total-points > div:first-child {
+    background-color: #9B9B9B;
+}
+
 .team-prediction-category-tile .category-total-points > div:nth-child(2) {
     color: #a5a3a3;
     font-size: 0.75rem;

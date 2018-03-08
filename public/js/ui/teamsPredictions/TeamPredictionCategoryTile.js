@@ -7,23 +7,33 @@ component.TeamPredictionCategoryTile = (function(){
             var props = this.props,
                 categoryName = props.categoryName,
                 categoryTotalPoints = props.categoryTotalPoints,
+                categoryTotalPointsEarned = props.categoryTotalPointsEarned,
                 categoryId = props.categoryId,
                 icon = props.icon,
                 deadline = props.deadline,
                 resultTime = props.resultTime,
                 status = "",
                 todayDate = new Date(),
-                pointsEarned = 0;
+                pointsEarned = categoryTotalPointsEarned || 0,
+                hasResult = categoryTotalPointsEarned !== undefined,
+                className = "team-prediction-category-tile";
 
             if (todayDate < new Date(deadline)){
                 status = "Open until " + utils.general.formatDateToDateMonthYearString(deadline);
-            } else if(todayDate < new Date(resultTime)) {
-                status = "Closed - Results on " +utils.general.formatDateToDateMonthYearString(resultTime);
+            } else if (hasResult) {
+                status = categoryTotalPointsEarned + " points out of " + categoryTotalPoints;
             } else {
-                //todo when results
+                status = "Closed - Results on " +utils.general.formatDateToDateMonthYearString(resultTime);
             }
 
-            return re(Tile, {className: "team-prediction-category-tile", navigateOnClickTo: "/teamsPredictions/" + categoryId},
+            if (hasResult) {
+                className += " hasResult";
+                if (pointsEarned === 0) {
+                    className += " zero";
+                }
+            }
+
+            return re(Tile, {className: className, navigateOnClickTo: "/teamsPredictions/" + categoryId},
                 re("div", {className: "main"},
                     re("div", {className: "left"},
                         re("img", {className: "category-icon", src: "/images/teamCategories/" + icon})),
@@ -33,7 +43,7 @@ component.TeamPredictionCategoryTile = (function(){
                     ),
                     re("div", {className: "right"},
                         re("div", {className: "category-total-points"},
-                            re("div", {}, pointsEarned + " / " + categoryTotalPoints),
+                            re("div", {}, hasResult? (pointsEarned) : (pointsEarned + " / " + categoryTotalPoints)),
                             re("div", {}, "Points")
                         )
                     )
