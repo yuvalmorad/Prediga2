@@ -147,7 +147,13 @@ component.GroupMessagesPage = (function () {
         updateInputsHeight: function() {
             var LINE_HEIGHT = 24;
             var MAX_NUM_OF_LINES = 4;
-            var numOfLines = Math.min(this.inputMessageElem.innerHTML.split("<div>").length, MAX_NUM_OF_LINES);
+            var innerHtml = this.inputMessageElem.innerHTML;
+            //var numOfLinesCalculated = innerHtml.split("<div>").length;
+            //if (innerHtml.indexOf('<br class="line">') >=0 ) {
+                var numOfLinesCalculated = innerHtml.split('<br class="line">').length;
+            //}
+
+            var numOfLines = Math.min(numOfLinesCalculated, MAX_NUM_OF_LINES);
             var inputsContainerHeight = INPUTS_CONTAINER_MIN_HEIGHT + ((numOfLines - 1) * LINE_HEIGHT);
             if (this.state.inputsContainerHeight !== inputsContainerHeight) {
                 this.setState({
@@ -158,6 +164,32 @@ component.GroupMessagesPage = (function () {
 
         onInputMessageBlur: function(event) {
             this.onMessageStrChanged(event);
+        },
+
+        onInputKeyDown: function(e) {
+
+            if(e.charCode === 13){ //enter && shift
+
+                e.preventDefault(); //Prevent default browser behavior
+                if (window.getSelection) {
+                    var selection = window.getSelection(),
+                        range = selection.getRangeAt(0),
+                        br = document.createElement("br"),
+                        textNode = document.createTextNode("\u00a0"); //Passing " " directly will not end up being shown correctly
+
+                    br.classList.add("line");
+                    range.deleteContents();//required or not?
+                    range.insertNode(br);
+                    range.collapse(false);
+                    range.insertNode(textNode);
+                    range.selectNodeContents(textNode);
+
+                    selection.removeAllRanges();
+                    selection.addRange(range);
+                    return false;
+                }
+
+            }
         },
 
         onMessageStrChanged: function(event) {
@@ -172,6 +204,11 @@ component.GroupMessagesPage = (function () {
 
         saveRangePosition: function() {
             var bE = this.inputMessageElem;
+            var selection = window.getSelection();
+            if (selection.type === 'None') {
+                return;
+            }
+
             var range=window.getSelection().getRangeAt(0);
             var sC=range.startContainer,eC=range.endContainer;
 
@@ -331,7 +368,7 @@ component.GroupMessagesPage = (function () {
                 re("div", {className: "inputs-container", style: {height:  state.inputsContainerHeight + "px"}},
                     re("button", {className: "open-icons-picker", onClick: this.toggleIconsPicker}, ""),
                     re("div", {className: "input-wrapper"},
-                    	re("div", {className: "input-message", ref: this.assignInputMessageRef, contentEditable:true ,onClick: this.onInputMessageClick, onInput: this.onInputMessageChange, onBlur: this.onInputMessageBlur, style: {direction: state.direction}})
+                    	re("div", {className: "input-message", ref: this.assignInputMessageRef, contentEditable:true ,onClick: this.onInputMessageClick, onKeyPress: this.onInputKeyDown, onInput: this.onInputMessageChange, onBlur: this.onInputMessageBlur, style: {direction: state.direction}})
 					),
                     re("button", {className: "send-message", disabled: state.isEmptyMessage, onClick: this.sendMessage}, "")
 				)
