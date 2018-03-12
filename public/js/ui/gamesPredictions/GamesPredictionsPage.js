@@ -216,7 +216,7 @@ component.GamesPredictionsPage = (function(){
                 }
 
                 tilesInGroup.unshift(re("div", groupProps, getTitleDate(group.date)));
-                return re("div", {}, tilesInGroup);
+                return re("div", {key: "tilesGroupContainer" + groupIndex}, tilesInGroup);
             });
 
             tilesInPage = [].concat.apply([], tilesInPage);

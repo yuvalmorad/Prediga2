@@ -1,6 +1,7 @@
 window.component = window.component || {};
 component.GroupMessagesPage = (function () {
     var connect = ReactRedux.connect;
+    var IconsPicker = component.IconsPicker;
 
     function isLTR(char) {
 		return /[a-zA-Z]/.test(char);
@@ -12,19 +13,80 @@ component.GroupMessagesPage = (function () {
 
     function getTextDirection(str) {
     	var i;
-    	for (i = 0; i < str.length; i++) {
-    		var char = str.charAt(i);
-            if (isRTL(char)) {
-                return "rtl";
-            }
 
-            if (isLTR(char)) {
-                return "ltr";
+    	if (str) {
+            for (i = 0; i < str.length; i++) {
+                var char = str.charAt(i);
+                if (isRTL(char)) {
+                    return "rtl";
+                }
+
+                if (isLTR(char)) {
+                    return "ltr";
+                }
             }
 		}
 
+
 		return "ltr";
 	}
+
+	//remove elements (div, br...) and replace with line break \n
+    var convertElementToText = (function() {
+        var convertElement = function(element) {
+            switch(element.tagName) {
+                case "BR":
+                    return "\n";
+                case "P":
+                case "DIV":
+                    return (element.previousSibling ? "\n" : "") + [].map.call(element.childNodes, convertElement).join("");
+                case "IMG":
+                    return element.outerHTML;
+                default:
+                    return element.textContent;
+            }
+        };
+
+        return function(element) {
+            return [].map.call(element.childNodes, convertElement).join("");
+        };
+    })();
+
+    function pasteHtmlAtCaret(html) {
+        var sel, range;
+        if (window.getSelection) {
+            // IE9 and non-IE
+            sel = window.getSelection();
+            if (sel.getRangeAt && sel.rangeCount) {
+                range = sel.getRangeAt(0);
+                range.deleteContents();
+
+                // Range.createContextualFragment() would be useful here but is
+                // non-standard and not supported in all browsers (IE9, for one)
+                var el = document.createElement("div");
+                el.innerHTML = html;
+                var frag = document.createDocumentFragment(), node, lastNode;
+                while ( (node = el.firstChild) ) {
+                    lastNode = frag.appendChild(node);
+                }
+                range.insertNode(frag);
+
+                // Preserve the selection
+                if (lastNode) {
+                    range = range.cloneRange();
+                    range.setStartAfter(lastNode);
+                    range.collapse(true);
+                    sel.removeAllRanges();
+                    sel.addRange(range);
+                }
+            }
+        } else if (document.selection && document.selection.type != "Control") {
+            // IE < 9
+            document.selection.createRange().pasteHTML(html);
+        }
+    }
+
+    var INPUTS_CONTAINER_MIN_HEIGHT = 40;
 
 	var GroupMessagesPage = React.createClass({
         getInitialState: function() {
@@ -34,8 +96,9 @@ component.GroupMessagesPage = (function () {
             }
 
             return {
-            	messageStr: "",
-                direction: ""
+                direction: "",
+				isEmptyMessage: true,
+                isIconsPickerVisible: false
 			};
         },
 
@@ -43,8 +106,12 @@ component.GroupMessagesPage = (function () {
 			this.scrollToBottom();
 		},
 
-		componentDidUpdate: function(prevProps) {
+		componentDidUpdate: function(prevProps, prevState) {
         	if (this.props.groupMessages !== prevProps.groupMessages) {
+                this.scrollToBottom();
+            }
+
+            if (this.state.isIconsPickerVisible !== prevState.isIconsPickerVisible) {
                 this.scrollToBottom();
             }
 		},
@@ -63,40 +130,163 @@ component.GroupMessagesPage = (function () {
             }
         },
 
+        pasteHTML: function(html) {
+            var inputScrollTopBefore = this.inputMessageElem.scrollTop;
+            this.restoreRangePosition();
+            this.inputMessageElem.focus();
+            pasteHtmlAtCaret(html);
+            this.inputMessageElem.blur();
+            this.inputMessageElem.scrollTop = inputScrollTopBefore;
+        },
+
+        onInputMessageChange: function(event) {
+            this.onMessageStrChanged(event);
+            this.updateInputsHeight(event);
+        },
+
+        updateInputsHeight: function() {
+            var LINE_HEIGHT = 24;
+            var MAX_NUM_OF_LINES = 4;
+            var numOfLines = Math.min(this.inputMessageElem.innerHTML.split("<div>").length, MAX_NUM_OF_LINES);
+            var inputsContainerHeight = INPUTS_CONTAINER_MIN_HEIGHT + ((numOfLines - 1) * LINE_HEIGHT);
+            if (this.state.inputsContainerHeight !== inputsContainerHeight) {
+                this.setState({
+                    inputsContainerHeight: inputsContainerHeight
+                })
+            }
+        },
+
+        onInputMessageBlur: function(event) {
+            this.onMessageStrChanged(event);
+        },
+
         onMessageStrChanged: function(event) {
-        	var newVal = event.target.value;
-        	var direction = getTextDirection(newVal);
+			var text = event.target.textContent;
+        	var direction = getTextDirection(text);
+        	this.saveRangePosition();
 			this.setState({
-                messageStr: newVal,
-                direction: direction
+                direction: direction,
+                isEmptyMessage: !text.trim()
 			});
 		},
 
-        onMessageStrKeyUp: function(event) {
-        	console.log("up");
-		},
+        saveRangePosition: function() {
+            var bE = this.inputMessageElem;
+            var range=window.getSelection().getRangeAt(0);
+            var sC=range.startContainer,eC=range.endContainer;
+
+            A=[];while(sC!==bE){A.push(this.getNodeIndex(sC));sC=sC.parentNode}
+            B=[];while(eC!==bE){B.push(this.getNodeIndex(eC));eC=eC.parentNode}
+
+            this.rp={"sC":A,"sO":range.startOffset,"eC":B,"eO":range.endOffset};
+        },
+
+        restoreRangePosition: function() {
+            var bE = this.inputMessageElem;
+            var rp = this.rp;
+
+            if (!rp) {
+                return;
+            }
+            bE.focus();
+            var sel=window.getSelection(),range=sel.getRangeAt(0);
+            var x,C,sC=bE,eC=bE;
+
+            C=rp.sC;x=C.length;while(x--)sC=sC.childNodes[C[x]];
+            C=rp.eC;x=C.length;while(x--)eC=eC.childNodes[C[x]];
+
+            range.setStart(sC,rp.sO);
+            range.setEnd(eC,rp.eO);
+            sel.removeAllRanges();
+            sel.addRange(range);
+        },
+
+        getNodeIndex: function(n){var i=0;while(n=n.previousSibling)i++;return i},
+
+        onInputMessageClick: function(e) {
+            function setCaret(el, e, textDirection) {
+                var selectedElem = e.target;
+                var range = document.createRange();
+                var sel = window.getSelection();
+                var selectedElementLeft = selectedElem.getBoundingClientRect().left;
+                var selectedElementWidth = selectedElem.offsetWidth;
+                var startElement;
+
+                if ((e.pageX - selectedElementLeft) > (selectedElementWidth / 2)) {
+                    //right of image
+                    if (textDirection === "rtl") {
+                         startElement = selectedElem;
+                    } else {
+                       startElement = selectedElem.nextSibling;
+                    }
+                } else {
+                    //left
+                    if (textDirection === "rtl") {
+                         startElement = selectedElem.nextSibling;
+                    } else {
+                        startElement = selectedElem;
+                    }
+                }
+
+                if (!startElement) {
+                     range.setStartAfter(selectedElem);
+                } else {
+                    range.setStart(startElement, 0);
+                }
+
+                range.collapse(true);
+                sel.removeAllRanges();
+                sel.addRange(range);
+                el.focus();
+            }
+
+            if (e.target.tagName === "IMG") {
+                setCaret(this.inputMessageElem, e, this.state.direction);
+            }
+
+            this.setState({
+                isIconsPickerVisible: false
+            });
+        },
 
         sendMessage: function() {
-        	var state = this.state,
-                messageStr = state.messageStr;
+            var message = convertElementToText(this.inputMessageElem);
 
-        	if (!messageStr) {
-        		return;
-			}
+            //send message
+            this.props.sendMessage({message: message}, this.props.selectedGroupId);
 
-        	var message = {
-                message: messageStr
-			};
-
-			this.props.sendMessage(message, this.props.selectedGroupId);
+            //clean input
+            this.inputMessageElem.innerHTML = "";
 			this.setState({
-                messageStr: ""
+                isEmptyMessage: true,
+                isIconsPickerVisible: false,
+                inputsContainerHeight: INPUTS_CONTAINER_MIN_HEIGHT
 			});
 		},
+
+        toggleIconsPicker: function() {
+            this.setState({
+                isIconsPickerVisible: !this.state.isIconsPickerVisible
+            });
+        },
 
         assignScrollRef: function(elem) {
         	this.scrollElem = elem;
 		},
+
+        assignInputMessageRef: function(elem) {
+        	this.inputMessageElem = elem;
+		},
+
+        onIconPickerClicked: function(imageUrl, index) {
+            var SPRITE_ICON_SIZE = 24;
+            var imageElem = document.createElement("img");
+            imageElem.src = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7";
+            var position = (SPRITE_ICON_SIZE * (index % 2)) + "px -" + (SPRITE_ICON_SIZE * Math.floor(index / 2)) + "px";
+            imageElem.style.backgroundImage = "url(" + imageUrl + ")";
+            imageElem.style.backgroundPosition = position;
+            this.pasteHTML(imageElem.outerHTML);
+        },
 
 		render: function() {
         	var props = this.props,
@@ -123,9 +313,7 @@ component.GroupMessagesPage = (function () {
         		return re("div", {className: groupMessageClassName, key: groupMessage._id},
 					re("div", {className: "group-message-content"},
 						userNameElem,
-						re("div", {className: "message", style: {direction: getTextDirection(groupMessage.message)}},
-							groupMessage.message
-						),
+						re("div", {className: "message", dangerouslySetInnerHTML: {__html: groupMessage.message}, style: {direction: getTextDirection(groupMessage.message)}}),
 						re("div", {className: "time"},
 							utils.general.formatHourMinutesTime(groupMessage.creationDate)
 						)
@@ -133,17 +321,19 @@ component.GroupMessagesPage = (function () {
 				);
 			});
 
-			return re("div", {className: "group-messages-page content"},
+			return re("div", {className: "group-messages-page content" + (state.isIconsPickerVisible ? " icons-picker-open" : "")},
 				re("div", {className: "scroll-container", ref: this.assignScrollRef},
                     re("div", {className: "groups-messages"},
                     	tiles
 					)
 				),
-                re("div", {className: "inputs-container"},
+                re(IconsPicker, {isVisible: state.isIconsPickerVisible, onIconClicked: this.onIconPickerClicked, bottomPosition: state.inputsContainerHeight}),
+                re("div", {className: "inputs-container", style: {height:  state.inputsContainerHeight + "px"}},
+                    re("button", {className: "open-icons-picker", onClick: this.toggleIconsPicker}, ""),
                     re("div", {className: "input-wrapper"},
-                    	re("textarea", {placeholder:"Type a message", value: state.messageStr, style: {direction: state.direction}, onChange: this.onMessageStrChanged})
+                    	re("div", {className: "input-message", ref: this.assignInputMessageRef, contentEditable:true ,onClick: this.onInputMessageClick, onInput: this.onInputMessageChange, onBlur: this.onInputMessageBlur, style: {direction: state.direction}})
 					),
-                    re("button", {className: "send-message", disabled: !state.messageStr, onClick: this.sendMessage}, "")
+                    re("button", {className: "send-message", disabled: state.isEmptyMessage, onClick: this.sendMessage}, "")
 				)
 			);
 		}
