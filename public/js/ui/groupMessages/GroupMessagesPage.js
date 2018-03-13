@@ -193,12 +193,13 @@ component.GroupMessagesPage = (function () {
         },
 
         onMessageStrChanged: function(event) {
-			var text = event.target.textContent;
+            var target = event.target;
+			var text = target.textContent;
         	var direction = getTextDirection(text);
         	this.saveRangePosition();
 			this.setState({
                 direction: direction,
-                isEmptyMessage: !text.trim()
+                isEmptyMessage: (!text.trim()) && (target.innerHTML.indexOf("<img") === -1)
 			});
 		},
 
