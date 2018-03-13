@@ -156,8 +156,8 @@
         "#FF1716"
       ],
       "buttonColors": [
-        "#FFFFFF",
-        "#FF1716"
+        "#FF1716",
+        "#FFFFFF"
       ],
       "graphColors": [
         "#FF1716",
@@ -340,8 +340,8 @@
         "#000000"
       ],
       "buttonColors": [
-        "#FFFFFF",
-        "#000000"
+        "#000000",
+        "#FFFFFF"
       ],
       "graphColors": [
         "#FF1716",
@@ -625,7 +625,17 @@
       "deadline": "2018-02-17T23:45:00.000Z",
       "league": "1a21a7c1a3f89181074e9769",
       "options": [],
-      "resultTime": "2018-05-26T21:45:00.000Z"
+      "resultTime": "2018-05-26T21:45:00.000Z",
+      "category": "9b1342399017dfc4e2faf4d1"
+    }
+  ],
+  "teamCategories": [
+    {
+      "_id": "9b1342399017dfc4e2faf4d1",
+      "league": "1a21a7c1a3f89181074e9769",
+      "title": "Champions League champions",
+      "description": "description about champions league",
+      "icon": "champions.png"
     }
   ],
   "teamResults": [

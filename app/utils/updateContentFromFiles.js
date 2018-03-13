@@ -1,4 +1,5 @@
 const TeamService = require('../services/teamService');
+const TeamCategoryService = require('../services/teamCategoryService');
 const MatchService = require('../services/matchService');
 const MatchResultService = require('../services/matchResultService');
 const TeamResultService = require('../services/teamResultService');
@@ -19,7 +20,7 @@ const self = module.exports = {
 			self.updateLeagueData(require('../initialData/leagues/Israel_17-18.json')),
 			self.updateLeagueData(require('../initialData/leagues/England_17-18.json')),
 			self.updateLeagueData(require('../initialData/leagues/Spain_17-18.json')),
-			self.updateLeagueData(require('../initialData/leagues/ChampionsLeague_17-18.json')),
+			self.updateLeagueData(require('../initialData/leagues/ChampionsLeague_17-18.json'))
 		]).then(function (arr) {
 			console.log('[Init] - Update initial data finished');
 			return Promise.resolve({});
@@ -30,6 +31,7 @@ const self = module.exports = {
 			LeagueService.updateLeague(leagueJson.league),
 			ClubService.updateClubs(leagueJson.clubs),
 			MatchService.updateMatches(leagueJson.matches),
+            TeamCategoryService.updateTeamsCategories(leagueJson.teamCategories),
 			TeamService.updateTeams(leagueJson.teams),
 			MatchResultService.updateMatchResults(leagueJson.matchResults),
 			TeamResultService.updateTeamResults(leagueJson.teamResults)

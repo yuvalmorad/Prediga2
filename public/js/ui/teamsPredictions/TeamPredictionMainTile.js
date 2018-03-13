@@ -19,7 +19,7 @@ component.TeamPredictionMainTile = (function(){
             leagueName = league.name,
             teamName,
             teamShortName,
-            predictionCounters = props.predictionCounters,
+            predictionCounters = props.predictionCounters || {},
             groupConfiguration = props.groupConfiguration,
             points = groupConfiguration ? groupConfiguration[team.type] : "",
             logoPosition,

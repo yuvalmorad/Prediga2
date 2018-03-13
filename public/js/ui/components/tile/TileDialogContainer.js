@@ -11,8 +11,22 @@ component.TileDialogContainer = (function(){
             }
         },
 
+        escFunction: function(event){
+            if(event.keyCode === 27) {
+                this.closeDialog();
+            }
+        },
+
+        componentDidMount: function(){
+            document.addEventListener("keydown", this.escFunction, false);
+        },
+
+        componentWillUnmount: function(){
+            document.removeEventListener("keydown", this.escFunction, false);
+        },
+
         onCancel: function() { // close/cancel
-            this.closeDialog()
+            this.closeDialog();
         },
 
         onSave: function() {
@@ -104,7 +118,7 @@ component.TileDialogContainer = (function(){
 
     function mapDispatchToProps(dispatch) {
         return {
-            closeTileDialog: function(){dispatch(action.general.closeTileDialog())}
+            closeTileDialog: function(){action.general.closeTileDialog();}
         }
     }
 

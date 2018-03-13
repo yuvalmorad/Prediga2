@@ -71,7 +71,7 @@ component.TeamPredictionTileDialog = (function(){
             }
 
             var isDeadLine = this.isDeadLine();
-            return re(TileDialog, {borderLeftColor: borderColor, borderLeftSecondColor: borderSecondColor, borderRightColor: borderColor, borderRightSecondColor: borderSecondColor, className: "team-prediction-tile"},
+            return re(TileDialog, {/*borderLeftColor: borderColor, borderLeftSecondColor: borderSecondColor, borderRightColor: borderColor, borderRightSecondColor: borderSecondColor,*/ className: "team-prediction-tile"},
                 re(TeamPredictionMainTile, {team: team, selectedTeam: selectedTeam, league: league, predictionCounters: predictionCounters, groupConfiguration: groupConfiguration, isDeadLine: isDeadLine, result: result}),
                 re(TeamPredictionFormTile, {team: team, selectedTeam: selectedTeam, league: league, clubs: clubs, onSelectedTeamChanged: this.onSelectedTeamChanged, isDeadLine: isDeadLine})
             );

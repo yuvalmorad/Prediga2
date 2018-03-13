@@ -12,21 +12,29 @@ utils.action = (function(){
     };
 
     //mainObjectProperty = "teams"/"matches"
-    function loadWithPredictions(serviceObj, mainObjectProperty, successType, groupId) {
+    function loadWithPredictions(serviceObj, mainObjectProperty, successType, groupId, additionalProperty) {
         return function(dispatch){
             serviceObj.getAll(groupId).then(function(res){
                 var data = res.data;
-                dispatch(success(data[mainObjectProperty], data.predictions, data.results, data.predictionsCounters));
+                dispatch(success(data[mainObjectProperty], data.predictions, data.results, data.predictionsCounters, groupId, data[additionalProperty]));
             }, function(error){
 
             })
         };
 
-        function success(mainObject, userPredictions, results, predictionsCounters) {
+        function success(mainObject, userPredictions, results, predictionsCounters, groupId, additionalValue) {
             var res = {
-                type: successType, userPredictions: userPredictions, results: results, predictionsCounters: predictionsCounters
+                type: successType,
+                userPredictions: userPredictions,
+                results: results,
+                predictionsCounters: predictionsCounters,
+                groupId: groupId
             };
             res[mainObjectProperty] = mainObject;
+
+            if (additionalProperty) {
+                res[additionalProperty] = additionalValue;
+            }
 
             return res;
         }

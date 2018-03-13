@@ -30,6 +30,8 @@ component.RadioButton = (function(){
             } else if (points === 0){
                 className += " lost";
             }
+        } else if (isDisabled) {
+            className += " disabled";
         }
 
         return re("div", {className: "radio-button-wrapper"},

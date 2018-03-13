@@ -125,7 +125,7 @@ component.GamesPredictionsPage = (function(){
             }
 
             if (this.state.offsetPageIndex !== prevState.offsetPageIndex && this.tilesElem) {
-                this.tilesElem.scrollTo(0,0);
+                this.tilesElem.scrollTop = 0;
             } else {
                 this.scrollToCurrentDate();
             }
@@ -216,7 +216,7 @@ component.GamesPredictionsPage = (function(){
                 }
 
                 tilesInGroup.unshift(re("div", groupProps, getTitleDate(group.date)));
-                return re("div", {}, tilesInGroup);
+                return re("div", {key: "tilesGroupContainer" + groupIndex}, tilesInGroup);
             });
 
             tilesInPage = [].concat.apply([], tilesInPage);

@@ -26,6 +26,7 @@ component.App = (function(){
                 hideSiteNavigation = currentPage.hideSiteNavigation,
                 siteHeaderConfig = currentPage.siteHeaderConfig || {},
                 isMainMenuOpen = this.props.isMainMenuOpen,
+                isShowTileDialog = this.props.isShowTileDialog,
                 scrollSiteClassName = "scroll-site",
                 siteCoverClassName = "site-cover";
 
@@ -35,7 +36,7 @@ component.App = (function(){
                 siteCoverClassName += " hide";
             }
 
-            return re("div", {className: "main"},
+            return re("div", {className: "main" + (isShowTileDialog ? " dialog-open" : "")},
                 re("div", {className: scrollSiteClassName},
                     re("div", {className: "site"},
                         re(SiteHeader, {title: title, hide: hideSiteHeader, siteHeaderConfig: siteHeaderConfig}),
@@ -52,7 +53,8 @@ component.App = (function(){
 
     function mapStateToProps(state){
         return {
-            isMainMenuOpen: state.general.isMainMenuOpen
+            isMainMenuOpen: state.general.isMainMenuOpen,
+            isShowTileDialog: state.general.isShowTileDialog
         }
     }
 

@@ -14,6 +14,11 @@ input:not([type="checkbox"]) {
     -webkit-tap-highlight-color:rgba(0,0,0,0);;
 }
 
+[contenteditable] {
+    -webkit-user-select: text;
+    user-select: text;
+}
+
 /* For Firefox */
 input[type='number'] {
     -moz-appearance:textfield;
@@ -41,6 +46,10 @@ p {
 
 input, button {
     outline: none;
+}
+
+a, button:not([disabled]) {
+    cursor: pointer;
 }
 
 html,
@@ -175,6 +184,10 @@ body,textarea {
     bottom: 0;
 }
 
+.dialog-open .site {
+    filter: blur(1px);
+}
+
 .site-cover {
     position: absolute;
     top: 0;
@@ -245,6 +258,7 @@ body,textarea {
     flex: 1;
     text-align: center;
     font-weight: bold;
+    cursor: pointer;
 }
 
 .leagues-sub-header .league-item.selected {
@@ -310,6 +324,12 @@ body,textarea {
     max-width: 400px;
 }
 
+.site-header .right {
+    display: flex;
+    justify-content: flex-end;
+    right: 10px;
+}
+
 .login-page .login-button-wrapper a.facebook-login {
     background-color: #3e6aab;
 }
@@ -344,12 +364,6 @@ body,textarea {
     left: 10px;
 }
 
-.site-header .right {
-    display: flex;
-    justify-content: flex-end;
-    right: 10px;
-}
-
 .site-header .right .group-icon {
     font-family: "prediga-groups";
     font-size: 1.25rem;
@@ -358,6 +372,7 @@ body,textarea {
 .site-header .right .action-icon {
     font-family: "prediga";
     font-size: 1.3rem;
+    cursor: pointer;
 }
 
 .site-header .right .action-button {
@@ -368,6 +383,7 @@ body,textarea {
     color: inherit;
     border-color: inherit;
     font-size: 0.7rem;
+    cursor: pointer;
 }
 
 .site-header .menu-groups-button {
@@ -485,6 +501,7 @@ body,textarea {
     justify-content: space-between;
     padding: 0.5rem 0.5rem 0.5rem 1rem;
     border-top: 1px solid;
+    cursor: pointer;
 }
 
 .menu .menu-item.selected {
@@ -636,19 +653,25 @@ body,textarea {
 /* -------  Input Number -------*/
 
 .input-number {
-    background-color: #CDCDCD;
     border-radius: 4px;
     display: flex;
     box-sizing: border-box;
     height: 32px;
     align-items: center;
+    border: 1px solid #dad8d8;
+}
+
+.input-number.disabled,
+.input-number.win,
+.input-number.lost {
+    border: none;
 }
 
 .input-number button {
     background: transparent;
     border: none;
     font-size: 1.75rem;
-    color: #fff;
+    color: #695b5b;
     font-weight: bold;
     width: 30px;
     padding: 0;
@@ -658,6 +681,14 @@ body,textarea {
 
 .input-number button[disabled] {
     color: #dcd6d6;
+}
+
+.input-number button:first-child {
+    border-right: 1px solid #dad8d8;
+}
+
+.input-number button:last-child {
+    border-left: 1px solid #dad8d8;
 }
 
 .input-number .number {
@@ -702,25 +733,35 @@ body,textarea {
     flex: 1;
     position: relative;
     min-width: 50px;
-    /*overflow: hidden;*/
 }
 
 .radio-button {
-    border: none;
-    background-color: #CDCDCD;
-    color: #fff;
-    padding: 1px;
+    border: 1px solid #8c868685;
+    background-color: transparent;
+    color: #484141;
+    padding: 0;
     width: 100%;
 }
 
-.radio-button.left,
 .radio-button.left > div{
     border-radius: 4px 0 0 4px;
+    border-right: none;
 }
 
-.radio-button.right,
-.radio-button.right > div{
+.radio-button.left {
+    border-radius: 5px 0 0 5px;
+    border-right: none;
+}
+
+
+.radio-button.right > div {
     border-radius: 0 4px 4px 0;
+    border-left: none;
+}
+
+.radio-button.right {
+    border-radius: 0 5px 5px 0;
+    border-left: none;
 }
 
 .radio-button > div {
@@ -734,7 +775,11 @@ body,textarea {
 }
 
 .radio-button.selected > div {
-    border-radius: 4px;
+
+}
+
+.radio-button.selected {
+    color: #000;
 }
 
 .radio-button.win > div {
@@ -743,6 +788,16 @@ body,textarea {
 
 .radio-button.lost > div {
     background-color: #9B9B9B;
+}
+
+.radio-button.win,
+.radio-button.lost {
+    border: none;
+    color: #fff;
+}
+
+.radio-button.disabled {
+    border: 1px solid #8c868685;
 }
 
 /* -------  Tile Dialog -------*/
@@ -762,7 +817,15 @@ body,textarea {
     top: 50%;
     left: 0;
     right: 0;
-    transform: translateY(-50%);
+    animation-name: dialog-open;
+    animation-duration: 0.6s;
+    animation-timing-function: cubic-bezier(0.07, 0.83, 0.35, 1.01);
+    transform: translateY(-50%) scale(1);
+}
+
+@keyframes dialog-open {
+    from { transform: translateY(-50%) scale(0.3); }
+    to   { transform: translateY(-50%) scale(1); }
 }
 
 .tile-dialog-container .tile {
@@ -825,11 +888,13 @@ body,textarea {
     margin: 0 auto 0.5rem auto;
     border-radius: 4px;
     transition: height 0.3s;
+    cursor: pointer;
 }
 
 .tile-dialog-container .tile {
     border-top: none;
     border-bottom: none;
+    cursor: initial;
 }
 
 .tile .tile-wrapper {
@@ -846,8 +911,7 @@ body,textarea {
     top: 0;
     bottom: 0;
     width: 4px;
-    background-position: right;
-    background-size: 100% 36px;
+    background-size: 100% 38px;
     background-repeat: repeat-y;
 }
 
@@ -1021,6 +1085,7 @@ body,textarea {
     border-bottom: 1px solid #e8e8e8;
     padding: 0.5rem 0;
     align-items: center;
+    cursor: pointer;
 }
 
 .leaderboard-match-row:first-child {
@@ -1063,6 +1128,73 @@ body,textarea {
 
 .leaderboard-match-row .points.zero {
     background-color: #a7a4a4;
+}
+
+/* -------  team prediction category tile -------*/
+
+.team-prediction-category-tile .main > .left, .team-prediction-category-tile .main > .right {
+    width: 3.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.team-prediction-category-tile .main > .left {
+    margin-left: 1rem;
+}
+
+.team-prediction-category-tile .center {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    margin-left: 0.3rem;
+    justify-content: center;
+}
+
+.team-prediction-category-tile .category-name {
+    font-weight: bold;
+    margin-bottom: 0.3rem;
+}
+
+.team-prediction-category-tile .category-description {
+    font-size: 0.75rem;
+    margin-bottom: 0.3rem;
+    color: #585858;
+}
+
+.team-prediction-category-tile .category-status {
+    font-size: 0.75rem;
+    color: #a5a3a3;
+}
+
+.team-prediction-category-tile .category-total-points {
+    text-align: center;
+}
+
+.team-prediction-category-tile .category-total-points > div:first-child {
+    font-weight: bold;
+    margin-bottom: 0.3rem;
+}
+
+.team-prediction-category-tile.hasResult .category-total-points > div:first-child {
+    background-color: #7ED321;
+    color: #fff;
+    border-radius: 4px;
+    padding: 4px;
+}
+
+.team-prediction-category-tile.hasResult.zero .category-total-points > div:first-child {
+    background-color: #9B9B9B;
+}
+
+.team-prediction-category-tile .category-total-points > div:nth-child(2) {
+    color: #a5a3a3;
+    font-size: 0.75rem;
+}
+
+.team-prediction-category-tile .category-icon {
+    width: 4rem;
 }
 
 /* -------  team prediction tile -------*/
@@ -1470,6 +1602,7 @@ body,textarea {
     font-weight: bold;
     display: flex;
     align-items: center;
+    cursor: pointer;
 }
 
 .available-leagues-list > div.selected {
@@ -1862,60 +1995,151 @@ body,textarea {
 .page > .group-messages-page.content > .scroll-container {
     height: auto;
     top: 0;
-    bottom: 36px;
+    bottom: 40px;
     left: 0;
     right: 0;
     position: absolute;
     padding: 0.5rem 1rem;
+    box-sizing: border-box;
+}
+
+.page > .group-messages-page.content.icons-picker-open > .scroll-container {
+    bottom: 210px;
 }
 
 .group-messages-page .inputs-container {
     position: absolute;
     bottom: 0;
-    height: 40px;
+    min-height: 40px;
     left: 0;
     right: 0;
     background-color: #f5f1ee;
 }
 
+.group-messages-page .icons-picker-component {
+    height: 170px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 40px;
+    background-color: #fff;
+    overflow: hidden;
+}
+
+.group-messages-page .icons-picker-component .icons-picker-header {
+    height: 26px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #bbb4b4;
+    box-sizing: border-box;
+}
+
+.icons-picker-component .icons-picker-header .category-item {
+    cursor: pointer;
+    flex: 1;
+    text-align: center;
+    line-height: 26px;
+    height: 26px;
+    border-right: 1px solid #bbb4b4;
+    font-size: 0.85rem;
+}
+
+.icons-picker-component .icons-picker-header .category-item:last-child {
+    border-right: none;
+}
+
+.icons-picker-component .icons-picker-header .category-item.selected {
+    background: #009fff;
+    color: #fff;
+}
+
+.group-messages-page .icons-picker-component .icons-categories-scroll {
+    height: calc(100% - 26px);
+    white-space: nowrap;
+    transition: 0.35s transform;
+}
+
+.group-messages-page .icons-picker-component .icons-page {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+}
+
+.group-messages-page .icons-picker-component .icons {
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: 100%;
+    padding: 5px;
+    box-sizing: border-box;
+    white-space: initial;
+    -webkit-overflow-scrolling: touch;
+}
+
+.icons-picker-component .icons .icon {
+    width: 48px;
+    height: 48px;
+    padding: 5px;
+    display: inline-block;
+    cursor: pointer;
+    box-sizing: border-box;
+    background-size: 96px;
+}
+
 .group-messages-page .input-wrapper {
     position: absolute;
     top: 4px;
-    left: 5px;
+    left: 35px;
     right: 35px;
     bottom: 4px;
+    padding: 4px 8px;
+    background-color: #fff;
+    border-radius: 4px;
 }
 
-.group-messages-page .inputs-container .input-wrapper textarea {
+.group-messages-page .input-message {
     width: 100%;
     resize: none;
-    overflow: hidden;
-    padding: 5px;
+    overflow: auto;
     outline: none;
     border: none;
-    text-indent: 5px;
     box-shadow: none;
     height: 100%;
     font-size: 16px;
     display: block;
-    line-height: 1.42857143;
+    line-height: 24px;
     color: #555;
     background-color: #fff;
     background-image: none;
-    border-radius: 4px;
     box-sizing: border-box;
-    cursor: pointer;
 }
 
-.group-messages-page .inputs-container .input-wrapper textarea::placeholder {
-    color: #e8e8e8;
-    opacity: 1;
+.group-messages-page .input-message img {
+    width: 24px;
+    height: 24px;
+    vertical-align: middle;
+    background-size: 48px;
+}
+
+.group-messages-page .inputs-container .open-icons-picker {
+    position: absolute;
+    left: 3px;
+    bottom: 6px;
+    width: 28px;
+    height: 28px;
+    box-sizing: border-box;
+    padding: 0;
+    border-radius: 50%;
+    background-color: transparent;
+    border: none;
+    font-family: "prediga";
+    font-size: 1rem;
+    color: #888888;
 }
 
 .group-messages-page .inputs-container .send-message {
     position: absolute;
     right: 3px;
-    top: 6px;
+    bottom: 6px;
     width: 28px;
     height: 28px;
     box-sizing: border-box;
@@ -1987,6 +2211,13 @@ body,textarea {
 
 .group-messages-page .group-message .message {
     white-space: pre-line;
+}
+
+.group-messages-page .group-message .message img {
+    width: 24px;
+    height: 24px;
+    vertical-align: middle;
+    background-size: 48px;
 }
 
 .group-messages-page .group-message .time {

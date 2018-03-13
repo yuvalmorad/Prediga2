@@ -60,8 +60,8 @@
         "#FF1716"
       ],
       "buttonColors": [
-        "#FFFFFF",
-        "#FF1716"
+        "#FF1716",
+        "#FFFFFF"
       ],
       "graphColors": [
         "#FF1716",
@@ -2852,7 +2852,7 @@
       "_id": "4a21a7c1a3f89181075e9375",
       "team1": "1a21a7c1a3f89181074e9864",
       "team2": "1a21a7c1a3f89181074e9862",
-      "kickofftime": "2018-03-9T20:00:00.000Z",
+      "kickofftime": "2018-03-09T20:00:00.000Z",
       "type": "Round 28",
       "league": "2a21a7c1a3f89181074e9769",
       "stadium": "Montilivi"
@@ -3811,7 +3811,8 @@
       "deadline": "2018-03-01T00:00:00.000Z",
       "league": "2a21a7c1a3f89181074e9769",
       "options": [],
-      "resultTime": "2018-05-21T00:00:00.000Z"
+      "resultTime": "2018-05-21T00:00:00.000Z",
+      "category": "9b1342399017dfc4e2faf4f1"
     },
     {
       "_id": "5a1342399017dfc4e2faf5b5",
@@ -3820,7 +3821,8 @@
       "deadline": "2018-03-01T00:00:00.001Z",
       "league": "2a21a7c1a3f89181074e9769",
       "options": [],
-      "resultTime": "2018-05-21T00:00:00.000Z"
+      "resultTime": "2018-05-21T00:00:00.000Z",
+      "category": "9b1342399017dfc4e2faf4f1"
     },
     {
       "_id": "5a1342399017dfc4e2faf5b6",
@@ -3829,7 +3831,8 @@
       "deadline": "2018-03-01T00:00:00.002Z",
       "league": "2a21a7c1a3f89181074e9769",
       "options": [],
-      "resultTime": "2018-05-21T00:00:00.000Z"
+      "resultTime": "2018-05-21T00:00:00.000Z",
+      "category": "9b1342399017dfc4e2faf4f1"
     },
     {
       "_id": "5a1342399017dfc4e2faf5b7",
@@ -3838,7 +3841,8 @@
       "deadline": "2018-03-01T00:00:00.003Z",
       "league": "2a21a7c1a3f89181074e9769",
       "options": [],
-      "resultTime": "2018-05-21T00:00:00.000Z"
+      "resultTime": "2018-05-21T00:00:00.000Z",
+      "category": "9b1342399017dfc4e2faf4f1"
     },
     {
       "_id": "5a1342399017dfc4e2faf5b8",
@@ -3847,7 +3851,8 @@
       "deadline": "2018-03-01T00:00:00.004Z",
       "league": "2a21a7c1a3f89181074e9769",
       "options": [],
-      "resultTime": "2018-05-21T00:00:00.000Z"
+      "resultTime": "2018-05-21T00:00:00.000Z",
+      "category": "9b1342399017dfc4e2faf4f1"
     },
     {
       "_id": "5a1342399017dfc4e2faf5b9",
@@ -3856,7 +3861,17 @@
       "deadline": "2018-03-01T00:00:00.005Z",
       "league": "2a21a7c1a3f89181074e9769",
       "options": [],
-      "resultTime": "2018-05-21T00:00:00.000Z"
+      "resultTime": "2018-05-21T00:00:00.000Z",
+      "category": "9b1342399017dfc4e2faf4f1"
+    }
+  ],
+  "teamCategories": [
+    {
+      "_id": "9b1342399017dfc4e2faf4f1",
+      "league": "2a21a7c1a3f89181074e9769",
+      "title": "Spain Champions",
+      "description": "description about spain champions",
+      "icon": "champions.png"
     }
   ],
   "matchResults": [
