@@ -2220,6 +2220,12 @@ body,textarea {
     background-size: 48px;
 }
 
+.group-messages-page .group-message.icon-only .message img {
+    width: 72px;
+    height: 72px;
+    background-size: 144px;
+}
+
 .group-messages-page .group-message .time {
     color: #00000073;
     text-align: right;
