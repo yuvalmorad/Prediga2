@@ -514,7 +514,11 @@ body,textarea {
 
 .menu .menu-item-text .menu-icon {
     font-family: "prediga";
+    width: 1.5rem;
+    display: inline-block;
+    text-align: center;
     margin-right: 0.3rem;
+    margin-left: -0.75rem;
 }
 
 .menu .menu-item-text > div {
@@ -2042,6 +2046,8 @@ body,textarea {
     height: 26px;
     border-right: 1px solid #bbb4b4;
     font-size: 0.85rem;
+    font-family: "prediga";
+    color: #009fff;
 }
 
 .icons-picker-component .icons-picker-header .category-item:last-child {

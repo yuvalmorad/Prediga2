@@ -13,7 +13,7 @@ component.Menu = (function(){
                 re("div", {className: "menu-top-content"},
                     re("div", {className:"menu-items-header"},
                         re("div", {className:"menu-items-title"}, topMenuTitle),
-                        re("button", {onClick: props.onTopTitleActionClicked}, "")
+                        re("button", {onClick: props.onTopTitleActionClicked}, "")
                     ),
                     topMenuItems
                 ),

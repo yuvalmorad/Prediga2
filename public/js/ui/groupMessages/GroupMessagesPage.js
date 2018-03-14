@@ -340,7 +340,7 @@ component.GroupMessagesPage = (function () {
 			}).map(function(groupMessage) {
 				var userNameElem;
 				var groupMessageClassName = "group-message";
-				var message = groupMessage.message;
+				var message = groupMessage.message ? groupMessage.message : "";
 
 				if (userId === groupMessage.userId) {
 					//logged user
@@ -391,11 +391,11 @@ component.GroupMessagesPage = (function () {
 				),
                 re(IconsPicker, {isVisible: state.isIconsPickerVisible, onIconClicked: this.onIconPickerClicked, bottomPosition: state.inputsContainerHeight}),
                 re("div", {className: "inputs-container", style: {height:  state.inputsContainerHeight + "px"}},
-                    re("button", {className: "open-icons-picker", onClick: this.toggleIconsPicker}, ""),
+                    re("button", {className: "open-icons-picker", onClick: this.toggleIconsPicker}, ""),
                     re("div", {className: "input-wrapper"},
                     	re("div", {className: "input-message", ref: this.assignInputMessageRef, contentEditable:true ,onClick: this.onInputMessageClick, onKeyPress: this.onInputKeyDown, onInput: this.onInputMessageChange, onBlur: this.onInputMessageBlur, style: {direction: state.direction}})
 					),
-                    re("button", {className: "send-message", disabled: state.isEmptyMessage, onClick: this.sendMessage}, "")
+                    re("button", {className: "send-message", disabled: state.isEmptyMessage, onClick: this.sendMessage}, "")
 				)
 			);
 		}
