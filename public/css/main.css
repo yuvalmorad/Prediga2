@@ -1136,23 +1136,26 @@ body,textarea {
 
 /* -------  team prediction category tile -------*/
 
-.team-prediction-category-tile .main > .left, .team-prediction-category-tile .main > .right {
-    width: 3.5rem;
+
+.team-prediction-category-tile .tile-wrapper {
+    border-left: none;
+    border-right: none;
+}
+
+.team-prediction-category-tile .main > .left,
+.team-prediction-category-tile .main > .right {
+    width: 4.5rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 
-.team-prediction-category-tile .main > .left {
-    margin-left: 1rem;
-}
-
 .team-prediction-category-tile .center {
     flex: 1;
     display: flex;
     flex-direction: column;
-    margin-left: 0.3rem;
+    margin-left: 1rem;
     justify-content: center;
 }
 
@@ -1198,7 +1201,8 @@ body,textarea {
 }
 
 .team-prediction-category-tile .category-icon {
-    width: 4rem;
+    width: 100%;
+    height: 100%;
 }
 
 /* -------  team prediction tile -------*/

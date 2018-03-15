@@ -3845,24 +3845,34 @@
       "category": "9b1342399017dfc4e2faf4f1"
     },
     {
-      "_id": "5a1342399017dfc4e2faf5b8",
-      "title": "Second last",
+      "_id": "5a1342399017dfc4e2faf5c5",
+      "title": "Third last",
       "type": "team2ndLast",
       "deadline": "2018-03-01T00:00:00.004Z",
       "league": "2a21a7c1a3f89181074e9769",
       "options": [],
       "resultTime": "2018-05-21T00:00:00.000Z",
-      "category": "9b1342399017dfc4e2faf4f1"
+      "category": "9b1342399017dfc4e2faf4f2"
+    },
+    {
+      "_id": "5a1342399017dfc4e2faf5b8",
+      "title": "Second last",
+      "type": "team2ndLast",
+      "deadline": "2018-03-01T00:00:00.005Z",
+      "league": "2a21a7c1a3f89181074e9769",
+      "options": [],
+      "resultTime": "2018-05-21T00:00:00.000Z",
+      "category": "9b1342399017dfc4e2faf4f2"
     },
     {
       "_id": "5a1342399017dfc4e2faf5b9",
       "title": "Last place",
       "type": "teamLast",
-      "deadline": "2018-03-01T00:00:00.005Z",
+      "deadline": "2018-03-01T00:00:00.006Z",
       "league": "2a21a7c1a3f89181074e9769",
       "options": [],
       "resultTime": "2018-05-21T00:00:00.000Z",
-      "category": "9b1342399017dfc4e2faf4f1"
+      "category": "9b1342399017dfc4e2faf4f2"
     }
   ],
   "teamCategories": [
@@ -3871,7 +3881,16 @@
       "league": "2a21a7c1a3f89181074e9769",
       "title": "Spain Champions",
       "description": "description about spain champions",
-      "icon": "champions.png"
+      "sprite": "questions.png",
+      "iconPosition": "-144px -520px"
+    },
+    {
+      "_id": "9b1342399017dfc4e2faf4f2",
+      "league": "2a21a7c1a3f89181074e9769",
+      "title": "Spain Relegation team",
+      "description": "description about spain relegation",
+      "sprite": "questions.png",
+      "iconPosition": "-144px -650px"
     }
   ],
   "matchResults": [
