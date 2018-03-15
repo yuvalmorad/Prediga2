@@ -364,8 +364,8 @@ component.GroupMessagesPage = (function () {
                             var xPos = backPos.split(" ")[0].replace("px", "");
                             var yPos = backPos.split(" ")[1].replace("px", "");
                             //multiply by 3
-                            xPos *= (SPRITE_ICON_SIZE * 2);
-                            yPos *= (SPRITE_ICON_SIZE * 2);
+                            xPos = xPos * 3;
+                            yPos = yPos * 3;
 
                             message = message.replace(backPos, xPos + "px " + yPos + "px");
                             groupMessageClassName += " icon-only";
