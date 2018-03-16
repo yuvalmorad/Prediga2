@@ -88,7 +88,7 @@ var routePages = (function(){
                 hideGroupsIcon: true,
                 actions: [
                     {
-                        icon: "",
+                        icon: "",
                         eventName: "onOpenCreateNewGroup"
                     }
                 ]
@@ -131,6 +131,7 @@ var routePages = (function(){
         {
             path: "/userSettings",
             title: "Settings",
+            icon: "",
             isAuthenticatedPage: true,
             component: UserSettingsPage,
             displayInBottomMenu: true,
@@ -143,6 +144,7 @@ var routePages = (function(){
         {
             path: "/rules",
             title: "How to Play",
+            icon: "",
             isAuthenticatedPage: true,
             component: RulesPage,
             displayInBottomMenu: true,
@@ -155,6 +157,7 @@ var routePages = (function(){
         {
             path: "/about",
             title: "About",
+            icon: "",
             isAuthenticatedPage: true,
             component: AboutPage,
             displayInBottomMenu: true,

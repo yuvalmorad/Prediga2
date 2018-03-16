@@ -514,7 +514,11 @@ body,textarea {
 
 .menu .menu-item-text .menu-icon {
     font-family: "prediga";
+    width: 1.5rem;
+    display: inline-block;
+    text-align: center;
     margin-right: 0.3rem;
+    margin-left: -0.75rem;
 }
 
 .menu .menu-item-text > div {
@@ -1132,23 +1136,26 @@ body,textarea {
 
 /* -------  team prediction category tile -------*/
 
-.team-prediction-category-tile .main > .left, .team-prediction-category-tile .main > .right {
-    width: 3.5rem;
+
+.team-prediction-category-tile .tile-wrapper {
+    border-left: none;
+    border-right: none;
+}
+
+.team-prediction-category-tile .main > .left,
+.team-prediction-category-tile .main > .right {
+    width: 4.5rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 
-.team-prediction-category-tile .main > .left {
-    margin-left: 1rem;
-}
-
 .team-prediction-category-tile .center {
     flex: 1;
     display: flex;
     flex-direction: column;
-    margin-left: 0.3rem;
+    margin-left: 1rem;
     justify-content: center;
 }
 
@@ -1194,7 +1201,8 @@ body,textarea {
 }
 
 .team-prediction-category-tile .category-icon {
-    width: 4rem;
+    width: 100%;
+    height: 100%;
 }
 
 /* -------  team prediction tile -------*/
@@ -2041,7 +2049,9 @@ body,textarea {
     line-height: 26px;
     height: 26px;
     border-right: 1px solid #bbb4b4;
-    font-size: 0.85rem;
+    font-size: 1rem;
+    font-family: "prediga";
+    color: #009fff;
 }
 
 .icons-picker-component .icons-picker-header .category-item:last-child {
@@ -2218,6 +2228,12 @@ body,textarea {
     height: 24px;
     vertical-align: middle;
     background-size: 48px;
+}
+
+.group-messages-page .group-message.icon-only .message img {
+    width: 72px;
+    height: 72px;
+    background-size: 144px;
 }
 
 .group-messages-page .group-message .time {

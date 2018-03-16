@@ -4,22 +4,22 @@ component.IconsPicker = (function () {
     var SPRITE_ICON_SIZE = 48;
     var CATEGORIES = [
         {
-            name: "Sport",
+            icon: "",
             sprite: "/images/iconsMessage/sport.png",
             numOfIcons: 30
         },
         {
-            name: "Flags",
+            icon: "",
             sprite: "/images/iconsMessage/flags.png",
             numOfIcons: 38
         },
         {
-            name: "More",
+            icon: "",
             sprite: "/images/iconsMessage/misc.png",
             numOfIcons: 27
         },
         {
-            name: "Emoji",
+            icon: "",
             sprite: "/images/iconsMessage/emoji.png",
             numOfIcons: 26
         }
@@ -52,7 +52,7 @@ component.IconsPicker = (function () {
 
             var categoriesElems = CATEGORIES.map(function(category, index){
                 var isSelected = categorySelectedIndex === index;
-                return re("div", {className: "category-item" + (isSelected ? " selected" : ""), onClick: that.onCategoryClicked.bind(that, index), key: "categoryItem" + index}, category.name);
+                return re("div", {className: "category-item" + (isSelected ? " selected" : ""), onClick: that.onCategoryClicked.bind(that, index), key: "categoryItem" + index}, category.icon);
             });
 
             var iconsPages = CATEGORIES.map(function(category, index){

@@ -4,7 +4,8 @@ const teamCategorySchema = mongoose.Schema({
     league: String,
     title: String,
 	description: String,
-    icon: String
+    sprite: String,
+    iconPosition: String
 });
 
 teamCategorySchema.options.toJSON = {

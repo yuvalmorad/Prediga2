@@ -87,6 +87,7 @@ component.GroupMessagesPage = (function () {
     }
 
     var INPUTS_CONTAINER_MIN_HEIGHT = 40;
+    var SPRITE_ICON_SIZE = 24;
 
 	var GroupMessagesPage = React.createClass({
         getInitialState: function() {
@@ -193,12 +194,13 @@ component.GroupMessagesPage = (function () {
         },
 
         onMessageStrChanged: function(event) {
-			var text = event.target.textContent;
+            var target = event.target;
+			var text = target.textContent;
         	var direction = getTextDirection(text);
         	this.saveRangePosition();
 			this.setState({
                 direction: direction,
-                isEmptyMessage: !text.trim()
+                isEmptyMessage: (!text.trim()) && (target.innerHTML.indexOf("<img") === -1)
 			});
 		},
 
@@ -294,6 +296,7 @@ component.GroupMessagesPage = (function () {
 
             //clean input
             this.inputMessageElem.innerHTML = "";
+            this.rp = null;
 			this.setState({
                 isEmptyMessage: true,
                 isIconsPickerVisible: false,
@@ -316,7 +319,6 @@ component.GroupMessagesPage = (function () {
 		},
 
         onIconPickerClicked: function(imageUrl, index) {
-            var SPRITE_ICON_SIZE = 24;
             var imageElem = document.createElement("img");
             imageElem.src = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7";
             var position = (SPRITE_ICON_SIZE * (index % 2)) + "px -" + (SPRITE_ICON_SIZE * Math.floor(index / 2)) + "px";
@@ -337,7 +339,9 @@ component.GroupMessagesPage = (function () {
 				return new Date(g1.creationDate) - new Date(g2.creationDate);
 			}).map(function(groupMessage) {
 				var userNameElem;
-				var groupMessageClassName =  "group-message";
+				var groupMessageClassName = "group-message";
+				var message = groupMessage.message ? groupMessage.message : "";
+
 				if (userId === groupMessage.userId) {
 					//logged user
                     groupMessageClassName += " logged-user";
@@ -347,10 +351,31 @@ component.GroupMessagesPage = (function () {
                         user ? user.name : ""
                     );
 				}
+
+				var iconsMatch = message.match(/\<img /g);
+				if (iconsMatch && iconsMatch.length == 1) {
+				    //only one icon
+                    var tempDiv = document.createElement("div");
+                    tempDiv.innerHTML = message;
+                    if (!tempDiv.textContent.trim()) {
+                        //no text
+                        var backPos = tempDiv.querySelector("img").style.backgroundPosition;
+                        if (backPos) {
+                            var xPos = backPos.split(" ")[0].replace("px", "");
+                            var yPos = backPos.split(" ")[1].replace("px", "");
+                            //multiply by 3
+                            xPos = xPos * 3;
+                            yPos = yPos * 3;
+
+                            message = message.replace(backPos, xPos + "px " + yPos + "px");
+                            groupMessageClassName += " icon-only";
+                        }
+                    }
+                }
         		return re("div", {className: groupMessageClassName, key: groupMessage._id},
 					re("div", {className: "group-message-content"},
 						userNameElem,
-						re("div", {className: "message", dangerouslySetInnerHTML: {__html: groupMessage.message}, style: {direction: getTextDirection(groupMessage.message)}}),
+						re("div", {className: "message", dangerouslySetInnerHTML: {__html: message}, style: {direction: getTextDirection(message)}}),
 						re("div", {className: "time"},
 							utils.general.formatHourMinutesTime(groupMessage.creationDate)
 						)
@@ -366,11 +391,11 @@ component.GroupMessagesPage = (function () {
 				),
                 re(IconsPicker, {isVisible: state.isIconsPickerVisible, onIconClicked: this.onIconPickerClicked, bottomPosition: state.inputsContainerHeight}),
                 re("div", {className: "inputs-container", style: {height:  state.inputsContainerHeight + "px"}},
-                    re("button", {className: "open-icons-picker", onClick: this.toggleIconsPicker}, ""),
+                    re("button", {className: "open-icons-picker", onClick: this.toggleIconsPicker}, ""),
                     re("div", {className: "input-wrapper"},
                     	re("div", {className: "input-message", ref: this.assignInputMessageRef, contentEditable:true ,onClick: this.onInputMessageClick, onKeyPress: this.onInputKeyDown, onInput: this.onInputMessageChange, onBlur: this.onInputMessageBlur, style: {direction: state.direction}})
 					),
-                    re("button", {className: "send-message", disabled: state.isEmptyMessage, onClick: this.sendMessage}, "")
+                    re("button", {className: "send-message", disabled: state.isEmptyMessage, onClick: this.sendMessage}, "")
 				)
 			);
 		}

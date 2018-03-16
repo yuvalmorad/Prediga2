@@ -1229,7 +1229,7 @@
       "league": "4a21a7c1a3f89181074e9762",
       "options": [],
       "resultTime": "2018-07-16T15:00:00.000Z",
-      "category": "9b1342399017dfc4e2faf4a1"
+      "category": "9b1342399017dfc4e2faf4a2"
     },
     {
       "_id": "5a1342399017dfc4e2faf497",
@@ -1239,7 +1239,7 @@
       "league": "4a21a7c1a3f89181074e9762",
       "options": [],
       "resultTime": "2018-07-16T15:00:00.000Z",
-      "category": "9b1342399017dfc4e2faf4a1"
+      "category": "9b1342399017dfc4e2faf4a2"
     },
     {
       "_id": "5a1342399017dfc4e2faf498",
@@ -1254,7 +1254,7 @@
         "2a21a7c1a3f89181074e9766"
       ],
       "resultTime": "2018-06-29T12:00:00.000Z",
-      "category": "9b1342399017dfc4e2faf4a1"
+      "category": "9b1342399017dfc4e2faf4a3"
     },
     {
       "_id": "5a1342399017dfc4e2faf499",
@@ -1269,7 +1269,7 @@
         "2a21a7c1a3f89181074e9766"
       ],
       "resultTime": "2018-06-29T12:00:00.000Z",
-      "category": "9b1342399017dfc4e2faf4a1"
+      "category": "9b1342399017dfc4e2faf4a3"
     },
     {
       "_id": "5a1342399017dfc4e2faf49a",
@@ -1284,7 +1284,7 @@
         "2a21a7c1a3f89181074e9781"
       ],
       "resultTime": "2018-06-29T12:00:00.000Z",
-      "category": "9b1342399017dfc4e2faf4a1"
+      "category": "9b1342399017dfc4e2faf4a4"
     },
     {
       "_id": "5a1342399017dfc4e2faf49b",
@@ -1299,7 +1299,7 @@
         "2a21a7c1a3f89181074e9781"
       ],
       "resultTime": "2018-06-29T12:00:00.000Z",
-      "category": "9b1342399017dfc4e2faf4a1"
+      "category": "9b1342399017dfc4e2faf4a4"
     },
     {
       "_id": "5a1342399017dfc4e2faf49c",
@@ -1314,7 +1314,7 @@
         "2a21a7c1a3f89181074e9765"
       ],
       "resultTime": "2018-06-29T12:00:00.000Z",
-      "category": "9b1342399017dfc4e2faf4a1"
+      "category": "9b1342399017dfc4e2faf4a5"
     },
     {
       "_id": "5a1342399017dfc4e2faf49d",
@@ -1329,7 +1329,7 @@
         "2a21a7c1a3f89181074e9765"
       ],
       "resultTime": "2018-06-29T12:00:00.000Z",
-      "category": "9b1342399017dfc4e2faf4a1"
+      "category": "9b1342399017dfc4e2faf4a5"
     },
     {
       "_id": "5a1342399017dfc4e2faf49e",
@@ -1344,7 +1344,7 @@
         "2a21a7c1a3f89181074e9791"
       ],
       "resultTime": "2018-06-29T12:00:00.000Z",
-      "category": "9b1342399017dfc4e2faf4a1"
+      "category": "9b1342399017dfc4e2faf4a6"
     },
     {
       "_id": "5a1342399017dfc4e2faf49f",
@@ -1359,7 +1359,7 @@
         "2a21a7c1a3f89181074e9791"
       ],
       "resultTime": "2018-06-29T12:00:00.000Z",
-      "category": "9b1342399017dfc4e2faf4a1"
+      "category": "9b1342399017dfc4e2faf4a6"
     },
     {
       "_id": "5a1342399017dfc4e2faf4a0",
@@ -1374,7 +1374,7 @@
         "2a21a7c1a3f89181074e9783"
       ],
       "resultTime": "2018-06-29T12:00:00.000Z",
-      "category": "9b1342399017dfc4e2faf4a1"
+      "category": "9b1342399017dfc4e2faf4a7"
     },
     {
       "_id": "5a1342399017dfc4e2faf4a1",
@@ -1389,7 +1389,7 @@
         "2a21a7c1a3f89181074e9783"
       ],
       "resultTime": "2018-06-29T12:00:00.000Z",
-      "category": "9b1342399017dfc4e2faf4a1"
+      "category": "9b1342399017dfc4e2faf4a7"
     },
     {
       "_id": "5a1342399017dfc4e2faf4a2",
@@ -1404,7 +1404,7 @@
         "2a21a7c1a3f89181074e9782"
       ],
       "resultTime": "2018-06-29T12:00:00.000Z",
-      "category": "9b1342399017dfc4e2faf4a1"
+      "category": "9b1342399017dfc4e2faf4a8"
     },
     {
       "_id": "5a1342399017dfc4e2faf4a3",
@@ -1419,7 +1419,7 @@
         "2a21a7c1a3f89181074e9782"
       ],
       "resultTime": "2018-06-29T12:00:00.000Z",
-      "category": "9b1342399017dfc4e2faf4a1"
+      "category": "9b1342399017dfc4e2faf4a8"
     },
     {
       "_id": "5a1342399017dfc4e2faf4a4",
@@ -1434,7 +1434,7 @@
         "2a21a7c1a3f89181074e9793"
       ],
       "resultTime": "2018-06-29T12:00:00.000Z",
-      "category": "9b1342399017dfc4e2faf4a1"
+      "category": "9b1342399017dfc4e2faf4a9"
     },
     {
       "_id": "5a1342399017dfc4e2faf4a5",
@@ -1449,7 +1449,7 @@
         "2a21a7c1a3f89181074e9793"
       ],
       "resultTime": "2018-06-29T12:00:00.000Z",
-      "category": "9b1342399017dfc4e2faf4a1"
+      "category": "9b1342399017dfc4e2faf4a9"
     },
     {
       "_id": "5a1342399017dfc4e2faf4a6",
@@ -1464,7 +1464,7 @@
         "2a21a7c1a3f89181074e9792"
       ],
       "resultTime": "2018-06-29T12:00:00.000Z",
-      "category": "9b1342399017dfc4e2faf4a1"
+      "category": "9b1342399017dfc4e2faf4b1"
     },
     {
       "_id": "5a1342399017dfc4e2faf4a7",
@@ -1479,16 +1479,89 @@
         "2a21a7c1a3f89181074e9792"
       ],
       "resultTime": "2018-06-29T12:00:00.000Z",
-      "category": "9b1342399017dfc4e2faf4a1"
+      "category": "9b1342399017dfc4e2faf4b1"
     }
   ],
   "teamCategories": [
     {
       "_id": "9b1342399017dfc4e2faf4a1",
       "league": "4a21a7c1a3f89181074e9762",
-      "title": "World Cup Champions",
-      "description": "description about world cup",
-      "icon": "champions.png"
+      "title": "World Cup Finalists",
+      "description": "description about world cup finalists",
+      "sprite": "questions.png",
+      "iconPosition": "0 -130px"
+    },
+    {
+      "_id": "9b1342399017dfc4e2faf4a2",
+      "league": "4a21a7c1a3f89181074e9762",
+      "title": "World Cup third place play-off",
+      "description": "description about third place play-off",
+      "sprite": "questions.png",
+      "iconPosition": "-144px -780px"
+    },
+    {
+      "_id": "9b1342399017dfc4e2faf4a3",
+      "league": "4a21a7c1a3f89181074e9762",
+      "title": "Group A Finalists",
+      "description": "description about group A finalists",
+      "sprite": "questions.png",
+      "iconPosition": "-72px -260px"
+    },
+    {
+      "_id": "9b1342399017dfc4e2faf4a4",
+      "league": "4a21a7c1a3f89181074e9762",
+      "title": "Group B Finalists",
+      "description": "description about group B finalists",
+      "sprite": "questions.png",
+      "iconPosition": "-144px -260px"
+    },
+    {
+      "_id": "9b1342399017dfc4e2faf4a5",
+      "league": "4a21a7c1a3f89181074e9762",
+      "title": "Group C Finalists",
+      "description": "description about group C finalists",
+      "sprite": "questions.png",
+      "iconPosition": "0px -390px"
+    },
+    {
+      "_id": "9b1342399017dfc4e2faf4a6",
+      "league": "4a21a7c1a3f89181074e9762",
+      "title": "Group D Finalists",
+      "description": "description about group D finalists",
+      "sprite": "questions.png",
+      "iconPosition": "-72px -390px"
+    },
+    {
+      "_id": "9b1342399017dfc4e2faf4a7",
+      "league": "4a21a7c1a3f89181074e9762",
+      "title": "Group E Finalists",
+      "description": "description about group E finalists",
+      "sprite": "questions.png",
+      "iconPosition": "-144px -390px"
+    },
+    {
+      "_id": "9b1342399017dfc4e2faf4a8",
+      "league": "4a21a7c1a3f89181074e9762",
+      "title": "Group F Finalists",
+      "description": "description about group F finalists",
+      "sprite": "questions.png",
+      "iconPosition": "0 -520px"
+    },
+    {
+      "_id": "9b1342399017dfc4e2faf4a9",
+      "league": "4a21a7c1a3f89181074e9762",
+      "title": "Group G Finalists",
+      "description": "description about group G finalists",
+      "sprite": "questions.png",
+      "iconPosition": "-72px -520px"
+    },
+    {
+      "_id": "9b1342399017dfc4e2faf4b1",
+      "league": "4a21a7c1a3f89181074e9762",
+      "title": "Group H Finalists",
+      "description": "description about group H finalists",
+      "sprite": "questions.png",
+      "iconPosition": "-72px -520px"
     }
   ],
   "teamResults": [

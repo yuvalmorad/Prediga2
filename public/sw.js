@@ -8,13 +8,18 @@ var cacheList = [
     "images/prediga_logo_transparent.png",
     "images/badge1.png",
     "images/badge2.png",
+    "images/teamCategories/questions.png",
+    "images/iconsMessage/emoji.png",
+    "images/iconsMessage/flags.png",
+    "images/iconsMessage/misc.png",
+    "images/iconsMessage/sport.png",
     "fonts/prediga-groups.woff2",
     "fonts/prediga-groups.woff",
     "fonts/prediga.woff2",
     "fonts/prediga.woff"
 ];
 
-var cacheName = "prediga_v0";
+var cacheName = "prediga_v1";
 
 self.addEventListener('install', function(event) {
     event.waitUntil(
