@@ -8,10 +8,10 @@ component.BaseMainTile = (function(){
             additionalDescription = props.additionalDescription,
             additionalDescription2 = props.additionalDescription2,
             rank = props.rank,
-            rankTitle = props.rankTitle,
             points = props.points,
             badgeName = props.badgeName,
-            logoPosition = props.logoPosition;
+            scoreCurrentMatch = props.scoreCurrentMatch;
+
 
         var trendElement = null;
 
@@ -33,8 +33,13 @@ component.BaseMainTile = (function(){
         }
 
         var rankElem = rank && re("div", {className: "rank"}, rank);
-        var ranktitleElem = rankTitle && re("div", {className: "rankTitle"}, rankTitle);
         var badgeElem = badgeName && re("div", {className: "badge", style: {backgroundImage: "url('../images/" + badgeName + ".png')"}});
+        var scoreCurrentMatchElem;
+
+        if (scoreCurrentMatch !== undefined) {
+            scoreCurrentMatchElem = re("div", {className: "points-current-match" + (scoreCurrentMatch === 0 ? " zero" : "")}, scoreCurrentMatch);
+        }
+
 
         var imageElem = re("img", {src: imageSrc});
 
@@ -54,8 +59,10 @@ component.BaseMainTile = (function(){
             ),
             re("div", {className: "right"},
                 badgeElem,
-                ranktitleElem,
-                re("div", {className: "points" + (points === undefined ? " hide" : "") }, points !== undefined ? points : "")
+                re("div", {className: "points-wrapper"},
+                    re("div", {className: "points" + (points === undefined ? " hide" : "") }, points !== undefined ? points : ""),
+                    scoreCurrentMatchElem
+                )
             )
         );
     };

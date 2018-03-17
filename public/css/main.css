@@ -961,9 +961,27 @@ body,textarea {
     align-items: center;
 }
 
-.tile .main.base > .right .points {
+.tile .main.base > .right .points-wrapper {
     width: 2rem;
     text-align: center;
+}
+
+.tile .main.base > .right .points-current-match {
+    margin-top: 0.5rem;
+    background-color: #6ECE1A;
+    color: #fff;
+    border-radius: 50%;
+    box-sizing: border-box;
+    width: 1.4rem;
+    height: 1.4rem;
+    text-align: center;
+    line-height: 1.4rem;
+    display: inline-block;
+    font-size: 0.875rem;
+}
+
+.tile .main.base > .right .points-current-match.zero {
+    background-color: #a7a4a4;
 }
 
 .tile .main.base .badge {
