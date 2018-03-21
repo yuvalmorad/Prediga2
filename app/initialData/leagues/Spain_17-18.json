@@ -2852,7 +2852,7 @@
       "_id": "4a21a7c1a3f89181075e9375",
       "team1": "1a21a7c1a3f89181074e9864",
       "team2": "1a21a7c1a3f89181074e9862",
-      "kickofftime": "2018-03-9T20:00:00.000Z",
+      "kickofftime": "2018-03-09T20:00:00.000Z",
       "type": "Round 28",
       "league": "2a21a7c1a3f89181074e9769",
       "stadium": "Montilivi"
@@ -2969,7 +2969,7 @@
       "_id": "4a21a7c1a3f89181075e9388",
       "team1": "1a21a7c1a3f89181074e9876",
       "team2": "1a21a7c1a3f89181074e9866",
-      "kickofftime": "2018-03-18T11:00:00.000Z",
+      "kickofftime": "2018-03-18T17:30:00.000Z",
       "type": "Round 29",
       "league": "2a21a7c1a3f89181074e9769",
       "stadium": "Balaídos"
@@ -2987,7 +2987,7 @@
       "_id": "4a21a7c1a3f89181075e9390",
       "team1": "1a21a7c1a3f89181074e9872",
       "team2": "1a21a7c1a3f89181074e9968",
-      "kickofftime": "2018-03-17T17:30:00.000Z",
+      "kickofftime": "2018-03-18T11:00:00.000Z",
       "type": "Round 29",
       "league": "2a21a7c1a3f89181074e9769",
       "stadium": "Butarque"
@@ -3811,7 +3811,8 @@
       "deadline": "2018-03-01T00:00:00.000Z",
       "league": "2a21a7c1a3f89181074e9769",
       "options": [],
-      "resultTime": "2018-05-21T00:00:00.000Z"
+      "resultTime": "2018-05-21T00:00:00.000Z",
+      "category": "9b1342399017dfc4e2faf4f1"
     },
     {
       "_id": "5a1342399017dfc4e2faf5b5",
@@ -3820,7 +3821,8 @@
       "deadline": "2018-03-01T00:00:00.001Z",
       "league": "2a21a7c1a3f89181074e9769",
       "options": [],
-      "resultTime": "2018-05-21T00:00:00.000Z"
+      "resultTime": "2018-05-21T00:00:00.000Z",
+      "category": "9b1342399017dfc4e2faf4f1"
     },
     {
       "_id": "5a1342399017dfc4e2faf5b6",
@@ -3829,7 +3831,8 @@
       "deadline": "2018-03-01T00:00:00.002Z",
       "league": "2a21a7c1a3f89181074e9769",
       "options": [],
-      "resultTime": "2018-05-21T00:00:00.000Z"
+      "resultTime": "2018-05-21T00:00:00.000Z",
+      "category": "9b1342399017dfc4e2faf4f1"
     },
     {
       "_id": "5a1342399017dfc4e2faf5b7",
@@ -3838,25 +3841,56 @@
       "deadline": "2018-03-01T00:00:00.003Z",
       "league": "2a21a7c1a3f89181074e9769",
       "options": [],
-      "resultTime": "2018-05-21T00:00:00.000Z"
+      "resultTime": "2018-05-21T00:00:00.000Z",
+      "category": "9b1342399017dfc4e2faf4f1"
+    },
+    {
+      "_id": "5a1342399017dfc4e2faf5c5",
+      "title": "Third last",
+      "type": "team2ndLast",
+      "deadline": "2018-03-01T00:00:00.004Z",
+      "league": "2a21a7c1a3f89181074e9769",
+      "options": [],
+      "resultTime": "2018-05-21T00:00:00.000Z",
+      "category": "9b1342399017dfc4e2faf4f2"
     },
     {
       "_id": "5a1342399017dfc4e2faf5b8",
       "title": "Second last",
       "type": "team2ndLast",
-      "deadline": "2018-03-01T00:00:00.004Z",
+      "deadline": "2018-03-01T00:00:00.005Z",
       "league": "2a21a7c1a3f89181074e9769",
       "options": [],
-      "resultTime": "2018-05-21T00:00:00.000Z"
+      "resultTime": "2018-05-21T00:00:00.000Z",
+      "category": "9b1342399017dfc4e2faf4f2"
     },
     {
       "_id": "5a1342399017dfc4e2faf5b9",
       "title": "Last place",
       "type": "teamLast",
-      "deadline": "2018-03-01T00:00:00.005Z",
+      "deadline": "2018-03-01T00:00:00.006Z",
       "league": "2a21a7c1a3f89181074e9769",
       "options": [],
-      "resultTime": "2018-05-21T00:00:00.000Z"
+      "resultTime": "2018-05-21T00:00:00.000Z",
+      "category": "9b1342399017dfc4e2faf4f2"
+    }
+  ],
+  "teamCategories": [
+    {
+      "_id": "9b1342399017dfc4e2faf4f1",
+      "league": "2a21a7c1a3f89181074e9769",
+      "title": "Spain Champions",
+      "description": "description about spain champions",
+      "sprite": "questions.png",
+      "iconPosition": "-144px -520px"
+    },
+    {
+      "_id": "9b1342399017dfc4e2faf4f2",
+      "league": "2a21a7c1a3f89181074e9769",
+      "title": "Spain Relegation team",
+      "description": "description about spain relegation",
+      "sprite": "questions.png",
+      "iconPosition": "-144px -650px"
     }
   ],
   "matchResults": [

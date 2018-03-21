@@ -1,5 +1,6 @@
 var routePages = (function(){
     var GamesPredictionsPage = component.GamesPredictionsPage,
+        TeamsPredictionsCategoriesPage = component.TeamsPredictionsCategoriesPage,
         TeamsPredictionsPage = component.TeamsPredictionsPage,
         LeaderBoardPage = component.LeaderBoardPage,
         LoginPage = component.LoginPage,
@@ -32,13 +33,24 @@ var routePages = (function(){
             displayInSiteNavigation: true
         },
         {
-            path: "/teamsPredictions",
+            path: "/teamsPredictionsCategories",
             title: "Team Predictions",
             icon: "",
             isAuthenticatedPage: true,
-            component: TeamsPredictionsPage,
+            component: TeamsPredictionsCategoriesPage,
             exact: true,
             displayInSiteNavigation: true
+        },
+        {
+            path: "/teamsPredictions/:teamCategoryId",
+            title: "Team Predictions",
+            isAuthenticatedPage: true,
+            component: TeamsPredictionsPage,
+            hideSiteNavigation: true,
+            siteHeaderConfig: {
+                hideMenuButton: true,
+                hasBackButton: true
+            }
         },
         {
             path: "/groupMessages",
@@ -47,8 +59,8 @@ var routePages = (function(){
             isAuthenticatedPage: true,
             component: GroupMessagesPage,
             exact: true,
-            displayInBottomMenu: true,
             hideSiteNavigation: true,
+            displayInBottomMenu: true,
             siteHeaderConfig: {
                 hideMenuButton: true,
                 hasBackButton: true
@@ -76,7 +88,7 @@ var routePages = (function(){
                 hideGroupsIcon: true,
                 actions: [
                     {
-                        icon: "",
+                        icon: "",
                         eventName: "onOpenCreateNewGroup"
                     }
                 ]
@@ -119,6 +131,7 @@ var routePages = (function(){
         {
             path: "/userSettings",
             title: "Settings",
+            icon: "",
             isAuthenticatedPage: true,
             component: UserSettingsPage,
             displayInBottomMenu: true,
@@ -131,6 +144,7 @@ var routePages = (function(){
         {
             path: "/rules",
             title: "How to Play",
+            icon: "",
             isAuthenticatedPage: true,
             component: RulesPage,
             displayInBottomMenu: true,
@@ -143,6 +157,7 @@ var routePages = (function(){
         {
             path: "/about",
             title: "About",
+            icon: "",
             isAuthenticatedPage: true,
             component: AboutPage,
             displayInBottomMenu: true,

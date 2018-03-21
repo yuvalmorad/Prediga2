@@ -59,6 +59,18 @@ const self = module.exports = {
 			return team._id.toString();
 		});
 	},
+    getTeamCategoroiesIdsArr: function(teams) {
+		var categoriesIds = [];
+
+        teams.forEach(function (team) {
+            var category = team.category.toString();
+            if (categoriesIds.indexOf(category) === -1) {
+                categoriesIds.push(category);
+			}
+        });
+
+        return categoriesIds;
+	},
 	byLeagueIdAndIds: function (leagueId, ids) {
 		return Team.find({_id: {$in: ids}, league: leagueId}).sort({'deadline': -1});
 	}

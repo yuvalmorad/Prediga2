@@ -12,6 +12,7 @@ component.LeaderBoardMainTile = (function(){
             description = props.description,
             additionalDescription = props.additionalDescription,
             additionalDescription2 = props.additionalDescription2,
+            scoreCurrentMatch = props.scoreCurrentMatch,
             badgeName = props.badgeName,
             opts = {
                 imageSrc: photo,
@@ -22,7 +23,8 @@ component.LeaderBoardMainTile = (function(){
                 additionalDescription2: additionalDescription2,
                 rank: rank,
                 points: score,
-                badgeName: badgeName
+                badgeName: badgeName,
+                scoreCurrentMatch: scoreCurrentMatch
             };
 
         if (!photo) {

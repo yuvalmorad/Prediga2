@@ -1926,6 +1926,69 @@
       "kickofftime": "2018-03-10T17:00:00.000Z",
       "type": "Round 26",
       "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9951",
+      "team2": "3a21a7c1a3f89181074e9773",
+      "team1": "3a21a7c1a3f89181074e9777",
+      "stadium": "Teddy Stadium",
+      "kickofftime": "2018-03-17T18:30:00.000Z",
+      "type": "Round 27",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9952",
+      "team2": "3a21a7c1a3f89181074e9772",
+      "team1": "3a21a7c1a3f89181074e9774",
+      "stadium": "Toto Turner Stadium",
+      "kickofftime": "2018-03-18T18:00:00.000Z",
+      "type": "Round 27",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9953",
+      "team2": "3a21a7c1a3f89181074e9770",
+      "team1": "3a21a7c1a3f89181074e9780",
+      "stadium": "Netanya",
+      "kickofftime": "2018-03-18T19:00:00.000Z",
+      "type": "Round 27",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9954",
+      "team2": "3a21a7c1a3f89181074e9782",
+      "team1": "3a21a7c1a3f89181074e9771",
+      "stadium": "Sami Ofer Stadium",
+      "kickofftime": "2018-03-17T14:00:00.000Z",
+      "type": "Round 27",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9955",
+      "team2": "3a21a7c1a3f89181074e9769",
+      "team1": "3a21a7c1a3f89181074e9776",
+      "stadium": "Kiryat Shmona Municipal",
+      "kickofftime": "2018-03-17T16:00:00.000Z",
+      "type": "Round 27",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9956",
+      "team2": "3a21a7c1a3f89181074e9779",
+      "team1": "3a21a7c1a3f89181074e9775",
+      "stadium": "Acre Stadium",
+      "kickofftime": "2018-03-17T16:15:00.000Z",
+      "type": "Round 27",
+      "league": "5a21a7c1a3f89181074e9769"
+    },
+    {
+      "_id": "6a21a7c1a3f89181074e9957",
+      "team2": "3a21a7c1a3f89181074e9781",
+      "team1": "3a21a7c1a3f89181074e9778",
+      "stadium": "Ha-Moshava",
+      "kickofftime": "2018-03-18T17:00:00.000Z",
+      "type": "Round 27",
+      "league": "5a21a7c1a3f89181074e9769"
     }
   ],
   "teams": [
@@ -1936,7 +1999,8 @@
       "deadline": "2018-03-10T00:00:00.001Z",
       "league": "5a21a7c1a3f89181074e9769",
       "options": [],
-      "resultTime": "2018-03-10T00:00:00.000Z"
+      "resultTime": "2018-03-10T00:00:00.000Z",
+      "category": "9b1342399017dfc4e2faf4e1"
     },
     {
       "_id": "5a1342399017dfc4e2faf4a9",
@@ -1945,7 +2009,8 @@
       "deadline": "2018-03-10T00:00:00.002Z",
       "league": "5a21a7c1a3f89181074e9769",
       "options": [],
-      "resultTime": "2018-03-10T00:00:00.000Z"
+      "resultTime": "2018-03-10T00:00:00.000Z",
+      "category": "9b1342399017dfc4e2faf4e1"
     },
     {
       "_id": "5a1342399017dfc4e2faf4b0",
@@ -1954,7 +2019,8 @@
       "deadline": "2018-03-10T00:00:00.003Z",
       "league": "5a21a7c1a3f89181074e9769",
       "options": [],
-      "resultTime": "2018-03-10T00:00:00.000Z"
+      "resultTime": "2018-03-10T00:00:00.000Z",
+      "category": "9b1342399017dfc4e2faf4e1"
     },
     {
       "_id": "5a1342399017dfc4e2faf4b1",
@@ -1963,7 +2029,8 @@
       "deadline": "2018-03-10T00:00:00.004Z",
       "league": "5a21a7c1a3f89181074e9769",
       "options": [],
-      "resultTime": "2018-03-10T00:00:00.000Z"
+      "resultTime": "2018-03-10T00:00:00.000Z",
+      "category": "9b1342399017dfc4e2faf4e1"
     },
     {
       "_id": "5a1342399017dfc4e2faf4b2",
@@ -1972,7 +2039,8 @@
       "deadline": "2018-03-10T00:00:00.005Z",
       "league": "5a21a7c1a3f89181074e9769",
       "options": [],
-      "resultTime": "2018-03-10T00:00:00.000Z"
+      "resultTime": "2018-03-10T00:00:00.000Z",
+      "category": "9b1342399017dfc4e2faf4e2"
     },
     {
       "_id": "5a1342399017dfc4e2faf4b3",
@@ -1981,7 +2049,26 @@
       "deadline": "2018-03-10T00:00:00.006Z",
       "league": "5a21a7c1a3f89181074e9769",
       "options": [],
-      "resultTime": "2018-03-10T00:00:00.000Z"
+      "resultTime": "2018-03-10T00:00:00.000Z",
+      "category": "9b1342399017dfc4e2faf4e2"
+    }
+  ],
+  "teamCategories": [
+    {
+      "_id": "9b1342399017dfc4e2faf4e1",
+      "league": "5a21a7c1a3f89181074e9769",
+      "title": "Israel Champions",
+      "description": "description about israel champions",
+      "sprite": "questions.png",
+      "iconPosition": "-144px 0px"
+    },
+    {
+      "_id": "9b1342399017dfc4e2faf4e2",
+      "league": "5a21a7c1a3f89181074e9769",
+      "title": "Israel Relegation team",
+      "description": "description about israel relegation",
+      "sprite": "questions.png",
+      "iconPosition": "-144px -650px"
     }
   ],
   "matchResults": [

@@ -76,6 +76,7 @@ component.SimulatorPage = (function(){
             var leader = utils.general.findItemInArrBy(leaders, "userId", prediction.userId);
             if (points) {
                 leader.score += points;
+
                 var isStrike = utils.general.isPointsStrike(points, groupConfiguration);
                 if (isStrike) {
                     leader.strikes += 1;
@@ -88,6 +89,7 @@ component.SimulatorPage = (function(){
             leader.description = team1.shortName + " " + prediction[GAME.BET_TYPES.TEAM1_GOALS.key] + " - " + prediction[GAME.BET_TYPES.TEAM2_GOALS.key] + " " + team2.shortName + " (Diff: " + prediction[GAME.BET_TYPES.GOAL_DIFF.key] + ")";
             leader.additionalDescription = getWinnerText(prediction[GAME.BET_TYPES.WINNER.key], team1, team2);
             leader.additionalDescription2 = getFirstScoreText(prediction[GAME.BET_TYPES.FIRST_TO_SCORE.key], team1, team2);
+            leader.scoreCurrentMatch = points || 0;
         });
     }
 

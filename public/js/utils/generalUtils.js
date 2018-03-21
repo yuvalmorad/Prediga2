@@ -21,7 +21,7 @@ utils.general = (function(){
         getRunningGameFormat: getRunningGameFormat,
         formatMinutesSecondsTime: formatMinutesSecondsTime,
         formatHourMinutesTime: formatHourMinutesTime,
-        formatDeadLineToDayString: formatDeadLineToDayString,
+        formatDateToDateMonthYearString: formatDateToDateMonthYearString,
         getLeagueLogoURL: getLeagueLogoURL,
         leagueNameToIdName: leagueNameToIdName,
         cutUrlPath: cutUrlPath,
@@ -88,8 +88,8 @@ utils.general = (function(){
         return hours + ":" + minutes;
     }
 
-    function formatDeadLineToDayString(deadline) {
-        var d = new Date(deadline);
+    function formatDateToDateMonthYearString(_date) {
+        var d = new Date(_date);
         var date = addZeroToTimeIfNeeded(d.getDate());
         var month = addZeroToTimeIfNeeded(d.getMonth() + 1);
         var year = d.getFullYear();

@@ -50,7 +50,7 @@ component.MainMenu = (function(){
                     }
                 }
 
-                return re(MenuItem, {text: page.title, isSelected: isSelected, onMenuItemClicked: that.onMenuItemClicked.bind(that, to), indication: indication, key: filterProperty + index});
+                return re(MenuItem, {text: page.title, icon: page.icon, isSelected: isSelected, onMenuItemClicked: that.onMenuItemClicked.bind(that, to), indication: indication, key: filterProperty + index});
             });
         },
 
@@ -85,18 +85,18 @@ component.MainMenu = (function(){
                     if (group.createdBy === that.props.userId) {
                         //admin
                         editActionButton = {
-                            icon: "",
+                            icon: "",
                             onClick: that.onGroupAdminSettingsClicked.bind(that, groupId)
                         };
                     } else if (groupId === INITIAL_PUPLIC_GROUP) {
                         //initial public group
                         editActionButton = {
-                            icon: ""
+                            icon: ""
                         }
                     } else {
                         //user member
                         editActionButton = {
-                            icon: "",
+                            icon: "",
                             onClick: that.onGroupUserSettingsClicked.bind(that, groupId)
                         }
                     }

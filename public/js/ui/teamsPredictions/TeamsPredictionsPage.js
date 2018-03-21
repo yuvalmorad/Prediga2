@@ -1,13 +1,13 @@
 window.component = window.component || {};
 component.TeamsPredictionsPage = (function(){
     var connect = ReactRedux.connect,
-        TeamPredictionTile = component.TeamPredictionTile,
-        LeaguesSubHeader = component.LeaguesSubHeader;
+        TeamPredictionTile = component.TeamPredictionTile;
 
     var TeamsPredictionsPage = React.createClass({
         getInitialState: function() {
-            if (this.props.selectedGroupId) {
-                this.props.loadTeamsPredictions(this.props.selectedGroupId);
+            var groupId = this.props.selectedGroupId;
+            if (groupId && this.props.loadedSuccessGroupId !== groupId) {
+                this.props.loadTeamsPredictions(groupId);
             }
 
             return {};
@@ -24,7 +24,7 @@ component.TeamsPredictionsPage = (function(){
             var deadLines = {};
 
             teams.forEach(function(team) {
-                var deadLineStr = utils.general.formatDeadLineToDayString(team.deadline);
+                var deadLineStr = utils.general.formatDateToDateMonthYearString(team.deadline);
                 if (!deadLines[deadLineStr]) {
                     deadLines[deadLineStr] = {
                         deadline: deadLineStr,
@@ -43,20 +43,20 @@ component.TeamsPredictionsPage = (function(){
                 teams = props.teams,
                 predictionsCounters = props.predictionsCounters || {},
                 userPredictions = props.userPredictions,
-                selectedLeagueId = props.selectedLeagueId,
                 clubs = props.clubs,
                 leagues = props.leagues,
                 groups = props.groups,
                 selectedGroupId = props.selectedGroupId,
                 groupsConfiguration = props.groupsConfiguration || [],
                 results = props.results,
-                todayDate = new Date();
+                todayDate = new Date(),
+                teamCategoryId = props.match.params.teamCategoryId;
 
             var groupConfiguration = utils.general.getGroupConfiguration(groups, selectedGroupId, groupsConfiguration);
 
             //filter teams with selected league id
             teams = teams.filter(function(team){
-                return team.league === selectedLeagueId;
+                return team.category === teamCategoryId;
             });
 
             var deadLines = this.mapTeamsByDeadLines(teams);
@@ -87,14 +87,13 @@ component.TeamsPredictionsPage = (function(){
 
                 var groupProps = {className: "tiles-group-title", key: "tilesDeadline" + deadLineIndex};
 
-                tilesInGroup.unshift(re("div", groupProps, todayDate > new Date(deadLineObj.teams[0].deadline) ? "Open until " + deadLineObj.deadline : "Closed"));
+                tilesInGroup.unshift(re("div", groupProps, todayDate > new Date(deadLineObj.teams[0].deadline) ? "Closed" : "Open until " + deadLineObj.deadline));
                 return tilesInGroup;
             });
 
             tiles = [].concat.apply([], tiles);
 
-            return re("div", { className: "content hasSubHeader" },
-                re(LeaguesSubHeader, {}),
+            return re("div", { className: "content" },
                 re("div", {className: "tiles" + (props.isShowTileDialog ? " no-scroll" : "")},
                     tiles
                 )
@@ -105,6 +104,7 @@ component.TeamsPredictionsPage = (function(){
     function mapStateToProps(state){
         return {
             teams: state.teamsPredictions.teams,
+            loadedSuccessGroupId: state.teamsPredictions.loadedSuccessGroupId,
             userPredictions: state.teamsPredictions.userPredictions,
             predictionsCounters: state.teamsPredictions.predictionsCounters,
             results: state.teamsPredictions.results,
