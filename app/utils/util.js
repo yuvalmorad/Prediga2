@@ -11,6 +11,10 @@ module.exports = {
 		upsert: true, setDefaultsOnInsert: true, isNew: true, new: true, returnNewDocument: true
 	},
 	AUTOMATIC_UPDATE_URL: 'http://365scores.sport5.co.il:3333?SID=1',
+	UPDATE_ISRAELI_LEAGUE_MATCHES_1: 'http://www.sport5.co.il/Ajax/GetCycleTeamGamesPopup.aspx?LSnum=7580',
+	UPDATE_ISRAELI_LEAGUE_MATCHES_2: 'http://www.sport5.co.il/Ajax/GetCycleTeamGamesPopup.aspx?LSnum=7581',
+	UPDATE_ENGLAND_LEAGUE_MATCHES: 'http://www.sport5.co.il/Ajax/GetCycleTeamGamesPopup.aspx?LSnum=5387',
+	UPDATE_SPAIN_LEAGUE_MATCHES: 'http://www.sport5.co.il/Ajax/GetCycleTeamGamesPopup.aspx?LSnum=6411',
 	USER_SETTINGS_KEYS: {
 		PUSH_NOTIFICATION: "PUSH_NOTIFICATION",
 		RANDOM_ALL: "RANDOM_ALL",

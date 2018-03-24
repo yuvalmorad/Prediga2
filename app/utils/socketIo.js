@@ -14,10 +14,12 @@ function getUserIdFromSocket(socket, callback) {
     if (connect_sid) {
         var connect_sidParsed = cookieParser.signedCookie(connect_sid, process.env.SESSION_SECRET ? process.env.SESSION_SECRET : "loginboilerplate");
         MongoStore.get(connect_sidParsed, function(err, session) {
-            var userId = session.passport.user;
-            if (userId) {
-                callback(userId);
-            }
+        	if (session){
+				var userId = session.passport.user;
+				if (userId) {
+					callback(userId);
+				}
+			}
         });
     }
 }

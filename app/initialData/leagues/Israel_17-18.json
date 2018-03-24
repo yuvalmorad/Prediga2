@@ -29,6 +29,7 @@
       "_id": "3a21a7c1a3f89181074e9769",
       "name": "Hapoel Ashkelon",
       "name365": "הפועל אשקלון",
+      "nameSport5": "הפועל אשקלון",
       "shortName": "HA",
       "colors": [
         "#0636CA"
@@ -41,12 +42,14 @@
         "#0636CA"
       ],
       "logoPosition": "-728px 0",
-      "sprite": "israel"
+      "sprite": "israel",
+      "stadium": "Ashkelon"
     },
     {
       "_id": "3a21a7c1a3f89181074e9770",
       "name": "Hapoel Haifa",
       "name365": "הפועל חיפה",
+      "nameSport5": "הפועל חיפה",
       "shortName": "HH",
       "colors": [
         "#EA0000",
@@ -61,12 +64,14 @@
         "#EA0000"
       ],
       "logoPosition": "-336px 0",
-      "sprite": "israel"
+      "sprite": "israel",
+      "stadium": "Sami Ofer Stadium"
     },
     {
       "_id": "3a21a7c1a3f89181074e9771",
       "name": "Maccabi Haifa",
       "name365": "מכבי חיפה",
+      "nameSport5": "מכבי חיפה",
       "shortName": "MH",
       "colors": [
         "#006723"
@@ -79,12 +84,14 @@
         "#006723"
       ],
       "logoPosition": "-224px 0",
-      "sprite": "israel"
+      "sprite": "israel",
+      "stadium": "Sami Ofer Stadium"
     },
     {
       "_id": "3a21a7c1a3f89181074e9772",
       "name": "Bnei Yehuda",
       "name365": "בני יהודה ת\"א",
+      "nameSport5": "בני יהודה",
       "shortName": "BY",
       "colors": [
         "#F37620"
@@ -97,12 +104,14 @@
         "#F37620"
       ],
       "logoPosition": "-616px 0",
-      "sprite": "israel"
+      "sprite": "israel",
+      "stadium": "Ha-Moshava"
     },
     {
       "_id": "3a21a7c1a3f89181074e9773",
       "name": "Maccabi Netanya",
       "name365": "מכבי נתניה",
+      "nameSport5": "מכבי נתניה",
       "shortName": "MN",
       "colors": [
         "#FFF500",
@@ -117,12 +126,14 @@
         "#FFF500"
       ],
       "logoPosition": "-672px 0",
-      "sprite": "israel"
+      "sprite": "israel",
+      "stadium": "Netanya"
     },
     {
       "_id": "3a21a7c1a3f89181074e9774",
       "name": "Hapoel Beer Sheva",
       "name365": "הפועל באר שבע",
+      "nameSport5": "הפועל באר שבע",
       "shortName": "HBS",
       "colors": [
         "#D30229"
@@ -135,12 +146,14 @@
         "#D30229"
       ],
       "logoPosition": "-112px 0",
-      "sprite": "israel"
+      "sprite": "israel",
+      "stadium": "Toto Turner Stadium"
     },
     {
       "_id": "3a21a7c1a3f89181074e9775",
       "name": "Bnei Sakhnin",
       "name365": "בני סכנין",
+      "nameSport5": "בני סכנין",
       "shortName": "BS",
       "colors": [
         "#FE1403"
@@ -153,12 +166,14 @@
         "#FE1403"
       ],
       "logoPosition": "-280px 0",
-      "sprite": "israel"
+      "sprite": "israel",
+      "stadium": "Acre Stadium"
     },
     {
       "_id": "3a21a7c1a3f89181074e9776",
       "name": "Kiryat Shmona",
       "name365": "עירוני קרית שמונה",
+      "nameSport5": "הפועל קרית שמונה",
       "shortName": "HKS",
       "colors": [
         "#002F73"
@@ -172,12 +187,14 @@
         "#5488D2"
       ],
       "logoPosition": "-168px 0",
-      "sprite": "israel"
+      "sprite": "israel",
+      "stadium": "Kiryat Shmona Municipal"
     },
     {
       "_id": "3a21a7c1a3f89181074e9777",
       "name": "Beitar Jerusalem",
       "name365": "בית\"ר ירושלים",
+      "nameSport5": "בית''ר ירושלים",
       "shortName": "BJ",
       "colors": [
         "#FEF300",
@@ -191,12 +208,14 @@
         "#FEF300"
       ],
       "logoPosition": "-392px 0",
-      "sprite": "israel"
+      "sprite": "israel",
+      "stadium": "Teddy Stadium"
     },
     {
       "_id": "3a21a7c1a3f89181074e9778",
       "name": "Maccabi Petach Tikva",
       "name365": "מכבי פתח תקוה",
+      "nameSport5": "מכבי פתח תקווה",
       "shortName": "MPT",
       "colors": [
         "#002F73"
@@ -209,12 +228,14 @@
         "#002F73"
       ],
       "logoPosition": "-560px 0",
-      "sprite": "israel"
+      "sprite": "israel",
+      "stadium": "Ha-Moshava"
     },
     {
       "_id": "3a21a7c1a3f89181074e9779",
       "name": "FC Ashdod",
       "name365": "מ.ס. אשדוד",
+      "nameSport5": "מ.ס. אשדוד",
       "shortName": "ASH",
       "colors": [
         "#E12E28",
@@ -229,12 +250,14 @@
         "#F9E534"
       ],
       "logoPosition": "-56px 0",
-      "sprite": "israel"
+      "sprite": "israel",
+      "stadium": "Ashdod Stadium"
     },
     {
       "_id": "3a21a7c1a3f89181074e9780",
       "name": "Maccabi Tel Aviv",
       "name365": "מכבי תל אביב",
+      "nameSport5": "מכבי תל אביב",
       "shortName": "MTA",
       "colors": [
         "#FBD54C",
@@ -248,12 +271,14 @@
         "#FBD54C"
       ],
       "logoPosition": "0 0",
-      "sprite": "israel"
+      "sprite": "israel",
+      "stadium": "Netanya"
     },
     {
       "_id": "3a21a7c1a3f89181074e9781",
       "name": "Hapoel Raanana",
       "name365": "הפועל רעננה",
+      "nameSport5": "הפועל רעננה",
       "shortName": "HR",
       "colors": [
         "#000"
@@ -267,12 +292,14 @@
         "#D30202"
       ],
       "logoPosition": "-504px 0",
-      "sprite": "israel"
+      "sprite": "israel",
+      "stadium": "Netanya"
     },
     {
       "_id": "3a21a7c1a3f89181074e9782",
       "name": "Hapoel Akko",
       "name365": "הפועל עכו",
+      "nameSport5": "הפועל עכו",
       "shortName": "HA",
       "colors": [
         "#5488D2"
@@ -285,7 +312,8 @@
         "#5488D2"
       ],
       "logoPosition": "-448px 0",
-      "sprite": "israel"
+      "sprite": "israel",
+      "stadium": "Acre Stadium"
     }
   ],
   "matches": [

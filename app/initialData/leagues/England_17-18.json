@@ -35,6 +35,7 @@
       "_id": "1a21a7c1a3f89181074e9762",
       "name": "Arsenal",
       "name365": "ארסנל",
+      "nameSport5": "ארסנל",
       "shortName": "ARS",
       "colors": [
         "#AA0001"
@@ -48,12 +49,14 @@
         "#000000"
       ],
       "logoPosition": "0 0",
-      "sprite": "england"
+      "sprite": "england",
+      "stadium": "Etihad Stadium"
     },
     {
       "_id": "1a21a7c1a3f89181074e9763",
       "name": "Leicester City",
       "name365": "לסטר",
+      "nameSport5": "לסטר",
       "shortName": "LES",
       "colors": [
         "#0659E4"
@@ -67,12 +70,14 @@
         "#000000"
       ],
       "logoPosition": "0 -224px",
-      "sprite": "england"
+      "sprite": "england",
+      "stadium": "King Power Stadium"
     },
     {
       "_id": "1a21a7c1a3f89181074e9764",
       "name": "Bournemouth",
       "name365": "בורנמות",
+      "nameSport5": "בורנמות'",
       "shortName": "BOU",
       "colors": [
         "#DE000A",
@@ -87,12 +92,14 @@
         "#000000"
       ],
       "logoPosition": "-56px 0",
-      "sprite": "england"
+      "sprite": "england",
+      "stadium": "Dean Court"
     },
     {
       "_id": "1a21a7c1a3f89181074e9765",
       "name": "Brighton",
       "name365": "ברייטון",
+      "nameSport5": "ברייטון",
       "shortName": "BRI",
       "colors": [
         "#1E01FF"
@@ -106,12 +113,14 @@
         "#000000"
       ],
       "logoPosition": "0 -56px",
-      "sprite": "england"
+      "sprite": "england",
+      "stadium": "Falmer Stadium"
     },
     {
       "_id": "1a21a7c1a3f89181074e9768",
       "name": "Burnley",
       "name365": "ברנלי",
+      "nameSport5": "ברנלי",
       "shortName": "BUR",
       "colors": [
         "#599FEA",
@@ -126,12 +135,14 @@
         "#599FEA"
       ],
       "logoPosition": "-56px -56px",
-      "sprite": "england"
+      "sprite": "england",
+      "stadium": "Turf Moor"
     },
     {
       "_id": "1a21a7c1a3f89181074e9769",
       "name": "Crystal Palace",
       "name365": "קריסטל פאלאס",
+      "nameSport5": "קריסטל פאלאס",
       "shortName": "CP",
       "colors": [
         "#4102FF",
@@ -146,12 +157,14 @@
         "#DE000A"
       ],
       "logoPosition": "-56px -112px",
-      "sprite": "england"
+      "sprite": "england",
+      "stadium": "Selhurst Park"
     },
     {
       "_id": "1a21a7c1a3f89181074e9770",
       "name": "Huddersfield",
       "name365": "האדרספילד",
+      "nameSport5": "האדרספילד",
       "shortName": "HUD",
       "colors": [
         "#44B1FD"
@@ -165,12 +178,14 @@
         "#000000"
       ],
       "logoPosition": "-56px -168px",
-      "sprite": "england"
+      "sprite": "england",
+      "stadium": "Kirklees Stadium"
     },
     {
       "_id": "1a21a7c1a3f89181074e9771",
       "name": "Everton",
       "name365": "אברטון",
+      "nameSport5": "אברטון",
       "shortName": "EVE",
       "colors": [
         "#0659E4"
@@ -184,12 +199,14 @@
         "#000000"
       ],
       "logoPosition": "0 -168px",
-      "sprite": "england"
+      "sprite": "england",
+      "stadium": "Goodison Park"
     },
     {
       "_id": "1a21a7c1a3f89181074e9772",
       "name": "Stoke City",
       "name365": "סטוק סיטי",
+      "nameSport5": "סטוק סיטי",
       "shortName": "STO",
       "colors": [
         "#DE000A"
@@ -203,12 +220,14 @@
         "#000000"
       ],
       "logoPosition": "-56px -392px",
-      "sprite": "england"
+      "sprite": "england",
+      "stadium": "bet365 Stadium"
     },
     {
       "_id": "1a21a7c1a3f89181074e9774",
       "name": "West Ham United",
       "name365": "ווסטהאם",
+      "nameSport5": "ווסטהאם",
       "shortName": "WHU",
       "colors": [
         "#44B1FD",
@@ -223,12 +242,14 @@
         "#44B1FD"
       ],
       "logoPosition": "0 -560px",
-      "sprite": "england"
+      "sprite": "england",
+      "stadium": "London Stadium"
     },
     {
       "_id": "1a21a7c1a3f89181074e9775",
       "name": "Newcastle United",
       "name365": "ניוקאסל",
+      "nameSport5": "ניוקאסל",
       "shortName": "NEW",
       "colors": [
         "#000000"
@@ -242,12 +263,14 @@
         "#000000"
       ],
       "logoPosition": "0 -336px",
-      "sprite": "england"
+      "sprite": "england",
+      "stadium": "St James' Park"
     },
     {
       "_id": "1a21a7c1a3f89181074e9777",
       "name": "Southampton",
       "name365": "סאות'המפטון",
+      "nameSport5": "סאות'המפטון",
       "shortName": "SOU",
       "colors": [
         "#000000",
@@ -262,12 +285,14 @@
         "#000000"
       ],
       "logoPosition": "0 -392px",
-      "sprite": "england"
+      "sprite": "england",
+      "stadium": "St Mary's Stadium"
     },
     {
       "_id": "1a21a7c1a3f89181074e9778",
       "name": "Swansea City",
       "name365": "סוונזי",
+      "nameSport5": "סוואנסי",
       "shortName": "SWA",
       "colors": [
         "#000000"
@@ -280,12 +305,14 @@
         "#000000"
       ],
       "logoPosition": "0 -448px",
-      "sprite": "england"
+      "sprite": "england",
+      "stadium": "Liberty Stadium"
     },
     {
       "_id": "1a21a7c1a3f89181074e9779",
       "name": "Watford",
       "name365": "ווטפורד",
+      "nameSport5": "ווטפורד",
       "shortName": "WAT",
       "colors": [
         "#FEFF59",
@@ -300,12 +327,14 @@
         "#000000"
       ],
       "logoPosition": "0 -504px",
-      "sprite": "england"
+      "sprite": "england",
+      "stadium": "Vicarage Road"
     },
     {
       "_id": "1a21a7c1a3f89181074e9781",
       "name": "West Bromwich",
       "name365": "ווסט ברומיץ'",
+      "nameSport5": "ווסט ברומיץ'",
       "shortName": "WB",
       "colors": [
         "#0B008C"
@@ -319,7 +348,8 @@
         "#000000"
       ],
       "logoPosition": "-56px -504px",
-      "sprite": "england"
+      "sprite": "england",
+      "stadium": "The Hawthorns"
     }
   ],
   "matches": [
@@ -330,7 +360,7 @@
       "kickofftime": "2017-08-11T17:00:00.000Z",
       "type": "Round 1",
       "league": "3a21a7c1a3f89181074e9769",
-      "stadium": "King Power Stadium"
+      "stadium": "Etihad Stadium"
     },
     {
       "_id": "4a21a7c1a3f89181074e9102",
@@ -600,7 +630,7 @@
       "kickofftime": "2017-09-09T17:00:00.000Z",
       "type": "Round 4",
       "league": "3a21a7c1a3f89181074e9769",
-      "stadium": "King Power Stadium"
+      "stadium": "Etihad Stadium"
     },
     {
       "_id": "4a21a7c1a3f89181074e9132",
@@ -780,7 +810,7 @@
       "kickofftime": "2017-09-25T17:00:00.000Z",
       "type": "Round 6",
       "league": "3a21a7c1a3f89181074e9769",
-      "stadium": "King Power Stadium"
+      "stadium": "Etihad Stadium"
     },
     {
       "_id": "4a21a7c1a3f89181074e9152",
@@ -870,7 +900,7 @@
       "kickofftime": "2017-10-01T17:00:00.000Z",
       "type": "Round 7",
       "league": "3a21a7c1a3f89181074e9769",
-      "stadium": "King Power Stadium"
+      "stadium": "Etihad Stadium"
     },
     {
       "_id": "4a21a7c1a3f89181074e9162",
@@ -1140,7 +1170,7 @@
       "kickofftime": "2017-10-28T17:00:00.000Z",
       "type": "Round 10",
       "league": "3a21a7c1a3f89181074e9769",
-      "stadium": "King Power Stadium"
+      "stadium": "Etihad Stadium"
     },
     {
       "_id": "4a21a7c1a3f89181074e9192",
@@ -1320,7 +1350,7 @@
       "kickofftime": "2017-11-18T18:00:00.000Z",
       "type": "Round 12",
       "league": "3a21a7c1a3f89181074e9769",
-      "stadium": "King Power Stadium"
+      "stadium": "Etihad Stadium"
     },
     {
       "_id": "4a21a7c1a3f89181074e9212",
@@ -1500,7 +1530,7 @@
       "kickofftime": "2017-11-29T18:00:00.000Z",
       "type": "Round 14",
       "league": "3a21a7c1a3f89181074e9769",
-      "stadium": "King Power Stadium"
+      "stadium": "Etihad Stadium"
     },
     {
       "_id": "4a21a7c1a3f89181074e9232",
@@ -1590,7 +1620,7 @@
       "kickofftime": "2017-12-02T18:00:00.000Z",
       "type": "Round 15",
       "league": "3a21a7c1a3f89181074e9769",
-      "stadium": "King Power Stadium"
+      "stadium": "Etihad Stadium"
     },
     {
       "_id": "4a21a7c1a3f89181074e9242",
@@ -1860,7 +1890,7 @@
       "kickofftime": "2017-12-16T18:00:00.000Z",
       "type": "Round 18",
       "league": "3a21a7c1a3f89181074e9769",
-      "stadium": "King Power Stadium"
+      "stadium": "Etihad Stadium"
     },
     {
       "_id": "4a21a7c1a3f89181074e9272",
@@ -1950,7 +1980,7 @@
       "kickofftime": "2017-12-22T18:00:00.000Z",
       "type": "Round 19",
       "league": "3a21a7c1a3f89181074e9769",
-      "stadium": "King Power Stadium"
+      "stadium": "Etihad Stadium"
     },
     {
       "_id": "4a21a7c1a3f89181074e9282",
@@ -2220,7 +2250,7 @@
       "kickofftime": "2018-01-03T18:00:00.000Z",
       "type": "Round 22",
       "league": "3a21a7c1a3f89181074e9769",
-      "stadium": "King Power Stadium"
+      "stadium": "Etihad Stadium"
     },
     {
       "_id": "4a21a7c1a3f89181074e9312",
@@ -2400,7 +2430,7 @@
       "kickofftime": "2018-01-20T18:00:00.000Z",
       "type": "Round 24",
       "league": "3a21a7c1a3f89181074e9769",
-      "stadium": "King Power Stadium"
+      "stadium": "Etihad Stadium"
     },
     {
       "_id": "4a21a7c1a3f89181074e9332",
@@ -2580,7 +2610,7 @@
       "kickofftime": "2018-02-03T17:30:00.000Z",
       "type": "Round 26",
       "league": "3a21a7c1a3f89181074e9769",
-      "stadium": "King Power Stadium"
+      "stadium": "Etihad Stadium"
     },
     {
       "_id": "4a21a7c1a3f89181074e9352",
@@ -2760,7 +2790,7 @@
       "kickofftime": "2018-03-01T19:45:00.000Z",
       "type": "Round 28 - Postponed",
       "league": "3a21a7c1a3f89181074e9769",
-      "stadium": "King Power Stadium"
+      "stadium": "Etihad Stadium"
     },
     {
       "_id": "4a21a7c1a3f89181074e9372",
@@ -2940,7 +2970,7 @@
       "kickofftime": "2018-03-11T13:30:00.000Z",
       "type": "Round 30",
       "league": "3a21a7c1a3f89181074e9769",
-      "stadium": "King Power Stadium"
+      "stadium": "Etihad Stadium"
     },
     {
       "_id": "4a21a7c1a3f89181074e9392",
@@ -3120,7 +3150,7 @@
       "kickofftime": "2018-04-01T11:30:00.000Z",
       "type": "Round 32",
       "league": "3a21a7c1a3f89181074e9769",
-      "stadium": "King Power Stadium"
+      "stadium": "Etihad Stadium"
     },
     {
       "_id": "4a21a7c1a3f89181074e9412",
@@ -3210,7 +3240,7 @@
       "kickofftime": "2018-04-07T17:01:00.000Z",
       "type": "Round 33",
       "league": "3a21a7c1a3f89181074e9769",
-      "stadium": "King Power Stadium"
+      "stadium": "Etihad Stadium"
     },
     {
       "_id": "4a21a7c1a3f89181074e9422",
@@ -3390,7 +3420,7 @@
       "kickofftime": "2018-04-21T17:01:00.000Z",
       "type": "Round 35",
       "league": "3a21a7c1a3f89181074e9769",
-      "stadium": "King Power Stadium"
+      "stadium": "Etihad Stadium"
     },
     {
       "_id": "4a21a7c1a3f89181074e9442",
@@ -3570,7 +3600,7 @@
       "kickofftime": "2018-05-05T17:01:00.000Z",
       "type": "Round 37",
       "league": "3a21a7c1a3f89181074e9769",
-      "stadium": "King Power Stadium"
+      "stadium": "Etihad Stadium"
     },
     {
       "_id": "4a21a7c1a3f89181074e9462",

@@ -6,6 +6,7 @@ const automaticUpdater = require('./utils/automaticUpdater');
 const migrator = require('./utils/migrator');
 const socketIo = require('./utils/socketIo');
 const jobRunBeforeDeadlineService = require('./utils/jobRunBeforeDeadlineService');
+const updateMatchesAutomatically = require('./utils/updateMatchesAutomatically');
 mongoose.Promise = Promise;
 
 module.exports = function (app, passport) {
@@ -15,7 +16,7 @@ module.exports = function (app, passport) {
 	automaticUpdater.run(true);
 	jobRunBeforeDeadlineService.run();
 	migrator.run();
-
+	updateMatchesAutomatically.run();
 
 	/********************************************
 	 * All routes mapping

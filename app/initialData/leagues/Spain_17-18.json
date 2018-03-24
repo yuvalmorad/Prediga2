@@ -35,6 +35,7 @@
       "_id": "1a21a7c1a3f89181074e9862",
       "name": "Deportivo La Coruña",
       "name365": "דפורטיבו לה קורוניה",
+      "nameSport5": "דפורטיבו לה קורוניה",
       "shortName": "DLC",
       "colors": [
         "#0659E4"
@@ -55,6 +56,7 @@
       "_id": "1a21a7c1a3f89181074e9864",
       "name": "Girona",
       "name365": "ג'ירונה",
+      "nameSport5": "ג'ירונה",
       "shortName": "GIR",
       "colors": [
         "#FF1716"
@@ -75,6 +77,7 @@
       "_id": "1a21a7c1a3f89181074e9865",
       "name": "Atlético Madrid",
       "name365": "אתלטיקו מדריד",
+      "nameSport5": "אתלטיקו מדריד",
       "shortName": "AM",
       "colors": [
         "#AA0001"
@@ -95,6 +98,7 @@
       "_id": "1a21a7c1a3f89181074e9866",
       "name": "Málaga",
       "name365": "מלאגה",
+      "nameSport5": "מלאגה",
       "shortName": "MAL",
       "colors": [
         "#0659E4",
@@ -116,6 +120,7 @@
       "_id": "1a21a7c1a3f89181074e9867",
       "name": "Eibar",
       "name365": "אייבר",
+      "nameSport5": "אייבר",
       "shortName": "EIB",
       "colors": [
         "#AA0001",
@@ -137,6 +142,7 @@
       "_id": "1a21a7c1a3f89181074e9868",
       "name": "Athletic Bilbao",
       "name365": "אתלטיק בילבאו",
+      "nameSport5": "אתלטיק בילבאו",
       "shortName": "AB",
       "colors": [
         "#DE000A",
@@ -158,6 +164,7 @@
       "_id": "1a21a7c1a3f89181074e9869",
       "name": "Getafe",
       "name365": "חטאפה",
+      "nameSport5": "חטאפה",
       "shortName": "GAT",
       "colors": [
         "#0659E4"
@@ -178,6 +185,7 @@
       "_id": "1a21a7c1a3f89181074e9871",
       "name": "Espanyol",
       "name365": "אספניול",
+      "nameSport5": "אספניול",
       "shortName": "ESP",
       "colors": [
         "#0659E4",
@@ -199,6 +207,7 @@
       "_id": "1a21a7c1a3f89181074e9872",
       "name": "Leganés",
       "name365": "לגאנס",
+      "nameSport5": "לגאנס",
       "shortName": "LEG",
       "colors": [
         "#0659E4"
@@ -219,6 +228,7 @@
       "_id": "1a21a7c1a3f89181074e9873",
       "name": "Alavés",
       "name365": "אלאבס",
+      "nameSport5": "אלאבס",
       "shortName": "ALA",
       "colors": [
         "#0659E4",
@@ -240,6 +250,7 @@
       "_id": "1a21a7c1a3f89181074e9875",
       "name": "Real Betis",
       "name365": "בטיס",
+      "nameSport5": "בטיס",
       "shortName": "BET",
       "colors": [
         "#009B02"
@@ -260,6 +271,7 @@
       "_id": "1a21a7c1a3f89181074e9876",
       "name": "Celta Vigo",
       "name365": "סלטה ויגו",
+      "nameSport5": "סלטה ויגו",
       "shortName": "CEL",
       "colors": [
         "#599FEA",
@@ -281,6 +293,7 @@
       "_id": "1a21a7c1a3f89181074e9877",
       "name": "Real Sociedad",
       "name365": "ריאל סוסיאדד",
+      "nameSport5": "ריאל סוסיאדד",
       "shortName": "SOC",
       "colors": [
         "#0659E4"
@@ -301,6 +314,7 @@
       "_id": "1a21a7c1a3f89181074e9878",
       "name": "Levante",
       "name365": "לבאנטה",
+      "nameSport5": "לבאנטה",
       "shortName": "LEV",
       "colors": [
         "#09007A",
@@ -322,6 +336,7 @@
       "_id": "1a21a7c1a3f89181074e9879",
       "name": "Villarreal",
       "name365": "ויאריאל",
+      "nameSport5": "ויאריאל",
       "shortName": "VIL",
       "colors": [
         "#FEFF00"
@@ -342,6 +357,7 @@
       "_id": "1a21a7c1a3f89181074e9880",
       "name": "Valencia",
       "name365": "ולנסיה",
+      "nameSport5": "ולנסיה",
       "shortName": "VAL",
       "colors": [
         "#FEDD22",
@@ -363,6 +379,7 @@
       "_id": "1a21a7c1a3f89181074e9881",
       "name": "Las Palmas",
       "name365": "לאס פאלמאס",
+      "nameSport5": "לאס פלמאס",
       "shortName": "LAS",
       "colors": [
         "#FEFF59",

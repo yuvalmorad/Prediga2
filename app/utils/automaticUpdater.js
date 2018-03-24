@@ -10,7 +10,6 @@ const matchResultService = require("../services/matchResultService");
 const matchPredictionsService = require("../services/matchPredictionsService");
 const userScoreService = require("../services/userScoreService");
 const userLeaderboardService = require("../services/usersLeaderboardService");
-const pushSubscriptionService = require('../services/pushSubscriptionService');
 
 const self = module.exports = {
 	run: function (isFirstRun) {
