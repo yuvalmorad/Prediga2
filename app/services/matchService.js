@@ -2,10 +2,23 @@ const Match = require('../models/match');
 const util = require('../utils/util');
 
 const self = module.exports = {
-	updateMatches: function (matches) {
+	updateMatchesById: function (matches) {
 		//console.log('beginning to update ' + matches.length + ' matches');
 		const promises = matches.map(function (match) {
 			return Match.findOneAndUpdate({_id: match._id}, match, util.updateSettings).then(function (newMatch) {
+					return Promise.resolve(newMatch);
+				}
+			);
+		});
+		return Promise.all(promises);
+	},
+	updateMatchesByTeamsAndType: function (matches) {
+		const promises = matches.map(function (match) {
+			return Match.findOneAndUpdate({
+				type: match.type,
+				team1: match.team1,
+				team2: match.team2
+			}, match, util.updateSettings).then(function (newMatch) {
 					return Promise.resolve(newMatch);
 				}
 			);

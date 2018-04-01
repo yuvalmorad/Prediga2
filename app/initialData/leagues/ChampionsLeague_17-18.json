@@ -31,6 +31,7 @@
       "_id": "1a21a7c1a3f89181074e9962",
       "name": "Juventus",
       "name365": "יובנטוס",
+      "nameSport5": "יובנטוס",
       "shortName": "JUV",
       "colors": [
         "#000000"
@@ -50,6 +51,7 @@
       "_id": "1a21a7c1a3f89181074e9963",
       "name": "Tottenham Hotspur",
       "name365": "טוטנהאם",
+      "nameSport5": "טוטנהאם",
       "shortName": "TOT",
       "colors": [
         "#0A2555"
@@ -70,6 +72,7 @@
       "_id": "1a21a7c1a3f89181074e9964",
       "name": "Basel",
       "name365": "פ.צ. באזל",
+      "nameSport5": "באזל",
       "shortName": "BAS",
       "colors": [
         "#DE000A",
@@ -91,6 +94,7 @@
       "_id": "1a21a7c1a3f89181074e9965",
       "name": "Manchester City",
       "name365": "מנצ'סטר סיטי",
+      "nameSport5": "מנצ'סטר סיטי",
       "shortName": "MC",
       "colors": [
         "#44B1FD"
@@ -111,6 +115,7 @@
       "_id": "1a21a7c1a3f89181074e9966",
       "name": "Porto",
       "name365": "פורטו",
+      "nameSport5": "פורטו",
       "shortName": "POR",
       "colors": [
         "#1E01FF"
@@ -131,6 +136,7 @@
       "_id": "1a21a7c1a3f89181074e9967",
       "name": "Liverpool",
       "name365": "ליברפול",
+      "nameSport5": "ליברפול",
       "shortName": "LIV",
       "colors": [
         "#990001"
@@ -151,6 +157,7 @@
       "_id": "1a21a7c1a3f89181074e9968",
       "name": "Sevilla",
       "name365": "סביליה",
+      "nameSport5": "סביליה",
       "shortName": "SEV",
       "colors": [
         "#FF1716"
@@ -171,6 +178,7 @@
       "_id": "1a21a7c1a3f89181074e9969",
       "name": "Manchester United",
       "name365": "מנצ'סטר יונייטד",
+      "nameSport5": "מנצ'סטר יונייטד",
       "shortName": "MU",
       "colors": [
         "#DE000A"
@@ -191,6 +199,7 @@
       "_id": "1a21a7c1a3f89181074e9970",
       "name": "Real Madrid",
       "name365": "ריאל מדריד",
+      "nameSport5": "ריאל מדריד",
       "shortName": "RM",
       "colors": [
         "#23A6BF"
@@ -211,6 +220,7 @@
       "_id": "1a21a7c1a3f89181074e9971",
       "name": "Paris Saint-Germain",
       "name365": "פריס סן-ז'רמן",
+      "nameSport5": "פריס סן-ז'רמן",
       "shortName": "PSG",
       "colors": [
         "#7C2838",
@@ -232,6 +242,7 @@
       "_id": "1a21a7c1a3f89181074e9972",
       "name": "Shakhtar Donetsk",
       "name365": "שחטאר דונייצק",
+      "nameSport5": "שחטאר דונייצק",
       "shortName": "SHA",
       "colors": [
         "#FF5902",
@@ -253,6 +264,7 @@
       "_id": "1a21a7c1a3f89181074e9973",
       "name": "Roma",
       "name365": "רומא",
+      "nameSport5": "רומא",
       "shortName": "ROM",
       "colors": [
         "#9D1229"
@@ -273,6 +285,7 @@
       "_id": "1a21a7c1a3f89181074e9974",
       "name": "Chelsea",
       "name365": "צ'לסי",
+      "nameSport5": "צ'לסי",
       "shortName": "CHE",
       "colors": [
         "#0045B8"
@@ -293,6 +306,7 @@
       "_id": "1a21a7c1a3f89181074e9975",
       "name": "Barcelona",
       "name365": "ברצלונה",
+      "nameSport5": "ברצלונה",
       "shortName": "BAR",
       "colors": [
         "#09007A",
@@ -314,6 +328,7 @@
       "_id": "1a21a7c1a3f89181074e9976",
       "name": "Bayern Munich",
       "name365": "באיירן מינכן",
+      "nameSport5": "באיירן מינכן",
       "shortName": "BAY",
       "colors": [
         "#FF1716"
@@ -334,6 +349,7 @@
       "_id": "1a21a7c1a3f89181074e9977",
       "name": "Beşiktaş",
       "name365": "בשיקטאש",
+      "nameSport5": "בשיקטאש",
       "shortName": "BES",
       "colors": [
         "#FF1716",

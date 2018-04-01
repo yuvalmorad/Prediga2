@@ -484,8 +484,10 @@ body,textarea {
 .menu .menu-items-header {
     display: flex;
     justify-content: space-between;
-    padding: 0 0.5rem 0.5rem 0.5rem;
+    padding: 0 0.5rem 0.5rem 1rem;
+    margin-bottom: 0.2rem;
     font-size: 0.875rem;
+    cursor: pointer;
 }
 
 .menu button{

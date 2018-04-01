@@ -5,12 +5,14 @@ const mongoose = require('mongoose');
 const clubSchema = mongoose.Schema({
 	name: String,
 	name365: String,
+	nameSport5: String,
 	shortName: String,
 	colors: [String],
 	buttonColors: [String],
 	graphColors: [String],
 	logoPosition: String,
-    sprite: String
+    sprite: String,
+	stadium: String
 });
 
 clubSchema.options.toJSON = {

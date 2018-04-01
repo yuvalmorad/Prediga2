@@ -44,8 +44,5 @@ const self = module.exports = {
 	},
 	by365Name: function (name) {
 		return Club.findOne({name365: name});
-	},
-	byLeagueId: function (leagueId) {
-		return Club.findOne({name365: name});
 	}
 };

@@ -30,7 +30,7 @@ const self = module.exports = {
 		return Promise.all([
 			LeagueService.updateLeague(leagueJson.league),
 			ClubService.updateClubs(leagueJson.clubs),
-			MatchService.updateMatches(leagueJson.matches),
+			MatchService.updateMatchesById(leagueJson.matches),
             TeamCategoryService.updateTeamsCategories(leagueJson.teamCategories),
 			TeamService.updateTeams(leagueJson.teams),
 			MatchResultService.updateMatchResults(leagueJson.matchResults),
