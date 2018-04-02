@@ -519,7 +519,7 @@
       "team2": "1a21a7c1a3f89181074e9973",
       "kickofftime": "2018-04-04T19:45:00.000Z",
       "stadium": "Camp Nou, Barcelona",
-      "type": "Quarter-finals - leg 1 (A)",
+      "type": "Quarter-finals - leg 1 (B)",
       "league": "1a21a7c1a3f89181074e9769"
     },
     {
@@ -537,7 +537,7 @@
       "team2": "1a21a7c1a3f89181074e9970",
       "kickofftime": "2018-04-03T19:45:00.000Z",
       "stadium": "Juventus Stadium, Turin",
-      "type": "Quarter-finals - leg 1 (B)",
+      "type": "Quarter-finals - leg 1 (A)",
       "league": "1a21a7c1a3f89181074e9769"
     },
     {
@@ -564,7 +564,7 @@
       "team2": "1a21a7c1a3f89181074e9968",
       "kickofftime": "2018-04-11T19:45:00.000Z",
       "stadium": "Allianz Arena, Munich",
-      "type": "Quarter-finals - leg 2 (A)",
+      "type": "Quarter-finals - leg 2 (B)",
       "league": "1a21a7c1a3f89181074e9769"
     },
     {
@@ -582,7 +582,7 @@
       "team2": "1a21a7c1a3f89181074e9967",
       "kickofftime": "2018-04-10T19:45:00.000Z",
       "stadium": "City of Manchester Stadium, Manchester",
-      "type": "Quarter-finals - leg 2 (B)",
+      "type": "Quarter-finals - leg 2 (A)",
       "league": "1a21a7c1a3f89181074e9769"
     },
     {
