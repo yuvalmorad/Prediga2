@@ -12,16 +12,53 @@ const self = module.exports = {
 		});
 		return Promise.all(promises);
 	},
+	removeMultipleMatchesOnSameType: function (match) {
+		return Match.find({
+			type: match.type,
+			team1: match.team1,
+			team2: match.team2
+		}).sort({'kickofftime': 1}).then(function (matches) {
+			return self.removeMatches(matches);
+		})
+	},
+	removeMultipleMatchesOnDates: function (match) {
+		const time1 = new Date().setHours(new Date().getHours() + 24 * 2);
+		const time2 = new Date().setHours(new Date().getHours() - 24 * 2);
+		return Match.find({
+			kickofftime: {$gte: time2, $lte: time1},
+			team1: match.team1,
+			team2: match.team2
+		}).sort({'kickofftime': 1}).then(function (matches) {
+			return self.removeMatches(matches);
+		})
+	},
+	removeMatches: function (matches) {
+		if (matches && matches.length > 1) {
+			const promises = matches.map(function (match, idx) {
+				if (idx === 0) {
+					return Promise.resolve();
+				}
+				return Match.remove({_id: match._id});
+			});
+			return Promise.all(promises);
+		} else {
+			return Promise.resolve();
+		}
+	},
 	updateMatchesByTeamsAndType: function (matches) {
 		const promises = matches.map(function (match) {
-			return Match.findOneAndUpdate({
-				type: match.type,
-				team1: match.team1,
-				team2: match.team2
-			}, match, util.updateSettings).then(function (newMatch) {
-					return Promise.resolve(newMatch);
-				}
-			);
+			self.removeMultipleMatchesOnSameType(match).then(function () {
+				self.removeMultipleMatchesOnDates(match).then(function () {
+					return Match.findOneAndUpdate({
+						type: match.type,
+						team1: match.team1,
+						team2: match.team2
+					}, match, util.updateSettings).then(function (newMatch) {
+							return Promise.resolve(newMatch);
+						}
+					);
+				});
+			});
 		});
 		return Promise.all(promises);
 	},

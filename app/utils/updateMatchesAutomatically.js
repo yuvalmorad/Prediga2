@@ -8,9 +8,9 @@ const clubService = require('../services/clubService');
 
 const self = module.exports = {
 	run: function () {
-		self.runUpdate(utils.UPDATE_ISRAELI_LEAGUE_MATCHES_1, '5a21a7c1a3f89181074e9769', 3, 'up'); // Israeli top league.
-		self.runUpdate(utils.UPDATE_ISRAELI_LEAGUE_MATCHES_2, '5a21a7c1a3f89181074e9769', 4, 'bottom'); // Israeli bottom league.
-		self.runUpdate(utils.UPDATE_ENGLAND_LEAGUE_MATCHES, '3a21a7c1a3f89181074e9769', 10); // England
+		//self.runUpdate(utils.UPDATE_ISRAELI_LEAGUE_MATCHES_1, '5a21a7c1a3f89181074e9769', 3, 'up'); // Israeli top league.
+		//self.runUpdate(utils.UPDATE_ISRAELI_LEAGUE_MATCHES_2, '5a21a7c1a3f89181074e9769', 4, 'bottom'); // Israeli bottom league.
+		//self.runUpdate(utils.UPDATE_ENGLAND_LEAGUE_MATCHES, '3a21a7c1a3f89181074e9769', 10); // England
 		self.runUpdate(utils.UPDATE_SPAIN_LEAGUE_MATCHES, '2a21a7c1a3f89181074e9769', 10); // Spain
 
 		// schedule for next day.
@@ -127,19 +127,33 @@ const self = module.exports = {
 	calculateRound: function (matches, currentDate, gamesPerRound, i, leagueId) {
 		if (matches.length === 0) {
 			if (leagueId === '5a21a7c1a3f89181074e9769') {
-				if (gamesPerRound === 4){
-					return Math.floor(((i - 188) / gamesPerRound) + 1)  + 27;
+				if (gamesPerRound === 4) {
+					return Math.floor(((i - 188) / gamesPerRound) + 1) + 27;
 				} else {
-					return Math.floor(((i - 188) / gamesPerRound) + 1)  + 28;
+					return Math.floor(((i - 188) / gamesPerRound) + 1) + 28;
 				}
 			} else {
 				return (Math.floor((i - 2) / gamesPerRound) + 1);
 			}
 		}
+		var countSameRound = 1;
+		var lastRound = matches[matches.length - 1].roundRaw;
+		for (var i = matches.length - 2; i >= 0; i--) {
+			if (lastRound === matches[i].roundRaw) {
+				countSameRound++;
+			} else {
+				break;
+			}
+		}
+
+		if (countSameRound > gamesPerRound - 1) {
+			return lastRound + 1;
+		}
+
 		let lastMatch = matches[matches.length - 1];
 		let lastMatchDate = lastMatch.kickofftime;
 		var diff = Math.abs(currentDate - lastMatchDate);
-		if (diff > (1000 * 60 * 60 * 24 * 2.5)) {
+		if (diff > (1000 * 60 * 60 * 24 * 3.5)) {
 			return lastMatch.roundRaw + 1;
 		} else {
 			return lastMatch.roundRaw;
@@ -161,7 +175,7 @@ const self = module.exports = {
 		let sport5TimeOffset = -3;
 		let hours = Number(hourSplit[0]) + sport5TimeOffset;
 		let date = new Date(20 + datesSplit[2], datesSplit[1] - 1, datesSplit[0], hours, hourSplit[1]);
-        //console.log('Date of match parsed:' + date);
+		//console.log('Date of match parsed:' + date);
 		return date;
 	},
 	findClubInArray: function (clubs, sport5Name) {
