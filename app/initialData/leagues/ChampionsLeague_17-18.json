@@ -508,7 +508,7 @@
       "_id": "1a21a7c1a3f89181074e9877",
       "team1": "1a21a7c1a3f89181074e9977",
       "team2": "1a21a7c1a3f89181074e9976",
-      "kickofftime": "2018-03-14T19:45:00.000Z",
+      "kickofftime": "2018-03-14T18:45:00.000Z",
       "stadium": "Vodafone Park, Istanbul",
       "type": "Round of 16 - leg 2 (B)",
       "league": "1a21a7c1a3f89181074e9769"
@@ -517,7 +517,7 @@
       "_id": "1a21a7c1a3f89181074e9878",
       "team1": "1a21a7c1a3f89181074e9975",
       "team2": "1a21a7c1a3f89181074e9973",
-      "kickofftime": "2018-04-04T19:45:00.000Z",
+      "kickofftime": "2018-04-04T18:45:00.000Z",
       "stadium": "Camp Nou, Barcelona",
       "type": "Quarter-finals - leg 1 (B)",
       "league": "1a21a7c1a3f89181074e9769"
@@ -526,7 +526,7 @@
       "_id": "1a21a7c1a3f89181074e9879",
       "team1": "1a21a7c1a3f89181074e9968",
       "team2": "1a21a7c1a3f89181074e9976",
-      "kickofftime": "2018-04-03T19:45:00.000Z",
+      "kickofftime": "2018-04-03T18:45:00.000Z",
       "stadium": "Ramón Sánchez Pizjuán",
       "type": "Quarter-finals - leg 1 (A)",
       "league": "1a21a7c1a3f89181074e9769"
@@ -535,7 +535,7 @@
       "_id": "1a21a7c1a3f89181074e9880",
       "team1": "1a21a7c1a3f89181074e9962",
       "team2": "1a21a7c1a3f89181074e9970",
-      "kickofftime": "2018-04-03T19:45:00.000Z",
+      "kickofftime": "2018-04-03T18:45:00.000Z",
       "stadium": "Juventus Stadium, Turin",
       "type": "Quarter-finals - leg 1 (A)",
       "league": "1a21a7c1a3f89181074e9769"
@@ -544,7 +544,7 @@
       "_id": "1a21a7c1a3f89181074e9881",
       "team1": "1a21a7c1a3f89181074e9967",
       "team2": "1a21a7c1a3f89181074e9965",
-      "kickofftime": "2018-04-04T19:45:00.000Z",
+      "kickofftime": "2018-04-04T18:45:00.000Z",
       "stadium": "Anfield, Liverpool",
       "type": "Quarter-finals - leg 1 (B)",
       "league": "1a21a7c1a3f89181074e9769"
@@ -553,7 +553,7 @@
       "_id": "1a21a7c1a3f89181074e9882",
       "team1": "1a21a7c1a3f89181074e9973",
       "team2": "1a21a7c1a3f89181074e9975",
-      "kickofftime": "2018-04-10T19:45:00.000Z",
+      "kickofftime": "2018-04-10T18:45:00.000Z",
       "stadium": "Stadio Olimpico, Rome",
       "type": "Quarter-finals - leg 2 (A)",
       "league": "1a21a7c1a3f89181074e9769"
@@ -562,7 +562,7 @@
       "_id": "1a21a7c1a3f89181074e9883",
       "team1": "1a21a7c1a3f89181074e9976",
       "team2": "1a21a7c1a3f89181074e9968",
-      "kickofftime": "2018-04-11T19:45:00.000Z",
+      "kickofftime": "2018-04-11T18:45:00.000Z",
       "stadium": "Allianz Arena, Munich",
       "type": "Quarter-finals - leg 2 (B)",
       "league": "1a21a7c1a3f89181074e9769"
@@ -571,7 +571,7 @@
       "_id": "1a21a7c1a3f89181074e9884",
       "team1": "1a21a7c1a3f89181074e9970",
       "team2": "1a21a7c1a3f89181074e9962",
-      "kickofftime": "2018-04-11T19:45:00.000Z",
+      "kickofftime": "2018-04-11T18:45:00.000Z",
       "stadium": "Santiago Bernabéu, Madrid",
       "type": "Quarter-finals - leg 2 (B)",
       "league": "1a21a7c1a3f89181074e9769"
@@ -580,7 +580,7 @@
       "_id": "1a21a7c1a3f89181074e9885",
       "team1": "1a21a7c1a3f89181074e9965",
       "team2": "1a21a7c1a3f89181074e9967",
-      "kickofftime": "2018-04-10T19:45:00.000Z",
+      "kickofftime": "2018-04-10T18:45:00.000Z",
       "stadium": "City of Manchester Stadium, Manchester",
       "type": "Quarter-finals - leg 2 (A)",
       "league": "1a21a7c1a3f89181074e9769"
@@ -589,7 +589,7 @@
       "_id": "1a21a7c1a3f89181074e9886",
       "team1": "TBD",
       "team2": "TBD",
-      "kickofftime": "2018-04-24T19:45:00.000Z",
+      "kickofftime": "2018-04-24T18:45:00.000Z",
       "stadium": "TBD",
       "type": "Semi-finals - leg 1 (A)",
       "league": "1a21a7c1a3f89181074e9769"
@@ -598,7 +598,7 @@
       "_id": "1a21a7c1a3f89181074e9887",
       "team1": "TBD",
       "team2": "TBD",
-      "kickofftime": "2018-04-25T19:45:00.000Z",
+      "kickofftime": "2018-04-25T18:45:00.000Z",
       "stadium": "TBD",
       "type": "Semi-finals - leg 1 (B)",
       "league": "1a21a7c1a3f89181074e9769"
@@ -607,7 +607,7 @@
       "_id": "1a21a7c1a3f89181074e9888",
       "team1": "TBD",
       "team2": "TBD",
-      "kickofftime": "2018-05-01T19:45:00.000Z",
+      "kickofftime": "2018-05-01T18:45:00.000Z",
       "stadium": "TBD",
       "type": "Semi-finals - leg 2 (A)",
       "league": "1a21a7c1a3f89181074e9769"
@@ -616,7 +616,7 @@
       "_id": "1a21a7c1a3f89181074e9889",
       "team1": "TBD",
       "team2": "TBD",
-      "kickofftime": "2018-05-02T19:45:00.000Z",
+      "kickofftime": "2018-05-02T18:45:00.000Z",
       "stadium": "TBD",
       "type": "Semi-finals - leg 2 (B)",
       "league": "1a21a7c1a3f89181074e9769"
@@ -625,7 +625,7 @@
       "_id": "1a21a7c1a3f89181074e9890",
       "team1": "TBD",
       "team2": "TBD",
-      "kickofftime": "2018-05-26T19:45:00.000Z",
+      "kickofftime": "2018-05-26T18:45:00.000Z",
       "stadium": "NSC Olimpiyskiy, Kiev",
       "type": "Final",
       "league": "1a21a7c1a3f89181074e9769"
