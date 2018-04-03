@@ -8,9 +8,9 @@ const clubService = require('../services/clubService');
 
 const self = module.exports = {
 	run: function () {
-		//self.runUpdate(utils.UPDATE_ISRAELI_LEAGUE_MATCHES_1, '5a21a7c1a3f89181074e9769', 3, 'up'); // Israeli top league.
-		//self.runUpdate(utils.UPDATE_ISRAELI_LEAGUE_MATCHES_2, '5a21a7c1a3f89181074e9769', 4, 'bottom'); // Israeli bottom league.
-		//self.runUpdate(utils.UPDATE_ENGLAND_LEAGUE_MATCHES, '3a21a7c1a3f89181074e9769', 10); // England
+		self.runUpdate(utils.UPDATE_ISRAELI_LEAGUE_MATCHES_1, '5a21a7c1a3f89181074e9769', 3, 'up'); // Israeli top league.
+		self.runUpdate(utils.UPDATE_ISRAELI_LEAGUE_MATCHES_2, '5a21a7c1a3f89181074e9769', 4, 'bottom'); // Israeli bottom league.
+		self.runUpdate(utils.UPDATE_ENGLAND_LEAGUE_MATCHES, '3a21a7c1a3f89181074e9769', 10); // England
 		self.runUpdate(utils.UPDATE_SPAIN_LEAGUE_MATCHES, '2a21a7c1a3f89181074e9769', 10); // Spain
 
 		// schedule for next day.
