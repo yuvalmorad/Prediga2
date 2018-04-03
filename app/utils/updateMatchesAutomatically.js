@@ -159,7 +159,9 @@ const self = module.exports = {
 		let datesSplit = dateRaw.split(".");
 		let hourSplit = hour.split(":");
 		let sport5TimeOffset = -3;
-		return new Date(20 + datesSplit[2], datesSplit[1] - 1, datesSplit[0], hourSplit[0] + sport5TimeOffset, hourSplit[1]);
+		let date = new Date(20 + datesSplit[2], datesSplit[1] - 1, datesSplit[0], hourSplit[0] + sport5TimeOffset, hourSplit[1]);
+        console.log('Date of match parsed:' + date);
+		return date;
 	},
 	findClubInArray: function (clubs, sport5Name) {
 		for (let i = 0; i < clubs.length; i++) {
