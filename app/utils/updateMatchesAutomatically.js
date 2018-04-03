@@ -159,7 +159,8 @@ const self = module.exports = {
 		let datesSplit = dateRaw.split(".");
 		let hourSplit = hour.split(":");
 		let sport5TimeOffset = -3;
-		let date = new Date(20 + datesSplit[2], datesSplit[1] - 1, datesSplit[0], hourSplit[0] + sport5TimeOffset, hourSplit[1]);
+		let hours = hourSplit[0] + sport5TimeOffset;
+		let date = new Date(20 + datesSplit[2], datesSplit[1] - 1, datesSplit[0], hours, hourSplit[1]);
         console.log('Date of match parsed:' + date);
 		return date;
 	},
