@@ -8,8 +8,8 @@ const clubService = require('../services/clubService');
 
 const self = module.exports = {
 	run: function () {
-		self.runUpdate(utils.UPDATE_ISRAELI_LEAGUE_MATCHES_1, '5a21a7c1a3f89181074e9769', 3, 'up'); // isreaeli top league.
-		self.runUpdate(utils.UPDATE_ISRAELI_LEAGUE_MATCHES_2, '5a21a7c1a3f89181074e9769', 4, 'bottom'); // isreaeli bottom league.
+		self.runUpdate(utils.UPDATE_ISRAELI_LEAGUE_MATCHES_1, '5a21a7c1a3f89181074e9769', 3, 'up'); // Israeli top league.
+		self.runUpdate(utils.UPDATE_ISRAELI_LEAGUE_MATCHES_2, '5a21a7c1a3f89181074e9769', 4, 'bottom'); // Israeli bottom league.
 		self.runUpdate(utils.UPDATE_ENGLAND_LEAGUE_MATCHES, '3a21a7c1a3f89181074e9769', 10); // England
 		self.runUpdate(utils.UPDATE_SPAIN_LEAGUE_MATCHES, '2a21a7c1a3f89181074e9769', 10); // Spain
 
@@ -23,16 +23,16 @@ const self = module.exports = {
 		return clubService.all().then(function (clubs) {
 			return self.getLatestData(url).then(function (htmlRawData) {
 				if (!htmlRawData || htmlRawData.length < 1) {
-					console.log('[Auotmatic Match Updater] - No content received from remote host');
+					console.log('[Automatic Match Updater] - No content received from remote host');
 					return Promise.resolve();
 				} else {
 					try {
-						console.log('[Auotmatic Match Updater] - Start to parse response...');
+						console.log('[Automatic Match Updater] - Start to parse response...');
 						let matches = self.parseResponse(htmlRawData, leagueId, clubs, gamesPerRound, roundType);
-						console.log('[Auotmatic Match Updater] - ' + matches.length + ' relevant matches found...');
+						console.log('[Automatic Match Updater] - ' + matches.length + ' relevant matches found...');
 						return MatchService.updateMatchesByTeamsAndType(matches);
 					} catch (err) {
-						console.log('[Auotmatic Match Updater] - Error with parsing result. ' + err);
+						console.log('[Automatic Match Updater] - Error with parsing result. ' + err);
 						return Promise.resolve();
 					}
 				}
@@ -158,7 +158,8 @@ const self = module.exports = {
 		}
 		let datesSplit = dateRaw.split(".");
 		let hourSplit = hour.split(":");
-		return new Date(20 + datesSplit[2], datesSplit[1] - 1, datesSplit[0], hourSplit[0], hourSplit[1]);
+		let sport5TimeOffset = -3;
+		return new Date(Date.UTC(20 + datesSplit[2], datesSplit[1] - 1, datesSplit[0], hourSplit[0] + sport5TimeOffset, hourSplit[1]));
 	},
 	findClubInArray: function (clubs, sport5Name) {
 		for (let i = 0; i < clubs.length; i++) {
