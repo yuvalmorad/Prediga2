@@ -101,7 +101,7 @@ component.LeaderBoardMatchesHistory = (function(){
             });
 
             //get first six matches and teams
-            matchesAndTeams = matchesAndTeams.splice(0,6);
+            matchesAndTeams = matchesAndTeams.splice(0,600);
 
             var rows = matchesAndTeams.map(function(matchTeam){
                 var onClick;
