@@ -101,9 +101,9 @@ const self = module.exports = {
 		}, leaderboardItem, utils.updateSettings);
 	},
 	appendUserScoreToLeaderboard: function (userScore, leaderboards) {
-		if (userScore.userId === '5a66566fb3d162001584a295' && userScore.groupId === '5a3eac97d3ca76dbd12bf638' && userScore.leagueId === '1a21a7c1a3f89181074e9769'){
+		/*if (userScore.userId === '5a66566fb3d162001584a295' && userScore.groupId === '5a3eac97d3ca76dbd12bf638' && userScore.leagueId === '1a21a7c1a3f89181074e9769'){
 			console.log(userScore.score);
-		}
+		}*/
 		const leaderboardItemForUser = self.filterByUserId(leaderboards, userScore.userId);
 
 		if (leaderboardItemForUser.length < 1) {
