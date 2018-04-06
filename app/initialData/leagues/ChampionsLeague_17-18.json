@@ -643,56 +643,6 @@
       "options": [],
       "resultTime": "2018-05-26T21:45:00.000Z",
       "category": "9b1342399017dfc4e2faf4d1"
-    },
-    {
-      "_id": "5a1342399017dfc4e2faf695",
-      "title": "2st place",
-      "type": "teamWinner",
-      "deadline": "2018-02-17T23:45:00.001Z",
-      "league": "1a21a7c1a3f89181074e9769",
-      "options": [],
-      "resultTime": "2018-05-26T21:45:00.000Z",
-      "category": "9b1342399017dfc4e2faf4d1"
-    },
-    {
-      "_id": "5a1342399017dfc4e2faf696",
-      "title": "Semi Finalist 1",
-      "type": "teamWinner",
-      "deadline": "2018-02-17T23:45:00.002Z",
-      "league": "1a21a7c1a3f89181074e9769",
-      "options": [],
-      "resultTime": "2018-05-26T21:45:00.000Z",
-      "category": "9b1342399017dfc4e2faf4d2"
-    },
-    {
-      "_id": "5a1342399017dfc4e2faf697",
-      "title": "Semi Finalist 2",
-      "type": "teamWinner",
-      "deadline": "2018-02-17T23:45:00.003Z",
-      "league": "1a21a7c1a3f89181074e9769",
-      "options": [],
-      "resultTime": "2018-05-26T21:45:00.000Z",
-      "category": "9b1342399017dfc4e2faf4d2"
-    },
-    {
-      "_id": "5a1342399017dfc4e2faf698",
-      "title": "Semi Finalist 3",
-      "type": "teamWinner",
-      "deadline": "2018-02-17T23:45:00.004Z",
-      "league": "1a21a7c1a3f89181074e9769",
-      "options": [],
-      "resultTime": "2018-05-26T21:45:00.000Z",
-      "category": "9b1342399017dfc4e2faf4d2"
-    },
-    {
-      "_id": "5a1342399017dfc4e2faf699",
-      "title": "Semi Finalist 4",
-      "type": "teamWinner",
-      "deadline": "2018-02-17T23:45:00.005Z",
-      "league": "1a21a7c1a3f89181074e9769",
-      "options": [],
-      "resultTime": "2018-05-26T21:45:00.000Z",
-      "category": "9b1342399017dfc4e2faf4d2"
     }
   ],
   "teamCategories": [
