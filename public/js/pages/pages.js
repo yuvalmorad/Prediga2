@@ -54,7 +54,7 @@ var routePages = (function(){
         },
         {
             path: "/groupMessages",
-            title: "Messages",
+            title: "Chat",
             icon: "",
             isAuthenticatedPage: true,
             component: GroupMessagesPage,
