@@ -21,7 +21,7 @@ const self = module.exports = {
 			//self.migrateUsers(),
 			//self.migrateMatchResults()
 			//self.migrateTeamResults()
-			self.migrateMatches()
+			//self.migrateMatches()
 		]).then(function (arr) {
 			console.log('[Init] - Migration finished');
 		});
