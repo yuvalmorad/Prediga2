@@ -5,13 +5,13 @@ const {JSDOM} = jsdom;
 const utils = require('./util');
 const MatchService = require('../services/matchService');
 const clubService = require('../services/clubService');
-
+const onejan = new Date(new Date().getFullYear(), 0, 4);
 const self = module.exports = {
 	run: function () {
-		self.runUpdate(utils.UPDATE_ISRAELI_LEAGUE_MATCHES_1, '5a21a7c1a3f89181074e9769', 3, 'up'); // Israeli top league.
-		self.runUpdate(utils.UPDATE_ISRAELI_LEAGUE_MATCHES_2, '5a21a7c1a3f89181074e9769', 4, 'bottom'); // Israeli bottom league.
-		self.runUpdate(utils.UPDATE_ENGLAND_LEAGUE_MATCHES, '3a21a7c1a3f89181074e9769', 10); // England
-		self.runUpdate(utils.UPDATE_SPAIN_LEAGUE_MATCHES, '2a21a7c1a3f89181074e9769', 10); // Spain
+		self.runUpdate(utils.UPDATE_ISRAELI_LEAGUE_MATCHES_1, '5a21a7c1a3f89181074e9769'); // Israeli top league.
+		self.runUpdate(utils.UPDATE_ISRAELI_LEAGUE_MATCHES_2, '5a21a7c1a3f89181074e9769'); // Israeli bottom league.
+		self.runUpdate(utils.UPDATE_ENGLAND_LEAGUE_MATCHES, '3a21a7c1a3f89181074e9769'); // England
+		self.runUpdate(utils.UPDATE_SPAIN_LEAGUE_MATCHES, '2a21a7c1a3f89181074e9769'); // Spain
 
 		// schedule for next day.
 		schedule.scheduleJob(self.getNextDayDate(), function () {
@@ -19,7 +19,7 @@ const self = module.exports = {
 		});
 		return Promise.resolve({});
 	},
-	runUpdate: function (url, leagueId, gamesPerRound, roundType) {
+	runUpdate: function (url, leagueId) {
 		return clubService.all().then(function (clubs) {
 			return self.getLatestData(url).then(function (htmlRawData) {
 				if (!htmlRawData || htmlRawData.length < 1) {
@@ -28,7 +28,7 @@ const self = module.exports = {
 				} else {
 					try {
 						console.log('[Automatic Match Updater] - Start to parse response...');
-						let matches = self.parseResponse(htmlRawData, leagueId, clubs, gamesPerRound, roundType);
+						let matches = self.parseResponse(htmlRawData, leagueId, clubs);
 						console.log('[Automatic Match Updater] - ' + matches.length + ' relevant matches found...');
 						return MatchService.updateMatchesByTeamsAndType(matches);
 					} catch (err) {
@@ -58,7 +58,7 @@ const self = module.exports = {
 			});
 		});
 	},
-	parseResponse: function (htmlRawData, leagueId, clubs, gamesPerRound, roundType) {
+	parseResponse: function (htmlRawData, leagueId, clubs) {
 		let matches = [];
 		const dom = new JSDOM(htmlRawData);
 		let allRows = dom.window.document.querySelectorAll('tr');
@@ -72,10 +72,7 @@ const self = module.exports = {
 				timeRaw: cells.item(3).textContent,
 				leagueId: leagueId,
 				clubs: clubs,
-				matches: matches,
-				roundType: roundType,
-				gamesPerRound: gamesPerRound,
-				i: i
+				matches: matches
 			});
 		}
 		return matches;
@@ -110,54 +107,17 @@ const self = module.exports = {
 			// in the past.
 			return;
 		}
-		let roundRaw = self.calculateRound(input.matches, date, input.gamesPerRound, input.i, input.leagueId);
-		//console.log('round:' + roundRaw);
-		let roundText = input.roundType !== undefined ? "Round " + roundRaw + ' ' + input.roundType : "Round " + roundRaw;
+
+		let roundText = "Week " + Math.ceil((((date - onejan) / 86400000) + onejan.getDay() + 1) / 7);
 		let newMatch = {
 			team1: club1._id,
 			team2: club2._id,
 			kickofftime: date,
 			type: roundText,
-			roundRaw: roundRaw,
 			league: input.leagueId,
 			stadium: club1.stadium
 		};
 		input.matches.push(newMatch);
-	},
-	calculateRound: function (matches, currentDate, gamesPerRound, i, leagueId) {
-		if (matches.length === 0) {
-			if (leagueId === '5a21a7c1a3f89181074e9769') {
-				if (gamesPerRound === 4) {
-					return Math.floor(((i - 188) / gamesPerRound) + 1) + 27;
-				} else {
-					return Math.floor(((i - 188) / gamesPerRound) + 1) + 28;
-				}
-			} else {
-				return (Math.floor((i - 2) / gamesPerRound) + 1);
-			}
-		}
-		var countSameRound = 1;
-		var lastRound = matches[matches.length - 1].roundRaw;
-		for (var i = matches.length - 2; i >= 0; i--) {
-			if (lastRound === matches[i].roundRaw) {
-				countSameRound++;
-			} else {
-				break;
-			}
-		}
-
-		if (countSameRound > gamesPerRound - 1) {
-			return lastRound + 1;
-		}
-
-		let lastMatch = matches[matches.length - 1];
-		let lastMatchDate = lastMatch.kickofftime;
-		var diff = Math.abs(currentDate - lastMatchDate);
-		if (diff > (1000 * 60 * 60 * 24 * 3.5)) {
-			return lastMatch.roundRaw + 1;
-		} else {
-			return lastMatch.roundRaw;
-		}
 	},
 	getNextDayDate: function () {
 		const nextJob = new Date();

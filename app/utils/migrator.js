@@ -21,6 +21,7 @@ const self = module.exports = {
 			//self.migrateUsers(),
 			//self.migrateMatchResults()
 			//self.migrateTeamResults()
+			self.migrateMatches()
 		]).then(function (arr) {
 			console.log('[Init] - Migration finished');
 		});
@@ -95,6 +96,43 @@ const self = module.exports = {
 				});
 				return Promise.all(promises);
 			}
+		});
+	},
+	migrateMatches: function () {
+		let date = new Date();
+		return Promise.all([
+			Match.remove({type: 'Round 31', kickofftime: {$gte: date}}),
+			Match.remove({type: 'Round 31 - postponed', kickofftime: {$gte: date}}),
+			Match.remove({type: 'Round 32', kickofftime: {$gte: date}}),
+			Match.remove({type: 'Round 33', kickofftime: {$gte: date}}),
+			Match.remove({type: 'Round 34', kickofftime: {$gte: date}}),
+			Match.remove({type: 'Round 35', kickofftime: {$gte: date}}),
+			Match.remove({type: 'Round 36', kickofftime: {$gte: date}}),
+			Match.remove({type: 'Round 37', kickofftime: {$gte: date}}),
+			Match.remove({type: 'Round 38', kickofftime: {$gte: date}}),
+			Match.remove({type: 'Round 39', kickofftime: {$gte: date}}),
+			Match.remove({type: 'Round 40', kickofftime: {$gte: date}}),
+			Match.remove({type: 'Round 41', kickofftime: {$gte: date}}),
+			Match.remove({type: 'Round 42', kickofftime: {$gte: date}}),
+
+			Match.remove({type: 'Round 29 up', kickofftime: {$gte: date}}),
+			Match.remove({type: 'Round 30 up', kickofftime: {$gte: date}}),
+			Match.remove({type: 'Round 31 up', kickofftime: {$gte: date}}),
+			Match.remove({type: 'Round 32 up', kickofftime: {$gte: date}}),
+			Match.remove({type: 'Round 33 up', kickofftime: {$gte: date}}),
+			Match.remove({type: 'Round 34 up', kickofftime: {$gte: date}}),
+			Match.remove({type: 'Round 35 up', kickofftime: {$gte: date}}),
+			Match.remove({type: 'Round 36 up', kickofftime: {$gte: date}}),
+			Match.remove({type: 'Round 37 up', kickofftime: {$gte: date}}),
+			Match.remove({type: 'Round 28 bottom', kickofftime: {$gte: date}}),
+			Match.remove({type: 'Round 29 bottom', kickofftime: {$gte: date}}),
+			Match.remove({type: 'Round 30 bottom', kickofftime: {$gte: date}}),
+			Match.remove({type: 'Round 31 bottom', kickofftime: {$gte: date}}),
+			Match.remove({type: 'Round 32 bottom', kickofftime: {$gte: date}}),
+			Match.remove({type: 'Round 33 bottom', kickofftime: {$gte: date}})
+		]).then(function (arr) {
+			console.log('[Init] - Update initial data finished');
+			return Promise.resolve({});
 		});
 	}
 };
