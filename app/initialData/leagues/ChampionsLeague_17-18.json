@@ -586,37 +586,37 @@
       "league": "1a21a7c1a3f89181074e9769"
     },
     {
-      "_id": "1a21a7c1a3f89181074e9887",
+      "_id": "1a21a7c1a3f89181074e9886",
       "team1": "1a21a7c1a3f89181074e9976",
       "team2": "1a21a7c1a3f89181074e9970",
-      "kickofftime": "2018-04-24T18:45:00.000Z",
+      "kickofftime": "2018-04-25T18:45:00.000Z",
       "stadium": "Allianz Arena, Munich",
       "type": "Semi-finals - leg 1",
       "league": "1a21a7c1a3f89181074e9769"
     },
     {
-      "_id": "1a21a7c1a3f89181074e9886",
+      "_id": "1a21a7c1a3f89181074e9887",
       "team1": "1a21a7c1a3f89181074e9967",
       "team2": "1a21a7c1a3f89181074e9973",
-      "kickofftime": "2018-04-25T18:45:00.000Z",
+      "kickofftime": "2018-04-24T18:45:00.000Z",
       "stadium": "Anfield",
       "type": "Semi-finals - leg 1",
       "league": "1a21a7c1a3f89181074e9769"
     },
     {
-      "_id": "1a21a7c1a3f89181074e9889",
+      "_id": "1a21a7c1a3f89181074e9888",
       "team1": "1a21a7c1a3f89181074e9973",
       "team2": "1a21a7c1a3f89181074e9967",
-      "kickofftime": "2018-05-01T18:45:00.000Z",
+      "kickofftime": "2018-05-02T18:45:00.000Z",
       "stadium": "Stadio Olimpico, Rome",
       "type": "Semi-finals - leg 2",
       "league": "1a21a7c1a3f89181074e9769"
     },
     {
-      "_id": "1a21a7c1a3f89181074e9888",
+      "_id": "1a21a7c1a3f89181074e9889",
       "team1": "1a21a7c1a3f89181074e9970",
       "team2": "1a21a7c1a3f89181074e9976",
-      "kickofftime": "2018-05-02T18:45:00.000Z",
+      "kickofftime": "2018-05-01T18:45:00.000Z",
       "stadium": "Santiago Bernabéu",
       "type": "Semi-finals - leg 2",
       "league": "1a21a7c1a3f89181074e9769"
