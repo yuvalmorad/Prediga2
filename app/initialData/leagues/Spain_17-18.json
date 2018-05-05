@@ -3191,6 +3191,17 @@
     }
   ],
   "matchResults": [
+    {
+      "matchId": "5adfd05e42abc3f02a5fe714",
+      "winner": "1a21a7c1a3f89181074e9968",
+      "firstToScore": "1a21a7c1a3f89181074e9968",
+      "team1Goals": 1,
+      "team2Goals": 0,
+      "goalDiff": 0,
+      "gameTime": 90,
+      "completion": 100,
+      "active": false
+    }
   ],
   "teamResults": [
   ]

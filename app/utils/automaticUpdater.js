@@ -123,8 +123,8 @@ const self = module.exports = {
 		const startIdx = txt.indexOf('var GLOBAL_DATA =');
 		txt = txt.substr(startIdx);
 		txt = txt.substr('var GLOBAL_DATA ='.length);
-		const lastIdx = txt.indexOf(";");
-		txt = txt.substr(0, lastIdx - 1);
+		const lastIdx = txt.indexOf("Summary");
+		txt = txt.substr(0, lastIdx - 2);
 		return JSON.parse(txt + "}");
 	},
 	getRelevantGames: function (soccerContent, competition365Arr) {
