@@ -4,6 +4,7 @@ let GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 // load up the user model
 let User = require('../app/models/user');
 let Group = require('../app/models/group');
+let UserSettings = require('../app/models/userSettings');
 let util = require('../app/utils/util');
 // load the auth variables
 let configAuth = require('./auth'); // use this one for testing
@@ -160,9 +161,15 @@ module.exports = function (passport, configFBPassport, configGooglePassport) {
 								user.photo = photo;
 
 								user.save(function (err) {
-									if (err)
+									if (err) {
 										return done(err);
+									}
 
+									UserSettings.findOneAndUpdate({userId: user._id, key: util.USER_SETTINGS_KEYS.RANDOM_ALL}, {userId: user._id, key: util.USER_SETTINGS_KEYS.RANDOM_ALL, value: util.USER_SETTINGS_VALUES.TRUE}).then(function () {
+										UserSettings.findOneAndUpdate({userId: user._id, key: util.USER_SETTINGS_KEYS.COPY_ALL_GROUPS}, {userId: user._id, key: util.USER_SETTINGS_KEYS.COPY_ALL_GROUPS, value: util.USER_SETTINGS_VALUES.TRUE}).then(function () {
+											return done(null, newUser);
+										});
+									});
 									return done(null, user);
 								});
 							} else {
@@ -171,9 +178,14 @@ module.exports = function (passport, configFBPassport, configGooglePassport) {
 								user.photo = photo;
 
 								user.save(function (err) {
-									if (err)
+									if (err) {
 										return done(err);
-
+									}
+									UserSettings.findOneAndUpdate({userId: user._id, key: util.USER_SETTINGS_KEYS.RANDOM_ALL}, {userId: user._id, key: util.USER_SETTINGS_KEYS.RANDOM_ALL, value: util.USER_SETTINGS_VALUES.TRUE}).then(function () {
+										UserSettings.findOneAndUpdate({userId: user._id, key: util.USER_SETTINGS_KEYS.COPY_ALL_GROUPS}, {userId: user._id, key: util.USER_SETTINGS_KEYS.COPY_ALL_GROUPS, value: util.USER_SETTINGS_VALUES.TRUE}).then(function () {
+											return done(null, newUser);
+										});
+									});
 									return done(null, user);
 								});
 							}
@@ -196,7 +208,11 @@ module.exports = function (passport, configFBPassport, configGooglePassport) {
 
 								// adding the user to the default group
 								Group.findOneAndUpdate({_id: util.DEFAULT_GROUP}, {$addToSet: {users: newUser._id}}).then(function () {
-									return done(null, newUser);
+									UserSettings.findOneAndUpdate({userId: newUser._id, key: util.USER_SETTINGS_KEYS.RANDOM_ALL}, {userId: newUser._id, key: util.USER_SETTINGS_KEYS.RANDOM_ALL, value: util.USER_SETTINGS_VALUES.TRUE}).then(function () {
+										UserSettings.findOneAndUpdate({userId: newUser._id, key: util.USER_SETTINGS_KEYS.COPY_ALL_GROUPS}, {userId: newUser._id, key: util.USER_SETTINGS_KEYS.COPY_ALL_GROUPS, value: util.USER_SETTINGS_VALUES.TRUE}).then(function () {
+											return done(null, newUser);
+										});
+									});
 								});
 							});
 						}
@@ -216,7 +232,11 @@ module.exports = function (passport, configFBPassport, configGooglePassport) {
 
 						// adding the user to the default group
 						Group.findOneAndUpdate({_id: util.DEFAULT_GROUP}, {$addToSet: {users: user._id}}).then(function () {
-							return done(null, user);
+							UserSettings.findOneAndUpdate({userId: user._id, key: util.USER_SETTINGS_KEYS.RANDOM_ALL}, {userId: user._id, key: util.USER_SETTINGS_KEYS.RANDOM_ALL, value: util.USER_SETTINGS_VALUES.TRUE}).then(function () {
+								UserSettings.findOneAndUpdate({userId: user._id, key: util.USER_SETTINGS_KEYS.COPY_ALL_GROUPS}, {userId: user._id, key: util.USER_SETTINGS_KEYS.COPY_ALL_GROUPS, value: util.USER_SETTINGS_VALUES.TRUE}).then(function () {
+									return done(null, user);
+								});
+							});
 						});
 					});
 				}
