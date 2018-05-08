@@ -67,6 +67,7 @@ component.GamePredictionMainTile = (function(){
                 leagueName = league.name,
                 team1 = props.team1,
                 team2 = props.team2,
+				selectedGroupId = props.selectedGroupId,
                 prediction = props.prediction,
                 result = props.result,
                 isDialogFormDisabled = props.isDialogFormDisabled,
@@ -112,7 +113,7 @@ component.GamePredictionMainTile = (function(){
                 if (gameStatus === GAME.STATUS.RUNNING_GAME) {
                     //running game
                     className += " running-game";
-                    buttonBetweenScore = re(ReactRouterDOM.Link, {to: "/simulator/" + gameId, className: "simulation-button"}, "Simulate");
+                    buttonBetweenScore = re(ReactRouterDOM.Link, {to: "/group/" + selectedGroupId + "/simulator/" + gameId, className: "simulation-button"}, "Simulate");
                     dateStr = utils.general.getRunningGameFormat(result);
                     displayTeam1Goals = result[GAME.BET_TYPES.TEAM1_GOALS.key];
                     displayTeam2Goals = result[GAME.BET_TYPES.TEAM2_GOALS.key];

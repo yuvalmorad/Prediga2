@@ -14,10 +14,15 @@ component.LeaderBoardPage = (function(){
         },
 
         componentWillReceiveProps: function(nextProps) {
-            if (nextProps.selectedGroupId !== this.props.selectedGroupId) {
-                //changed group selection -> load leader board of selected group id
-                this.props.loadLeaderBoard(nextProps.selectedGroupId);
-            }
+			var groupIdParam = nextProps.match.params.groupId;
+			if (groupIdParam !== this.props.selectedGroupId ) {
+				this.props.selectGroup(groupIdParam);
+			}
+
+			if (nextProps.selectedGroupId !== this.props.selectedGroupId) {
+				//changed group selection -> load leader board of selected group id
+				this.props.loadLeaderBoard(nextProps.selectedGroupId);
+			}
         },
 
         render: function() {
@@ -53,7 +58,8 @@ component.LeaderBoardPage = (function(){
 
     function mapDispatchToProps(dispatch) {
         return {
-            loadLeaderBoard: function(groupId){dispatch(action.leaderBoard.loadLeaderBoard(groupId))}
+            loadLeaderBoard: function(groupId){dispatch(action.leaderBoard.loadLeaderBoard(groupId))},
+			selectGroup: function(groupId){dispatch(action.groups.selectGroup(groupId))}
         }
     }
 

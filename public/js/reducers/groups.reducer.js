@@ -8,7 +8,6 @@ reducer.groups = function() {
         REMOVE_GROUP = action.groups.REMOVE_GROUP,
         SET_SELECTED_LEAGUE_ID = action.groups.SET_SELECTED_LEAGUE_ID,
         UPDATE_GROUP = action.groups.UPDATE_GROUP,
-        LOCAL_STORAGE_SELCTED_GROUP_ID_KEY = "prediga_selected_group_id",
         LOCAL_STORAGE_SELCTED_LEAGUE_ID_BY_GROUP_KEY = "prediga_selected_league_id_by_group",
         initialState = {
             groups: [],
@@ -17,21 +16,6 @@ reducer.groups = function() {
             selectedGroupId: undefined,
             selectedLeagueId: ""
         };
-
-    function setSelectedGroupIdInLocalStorage(selectedGroupId) {
-        localStorage.setItem(LOCAL_STORAGE_SELCTED_GROUP_ID_KEY, selectedGroupId);
-    }
-
-    function getSelectedGroupId(groups) {
-        var selectedGroupId = localStorage.getItem(LOCAL_STORAGE_SELCTED_GROUP_ID_KEY);
-
-        if (selectedGroupId && utils.general.findItemInArrBy(groups, "_id", selectedGroupId)) {
-            //selected key from local storage and exists in groups
-            return selectedGroupId
-        } else {
-            return groups.length ? groups[0]._id : "";
-        }
-    }
 
     function setSelectedLeagueIdInLocalStorage(selectedLeagueId, selectedGroupId) {
         var selectedLeagueIdByGroupObj = getSelectedLeagueIdByGroupFromLocalStorage();
@@ -81,12 +65,9 @@ reducer.groups = function() {
         switch (action.type) {
             case LOAD_GROUPS:
                 var groups = action.groups;
-                var selectedGroupId = getSelectedGroupId(groups);
-                var selectedLeagueId = getSelectedLeagueId(groups, selectedGroupId);
-                return Object.assign({}, state, {groups: groups, selectedGroupId: selectedGroupId, selectedLeagueId: selectedLeagueId});
+                return Object.assign({}, state, {groups: groups});
             case SELECT_GROUP:
                 var selectedGroupId = action.groupId;
-                setSelectedGroupIdInLocalStorage(selectedGroupId);
                 var selectedLeagueId = getSelectedLeagueId(state.groups, selectedGroupId);
                 return Object.assign({}, state, {selectedGroupId: selectedGroupId, selectedLeagueId: selectedLeagueId});
             case SET_SELECTED_LEAGUE_ID:
@@ -97,12 +78,11 @@ reducer.groups = function() {
                 var group = action.group;
                 var groupId = group._id;
                 var groups = utils.general.copyArrAndAdd(state.groups, group);
-                setSelectedGroupIdInLocalStorage(groupId);
                 var selectedLeagueId = getSelectedLeagueId(groups, groupId);
                 return Object.assign({}, state, {groups: groups, selectedGroupId: groupId, selectedLeagueId: selectedLeagueId});
             case REMOVE_GROUP:
                 var groups = removeGroup(state.groups, action.group);
-                var selectedGroupId = getSelectedGroupId(groups);
+                var selectedGroupId = groups.length ? groups[0]._id : "";
                 var selectedLeagueId = getSelectedLeagueId(groups, selectedGroupId);
                 return Object.assign({}, state, {groups: groups, selectedGroupId: selectedGroupId, selectedLeagueId: selectedLeagueId});
             case LOAD_ALL_AVAILABLE_GROUPS:

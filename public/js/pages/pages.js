@@ -16,7 +16,7 @@ var routePages = (function(){
 
     var routePages = [
         {
-            path: "/",
+            path: "/group/:groupId/matchPredictions",
             title: "Match Predictions",
             icon: "",
             isAuthenticatedPage: true,
@@ -25,7 +25,7 @@ var routePages = (function(){
             displayInSiteNavigation: true
         },
         {
-            path: "/leaderBoard",
+            path: "/group/:groupId/leaderBoard",
             title: "Leaderboard",
             icon: "",
             isAuthenticatedPage: true,
@@ -33,7 +33,7 @@ var routePages = (function(){
             displayInSiteNavigation: true
         },
         {
-            path: "/teamsPredictionsCategories",
+            path: "/group/:groupId/teamsPredictionsCategories",
             title: "Team Predictions",
             icon: "",
             isAuthenticatedPage: true,
@@ -42,7 +42,7 @@ var routePages = (function(){
             displayInSiteNavigation: true
         },
         {
-            path: "/teamsPredictions/:teamCategoryId",
+            path: "/group/:groupId/teamsPredictions/:teamCategoryId",
             title: "Team Predictions",
             isAuthenticatedPage: true,
             component: TeamsPredictionsPage,
@@ -53,21 +53,16 @@ var routePages = (function(){
             }
         },
         {
-            path: "/groupMessages",
+            path: "/group/:groupId/groupMessages",
             title: "Chat",
             icon: "",
             isAuthenticatedPage: true,
             component: GroupMessagesPage,
             exact: true,
-            hideSiteNavigation: true,
-            displayInBottomMenu: true,
-            siteHeaderConfig: {
-                hideMenuButton: true,
-                hasBackButton: true
-            }
+			displayInSiteNavigation: true
         },
         {
-            path: "/simulator/:gameId?",
+            path: "/group/:groupId/simulator/:gameId?",
             title: "Simulator",
             isAuthenticatedPage: true,
             component: SimulatorPage,
@@ -176,9 +171,15 @@ var routePages = (function(){
     ];
 
     function getPageByPath(path) {
-        return getPages().filter(function(page){
+        var page = getPages().filter(function(page){
             return utils.general.cutUrlPath(page.path) === path;
         })[0];
+
+        if (!page) {
+            page = getPages()[0];
+        }
+
+        return page;
     }
 
     function getPages() {

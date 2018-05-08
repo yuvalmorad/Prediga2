@@ -33,7 +33,7 @@ component.BaseMainTile = (function(){
         }
 
         var rankElem = rank && re("div", {className: "rank"}, rank);
-        var badgeElem = badgeName && re("div", {className: "badge", style: {backgroundImage: "url('../images/" + badgeName + ".png')"}});
+        var badgeElem = badgeName && re("div", {className: "badge", style: {backgroundImage: "url('/images/" + badgeName + ".png')"}});
         var scoreCurrentMatchElem;
 
         if (scoreCurrentMatch !== undefined) {

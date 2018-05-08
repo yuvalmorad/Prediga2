@@ -1,6 +1,8 @@
 window.component = window.component || {};
 component.Pages = (function(){
     var Route = ReactRouterDOM.Route,
+        Redirect = ReactRouterDOM.Redirect,
+		Switch = ReactRouterDOM.Switch,
         AuthenticateRoute = component.AuthenticateRoute;
 
     return function(props) {
@@ -14,6 +16,10 @@ component.Pages = (function(){
 
             return re(Component, {exact: !!page.exact, path: page.path, component: page.component, key: index});
         });
+
+        pages.push(re(Redirect, {from: '/', to: ('/group/' + INITIAL_PUPLIC_GROUP + '/matchPredictions')}));
+
+        var switchPages = re(Switch, {}, pages);
 
         var path = utils.general.cutUrlPath(routerHistory.location.pathname);
         var currentPage = routePages.getPageByPath(path);
@@ -33,7 +39,7 @@ component.Pages = (function(){
             pageClassName += " hasSiteNavigation";
         }
 
-        return re("div", {className: pageClassName}, pages);
+        return re("div", {className: pageClassName}, switchPages);
     };
 })();
 

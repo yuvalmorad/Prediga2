@@ -11,9 +11,9 @@ component.MainMenu = (function(){
         },
 
         onGroupMenuItemClicked: function(groupId) {
-            this.props.selectGroup(groupId);
             this.props.toggleMenu(); //close menu
-            //window.routerHistory.push("/");
+			var path = utils.general.cutUrlPath(routerHistory.location.pathname);
+			window.routerHistory.push("/group/" + groupId + path);
         },
 
         onLogout: function() {
@@ -26,13 +26,6 @@ component.MainMenu = (function(){
         renderMenuItems: function(filterProperty) {
             var that = this;
             var props = this.props;
-            var unreadMessagesByGroup = props.unreadMessagesByGroup;
-            var unreadMessagesCount = 0;
-
-            var unreadMessagesCountObj = utils.general.findItemInArrBy(unreadMessagesByGroup, "groupId", props.selectedGroupId);
-            if (unreadMessagesCountObj) {
-                unreadMessagesCount = unreadMessagesCountObj.count;
-            }
 
             return routePages.getPages().filter(function(page){
                 return page[filterProperty];
@@ -44,13 +37,7 @@ component.MainMenu = (function(){
                     isSelected = true;
                 }
 
-                if (to === "/groupMessages" && unreadMessagesCount) {
-                    indication = {
-                        text: unreadMessagesCount
-                    }
-                }
-
-                return re(MenuItem, {text: page.title, icon: page.icon, isSelected: isSelected, onMenuItemClicked: that.onMenuItemClicked.bind(that, to), indication: indication, key: filterProperty + index});
+                return re(MenuItem, {text: page.title, icon: page.icon, isSelected: isSelected, onMenuItemClicked: that.onMenuItemClicked.bind(that, to), key: filterProperty + index});
             });
         },
 
@@ -132,8 +119,7 @@ component.MainMenu = (function(){
             isMainMenuOpen: state.general.isMainMenuOpen,
             groups: state.groups.groups,
             selectedGroupId: state.groups.selectedGroupId,
-            userId: state.authentication.userId,
-            unreadMessagesByGroup: state.groupMessages.unreadMessagesByGroup
+            userId: state.authentication.userId
         }
     }
 

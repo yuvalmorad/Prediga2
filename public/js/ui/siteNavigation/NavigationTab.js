@@ -7,8 +7,15 @@ component.NavigationTab = (function(){
             className += " selected"
         }
 
-        return re(ReactRouterDOM.Link, {to: props.to, className: className},
-            re("span", {}, props.icon)
+        var indicationElem;
+
+        if (props.indication) {
+			indicationElem = re("span", {className: "nav-unread-messages-indication"}, props.indication.text);
+        }
+
+        return re(ReactRouterDOM.Link, {to: props.to.replace(":groupId", props.selectedGroupId), className: className},
+            re("span", {}, props.icon),
+			indicationElem
         );
     };
 })();

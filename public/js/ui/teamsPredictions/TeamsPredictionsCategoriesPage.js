@@ -15,10 +15,15 @@ component.TeamsPredictionsCategoriesPage = (function(){
         },
 
         componentWillReceiveProps: function(nextProps) {
-            if (nextProps.selectedGroupId !== this.props.selectedGroupId) {
-                //changed group selection -> load matches of selected group id
-                this.props.loadTeamsPredictions(nextProps.selectedGroupId);
-            }
+			var groupIdParam = nextProps.match.params.groupId;
+			if (groupIdParam !== this.props.selectedGroupId ) {
+				this.props.selectGroup(groupIdParam);
+			}
+
+			if (nextProps.selectedGroupId !== this.props.selectedGroupId) {
+				//changed group selection -> load matches of selected group id
+				this.props.loadTeamsPredictions(nextProps.selectedGroupId);
+			}
         },
 
         render: function() {
@@ -72,7 +77,7 @@ component.TeamsPredictionsCategoriesPage = (function(){
                     }
                 });
 
-                return re(TeamPredictionCategoryTile, {categoryName: teamCategory.title, categoryDescription: teamCategory.description, sprite: teamCategory.sprite, iconPosition: teamCategory.iconPosition, deadline: deadline, resultTime: resultTime, categoryTotalPointsEarned: totalPointsEarned , categoryTotalPoints: totalPoints, categoryId: categoryId, key: categoryId});
+                return re(TeamPredictionCategoryTile, {categoryName: teamCategory.title, categoryDescription: teamCategory.description, sprite: teamCategory.sprite, iconPosition: teamCategory.iconPosition, deadline: deadline, resultTime: resultTime, categoryTotalPointsEarned: totalPointsEarned , categoryTotalPoints: totalPoints, categoryId: categoryId, selectedGroupId: selectedGroupId, key: categoryId});
             });
 
             return re("div", { className: "content hasSubHeader" },
@@ -100,7 +105,8 @@ component.TeamsPredictionsCategoriesPage = (function(){
 
     function mapDispatchToProps(dispatch) {
         return {
-            loadTeamsPredictions: function(groupId){dispatch(action.teamsPredictions.loadTeams(groupId))}
+            loadTeamsPredictions: function(groupId){dispatch(action.teamsPredictions.loadTeams(groupId))},
+			selectGroup: function(groupId){dispatch(action.groups.selectGroup(groupId))}
         }
     }
 

@@ -124,11 +124,16 @@ component.GroupMessagesPage = (function () {
 		},
 
         componentWillReceiveProps: function(nextProps) {
-            if (nextProps.selectedGroupId !== this.props.selectedGroupId) {
-                //changed group selection -> load group messages of selected group id
-                this.props.loadGroupMessages(nextProps.selectedGroupId);
-                this.props.resetUnreadMessage(nextProps.selectedGroupId);
-            }
+			var groupIdParam = nextProps.match.params.groupId;
+			if (groupIdParam !== this.props.selectedGroupId ) {
+				this.props.selectGroup(groupIdParam);
+			}
+
+			if (nextProps.selectedGroupId !== this.props.selectedGroupId) {
+				//changed group selection -> load group messages of selected group id
+				this.props.loadGroupMessages(nextProps.selectedGroupId);
+				this.props.resetUnreadMessage(nextProps.selectedGroupId);
+			}
         },
 
         pasteHTML: function(html) {
@@ -414,7 +419,8 @@ component.GroupMessagesPage = (function () {
         return {
             loadGroupMessages: function(groupId){dispatch(action.groupMessages.loadGroupMessages(groupId))},
             sendMessage: function(message, groupId){dispatch(action.groupMessages.sendMessage(message, groupId))},
-            resetUnreadMessage: function(groupId){dispatch(action.groupMessages.resetUnreadMessage(groupId))}
+            resetUnreadMessage: function(groupId){dispatch(action.groupMessages.resetUnreadMessage(groupId))},
+			selectGroup: function(groupId){dispatch(action.groups.selectGroup(groupId))}
         }
     }
 

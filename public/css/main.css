@@ -582,6 +582,20 @@ body,textarea {
     font-size: 24px;
 }
 
+.navigation-tab .nav-unread-messages-indication {
+    font-size: 1rem;
+    position: absolute;
+    top: 4px;
+    left: 50%;
+    margin-left: 1rem;
+    background-color: #6ECE1A;
+    color: #fff;
+    line-height: 1.5rem;
+    border-radius: 50%;
+    width: 1.5rem;
+    height: 1.5rem;
+    text-align: center;
+}
 /* -------  images pagination -------*/
 
 .images-pagination-container {

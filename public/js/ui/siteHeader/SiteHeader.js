@@ -27,13 +27,13 @@ component.SiteHeader = (function(){
                     group = utils.general.findItemInArrBy(props.groups, "_id", props.selectedGroupId),
                     league = utils.general.findItemInArrBy(props.leagues, "_id", props.selectedLeagueId),
                     leagueColor = league ? league.color : "",
-                    unreadMessagesByGroup = props.unreadMessagesByGroup,
-                    unreadMessagesCount = 0;
+                    unreadMessagesByGroup = props.unreadMessagesByGroup;
+                    /*unreadMessagesCount = 0;
 
                 var unreadMessagesCountObj = utils.general.findItemInArrBy(unreadMessagesByGroup, "groupId", props.selectedGroupId);
                 if (unreadMessagesCountObj) {
                     unreadMessagesCount = unreadMessagesCountObj.count;
-                }
+                }*/
 
 
 
@@ -58,8 +58,7 @@ component.SiteHeader = (function(){
                                     onClick: props.toggleMainMenu,
                                     style: {backgroundColor: this.props.isMainMenuOpen ? leagueColor : ""}
                                 },
-                           re("span", {}, ""),
-                           re("span", {className: "unread-messages-indication" + (!unreadMessagesCount? " hide" : "")}, unreadMessagesCount) //TODO if 0 hide
+                           re("span", {}, "")
                         )
                     ),
                     re("div", {className: "center"}, isDynamicTitle ? siteHeaderTitle: title),

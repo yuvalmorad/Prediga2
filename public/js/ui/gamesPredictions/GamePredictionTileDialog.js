@@ -70,10 +70,11 @@ component.GamePredictionTileDialog = (function(){
                 result = props.result,
                 groupConfiguration = utils.general.getGroupConfiguration(props.groups, props.selectedGroupId, props.groupsConfiguration),
                 predictionCounters = props.predictionCounters,
-                isDialogFormDisabled = props.isDialogFormDisabled;
+                isDialogFormDisabled = props.isDialogFormDisabled,
+				selectedGroupId = props.selectedGroupId;
 
             return re(TileDialog, {/*borderLeftColor: team1.colors[0], borderLeftSecondColor: team1.colors[1], borderRightColor: team2.colors[0], borderRightSecondColor: team2.colors[1],*/ className: "game-prediction-tile"},
-                re(GamePredictionMainTile, {game: game, team1: team1, team2: team2, league: league, prediction: prediction, result: result, groupConfiguration: groupConfiguration, predictionCounters: predictionCounters, updateGameForm: this.updateGameForm, randomGamePrediction: this.randomGamePrediction, isDialogFormDisabled: isDialogFormDisabled}),
+                re(GamePredictionMainTile, {game: game, team1: team1, team2: team2, league: league, prediction: prediction, result: result, groupConfiguration: groupConfiguration, predictionCounters: predictionCounters, updateGameForm: this.updateGameForm, randomGamePrediction: this.randomGamePrediction, isDialogFormDisabled: isDialogFormDisabled, selectedGroupId: selectedGroupId}),
                 re(GamePredictionFormTile, {game: game, team1: team1, team2: team2, league: league, prediction: prediction, result: result, groupConfiguration: groupConfiguration, updateGameForm: this.updateGameForm, isDialogFormDisabled: isDialogFormDisabled})
             );
         }

@@ -109,6 +109,11 @@ component.GamesPredictionsPage = (function(){
         },
 
         componentWillReceiveProps: function(nextProps) {
+            var groupIdParam = nextProps.match.params.groupId;
+            if (groupIdParam !== this.props.selectedGroupId ) {
+				this.props.selectGroup(groupIdParam);
+            }
+
             if (nextProps.selectedLeagueId !== this.props.selectedLeagueId) {
                 this.setState({offsetPageIndex: 0});
             }
@@ -206,6 +211,7 @@ component.GamesPredictionsPage = (function(){
                         league: league,
                         groupConfiguration: groupConfiguration,
                         predictionCounters: predictionsCounters[matchId] || {},
+						selectedGroupId: props.selectedGroupId,
                         key: matchId
                     });
                 });
@@ -258,7 +264,8 @@ component.GamesPredictionsPage = (function(){
 
     function mapDispatchToProps(dispatch) {
         return {
-            loadGamesPredictions: function(groupId){dispatch(action.gamesPredictions.loadGames(groupId))}
+            loadGamesPredictions: function(groupId){dispatch(action.gamesPredictions.loadGames(groupId))},
+			selectGroup: function(groupId){dispatch(action.groups.selectGroup(groupId))}
         }
     }
 

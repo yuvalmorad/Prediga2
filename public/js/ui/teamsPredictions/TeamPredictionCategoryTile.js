@@ -14,6 +14,7 @@ component.TeamPredictionCategoryTile = (function(){
                 iconPosition = props.iconPosition,
                 deadline = props.deadline,
                 resultTime = props.resultTime,
+				selectedGroupId = props.selectedGroupId,
                 status = "",
                 todayDate = new Date(),
                 pointsEarned = categoryTotalPointsEarned || 0,
@@ -35,7 +36,7 @@ component.TeamPredictionCategoryTile = (function(){
                 }
             }
 
-            return re(Tile, {className: className, navigateOnClickTo: "/teamsPredictions/" + categoryId},
+            return re(Tile, {className: className, navigateOnClickTo: "/group/" + selectedGroupId + "/teamsPredictions/" + categoryId},
                 re("div", {className: "main"},
                     re("div", {className: "left"},
                         re("div", {className: "category-icon", style: {backgroundImage: "url(/images/teamCategories/" + sprite + ")", backgroundPosition: iconPosition}})),

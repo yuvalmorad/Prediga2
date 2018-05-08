@@ -21,7 +21,7 @@ service.groupMessages = (function() {
 
     function getUnReadMessages() {
         return httpInstnace.get("/api/groupMessages/getUnReadMessages").then(function(res){
-            return res.data
+            return res.data;
         });
     }
 })();

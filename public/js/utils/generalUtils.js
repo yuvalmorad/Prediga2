@@ -76,6 +76,9 @@ utils.general = (function(){
     }
 
     function cutUrlPath(path) {
+	    if (path.indexOf("/group/") === 0) {
+			return "/" + path.split("/")[3];
+        }
         return "/" + path.split("/")[1];
     }
 
@@ -97,7 +100,7 @@ utils.general = (function(){
     }
 
     function getLeagueLogoURL(leagueIdName) {
-        return "url('../images/sprites/" + leagueIdName + "_teams.png')"
+        return "url('/images/sprites/" + leagueIdName + "_teams.png')"
     }
 
     function leagueNameToIdName(leagueName) {
