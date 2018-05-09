@@ -8,6 +8,7 @@ const socketIo = require('./utils/socketIo');
 const jobRunBeforeDeadlineService = require('./utils/jobRunBeforeDeadlineService');
 const updateMatchesAutomatically = require('./utils/updateMatchesAutomatically');
 mongoose.Promise = Promise;
+let Group = require('../app/models/group');
 
 module.exports = function (app, passport) {
 	const server = http.Server(app);
@@ -69,8 +70,26 @@ module.exports = function (app, passport) {
 			//successRedirect: '/',
 			failureRedirect: '/login'
 		}), function(req, res){
-			res.redirect(req.session.returnTo || '/'); //redirect back to origin url
-			delete req.session.returnTo;
+			var path = req.session.returnTo || "/";
+			var groupId = path.split("/")[2];
+			if (groupId && path.indexOf("?autoJoin") >= 0) {
+				//join to group
+				Group.findOne({_id: groupId}).then(function(group){
+					if (group) {
+						Group.findOneAndUpdate({_id: groupId}, {$addToSet: {users: req.user._id}}).then(function () {
+							res.redirect(path);
+							delete req.session.returnTo;
+						});
+					} else {
+						res.redirect(path);
+						delete req.session.returnTo;
+					}
+				});
+			} else {
+				res.redirect(path);
+				delete req.session.returnTo;
+			}
+
 		});
 
 	app.get('/auth/facebook',
