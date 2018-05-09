@@ -69,13 +69,21 @@ const self = module.exports = {
 							if (group.leagueIds.indexOf(team.league) === -1) {
 								return Promise.resolve();
 							}
-							let copyPrediction = {
-								groupId: group._id,
-								teamId: teamId,
-								userId: userId,
-								team: teamPrediction[0].team
-							};
-							return teamPredictionsService.updatePrediction(copyPrediction, userId, group._id);
+
+							return teamPredictionsService.byTeamIdsUserIdGroupId(teamId, userId, group._id).then(function (teamPredictionInGroup) {
+								if (teamPredictionInGroup && teamPredictionInGroup.groupId === group._id) {
+									// already exist, exit.
+									return Promise.resolve();
+								}
+
+								let copyPrediction = {
+									groupId: group._id,
+									teamId: teamId,
+									userId: userId,
+									team: teamPrediction[0].team
+								};
+								return teamPredictionsService.updatePrediction(copyPrediction, userId, group._id);
+							});
 						});
 						return Promise.all(promises);
 					});
@@ -149,18 +157,25 @@ const self = module.exports = {
 							if (group.leagueIds.indexOf(match.league) === -1) {
 								return Promise.resolve();
 							}
-							let copyPrediction = {
-								groupId: group._id,
-								matchId: match._id,
-								userId: userId,
-								winner: matchPrediction.winner,
-								team1Goals: matchPrediction.team1Goals,
-								team2Goals: matchPrediction.team2Goals,
-								goalDiff: matchPrediction.goalDiff,
-								firstToScore: matchPrediction.firstToScore
-							};
+							// checking if we already set a metch prediction, then don't override.
+							return matchPredictionsService.byMatchIdUserIdGroupId(matchId, userId, group._id).then(function (matchPredictionInGroup) {
+								if (matchPredictionInGroup && matchPredictionInGroup.groupId === group._id) {
+									// already exist, exit.
+									return Promise.resolve();
+								}
+								let copyPrediction = {
+									groupId: group._id,
+									matchId: match._id,
+									userId: userId,
+									winner: matchPrediction.winner,
+									team1Goals: matchPrediction.team1Goals,
+									team2Goals: matchPrediction.team2Goals,
+									goalDiff: matchPrediction.goalDiff,
+									firstToScore: matchPrediction.firstToScore
+								};
 
-							return matchPredictionsService.updatePrediction(copyPrediction, userId, group._id);
+								return matchPredictionsService.updatePrediction(copyPrediction, userId, group._id);
+							});
 						});
 						return Promise.all(promises);
 					});
