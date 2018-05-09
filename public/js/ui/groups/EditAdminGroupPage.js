@@ -18,6 +18,11 @@ component.EditAdminGroupPage = (function(){
         },
 
         componentWillReceiveProps: function(nextProps) {
+			var groupIdParam = nextProps.match.params.groupId;
+			if (groupIdParam !== this.props.selectedGroupId ) {
+				this.props.selectGroup(groupIdParam);
+			}
+
             var groups = nextProps.groups;
             if (groups.length && groups !== this.props.groups) {
                 var group = this.getGroupAndSetHeader(groups);
@@ -306,7 +311,8 @@ component.EditAdminGroupPage = (function(){
             updateGroup: function(group){dispatch(action.groups.updateGroup(group))},
             updateGroupConfiguration: function(group){dispatch(action.groups.updateGroupConfiguration(group))},
             removeGroup: function(group){dispatch(action.groups.removeGroup(group))},
-            loadAllAvailableLeagues: function(group){dispatch(action.leagues.loadAllAvailableLeagues())}
+            loadAllAvailableLeagues: function(group){dispatch(action.leagues.loadAllAvailableLeagues())},
+			selectGroup: function(groupId){dispatch(action.groups.selectGroup(groupId))}
         };
     }
 

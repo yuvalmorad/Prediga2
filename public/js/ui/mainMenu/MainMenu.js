@@ -44,13 +44,13 @@ component.MainMenu = (function(){
         onGroupAdminSettingsClicked: function(groupId, event) {
             event.stopPropagation();
             this.props.toggleMenu(); //close menu
-            window.routerHistory.push("/editAdminGroup/" + groupId);
+            window.routerHistory.push("/group/" + groupId + "/editAdminGroup");
         },
 
         onGroupUserSettingsClicked: function(groupId, event) {
             event.stopPropagation();
             this.props.toggleMenu(); //close menu
-            window.routerHistory.push("/editUserGroup/" + groupId);
+            window.routerHistory.push("/group/" + groupId + "/editUserGroup");
         },
 
         renderGroupsMenuItems: function(groups, selectedGroupId) {

@@ -102,7 +102,7 @@ var routePages = (function(){
             }
         },
         {
-            path: "/editAdminGroup/:groupId",
+            path: "/group/:groupId/editAdminGroup",
             isAuthenticatedPage: true,
             component: EditAdminGroupPage,
             hideSiteNavigation: true,
@@ -113,7 +113,7 @@ var routePages = (function(){
             }
         },
         {
-            path: "/editUserGroup/:groupId",
+            path: "/group/:groupId/editUserGroup",
             isAuthenticatedPage: true,
             component: EditUserGroupPage,
             hideSiteNavigation: true,
