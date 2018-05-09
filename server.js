@@ -13,7 +13,7 @@ let cookieParser = require('cookie-parser');
 let bodyParser = require('body-parser');
 let session = require('express-session');
 let sslRedirect = require('heroku-ssl-redirect');
-
+let GroupService = require('./app/services/groupService');
 // configuration ===============================================================
 let configDB = port !== 3000 ? process.env.MONGODB_URI : 'mongodb://localhost:27017/prediga';
 let clientFolder = port === 3000 ? (__dirname + "/public") : (__dirname + "/build");
@@ -49,10 +49,12 @@ app.use(flash()); // use connect-flash for flash messages stored in session
 // routes ======================================================================
 let server = require('./app/routes.js')(app, passport); // load our routes and pass in our app and fully configured passport
 app.get('*', function (req, res) {
+	req.session.returnTo = req.url; //set the origin url to redirected back when login
     if (req.isAuthenticated()) {
-        res.sendFile('index.html', {"root": clientFolder}); // load the single view file (angular will handle the page changes on the front-end)
+		GroupService.autoLogin(req).then(function () {
+			res.sendFile('index.html', {"root": clientFolder}); // load the single view file (angular will handle the page changes on the front-end)
+		});
     } else {
-		req.session.returnTo = req.url; //set the origin url to redirected back when login
         res.redirect('/auth/google');
     }
 });

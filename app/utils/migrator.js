@@ -19,7 +19,7 @@ const self = module.exports = {
 			//self.migrateLeaderboard(),
 			//self.migrateMatchPredictions(),
 			//self.migrateTeamPredictions(),
-			self.migrateUsers(),
+			//self.migrateUsers(),
 			//self.migrateMatchResults()
 			//self.migrateTeamResults()
 			//self.migrateMatches()
