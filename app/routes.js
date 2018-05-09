@@ -7,8 +7,8 @@ const migrator = require('./utils/migrator');
 const socketIo = require('./utils/socketIo');
 const jobRunBeforeDeadlineService = require('./utils/jobRunBeforeDeadlineService');
 const updateMatchesAutomatically = require('./utils/updateMatchesAutomatically');
+const GroupService = require('./services/groupService');
 mongoose.Promise = Promise;
-let Group = require('../app/models/group');
 
 module.exports = function (app, passport) {
 	const server = http.Server(app);
@@ -63,33 +63,22 @@ module.exports = function (app, passport) {
 	app.get('/auth/google',
 		passport.authenticate('google', {
 			scope: ['email']
-		}));
+		}), function (req, res) {
+			GroupService.autoLogin(req).then(function (path) {
+				res.redirect(path);
+				delete req.session.returnTo;
+			});
+		});
 
 	app.get('/auth/google/callback',
 		passport.authenticate('google', {
 			//successRedirect: '/',
 			failureRedirect: '/login'
-		}), function(req, res){
-			var path = req.session.returnTo || "/";
-			var groupId = path.split("/")[2];
-			if (groupId && path.indexOf("?autoJoin") >= 0) {
-				//join to group
-				Group.findOne({_id: groupId}).then(function(group){
-					if (group) {
-						Group.findOneAndUpdate({_id: groupId}, {$addToSet: {users: req.user._id}}).then(function () {
-							res.redirect(path);
-							delete req.session.returnTo;
-						});
-					} else {
-						res.redirect(path);
-						delete req.session.returnTo;
-					}
-				});
-			} else {
+		}), function (req, res) {
+			GroupService.autoLogin(req).then(function (path) {
 				res.redirect(path);
 				delete req.session.returnTo;
-			}
-
+			});
 		});
 
 	app.get('/auth/facebook',

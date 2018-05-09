@@ -89,7 +89,7 @@ const self = module.exports = {
 	all: function (userRequested) {
 		return Groups.find({}).then(function (allGroups) {
 			allGroups.forEach(function (group) {
-				if (userRequested){
+				if (userRequested) {
 					self.verifyOnlyAdminCanSeeSecret(group, userRequested);
 				}
 			});
@@ -123,5 +123,29 @@ const self = module.exports = {
 		return groups.filter(function (group) {
 			return group._id.toString() === groupId;
 		});
+	},
+	autoLogin: function (req) {
+		var path = req.session.returnTo || "/";
+		var groupId = path.split("/")[2];
+		var autoJoinIdx = path.indexOf("?autoJoin");
+		if (groupId && autoJoinIdx >= 0) {
+			// autoJoin group flow
+			// removing the autoJoin to avoid loop
+			path = path.substring(0, autoJoinIdx);
+
+			// find and join group
+			return Groups.findOne({_id: groupId}).then(function (group) {
+				if (group) {
+					return Groups.findOneAndUpdate({_id: groupId}, {$addToSet: {users: req.user._id}}).then(function () {
+						return Promise.resolve(path);
+					});
+				} else {
+					return Promise.resolve(path);
+				}
+			});
+		} else {
+			// regular flow
+			return Promise.resolve(path);
+		}
 	}
 };

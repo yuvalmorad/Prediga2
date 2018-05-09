@@ -165,11 +165,6 @@ module.exports = function (passport, configFBPassport, configGooglePassport) {
 										return done(err);
 									}
 
-									UserSettings.findOneAndUpdate({userId: user._id, key: util.USER_SETTINGS_KEYS.RANDOM_ALL}, {userId: user._id, key: util.USER_SETTINGS_KEYS.RANDOM_ALL, value: util.USER_SETTINGS_VALUES.TRUE}).then(function () {
-										UserSettings.findOneAndUpdate({userId: user._id, key: util.USER_SETTINGS_KEYS.COPY_ALL_GROUPS}, {userId: user._id, key: util.USER_SETTINGS_KEYS.COPY_ALL_GROUPS, value: util.USER_SETTINGS_VALUES.TRUE}).then(function () {
-											return done(null, newUser);
-										});
-									});
 									return done(null, user);
 								});
 							} else {
@@ -181,11 +176,6 @@ module.exports = function (passport, configFBPassport, configGooglePassport) {
 									if (err) {
 										return done(err);
 									}
-									UserSettings.findOneAndUpdate({userId: user._id, key: util.USER_SETTINGS_KEYS.RANDOM_ALL}, {userId: user._id, key: util.USER_SETTINGS_KEYS.RANDOM_ALL, value: util.USER_SETTINGS_VALUES.TRUE}).then(function () {
-										UserSettings.findOneAndUpdate({userId: user._id, key: util.USER_SETTINGS_KEYS.COPY_ALL_GROUPS}, {userId: user._id, key: util.USER_SETTINGS_KEYS.COPY_ALL_GROUPS, value: util.USER_SETTINGS_VALUES.TRUE}).then(function () {
-											return done(null, newUser);
-										});
-									});
 									return done(null, user);
 								});
 							}
@@ -206,7 +196,7 @@ module.exports = function (passport, configFBPassport, configGooglePassport) {
 								if (err)
 									return done(err);
 
-								// adding the user to the default group
+								// adding the user to the default group and adding two settings by default
 								Group.findOneAndUpdate({_id: util.DEFAULT_GROUP}, {$addToSet: {users: newUser._id}}).then(function () {
 									UserSettings.findOneAndUpdate({userId: newUser._id, key: util.USER_SETTINGS_KEYS.RANDOM_ALL}, {userId: newUser._id, key: util.USER_SETTINGS_KEYS.RANDOM_ALL, value: util.USER_SETTINGS_VALUES.TRUE}).then(function () {
 										UserSettings.findOneAndUpdate({userId: newUser._id, key: util.USER_SETTINGS_KEYS.COPY_ALL_GROUPS}, {userId: newUser._id, key: util.USER_SETTINGS_KEYS.COPY_ALL_GROUPS, value: util.USER_SETTINGS_VALUES.TRUE}).then(function () {
@@ -232,11 +222,7 @@ module.exports = function (passport, configFBPassport, configGooglePassport) {
 
 						// adding the user to the default group
 						Group.findOneAndUpdate({_id: util.DEFAULT_GROUP}, {$addToSet: {users: user._id}}).then(function () {
-							UserSettings.findOneAndUpdate({userId: user._id, key: util.USER_SETTINGS_KEYS.RANDOM_ALL}, {userId: user._id, key: util.USER_SETTINGS_KEYS.RANDOM_ALL, value: util.USER_SETTINGS_VALUES.TRUE}).then(function () {
-								UserSettings.findOneAndUpdate({userId: user._id, key: util.USER_SETTINGS_KEYS.COPY_ALL_GROUPS}, {userId: user._id, key: util.USER_SETTINGS_KEYS.COPY_ALL_GROUPS, value: util.USER_SETTINGS_VALUES.TRUE}).then(function () {
-									return done(null, user);
-								});
-							});
+							return done(null, user);
 						});
 					});
 				}

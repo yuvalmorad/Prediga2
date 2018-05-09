@@ -3,6 +3,7 @@ const TeamResult = require("../models/teamResult");
 const MatchPrediction = require("../models/matchPrediction");
 const TeamPrediction = require("../models/teamPrediction");
 const UserScore = require("../models/userScore");
+const UserSettings = require("../models/userSettings");
 const UsersLeaderboard = require("../models/usersLeaderboard");
 const Club = require("../models/club");
 const Match = require("../models/match");
@@ -18,7 +19,7 @@ const self = module.exports = {
 			//self.migrateLeaderboard(),
 			//self.migrateMatchPredictions(),
 			//self.migrateTeamPredictions(),
-			//self.migrateUsers(),
+			self.migrateUsers(),
 			//self.migrateMatchResults()
 			//self.migrateTeamResults()
 			//self.migrateMatches()
@@ -92,7 +93,11 @@ const self = module.exports = {
 		return User.find({}, function (err, users) {
 			if (users) {
 				const promises = users.map(function (user) {
-					return Group.findOneAndUpdate({_id: utils.DEFAULT_GROUP}, {$addToSet: {users: user._id}});
+					return UserSettings.findOneAndUpdate({userId: user._id, key: utils.USER_SETTINGS_KEYS.RANDOM_ALL}, {userId: user._id, key: utils.USER_SETTINGS_KEYS.RANDOM_ALL, value: utils.USER_SETTINGS_VALUES.TRUE}).then(function () {
+						return UserSettings.findOneAndUpdate({userId: user._id, key: utils.USER_SETTINGS_KEYS.COPY_ALL_GROUPS}, {userId: user._id, key: utils.USER_SETTINGS_KEYS.COPY_ALL_GROUPS, value: utils.USER_SETTINGS_VALUES.TRUE}).then(function () {
+							return Promise.resolve();
+						});
+					});
 				});
 				return Promise.all(promises);
 			}
