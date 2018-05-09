@@ -66,9 +66,12 @@ module.exports = function (app, passport) {
 
 	app.get('/auth/google/callback',
 		passport.authenticate('google', {
-			successRedirect: '/',
+			//successRedirect: '/',
 			failureRedirect: '/login'
-		}));
+		}), function(req, res){
+			res.redirect(req.session.returnTo || '/'); //redirect back to origin url
+			delete req.session.returnTo;
+		});
 
 	app.get('/auth/facebook',
 		passport.authenticate('facebook', {

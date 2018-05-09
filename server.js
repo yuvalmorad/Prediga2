@@ -52,6 +52,7 @@ app.get('*', function (req, res) {
     if (req.isAuthenticated()) {
         res.sendFile('index.html', {"root": clientFolder}); // load the single view file (angular will handle the page changes on the front-end)
     } else {
+		req.session.returnTo = req.path; //set the origin url to redirected back when login
         res.redirect('/auth/google');
     }
 });
