@@ -2277,3 +2277,40 @@ body,textarea {
     margin-top: 4px;
     font-size: 0.666rem;
 }
+
+/* -------  rules-------*/
+
+.rules-item {
+    border-bottom: 1px solid gray;
+}
+
+.rules-item:last-child {
+    border-bottom: none
+}
+
+.rules-item-content {
+    padding: 1rem 0.5rem;
+}
+
+.rules-item:first-child .rules-item-content {
+    padding-top: 0.5rem;
+}
+
+.rules-item-header {
+    font-weight: bold;
+    margin-bottom: 6px;
+    text-align: center;
+}
+
+.rules-item-items {
+    color: #7b7979;
+    font-size: 0.85rem;
+}
+
+.rules-item-items div {
+    margin-bottom: 4px;
+}
+
+.rules-item-items div:last-child {
+    margin-bottom: 0;
+}

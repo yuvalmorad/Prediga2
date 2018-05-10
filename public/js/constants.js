@@ -14,6 +14,15 @@ var GAME = {
         FIRST_TO_SCORE: {key: "firstToScore"}
     },
 
+    TEAM_TYPES: {
+        TEAM_WINNER: {key: "teamWinner"},
+        TEAM_THIRD: {key: "teamThird"},
+        TEAM_RUNNER_UP: {key: "teamRunnerUp"},
+        TEAM_LAST: {key: "teamLast"},
+        TEAM_SECOND_LAST: {key: "team2ndLast"},
+        TEAM_FOURTH: {key: "teamForth"}
+    },
+
     MINUTES_BEFORE_CLOSE_MATCH: "minutesBeforeCloseMathPrediction"
 };
 
