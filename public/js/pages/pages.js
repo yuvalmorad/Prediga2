@@ -144,7 +144,8 @@ var routePages = (function(){
             hideSiteNavigation: true,
             siteHeaderConfig: {
                 hideMenuButton: true,
-                hasBackButton: true
+                hasBackButton: true,
+				hideGroupsIcon: true
             }
         },
         {
