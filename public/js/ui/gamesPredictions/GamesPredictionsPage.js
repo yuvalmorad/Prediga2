@@ -169,6 +169,8 @@ component.GamesPredictionsPage = (function(){
                 leagues = props.leagues,
                 clubs = props.clubs,
                 groupsConfiguration = props.groupsConfiguration,
+				groups = props.groups,
+                selectedGroupId = props.selectedGroupId,
                 groupConfiguration,
                 predictionsCounters = props.predictionsCounters || {};
 
@@ -176,7 +178,7 @@ component.GamesPredictionsPage = (function(){
                 return re("div", { className: "content"});
             }
 
-            groupConfiguration = utils.general.getGroupConfiguration(props.groups, props.selectedGroupId, groupsConfiguration);
+            groupConfiguration = utils.general.getGroupConfiguration(props.groups, selectedGroupId, groupsConfiguration);
 
             //filter matches with selected league id
             matches = matches.filter(function(match){
@@ -211,7 +213,7 @@ component.GamesPredictionsPage = (function(){
                         league: league,
                         groupConfiguration: groupConfiguration,
                         predictionCounters: predictionsCounters[matchId] || {},
-						selectedGroupId: props.selectedGroupId,
+						selectedGroupId: selectedGroupId,
                         key: matchId
                     });
                 });
@@ -231,8 +233,11 @@ component.GamesPredictionsPage = (function(){
             var isLeftButtonDisabled = closestIndex === 0;
             var isRightButtonDisabled = closestIndex === pages.length - 1;
 
-            return re("div", { className: "games-prediction-page content hasTilesHeader hasSubHeader"},
-                re(LeaguesSubHeader, {}),
+			var group = utils.general.findItemInArrBy(groups, "_id", selectedGroupId);
+			var hasMoreThanOneLeague = group && group.leagueIds.length > 1;
+
+            return re("div", { className: "games-prediction-page content hasTilesHeader" + (hasMoreThanOneLeague ? " hasSubHeader" : "")},
+				hasMoreThanOneLeague && re(LeaguesSubHeader, {}),
                 re("div", {className: "tiles-header", style: {"backgroundColor": league.color}},
                     re("button", {onClick: this.onPreviousPage, disabled: isLeftButtonDisabled}, ""),
                     re("div", {className: "title"}, closestPage ? closestPage.type : ""),

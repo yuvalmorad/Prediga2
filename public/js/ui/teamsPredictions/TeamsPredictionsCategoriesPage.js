@@ -80,8 +80,11 @@ component.TeamsPredictionsCategoriesPage = (function(){
                 return re(TeamPredictionCategoryTile, {categoryName: teamCategory.title, categoryDescription: teamCategory.description, sprite: teamCategory.sprite, iconPosition: teamCategory.iconPosition, deadline: deadline, resultTime: resultTime, categoryTotalPointsEarned: totalPointsEarned , categoryTotalPoints: totalPoints, categoryId: categoryId, selectedGroupId: selectedGroupId, key: categoryId});
             });
 
-            return re("div", { className: "content hasSubHeader" },
-                re(LeaguesSubHeader, {}),
+			var group = utils.general.findItemInArrBy(groups, "_id", selectedGroupId);
+			var hasMoreThanOneLeague = group && group.leagueIds.length > 1;
+
+            return re("div", { className: "content" + (hasMoreThanOneLeague ? " hasSubHeader" : "") },
+				hasMoreThanOneLeague && re(LeaguesSubHeader, {}),
                 re("div", {className: "tiles"},
                     tiles
                 )

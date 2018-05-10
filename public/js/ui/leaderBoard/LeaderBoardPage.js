@@ -29,6 +29,7 @@ component.LeaderBoardPage = (function(){
             var props = this.props,
                 selectedLeagueId = props.selectedLeagueId,
                 selectedGroupId = props.selectedGroupId,
+				groups = props.groups,
                 leaders = props.leaders,
                 users = props.users,
                 userId = props.userId;
@@ -38,8 +39,12 @@ component.LeaderBoardPage = (function(){
             }
 
             leaders = utils.general.getLeadersByLeagueId(leaders, selectedLeagueId);
-            return re("div", { className: "content hasSubHeader" },
-                re(LeaguesSubHeader, {}),
+
+			var group = utils.general.findItemInArrBy(groups, "_id", selectedGroupId);
+			var hasMoreThanOneLeague = group && group.leagueIds.length > 1;
+
+            return re("div", { className: "content" + (hasMoreThanOneLeague ? " hasSubHeader" : "") },
+				hasMoreThanOneLeague && re(LeaguesSubHeader, {}),
                 re(LeaderBoardTiles, {leaders: leaders, users: users, userId: userId, selectedLeagueId: selectedLeagueId, selectedGroupId: selectedGroupId})
             );
         }
@@ -52,7 +57,8 @@ component.LeaderBoardPage = (function(){
             users: state.users.users,
             selectedLeagueId: state.groups.selectedLeagueId,
             userId: state.authentication.userId,
-            selectedGroupId: state.groups.selectedGroupId
+            selectedGroupId: state.groups.selectedGroupId,
+			groups: state.groups.groups
         }
     }
 
