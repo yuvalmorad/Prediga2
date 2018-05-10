@@ -146,6 +146,9 @@ utils.general = (function(){
     }
 
     function isGameClosed(kickofftime, groupConfiguration) {
+        if (!groupConfiguration) {
+            return false;
+        }
         var currentDate = new Date();
         var gameClosedDate = new Date(kickofftime);
         gameClosedDate.setMinutes(gameClosedDate.getMinutes() - groupConfiguration[GAME.MINUTES_BEFORE_CLOSE_MATCH]);

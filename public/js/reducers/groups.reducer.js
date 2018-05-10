@@ -33,6 +33,9 @@ reducer.groups = function() {
         } else {
             //no selected league id in the past for this group -> get the first one
             var group = utils.general.findItemInArrBy(groups, "_id", selectedGroupId);
+            if (!group) {
+                return "";
+            }
             var leagueIds = group.leagueIds;
             return leagueIds.length ? leagueIds[0] : "";
         }

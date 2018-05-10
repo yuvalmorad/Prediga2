@@ -139,10 +139,8 @@ var routePages = (function(){
         {
             path: "/rules",
             title: "How to Play",
-            icon: "",
             isAuthenticatedPage: true,
             component: RulesPage,
-            displayInBottomMenu: true,
             hideSiteNavigation: true,
             siteHeaderConfig: {
                 hideMenuButton: true,

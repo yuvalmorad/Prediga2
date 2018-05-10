@@ -11,6 +11,10 @@ component.SiteHeader = (function(){
                 this.props.fireSiteHeaderEvent(action.eventName);
             },
 
+            onGroupIconClicked: function() {
+                routerHistory.push("/rules");
+            },
+
             render: function () {
                 var that = this,
                     props = this.props,
@@ -26,14 +30,7 @@ component.SiteHeader = (function(){
                     displayBackButton = hasBackButton,
                     group = utils.general.findItemInArrBy(props.groups, "_id", props.selectedGroupId),
                     league = utils.general.findItemInArrBy(props.leagues, "_id", props.selectedLeagueId),
-                    leagueColor = league ? league.color : "",
-                    unreadMessagesByGroup = props.unreadMessagesByGroup;
-                    /*unreadMessagesCount = 0;
-
-                var unreadMessagesCountObj = utils.general.findItemInArrBy(unreadMessagesByGroup, "groupId", props.selectedGroupId);
-                if (unreadMessagesCountObj) {
-                    unreadMessagesCount = unreadMessagesCountObj.count;
-                }*/
+                    leagueColor = league ? league.color : "";
 
 
 
@@ -63,7 +60,7 @@ component.SiteHeader = (function(){
                     ),
                     re("div", {className: "center"}, isDynamicTitle ? siteHeaderTitle: title),
                     re("div", {className: "right"},
-                        re("div", {className: "group-icon" + (hideGroupsIcon ? " hide" : ""), style: {"color": group ? group.iconColor: ""}}, group ? group.icon : ""),
+                        re("div", {className: "group-icon" + (hideGroupsIcon ? " hide" : ""), onClick: this.onGroupIconClicked, style: {"color": group ? group.iconColor: ""}}, group ? group.icon : ""),
                         actionsElems
                     )
             );
@@ -77,8 +74,7 @@ component.SiteHeader = (function(){
             groups: state.groups.groups,
             selectedGroupId: state.groups.selectedGroupId,
             selectedLeagueId: state.groups.selectedLeagueId,
-            leagues: state.leagues.leagues,
-            unreadMessagesByGroup: state.groupMessages.unreadMessagesByGroup
+            leagues: state.leagues.leagues
         }
     }
 
