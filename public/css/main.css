@@ -2265,6 +2265,10 @@ body,textarea {
     background-size: 48px;
 }
 
+.group-messages-page .group-message .message a {
+    color: #54a2de;
+}
+
 .group-messages-page .group-message.icon-only .message img {
     width: 72px;
     height: 72px;

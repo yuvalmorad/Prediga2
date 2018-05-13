@@ -377,6 +377,11 @@ component.GroupMessagesPage = (function () {
                         }
                     }
                 }
+
+                //replace urls to links
+				var urlPattern = /(\b(https?|ftp):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/gim;
+				message = message.replace(urlPattern, '<a href="$1" target="_blank">$1</a>');
+
         		return re("div", {className: groupMessageClassName, key: groupMessage._id},
 					re("div", {className: "group-message-content"},
 						userNameElem,
