@@ -3179,6 +3179,7 @@
       "title": "Spain Champions",
       "description": "description about spain champions",
       "sprite": "questions.png",
+      "mSprite": "spain_champions",
       "iconPosition": "-144px -520px"
     },
     {
@@ -3187,6 +3188,7 @@
       "title": "Spain Relegation team",
       "description": "description about spain relegation",
       "sprite": "questions.png",
+      "mSprite": "relegation",
       "iconPosition": "-144px -650px"
     }
   ],

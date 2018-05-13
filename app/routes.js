@@ -12,6 +12,7 @@ mongoose.Promise = Promise;
 
 module.exports = function (app, passport) {
 	const server = http.Server(app);
+	util.init(passport);
 	socketIo.init(server);
 	updateContentFromFiles.loadAll();
 	automaticUpdater.run(true);
@@ -60,11 +61,14 @@ module.exports = function (app, passport) {
 		res.sendStatus(200);
 	});
 
-	app.get('/auth/google',
-		passport.authenticate('google', {
-			scope: ['email']
-		}), function (req, res) {
-			GroupService.autoLogin(req).then(function (path) {
+	app.get('/auth/google', function(req,res,next) {
+			req.session.isMobile = req.query.isMobile;
+			passport.authenticate('google', {
+				scope: ['email']
+			})(req,res,next);
+		}
+		, function (req, res) {
+			GroupService.autoLogin(req).then(function (path) { //TODO can be removed?
 				res.redirect(path);
 				delete req.session.returnTo;
 			});
@@ -76,8 +80,14 @@ module.exports = function (app, passport) {
 			failureRedirect: '/login'
 		}), function (req, res) {
 			GroupService.autoLogin(req).then(function (path) {
-				res.redirect(path);
-				delete req.session.returnTo;
+				if (req.session.isMobile) {
+					delete req.session.isMobile;
+					//redirect back to native app
+					res.redirect('Prediga://login?token=' + req.user.token);
+				} else {
+					res.redirect(path);
+					delete req.session.returnTo;
+				}
 			});
 		});
 

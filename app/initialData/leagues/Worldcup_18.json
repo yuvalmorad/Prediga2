@@ -1489,6 +1489,7 @@
       "title": "World Cup Finalists",
       "description": "description about world cup finalists",
       "sprite": "questions.png",
+      "mSprite": "worldcup_finalist",
       "iconPosition": "0 -130px"
     },
     {
@@ -1497,6 +1498,7 @@
       "title": "World Cup third place play-off",
       "description": "description about third place play-off",
       "sprite": "questions.png",
+      "mSprite": "worldcup_third_place",
       "iconPosition": "-144px -780px"
     },
     {
@@ -1505,6 +1507,7 @@
       "title": "Group A Finalists",
       "description": "description about group A finalists",
       "sprite": "questions.png",
+      "mSprite": "worlcup_A",
       "iconPosition": "-72px -260px"
     },
     {
@@ -1513,6 +1516,7 @@
       "title": "Group B Finalists",
       "description": "description about group B finalists",
       "sprite": "questions.png",
+      "mSprite": "worlcup_B",
       "iconPosition": "-144px -260px"
     },
     {
@@ -1521,6 +1525,7 @@
       "title": "Group C Finalists",
       "description": "description about group C finalists",
       "sprite": "questions.png",
+      "mSprite": "worlcup_C",
       "iconPosition": "0px -390px"
     },
     {
@@ -1529,6 +1534,7 @@
       "title": "Group D Finalists",
       "description": "description about group D finalists",
       "sprite": "questions.png",
+      "mSprite": "worlcup_D",
       "iconPosition": "-72px -390px"
     },
     {
@@ -1537,6 +1543,7 @@
       "title": "Group E Finalists",
       "description": "description about group E finalists",
       "sprite": "questions.png",
+      "mSprite": "worlcup_E",
       "iconPosition": "-144px -390px"
     },
     {
@@ -1545,6 +1552,7 @@
       "title": "Group F Finalists",
       "description": "description about group F finalists",
       "sprite": "questions.png",
+      "mSprite": "worlcup_F",
       "iconPosition": "0 -520px"
     },
     {
@@ -1553,6 +1561,7 @@
       "title": "Group G Finalists",
       "description": "description about group G finalists",
       "sprite": "questions.png",
+      "mSprite": "worlcup_G",
       "iconPosition": "-72px -520px"
     },
     {
@@ -1561,6 +1570,7 @@
       "title": "Group H Finalists",
       "description": "description about group H finalists",
       "sprite": "questions.png",
+      "mSprite": "worlcup_G",
       "iconPosition": "-72px -520px"
     }
   ],

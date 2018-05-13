@@ -2088,6 +2088,7 @@
       "title": "Israel Champions",
       "description": "description about israel champions",
       "sprite": "questions.png",
+      "mSprite": "israel_champions",
       "iconPosition": "-144px 0px"
     },
     {
@@ -2096,6 +2097,7 @@
       "title": "Israel Relegation team",
       "description": "description about israel relegation",
       "sprite": "questions.png",
+      "mSprite": "relegation",
       "iconPosition": "-144px -650px"
     }
   ],

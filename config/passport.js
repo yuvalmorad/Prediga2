@@ -1,6 +1,7 @@
 // load all the things we need
 let FacebookStrategy = require('passport-facebook').Strategy;
 let GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
+let BearerStrategy = require('passport-http-bearer').Strategy;
 // load up the user model
 let User = require('../app/models/user');
 let Group = require('../app/models/group');
@@ -229,4 +230,24 @@ module.exports = function (passport, configFBPassport, configGooglePassport) {
 			});
 
 		}));
+
+
+    // =========================================================================
+    // Bearer ==================================================================
+    // =========================================================================
+
+	passport.use(new BearerStrategy(
+		function(token, done) {
+			User.findOne({ token: token }, function (err, user) {
+				if (err) {
+					return done(err);
+				}
+
+				if (!user) {
+					return done(null, false);
+				}
+				return done(null, user);
+			});
+		}
+	));
 };

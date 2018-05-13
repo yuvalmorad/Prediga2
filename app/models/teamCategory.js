@@ -5,6 +5,7 @@ const teamCategorySchema = mongoose.Schema({
     title: String,
 	description: String,
     sprite: String,
+    mSprite: String,
     iconPosition: String
 });
 

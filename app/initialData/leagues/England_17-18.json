@@ -3133,6 +3133,7 @@
       "title": "England Champions",
       "description": "description about england champions",
       "sprite": "questions.png",
+      "mSprite": "england_champions",
       "iconPosition": "-144px -130px"
     },
     {
@@ -3141,6 +3142,7 @@
       "title": "England Relegation team",
       "description": "description about england relegation",
       "sprite": "questions.png",
+      "mSprite": "relegation",
       "iconPosition": "-144px -650px"
     }
   ],

@@ -1,3 +1,5 @@
+let passport = null;
+
 module.exports = {
 	DEFAULT_GROUP: '5a3eac97d3ca76dbd12bf638',
 	MONKEY_USER_ID: '5a8739aee1697b0015445020',
@@ -24,12 +26,34 @@ module.exports = {
 		TRUE: "true",
 		FALSE: "false"
 	},
+
+	init: function(_passport) {
+        passport = _passport;
+	},
+
 	isLoggedIn: function (req, res, next) {
 		if (req.isAuthenticated()) {
 			res.header('userId', req.user.id);
 			return next();
 		} else {
-			res.status(401).json({});
+            passport.authenticate('bearer', function(err, user, info) {
+                if (err) {
+                    return next(err); // will generate a 500 error
+                }
+
+                if (!user) {
+                    return res.status(401).json({});
+                }
+
+                res.header('userId', user.id);
+
+                req.login(user,  function(loginErr) {
+                    if (loginErr) {
+                        return next(loginErr);
+                    }
+                    return next();
+            	});
+            })(req, res, next);
 		}
 	},
 
