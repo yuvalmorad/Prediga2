@@ -28,7 +28,7 @@ var socket = (function(){
 
         socket.on('newGroupMessage', function(groupMessage){
             var selectedGroupId = store.getState().groups.selectedGroupId;
-            var isInGroupMessagesScreen = routerHistory.location.pathname === "/groupMessages";
+            var isInGroupMessagesScreen = utils.general.cutUrlPath(routerHistory.location.pathname) === "/groupMessages";
             if (selectedGroupId === groupMessage.groupId) {
                 //message from selected group
                 if (isInGroupMessagesScreen) {
