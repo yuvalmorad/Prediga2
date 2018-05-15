@@ -26,7 +26,7 @@ component.Secret = (function(){
             var val = event.target.value;
             var num = val.slice(val.length - 1);
 
-            this.setState({secretFocusIndex: (index + 1) % 6});
+            this.setState({secretFocusIndex: (index + 1) % SECRET_LENGTH});
             this.props.onNumberChanged(name, num);
         },
 
