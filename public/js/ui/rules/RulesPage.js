@@ -67,10 +67,10 @@ component.RulesPage = (function () {
 							re("div", {}, "* Winning - " + getPointsStr(groupConfiguration, GAME.TEAM_TYPES.TEAM_WINNER.key)),
 							re("div", {}, "* Runner-up - " + getPointsStr(groupConfiguration, GAME.TEAM_TYPES.TEAM_RUNNER_UP.key)),
 							re("div", {}, "* 3rd place - " + getPointsStr(groupConfiguration, GAME.TEAM_TYPES.TEAM_THIRD.key)),
-							re("div", {}, "* 4th place - " + getPointsStr(groupConfiguration, GAME.TEAM_TYPES.TEAM_FOURTH.key)),
-							re("div", {}, "* 2nd last place - " + getPointsStr(groupConfiguration, GAME.TEAM_TYPES.TEAM_SECOND_LAST.key)),
-							re("div", {}, "* Last place - " + getPointsStr(groupConfiguration, GAME.TEAM_TYPES.TEAM_LAST.key))
-							/*re("div", {}, "* Group stage - ?")*/
+							re("div", {}, "* 4th place - " + getPointsStr(groupConfiguration, GAME.TEAM_TYPES.TEAM_FOURTH.key))
+							/*re("div", {}, "* 2nd last place - " + getPointsStr(groupConfiguration, GAME.TEAM_TYPES.TEAM_SECOND_LAST.key)),
+							re("div", {}, "* Last place - " + getPointsStr(groupConfiguration, GAME.TEAM_TYPES.TEAM_LAST.key)),
+							re("div", {}, "* Group stage - ?")*/
 						)
 					)
 				),
