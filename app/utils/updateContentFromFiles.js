@@ -30,15 +30,15 @@ const self = module.exports = {
 		return Promise.all([
 			LeagueService.updateLeague(leagueJson.league),
 			ClubService.updateClubs(leagueJson.clubs),
-			MatchService.updateMatchesById(leagueJson.matches),
             TeamCategoryService.updateTeamsCategories(leagueJson.teamCategories),
-			TeamService.updateTeams(leagueJson.teams),
+			MatchService.updateMatchesById(leagueJson.matches),
 			MatchResultService.updateMatchResults(leagueJson.matchResults),
+			TeamService.updateTeams(leagueJson.teams),
 			TeamResultService.updateTeamResults(leagueJson.teamResults)
 		]).then(function (arr) {
 			return Promise.all([
-				UserScoreService.updateUserScoreByMatchResults(arr[4], arr[2]),
-				UserScoreService.updateUserScoreByTeamResults(arr[5], arr[3])
+				UserScoreService.updateUserScoreByMatchResults(arr[4], arr[3]),
+				UserScoreService.updateUserScoreByTeamResults(arr[6], arr[5])
 			]).then(function (userScoreArr) {
 				self.conbineUserScoreAndRemoveDuplicates(userScoreArr).then(function (uniqueGameIds) {
 					if (uniqueGameIds.length < 1) {

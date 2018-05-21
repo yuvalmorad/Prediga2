@@ -2104,29 +2104,21 @@
   "matchResults": [
   ],
   "teamResults": [
-	  {
-		  "teamId": "5a1342399017dfc4e2faf4a8",
-		  "team": "3a21a7c1a3f89181074e9774"
-	  },
-	  {
-		  "teamId": "5a1342399017dfc4e2faf4a9",
-		  "team": "3a21a7c1a3f89181074e9780"
-	  },
-	  {
-		  "teamId": "5a1342399017dfc4e2faf4b0",
-		  "team": "3a21a7c1a3f89181074e9777"
-	  },
-	  {
-		  "teamId": "5a1342399017dfc4e2faf4b1",
-		  "team": "3a21a7c1a3f89181074e9770"
-	  },
-	  {
-		  "teamId": "5a1342399017dfc4e2faf4b2",
-		  "team": "3a21a7c1a3f89181074e9769"
-	  },
-	  {
-		  "teamId": "5a1342399017dfc4e2faf4b3",
-		  "team": "3a21a7c1a3f89181074e9782"
-	  }
+    {
+      "teamId": "5a1342399017dfc4e2faf4a8",
+      "team": "3a21a7c1a3f89181074e9774"
+    },
+    {
+      "teamId": "5a1342399017dfc4e2faf4b1",
+      "team": "3a21a7c1a3f89181074e9770"
+    },
+    {
+      "teamId": "5a1342399017dfc4e2faf4b2",
+      "team": "3a21a7c1a3f89181074e9769"
+    },
+    {
+      "teamId": "5a1342399017dfc4e2faf4b3",
+      "team": "3a21a7c1a3f89181074e9782"
+    }
   ]
 }
