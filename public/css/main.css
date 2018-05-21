@@ -2208,6 +2208,19 @@ body,textarea {
     color: #262626;
 }
 
+.group-messages-page .message-date {
+    text-align: center;
+    margin: 0.5rem 0;
+}
+
+.group-messages-page .message-date div{
+    display: inline-block;
+    padding: 4px 10px;
+    background-color: #96cee087;
+    border-radius: 6px;
+    border: 1px solid #b5b0b0;
+}
+
 .group-messages-page .group-message-content {
     background-color: #fff;
     padding: 0.5rem;

@@ -31,6 +31,12 @@ component.GroupMessagesPage = (function () {
 		return "ltr";
 	}
 
+	function isOnSameDay(date1, date2) {
+		return date1.getFullYear() === date2.getFullYear() &&
+			date1.getMonth() === date2.getMonth() &&
+			date1.getDate() === date2.getDate();
+	}
+
 	//remove elements (div, br...) and replace with line break \n
     var convertElementToText = (function() {
         var convertElement = function(element) {
@@ -337,7 +343,8 @@ component.GroupMessagesPage = (function () {
 				state = this.state,
                 groupMessages = props.groupMessages,
                 users = props.users,
-                userId = props.userId;
+                userId = props.userId,
+				date;
 
         	var tiles = groupMessages.sort(function(g1, g2){
         		//sort can be moved to server
@@ -382,7 +389,32 @@ component.GroupMessagesPage = (function () {
 				var urlPattern = /(\b(https?|ftp):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/gim;
 				message = message.replace(urlPattern, '<a href="$1" target="_blank">$1</a>');
 
+				var messageDate = new Date(groupMessage.creationDate),
+					addDate = false,
+					isToday = false,
+					dateElem;
+
+				if (date) {
+					if (!isOnSameDay(date, messageDate)) {
+						addDate = true;
+					}
+				} else {
+					addDate = true;
+				}
+
+				if (addDate) {
+					if (isOnSameDay(new Date(), messageDate)) {
+						isToday = true;
+					}
+					dateElem = re("div", {className: "message-date"},
+						re("div", {}, isToday ? "Today" : utils.general.formatDateToDateMonthYearString(groupMessage.creationDate))
+					);
+				}
+
+				date = messageDate;
+
         		return re("div", {className: groupMessageClassName, key: groupMessage._id},
+					dateElem,
 					re("div", {className: "group-message-content"},
 						userNameElem,
 						re("div", {className: "message", dangerouslySetInnerHTML: {__html: message}, style: {direction: getTextDirection(message)}}),
