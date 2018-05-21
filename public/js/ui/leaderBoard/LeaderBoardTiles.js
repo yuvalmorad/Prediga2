@@ -7,11 +7,14 @@ component.LeaderBoardTiles = (function(){
 
         //merge by strikes count
         leaders.forEach(function(leader){
-            if (strikesMap[leader.strikes] === undefined) {
-                strikesMap[leader.strikes] = [];
-            }
+			//don't give badge for 0 strikes
+            if (leader.strikes > 0) {
+				if (strikesMap[leader.strikes] === undefined) {
+					strikesMap[leader.strikes] = [];
+				}
 
-            strikesMap[leader.strikes].push(leader.userId);
+				strikesMap[leader.strikes].push(leader.userId);
+            }
         });
 
         //map back to arr + sort by strikes
