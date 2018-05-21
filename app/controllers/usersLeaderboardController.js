@@ -15,6 +15,31 @@ app.get('/reset', util.isAdmin, function (req, res) {
 });
 
 /**
+ * activate/deactivate user in group (under all leagues)
+ */
+app.post('/:groupId/setActiveUser/:userId/:activate', util.isLoggedIn, function (req, res) {
+	const 	userId = req.user._id,
+			userIdToActivate = req.params.userId,
+			isActive = req.params.activate === "true",
+			groupId = req.params.groupId;
+
+	if (!userIdToActivate || !groupId) {
+		res.status(400).json({});
+		return;
+	}
+
+	return groupService.byId(groupId).then(function (group) {
+		if (group.createdBy !== userId.toString()) {
+			res.status(403).json({});
+			return;
+		}
+
+		return usersLeaderboardService.updateIsActiveUser(userIdToActivate, groupId, isActive).then(function(){
+			res.status(200).json({});
+		});
+	});
+});
+/**
  * Get leaderboards, Only relevant to logged in users's group
  */
 app.get('/', util.isLoggedIn, function (req, res) {

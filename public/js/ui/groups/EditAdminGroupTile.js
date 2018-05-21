@@ -1,10 +1,22 @@
 window.component = window.component || {};
 component.EditAdminGroupTile = (function(){
+	var connect = ReactRedux.connect;
     var Tile = component.Tile;
 
-    return React.createClass({
+    var EditAdminGroupTile = React.createClass({
+		onClick: function() {
+		    var that = this,
+                userId = this.props.user._id,
+				groupId = this.props.groupId,
+                activate = !this.props.isActive;
+			service.leaderBoard.activateUser(userId, groupId, activate).then(function(){
+				that.props.loadLeaderBoard(groupId); //TODO without rest, add action for update all leagues under this group for this user id (with activate)
+            });
+        },
+
         render: function() {
             var props = this.props,
+				isActive = props.isActive,
                 user = props.user,
                 name = user.name,
                 photo = user.photo,
@@ -12,7 +24,7 @@ component.EditAdminGroupTile = (function(){
                 joinedDate = user.joinedDate,
                 isAdmin = user.isAdmin;
 
-            return re(Tile, {disableOpen: true, className: "edit-group-tile"},
+            return re(Tile, {onClick: this.onClick, className: "edit-group-tile" + (isActive ? "" : " not-active")},
                 re("div", {className: "edit-group-main-tile"},
                     re("div", {className: "left"},
                         re("img", {src: photo})
@@ -29,6 +41,19 @@ component.EditAdminGroupTile = (function(){
             );
         }
     });
+
+	function mapStateToProps(state){
+		return {
+		};
+	}
+
+	function mapDispatchToProps(dispatch) {
+		return {
+			loadLeaderBoard: function(groupId){dispatch(action.leaderBoard.loadLeaderBoard(groupId))}
+		};
+	}
+
+	return connect(mapStateToProps, mapDispatchToProps)(EditAdminGroupTile);
 })();
 
 

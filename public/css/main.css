@@ -912,6 +912,11 @@ body,textarea {
     cursor: pointer;
 }
 
+.tile.not-active {
+    background-color: transparent;
+    box-shadow: 0 0 12px -5px #615c5c;
+}
+
 .tile-dialog-container .tile {
     border-top: none;
     border-bottom: none;
