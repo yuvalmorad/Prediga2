@@ -3193,42 +3193,8 @@
     }
   ],
   "matchResults": [
-    {
-      "matchId": "5adfd05e42abc3f02a5fe714",
-      "winner": "1a21a7c1a3f89181074e9968",
-      "firstToScore": "1a21a7c1a3f89181074e9968",
-      "team1Goals": 1,
-      "team2Goals": 0,
-      "goalDiff": 0,
-      "gameTime": 90,
-      "completion": 100,
-      "active": false
-    }
   ],
   "teamResults": [
-	  {
-		  "teamId": "5a1342399017dfc4e2faf5b4",
-		  "team": "1a21a7c1a3f89181074e9975"
-	  },
-	  {
-		  "teamId": "5a1342399017dfc4e2faf5b5",
-		  "team": "1a21a7c1a3f89181074e9865"
-	  },
-	  {
-		  "teamId": "5a1342399017dfc4e2faf5b6",
-		  "team": "1a21a7c1a3f89181074e9970"
-	  },
-	  {
-		  "teamId": "5a1342399017dfc4e2faf5b7",
-		  "team": "1a21a7c1a3f89181074e9880"
-	  },
-	  {
-		  "teamId": "5a1342399017dfc4e2faf5b8",
-		  "team": "1a21a7c1a3f89181074e9881"
-	  },
-	  {
-		  "teamId": "5a1342399017dfc4e2faf5b9",
-		  "team": "1a21a7c1a3f89181074e9866"
-	  }
+
   ]
 }

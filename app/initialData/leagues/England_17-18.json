@@ -3062,7 +3062,7 @@
       "deadline": "2018-05-01T00:00:00.000Z",
       "league": "3a21a7c1a3f89181074e9769",
       "options": [],
-      "resultTime": "2018-05-13T21:45:00.000Z",
+      "resultTime": "2018-05-21T21:45:00.000Z",
       "category": "9b1342399017dfc4e2faf4c1"
     },
     {
@@ -3072,7 +3072,7 @@
       "deadline": "2018-05-01T00:00:00.001Z",
       "league": "3a21a7c1a3f89181074e9769",
       "options": [],
-      "resultTime": "2018-05-13T21:45:00.000Z",
+      "resultTime": "2018-05-21T21:45:00.000Z",
       "category": "9b1342399017dfc4e2faf4c1"
     },
     {
@@ -3082,7 +3082,7 @@
       "deadline": "2018-05-01T00:00:00.002Z",
       "league": "3a21a7c1a3f89181074e9769",
       "options": [],
-      "resultTime": "2018-05-13T21:45:00.000Z",
+      "resultTime": "2018-05-21T21:45:00.000Z",
       "category": "9b1342399017dfc4e2faf4c1"
     },
     {
@@ -3092,7 +3092,7 @@
       "deadline": "2018-05-01T00:00:00.003Z",
       "league": "3a21a7c1a3f89181074e9769",
       "options": [],
-      "resultTime": "2018-05-13T21:45:00.000Z",
+      "resultTime": "2018-05-21T21:45:00.000Z",
       "category": "9b1342399017dfc4e2faf4c1"
     },
     {
@@ -3102,7 +3102,7 @@
       "deadline": "2018-05-01T00:00:00.004Z",
       "league": "3a21a7c1a3f89181074e9769",
       "options": [],
-      "resultTime": "2018-05-13T21:45:00.000Z",
+      "resultTime": "2018-05-21T21:45:00.000Z",
       "category": "9b1342399017dfc4e2faf4c2"
     },
     {
@@ -3112,7 +3112,7 @@
       "deadline": "2018-05-01T00:00:00.005Z",
       "league": "3a21a7c1a3f89181074e9769",
       "options": [],
-      "resultTime": "2018-05-13T21:45:00.000Z",
+      "resultTime": "2018-05-21T21:45:00.000Z",
       "category": "9b1342399017dfc4e2faf4c2"
     },
     {
@@ -3122,7 +3122,7 @@
       "deadline": "2018-05-01T00:00:00.006Z",
       "league": "3a21a7c1a3f89181074e9769",
       "options": [],
-      "resultTime": "2018-05-13T21:45:00.000Z",
+      "resultTime": "2018-05-21T21:45:00.000Z",
       "category": "9b1342399017dfc4e2faf4c2"
     }
   ],
@@ -3149,33 +3149,6 @@
   "matchResults": [
   ],
   "teamResults": [
-	  {
-		  "teamId": "5a1342399017dfc4e2faf4b4",
-		  "team": "1a21a7c1a3f89181074e9965"
-	  },
-	  {
-		  "teamId": "5a1342399017dfc4e2faf4b5",
-		  "team": "1a21a7c1a3f89181074e9969"
-	  },
-	  {
-		  "teamId": "5a1342399017dfc4e2faf4b6",
-		  "team": "1a21a7c1a3f89181074e9963"
-	  },
-	  {
-		  "teamId": "5a1342399017dfc4e2faf4b7",
-		  "team": "1a21a7c1a3f89181074e9967"
-	  },
-	  {
-		  "teamId": "5a1342399017dfc4e2faf4b8",
-		  "team": "1a21a7c1a3f89181074e9772"
-	  },
-	  {
-		  "teamId": "5a1342399017dfc4e2faf4b9",
-		  "team": "1a21a7c1a3f89181074e9781"
-	  },
-	  {
-		  "teamId": "5a1342399017dfc4e2faf4c0",
-		  "team": "1a21a7c1a3f89181074e9778"
-	  }
+
   ]
 }
