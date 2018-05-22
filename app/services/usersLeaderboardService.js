@@ -204,5 +204,12 @@ const self = module.exports = {
 		return leaderboards.filter(function (leaderboardItem) {
 			return leaderboardItem.userId === userId;
 		});
+	},
+	updateIsActiveUser: function (userId, groupId, isActive) {
+		//update is active user for all leagues under groupId
+		return UsersLeaderboard.update({
+			groupId: groupId,
+			userId: userId
+		}, {isActive: isActive}, {upsert: true, multi: true});
 	}
 };

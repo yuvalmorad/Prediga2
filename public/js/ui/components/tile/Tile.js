@@ -14,7 +14,9 @@ component.Tile = (function(){
                 return;
             }
 
-            if (this.props.navigateOnClickTo) {
+            if (this.props.onClick) {
+				this.props.onClick();
+            } else if (this.props.navigateOnClickTo) {
                 routerHistory.push(this.props.navigateOnClickTo);
             } else if (this.props.openInPlace) {
                 this.setState({isInPlaceOpen: !this.state.isInPlaceOpen});

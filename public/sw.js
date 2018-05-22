@@ -19,7 +19,7 @@ var cacheList = [
     "fonts/prediga.woff"
 ];
 
-var cacheName = "prediga_v1";
+var cacheName = "prediga_v2";
 
 self.addEventListener('install', function(event) {
     event.waitUntil(

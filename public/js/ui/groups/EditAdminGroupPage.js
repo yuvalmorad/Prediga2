@@ -13,6 +13,8 @@ component.EditAdminGroupPage = (function(){
                 this.props.loadAllAvailableLeagues();
             }
 
+			this.props.loadLeaderBoard(this.props.match.params.groupId);
+
             var group = this.getGroupAndSetHeader(this.props.groups);
             return this.createInitState(group);
         },
@@ -194,6 +196,7 @@ component.EditAdminGroupPage = (function(){
             var isDirty = state.isDirty;
             var users = props.users;
             var allAvailableLeagues = props.allAvailableLeagues;
+            var leaders = props.leaders[0] || [];
             var usersInGroup = [];
             var isFormValid = true;
             var groupNameClassName = "group-name";
@@ -238,6 +241,10 @@ component.EditAdminGroupPage = (function(){
                 }
 
                 var usersTiles = usersInGroup.sort(function(user1, user2){
+                    if (!user1.name || user2.name) {
+                        return -1;
+                    }
+
                     if (user1.isAdmin) {
                         return -1;
                     }
@@ -249,7 +256,8 @@ component.EditAdminGroupPage = (function(){
                     return user1.name.localeCompare(user2.name);
                 }).map(function(user){
                     var userId = user._id;
-                    return re(EditAdminGroupTile, {user: user, onRemoveUserFromGroup: that.onRemoveUserFromGroup.bind(that, userId), key: userId});
+                    var leader = utils.general.findItemInArrBy(leaders, "userId", userId);
+                    return re(EditAdminGroupTile, {user: user, isActive: leader && leader.isActive, onRemoveUserFromGroup: that.onRemoveUserFromGroup.bind(that, userId), groupId: group._id, key: userId});
                 });
 
                 mainElement = re("div", {className: "scroll-container"},
@@ -299,9 +307,11 @@ component.EditAdminGroupPage = (function(){
     function mapStateToProps(state){
         return {
             groups: state.groups.groups,
+			selectedGroupId: state.groups.selectedGroupId,
             users: state.users.users,
             groupsConfiguration: state.groupsConfiguration.groupsConfiguration,
-            allAvailableLeagues: state.leagues.allAvailableLeagues
+            allAvailableLeagues: state.leagues.allAvailableLeagues,
+			leaders: state.leaderBoard.leaders
         };
     }
 
@@ -312,7 +322,8 @@ component.EditAdminGroupPage = (function(){
             updateGroupConfiguration: function(group){dispatch(action.groups.updateGroupConfiguration(group))},
             removeGroup: function(group){dispatch(action.groups.removeGroup(group))},
             loadAllAvailableLeagues: function(group){dispatch(action.leagues.loadAllAvailableLeagues())},
-			selectGroup: function(groupId){dispatch(action.groups.selectGroup(groupId))}
+			selectGroup: function(groupId){dispatch(action.groups.selectGroup(groupId))},
+			loadLeaderBoard: function(groupId){dispatch(action.leaderBoard.loadLeaderBoard(groupId))}
         };
     }
 

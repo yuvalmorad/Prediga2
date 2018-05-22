@@ -1490,7 +1490,7 @@
       "description": "description about world cup finalists",
       "sprite": "questions.png",
       "mSprite": "worldcup_finalist",
-      "iconPosition": "0 -130px"
+      "iconPosition": "-216px 0"
     },
     {
       "_id": "9b1342399017dfc4e2faf4a2",
@@ -1499,7 +1499,7 @@
       "description": "description about third place play-off",
       "sprite": "questions.png",
       "mSprite": "worldcup_third_place",
-      "iconPosition": "-144px -780px"
+      "iconPosition": "72px 0"
     },
     {
       "_id": "9b1342399017dfc4e2faf4a3",
@@ -1508,7 +1508,7 @@
       "description": "description about group A finalists",
       "sprite": "questions.png",
       "mSprite": "worlcup_A",
-      "iconPosition": "-72px -260px"
+      "iconPosition": "-504px 0"
     },
     {
       "_id": "9b1342399017dfc4e2faf4a4",
@@ -1517,7 +1517,7 @@
       "description": "description about group B finalists",
       "sprite": "questions.png",
       "mSprite": "worlcup_B",
-      "iconPosition": "-144px -260px"
+      "iconPosition": "-576px 0"
     },
     {
       "_id": "9b1342399017dfc4e2faf4a5",
@@ -1526,7 +1526,7 @@
       "description": "description about group C finalists",
       "sprite": "questions.png",
       "mSprite": "worlcup_C",
-      "iconPosition": "0px -390px"
+      "iconPosition": "-648px 0"
     },
     {
       "_id": "9b1342399017dfc4e2faf4a6",
@@ -1535,7 +1535,7 @@
       "description": "description about group D finalists",
       "sprite": "questions.png",
       "mSprite": "worlcup_D",
-      "iconPosition": "-72px -390px"
+      "iconPosition": "-720px 0"
     },
     {
       "_id": "9b1342399017dfc4e2faf4a7",
@@ -1544,7 +1544,7 @@
       "description": "description about group E finalists",
       "sprite": "questions.png",
       "mSprite": "worlcup_E",
-      "iconPosition": "-144px -390px"
+      "iconPosition": "-792px 0"
     },
     {
       "_id": "9b1342399017dfc4e2faf4a8",
@@ -1553,7 +1553,7 @@
       "description": "description about group F finalists",
       "sprite": "questions.png",
       "mSprite": "worlcup_F",
-      "iconPosition": "0 -520px"
+      "iconPosition": "-864px 0"
     },
     {
       "_id": "9b1342399017dfc4e2faf4a9",
@@ -1562,7 +1562,7 @@
       "description": "description about group G finalists",
       "sprite": "questions.png",
       "mSprite": "worlcup_G",
-      "iconPosition": "-72px -520px"
+      "iconPosition": "-936px 0"
     },
     {
       "_id": "9b1342399017dfc4e2faf4b1",
@@ -1571,7 +1571,7 @@
       "description": "description about group H finalists",
       "sprite": "questions.png",
       "mSprite": "worlcup_G",
-      "iconPosition": "-72px -520px"
+      "iconPosition": "-1008px 0"
     }
   ],
   "teamResults": [
