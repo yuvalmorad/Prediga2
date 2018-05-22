@@ -2098,27 +2098,11 @@
       "description": "description about israel relegation",
       "sprite": "questions.png",
       "mSprite": "relegation",
-      "iconPosition": "-1296px 0"
+      "iconPosition": "-144px -650px"
     }
   ],
   "matchResults": [
   ],
   "teamResults": [
-    {
-      "teamId": "5a1342399017dfc4e2faf4a8",
-      "team": "3a21a7c1a3f89181074e9774"
-    },
-    {
-      "teamId": "5a1342399017dfc4e2faf4b1",
-      "team": "3a21a7c1a3f89181074e9770"
-    },
-    {
-      "teamId": "5a1342399017dfc4e2faf4b2",
-      "team": "3a21a7c1a3f89181074e9769"
-    },
-    {
-      "teamId": "5a1342399017dfc4e2faf4b3",
-      "team": "3a21a7c1a3f89181074e9782"
-    }
   ]
 }
