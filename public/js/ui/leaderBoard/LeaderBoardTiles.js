@@ -88,7 +88,7 @@ component.LeaderBoardTiles = (function(){
             var badgeName = this.badgesByUserId[userId];
 
             //adding selected league id to rerender tiles when selecting new league
-            var leaderBoardTileProps = {disableOpen: disableOpen, user: user, badgeName: badgeName, isActive: leader.isActive, score: leader.score, trend: trend, borderColor: borderColor, description: description, additionalDescription: leader.additionalDescription, additionalDescription2: leader.additionalDescription2, scoreCurrentMatch: leader.scoreCurrentMatch, rank: index + 1, key: userId + (props.selectedLeagueId || "") + (props.selectedGroupId || "")};
+            var leaderBoardTileProps = {disableOpen: disableOpen, user: user, badgeName: badgeName, isActive: utils.general.isUserActive(leader, props.selectedGroupId), score: leader.score, trend: trend, borderColor: borderColor, description: description, additionalDescription: leader.additionalDescription, additionalDescription2: leader.additionalDescription2, scoreCurrentMatch: leader.scoreCurrentMatch, rank: index + 1, key: userId + (props.selectedLeagueId || "") + (props.selectedGroupId || "")};
 
             if (authenticatedUserId === userId) {
                 leaderBoardTileProps.isAuthenticatedUser = true;
