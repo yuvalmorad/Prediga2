@@ -17,6 +17,7 @@ component.EditAdminGroupTile = (function(){
         render: function() {
             var props = this.props,
 				isActive = props.isActive,
+				groupId = props.groupId,
                 user = props.user,
                 name = user.name,
                 photo = user.photo,

@@ -257,7 +257,7 @@ component.EditAdminGroupPage = (function(){
                 }).map(function(user){
                     var userId = user._id;
                     var leader = utils.general.findItemInArrBy(leaders, "userId", userId);
-                    return re(EditAdminGroupTile, {user: user, isActive: leader && leader.isActive, onRemoveUserFromGroup: that.onRemoveUserFromGroup.bind(that, userId), groupId: group._id, key: userId});
+                    return re(EditAdminGroupTile, {user: user, isActive: utils.general.isUserActive(leader, group._id), onRemoveUserFromGroup: that.onRemoveUserFromGroup.bind(that, userId), groupId: group._id, key: userId});
                 });
 
                 mainElement = re("div", {className: "scroll-container"},

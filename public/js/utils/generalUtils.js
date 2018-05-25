@@ -29,8 +29,13 @@ utils.general = (function(){
         getTeamsUniqueGraphColor: getTeamsUniqueGraphColor,
         compareStringsLowerCase: compareStringsLowerCase,
         formatDateByMonthAndDate: formatDateByMonthAndDate,
-        getGroupConfiguration: getGroupConfiguration
+        getGroupConfiguration: getGroupConfiguration,
+        isUserActive: isUserActive
     };
+
+    function isUserActive(leader, groupId) {
+        return groupId === INITIAL_PUPLIC_GROUP || (leader && leader.isActive);
+    }
 
     function getGroupConfiguration(groups, groupId, groupsConfiguration) {
         var group = findItemInArrBy(groups, "_id", groupId);
