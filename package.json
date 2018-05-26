@@ -15,7 +15,7 @@
     "express-session": "~1.14.1",
     "gulp": "^3.9.1",
     "gulp-clean-css": "^3.9.2",
-    "gulp-uglify": "^3.0.0",
+    "gulp-uglify-es": "^1.0.4",
     "gulp-usemin": "^0.3.28",
     "heroku-ssl-redirect": "0.0.4",
     "htmlparser2": "^3.9.2",

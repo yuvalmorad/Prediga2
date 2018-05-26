@@ -1,14 +1,24 @@
 var gulp = require('gulp');
-
+var gutil = require('gulp-util');
 var usemin = require('gulp-usemin');
-var uglify = require('gulp-uglify');
+var uglify = require('gulp-uglify-es').default;
 var cleanCSS = require('gulp-clean-css');
 var Server = require('karma').Server;
 
 var BUILD_FOLDER = "build";
 
 gulp.task('default', function() {
-    gulp.start('buildJS', 'minify-css', 'copyFolders');
+    gulp.start( 'buildJS', 'minify-css', 'copyFolders');
+});
+
+gulp.task('uglify-error-debugging', function () {
+	return gulp.src('./public/index.html')
+	.pipe(usemin({
+		js: [ uglify()],
+		inlinejs: [ uglify() ]
+	}))
+	.on('error', function (err) { gutil.log(gutil.colors.red('[Error]'), err); })
+	.pipe(gulp.dest(BUILD_FOLDER + '/'));
 });
 
 gulp.task('buildJS', function() {
@@ -17,12 +27,15 @@ gulp.task('buildJS', function() {
             js: [ uglify()],
             inlinejs: [ uglify() ]
         }))
+	    .on('error', function (err) { gutil.log(gutil.colors.red('[Error]'), err); })
         .pipe(gulp.dest(BUILD_FOLDER + '/'));
+
 });
 
 gulp.task('minify-css', function() {
     return gulp.src('./public/css/*.css')
         .pipe(cleanCSS(/*{compatibility: 'ie8'}*/))
+	    .on('error', function (err) { gutil.log(gutil.colors.red('[Error]'), err); })
         .pipe(gulp.dest(BUILD_FOLDER + '/css'));
 });
 
@@ -30,6 +43,7 @@ gulp.task('copyFolders', function(){
     var foldersToCopy = ["fonts", "images", "config"];
     var res = foldersToCopy.map(function(folder){
         return gulp.src(['./public/' + folder + '/**/*'])
+		    .on('error', function (err) { gutil.log(gutil.colors.red('[Error]'), err); })
             .pipe(gulp.dest(BUILD_FOLDER + '/' + folder));
     });
 
