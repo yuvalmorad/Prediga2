@@ -1,7 +1,7 @@
 {
   "name": "prediga-2.0",
   "scripts": {
-    "start": "npm run build | node server.js",
+    "start": "node server.js",
     "build": "gulp"
   },
   "dependencies": {

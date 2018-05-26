@@ -19,7 +19,7 @@ component.RulesPage = (function () {
 					re("div", {className: "rules-item-content"},
 						re("div", {className: "rules-item-header"}, "Prediga - How to play"),
 						re("div", {className: "rules-item-items"},
-							re("div", {}, "Outsmart your friends, family, and work buddies by predicting the outcome of football competitions (...or soccer depending on where you come from, but we mean the sport where a round ball is kicked around).\n" +
+							re("div", {}, "Outsmart your friends, family, and work buddies by predicting the outcome of football competitions (...or soccer depending on where you come from, but we mean the sport where a round ball is kicked around)." +
 								"Show everyone who's king and take all the glory!!")
 						)
 					)
