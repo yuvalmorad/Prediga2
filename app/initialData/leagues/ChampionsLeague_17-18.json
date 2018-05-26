@@ -667,6 +667,7 @@
   ],
   "teamResults": [
     { "team": "1a21a7c1a3f89181074e9970",
-    "teamId":"5a1342399017dfc4e2faf694"}
+    "teamId":"5a1342399017dfc4e2faf694",
+    "type":"teamWinner"}
   ]
 }
