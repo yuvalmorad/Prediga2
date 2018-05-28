@@ -4,7 +4,8 @@ const mongoose = require('mongoose');
 // define the schema for our team result model
 const teamResultSchema = mongoose.Schema({
 	teamId: String,
-	team: String
+	team: String,
+	type: String
 });
 
 teamResultSchema.options.toJSON = {

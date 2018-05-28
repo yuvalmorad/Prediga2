@@ -5,7 +5,7 @@
     "logoPosition": "-168px 0",
     "year": "2017/2018",
     "competition365": 572,
-    "syncResults365": true,
+    "syncResults365": false,
     "clubs": [
       "1a21a7c1a3f89181074e9962",
       "1a21a7c1a3f89181074e9963",
@@ -666,8 +666,10 @@
     }
   ],
   "teamResults": [
-    { "team": "1a21a7c1a3f89181074e9970",
-    "teamId":"5a1342399017dfc4e2faf694",
-    "type":"teamWinner"}
+    {
+      "team": "1a21a7c1a3f89181074e9970",
+      "teamId": "5a1342399017dfc4e2faf694",
+      "type": "teamWinner"
+    }
   ]
 }
