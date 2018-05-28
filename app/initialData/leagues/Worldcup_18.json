@@ -344,7 +344,7 @@
         "green"
       ],
       "graphColors": [
-        "red"
+        "green"
       ],
       "logoPosition": "0 -616px",
       "sprite": "world_cup"
@@ -542,7 +542,7 @@
         "#fff"
       ],
       "graphColors": [
-        "red"
+        "black"
       ],
       "logoPosition": "0 -224px",
       "sprite": "world_cup"
