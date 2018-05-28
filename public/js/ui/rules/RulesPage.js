@@ -31,9 +31,9 @@ component.RulesPage = (function () {
 						re("div", {className: "rules-item-items"},
 							re("div", {}, "* Winner - " + getPointsStr(groupConfiguration, GAME.BET_TYPES.WINNER.key)),
 							re("div", {}, "* First to score - " + getPointsStr(groupConfiguration, GAME.BET_TYPES.FIRST_TO_SCORE.key)),
-							re("div", {}, "* Goal diff - " + getPointsStr(groupConfiguration, GAME.BET_TYPES.GOAL_DIFF.key)),
+							re("div", {}, "* Goal diff. - " + getPointsStr(groupConfiguration, GAME.BET_TYPES.GOAL_DIFF.key)),
 							re("div", {}, "* Team home/away exact goal scored - " + getPointsStr(groupConfiguration, GAME.BET_TYPES.TEAM1_GOALS.key)),
-							re("div", {}, "* Exact score - 1 strike")
+							re("div", {}, "* (Bonus) Exact score including goal diff. - 1 strike")
 						)
 					)
 				),
@@ -46,7 +46,7 @@ component.RulesPage = (function () {
 							re("div", {}, "* Runner-up - " + getPointsStr(groupConfiguration, GAME.TEAM_TYPES.TEAM_RUNNER_UP.key)),
 							re("div", {}, "* 3rd place - " + getPointsStr(groupConfiguration, GAME.TEAM_TYPES.TEAM_THIRD.key)),
 							re("div", {}, "* 4th place - " + getPointsStr(groupConfiguration, GAME.TEAM_TYPES.TEAM_FOURTH.key)),
-							re("div", {}, "* Group stage - "+ getPointsStr(groupConfiguration, GAME.TEAM_TYPES.TEAM_GROUP_STAGE.key))
+							re("div", {}, "* Group stage (1st or 2nd place) - "+ getPointsStr(groupConfiguration, GAME.TEAM_TYPES.TEAM_GROUP_STAGE.key))
 						)
 					)
 				),
