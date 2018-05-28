@@ -20,7 +20,8 @@ var GAME = {
         TEAM_RUNNER_UP: {key: "teamRunnerUp"},
         TEAM_LAST: {key: "teamLast"},
         TEAM_SECOND_LAST: {key: "team2ndLast"},
-        TEAM_FOURTH: {key: "teamForth"}
+        TEAM_FOURTH: {key: "teamForth"},
+		TEAM_GROUP_STAGE: {key: "teamGeneral"}
     },
 
     MINUTES_BEFORE_CLOSE_MATCH: "minutesBeforeCloseMathPrediction"

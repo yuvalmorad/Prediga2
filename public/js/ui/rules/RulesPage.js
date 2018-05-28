@@ -27,6 +27,32 @@ component.RulesPage = (function () {
 
 				re("div", {className: "rules-item"},
 					re("div", {className: "rules-item-content"},
+						re("div", {className: "rules-item-header"}, "Match Score"),
+						re("div", {className: "rules-item-items"},
+							re("div", {}, "* Winner - " + getPointsStr(groupConfiguration, GAME.BET_TYPES.WINNER.key)),
+							re("div", {}, "* First to score - " + getPointsStr(groupConfiguration, GAME.BET_TYPES.FIRST_TO_SCORE.key)),
+							re("div", {}, "* Goal diff - " + getPointsStr(groupConfiguration, GAME.BET_TYPES.GOAL_DIFF.key)),
+							re("div", {}, "* Team home/away exact goal scored - " + getPointsStr(groupConfiguration, GAME.BET_TYPES.TEAM1_GOALS.key)),
+							re("div", {}, "* Exact score - 1 strike")
+						)
+					)
+				),
+
+				re("div", {className: "rules-item"},
+					re("div", {className: "rules-item-content"},
+						re("div", {className: "rules-item-header"}, "Team Score"),
+						re("div", {className: "rules-item-items"},
+							re("div", {}, "* Winning - " + getPointsStr(groupConfiguration, GAME.TEAM_TYPES.TEAM_WINNER.key)),
+							re("div", {}, "* Runner-up - " + getPointsStr(groupConfiguration, GAME.TEAM_TYPES.TEAM_RUNNER_UP.key)),
+							re("div", {}, "* 3rd place - " + getPointsStr(groupConfiguration, GAME.TEAM_TYPES.TEAM_THIRD.key)),
+							re("div", {}, "* 4th place - " + getPointsStr(groupConfiguration, GAME.TEAM_TYPES.TEAM_FOURTH.key)),
+							re("div", {}, "* Group stage - "+ getPointsStr(groupConfiguration, GAME.TEAM_TYPES.TEAM_GROUP_STAGE.key))
+						)
+					)
+				),
+
+				re("div", {className: "rules-item"},
+					re("div", {className: "rules-item-content"},
 						re("div", {className: "rules-item-header"}, "Get Started"),
 						re("div", {className: "rules-item-items"},
 							re("div", {}, "* Open the Prediga side panel, and join an existing group, make your own private group, or play against all registered Prediga users in the Everyone group."),
@@ -56,18 +82,6 @@ component.RulesPage = (function () {
 
 				re("div", {className: "rules-item"},
 					re("div", {className: "rules-item-content"},
-						re("div", {className: "rules-item-header"}, "Match Score"),
-						re("div", {className: "rules-item-items"},
-							re("div", {}, "* Winner - " + getPointsStr(groupConfiguration, GAME.BET_TYPES.WINNER.key)),
-							re("div", {}, "* First to score - " + getPointsStr(groupConfiguration, GAME.BET_TYPES.FIRST_TO_SCORE.key)),
-							re("div", {}, "* Goal diff - " + getPointsStr(groupConfiguration, GAME.BET_TYPES.GOAL_DIFF.key)),
-							re("div", {}, "* Exact score - 1 strike")
-						)
-					)
-				),
-
-				re("div", {className: "rules-item"},
-					re("div", {className: "rules-item-content"},
 						re("div", {className: "rules-item-header"}, "Team Predictions"),
 						re("div", {className: "rules-item-items"},
 							re("div", {}, "In the Team Predictions screen, enter your predictions for the overall team standings in the competition. Score big bonus points at the end of the competition for accurate predictions."),
@@ -75,21 +89,6 @@ component.RulesPage = (function () {
 							re("div", {}, "* Make your predictions wisely—after the team prediction cutoff you can't make any more changes. The cutoff time is noted at the top of the Team Prediction screen."),
 							re("div", {}, "* The cutoff time for team predictions is the same for the Everyone group and all private groups."),
 							re("div", {}, "* Remember that your team predictions are only applied to the group you've currently selected in the Prediga side panel.")
-						)
-					)
-				),
-
-				re("div", {className: "rules-item"},
-					re("div", {className: "rules-item-content"},
-						re("div", {className: "rules-item-header"}, "Team Score"),
-						re("div", {className: "rules-item-items"},
-							re("div", {}, "* Winning - " + getPointsStr(groupConfiguration, GAME.TEAM_TYPES.TEAM_WINNER.key)),
-							re("div", {}, "* Runner-up - " + getPointsStr(groupConfiguration, GAME.TEAM_TYPES.TEAM_RUNNER_UP.key)),
-							re("div", {}, "* 3rd place - " + getPointsStr(groupConfiguration, GAME.TEAM_TYPES.TEAM_THIRD.key)),
-							re("div", {}, "* 4th place - " + getPointsStr(groupConfiguration, GAME.TEAM_TYPES.TEAM_FOURTH.key))
-							/*re("div", {}, "* 2nd last place - " + getPointsStr(groupConfiguration, GAME.TEAM_TYPES.TEAM_SECOND_LAST.key)),
-							re("div", {}, "* Last place - " + getPointsStr(groupConfiguration, GAME.TEAM_TYPES.TEAM_LAST.key)),
-							re("div", {}, "* Group stage - ?")*/
 						)
 					)
 				),

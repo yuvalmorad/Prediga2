@@ -3149,6 +3149,40 @@
   "matchResults": [
   ],
   "teamResults": [
-
+    {
+      "teamId": "5a1342399017dfc4e2faf4b4",
+      "team": "1a21a7c1a3f89181074e9965",
+      "type": "teamWinner"
+    },
+    {
+      "teamId": "5a1342399017dfc4e2faf4b5",
+      "team": "1a21a7c1a3f89181074e9969",
+      "type": "teamRunnerUp"
+    },
+    {
+      "teamId": "5a1342399017dfc4e2faf4b6",
+      "team": "1a21a7c1a3f89181074e9963",
+      "type": "teamThird"
+    },
+    {
+      "teamId": "5a1342399017dfc4e2faf4b7",
+      "team": "1a21a7c1a3f89181074e9967",
+      "type": "teamForth"
+    },
+    {
+      "teamId": "5a1342399017dfc4e2faf4b8",
+      "team": "1a21a7c1a3f89181074e9772",
+      "type": "team2ndLast"
+    },
+    {
+      "teamId": "5a1342399017dfc4e2faf4b9",
+      "team": "1a21a7c1a3f89181074e9781",
+      "type": "teamLast"
+    },
+    {
+      "teamId": "5a1342399017dfc4e2faf4c0",
+      "team": "1a21a7c1a3f89181074e9778",
+      "type": "team2ndLast"
+    }
   ]
 }
