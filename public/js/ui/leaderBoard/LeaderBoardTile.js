@@ -19,7 +19,7 @@ component.LeaderBoardTile = (function(){
                 borderColor = props.borderColor,
                 disableOpen = props.disableOpen,
                 isAuthenticatedUser = props.isAuthenticatedUser,
-				isActive = props.isActive,
+				isActive = true,
                 leaderBoardMatchesHistoryElem;
 
             if (state.wasOpenInPlace) {
