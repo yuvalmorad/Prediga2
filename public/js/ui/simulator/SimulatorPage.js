@@ -95,9 +95,8 @@ component.SimulatorPage = (function(){
 
     var SimulatorPage = React.createClass({
         getInitialState: function() {
-            this.props.loadSimulator(this.props.selectedGroupId);
-            this.props.loadLeaderBoard(this.props.selectedGroupId);
-            this.props.loadGamesPredictions(this.props.selectedGroupId);
+            var groupId = this.props.match.params.groupId;
+            this.props.loadSimulator(groupId);
 
             return {
                 predictionsSimulated: [], //{matchId: "", team1Goals: 1, ...}
@@ -136,7 +135,7 @@ component.SimulatorPage = (function(){
                 userId = props.userId,
                 matchElem,
                 selectedLeagueId = props.selectedLeagueId,
-                selectedGroupId = props.selectedGroupId,
+                selectedGroupId = props.match.params.groupId,
                 leagues = props.leagues,
                 groupsConfiguration = props.groupsConfiguration,
                 groupConfiguration,
@@ -202,9 +201,7 @@ component.SimulatorPage = (function(){
     function mapDispatchToProps(dispatch) {
         return {
             loadSimulator: function(groupId){dispatch(action.simulator.loadSimulator(groupId))},
-            loadLeaderBoard: function(groupId){dispatch(action.leaderBoard.loadLeaderBoard(groupId))},
-            closeTileDialogAction: function(){dispatch(action.general.closeTileDialogAction());},
-            loadGamesPredictions: function(groupId){dispatch(action.gamesPredictions.loadGames(groupId))}
+            closeTileDialogAction: function(){dispatch(action.general.closeTileDialogAction());}
         }
     }
 
