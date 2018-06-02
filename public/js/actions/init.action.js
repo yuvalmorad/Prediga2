@@ -1,7 +1,8 @@
 window.action = window.action || {};
 action.init = (function () {
     var initAction = {
-        initAll: initAll
+        initAll: initAll,
+        loadPagesContentByGroupId: loadPagesContentByGroupId
     };
 
     function initAll() {
@@ -13,6 +14,14 @@ action.init = (function () {
             dispatch(action.userSettings.load());
             dispatch(action.groupMessages.getUnReadMessages());
         }
+    }
+
+    function loadPagesContentByGroupId(groupId) {
+		return function(dispatch) {
+			dispatch(action.gamesPredictions.loadGames(groupId));
+			dispatch(action.teamsPredictions.loadTeams(groupId));
+			dispatch(action.leaderBoard.loadLeaderBoard(groupId));
+		}
     }
 
     return initAction;

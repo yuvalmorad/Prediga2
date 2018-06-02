@@ -10,12 +10,25 @@ component.App = (function(){
 
     var App = React.createClass({
 
-        componentWillReceiveProps: function() {
+        componentWillReceiveProps: function(nextProps) {
             window.lastHistoryPath = routerHistory.location.pathname;
+            this.selectGroup(nextProps.selectedGroupId);
         },
 
         componentDidMount: function() {
             this.props.initAll();
+            this.selectGroup(this.props.selectedGroupId);
+        },
+
+        selectGroup: function(lastGroupIdSelected) {
+			var groupId = utils.general.getGroupIdFromUrl(routerHistory.location.pathname);
+			if (!groupId) {
+                return;
+			}
+
+			if (groupId !== lastGroupIdSelected) {
+				this.props.selectGroup(groupId);
+			}
         },
 
         render: function(){
@@ -54,14 +67,16 @@ component.App = (function(){
     function mapStateToProps(state){
         return {
             isMainMenuOpen: state.general.isMainMenuOpen,
-            isShowTileDialog: state.general.isShowTileDialog
+            isShowTileDialog: state.general.isShowTileDialog,
+			selectedGroupId: state.groups.selectedGroupId
         }
     }
 
     function mapDispatchToProps(dispatch) {
         return {
             initAll: function(){dispatch(action.init.initAll())},
-            closeAllMenus: function(){dispatch(action.general.closeAllMenus())}
+            closeAllMenus: function(){dispatch(action.general.closeAllMenus())},
+			selectGroup: function(groupId){dispatch(action.groups.selectGroup(groupId))}
         }
     }
 

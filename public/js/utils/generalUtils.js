@@ -25,6 +25,7 @@ utils.general = (function(){
         getLeagueLogoURL: getLeagueLogoURL,
         leagueNameToIdName: leagueNameToIdName,
         cutUrlPath: cutUrlPath,
+		getGroupIdFromUrl: getGroupIdFromUrl,
         getLeadersByLeagueId: getLeadersByLeagueId,
         getTeamsUniqueGraphColor: getTeamsUniqueGraphColor,
         compareStringsLowerCase: compareStringsLowerCase,
@@ -85,6 +86,12 @@ utils.general = (function(){
 			return "/" + path.split("/")[3];
         }
         return "/" + path.split("/")[1];
+    }
+
+    function getGroupIdFromUrl(path) {
+		if (path.indexOf("/group/") === 0) {
+			return path.split("/")[2];
+		}
     }
 
     function formatHourMinutesTime(date) {

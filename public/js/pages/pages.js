@@ -138,7 +138,7 @@ var routePages = (function(){
             }
         },
         {
-            path: "/rules",
+            path: "/group/:groupId/rules",
             title: "How to Play",
             isAuthenticatedPage: true,
             component: RulesPage,

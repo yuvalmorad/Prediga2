@@ -5,26 +5,6 @@ component.TeamsPredictionsCategoriesPage = (function(){
         LeaguesSubHeader = component.LeaguesSubHeader;
 
     var TeamsPredictionsPage = React.createClass({
-        getInitialState: function() {
-            var groupId = this.props.selectedGroupId;
-            if (groupId && this.props.loadedSuccessGroupId !== groupId) {
-                this.props.loadTeamsPredictions(groupId);
-            }
-
-            return {};
-        },
-
-        componentWillReceiveProps: function(nextProps) {
-			var groupIdParam = nextProps.match.params.groupId;
-			if (groupIdParam !== this.props.selectedGroupId ) {
-				this.props.selectGroup(groupIdParam);
-			}
-
-			if (nextProps.selectedGroupId !== this.props.selectedGroupId) {
-				//changed group selection -> load matches of selected group id
-				this.props.loadTeamsPredictions(nextProps.selectedGroupId);
-			}
-        },
 
         render: function() {
             var props = this.props,
@@ -108,8 +88,6 @@ component.TeamsPredictionsCategoriesPage = (function(){
 
     function mapDispatchToProps(dispatch) {
         return {
-            loadTeamsPredictions: function(groupId){dispatch(action.teamsPredictions.loadTeams(groupId))},
-			selectGroup: function(groupId){dispatch(action.groups.selectGroup(groupId))}
         }
     }
 

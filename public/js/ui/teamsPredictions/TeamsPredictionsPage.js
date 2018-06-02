@@ -4,22 +4,6 @@ component.TeamsPredictionsPage = (function(){
         TeamPredictionTile = component.TeamPredictionTile;
 
     var TeamsPredictionsPage = React.createClass({
-        getInitialState: function() {
-            var groupId = this.props.selectedGroupId;
-            if (groupId && this.props.loadedSuccessGroupId !== groupId) {
-                this.props.loadTeamsPredictions(groupId);
-            }
-
-            return {};
-        },
-
-        componentWillReceiveProps: function(nextProps) {
-            if (nextProps.selectedGroupId !== this.props.selectedGroupId) {
-                //changed group selection -> load matches of selected group id
-                this.props.loadTeamsPredictions(nextProps.selectedGroupId);
-            }
-        },
-
         mapTeamsByDeadLines: function(teams) {
             var deadLines = {};
 
@@ -120,7 +104,6 @@ component.TeamsPredictionsPage = (function(){
 
     function mapDispatchToProps(dispatch) {
         return {
-            loadTeamsPredictions: function(groupId){dispatch(action.teamsPredictions.loadTeams(groupId))}
         }
     }
 

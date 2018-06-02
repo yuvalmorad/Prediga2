@@ -68,7 +68,9 @@ reducer.groups = function() {
         switch (action.type) {
             case LOAD_GROUPS:
                 var groups = action.groups;
-                return Object.assign({}, state, {groups: groups});
+                //on first time login, selectedLeagueId is not in cache so it will be undefined. and since load groups can be called after select group -> set the selectedLeagueId
+				var selectedLeagueId = getSelectedLeagueId(groups, state.selectedGroupId);
+                return Object.assign({}, state, {groups: groups, selectedLeagueId: selectedLeagueId});
             case SELECT_GROUP:
                 var selectedGroupId = action.groupId;
                 var selectedLeagueId = getSelectedLeagueId(state.groups, selectedGroupId);

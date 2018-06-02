@@ -7,7 +7,7 @@ component.RulesPage = (function () {
 	}
 
 	function RulesPage(props) {
-		var groupsConfiguration = props.groupsConfiguration,
+		var groupsConfiguration = props.groupsConfiguration || {},
 			selectedGroupId = props.selectedGroupId,
 			groups = props.groups,
 			groupConfiguration = utils.general.getGroupConfiguration(groups, selectedGroupId, groupsConfiguration);
@@ -60,7 +60,7 @@ component.RulesPage = (function () {
 							re("div", {}, "* Make your predictions for upcoming matches and the overall team standings."),
 							re("div", {}, "* Just make sure you complete your predictions before the cutoff times of each match and competition."),
 							re("div", {}, "* The more accurate predictions you make, the more points you score. It's really as easy as that!!"),
-							re("div", {}, "* Check out the Leaderboard to track your overall standing in each group and competition. "),
+							re("div", {}, "* Check out the Leaderboard to track your overall standing in each group and competition. ")
 						)
 					)
 				),

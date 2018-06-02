@@ -5,25 +5,6 @@ component.LeaderBoardPage = (function(){
         LeaguesSubHeader = component.LeaguesSubHeader;
 
     var LeaderBoardPage = React.createClass({
-        getInitialState: function() {
-            if (this.props.selectedGroupId) {
-                this.props.loadLeaderBoard(this.props.selectedGroupId);
-            }
-
-            return {};
-        },
-
-        componentWillReceiveProps: function(nextProps) {
-			var groupIdParam = nextProps.match.params.groupId;
-			if (groupIdParam !== this.props.selectedGroupId ) {
-				this.props.selectGroup(groupIdParam);
-			}
-
-			if (nextProps.selectedGroupId !== this.props.selectedGroupId) {
-				//changed group selection -> load leader board of selected group id
-				this.props.loadLeaderBoard(nextProps.selectedGroupId);
-			}
-        },
 
         render: function() {
             var props = this.props,
@@ -64,8 +45,6 @@ component.LeaderBoardPage = (function(){
 
     function mapDispatchToProps(dispatch) {
         return {
-            loadLeaderBoard: function(groupId){dispatch(action.leaderBoard.loadLeaderBoard(groupId))},
-			selectGroup: function(groupId){dispatch(action.groups.selectGroup(groupId))}
         }
     }
 

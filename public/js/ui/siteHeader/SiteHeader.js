@@ -12,7 +12,7 @@ component.SiteHeader = (function(){
             },
 
             onGroupIconClicked: function() {
-                routerHistory.push("/rules");
+                routerHistory.push("/group/" + this.props.selectedGroupId + "/rules");
             },
 
             render: function () {

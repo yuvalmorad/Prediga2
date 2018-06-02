@@ -11,11 +11,6 @@ component.EditUserGroupPage = (function(){
         },
 
         componentWillReceiveProps: function(nextProps) {
-			var groupIdParam = nextProps.match.params.groupId;
-			if (groupIdParam !== this.props.selectedGroupId ) {
-				this.props.selectGroup(groupIdParam);
-			}
-
             var groups = nextProps.groups;
             if (groups.length && groups !== this.props.groups) {
                 var group = this.getGroupAndSetHeader(groups);
@@ -66,7 +61,6 @@ component.EditUserGroupPage = (function(){
         return {
             setSiteHeaderTitle: function(title){dispatch(action.general.setSiteHeaderTitle(title))},
             removeGroup: function(group){dispatch(action.groups.removeGroup(group))},
-			selectGroup: function(groupId){dispatch(action.groups.selectGroup(groupId))}
         };
     }
 

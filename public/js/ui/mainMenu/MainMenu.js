@@ -126,7 +126,6 @@ component.MainMenu = (function(){
     function mapDispatchToProps(dispatch) {
         return {
             toggleMenu: function(){dispatch(action.general.toggleMainMenu())},
-            selectGroup: function(groupId){dispatch(action.groups.selectGroup(groupId))}
         }
     }
 

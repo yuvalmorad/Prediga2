@@ -105,10 +105,13 @@ action.groups = (function () {
     }
 
     function selectGroup(groupId) {
-        return {
-            type: groupsAction.SELECT_GROUP,
-            groupId: groupId
-        }
+		return function(dispatch){
+			dispatch(action.init.loadPagesContentByGroupId(groupId));
+			dispatch({
+                type: groupsAction.SELECT_GROUP,
+                groupId: groupId
+            });
+		};
     }
 
     function setSelectedLeagueId(leagueId) {

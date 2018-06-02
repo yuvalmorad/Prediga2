@@ -91,10 +91,6 @@ component.GamesPredictionsPage = (function(){
         getInitialState: function() {
             shouldScrollToCurrentDate = true;
 
-            if (this.props.selectedGroupId) {
-                this.props.loadGamesPredictions(this.props.selectedGroupId);
-            }
-
             return {
                 offsetPageIndex: 0
             };
@@ -109,18 +105,8 @@ component.GamesPredictionsPage = (function(){
         },
 
         componentWillReceiveProps: function(nextProps) {
-            var groupIdParam = nextProps.match.params.groupId;
-            if (groupIdParam !== this.props.selectedGroupId ) {
-				this.props.selectGroup(groupIdParam);
-            }
-
             if (nextProps.selectedLeagueId !== this.props.selectedLeagueId) {
                 this.setState({offsetPageIndex: 0});
-            }
-
-            if (nextProps.selectedGroupId !== this.props.selectedGroupId) {
-                //changed group selection -> load matches of selected group id
-                this.props.loadGamesPredictions(nextProps.selectedGroupId);
             }
         },
 
@@ -269,8 +255,6 @@ component.GamesPredictionsPage = (function(){
 
     function mapDispatchToProps(dispatch) {
         return {
-            loadGamesPredictions: function(groupId){dispatch(action.gamesPredictions.loadGames(groupId))},
-			selectGroup: function(groupId){dispatch(action.groups.selectGroup(groupId))}
         }
     }
 
