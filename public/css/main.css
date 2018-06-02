@@ -367,7 +367,6 @@ body,textarea {
 .site-header .right .group-icon {
     font-family: "prediga-groups";
     font-size: 1.25rem;
-    cursor: pointer;
 }
 
 .site-header .right .action-icon {
