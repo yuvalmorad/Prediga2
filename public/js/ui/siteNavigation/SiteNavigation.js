@@ -4,6 +4,33 @@ component.SiteNavigation = (function(){
         NavigationTab = component.NavigationTab,
         withRouter = ReactRouterDOM.withRouter;
 
+    function isAllTeamsUserPredictionFilled(leagueId, teams, userPredictions) {
+    	if (!leagueId) {
+    		return true;
+		}
+
+		var userPredictionsFilled = [];
+		var i;
+		var team;
+		var currentDate = new Date();
+
+		userPredictions.forEach(function(userPrediction) {
+			userPredictionsFilled.push(userPrediction.teamId);
+		});
+
+
+    	for (i = 0; i < teams.length; i++) {
+			team = teams[i];
+			if (currentDate < new Date(team.deadline) && team.league === leagueId) {
+				if (userPredictionsFilled.indexOf(team._id) === -1) {
+					return false;
+				}
+			}
+		}
+
+		return true;
+	}
+
     var SiteNavigation = function (props) {
         var league = utils.general.findItemInArrBy(props.leagues, "_id", props.selectedLeagueId);
         var leagueColor = league ? league.color: "";
@@ -18,10 +45,21 @@ component.SiteNavigation = (function(){
             return page.displayInSiteNavigation;
         }).map(function(page, index){
             var indication;
-			if (utils.general.cutUrlPath(page.path) === "/groupMessages" && unreadMessagesCount) {
+            var cutPath = utils.general.cutUrlPath(page.path);
+
+			if (cutPath === "/groupMessages" && unreadMessagesCount) {
 				indication = {
-					text: unreadMessagesCount
+					text: unreadMessagesCount,
+					status: "positive"
+				};
+			} else if (cutPath === "/teamsPredictionsCategories") {
+				if (!isAllTeamsUserPredictionFilled(props.selectedLeagueId, props.teams, props.teamsUserPredictions)) {
+					indication = {
+						text: "!",
+						status: "negative"
+					};
 				}
+
 			}
 
             return re(NavigationTab, {to: page.path, icon: page.icon, selectedGroupId: props.selectedGroupId, indication: indication, key: index});
@@ -37,7 +75,9 @@ component.SiteNavigation = (function(){
             selectedLeagueId: state.groups.selectedLeagueId,
             leagues: state.leagues.leagues,
 			selectedGroupId: state.groups.selectedGroupId,
-			unreadMessagesByGroup: state.groupMessages.unreadMessagesByGroup
+			unreadMessagesByGroup: state.groupMessages.unreadMessagesByGroup,
+			teams: state.teamsPredictions.teams,
+			teamsUserPredictions: state.teamsPredictions.userPredictions
         }
     }
 

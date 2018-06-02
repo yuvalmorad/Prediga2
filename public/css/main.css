@@ -583,20 +583,40 @@ body,textarea {
     font-size: 24px;
 }
 
-.navigation-tab .nav-unread-messages-indication {
+.navigation-tab .nav-indication {
     font-size: 1rem;
     position: absolute;
     top: 4px;
     left: 50%;
     margin-left: 1rem;
-    background-color: #6ECE1A;
-    color: #fff;
     line-height: 1.5rem;
     border-radius: 50%;
     width: 1.5rem;
     height: 1.5rem;
     text-align: center;
+    font-weight: bold;
 }
+
+.navigation-tab .nav-indication.positive {
+    background-color: #6ECE1A;
+    color: #fff;
+}
+
+.navigation-tab.selected .nav-indication.positive {
+    background-color: #fff;
+    color: #6ECE1A;
+}
+
+.navigation-tab .nav-indication.negative {
+    background-color: red;
+    color: #fff;
+}
+
+.navigation-tab.selected .nav-indication.negative {
+    background-color: #fff;
+    color: red;
+}
+
 /* -------  images pagination -------*/
 
 .images-pagination-container {
