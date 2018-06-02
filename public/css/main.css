@@ -412,6 +412,14 @@ body,textarea {
     padding: 0 1rem;
     margin-left: -1rem;
 }
+
+.site-header .info-button {
+    font-family: "prediga";
+    font-size: 0.8rem;
+    margin-left: 4px;
+    border: 1px solid;
+    padding: 2px 5px;
+}
 /* -------  Menu -------*/
 
 .site-header .menu-button {

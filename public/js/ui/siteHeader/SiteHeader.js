@@ -56,11 +56,12 @@ component.SiteHeader = (function(){
                                     style: {backgroundColor: this.props.isMainMenuOpen ? leagueColor : ""}
                                 },
                            re("span", {}, "")
-                        )
+                        ),
+						re("a", {className: "info-button" + (hideGroupsIcon ? " hide" : ""), onClick: this.onGroupIconClicked}, "")
                     ),
                     re("div", {className: "center"}, isDynamicTitle ? siteHeaderTitle: title),
                     re("div", {className: "right"},
-                        re("div", {className: "group-icon" + (hideGroupsIcon ? " hide" : ""), onClick: this.onGroupIconClicked, style: {"color": group ? group.iconColor: ""}}, group ? group.icon : ""),
+                        re("div", {className: "group-icon" + (hideGroupsIcon ? " hide" : ""), style: {"color": group ? group.iconColor: ""}}, group ? group.icon : ""),
                         actionsElems
                     )
             );
