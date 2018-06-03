@@ -15,14 +15,14 @@ component.EditAdminGroupPage = (function(){
 
 			this.props.loadLeaderBoard(this.props.match.params.groupId);
 
-            var group = this.getGroupAndSetHeader(this.props.groups);
+            var group = this.getGroup(this.props.groups);
             return this.createInitState(group);
         },
 
         componentWillReceiveProps: function(nextProps) {
             var groups = nextProps.groups;
             if (groups.length && groups !== this.props.groups) {
-                var group = this.getGroupAndSetHeader(groups);
+                var group = this.getGroup(groups);
                 if (group) {
                     var state = this.createInitState(group);
                     this.setState(state);
@@ -54,13 +54,9 @@ component.EditAdminGroupPage = (function(){
             }
         },
 
-        getGroupAndSetHeader: function(groups) {
+        getGroup: function(groups) {
             var groupId = this.props.match.params.groupId;
-            var group = utils.general.findItemInArrBy(groups, "_id", groupId);
-            if (group) {
-                this.props.setSiteHeaderTitle(group.name);
-            }
-            return group;
+            return utils.general.findItemInArrBy(groups, "_id", groupId);
         },
 
         onRemoveUserFromGroup: function(userId) {
@@ -312,7 +308,6 @@ component.EditAdminGroupPage = (function(){
 
     function mapDispatchToProps(dispatch) {
         return {
-            setSiteHeaderTitle: function(title){dispatch(action.general.setSiteHeaderTitle(title))},
             updateGroup: function(group){dispatch(action.groups.updateGroup(group))},
             updateGroupConfiguration: function(group){dispatch(action.groups.updateGroupConfiguration(group))},
             removeGroup: function(group){dispatch(action.groups.removeGroup(group))},

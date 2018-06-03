@@ -7,8 +7,6 @@ action.general = (function(){
         TOGGLE_MAIN_MENU: "TOGGLE_MAIN_MENU",
         CLOSE_ALL_MENUS: "CLOSE_ALL_MENUS",
 
-        SET_SITE_HEADER_TITLE: "SET_SITE_HEADER_TITLE",
-
         FIRE_SITE_HEADER_EVENT: "FIRE_SITE_HEADER_EVENT",
         RESET_SITE_HEADER_EVENT: "RESET_SITE_HEADER_EVENT",
 
@@ -22,13 +20,6 @@ action.general = (function(){
             return {
                 type: general.FIRE_SITE_HEADER_EVENT,
                 eventName: eventName
-            }
-        },
-
-        setSiteHeaderTitle: function(title) {
-            return {
-                type: general.SET_SITE_HEADER_TITLE,
-                title: title
             }
         },
 

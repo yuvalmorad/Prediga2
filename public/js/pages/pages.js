@@ -22,7 +22,10 @@ var routePages = (function(){
             isAuthenticatedPage: true,
             component: GamesPredictionsPage,
             exact: true,
-            displayInSiteNavigation: true
+            displayInSiteNavigation: true,
+			siteHeaderConfig: {
+				displayGroupNameTitle: true
+			}
         },
         {
             path: "/group/:groupId/leaderBoard",
@@ -30,7 +33,10 @@ var routePages = (function(){
             icon: "",
             isAuthenticatedPage: true,
             component: LeaderBoardPage,
-            displayInSiteNavigation: true
+            displayInSiteNavigation: true,
+			siteHeaderConfig: {
+				displayGroupNameTitle: true
+			}
         },
         {
             path: "/group/:groupId/teamsPredictionsCategories",
@@ -39,7 +45,10 @@ var routePages = (function(){
             isAuthenticatedPage: true,
             component: TeamsPredictionsCategoriesPage,
             exact: true,
-            displayInSiteNavigation: true
+            displayInSiteNavigation: true,
+			siteHeaderConfig: {
+				displayGroupNameTitle: true
+			}
         },
         {
             path: "/group/:groupId/teamsPredictions/:teamCategoryId",
@@ -49,7 +58,8 @@ var routePages = (function(){
             hideSiteNavigation: true,
             siteHeaderConfig: {
                 hideMenuButton: true,
-                hasBackButton: true
+                hasBackButton: true,
+				displayGroupNameTitle: true
             }
         },
         {
@@ -59,7 +69,10 @@ var routePages = (function(){
             isAuthenticatedPage: true,
             component: GroupMessagesPage,
             exact: true,
-			displayInSiteNavigation: true
+			displayInSiteNavigation: true,
+			siteHeaderConfig: {
+				displayGroupNameTitle: true
+			}
         },
         {
             path: "/group/:groupId/simulator/:gameId?",
@@ -68,7 +81,8 @@ var routePages = (function(){
             component: SimulatorPage,
             siteHeaderConfig: {
                 hideMenuButton: true,
-                hasBackButton: true
+                hasBackButton: true,
+				displayGroupNameTitle: true
             }
         },
         {
@@ -109,7 +123,7 @@ var routePages = (function(){
             siteHeaderConfig: {
                 hideMenuButton: true,
                 hasBackButton: true,
-                isDynamicTitle: true
+                displayGroupNameTitle: true
             }
         },
         {
@@ -120,7 +134,7 @@ var routePages = (function(){
             siteHeaderConfig: {
                 hideMenuButton: true,
                 hasBackButton: true,
-                isDynamicTitle: true
+				displayGroupNameTitle: true
             }
         },
         {
@@ -146,7 +160,8 @@ var routePages = (function(){
             siteHeaderConfig: {
                 hideMenuButton: true,
                 hasBackButton: true,
-				hideGroupsIcon: true
+				hideGroupsIcon: true,
+				displayGroupNameTitle: true
             }
         },
         {

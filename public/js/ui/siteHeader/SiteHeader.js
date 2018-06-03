@@ -23,10 +23,9 @@ component.SiteHeader = (function(){
                     siteHeaderConfig = props.siteHeaderConfig,
                     hideMenuButton = siteHeaderConfig.hideMenuButton,
                     hasBackButton = siteHeaderConfig.hasBackButton,
-                    isDynamicTitle = siteHeaderConfig.isDynamicTitle,
+					displayGroupNameTitle = siteHeaderConfig.displayGroupNameTitle,
                     hideGroupsIcon = siteHeaderConfig.hideGroupsIcon,
                     actions = siteHeaderConfig.actions || [],
-                    siteHeaderTitle = props.siteHeaderTitle,
                     displayBackButton = hasBackButton,
                     group = utils.general.findItemInArrBy(props.groups, "_id", props.selectedGroupId),
                     league = utils.general.findItemInArrBy(props.leagues, "_id", props.selectedLeagueId),
@@ -59,7 +58,7 @@ component.SiteHeader = (function(){
                         ),
 						re("a", {className: "info-button" + (hideGroupsIcon ? " hide" : ""), onClick: this.onGroupIconClicked}, "")
                     ),
-                    re("div", {className: "center"}, isDynamicTitle ? siteHeaderTitle: title),
+                    re("div", {className: "center"}, displayGroupNameTitle ? (group ? group.name : "") : title),
                     re("div", {className: "right"},
                         re("div", {className: "group-icon" + (hideGroupsIcon ? " hide" : ""), style: {"color": group ? group.iconColor: ""}}, group ? group.icon : ""),
                         actionsElems
@@ -70,7 +69,6 @@ component.SiteHeader = (function(){
 
     function mapStateToProps(state){
         return {
-            siteHeaderTitle: state.general.siteHeaderTitle,
             isMainMenuOpen: state.general.isMainMenuOpen,
             groups: state.groups.groups,
             selectedGroupId: state.groups.selectedGroupId,

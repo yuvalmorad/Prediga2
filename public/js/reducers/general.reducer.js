@@ -12,7 +12,6 @@ reducer.general = function() {
     var initialState = {
         isShowTileDialog: false,
         isMainMenuOpen: false,
-        siteHeaderTitle: "",
         siteHeaderFiredEvent: ""
     };
 
@@ -30,8 +29,6 @@ reducer.general = function() {
                 return Object.assign({}, state, {isShowTileDialog: true, tileDailogComponentName: action.componentName, tileDialogComponentProps: action.componentProps});
             case CLOSE_TILE_DIALOG:
                 return Object.assign({}, state, {isShowTileDialog: false, tileDailogComponentName: null, tileDialogComponentProps: null});
-            case SET_SITE_HEADER_TITLE:
-                return Object.assign({}, state, {siteHeaderTitle: action.title});
             case FIRE_SITE_HEADER_EVENT:
                 return Object.assign({}, state, {siteHeaderFiredEvent: action.eventName});
             case RESET_SITE_HEADER_EVENT:
