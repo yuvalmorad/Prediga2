@@ -95,6 +95,9 @@ const self = module.exports = {
 	byLeagueIdAndIdsWithLimit: function (leagueId, ids, limit) {
 		return Match.find({_id: {$in: ids}, league: leagueId}).sort({'kickofftime': -1}).limit(limit); // sorted desc
 	},
+	byLeagueIdAndIds: function (leagueId, ids) {
+		return Match.find({_id: {$in: ids}, league: leagueId}); // sorted desc
+	},
 	getIdArr: function (matches) {
 		return matches.map(function (match) {
 			return match._id.toString();
