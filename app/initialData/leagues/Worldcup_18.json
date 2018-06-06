@@ -1487,7 +1487,7 @@
       "_id": "9b1342399017dfc4e2faf4a1",
       "league": "4a21a7c1a3f89181074e9762",
       "title": "World Cup Finalists",
-      "description": "description about world cup finalists",
+      "description": "World Cup Finalists",
       "sprite": "questions.png",
       "mSprite": "worldcup_finalist",
       "iconPosition": "-216px 0"
@@ -1496,7 +1496,7 @@
       "_id": "9b1342399017dfc4e2faf4a3",
       "league": "4a21a7c1a3f89181074e9762",
       "title": "Group A Finalists",
-      "description": "description about group A finalists",
+      "description": "Group A finalists",
       "sprite": "questions.png",
       "mSprite": "worlcup_A",
       "iconPosition": "-504px 0"
@@ -1505,7 +1505,7 @@
       "_id": "9b1342399017dfc4e2faf4a4",
       "league": "4a21a7c1a3f89181074e9762",
       "title": "Group B Finalists",
-      "description": "description about group B finalists",
+      "description": "Group B finalists",
       "sprite": "questions.png",
       "mSprite": "worlcup_B",
       "iconPosition": "-576px 0"
@@ -1514,7 +1514,7 @@
       "_id": "9b1342399017dfc4e2faf4a5",
       "league": "4a21a7c1a3f89181074e9762",
       "title": "Group C Finalists",
-      "description": "description about group C finalists",
+      "description": "Group C finalists",
       "sprite": "questions.png",
       "mSprite": "worlcup_C",
       "iconPosition": "-648px 0"
@@ -1523,7 +1523,7 @@
       "_id": "9b1342399017dfc4e2faf4a6",
       "league": "4a21a7c1a3f89181074e9762",
       "title": "Group D Finalists",
-      "description": "description about group D finalists",
+      "description": "Group D finalists",
       "sprite": "questions.png",
       "mSprite": "worlcup_D",
       "iconPosition": "-720px 0"
@@ -1532,7 +1532,7 @@
       "_id": "9b1342399017dfc4e2faf4a7",
       "league": "4a21a7c1a3f89181074e9762",
       "title": "Group E Finalists",
-      "description": "description about group E finalists",
+      "description": "Group E finalists",
       "sprite": "questions.png",
       "mSprite": "worlcup_E",
       "iconPosition": "-792px 0"
@@ -1541,7 +1541,7 @@
       "_id": "9b1342399017dfc4e2faf4a8",
       "league": "4a21a7c1a3f89181074e9762",
       "title": "Group F Finalists",
-      "description": "description about group F finalists",
+      "description": "Group F finalists",
       "sprite": "questions.png",
       "mSprite": "worlcup_F",
       "iconPosition": "-864px 0"
@@ -1550,7 +1550,7 @@
       "_id": "9b1342399017dfc4e2faf4a9",
       "league": "4a21a7c1a3f89181074e9762",
       "title": "Group G Finalists",
-      "description": "description about group G finalists",
+      "description": "Group G finalists",
       "sprite": "questions.png",
       "mSprite": "worlcup_G",
       "iconPosition": "-936px 0"
@@ -1559,7 +1559,7 @@
       "_id": "9b1342399017dfc4e2faf4b1",
       "league": "4a21a7c1a3f89181074e9762",
       "title": "Group H Finalists",
-      "description": "description about group H finalists",
+      "description": "Group H finalists",
       "sprite": "questions.png",
       "mSprite": "worlcup_G",
       "iconPosition": "-1008px 0"
