@@ -110,7 +110,8 @@
         "#fff"
       ],
       "graphColors": [
-        "red"
+        "red",
+        "#bf0808"
       ],
       "logoPosition": "0 -560px",
       "sprite": "world_cup"
@@ -146,7 +147,8 @@
         "blue"
       ],
       "graphColors": [
-        "red"
+        "red",
+        "#bf0808"
       ],
       "logoPosition": "-56px -112px",
       "sprite": "world_cup"
@@ -182,7 +184,8 @@
         "#fff"
       ],
       "graphColors": [
-        "red"
+        "red",
+        "#bf0808"
       ],
       "logoPosition": "-56px -504px",
       "sprite": "world_cup"
@@ -200,7 +203,8 @@
         "yellow"
       ],
       "graphColors": [
-        "red"
+        "red",
+        "#bf0808"
       ],
       "logoPosition": "0 -56px",
       "sprite": "world_cup"
@@ -218,7 +222,8 @@
         "#fff"
       ],
       "graphColors": [
-        "red"
+        "red",
+        "#bf0808"
       ],
       "logoPosition": "0 -168px",
       "sprite": "world_cup"
@@ -236,7 +241,8 @@
         "#fff"
       ],
       "graphColors": [
-        "red"
+        "red",
+        "#bf0808"
       ],
       "logoPosition": "-56px -168px",
       "sprite": "world_cup"
@@ -254,7 +260,8 @@
         "#fff"
       ],
       "graphColors": [
-        "red"
+        "red",
+        "#bf0808"
       ],
       "logoPosition": "-56px -224px",
       "sprite": "world_cup"
@@ -326,7 +333,8 @@
         "#fff"
       ],
       "graphColors": [
-        "red"
+        "red",
+        "#bf0808"
       ],
       "logoPosition": "-56px -560px",
       "sprite": "world_cup"
@@ -362,7 +370,8 @@
         "blue"
       ],
       "graphColors": [
-        "red"
+        "red",
+        "#bf0808"
       ],
       "logoPosition": "-56px -616px",
       "sprite": "world_cup"
@@ -380,7 +389,8 @@
         "blue"
       ],
       "graphColors": [
-        "red"
+        "red",
+        "#bf0808"
       ],
       "logoPosition": "-56px -728px",
       "sprite": "world_cup"
@@ -398,7 +408,8 @@
         "blue"
       ],
       "graphColors": [
-        "red"
+        "red",
+        "#bf0808"
       ],
       "logoPosition": "0 -784px",
       "sprite": "world_cup"
@@ -434,7 +445,8 @@
         "#fff"
       ],
       "graphColors": [
-        "red"
+        "red",
+        "#bf0808"
       ],
       "logoPosition": "0 -840px",
       "sprite": "world_cup"
@@ -506,7 +518,8 @@
         "#fff"
       ],
       "graphColors": [
-        "red"
+        "red",
+        "#bf0808"
       ],
       "logoPosition": "-56px -392px",
       "sprite": "world_cup"
@@ -560,7 +573,8 @@
         "green"
       ],
       "graphColors": [
-        "red"
+        "red",
+        "#bf0808"
       ],
       "logoPosition": "-56px -448px",
       "sprite": "world_cup"
@@ -614,7 +628,8 @@
         "#fff"
       ],
       "graphColors": [
-        "red"
+        "red",
+        "#bf0808"
       ],
       "logoPosition": "-56px -840px",
       "sprite": "world_cup"
