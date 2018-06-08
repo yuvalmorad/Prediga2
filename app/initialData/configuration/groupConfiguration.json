@@ -6,11 +6,11 @@
     "team2Goals": 2,
     "goalDiff": 2,
     "firstToScore": 2,
-    "teamInGroup": 6,
+    "teamInGroup": 8,
     "teamWinner": 24,
     "teamRunnerUp": 18,
     "teamThird": 12,
-    "teamForth": 12,
+    "teamForth": 10,
     "teamLast": 12,
     "team2ndLast": 12,
     "minutesBeforeCloseMathPrediction": 5
