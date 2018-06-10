@@ -31,8 +31,25 @@ utils.general = (function(){
         compareStringsLowerCase: compareStringsLowerCase,
         formatDateByMonthAndDate: formatDateByMonthAndDate,
         getGroupConfiguration: getGroupConfiguration,
-        isUserActive: isUserActive
+        isUserActive: isUserActive,
+		copyJoinGroupLink: copyJoinGroupLink
     };
+
+    function copyJoinGroupLink(groupId) {
+        var linkToCopy = location.origin + "/group/" + groupId + "/matchPredictions?autoJoin=true";
+
+		const el = document.createElement('textarea');
+		el.value = linkToCopy;
+		el.setAttribute('readonly', '');
+		el.style.position = 'absolute';
+		el.style.left = '-9999px';
+		document.body.appendChild(el);
+		el.select();
+		document.execCommand('copy');
+		document.body.removeChild(el);
+
+		alert("Link was copied:\n" + linkToCopy);
+    }
 
     function isUserActive(leader, groupId) {
         return groupId === INITIAL_PUPLIC_GROUP || (leader && leader.isActive);

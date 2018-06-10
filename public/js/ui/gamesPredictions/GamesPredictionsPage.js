@@ -92,16 +92,17 @@ component.GamesPredictionsPage = (function(){
             shouldScrollToCurrentDate = true;
 
             return {
-                offsetPageIndex: 0
+                offsetPageIndex: 0,
+                prevClicked: false
             };
         },
 
         onPreviousPage: function() {
-            this.setState({offsetPageIndex: this.state.offsetPageIndex - 1});
+            this.setState({offsetPageIndex: this.state.offsetPageIndex - 1, prevClicked: true});
         },
 
         onNextPage: function() {
-            this.setState({offsetPageIndex: this.state.offsetPageIndex + 1});
+            this.setState({offsetPageIndex: this.state.offsetPageIndex + 1, prevClicked: false});
         },
 
         componentWillReceiveProps: function(nextProps) {
@@ -147,6 +148,7 @@ component.GamesPredictionsPage = (function(){
                 userPredictions = props.userPredictions,
                 results = props.results,
                 offsetPageIndex = state.offsetPageIndex,
+				prevClicked = state.prevClicked,
                 pages,
                 tilesInPage,
                 closestIndex,
@@ -200,6 +202,7 @@ component.GamesPredictionsPage = (function(){
                         groupConfiguration: groupConfiguration,
                         predictionCounters: predictionsCounters[matchId] || {},
 						selectedGroupId: selectedGroupId,
+						prevClicked: prevClicked,
                         key: matchId
                     });
                 });

@@ -179,6 +179,13 @@ component.EditAdminGroupPage = (function(){
             this.setState(newState);
         },
 
+		copyJoinGroupLink: function() {
+			var state = this.state,
+				group = state.group;
+
+			utils.general.copyJoinGroupLink(group._id);
+		},
+
         render: function() {
             var that = this;
             var props = this.props;
@@ -252,6 +259,10 @@ component.EditAdminGroupPage = (function(){
                 });
 
                 mainElement = re("div", {className: "scroll-container"},
+					re("div", {className: "sub-title-container"},
+						re("div", {className: "sub-title"}, "Copy link and send to friends:")
+					),
+					re("button", {className: "copy-join-group-link", onClick: this.copyJoinGroupLink}, "Copy link"),
                     re("div", {className: "title"}, "Group Details"),
                     re("div", {className: "sub-title-container"},
                         re("div", {className: "sub-title"}, "Group Name:"),

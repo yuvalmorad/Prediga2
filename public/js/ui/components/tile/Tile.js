@@ -30,9 +30,11 @@ component.Tile = (function(){
 
         render: function() {
             var props = this.props,
+				animation = props.animation,
                 state = this.state,
                 className = "tile",
-                disableOpen = props.disableOpen;
+                disableOpen = props.disableOpen,
+                style = {};
 
             if (props.className) {
                 className += " " + props.className
@@ -46,7 +48,12 @@ component.Tile = (function(){
                 className += " open";
             }
 
-            var opts = { className: className};
+            if (animation) {
+				style.animationName = animation.name;
+            }
+
+            var opts = { className: className, style: style};
+
             if (!disableOpen) {
                 opts.onClick = this.onTileClicked;
             }

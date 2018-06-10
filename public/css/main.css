@@ -1396,6 +1396,13 @@ body,textarea {
     border-top: 1px solid #ccc8c8;
 }
 
+.tile.game-prediction-tile {
+    animation-name: moveLeft;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-out;
+    animation-duration: 0.3s;
+}
+
 .game-prediction-tile .main > .left {
     margin-left: 1rem;
 }
@@ -1533,6 +1540,7 @@ body,textarea {
 
 .tile-dialog-container .game-prediction-tile.tile {
     height: 24.5rem;
+    animation-iteration-count: 0;
 }
 
 /* -------  game prediction form tile -------*/
@@ -1547,7 +1555,7 @@ body,textarea {
 
 .game-prediction-tile .form-row-title,
 .game-prediction-tile .form-title {
-    font-weight: 300;
+    font-weight: bold;
 }
 .game-prediction-tile .form-row-title {
     text-align: center;
@@ -1869,7 +1877,6 @@ body,textarea {
 
 .edit-group-page .leave-group-button,
 .edit-group-page .delete-group-button {
-    background: transparent;
     width: 100%;
     height: 3rem;
     color: #fff;
@@ -1881,6 +1888,17 @@ body,textarea {
 
 .edit-group-page .delete-group-button {
     margin-top: 0.5rem;
+}
+
+.edit-group-page .copy-join-group-link {
+    width: 100%;
+    height: 3rem;
+    color: #fff;
+    background-color: #4A90E2;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    border: none;
+    margin-bottom: 1rem;
 }
 
 /* -------  Join Group & Edit Group-------*/
@@ -2368,4 +2386,26 @@ body,textarea {
 
 .rules-item-items div:last-child {
     margin-bottom: 0;
+}
+
+@keyframes moveRight {
+    0% {
+        -webkit-transform: translate3d(-100%, 0, 0);
+        transform: translate3d(-100%, 0, 0);
+    }
+    100% {
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+@keyframes moveLeft {
+    0% {
+        -webkit-transform: translate3d(100%, 0, 0);
+        transform: translate3d(100%, 0, 0);
+    }
+    100% {
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+    }
 }
