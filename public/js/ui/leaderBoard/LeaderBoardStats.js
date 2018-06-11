@@ -71,7 +71,7 @@ component.LeaderBoardStats = (function(){
 				re("div", {className: "stats-item"}, "Total Times: " + (firstToScoreNone.totalCount || 0)),
 				re("div", {className: "stats-item"}, "Total Score: " + (firstToScoreNone.totalScore || 0)),
 
-				re("div", {className: "sub-title"}, "0) Goal Diff"),
+				re("div", {className: "sub-title"}, "0 Goal Diff"),
 				re("div", {className: "stats-item"}, "Average Score: " + (goalDiff0.avgScore || 0)),
 				re("div", {className: "stats-item"}, "Total Times: " + (goalDiff0.totalCount || 0)),
 				re("div", {className: "stats-item"}, "Total Score: " + (goalDiff0.totalScore || 0)),
