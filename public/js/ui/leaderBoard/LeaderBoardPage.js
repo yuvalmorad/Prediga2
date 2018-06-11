@@ -2,12 +2,25 @@ window.component = window.component || {};
 component.LeaderBoardPage = (function(){
     var connect = ReactRedux.connect,
         LeaderBoardTiles = component.LeaderBoardTiles,
-        LeaguesSubHeader = component.LeaguesSubHeader;
+        LeaguesSubHeader = component.LeaguesSubHeader,
+		Search = component.Search;
 
     var LeaderBoardPage = React.createClass({
 
+		getInitialState: function() {
+			return {
+				searchName: ''
+			}
+		},
+
+		onSearch: function(str) {
+			this.setState({searchName: str});
+		},
+
         render: function() {
             var props = this.props,
+				state = this.state,
+				searchName = state.searchName,
                 selectedLeagueId = props.selectedLeagueId,
                 selectedGroupId = props.selectedGroupId,
 				groups = props.groups,
@@ -24,9 +37,10 @@ component.LeaderBoardPage = (function(){
 			var group = utils.general.findItemInArrBy(groups, "_id", selectedGroupId);
 			var hasMoreThanOneLeague = group && group.leagueIds.length > 1;
 
-            return re("div", { className: "content" + (hasMoreThanOneLeague ? " hasSubHeader" : "") },
+            return re("div", { className: "content hasSeach" + (hasMoreThanOneLeague ? " hasSubHeader" : "") },
 				hasMoreThanOneLeague && re(LeaguesSubHeader, {}),
-                re(LeaderBoardTiles, {leaders: leaders, users: users, userId: userId, selectedLeagueId: selectedLeagueId, selectedGroupId: selectedGroupId})
+				re(Search, {onSearch: this.onSearch}),
+                re(LeaderBoardTiles, {leaders: leaders, users: users, userId: userId, selectedLeagueId: selectedLeagueId, selectedGroupId: selectedGroupId, searchName: searchName})
             );
         }
     });

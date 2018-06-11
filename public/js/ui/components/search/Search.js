@@ -16,10 +16,15 @@ component.Search = (function(){
         render: function(){
             var state = this.state;
             var searchStr = state.searchStr;
+            var props = this.props;
+            var width = props.width;
+            var style = {
+                width: width
+            };
 
-            return re("div", {className: "search-component"},
+            return re("div", {className: "search-component", style: style},
                 re("input", {type: "text", value: searchStr, onChange: this.onInputChange}),
-                re("span", {className: (searchStr ? "hide" : "")}, "")
+                re("span", {className: (searchStr ? "hide" : "")}, " Search")
             );
         }
     });

@@ -84,7 +84,7 @@ component.TeamPredictionFormTile = (function(){
            }
 
            return re("div", {className: "team-prediction-form"},
-               isDeadLine ? null : re(Search, {onSearch: this.onSearch}),
+               isDeadLine ? null : re(Search, {onSearch: this.onSearch, width: "12rem"}),
                re(ImagesPagination, {items: items, onSelectedTeamChanged: props.onSelectedTeamChanged})
            );
        }
