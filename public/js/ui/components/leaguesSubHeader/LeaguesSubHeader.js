@@ -11,6 +11,9 @@ component.LeaguesSubHeader = (function(){
 
         var group = utils.general.findItemInArrBy(groups, "_id", selectedGroupId);
         var groupLeagues = leagues.filter(function(league){
+            if (group._id === INITIAL_PUPLIC_GROUP && league._id === WORLD_CUP_LEAGUE_ID) { //workaround to remove world cup league in Everyone group
+                return false;
+            }
             return group.leagueIds.indexOf(league._id) >= 0;
         });
 
