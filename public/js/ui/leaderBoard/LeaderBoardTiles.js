@@ -67,8 +67,8 @@ component.LeaderBoardTiles = (function(){
 
         renderLeader: function(index, key) {
             var props = this.props,
-                leaders = props.leaders,
-                leader = leaders[index],
+                leader = this.filteredLeaders[index],
+				indexInOriginLeaders = props.leaders.indexOf(leader),
                 users = props.users,
                 authenticatedUserId = props.userId,
                 disableOpen = props.disableOpen;
@@ -88,7 +88,7 @@ component.LeaderBoardTiles = (function(){
             var badgeName = this.badgesByUserId[userId];
 
             //adding selected league id to rerender tiles when selecting new league
-            var leaderBoardTileProps = {disableOpen: disableOpen, user: user, badgeName: badgeName, score: leader.score, trend: trend, borderColor: borderColor, description: description, additionalDescription: leader.additionalDescription, additionalDescription2: leader.additionalDescription2, scoreCurrentMatch: leader.scoreCurrentMatch, rank: index + 1, key: userId + (props.selectedLeagueId || "") + (props.selectedGroupId || "")};
+            var leaderBoardTileProps = {disableOpen: disableOpen, user: user, badgeName: badgeName, score: leader.score, trend: trend, borderColor: borderColor, description: description, additionalDescription: leader.additionalDescription, additionalDescription2: leader.additionalDescription2, scoreCurrentMatch: leader.scoreCurrentMatch, rank: indexInOriginLeaders + 1, key: userId + (props.selectedLeagueId || "") + (props.selectedGroupId || "")};
 
             if (authenticatedUserId === userId) {
                 leaderBoardTileProps.isAuthenticatedUser = true;
@@ -97,21 +97,43 @@ component.LeaderBoardTiles = (function(){
             return re(LeaderBoardTile, leaderBoardTileProps);
         },
 
+        getFilteredLeaders: function() {
+            var props = this.props,
+			    searchName = props.searchName || "",
+				leaders = props.leaders,
+                users = props.users;
+
+			searchName = searchName.toLowerCase();
+
+            return leaders.filter(function(leader){
+                var userId = leader.userId;
+				var user = utils.general.findItemInArrBy(users, "_id", userId);
+				if (!user) {
+				    return false;
+                }
+
+                var userName = user.name || "";
+                return userName.toLowerCase().indexOf(searchName) >= 0;
+            });
+        },
+
         render: function() {
             var props = this.props,
-                leaders = props.leaders,
                 userIdFocus = props.userIdFocus,
                 i,
                 index,
-                ReactListProps = {
-                    itemRenderer: this.renderLeader,
-                    length: leaders.length,
-                    type: 'variable' //uniform
-                };
+                ReactListProps;
+
+            this.filteredLeaders = this.getFilteredLeaders();
+			ReactListProps = {
+				itemRenderer: this.renderLeader,
+				length: this.filteredLeaders.length,
+				type: 'variable' //uniform
+			};
 
            if (userIdFocus) {
-               for (i = 0; i < leaders.length; i++) {
-                   if (leaders[i].userId === userIdFocus) {
+               for (i = 0; i < this.filteredLeaders.length; i++) {
+                   if (this.filteredLeaders[i].userId === userIdFocus) {
                        index = i;
                        break;
                    }

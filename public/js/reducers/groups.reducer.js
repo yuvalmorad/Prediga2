@@ -27,9 +27,11 @@ reducer.groups = function() {
 
     function getSelectedLeagueId(groups, selectedGroupId) {
         var selectedLeagueIdByGroupObj = getSelectedLeagueIdByGroupFromLocalStorage();
-        if (selectedLeagueIdByGroupObj[selectedGroupId]) {
+
+        var leagueId = selectedLeagueIdByGroupObj[selectedGroupId];
+        if (leagueId && !(selectedGroupId === INITIAL_PUPLIC_GROUP && leagueId === WORLD_CUP_LEAGUE_ID)) { //workaround to remove world cup league in Everyone group
             //there was selected league id in this group -> return it
-            return selectedLeagueIdByGroupObj[selectedGroupId]
+            return leagueId;
         } else {
             //no selected league id in the past for this group -> get the first one
             var group = utils.general.findItemInArrBy(groups, "_id", selectedGroupId);

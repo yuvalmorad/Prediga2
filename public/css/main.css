@@ -115,10 +115,9 @@ body,textarea {
 
 .search-component {
     position: relative;
-    width: 12rem;
     height: 1.5rem;
     align-self: flex-end;
-    margin-bottom: 1rem;
+    margin: 0.5rem;
 }
 
 .search-component > input {
@@ -127,21 +126,21 @@ body,textarea {
     height: 100%;
     border: none;
     border-bottom: 1px solid #9B9B9B;
-    color: #9B9B9B;
+    color: #5a5959;
+    background-color: transparent;
 }
 
 .search-component > span {
     font-family: "prediga";
     position: absolute;
     top: 0;
-    bottom: 0;
-    right: 0;
-    width: 2rem;
+    left: 50%;
     line-height: 1.5rem;
-    color: #9B9B9B;
+    color: #aba9a9;
     text-align: center;
     font-size: 0.875rem;
     pointer-events: none;
+    transform: translateX(-50%);
 }
 /* -------  TEAM LOGO -------*/
 
@@ -266,16 +265,32 @@ body,textarea {
     border-bottom-style: solid;
 }
 
+.page > .content.hasSeach > .tiles {
+    height: calc(100% - 2.5rem);
+}
+
 .page > .content.hasTilesHeader > .tiles {
     height: calc(100% - 2rem);
+}
+
+.page > .content.hasTilesHeader.hasSeach > .tiles {
+    height: calc(100% - 4.5rem);
 }
 
 .page > .content.hasSubHeader > .tiles {
     height: calc(100% - 1.5rem);
 }
 
+.page > .content.hasSubHeader.hasSeach > .tiles {
+    height: calc(100% - 4rem);
+}
+
 .page > .content.hasTilesHeader.hasSubHeader > .tiles {
     height: calc(100% - 3.5rem);
+}
+
+.page > .content.hasTilesHeader.hasSubHeader.hasSeach > .tiles {
+    height: calc(100% - 6rem);
 }
 
 

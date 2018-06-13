@@ -41,10 +41,28 @@ component.GamePredictionTileDialog = (function(){
             var team1Goals = Math.floor(Math.random() * 3); //0,1,2
             var team2Goals = Math.floor(Math.random() * 3); //0,1,2
             var goalDiff = Math.abs(team1Goals - team2Goals);
-            var firstToScoreOptions = [team1Id, "None", team2Id];
-            var winnerOptions = [team1Id, "Draw", team2Id];
-            var firstToScore = firstToScoreOptions[Math.floor(Math.random() * 3)];
-            var winner = winnerOptions[Math.floor(Math.random() * 3)];
+
+            var firstToScore;
+            if (team1Goals === 0 && team2Goals === 0) {
+				firstToScore = "None";
+            } else if (team1Goals === 0) {
+				firstToScore = team2Id;
+            } else if (team2Goals === 0) {
+				firstToScore = team1Id;
+			} else {
+                //both teams has goals
+				var firstToScoreOptions = [team1Id, team2Id];
+				firstToScore = firstToScoreOptions[Math.floor(Math.random() * 2)];
+            }
+
+			var winner;
+			if (team1Goals === team2Goals) {
+				winner = "Draw";
+			} else if (team1Goals > team2Goals) {
+				winner = team1Id;
+            } else {
+				winner = team2Id;
+            }
 
             this.setState({
                 prediction: {
