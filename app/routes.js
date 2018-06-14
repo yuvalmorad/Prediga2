@@ -69,7 +69,7 @@ module.exports = function (app, passport) {
 			})(req,res,next);
 		}
 		, function (req, res) {
-			GroupService.autoLogin(req).then(function (path) { //TODO can be removed?
+			GroupService.autoLogin(req).then(function (path) {
 				res.redirect(path);
 				delete req.session.returnTo;
 			});

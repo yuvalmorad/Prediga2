@@ -128,7 +128,8 @@ const self = module.exports = {
 		var path = req.session.returnTo || "/";
         return Promise.resolve(path);
 
-		/*var groupId = path.split("/")[2];
+		/* Removed as we don't want people to enter in the middle.
+		var groupId = path.split("/")[2];
 		var autoJoinIdx = path.indexOf("?autoJoin");
 		if (groupId && autoJoinIdx >= 0) {
 			// autoJoin group flow
