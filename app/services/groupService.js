@@ -126,7 +126,9 @@ const self = module.exports = {
 	},
 	autoLogin: function (req) {
 		var path = req.session.returnTo || "/";
-		var groupId = path.split("/")[2];
+        return Promise.resolve(path);
+
+		/*var groupId = path.split("/")[2];
 		var autoJoinIdx = path.indexOf("?autoJoin");
 		if (groupId && autoJoinIdx >= 0) {
 			// autoJoin group flow
@@ -146,6 +148,6 @@ const self = module.exports = {
 		} else {
 			// regular flow
 			return Promise.resolve(path);
-		}
+		}*/
 	}
 };
