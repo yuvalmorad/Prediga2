@@ -17,7 +17,7 @@ webpush.setVapidDetails(
 
 const self = module.exports = {
     pushAllSubscriptionsToSpecificUser: function (pushSubscriptionObj, pushObj) {
-        pushObj.url = pushObj.url || "/";
+        pushObj.url = pushObj.url || "/group/5af1f5094652f900152f6249/matchPredictions"; //navigate to world cup group - remove when not needed!
         if (pushSubscriptionObj) {
             //console.log("before sending push notifications for all devices of user: ", user.userId);
             const pushSubscriptions = pushSubscriptionObj.pushSubscriptions;
