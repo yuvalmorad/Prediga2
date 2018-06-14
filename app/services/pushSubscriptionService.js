@@ -53,7 +53,7 @@ const self = module.exports = {
         return self.pushAllSubscriptionsToSpecificUser(user, pushObj);
     },
     subscribeUserToPushNotification: function (userId, pushObj) {
-        return PushSubscription.findOne({userId: userId.toString()}).then(function (err, pushSubscription) {
+        return PushSubscription.findOne({userId: userId.toString()}).then(function (pushSubscription) {
             if (pushSubscription) {
                 return PushSubscription.findOneAndUpdate({userId: userId.toString()}, {
                     userId: userId, $addToSet: {pushSubscriptions: pushObj}
@@ -66,7 +66,7 @@ const self = module.exports = {
         });
     },
     byUserId: function (userId) {
-        return PushSubscription.findOne({userId: userId});
+        return PushSubscription.find({userId: userId.toString()});
     },
     byUserIds: function (userIds) {
         return PushSubscription.find({userId: {$in: userIds}});
@@ -75,7 +75,9 @@ const self = module.exports = {
         return PushSubscription.find({});
     },
     removeAllByUser: function (userId) {
-        return PushSubscription.remove({userId: userId});
+        return PushSubscription.remove({userId: userId}).then(function (err) {
+            return Promise.resolve();
+        });
     },
     removeAll: function () {
         return PushSubscription.remove({});
