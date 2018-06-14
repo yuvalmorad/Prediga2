@@ -10,6 +10,7 @@ const Match = require("../models/match");
 const utils = require("../utils/util");
 const Group = require("../models/group");
 const User = require("../models/user");
+const pushSubscription = require("../models/pushSubscription");
 
 const self = module.exports = {
 
@@ -23,6 +24,7 @@ const self = module.exports = {
             //self.migrateMatchResults()
             //self.migrateTeamResults()
             //self.migrateMatches()
+            self.removePush()
         ]).then(function (arr) {
             console.log('[Init] - Migration finished');
         });
@@ -97,6 +99,13 @@ const self = module.exports = {
                 });
                 return Promise.all(promises);
             }
+        });
+    },
+    removePush: function () {
+        UserSettings.remove({}).then(function () {
+            pushSubscription.remove({}).then(function () {
+
+            });
         });
     }
 };
