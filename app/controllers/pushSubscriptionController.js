@@ -20,8 +20,8 @@ app.get('/', util.isLoggedIn, function (req, res) {
 /**
  * Test push notification
  */
-app.post('/pushTest', util.isAdmin, function (req, res) {
-	return pushSubscriptionService.pushToAllRegisterdUsers({text: "push notification TEST from prediga!"}).then(function () {
+app.get('/pushTest', util.isLoggedIn, function (req, res) {
+	return pushSubscriptionService.pushToAllRegiseredUsers({text: "push notification TEST from prediga!"}).then(function () {
 		res.status(200).json({});
 	});
 });

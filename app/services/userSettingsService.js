@@ -28,5 +28,21 @@ const self = module.exports = {
 		}
 
 		return true;
-	}
+	},
+    getPushUsers: function () {
+        return self.all().then(function (userSettings) {
+            if (!userSettings) {
+                return Promise.resolve([]);
+            }
+            let usersWantsToGetPushArray = [];
+            userSettings.forEach(function (userSetting) {
+                if (userSetting.value === utils.USER_SETTINGS_VALUES.TRUE) {
+                    if (userSetting.key === utils.USER_SETTINGS_KEYS.PUSH_NOTIFICATION) {
+                        usersWantsToGetPushArray.push(userSetting.userId);
+                    }
+                }
+            });
+            return Promise.resolve(usersWantsToGetPushArray);
+        });
+    }
 };

@@ -12,5 +12,10 @@ const self = module.exports = {
 	},
 	all: function () {
 		return User.find({});
-	}
+	},
+    getIdArr: function (users) {
+        return users.map(function (user) {
+            return user._id.toString();
+        });
+    }
 };
