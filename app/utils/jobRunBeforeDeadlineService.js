@@ -125,7 +125,7 @@ const self = module.exports = {
 			}
 			console.log("[Match Scheduler] - generating random match predictions for " + usersWithoutPredictions.length + ' users');
 			const promises = usersWithoutPredictions.map(function (userId) {
-				return matchPredictionsService.createRandomPrediction(matchId, userId, utils.DEFAULT_GROUP);
+				return matchPredictionsService.createRandomPrediction(matchId, userId, utils.WORLD_CUP_GROUP);
 			});
 
 			return Promise.all(promises);
@@ -137,7 +137,7 @@ const self = module.exports = {
 		}
 		console.log("[Match Scheduler] - copying match predictions for " + relevantUsers.length + ' users');
 		const promises = relevantUsers.map(function (userId) {
-			return matchPredictionsService.byMatchIdUserIdGroupId(matchId, userId, utils.DEFAULT_GROUP).then(function (matchPrediction) {
+			return matchPredictionsService.byMatchIdUserIdGroupId(matchId, userId, utils.WORLD_CUP_GROUP).then(function (matchPrediction) {
 				if (!matchPrediction) {
 					return Promise.resolve();
 				}
@@ -151,15 +151,15 @@ const self = module.exports = {
 							return Promise.resolve();
 						}
 						const promises = groups.map(function (group) {
-							if (group._id === utils.DEFAULT_GROUP) {
+							if (group._id === utils.WORLD_CUP_GROUP) {
 								return Promise.resolve();
 							}
 							if (group.leagueIds.indexOf(match.league) === -1) {
 								return Promise.resolve();
 							}
-							// checking if we already set a metch prediction, then don't override.
+							// checking if we already set a match prediction, then we don't override.
 							return matchPredictionsService.byMatchIdUserIdGroupId(matchId, userId, group._id).then(function (matchPredictionInGroup) {
-								if (matchPredictionInGroup && matchPredictionInGroup.groupId === group._id) {
+								if (matchPredictionInGroup && (matchPredictionInGroup.groupId === group._id)) {
 									// already exist, exit.
 									return Promise.resolve();
 								}
