@@ -45,11 +45,7 @@ component.UserSettingsPage = (function () {
 					),
 					re("label", {
 						className: "small-text",
-					}, "[i] If you forget to make a match or team prediction, Prediga can send you a reminder via your browser one hour before the prediction cutoff time. Make sure you allow push notifications from Prediga in your browser."),
-					re("br"),
-					re("label", {
-						className: "small-text",
-					}, "If you've enabled the random autofill and autocopy settings, they'll not be applied.")
+					}, "[i] If you forget to make a match prediction, Prediga can send you a reminder via your browser one hour before the prediction cutoff time. Make sure you allow push notifications from Prediga in your browser.")
 				))
 		}
 	});

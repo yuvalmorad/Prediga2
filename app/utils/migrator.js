@@ -24,7 +24,6 @@ const self = module.exports = {
             //self.migrateMatchResults()
             //self.migrateTeamResults()
             //self.migrateMatches()
-            self.removePush()
         ]).then(function (arr) {
             console.log('[Init] - Migration finished');
         });
