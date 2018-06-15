@@ -1192,6 +1192,27 @@ body,textarea {
     border-bottom-style: solid;
 }
 
+.leaderboard-controls {
+    display: flex;
+    margin-right: 0.5rem;
+    align-items: center;
+}
+
+.leaderboard-controls .search-component {
+    flex: 1;
+}
+
+.leaderboard-controls button {
+    height: 1.5rem;
+    background-color: transparent;
+    border: 1px solid #4A90E2;
+    color: #4A90E2;
+    border-radius: 4px;
+}
+
+.leaderboard-controls button:last-child {
+    margin-left: 3px;
+}
 .leader-board-stats {
     padding: 0 1rem;
     height: 12.5rem;
@@ -1682,6 +1703,10 @@ body,textarea {
     border: 1px solid #4A90E2;
     color: #4A90E2;
     border-radius: 4px;
+}
+
+.simulator-page .simulator-controls button:last-child {
+    margin-left: 3px;
 }
 
 .simulator-page .search-component {
