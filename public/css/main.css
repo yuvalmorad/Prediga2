@@ -116,7 +116,6 @@ body,textarea {
 .search-component {
     position: relative;
     height: 1.5rem;
-    align-self: flex-end;
     margin: 0.5rem;
 }
 
@@ -142,6 +141,11 @@ body,textarea {
     pointer-events: none;
     transform: translateX(-50%);
 }
+
+.team-prediction-form .search-component {
+    align-self: flex-end;
+}
+
 /* -------  TEAM LOGO -------*/
 
 .team-logo {
@@ -1665,6 +1669,23 @@ body,textarea {
 .simulator-matches {
     min-height: 2.3rem;
     position: relative;
+}
+
+.simulator-page .simulator-controls {
+    display: flex;
+    margin-right: 0.5rem;
+}
+
+.simulator-page .simulator-controls button {
+    height: 2rem;
+    background-color: transparent;
+    border: 1px solid #4A90E2;
+    color: #4A90E2;
+    border-radius: 4px;
+}
+
+.simulator-page .search-component {
+    flex: 1;
 }
 
 .simulator-page .tiles {

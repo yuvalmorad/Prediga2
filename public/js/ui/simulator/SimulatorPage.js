@@ -2,7 +2,8 @@ window.component = window.component || {};
 component.SimulatorPage = (function(){
     var connect = ReactRedux.connect,
         LeaderBoardTiles = component.LeaderBoardTiles,
-        SimulatorMatch = component.SimulatorMatch;
+        SimulatorMatch = component.SimulatorMatch,
+		Search = component.Search;
 
     function createMatchPrediction(predictionsSimulated, match, matchResult) {
         var matchId = match._id;
@@ -74,22 +75,24 @@ component.SimulatorPage = (function(){
         predictionsByMatchId.forEach(function(prediction) {
             var points = utils.general.calculateTotalPoints(prediction, matchPrediction, groupConfiguration);
             var leader = utils.general.findItemInArrBy(leaders, "userId", prediction.userId);
-            if (points) {
-                leader.score += points;
+            if (leader) {
+				if (points) {
+					leader.score += points;
 
-                var isStrike = utils.general.isPointsStrike(points, groupConfiguration);
-                if (isStrike) {
-                    leader.strikes += 1;
-                }
+					var isStrike = utils.general.isPointsStrike(points, groupConfiguration);
+					if (isStrike) {
+						leader.strikes += 1;
+					}
+				}
+
+				var team1 = utils.general.findItemInArrBy(clubs, "_id", match.team1);
+				var team2 = utils.general.findItemInArrBy(clubs, "_id", match.team2);
+
+				leader.description = team1.shortName + " " + prediction[GAME.BET_TYPES.TEAM1_GOALS.key] + " - " + prediction[GAME.BET_TYPES.TEAM2_GOALS.key] + " " + team2.shortName + " (Diff: " + prediction[GAME.BET_TYPES.GOAL_DIFF.key] + ")";
+				leader.additionalDescription = getWinnerText(prediction[GAME.BET_TYPES.WINNER.key], team1, team2);
+				leader.additionalDescription2 = getFirstScoreText(prediction[GAME.BET_TYPES.FIRST_TO_SCORE.key], team1, team2);
+				leader.scoreCurrentMatch = points || 0;
             }
-
-            var team1 = utils.general.findItemInArrBy(clubs, "_id", match.team1);
-            var team2 = utils.general.findItemInArrBy(clubs, "_id", match.team2);
-
-            leader.description = team1.shortName + " " + prediction[GAME.BET_TYPES.TEAM1_GOALS.key] + " - " + prediction[GAME.BET_TYPES.TEAM2_GOALS.key] + " " + team2.shortName + " (Diff: " + prediction[GAME.BET_TYPES.GOAL_DIFF.key] + ")";
-            leader.additionalDescription = getWinnerText(prediction[GAME.BET_TYPES.WINNER.key], team1, team2);
-            leader.additionalDescription2 = getFirstScoreText(prediction[GAME.BET_TYPES.FIRST_TO_SCORE.key], team1, team2);
-            leader.scoreCurrentMatch = points || 0;
         });
     }
 
@@ -100,13 +103,18 @@ component.SimulatorPage = (function(){
 
             return {
                 predictionsSimulated: [], //{matchId: "", team1Goals: 1, ...}
-                selectedMatchId: this.props.match.params.gameId
+                selectedMatchId: this.props.match.params.gameId,
+				searchName: ''
             };
         },
 
         componentDidMount: function() {
             this.props.closeTileDialogAction();
         },
+
+		onSearch: function(str) {
+			this.setState({searchName: str});
+		},
 
         updateMatchChange: function(predictionToUpdate) {
             var predictionsSimulated = this.state.predictionsSimulated;
@@ -121,10 +129,21 @@ component.SimulatorPage = (function(){
             this.forceUpdate();
         },
 
+		assignLeaderBoardTilesRef: function(leaderBoardTilesRef) {
+            this.leaderBoardTilesRef = leaderBoardTilesRef;
+        },
+
+		scrollToMe: function() {
+            if (this.leaderBoardTilesRef) {
+				this.leaderBoardTilesRef.scrollTo(this.props.userId);
+            }
+        },
+
         render: function() {
             var that = this,
                 props = this.props,
                 state = this.state,
+				searchName = state.searchName,
                 selectedMatchId = state.selectedMatchId,
                 predictionsSimulated = state.predictionsSimulated,
                 leaders = props.leaders,
@@ -174,7 +193,11 @@ component.SimulatorPage = (function(){
                 re("div", { className: "simulator-matches" },
                     matchElem
                 ),
-                re(LeaderBoardTiles, {leaders: leaders, users: users, selectedLeagueId: selectedLeagueId, disableOpen: true, userIdFocus: userId, userId: userId, selectedLeagueId: selectedLeagueId, selectedGroupId: selectedGroupId})
+                re("div", {className: "simulator-controls"},
+					re(Search, {onSearch: this.onSearch}),
+                    re("button", {onClick: this.scrollToMe}, "Find Me")
+                ),
+                re(LeaderBoardTiles, {ref: this.assignLeaderBoardTilesRef, leaders: leaders, users: users, selectedLeagueId: selectedLeagueId, disableOpen: true, userIdFocus: userId, userId: userId, selectedLeagueId: selectedLeagueId, selectedGroupId: selectedGroupId, searchName: searchName})
             );
         }
     });
