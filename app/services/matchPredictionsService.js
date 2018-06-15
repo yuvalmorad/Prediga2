@@ -139,7 +139,7 @@ const self = module.exports = {
 		return MatchPrediction.remove({groupId: groupId, userId: userId});
 	},
 	createRandomPrediction: function (matchId, userId, groupId) {
-		matchService.byId(matchId).then(function (match) {
+		return matchService.byId(matchId).then(function (match) {
 			let randomMatchPrediction = self.generateMatchPrediction(match, userId, groupId);
 			return self.updatePrediction(randomMatchPrediction, userId, groupId).then(function (newPrediction) {
 				return Promise.resolve(newPrediction);
@@ -186,9 +186,9 @@ const self = module.exports = {
 			userId: userId,
 			winner: winnerRandomValue === 0 ? match.team1 : winnerRandomValue === 1 ? match.team2 : 'Draw',
 			firstToScore: firstToScoreRandomValue === 0 ? match.team1 : firstToScoreRandomValue === 1 ? match.team2 : 'None',
-			team1Goals: Math.floor((Math.random() * 4)), // [0-3]
-			team2Goals: Math.floor((Math.random() * 4)), // [0-3]
-			goalDiff: Math.floor((Math.random() * 4)), // [0-3]
+			team1Goals: Math.floor((Math.random() * 2)), // [0-1]
+			team2Goals: Math.floor((Math.random() * 2)), // [0-1]
+			goalDiff: Math.floor((Math.random() * 2)), // [0-1]
 		};
 	},
 	getUserIdsWithoutMatchPredictions: function (matchId, relevantUsers) {
