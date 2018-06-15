@@ -103,7 +103,17 @@ component.LeaderBoardTiles = (function(){
 				leaders = props.leaders,
                 users = props.users;
 
-			searchName = searchName.toLowerCase();
+			searchName = searchName.toLowerCase().trim();
+			var searchNames = searchName.split(",");
+			searchNames = searchNames.map(function(searchName){
+				return searchName.trim();
+			});
+
+			if (searchNames.length > 1) {
+				searchNames = searchNames.filter(function(searchName){
+					return searchName !== ""
+				});
+			}
 
             return leaders.filter(function(leader){
                 var userId = leader.userId;
@@ -113,7 +123,11 @@ component.LeaderBoardTiles = (function(){
                 }
 
                 var userName = user.name || "";
-                return userName.toLowerCase().indexOf(searchName) >= 0;
+				userName = userName.toLowerCase();
+
+				return searchNames.filter(function(searchName){
+					return userName.indexOf(searchName) >= 0;
+				}).length > 0;
             });
         },
 
