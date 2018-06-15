@@ -117,10 +117,31 @@ component.LeaderBoardTiles = (function(){
             });
         },
 
+		assignLeadersListRef: function(leadersListRef) {
+            this.leadersListRef = leadersListRef
+        },
+
+		scrollTo: function(userId) {
+            if (this.leadersListRef && userId) {
+				var index = this.findIndexByUserId(userId);
+				this.leadersListRef.scrollTo(index);
+			}
+        },
+
+        findIndexByUserId: function(userId) {
+            var i;
+			for (i = 0; i < this.filteredLeaders.length; i++) {
+				if (this.filteredLeaders[i].userId === userId) {
+					return i;
+				}
+			}
+
+			return null;
+        },
+
         render: function() {
             var props = this.props,
                 userIdFocus = props.userIdFocus,
-                i,
                 index,
                 ReactListProps;
 
@@ -128,16 +149,12 @@ component.LeaderBoardTiles = (function(){
 			ReactListProps = {
 				itemRenderer: this.renderLeader,
 				length: this.filteredLeaders.length,
-				type: 'variable' //uniform
+				type: 'variable', //uniform
+				ref: this.assignLeadersListRef
 			};
 
            if (userIdFocus) {
-               for (i = 0; i < this.filteredLeaders.length; i++) {
-                   if (this.filteredLeaders[i].userId === userIdFocus) {
-                       index = i;
-                       break;
-                   }
-               }
+               index = this.findIndexByUserId(userIdFocus);
            }
 
            if (index !== undefined) {
