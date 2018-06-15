@@ -173,8 +173,9 @@ const self = module.exports = {
                     if (relevantGame.Active === true && !currentMatchResult) {
                         // this is the first update of match result.
                         console.log("[Automatic Updater] - sending push notification about game starts!");
-                        pushSubscriptionService.pushToAllRegiseredUsers({text: team1Club.name + ' vs ' + team2Club.name + ' started now'});
-                        // matchPredictionsService.createRandomPrediction(match._id, utils.MONKEY_USER_ID, utils.DEFAULT_GROUP);
+                        pushSubscriptionService.pushToAllRegiseredUsers({
+                            text: team1Club.name + ' vs ' + team2Club.name + ' started now'
+                        });
                     }
                     if (isFinished && (currentMatchResult && currentMatchResult.active === false)) {
                         return Promise.resolve('getResultsJob'); // not relevant anymore.

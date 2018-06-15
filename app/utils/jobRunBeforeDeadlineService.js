@@ -17,13 +17,15 @@ const self = module.exports = {
             "league": "4a21a7c1a3f89181074e9762"
         });*/
     },
-    callPushNotifications: function (matchId, userId) {
+    callPushNotifications: function (matchId, userId, groupId) {
         return pushSubscriptionService.byUserId(userId).then(function (subscriptions) {
             if (!subscriptions) {
                 return Promise.resolve();
             }
             const promises = subscriptions.map(function (subscription) {
-                return pushSubscriptionService.pushWithSubscription(subscription, {text: "You didn't fill match prediction, the match about to start in 1 hour, click to predict."});
+                return pushSubscriptionService.pushWithSubscription(subscription, {
+                    url: "/group/"+groupId+"/matchPredictions",
+                    text: "You didn't fill match prediction, the match about to start in 1 hour, click to predict."});
             });
             return Promise.all(promises);
         });
@@ -73,7 +75,7 @@ const self = module.exports = {
                                 return matchPredictionsService.createRandomPrediction(match._id, userInGroup, relevantGroup._id).then(function () {
                                     // If part of push list -> call Push.
                                     if (userAgreedToReceivePushNotifications && userAgreedToReceivePushNotifications.indexOf(userInGroup) > 0) {
-                                        self.callPushNotifications(match._id, userInGroup);
+                                        self.callPushNotifications(match._id, userInGroup, relevantGroup._id);
                                     } else {
                                         return Promise.resolve();
                                     }
