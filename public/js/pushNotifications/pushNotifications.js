@@ -84,9 +84,6 @@ var pushNotifications = (function(){
                 return registration.pushManager.subscribe(subscribeOptions);
             })
             .then(function(pushSubscription) {
-                //pushSubscription.endpoint (to send by server)
-                //pushSubscription.keys     (to values used to encrypt message)
-                console.log('Received PushSubscription: ', JSON.stringify(pushSubscription));
                 return pushSubscription;
             });
     }
