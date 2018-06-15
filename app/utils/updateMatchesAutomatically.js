@@ -8,10 +8,10 @@ const clubService = require('../services/clubService');
 const onejan = new Date(new Date().getFullYear(), 0, 4);
 const self = module.exports = {
 	run: function () {
-		self.runUpdate(utils.UPDATE_ISRAELI_LEAGUE_MATCHES_1, '5a21a7c1a3f89181074e9769'); // Israeli top league.
-		//self.runUpdate(utils.UPDATE_ISRAELI_LEAGUE_MATCHES_2, '5a21a7c1a3f89181074e9769'); // Israeli bottom league.
-		//self.runUpdate(utils.UPDATE_ENGLAND_LEAGUE_MATCHES, '3a21a7c1a3f89181074e9769'); // England
-		//self.runUpdate(utils.UPDATE_SPAIN_LEAGUE_MATCHES, '2a21a7c1a3f89181074e9769'); // Spain
+		// self.runUpdate(utils.UPDATE_ISRAELI_LEAGUE_MATCHES_1, '5a21a7c1a3f89181074e9769'); // Israeli top league.
+		// self.runUpdate(utils.UPDATE_ISRAELI_LEAGUE_MATCHES_2, '5a21a7c1a3f89181074e9769'); // Israeli bottom league.
+		// self.runUpdate(utils.UPDATE_ENGLAND_LEAGUE_MATCHES, '3a21a7c1a3f89181074e9769'); // England
+		// self.runUpdate(utils.UPDATE_SPAIN_LEAGUE_MATCHES, '2a21a7c1a3f89181074e9769'); // Spain
 
 		// schedule for next day.
 		schedule.scheduleJob(self.getNextDayDate(), function () {

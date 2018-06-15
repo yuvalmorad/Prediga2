@@ -16,6 +16,7 @@ const self = module.exports = {
 
     run: function () {
         return Promise.all([
+            //self.getTeamStats()
             //self.migrateUserScore(),
             //self.migrateLeaderboard(),
             //self.migrateMatchPredictions(),
@@ -24,6 +25,7 @@ const self = module.exports = {
             //self.migrateMatchResults()
             //self.migrateTeamResults()
             //self.migrateMatches()
+            //self.whoFill()
         ]).then(function (arr) {
             console.log('[Init] - Migration finished');
         });
@@ -104,6 +106,49 @@ const self = module.exports = {
         UserSettings.remove({}).then(function () {
             pushSubscription.remove({}).then(function () {
 
+            });
+        });
+    },
+    getTeamStats: function () {
+        TeamPrediction.find({groupId: utils.WORLD_CUP_GROUP}).then(function (teamsPredictions) {
+            var results = {};
+            teamsPredictions.forEach(function (teamsPrediction) {
+                if (!results.hasOwnProperty(teamsPrediction.teamId)) {
+                    results[teamsPrediction.teamId] = {};
+                }
+
+                if (!results[teamsPrediction.teamId].hasOwnProperty(teamsPrediction.team)) {
+                    results[teamsPrediction.teamId][teamsPrediction.team] = 0;
+                }
+                results[teamsPrediction.teamId][teamsPrediction.team]++;
+            });
+
+            console.log(results);
+        });
+    },
+    whoFill: function () {
+        Group.find({_id: utils.WORLD_CUP_GROUP}).then(function (groups) {
+            var userIds = groups[0].users;
+            var matchIds = ["5a21a7c1a3f89181074e9762", "5a21a7c1a3f89181074e9763", "5a21a7c1a3f89181074e9768", "5a21a7c1a3f89181074e9769"];
+            MatchPrediction.find({userId: {$in: userIds}, matchId: {$in: matchIds}}).then(function (matchPredictions) {
+                var existFill = {};
+                matchPredictions.forEach(function (matchPrediction) {
+                    if (!existFill.hasOwnProperty(matchPrediction.matchId)) {
+                        existFill[matchPrediction.matchId] = [];
+                    }
+                    if (existFill[matchPrediction.matchId].indexOf(matchPrediction.userId) < 0) {
+                        existFill[matchPrediction.matchId].push(matchPrediction.userId);
+                    }
+                });
+
+                Object.keys(existFill).forEach(function (matchIdKey) {
+                    userIds.forEach(function (userId) {
+                        if (existFill[matchIdKey].indexOf(userId) < 0) {
+                            console.log('user:' + userId + ', matchId:' + matchIdKey);
+                        }
+                    });
+
+                });
             });
         });
     }
