@@ -13,7 +13,7 @@ const self = module.exports = {
 
         // For testing only to generate random + push
         /*self.iterateUserSettings({
-            "_id": "5a21a7c1a3f89181074e9763",
+            "_id": "5a21a7c1a3f89181074e9769",
             "league": "4a21a7c1a3f89181074e9762"
         });*/
     },
@@ -42,9 +42,9 @@ const self = module.exports = {
             console.log("[Match Scheduler] -  next job will start at " + hourBeforeGameKickoffTime.toString());
             schedule.scheduleJob(hourBeforeGameKickoffTime, function () {
                 matchService.getMatchesOneHourBeforeStart().then(function (matches) {
-                    console.log("[Match Scheduler] - checking settings for " + matches.length + " matches");
+                    console.log("[Match Scheduler] - checking random and push for " + matches.length + " matches");
                     matches.forEach(function (match) {
-                        self.iterateUserSettings(0, match);
+                        self.iterateUserSettings(match);
                     });
                 });
                 self.scheduleJobBeforeGameKickoffTime(2);
