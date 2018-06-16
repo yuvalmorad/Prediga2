@@ -129,7 +129,7 @@ body,textarea {
     background-color: transparent;
 }
 
-.search-component > span {
+.search-component > .search-tooltip {
     font-family: "prediga";
     position: absolute;
     top: 0;
@@ -140,6 +140,15 @@ body,textarea {
     font-size: 0.875rem;
     pointer-events: none;
     transform: translateX(-50%);
+}
+
+.search-component > .search-clear {
+    position: absolute;
+    top: 0;
+    right: 0;
+    line-height: 1.5rem;
+    color: #5a5959;
+    padding: 0 7px;
 }
 
 .team-prediction-form .search-component {
