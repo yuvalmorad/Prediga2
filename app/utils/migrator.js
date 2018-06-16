@@ -27,7 +27,7 @@ const self = module.exports = {
             //self.migrateMatches()
             //self.whoFill()
         ]).then(function (arr) {
-            console.log('[Init] - Migration finished');
+            //console.log('[Init] - Migration finished');
         });
     },
     migrateUserScore: function () {
@@ -123,7 +123,7 @@ const self = module.exports = {
                 results[teamsPrediction.teamId][teamsPrediction.team]++;
             });
 
-            console.log(results);
+            //console.log(results);
         });
     },
     whoFill: function () {

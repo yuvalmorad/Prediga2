@@ -10,7 +10,8 @@ const matchPredictionSchema = mongoose.Schema({
 	team1Goals: Number,
 	team2Goals: Number,
 	goalDiff: Number,
-	firstToScore: String
+	firstToScore: String,
+    modifiedAt: Date
 });
 
 matchPredictionSchema.options.toJSON = {

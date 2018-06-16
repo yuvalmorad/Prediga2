@@ -12,10 +12,10 @@ const self = module.exports = {
         self.scheduleJobBeforeGameKickoffTime(0);
 
         // For testing only to generate random + push
-        /*self.iterateUserSettings({
-            "_id": "5a21a7c1a3f89181074e9769",
+        self.iterateUserSettings({
+            "_id": "5a21a7c1a3f89181074e9775",
             "league": "4a21a7c1a3f89181074e9762"
-        });*/
+        });
     },
     callPushNotifications: function (matchId, userId, groupId) {
         return pushSubscriptionService.byUserId(userId).then(function (subscriptions) {
@@ -39,10 +39,10 @@ const self = module.exports = {
 
             const hourBeforeGameKickoffTime = new Date(match.kickofftime);
             hourBeforeGameKickoffTime.setHours(hourBeforeGameKickoffTime.getHours() - 1);
-            console.log("[Match Scheduler] -  next job will start at " + hourBeforeGameKickoffTime.toString());
+            //console.log("[Match Scheduler] -  next job will start at " + hourBeforeGameKickoffTime.toString());
             schedule.scheduleJob(hourBeforeGameKickoffTime, function () {
                 matchService.getMatchesOneHourBeforeStart().then(function (matches) {
-                    console.log("[Match Scheduler] - checking random and push for " + matches.length + " matches");
+                    //console.log("[Match Scheduler] - checking random and push for " + matches.length + " matches");
                     matches.forEach(function (match) {
                         self.iterateUserSettings(match);
                     });
@@ -53,7 +53,7 @@ const self = module.exports = {
         });
     },
     iterateUserSettings: function (match) {
-        console.log("[scheduled Job 1 hour BeforeGameKickoffTime] -  job started for " + match._id);
+        //console.log("[scheduled Job 1 hour BeforeGameKickoffTime] -  job started for " + match._id);
 
         // get relevant groups with the league of the match
         groupService.byLeagueId(match.league).then(function (relevantGroups) {
@@ -69,13 +69,13 @@ const self = module.exports = {
                     // get group users.
                     const userInGroupPromises = relevantGroup.users.map(function (userInGroup) {
                         // is user fill prediction in the group?
-                        return matchPredictionsService.byMatchIdUserIdGroupId(match._id, userInGroup, relevantGroup._id).then(function (matchPrediction) {
+                        return matchPredictionsService.byMatchIdUserIdGroupId(match._id.toString(), userInGroup, relevantGroup._id.toString()).then(function (matchPrediction) {
                             if (!matchPrediction) {
                                 // create random
-                                return matchPredictionsService.createRandomPrediction(match._id, userInGroup, relevantGroup._id).then(function () {
+                                return matchPredictionsService.createRandomPrediction(match._id.toString(), userInGroup, relevantGroup._id.toString()).then(function () {
                                     // If part of push list -> call Push.
                                     if (userAgreedToReceivePushNotifications && userAgreedToReceivePushNotifications.indexOf(userInGroup) > 0) {
-                                        self.callPushNotifications(match._id, userInGroup, relevantGroup._id);
+                                        self.callPushNotifications(match._id.toString(), userInGroup, relevantGroup._id.toString());
                                     } else {
                                         return Promise.resolve();
                                     }

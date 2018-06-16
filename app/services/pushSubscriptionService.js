@@ -24,7 +24,7 @@ const self = module.exports = {
             (pushSubscriptions || []).forEach(function (pushSubscription) {
                 //console.log("sending push notification with text: ", pushObj);
                 webpush.sendNotification(pushSubscription, JSON.stringify(pushObj)).catch(function (err) {
-                    console.log("error sending push notification", err);
+                    //console.log("error sending push notification", err);
                 });
             });
             return Promise.resolve({});

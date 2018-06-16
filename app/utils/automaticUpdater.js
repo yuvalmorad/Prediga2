@@ -25,7 +25,7 @@ const self = module.exports = {
             if (isFirstRun) {
                 return self.getResultsJob();
             } else {
-                console.log('[Automatic Updater] - Next automatic update at - ' + match.kickofftime);
+                //console.log('[Automatic Updater] - Next automatic update at - ' + match.kickofftime);
                 schedule.scheduleJob(match.kickofftime, function () {
                     self.getResultsJob();
                 });
@@ -45,12 +45,12 @@ const self = module.exports = {
             }
             return self.getResults(leagues).then(function (hasInProgressGames) {
                 if (hasInProgressGames) {
-                    console.log('[Automatic Updater] - There are more games in progress...');
+                    //console.log('[Automatic Updater] - There are more games in progress...');
                     schedule.scheduleJob(self.getNextJobDate(), function () {
                         self.getResultsJob(leagues)
                     });
                 } else {
-                    console.log('[Automatic Updater] - No games to update...');
+                    //console.log('[Automatic Updater] - No games to update...');
                     schedule.scheduleJob(self.getNextJobDate(), function () {
                         self.run();
                     });
@@ -61,25 +61,25 @@ const self = module.exports = {
         });
     },
     getResults: function (activeLeagues) {
-        console.log('[Automatic Updater] - Start to get results...');
+        //console.log('[Automatic Updater] - Start to get results...');
         return self.getLatestData().then(function (htmlRawData) {
             if (!htmlRawData || htmlRawData.length < 1) {
-                console.log('[Automatic Updater] - No content received from remote host');
+                //console.log('[Automatic Updater] - No content received from remote host');
                 return Promise.resolve('getResultsJob');
             } else {
                 try {
-                    console.log('[Automatic Updater] - Start to parse response...');
+                    //console.log('[Automatic Updater] - Start to parse response...');
                     let soccerContent = self.parseResponse(htmlRawData);
                     return self.getRelevantGames(soccerContent, activeLeagues).then(function (relevantMatches) {
                         if (!relevantMatches || relevantMatches < 1) {
-                            console.log('[Automatic Updater] - There are no relevant games.');
+                            // console.log('[Automatic Updater] - There are no relevant games.');
                             return Promise.resolve(false);
                         }
-                        console.log('[Automatic Updater] - ' + relevantMatches.length + ' relevant matches found...');
+                        //console.log('[Automatic Updater] - ' + relevantMatches.length + ' relevant matches found...');
                         return self.updateMatchResults(relevantMatches);
                     });
                 } catch (err) {
-                    console.log('[Automatic Updater] - Error with parsing result. ' + err);
+                    //console.log('[Automatic Updater] - Error with parsing result. ' + err);
                     return Promise.resolve('getResultsJob'); // trying again.
                 }
             }
@@ -147,7 +147,7 @@ const self = module.exports = {
         const isActive = relevantGame.Active === true;
         if (!isActive && !isFinished) {
             // game not yet started
-            console.log('[Automatic Updater] - Game is not yet started, for [' + relevantGame.Comps[0].Name + ' - ' + relevantGame.Comps[1].Name + ']');
+            //console.log('[Automatic Updater] - Game is not yet started, for [' + relevantGame.Comps[0].Name + ' - ' + relevantGame.Comps[1].Name + ']');
             return Promise.resolve('getResultsJob'); // not relevant yet.
         }
 
@@ -163,16 +163,16 @@ const self = module.exports = {
 
             return matchService.findFirstMatchByTeamsStarted(team1, team2).then(function (match) {
                 if (!match || match === null) {
-                    console.log('[Automatic Updater] - Game already finished, for [' + team1Club.name + ' vs ' + team2Club.name + ']');
+                    //console.log('[Automatic Updater] - Game already finished, for [' + team1Club.name + ' vs ' + team2Club.name + ']');
                     return Promise.resolve('getResultsJob'); // not relevant anymore.
                 }
 
                 return matchResultService.byMatchId(match._id).then(function (currentMatchResult) {
-                    console.log('[Automatic Updater] - Beginning to create new match result, for [' + team1Club.name + ' vs ' + team2Club.name + ']');
+                    //console.log('[Automatic Updater] - Beginning to create new match result, for [' + team1Club.name + ' vs ' + team2Club.name + ']');
 
                     if (relevantGame.Active === true && !currentMatchResult) {
                         // this is the first update of match result.
-                        console.log("[Automatic Updater] - sending push notification about game starts!");
+                        //console.log("[Automatic Updater] - sending push notification about game starts!");
                         pushSubscriptionService.pushToAllRegiseredUsers({
                             text: team1Club.name + ' vs ' + team2Club.name + ' started now'
                         });
@@ -187,6 +187,13 @@ const self = module.exports = {
                             "matchResult": newMatchResult,
                             "rawGame": relevantGame
                         };
+
+                        if (self.isGoalOccur(currentMatchResult, newMatchResult)) {
+                            pushSubscriptionService.pushToAllRegiseredUsers({
+                                text: team1Club.name + ' (' + newMatchResult.team1Goals + ') - (' + newMatchResult.team2Goals + ') ' + team2Club.name
+                            });
+                        }
+
                         // TODO - used in simulator screen, verify it is relevant for the user, he is in a group with this game
                         socketIo.emit("matchResultUpdate", matchResultUpdate);
 
@@ -194,11 +201,14 @@ const self = module.exports = {
                             if (isFinished === false) {
                                 return Promise.resolve('getResultsJob'); // in progress
                             } else {
-                                console.log('[Automatic Updater] - Game has dinished, for [' + team1Club.name + ' vs ' + team2Club.name + ']');
+                                //console.log('[Automatic Updater] - Game has finished, for [' + team1Club.name + ' vs ' + team2Club.name + ']');
                                 const leagueId = match.league;
-                                console.log('[Automatic Updater] - Beginning to update user score, for [' + team1Club.name + ' vs ' + team2Club.name + ']');
+                                pushSubscriptionService.pushToAllRegiseredUsers({
+                                    text: team1Club.name + ' vs ' + team2Club.name + ' finished now'
+                                });
+                                //console.log('[Automatic Updater] - Beginning to update user score, for [' + team1Club.name + ' vs ' + team2Club.name + ']');
                                 return userScoreService.updateUserScoreByMatchResult(newMatchResult, leagueId).then(function () {
-                                    console.log('[Automatic Updater] - Beginning to update leaderboard from the automatic updater');
+                                    //console.log('[Automatic Updater] - Beginning to update leaderboard from the automatic updater');
                                     return userLeaderboardService.updateLeaderboardByGameIds(leagueId, [newMatchResult.matchId]).then(function () {
                                         return Promise.resolve(false); // not relevant anymore.
                                         // TODO - How to know to emit the right leaderboard to the right user?
@@ -269,5 +279,13 @@ const self = module.exports = {
         const now = new Date();
         nextJob.setHours(now.getHours() + 24);
         return nextJob;
+    },
+    isGoalOccur: function (existingMatchResult, newMatchResult) {
+        if ((existingMatchResult.team1Goals !== newMatchResult.team1Goals) ||
+            (existingMatchResult.team2Goals !== newMatchResult.team2Goals)) {
+            return true;
+        } else {
+            return false;
+        }
     }
 };

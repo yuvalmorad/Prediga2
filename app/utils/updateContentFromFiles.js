@@ -22,7 +22,7 @@ const self = module.exports = {
 			self.updateLeagueData(require('../initialData/leagues/Spain_17-18.json')),
 			self.updateLeagueData(require('../initialData/leagues/ChampionsLeague_17-18.json'))
 		]).then(function (arr) {
-			console.log('[Init] - Update initial data finished');
+			//console.log('[Init] - Update initial data finished');
 			return Promise.resolve({});
 		});
 	},

@@ -23,13 +23,13 @@ const self = module.exports = {
 		return clubService.all().then(function (clubs) {
 			return self.getLatestData(url).then(function (htmlRawData) {
 				if (!htmlRawData || htmlRawData.length < 1) {
-					console.log('[Automatic Match Updater] - No content received from remote host');
+					//console.log('[Automatic Match Updater] - No content received from remote host');
 					return Promise.resolve();
 				} else {
 					try {
-						console.log('[Automatic Match Updater] - Start to parse response...');
+						//console.log('[Automatic Match Updater] - Start to parse response...');
 						let matches = self.parseResponse(htmlRawData, leagueId, clubs);
-						console.log('[Automatic Match Updater] - ' + matches.length + ' relevant matches found...');
+						//console.log('[Automatic Match Updater] - ' + matches.length + ' relevant matches found...');
 						return MatchService.updateMatchesByTeamsAndType(matches);
 					} catch (err) {
 						console.log('[Automatic Match Updater] - Error with parsing result. ' + err);
@@ -79,7 +79,7 @@ const self = module.exports = {
 	},
 	appendMatch: function (input) {
 		if (!input.dateRaw) {
-			console.log('no date');
+			//console.log('no date');
 			return;
 		}
 		if (input.clubsRaw === 'משחק') {
@@ -95,11 +95,11 @@ const self = module.exports = {
 		let club1 = self.findClubInArray(input.clubs, teams[0]);
 		let club2 = self.findClubInArray(input.clubs, teams[1]);
 		if (club1 === null) {
-			console.log('club1:' + teams[0]);
+			//console.log('club1:' + teams[0]);
 			return;
 		}
 		if (club2 === null) {
-			console.log('club2:' + teams[1]);
+			//console.log('club2:' + teams[1]);
 			return;
 		}
 		let date = self.parseTime(input.dateRaw, input.timeRaw);

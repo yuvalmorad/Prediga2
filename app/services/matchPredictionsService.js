@@ -40,6 +40,7 @@ const self = module.exports = {
 		}
 		matchPrediction.userId = userId;
 		matchPrediction.groupId = groupId;
+		matchPrediction.modifiedAt = new Date();
 
 		// validation:
 		return !(((matchPrediction.winner !== match.team1) && (matchPrediction.winner !== match.team2) && (matchPrediction.winner.toLowerCase() !== utils.MATCH_CONSTANTS.DRAW)) ||
