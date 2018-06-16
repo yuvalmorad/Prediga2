@@ -96,6 +96,24 @@ component.SimulatorPage = (function(){
         });
     }
 
+    function updateLeadersPosition(leaders) {
+        var currentPlace = 1;
+        var currentScore = 0;
+		leaders.forEach(function(leader, index){
+		    leader.placeBeforeLastGame = leader.placeCurrent;
+
+		    if (leader.score === currentScore) {
+		        //same score as the one above -> same place (no need to increment currentPlace)
+				leader.placeCurrent = currentPlace;
+            } else {
+                //different sore
+				currentScore = leader.score;
+				currentPlace = index + 1;
+				leader.placeCurrent = currentPlace;
+            }
+        });
+    }
+
     var SimulatorPage = React.createClass({
         getInitialState: function() {
             var groupId = this.props.match.params.groupId;
@@ -189,11 +207,7 @@ component.SimulatorPage = (function(){
                return leader2.score - leader1.score;
             });
 
-            //update place
-            leaders.forEach(function(leader, index){
-                leader.placeBeforeLastGame = leader.placeCurrent;
-                leader.placeCurrent = index + 1;
-            });
+            updateLeadersPosition(leaders);
 
             return re("div", { className: "content simulator-page" },
                 re("div", { className: "simulator-matches" },
