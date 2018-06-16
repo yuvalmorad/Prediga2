@@ -77,7 +77,7 @@ component.RulesPage = (function () {
 							re("div", {}, "* You score a strike if all your predictions in a match are correct (maximum points). But if you aren't sure about the outcome and don't want to risk it too much, you can enter a non-sensical prediction. "),
 							re("div", {}, "For example, you might predict a draw but enter a 2-goal difference, or you could mark a match winner but enter the same number of goals scored by each team. Remember that playing it safe means you forfeit the chance to score maximum points. Choose your strategy carefully for each match"),
 							re("div", {}, "* Before a match has started, you won't be able to see the exact predictions made by other players in your group. However, the colored bar below the score in a match tile represents the overall percentage that each team is predicted as the match winner by the players in your group."),
-							re("div", {}, "* In case you forget to make a prediction before the cutoff time, you risk losing potential points. In the Settings screen, you can instruct Prediga to make a randomized prediction for you one hour before the cutoff time. By default, Prediga sends you reminders via your browser (you can opt out from the Prediga settings or blacklist all notifications from Prediga)."),
+							re("div", {}, "* In case you forget to make a prediction before the cutoff time, Prediga will make a randomized prediction for you."),
 							re("div", {}, "* If you're member of more than one group, remember that your match predictions are only applied to the group you've currently selected in the Prediga side panel.")
 						)
 					)
