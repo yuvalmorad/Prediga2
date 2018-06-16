@@ -129,7 +129,7 @@ body,textarea {
     background-color: transparent;
 }
 
-.search-component > span {
+.search-component > .search-tooltip {
     font-family: "prediga";
     position: absolute;
     top: 0;
@@ -140,6 +140,15 @@ body,textarea {
     font-size: 0.875rem;
     pointer-events: none;
     transform: translateX(-50%);
+}
+
+.search-component > .search-clear {
+    position: absolute;
+    top: 0;
+    right: 0;
+    line-height: 1.5rem;
+    color: #5a5959;
+    padding: 0 7px;
 }
 
 .team-prediction-form .search-component {
@@ -438,7 +447,7 @@ body,textarea {
 .site-header .info-button {
     font-family: "prediga";
     font-size: 0.8rem;
-    margin-left: 4px;
+    margin-left: 6px;
     border: 1px solid;
     padding: 2px 5px;
 }
@@ -1192,6 +1201,27 @@ body,textarea {
     border-bottom-style: solid;
 }
 
+.leaderboard-controls {
+    display: flex;
+    margin-right: 0.5rem;
+    align-items: center;
+}
+
+.leaderboard-controls .search-component {
+    flex: 1;
+}
+
+.leaderboard-controls button {
+    height: 1.5rem;
+    background-color: transparent;
+    border: 1px solid #4A90E2;
+    color: #4A90E2;
+    border-radius: 4px;
+}
+
+.leaderboard-controls button:last-child {
+    margin-left: 3px;
+}
 .leader-board-stats {
     padding: 0 1rem;
     height: 12.5rem;
@@ -1682,6 +1712,10 @@ body,textarea {
     border: 1px solid #4A90E2;
     color: #4A90E2;
     border-radius: 4px;
+}
+
+.simulator-page .simulator-controls button:last-child {
+    margin-left: 3px;
 }
 
 .simulator-page .search-component {
@@ -2453,16 +2487,15 @@ body,textarea {
 .rules-item-header {
     font-weight: bold;
     margin-bottom: 6px;
-    text-align: center;
 }
 
 .rules-item-items {
-    color: #7b7979;
+    color: #404040;
     font-size: 0.85rem;
 }
 
 .rules-item-items div {
-    margin-bottom: 4px;
+    margin-bottom: 5px;
 }
 
 .rules-item-items div:last-child {

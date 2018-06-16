@@ -44,9 +44,8 @@ utils.action = (function(){
         return function(dispatch){
             serviceObj.updatePrediction(prediction, groupId).then(function(predictionRes){
                 dispatch(updatePredictionState(predictionRes));
-                console.log("success");
             }, function(error){
-                console.log("error");
+                alert("Internal Error! please refresh the browser.");
             });
         };
 

@@ -139,6 +139,12 @@ component.SimulatorPage = (function(){
             }
         },
 
+		scrollToTop: function() {
+			if (this.leaderBoardTilesRef) {
+				this.leaderBoardTilesRef.scrollToTop();
+			}
+		},
+
         render: function() {
             var that = this,
                 props = this.props,
@@ -195,6 +201,7 @@ component.SimulatorPage = (function(){
                 ),
                 re("div", {className: "simulator-controls"},
 					re(Search, {onSearch: this.onSearch}),
+					re("button", {onClick: this.scrollToTop}, "Top"),
                     re("button", {onClick: this.scrollToMe}, "Find Me")
                 ),
                 re(LeaderBoardTiles, {ref: this.assignLeaderBoardTilesRef, leaders: leaders, users: users, selectedLeagueId: selectedLeagueId, disableOpen: true, userIdFocus: userId, userId: userId, selectedLeagueId: selectedLeagueId, selectedGroupId: selectedGroupId, searchName: searchName})

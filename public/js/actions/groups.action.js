@@ -82,9 +82,8 @@ action.groups = (function () {
                 dispatch(action.groupsConfiguration.addGroupConfiguration(configuration));
                 dispatch(action.groups.addGroup(groupCreated));
                 dispatch(action.groups.loadAllAvailableGroups());
-                console.log("success!");
             }, function(error){
-                console.log("error!", error);
+				alert("Internal Error! please refresh the browser.");
             });
         };
     }
@@ -96,10 +95,8 @@ action.groups = (function () {
                 delete groupCreated.configuration;
                 dispatch(action.groupsConfiguration.updateGroupConfiguration(configuration));
                 dispatch(action.groups.updateGroup(groupCreated));
-
-                console.log("success!");
             }, function(error){
-                console.log("error!", error);
+				alert("Internal Error! please refresh the browser.");
             });
         };
     }

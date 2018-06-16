@@ -142,6 +142,12 @@ component.LeaderBoardTiles = (function(){
 			}
         },
 
+		scrollToTop: function() {
+			if (this.leadersListRef) {
+				this.leadersListRef.scrollTo(0);
+			}
+		},
+
         findIndexByUserId: function(userId) {
             var i;
 			for (i = 0; i < this.filteredLeaders.length; i++) {
@@ -152,6 +158,10 @@ component.LeaderBoardTiles = (function(){
 
 			return null;
         },
+
+		itemSizeGetter: function(index) {
+			return 96;
+		},
 
         render: function() {
             var props = this.props,
@@ -164,7 +174,8 @@ component.LeaderBoardTiles = (function(){
 				itemRenderer: this.renderLeader,
 				length: this.filteredLeaders.length,
 				type: 'variable', //uniform
-				ref: this.assignLeadersListRef
+				ref: this.assignLeadersListRef,
+				itemSizeGetter: this.itemSizeGetter
 			};
 
            if (userIdFocus) {

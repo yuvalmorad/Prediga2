@@ -13,6 +13,12 @@ component.Search = (function(){
             this.props.onSearch(value);
         },
 
+		onClear: function() {
+            var value = '';
+			this.setState({searchStr: value});
+			this.props.onSearch(value);
+        },
+
         render: function(){
             var state = this.state;
             var searchStr = state.searchStr;
@@ -24,7 +30,8 @@ component.Search = (function(){
 
             return re("div", {className: "search-component", style: style},
                 re("input", {type: "text", value: searchStr, onChange: this.onInputChange}),
-                re("span", {className: (searchStr ? "hide" : "")}, " Search")
+                re("span", {className: "search-tooltip" + (searchStr ? " hide" : "")}, " Search"),
+				re("a", {className: "search-clear" + (searchStr ? "" : " hide"), onClick: this.onClear}, "x")
             );
         }
     });

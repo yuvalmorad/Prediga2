@@ -17,6 +17,22 @@ component.LeaderBoardPage = (function(){
 			this.setState({searchName: str});
 		},
 
+		assignLeaderBoardTilesRef: function(leaderBoardTilesRef) {
+			this.leaderBoardTilesRef = leaderBoardTilesRef;
+		},
+
+		scrollToMe: function() {
+			if (this.leaderBoardTilesRef) {
+				this.leaderBoardTilesRef.scrollTo(this.props.userId);
+			}
+		},
+
+		scrollToTop: function() {
+			if (this.leaderBoardTilesRef) {
+				this.leaderBoardTilesRef.scrollToTop();
+			}
+		},
+
         render: function() {
             var props = this.props,
 				state = this.state,
@@ -39,8 +55,12 @@ component.LeaderBoardPage = (function(){
 
             return re("div", { className: "content hasSeach" + (hasMoreThanOneLeague ? " hasSubHeader" : "") },
 				hasMoreThanOneLeague && re(LeaguesSubHeader, {}),
-				re(Search, {onSearch: this.onSearch}),
-                re(LeaderBoardTiles, {leaders: leaders, users: users, userId: userId, selectedLeagueId: selectedLeagueId, selectedGroupId: selectedGroupId, searchName: searchName})
+				re("div", {className: "leaderboard-controls"},
+					re(Search, {onSearch: this.onSearch}),
+					re("button", {onClick: this.scrollToTop}, "Top"),
+					re("button", {onClick: this.scrollToMe}, "Find Me")
+				),
+                re(LeaderBoardTiles, {ref: this.assignLeaderBoardTilesRef, leaders: leaders, users: users, userIdFocus: userId, userId: userId, selectedLeagueId: selectedLeagueId, selectedGroupId: selectedGroupId, searchName: searchName})
             );
         }
     });

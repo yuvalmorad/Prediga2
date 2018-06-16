@@ -3,7 +3,8 @@ component.RulesPage = (function () {
 	var connect = ReactRedux.connect;
 
 	function getPointsStr(groupConfiguration, betType) {
-		return groupConfiguration ? groupConfiguration[betType] + "pts" : "";
+		var str = groupConfiguration ? groupConfiguration[betType] + " points" : "";
+		return re("strong", {}, str);
 	}
 
 	function RulesPage(props) {
@@ -19,34 +20,36 @@ component.RulesPage = (function () {
 					re("div", {className: "rules-item-content"},
 						re("div", {className: "rules-item-header"}, "Prediga - How to play"),
 						re("div", {className: "rules-item-items"},
-							re("div", {}, "Outsmart your friends, family, and work buddies by predicting the outcome of football competitions (...or soccer depending on where you come from, but we mean the sport where a round ball is kicked around).\n" +
-								"Show everyone who's king and take all the glory!!")
+							re("div", {}, "Outsmart your friends, family, and work buddies by correctly predicting the outcome of football matches and competitions. Show everyone who's king and take all the glory!!")
 						)
 					)
 				),
 
 				re("div", {className: "rules-item"},
 					re("div", {className: "rules-item-content"},
-						re("div", {className: "rules-item-header"}, "Match Score"),
+						re("div", {className: "rules-item-header"}, "Match Prediction Points"),
 						re("div", {className: "rules-item-items"},
-							re("div", {}, "* Winner - " + getPointsStr(groupConfiguration, GAME.BET_TYPES.WINNER.key)),
-							re("div", {}, "* First to score - " + getPointsStr(groupConfiguration, GAME.BET_TYPES.FIRST_TO_SCORE.key)),
-							re("div", {}, "* Goal diff. - " + getPointsStr(groupConfiguration, GAME.BET_TYPES.GOAL_DIFF.key)),
-							re("div", {}, "* Team home/away exact goal scored - " + getPointsStr(groupConfiguration, GAME.BET_TYPES.TEAM1_GOALS.key)),
-							re("div", {}, "* (Bonus) Exact score including goal diff. - 1 strike")
+							re("div", {}, ["* Match outcome (winner or draw): ", getPointsStr(groupConfiguration, GAME.BET_TYPES.WINNER.key)]),
+							re("div", {}, ["* Goal score (for each team): ", getPointsStr(groupConfiguration, GAME.BET_TYPES.TEAM1_GOALS.key)]),
+							re("div", {}, ["* Goal difference: ", getPointsStr(groupConfiguration, GAME.BET_TYPES.GOAL_DIFF.key)]),
+							re("div", {}, ["* First to score: ", getPointsStr(groupConfiguration, GAME.BET_TYPES.FIRST_TO_SCORE.key)]),
+							re("div", {}, ["* Bonus!! ",re("strong", {}, "1 strike"), " is awarded for getting all 12 points in a match."]),
+							re("br", {}),
+							re("div", {}, "For qualification matches that go into extra time (+30 min) as a result of a draw, the result at the end of extra time is matched against your prediction. The outcome from a penalty shootout is not counted.")
 						)
 					)
 				),
 
 				re("div", {className: "rules-item"},
 					re("div", {className: "rules-item-content"},
-						re("div", {className: "rules-item-header"}, "Team Score"),
+						re("div", {className: "rules-item-header"}, "Team Prediction Points"),
 						re("div", {className: "rules-item-items"},
-							re("div", {}, "* Winning - " + getPointsStr(groupConfiguration, GAME.TEAM_TYPES.TEAM_WINNER.key)),
-							re("div", {}, "* Runner-up - " + getPointsStr(groupConfiguration, GAME.TEAM_TYPES.TEAM_RUNNER_UP.key)),
-							re("div", {}, "* 3rd place - " + getPointsStr(groupConfiguration, GAME.TEAM_TYPES.TEAM_THIRD.key)),
-							re("div", {}, "* 4th place - " + getPointsStr(groupConfiguration, GAME.TEAM_TYPES.TEAM_FOURTH.key)),
-							re("div", {}, "* Group stage (1st or 2nd place) - "+ getPointsStr(groupConfiguration, GAME.TEAM_TYPES.TEAM_GROUP_STAGE.key))
+							re("div", {}, ["* Competition winner: ", getPointsStr(groupConfiguration, GAME.TEAM_TYPES.TEAM_WINNER.key)]),
+							re("div", {}, ["* Runner-up: ", getPointsStr(groupConfiguration, GAME.TEAM_TYPES.TEAM_RUNNER_UP.key)]),
+							re("div", {}, ["* Third place: ", getPointsStr(groupConfiguration, GAME.TEAM_TYPES.TEAM_THIRD.key)]),
+							re("div", {}, ["* Fourth place: ", getPointsStr(groupConfiguration, GAME.TEAM_TYPES.TEAM_FOURTH.key)]),
+							re("div", {}, ["* Group stage winner: ", getPointsStr(groupConfiguration, GAME.TEAM_TYPES.TEAM_GROUP_STAGE.key)]),
+							re("div", {}, ["* Group stage runner-up: ", getPointsStr(groupConfiguration, GAME.TEAM_TYPES.TEAM_GROUP_STAGE.key)])
 						)
 					)
 				),
