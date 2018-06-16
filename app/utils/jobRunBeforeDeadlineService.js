@@ -13,19 +13,19 @@ const self = module.exports = {
 
         // For testing only to generate random + push
         /*self.iterateUserSettings({
-            "_id": "5a21a7c1a3f89181074e9775",
+            "_id": "5a21a7c1a3f89181074e977b",
             "league": "4a21a7c1a3f89181074e9762"
         });*/
     },
-    callPushNotifications: function (matchId, userId, groupId) {
+    callPushNotifications: function (userId, groupObj) {
         return pushSubscriptionService.byUserId(userId).then(function (subscriptions) {
             if (!subscriptions) {
                 return Promise.resolve();
             }
             const promises = subscriptions.map(function (subscription) {
                 return pushSubscriptionService.pushWithSubscription(subscription, {
-                    url: "/group/"+groupId+"/matchPredictions",
-                    text: "You didn't fill match prediction, the match about to start in 1 hour, click to predict."});
+                    url: "/group/"+groupObj._id.toString()+"/matchPredictions",
+                    text: "You didn't fill match prediction in group "+ groupObj.name+" , the match about to start in 1 hour, click to predict."});
             });
             return Promise.all(promises);
         });
@@ -75,7 +75,7 @@ const self = module.exports = {
                                 return matchPredictionsService.createRandomPrediction(match._id.toString(), userInGroup, relevantGroup._id.toString()).then(function () {
                                     // If part of push list -> call Push.
                                     if (userAgreedToReceivePushNotifications && userAgreedToReceivePushNotifications.indexOf(userInGroup) > 0) {
-                                        self.callPushNotifications(match._id.toString(), userInGroup, relevantGroup._id.toString());
+                                        self.callPushNotifications(userInGroup, relevantGroup);
                                     } else {
                                         return Promise.resolve();
                                     }
