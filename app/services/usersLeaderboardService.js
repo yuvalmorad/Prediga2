@@ -225,11 +225,14 @@ const self = module.exports = {
     },
     countOfUsersWithTheSameScore: function (leaderboards, score) {
         var count = 0;
-        leaderboards.forEach(function (leaderBoardItem) {
-            if (leaderBoardItem.score === score) {
-                count++;
-            }
-        });
+        if (leaderboards && leaderboards.length > 0){
+            leaderboards.forEach(function (leaderBoardItem) {
+                if (leaderBoardItem.score === score) {
+                    count++;
+                }
+            });
+        }
+
         return count;
     }
 };
