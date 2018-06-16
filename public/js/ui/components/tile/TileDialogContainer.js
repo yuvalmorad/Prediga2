@@ -7,7 +7,9 @@ component.TileDialogContainer = (function(){
         getInitialState: function() {
             return {
                 saveButtonEnabled: true,
-                displayRandomButton: false
+                displayRandomButton: false,
+                showStrikeIndication: false,
+                isStrike: false
             }
         },
 
@@ -45,7 +47,7 @@ component.TileDialogContainer = (function(){
 
         closeDialog: function() {
             this.props.closeTileDialog();
-            this.setState({saveButtonEnabled: true, displayRandomButton: false});
+            this.setState({saveButtonEnabled: true, displayRandomButton: false, showStrikeIndication: false, isStrike: false});
         },
 
         assignDialogSaveFun: function(onDialogSaveFunc) {
@@ -60,6 +62,10 @@ component.TileDialogContainer = (function(){
             this.setState({saveButtonEnabled: status});
         },
 
+        setShowStrikeIndication: function(show, isStrike) {
+            this.setState({showStrikeIndication: show, isStrike: isStrike});
+        },
+
         setRandomButtonDisplay: function(status) {
             this.setState({displayRandomButton: status});
         },
@@ -72,6 +78,8 @@ component.TileDialogContainer = (function(){
             var isDialogFormDisabled = false;
             var saveButtonEnabled = this.state.saveButtonEnabled;
             var displayRandomButton = this.state.displayRandomButton;
+            var showStrikeIndication = this.state.showStrikeIndication;
+            var isStrike = this.state.isStrike;
 
             if (props.isShowTileDialog) {
                 isDialogFormDisabled = !!componentProps.isDialogFormDisabled;
@@ -79,6 +87,7 @@ component.TileDialogContainer = (function(){
                 componentProps.onDialogSave = this.assignDialogSaveFun;
                 componentProps.onDialogRandom = this.assignDialogRandomFun;
                 componentProps.setSaveButtonEnabled = this.setSaveButtonEnabled;
+                componentProps.setShowStrikeIndication = this.setShowStrikeIndication;
                 componentProps.setRandomButtonDisplay = this.setRandomButtonDisplay;
                 componentElement = re(component[props.componentName], componentProps);
                 className +=  (" " + props.componentName);
@@ -101,7 +110,12 @@ component.TileDialogContainer = (function(){
                     re("div", {className: "dialog-button", style: dialogButtonStyle},
                         re("button", {onClick: this.onRandom, className: displayRandomButton && !isDialogFormDisabled ? "" : "hide"}, "Random"),
                         re("button", {onClick: this.onCancel, className: isDialogFormDisabled ? "hide" : ""}, "Cancel"),
-                        re("button", {onClick: isSave ?  this.onSave : this.onCancel, className: "main-button", disabled: isSave && !saveButtonEnabled}, isSave ? "Submit" : "Close")
+                        re("button", {onClick: isSave ?  this.onSave : this.onCancel, className: "main-button", disabled: isSave && !saveButtonEnabled}, isSave ?
+                            ["Submit",
+                                re("div", {className: (isStrike ? 'strike' : 'no-strike') + (showStrikeIndication ? "" : " hide")}
+                                )
+                            ] :
+                            "Close")
                     )
                 )
             )

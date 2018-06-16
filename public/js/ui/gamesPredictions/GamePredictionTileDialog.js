@@ -17,8 +17,9 @@ component.GamePredictionTileDialog = (function(){
         },
 
         componentDidMount: function() {
-          this.props.onDialogSave(this.onDialogSave);
-          this.props.setSaveButtonEnabled(false);
+            this.props.onDialogSave(this.onDialogSave);
+            this.props.setSaveButtonEnabled(false);
+            this.setShowStrikeIndicationIfNeeded(this.state.prediction);
         },
 
         onDialogSave: function() {
@@ -31,6 +32,18 @@ component.GamePredictionTileDialog = (function(){
 
             if (utils.general.isAllBetTypesExists(prediction)) {
                 this.props.setSaveButtonEnabled(true);
+            }
+
+            this.setShowStrikeIndicationIfNeeded(prediction);
+        },
+
+		setShowStrikeIndicationIfNeeded: function(prediction) {
+			if (utils.general.isAllBetTypesExists(prediction)) {
+				//all prediction filled -> show indication with relevant strike
+				this.props.setShowStrikeIndication(true, utils.general.isPredictionStrike(prediction, this.props.game));
+			} else {
+				//not all prediction filled -> remove strike indication
+				this.props.setShowStrikeIndication(false, false);
             }
         },
 
@@ -64,17 +77,19 @@ component.GamePredictionTileDialog = (function(){
 				winner = team2Id;
             }
 
+            var prediction = {
+				firstToScore: firstToScore,
+				goalDiff: goalDiff,
+				team1Goals: team1Goals,
+				team2Goals: team2Goals,
+				winner: winner,
+				matchId: this.state.prediction.matchId
+			};
             this.setState({
-                prediction: {
-                    firstToScore: firstToScore,
-                    goalDiff: goalDiff,
-                    team1Goals: team1Goals,
-                    team2Goals: team2Goals,
-                    winner: winner,
-                    matchId: this.state.prediction.matchId
-                }
+                prediction: prediction
             });
             this.props.setSaveButtonEnabled(true);
+			this.setShowStrikeIndicationIfNeeded(prediction);
         },
 
         render: function() {

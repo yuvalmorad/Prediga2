@@ -57,7 +57,7 @@ component.LeaderBoardPage = (function(){
 				hasMoreThanOneLeague && re(LeaguesSubHeader, {}),
 				re("div", {className: "leaderboard-controls"},
 					re(Search, {onSearch: this.onSearch}),
-					re("button", {onClick: this.scrollToTop}, "Top"),
+					re("button", {onClick: this.scrollToTop}, "#1"),
 					re("button", {onClick: this.scrollToMe}, "Find Me")
 				),
                 re(LeaderBoardTiles, {ref: this.assignLeaderBoardTilesRef, leaders: leaders, users: users, userIdFocus: userId, userId: userId, selectedLeagueId: selectedLeagueId, selectedGroupId: selectedGroupId, searchName: searchName})

@@ -1637,6 +1637,23 @@ body,textarea {
     animation-iteration-count: 0;
 }
 
+.tile-dialog-container.GamePredictionTileDialog .main-button > div{
+    position: absolute;
+    top: 1px;
+    right: 1px;
+    width: 1.8rem;
+    height: 1.8rem;
+    background-size: 100%;
+}
+
+.tile-dialog-container.GamePredictionTileDialog .main-button > div.strike {
+    background-image: url(../images/badge1.png);
+}
+
+.tile-dialog-container.GamePredictionTileDialog .main-button > div.no-strike {
+    background-image: url(../images/no_strike.png);
+}
+
 /* -------  game prediction form tile -------*/
 
 .game-prediction-tile .game-form {

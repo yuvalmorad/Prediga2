@@ -32,8 +32,40 @@ utils.general = (function(){
         formatDateByMonthAndDate: formatDateByMonthAndDate,
         getGroupConfiguration: getGroupConfiguration,
         isUserActive: isUserActive,
-		copyJoinGroupLink: copyJoinGroupLink
+		copyJoinGroupLink: copyJoinGroupLink,
+        isPredictionStrike: isPredictionStrike
     };
+
+    function isPredictionStrike(prediction, game) {
+        var team1 = game.team1;
+        var team2 = game.team2;
+		var winner = prediction[GAME.BET_TYPES.WINNER.key];
+		var firstToScore = prediction[GAME.BET_TYPES.FIRST_TO_SCORE.key];
+		var team1Goals = prediction[GAME.BET_TYPES.TEAM1_GOALS.key];
+		var team2Goals = prediction[GAME.BET_TYPES.TEAM2_GOALS.key];
+		var goalDiff = prediction[GAME.BET_TYPES.GOAL_DIFF.key];
+
+		if (isFirstScoreNone(firstToScore)) {
+		    // 0 : 0
+		    return goalDiff === 0 && isMatchDraw(winner) && team1Goals === 0 && team2Goals === 0;
+        }
+
+        if (isMatchDraw(winner)) {
+		    // draw with goals
+            return team1Goals === team2Goals && goalDiff === 0;
+        }
+
+        //some team wins
+        if (winner === team1) {
+		    //team1 win
+            return team1Goals > team2Goals && goalDiff === (team1Goals - team2Goals) && (team2Goals !== 0 || firstToScore === team1)
+        } else if (winner === team2) {
+			//team2 win
+			return team2Goals > team1Goals && goalDiff === (team2Goals - team1Goals) && (team1Goals !== 0 || firstToScore === team2)
+		}
+
+        return false;
+    }
 
     function copyJoinGroupLink(groupId) {
         var linkToCopy = location.origin + "/group/" + groupId + "/matchPredictions?autoJoin=true";

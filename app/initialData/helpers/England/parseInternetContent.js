@@ -280,7 +280,7 @@ function parseScore(scoreRaw, team1, team2) {
 
 function createNawMatch(input) {
 	if (!input.dateRaw) {
-		console.log('no dateRaw');
+		//console.log('no dateRaw');
 		return;
 	}
 

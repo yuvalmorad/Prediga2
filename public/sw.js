@@ -8,6 +8,7 @@ var cacheList = [
     "images/prediga_logo_transparent.png",
     "images/badge1.png",
     "images/badge2.png",
+	"images/no_strike.png",
     "images/teamCategories/questions.png",
     "images/iconsMessage/emoji.png",
     "images/iconsMessage/flags.png",

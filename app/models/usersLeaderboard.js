@@ -10,7 +10,8 @@ const usersLeaderboardSchema = mongoose.Schema({
 	strikes: Number,
 	placeCurrent: Number,
 	placeBeforeLastGame: Number,
-	isActive: Boolean
+	isActive: Boolean,
+    placesOverMatches: Array
 });
 
 usersLeaderboardSchema.options.toJSON = {

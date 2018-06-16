@@ -31,7 +31,7 @@ component.UserSettingsPage = (function () {
 				re("div", {className: "scroll-container"},
 					re("h1", {className: "smallMarginBottom"}, "User Settings"),
 					re("h3", {className: "smallMarginBottom"}, "Reminders"),
-					re("div", {className: "sub-title-container"},
+					re("div", {className: "sub-title-container", style: {marginBottom: '8px'}},
 						re("input", {
 							type: "checkbox",
 							id: "enablePushCheckbox",
@@ -43,9 +43,16 @@ component.UserSettingsPage = (function () {
 							htmlFor: "enablePushCheckbox"
 						}, "Send me reminders")
 					),
-					re("label", {
-						className: "small-text",
-					}, "[i] If you forget to make a match prediction, Prediga can send you a reminder via your browser one hour before the prediction cutoff time. Make sure you allow push notifications from Prediga in your browser.")
+					re("span", {style: {
+							fontFamily: "prediga",
+							marginLeft: '2px',
+							marginRight: '0.5rem',
+							border: '1px solid black',
+							padding: '2px 3px'
+						}}, ""),
+					re("span", {
+						className: "small-text"
+					}, "If you forget to make a match prediction, Prediga can send you a reminder via your browser one hour before the prediction cutoff time. Make sure you allow push notifications from Prediga in your browser.")
 				))
 		}
 	});
