@@ -12,10 +12,10 @@ const self = module.exports = {
         self.scheduleJobBeforeGameKickoffTime(0);
 
         // For testing only to generate random + push
-        self.iterateUserSettings({
+        /*self.iterateUserSettings({
             "_id": "5a21a7c1a3f89181074e9775",
             "league": "4a21a7c1a3f89181074e9762"
-        });
+        });*/
     },
     callPushNotifications: function (matchId, userId, groupId) {
         return pushSubscriptionService.byUserId(userId).then(function (subscriptions) {
