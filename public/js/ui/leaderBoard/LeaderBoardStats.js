@@ -28,8 +28,12 @@ component.LeaderBoardStats = (function(){
 			}
 
 			var winner = state.winner || {},
-				winner1or2 = winner.winner1or2 || {},
-				winnerDraw = winner.winnerDraw || {},
+                winner1or2 = winner.winner1or2 || {},
+                winnerDraw = winner.winnerDraw || {},
+                general = state.general || {},
+                totalCount = general.totalCount || 0,
+                totalScore = general.totalScore || 0,
+                avgScore = general.avgScore || 0,
 				firstToScore = state.firstToScore || {},
 				firstToScore1or2 = firstToScore.firstToScore1or2 || {},
 				firstToScoreNone = firstToScore.firstToScoreNone || {},
@@ -47,10 +51,14 @@ component.LeaderBoardStats = (function(){
 				team2Goals0 = team2Goals[0] || {},
 				team2Goals1 = team2Goals[1] || {},
 				team2Goals2 = team2Goals[2] || {},
-				team2Goals3 = team2Goals[3] || {}
-				;
+				team2Goals3 = team2Goals[3] || {};
 
             return re("div", {className: "leader-board-stats"},
+                re("div", {className: "sub-title"}, "General"),
+                re("div", {className: "stats-item"}, "Average Score: " + (avgScore)),
+                re("div", {className: "stats-item"}, "Total Times: " + (totalCount)),
+                re("div", {className: "stats-item"}, "Total Score: " + (totalScore)),
+
 				re("div", {className: "sub-title"}, "Winner (1 or 2)"),
 				re("div", {className: "stats-item"}, "Average Score: " + (winner1or2.avgScore || 0)),
 				re("div", {className: "stats-item"}, "Total Times: " + (winner1or2.totalCount || 0)),

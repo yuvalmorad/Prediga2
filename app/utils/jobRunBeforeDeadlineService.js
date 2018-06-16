@@ -63,7 +63,7 @@ const self = module.exports = {
             userSettingsService.getPushUsers().then(function (userAgreedToReceivePushNotifications) {
                 // iterating all groups (w/o everyone)
                 const promises = relevantGroups.map(function (relevantGroup) {
-                    if (relevantGroup._id === utils.DEFAULT_GROUP) {
+                    if (relevantGroup._id.toString() === utils.DEFAULT_GROUP) {
                         return Promise.resolve();
                     }
                     // get group users.

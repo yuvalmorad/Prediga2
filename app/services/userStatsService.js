@@ -40,7 +40,8 @@ const self = module.exports = {
 			prefferedPredictions: {},
 			general: {
 				totalCount: 0,
-				totalScore: 0
+				totalScore: 0,
+                avgScore: 0
 			}
 		};
 
