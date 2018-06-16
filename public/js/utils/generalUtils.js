@@ -51,8 +51,8 @@ utils.general = (function(){
         }
 
         if (isMatchDraw(winner)) {
-		    // draw with goals
-            return team1Goals === team2Goals && goalDiff === 0;
+		    // draw
+            return team1Goals === team2Goals && goalDiff === 0 && (team1Goals !== 0 || team2Goals !== 0 || isFirstScoreNone(firstToScore));
         }
 
         //some team wins
