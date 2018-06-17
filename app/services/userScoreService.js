@@ -165,6 +165,11 @@ const self = module.exports = {
 			leagueId: leagueId, gameId: gameId, groupId: groupId
 		});
 	},
+    byUserIdLeagueIdGroupId: function(userId, leagueId, groupId){
+        return UserScore.find({
+            leagueId: leagueId, userId: userId, groupId: groupId
+        });
+    },
 	getGameIdArr: function (userScores) {
 		if (userScores) {
 			return userScores.map(function (userScore) {
