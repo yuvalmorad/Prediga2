@@ -10,9 +10,9 @@ const teamResultService = require('../services/teamResultService');
 const userService = require('../services/userService');
 
 /**
- * Get data for Single User Last Prediction screen
+ * Get matches history for Single User
  */
-app.get('/:userId', util.isLoggedIn, function (req, res) {
+app.get('/matches/:userId', util.isLoggedIn, function (req, res) {
     const requestUserId = req.params.userId;
     const leagueId = req.query.leagueId;
     if (!leagueId) {
@@ -31,12 +31,33 @@ app.get('/:userId', util.isLoggedIn, function (req, res) {
         leagueId: leagueId
     };
     getData(request).then(function (obj) {
-        getDataForTeams(request).then(function (obj2) {
-            obj.teams = obj2.teams;
-            obj.teamPrediction = obj2.teamPrediction;
-            obj.teamResults = obj2.teamResults;
-            res.status(200).json(obj);
-        });
+        res.status(200).json(obj);
+    });
+});
+
+/**
+ * Get teams history for Single User
+ */
+app.get('/teams/:userId', util.isLoggedIn, function (req, res) {
+    const requestUserId = req.params.userId;
+    const leagueId = req.query.leagueId;
+    if (!leagueId) {
+        res.status(400).json({});
+    }
+    let groupId = req.query.groupId;
+    if (!groupId || groupId === 'undefined') {
+        groupId = util.DEFAULT_GROUP;
+    }
+    const loggedInUser = req.user._id;
+    let request = {
+        userId: requestUserId,
+        isForMe: userService.isMe(loggedInUser, requestUserId),
+        me: loggedInUser,
+        groupId: groupId,
+        leagueId: leagueId
+    };
+    getDataForTeams(request).then(function (obj) {
+        res.status(200).json(obj);
     });
 });
 
@@ -92,7 +113,7 @@ function getDataForTeams(request) {
                 const userPredictionsClosed = userPredictions.filter(function (prediction) {
                     return teamClosedIds.indexOf(prediction.teamId) >= 0;
                 });
-                if (teamResults.length == 0) {
+                if (teamResults.length < 1) {
                     // fake team result to see it in the UI until we will have result.
                     // fill the prediction
                     userPredictionsClosed.forEach(function (teamPrediction) {
