@@ -1,6 +1,7 @@
 window.component = window.component || {};
 component.LeaderBoardDetails = (function(){
 	var LeaderBoardMatchesHistory = component.LeaderBoardMatchesHistory;
+	var LeaderBoardTeamsHistory = component.LeaderBoardTeamsHistory;
 	var LeaderBoardStats = component.LeaderBoardStats;
 
     return React.createClass({
@@ -24,14 +25,20 @@ component.LeaderBoardDetails = (function(){
                 selectedComponentElem,
                 tabs = [
                     {
-                        name: "History",
-                        id: 0,
-                        component: LeaderBoardMatchesHistory,
+						name: "Matches",
+						id: 0,
+						component: LeaderBoardMatchesHistory,
 						componentProps: {userId: userId}
-                    },
+					},
+					{
+						name: "Teams",
+						id: 1,
+						component: LeaderBoardTeamsHistory,
+						componentProps: {userId: userId}
+					},
 					{
 						name: "Stats",
-                        id: 1,
+                        id: 2,
                         component: LeaderBoardStats,
 						componentProps: {userId: userId}
 					}
