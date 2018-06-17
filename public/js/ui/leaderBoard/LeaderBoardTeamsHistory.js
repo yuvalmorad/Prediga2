@@ -12,7 +12,7 @@ component.LeaderBoardTeamsHistory = (function(){
 
         componentDidMount: function() {
             var that = this;
-            leaderBoardService.getUserMatchPredictions(this.props.userId, this.props.selectedLeagueId, this.props.selectedGroupId).then(function(res){
+            leaderBoardService.getUserTeamPredictions(this.props.userId, this.props.selectedLeagueId, this.props.selectedGroupId).then(function(res){
                 var data = res.data;
                 that.setState({
                     teamPrediction: data.teamPrediction,
