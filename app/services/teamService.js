@@ -59,7 +59,7 @@ const self = module.exports = {
 			return team._id.toString();
 		});
 	},
-    getTeamCategoroiesIdsArr: function(teams) {
+    getTeamCategoriesIdsArr: function(teams) {
 		var categoriesIds = [];
 
         teams.forEach(function (team) {
@@ -72,6 +72,10 @@ const self = module.exports = {
         return categoriesIds;
 	},
 	byLeagueIdAndIds: function (leagueId, ids) {
-		return Team.find({_id: {$in: ids}, league: leagueId}).sort({'deadline': -1});
-	}
+        return Team.find({_id: {$in: ids}, league: leagueId}).sort({'deadline': -1});
+    },
+    byLeagueIdAndIdsDeadlinePass: function (leagueId, ids) {
+        const now = new Date();
+        return Team.find({_id: {$in: ids}, league: leagueId, deadline: {$lte: now}}).sort({'deadline': -1});
+    }
 };

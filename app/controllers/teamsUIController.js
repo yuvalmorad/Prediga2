@@ -36,7 +36,7 @@ function getData(me, groupId) {
 			const leagueIds = leagueService.getIdArr(leagues);
 			return teamService.byLeagueIds(leagueIds).then(function (teams) {
 				const teamIdArr = teamService.getIdsArr(teams);
-                const teamCategoriesIdsArr = teamService.getTeamCategoroiesIdsArr(teams);
+                const teamCategoriesIdsArr = teamService.getTeamCategoriesIdsArr(teams);
 
 				return Promise.all([
 					teamPredictionsService.getPredictionsByUserId({

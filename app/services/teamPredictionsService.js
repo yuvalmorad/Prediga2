@@ -27,11 +27,11 @@ const self = module.exports = {
 	},
 	getPredictionsForOtherUsersInner: function (teams, userId, groupId) {
 		const promises = teams.map(function (aTeam) {
-			return self.byTeamIdUserIdGroupId(aTeam._id, userId, groupId).then(function (teamPrediction) {
+			return self.byTeamIdUserIdGroupId(aTeam._id.toString(), userId, groupId).then(function (teamPrediction) {
 				if (teamPrediction) {
 					return Promise.resolve(teamPrediction);
 				} else {
-					return Promise.resolve({});
+					return Promise.resolve(null);
 				}
 			})
 		});
