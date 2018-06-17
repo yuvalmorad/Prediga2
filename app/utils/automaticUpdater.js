@@ -281,8 +281,8 @@ const self = module.exports = {
         return nextJob;
     },
     isGoalOccur: function (existingMatchResult, newMatchResult) {
-        if ((existingMatchResult.team1Goals !== newMatchResult.team1Goals) ||
-            (existingMatchResult.team2Goals !== newMatchResult.team2Goals)) {
+        if (existingMatchResult && newMatchResult && ((existingMatchResult.team1Goals !== newMatchResult.team1Goals) ||
+            (existingMatchResult.team2Goals !== newMatchResult.team2Goals))) {
             return true;
         } else {
             return false;
