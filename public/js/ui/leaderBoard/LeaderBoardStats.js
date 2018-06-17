@@ -19,15 +19,16 @@ component.LeaderBoardStats = (function(){
 			});
 		},
 
-        render: function() {
-			var state = this.state,
-				isLoading = state.isLoading;
+        render: function () {
+            var state = this.state,
+                isLoading = state.isLoading;
 
-			if (isLoading) {
-				return re("div", {}, "");
-			}
+            if (isLoading) {
+                return re("div", {}, "");
+            }
 
-			var s12 = state["12"] || 0,
+            var total = state["total"] || 0,
+                s12 = state["12"] || 0,
                 s10 = state["10"] || 0,
                 s8 = state["8"] || 0,
                 s6 = state["6"] || 0,
@@ -36,18 +37,26 @@ component.LeaderBoardStats = (function(){
                 s0 = state["0"] || 0;
 
             return re("div", {className: "leader-board-stats"},
-                re("div", {className: "sub-title"}, "Score Distribution"),
+                re("div", {className: "sub-title"}, "Points Distribution"),
                 // TODO - should be generic distribution according to the object.keys.
-                re("div", {className: "stats-item"}, "12: " + "("+s12+" times) " + (s12 / state["total"] * 100) + "%"),
-                re("div", {className: "stats-item"}, "10: " + "("+s10+" times) " + (s10 / state["total"] * 100) + "%"),
-                re("div", {className: "stats-item"}, "8: " + "("+s8+" times) " + (s8 / state["total"] * 100) + "%"),
-                re("div", {className: "stats-item"}, "6: " + "("+s6+" times) " + (s6 / state["total"] * 100) + "%"),
-                re("div", {className: "stats-item"}, "4: " + "("+s4+" times) " + (s4 / state["total"] * 100) + "%"),
-                re("div", {className: "stats-item"}, "2: " + "("+s2+" times) " + (s2 / state["total"] * 100) + "%"),
-                re("div", {className: "stats-item"}, "0: " + "("+s0+" times) " + (s0 / state["total"] * 100) + "%"),
+                re("div", {className: "stats-item"}, "12: " + getTimesString(s12) + " | " + getPercentageString(s12, total)),
+                re("div", {className: "stats-item"}, "10: " + getTimesString(s10) + " | " + getPercentageString(s10, total)),
+                re("div", {className: "stats-item"}, "8: " + getTimesString(s8) + " | " + getPercentageString(s8, total)),
+                re("div", {className: "stats-item"}, "6: " + getTimesString(s6) + " | " + getPercentageString(s6, total)),
+                re("div", {className: "stats-item"}, "4: " + getTimesString(s4) + " | " + getPercentageString(s4, total)),
+                re("div", {className: "stats-item"}, "2: " + getTimesString(s2) + " | " + getPercentageString(s2, total)),
+                re("div", {className: "stats-item"}, "0: " + getTimesString(s0) + " | " + getPercentageString(s0, total)),
             );
         }
     });
+
+    function getTimesString(value) {
+        return value === 1 ? "1 time" : value + " times";
+    }
+
+    function getPercentageString(value, total) {
+        return (value / total * 100) + "%";
+    }
 
 	function mapStateToProps(state){
 		return {
