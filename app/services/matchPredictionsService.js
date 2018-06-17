@@ -154,7 +154,7 @@ const self = module.exports = {
 		});
 	},
 	updatePrediction: function (matchPrediction, userId, groupId) {
-        console.log('[updatePrediction] - User: ' + userId + ", GroupId: " + groupId + ", Date:" + new Date() + ", Data:" + matchPrediction);
+        console.log('[updatePrediction] - User: ' + userId + ", GroupId: " + groupId + ", Date:" + new Date() + ", Data:" + matchPrediction.toString());
 		return MatchPrediction.findOneAndUpdate({
 			matchId: matchPrediction.matchId,
 			groupId: groupId,

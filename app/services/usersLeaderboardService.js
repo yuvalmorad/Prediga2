@@ -5,15 +5,15 @@ const matchService = require('../services/matchService');
 const matchResultService = require('../services/matchResultService');
 const teamService = require('../services/teamService');
 const teamResultService = require('../services/teamResultService');
+const UserScore = require('../models/userScore');
 const UsersLeaderboard = require('../models/usersLeaderboard');
 const utils = require('../utils/util');
 
 const self = module.exports = {
-    resetLeaderboard: function () {
-        return UsersLeaderboard.remove({}).then(function () {
-            return leagueService.all().then(function (leagues) {
-                const promises = leagues.map(function (league) {
-                    const leagueId = league._id;
+    resetLeaderboard: function (leagueId) {
+        return UserScore.remove({}).then(function () {
+            return UsersLeaderboard.remove({}).then(function () {
+                return leagueService.byId(leagueId).then(function (league) {
                     return Promise.all([
                         matchService.byLeagueIds([leagueId]),
                         teamService.byLeagueIds([leagueId])
@@ -25,24 +25,36 @@ const self = module.exports = {
                             matchResultService.byMatchIdsAndAndActiveStatus(matchIds, false),
                             teamResultService.byTeamIds(teamIds)
                         ]).then(function (results) {
-                            let combinedResults = utils.mergeArr(results);
-                            combinedResults.sort(self.compareResultsAsc);
-                            const gameIds = combinedResults.map(function (result) {
-                                return result.matchId || result.teamId;
-                            });
-                            if (gameIds.length < 0) {
-                                return Promise.resolve({});
-                            }
-                            return self.updateLeaderboardByGameIds(leagueId, gameIds).then(function () {
-                                //console.log('[Leaderboard] - Finish updateLeaderboardByGameIds');
-                                return Promise.resolve({});
+                            self.updateAllUserScores(results[0], leagueId).then(function () {
+                                let combinedResults = utils.mergeArr(results);
+                                combinedResults.sort(self.compareResultsAsc);
+                                const gameIds = combinedResults.map(function (result) {
+                                    return result.matchId || result.teamId;
+                                });
+                                if (gameIds.length < 0) {
+                                    return Promise.resolve({});
+                                }
+                                return self.updateLeaderboardByGameIds(leagueId, gameIds).then(function () {
+                                    //console.log('[Leaderboard] - Finish updateLeaderboardByGameIds');
+                                    return Promise.resolve({});
+                                });
                             });
                         });
                     });
-                });
-                return Promise.all(promises);
-            })
+                })
+            });
         });
+    },
+    updateAllUserScores: function (matchResults, leagueId) {
+        if (!matchResults) {
+            return Promise.resolve();
+        }
+        const promises = matchResults.map(function (matchResult) {
+            if (!matchResult.isActive){
+                return userScoreService.updateUserScoreByMatchResult(matchResult, leagueId);
+            }
+        });
+        return Promise.all(promises);
     },
     updateLeaderboardByGameIds: function (leagueId, gameIds) {
         return groupService.byLeagueId(leagueId).then(function (groups) {

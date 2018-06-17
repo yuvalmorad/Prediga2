@@ -170,6 +170,21 @@ const self = module.exports = {
             leagueId: leagueId, userId: userId, groupId: groupId
         });
     },
+    byUserIdLeagueId: function(userId, leagueId){
+        return UserScore.find({
+            leagueId: leagueId, userId: userId
+        });
+    },
+    byUserIdGroupId: function(userId, groupId){
+        return UserScore.find({
+            groupId: groupId, userId: userId
+        });
+    },
+    byGroupId: function(groupId){
+        return UserScore.find({
+            groupId: groupId
+        });
+    },
 	getGameIdArr: function (userScores) {
 		if (userScores) {
 			return userScores.map(function (userScore) {
