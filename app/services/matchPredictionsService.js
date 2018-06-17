@@ -237,7 +237,17 @@ const self = module.exports = {
         options.push(
             {
                 winner: 'Draw',
-                firstToScore: 'None',
+                firstToScore: match.team1,
+                team1Goals: 1,
+                team2Goals: 1,
+                goalDiff: 0,
+            }
+        );
+        // 1-1 2
+        options.push(
+            {
+                winner: 'Draw',
+                firstToScore: match.team2,
                 team1Goals: 1,
                 team2Goals: 1,
                 goalDiff: 0,
@@ -273,6 +283,16 @@ const self = module.exports = {
                 goalDiff: 1,
             }
         );
+        // 2-1 2
+        options.push(
+            {
+                winner: match.team1,
+                firstToScore: match.team2,
+                team1Goals: 2,
+                team2Goals: 1,
+                goalDiff: 1,
+            }
+        );
         // 1-2
         options.push(
             {
@@ -283,14 +303,14 @@ const self = module.exports = {
                 goalDiff: 1,
             }
         );
-        // 2-2
+        // 1-2 1
         options.push(
             {
-                winner: 'Draw',
-                firstToScore: 'None',
-                team1Goals: 2,
+                winner: match.team2,
+                firstToScore: match.team1,
+                team1Goals: 1,
                 team2Goals: 2,
-                goalDiff: 0,
+                goalDiff: 1,
             }
         );
         return options;
