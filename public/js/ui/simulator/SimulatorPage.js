@@ -216,7 +216,7 @@ component.SimulatorPage = (function(){
                 re("div", {className: "simulator-controls"},
 					re(Search, {onSearch: this.onSearch}),
 					re("button", {onClick: this.scrollToTop}, "#1"),
-                    re("button", {onClick: this.scrollToMe}, "Find Me")
+                    re("button", {onClick: this.scrollToMe}, "Me")
                 ),
                 re(LeaderBoardTiles, {ref: this.assignLeaderBoardTilesRef, leaders: leaders, users: users, selectedLeagueId: selectedLeagueId, disableOpen: true, userIdFocus: userId, userId: userId, selectedLeagueId: selectedLeagueId, selectedGroupId: selectedGroupId, searchName: searchName})
             );
