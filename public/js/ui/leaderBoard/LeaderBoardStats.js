@@ -55,7 +55,7 @@ component.LeaderBoardStats = (function(){
     }
 
     function getPercentageString(value, total) {
-        return " ("+ (value / total * 100) + "%)";
+        return " ("+ (value / total * 100).toFixed(2) + "%)";
     }
 
 	function mapStateToProps(state){
