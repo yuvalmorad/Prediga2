@@ -39,13 +39,13 @@ component.LeaderBoardStats = (function(){
             return re("div", {className: "leader-board-stats"},
                 re("div", {className: "sub-title"}, "Points Distribution"),
                 // TODO - should be generic distribution according to the object.keys.
-                re("div", {className: "stats-item"}, "12: " + getTimesString(s12) + " | " + getPercentageString(s12, total)),
-                re("div", {className: "stats-item"}, "10: " + getTimesString(s10) + " | " + getPercentageString(s10, total)),
-                re("div", {className: "stats-item"}, "8: " + getTimesString(s8) + " | " + getPercentageString(s8, total)),
-                re("div", {className: "stats-item"}, "6: " + getTimesString(s6) + " | " + getPercentageString(s6, total)),
-                re("div", {className: "stats-item"}, "4: " + getTimesString(s4) + " | " + getPercentageString(s4, total)),
-                re("div", {className: "stats-item"}, "2: " + getTimesString(s2) + " | " + getPercentageString(s2, total)),
-                re("div", {className: "stats-item"}, "0: " + getTimesString(s0) + " | " + getPercentageString(s0, total)),
+                re("div", {className: "stats-item"}, "12: " + getTimesString(s12) + getPercentageString(s12, total)),
+                re("div", {className: "stats-item"}, "10: " + getTimesString(s10) + getPercentageString(s10, total)),
+                re("div", {className: "stats-item"}, "8: " + getTimesString(s8) + getPercentageString(s8, total)),
+                re("div", {className: "stats-item"}, "6: " + getTimesString(s6) + getPercentageString(s6, total)),
+                re("div", {className: "stats-item"}, "4: " + getTimesString(s4) + getPercentageString(s4, total)),
+                re("div", {className: "stats-item"}, "2: " + getTimesString(s2) + getPercentageString(s2, total)),
+                re("div", {className: "stats-item"}, "0: " + getTimesString(s0) + getPercentageString(s0, total)),
             );
         }
     });
@@ -55,7 +55,7 @@ component.LeaderBoardStats = (function(){
     }
 
     function getPercentageString(value, total) {
-        return (value / total * 100) + "%";
+        return " ("+ (value / total * 100) + "%)";
     }
 
 	function mapStateToProps(state){
