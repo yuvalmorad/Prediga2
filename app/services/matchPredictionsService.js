@@ -141,7 +141,13 @@ const self = module.exports = {
 	},
 	createRandomPrediction: function (matchId, userId, groupId) {
 		return matchService.byId(matchId).then(function (match) {
-			let randomMatchPrediction = self.generateMatchPrediction(match, userId, groupId);
+            let randomMatchPrediction;
+            if (userId === utils.MONKEY_GUNNER_USER_ID) {
+                randomMatchPrediction = self.generateMatchPredictionForGunner(match, userId, groupId);
+            } else {
+                randomMatchPrediction = self.generateMatchPrediction(match, userId, groupId);
+            }
+
 			return self.updatePrediction(randomMatchPrediction, userId, groupId).then(function (newPrediction) {
 				return Promise.resolve(newPrediction);
 			});
@@ -180,20 +186,130 @@ const self = module.exports = {
 		return MatchPrediction.find({userId: {$in: userIds}, matchId: matchId});
 	},
 	generateMatchPrediction: function (match, userId, groupId) {
-		let winnerRandomValue = Math.floor((Math.random() * 3));
-		let firstToScoreRandomValue = Math.floor((Math.random() * 3));
+        var options = self.getPredefinedOptions(match);
+		let optionIdxToChoose = Math.floor((Math.random() * options.length));
+		var generatedPrediction = options[optionIdxToChoose];
 		return {
 			matchId: match._id,
 			groupId: groupId,
 			userId: userId,
-			winner: winnerRandomValue === 0 ? match.team1 : winnerRandomValue === 1 ? match.team2 : 'Draw',
-			firstToScore: firstToScoreRandomValue === 0 ? match.team1 : firstToScoreRandomValue === 1 ? match.team2 : 'None',
-			team1Goals: Math.floor((Math.random() * 2)), // [0-1]
-			team2Goals: Math.floor((Math.random() * 2)), // [0-1]
-			goalDiff: Math.floor((Math.random() * 2)), // [0-1]
+			winner: generatedPrediction.winner,
+			firstToScore: generatedPrediction.firstToScore,
+			team1Goals: generatedPrediction.team1Goals,
+			team2Goals: generatedPrediction.team2Goals,
+			goalDiff: generatedPrediction.goalDiff,
             isRandom: true
 		};
 	},
+    getPredefinedOptions: function(match){
+        var options = [];
+        // 0-0
+        options.push(
+            {
+                winner: 'Draw',
+                firstToScore: 'None',
+                team1Goals: 0,
+                team2Goals: 0,
+                goalDiff: 0,
+            }
+        );
+        // 1-0
+        options.push(
+            {
+                winner: match.team1,
+                firstToScore: match.team1,
+                team1Goals: 1,
+                team2Goals: 0,
+                goalDiff: 1,
+            }
+        );
+        // 0-1
+        options.push(
+            {
+                winner: match.team2,
+                firstToScore: match.team2,
+                team1Goals: 0,
+                team2Goals: 1,
+                goalDiff: 1,
+            }
+        );
+        // 1-1
+        options.push(
+            {
+                winner: 'Draw',
+                firstToScore: 'None',
+                team1Goals: 1,
+                team2Goals: 1,
+                goalDiff: 0,
+            }
+        );
+        // 2-0
+        options.push(
+            {
+                winner: match.team1,
+                firstToScore: match.team1,
+                team1Goals: 2,
+                team2Goals: 0,
+                goalDiff: 2,
+            }
+        );
+        // 0-2
+        options.push(
+            {
+                winner: match.team2,
+                firstToScore: match.team2,
+                team1Goals: 0,
+                team2Goals: 2,
+                goalDiff: 2,
+            }
+        );
+        // 2-1
+        options.push(
+            {
+                winner: match.team1,
+                firstToScore: match.team1,
+                team1Goals: 2,
+                team2Goals: 1,
+                goalDiff: 1,
+            }
+        );
+        // 1-2
+        options.push(
+            {
+                winner: match.team2,
+                firstToScore: match.team2,
+                team1Goals: 1,
+                team2Goals: 2,
+                goalDiff: 1,
+            }
+        );
+        // 2-2
+        options.push(
+            {
+                winner: 'Draw',
+                firstToScore: 'None',
+                team1Goals: 2,
+                team2Goals: 2,
+                goalDiff: 0,
+            }
+        );
+        return options;
+    },
+    generateMatchPredictionForGunner: function (match, userId, groupId) {
+        let winnerRandomValue = Math.floor((Math.random() * 3));
+        let firstToScoreRandomValue = Math.floor((Math.random() * 2));
+        return {
+            matchId: match._id,
+            groupId: groupId,
+            userId: userId,
+            winner: winnerRandomValue === 0 ? match.team1 : winnerRandomValue === 1 ? match.team2 : 'Draw',
+            firstToScore: firstToScoreRandomValue === 0 ? match.team1 : match.team2,
+            team1Goals: Math.floor((Math.random() * 2)), // [0-2]
+            team2Goals: Math.floor((Math.random() * 2)), // [0-2]
+            goalDiff: Math.floor((Math.random() * 2)), // [0-1]
+            isRandom: true
+        };
+    },
 	getUserIdsWithoutMatchPredictions: function (matchId, relevantUsers) {
 		return self.byMatchIdUserIds(matchId, relevantUsers).then(function (matchPredictions) {
 			if (!matchPredictions){

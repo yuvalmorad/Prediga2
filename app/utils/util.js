@@ -2,7 +2,8 @@ let passport = null;
 
 module.exports = {
 	DEFAULT_GROUP: '5a3eac97d3ca76dbd12bf638',
-	MONKEY_USER_ID: '5a8739aee1697b0015445020',
+	MONKEY_GUNNER_USER_ID: '5a8739aee1697b0015445020',
+    MONKEY_STRIKER_USER_ID: '5b26437c7d607d0015d54791',
     WORLD_CUP_GROUP: '5af1f5094652f900152f6249',
 	MINUTES_BEFORE_START_MATCH_PROPERTY_NAME: 'minutesBeforeCloseMathPrediction',
 	LAST_PREDICTIONS_LIMIT_UI: 600,
@@ -27,7 +28,6 @@ module.exports = {
 		TRUE: "true",
 		FALSE: "false"
 	},
-
 	init: function(_passport) {
         passport = _passport;
 	},
