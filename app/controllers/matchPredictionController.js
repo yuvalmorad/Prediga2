@@ -11,134 +11,137 @@ const groupService = require('../services/groupService');
  * By User Id
  */
 app.get('/:userId', util.isLoggedIn, function (req, res) {
-	const userId = req.params.userId;
-	let groupId = req.query.groupId;
-	const user = req.user;
-	if (!userId) {
-		res.status(400).json(util.getErrorResponse());
-		return;
-	}
+    const userId = req.params.userId;
+    let groupId = req.query.groupId;
+    const user = req.user;
+    if (!userId) {
+        res.status(400).json(util.getErrorResponse());
+        return;
+    }
 
-	if (!groupId) {
-		groupId = util.DEFAULT_GROUP;
-	}
+    if (!groupId) {
+        groupId = util.DEFAULT_GROUP;
+    }
 
-	return matchPredictionsService.getPrerdictionsByUserId({
-		userId: userId,
-		isForMe: userService.isMe(user._id, userId),
-		me: user._id,
-		groupId: groupId
-	}).then(function (result) {
-		res.status(200).json(result);
-	});
+    return matchPredictionsService.getPrerdictionsByUserId({
+        userId: userId,
+        isForMe: userService.isMe(user._id, userId),
+        me: user._id,
+        groupId: groupId
+    }).then(function (result) {
+        res.status(200).json(result);
+    });
 });
 
 /**
  * By Match Id
  */
 app.get('/:matchId', util.isLoggedIn, function (req, res) {
-	const matchId = req.params.matchId;
-	if (!matchId) {
-		res.status(400).json(util.getErrorResponse());
-		return;
-	}
+    const matchId = req.params.matchId;
+    if (!matchId) {
+        res.status(400).json(util.getErrorResponse());
+        return;
+    }
 
-	let groupId = req.query.groupId;
-	if (!groupId) {
-		groupId = util.DEFAULT_GROUP;
-	}
+    let groupId = req.query.groupId;
+    if (!groupId) {
+        groupId = util.DEFAULT_GROUP;
+    }
 
-	return matchPredictionsService.getPredictionsByUserId({
-		isForMe: true,
-		matchIds: [matchId],
-		groupId: groupId
-	}).then(function (result) {
-		res.status(200).json(result);
-	});
+    return matchPredictionsService.getPredictionsByUserId({
+        isForMe: true,
+        matchIds: [matchId],
+        groupId: groupId
+    }).then(function (result) {
+        res.status(200).json(result);
+    });
 });
 
 /**
  * All match Predictions, Only relevant to logged in users's group
  */
 app.get('/', util.isLoggedIn, function (req, res) {
-	const user = req.user;
+    const user = req.user;
 
-	let groupId = req.query.groupId;
-	if (!groupId) {
-		groupId = util.DEFAULT_GROUP;
-	}
+    let groupId = req.query.groupId;
+    if (!groupId) {
+        groupId = util.DEFAULT_GROUP;
+    }
 
-	return matchPredictionsService.getPredictionsByUserId({
-		userId: undefined,
-		isForMe: false,
-		me: user._id,
-		groupId: groupId
-	}).then(function (result) {
-		res.status(200).json(result);
-	});
+    return matchPredictionsService.getPredictionsByUserId({
+        userId: undefined,
+        isForMe: false,
+        me: user._id,
+        groupId: groupId
+    }).then(function (result) {
+        res.status(200).json(result);
+    });
 });
 
 /**
  * Create/Update match Prediction
  */
 app.post('/', util.isLoggedIn, function (req, res) {
-	let groupId = req.query.groupId;
-	const userId = req.user._id;
+    let groupId = req.query.groupId;
+    const userId = req.user._id;
 
-	if (!groupId) {
-		groupId = util.DEFAULT_GROUP;
-	}
+    if (!groupId) {
+        groupId = util.DEFAULT_GROUP;
+    }
 
-	const matchPredictions = req.body.matchPredictions;
-	if (!matchPredictions || !Array.isArray(matchPredictions)) {
-		res.status(400).json(util.getErrorResponse());
-		return;
-	}
+    const matchPredictions = req.body.matchPredictions;
+    if (!matchPredictions || !Array.isArray(matchPredictions)) {
+        res.status(400).json(util.getErrorResponse());
+        return;
+    }
 
-	return groupService.byId(groupId).then(function (group) {
-		if (!group) {
-			res.status(400).json({});
-		}
+    return groupService.byId(groupId).then(function (group) {
+        if (!group) {
+            res.status(400).json({});
+        }
 
-		return groupConfigurationService.getConfigurationValue(group.configurationId, util.MINUTES_BEFORE_START_MATCH_PROPERTY_NAME).then(function (minutesBeforeStartGameDeadline) {
-			return matchPredictionsService.createMatchPredictions(groupId, matchPredictions, userId, minutesBeforeStartGameDeadline).then(function (newPredictions) {
-				res.status(200).json(newPredictions);
-			}, function (msg) {
-				res.status(400).json({error: msg});
-			});
-		});
-	});
+        return groupConfigurationService.getConfigurationValue(group.configurationId, util.MINUTES_BEFORE_START_MATCH_PROPERTY_NAME).then(function (minutesBeforeStartGameDeadline) {
+            matchPredictions.forEach(function (matchPrediction) {
+                matchPrediction.isRandom = false;
+            });
+            return matchPredictionsService.createMatchPredictions(groupId, matchPredictions, userId, minutesBeforeStartGameDeadline).then(function (newPredictions) {
+                res.status(200).json(newPredictions);
+            }, function (msg) {
+                res.status(400).json({error: msg});
+            });
+        });
+    });
 });
 
 /**
  * Create random match Prediction
  */
 app.post('/random', util.isLoggedIn, function (req, res) {
-	let groupId = req.query.groupId;
-	let matchId = req.query.matchId;
-	const userId = req.user._id;
+    let groupId = req.query.groupId;
+    let matchId = req.query.matchId;
+    const userId = req.user._id;
 
-	if (!groupId) {
-		groupId = util.DEFAULT_GROUP;
-	}
+    if (!groupId) {
+        groupId = util.DEFAULT_GROUP;
+    }
 
-	return groupService.byId(groupId).then(function (group) {
-		if (!group) {
-			res.status(400).json({});
-		}
+    return groupService.byId(groupId).then(function (group) {
+        if (!group) {
+            res.status(400).json({});
+        }
 
-		return groupConfigurationService.getConfigurationValue(group.configurationId, util.MINUTES_BEFORE_START_MATCH_PROPERTY_NAME).then(function (minutesBeforeStartGameDeadline) {
-			matchService.byId(matchId).then(function (match) {
-				let matchPredictions = matchPredictionsService.generateMatchPrediction(match, userId, groupId);
-				return matchPredictionsService.createMatchPredictions(groupId, [matchPredictions], userId, minutesBeforeStartGameDeadline).then(function (newPrediction) {
-					res.status(200).json(newPrediction);
-				}, function (msg) {
-					res.status(400).json({error: msg});
-				});
-			});
+        return groupConfigurationService.getConfigurationValue(group.configurationId, util.MINUTES_BEFORE_START_MATCH_PROPERTY_NAME).then(function (minutesBeforeStartGameDeadline) {
+            matchService.byId(matchId).then(function (match) {
+                let matchPredictions = matchPredictionsService.generateMatchPrediction(match, userId, groupId);
+                return matchPredictionsService.createMatchPredictions(groupId, [matchPredictions], userId, minutesBeforeStartGameDeadline).then(function (newPrediction) {
+                    res.status(200).json(newPrediction);
+                }, function (msg) {
+                    res.status(400).json({error: msg});
+                });
+            });
 
-		});
-	});
+        });
+    });
 });
 
 module.exports = app;
