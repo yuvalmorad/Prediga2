@@ -96,10 +96,42 @@ component.LeaderBoardTiles = (function(){
             return re(LeaderBoardTile, leaderBoardTileProps);
         },
 
-        getFilteredLeaders: function() {
+		getSortedLeaders: function() {
+			var props = this.props,
+				sortByStrike = props.sortByStrike,
+				leaders = props.leaders;
+
+			if (!sortByStrike) {
+				return leaders;
+			}
+
+			leaders = JSON.parse(JSON.stringify(leaders));
+			leaders.sort(function(leader1, leader2) {
+				return leader2.strikes - leader1.strikes;
+			});
+
+			var currentPlace = 1;
+			var currentStrikes = 0;
+			leaders.forEach(function(leader, index){
+				if (leader.strikes === currentStrikes) {
+					//same strikes as the one above -> same place (no need to increment currentPlace)
+					leader.placeCurrent = currentPlace;
+				} else {
+					//different sore
+					currentStrikes = leader.strikes;
+					currentPlace = index + 1;
+					leader.placeCurrent = currentPlace;
+				}
+
+				leader.placeBeforeLastGame = leader.placeCurrent;
+			});
+
+			return leaders;
+		},
+
+        getFilteredLeaders: function(leaders) {
             var props = this.props,
 			    searchName = props.searchName || "",
-				leaders = props.leaders,
                 users = props.users;
 
 			searchName = searchName.toLowerCase().trim();
@@ -168,7 +200,9 @@ component.LeaderBoardTiles = (function(){
                 index,
                 ReactListProps;
 
-            this.filteredLeaders = this.getFilteredLeaders();
+			var leaders = this.getSortedLeaders();
+			this.filteredLeaders = this.getFilteredLeaders(leaders);
+
 			ReactListProps = {
 				itemRenderer: this.renderLeader,
 				length: this.filteredLeaders.length,

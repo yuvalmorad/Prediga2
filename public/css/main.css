@@ -1217,10 +1217,16 @@ body,textarea {
     border: 1px solid #4A90E2;
     color: #4A90E2;
     border-radius: 4px;
+    margin-right: 3px;
+}
+
+.leaderboard-controls button.selected {
+    background-color: #4A90E2;
+    color: #fff;
 }
 
 .leaderboard-controls button:last-child {
-    margin-left: 3px;
+    margin-right: 0;
 }
 .leader-board-stats {
     padding: 0 1rem;

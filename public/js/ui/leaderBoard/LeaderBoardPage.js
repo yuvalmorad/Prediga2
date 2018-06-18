@@ -9,8 +9,13 @@ component.LeaderBoardPage = (function(){
 
 		getInitialState: function() {
 			return {
-				searchName: ''
+				searchName: '',
+				sortByStrike: false
 			}
+		},
+
+		toggleSortByStrike: function() {
+			this.setState({sortByStrike: !this.state.sortByStrike});
 		},
 
 		onSearch: function(str) {
@@ -37,6 +42,7 @@ component.LeaderBoardPage = (function(){
             var props = this.props,
 				state = this.state,
 				searchName = state.searchName,
+				sortByStrike = state.sortByStrike,
                 selectedLeagueId = props.selectedLeagueId,
                 selectedGroupId = props.selectedGroupId,
 				groups = props.groups,
@@ -57,10 +63,11 @@ component.LeaderBoardPage = (function(){
 				hasMoreThanOneLeague && re(LeaguesSubHeader, {}),
 				re("div", {className: "leaderboard-controls"},
 					re(Search, {onSearch: this.onSearch}),
+					re("button", {onClick: this.toggleSortByStrike, className: (sortByStrike ? "selected" : "")}, "Strikes"),
 					re("button", {onClick: this.scrollToTop}, "#1"),
-					re("button", {onClick: this.scrollToMe}, "Find Me")
+					re("button", {onClick: this.scrollToMe}, "Me")
 				),
-                re(LeaderBoardTiles, {ref: this.assignLeaderBoardTilesRef, leaders: leaders, users: users, userIdFocus: userId, userId: userId, selectedLeagueId: selectedLeagueId, selectedGroupId: selectedGroupId, searchName: searchName})
+                re(LeaderBoardTiles, {ref: this.assignLeaderBoardTilesRef, leaders: leaders, users: users, userIdFocus: userId, userId: userId, selectedLeagueId: selectedLeagueId, selectedGroupId: selectedGroupId, searchName: searchName, sortByStrike: sortByStrike})
             );
         }
     });
