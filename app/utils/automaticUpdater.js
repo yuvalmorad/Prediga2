@@ -190,7 +190,7 @@ const self = module.exports = {
 
                         if (self.isGoalOccur(currentMatchResult, newMatchResult)) {
                             pushSubscriptionService.pushToAllRegiseredUsers({
-                                text: team1Club.name + ' (' + newMatchResult.team1Goals + ') - (' + newMatchResult.team2Goals + ') ' + team2Club.name
+                                text: team1Club.name + ' ' + newMatchResult.team1Goals + ' - ' + newMatchResult.team2Goals + ' ' + team2Club.name
                             });
                         }
 
