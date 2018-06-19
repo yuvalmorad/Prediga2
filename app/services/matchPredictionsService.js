@@ -154,7 +154,9 @@ const self = module.exports = {
 		});
 	},
 	updatePrediction: function (matchPrediction, userId, groupId) {
-        console.log('[updatePrediction] - User: ' + userId + ", GroupId: " + groupId + ", Date:" + new Date() + ", Data:" + matchPrediction.toString());
+        console.log('[updatePrediction] - User: ' + userId + ", GroupId: " + groupId + ", Date:" + new Date() + ", Data:" +
+            " winner: " + matchPrediction.winner + ", team1Goals:" + matchPrediction.team1Goals + ", team2Goals:" + matchPrediction.team2Goals + ", goalDiff:" + matchPrediction.goalDiff + ", firstToScore:" + matchPrediction.firstToScore
+        );
 		return MatchPrediction.findOneAndUpdate({
 			matchId: matchPrediction.matchId,
 			groupId: groupId,
