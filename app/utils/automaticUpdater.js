@@ -174,7 +174,7 @@ const self = module.exports = {
                         // this is the first update of match result.
                         console.log("[Automatic Updater] - sending push notification about game starts!");
                         pushSubscriptionService.pushToAllRegiseredUsers({
-                            text: team1Club.name + ' vs ' + team2Club.name + ' started now'
+                            text: 'Game started ' + team1Club.name + ' vs ' + team2Club.name
                         });
                     }
                     if (isFinished && (currentMatchResult && currentMatchResult.active === false)) {
@@ -190,7 +190,23 @@ const self = module.exports = {
 
                         if (self.isGoalOccur(currentMatchResult, newMatchResult)) {
                             pushSubscriptionService.pushToAllRegiseredUsers({
-                                text: team1Club.name + ' ' + newMatchResult.team1Goals + ' - ' + newMatchResult.team2Goals + ' ' + team2Club.name
+                                text: 'Goal scored in ' + team1Club.name + ' ' + newMatchResult.team1Goals + ' - ' + newMatchResult.team2Goals + ' ' + team2Club.name
+                            });
+                        }
+                        // half-time alerts
+                        if (relevantGame.autoProgressGT === false && relevantGame.Completion === 50
+                         && typeof(currentMatchResult.autoProgressGT) !== 'undefined' && currentMatchResult.autoProgressGT === true){
+                            // half-time started
+                            pushSubscriptionService.pushToAllRegiseredUsers({
+                                text: 'Half time in ' + team1Club.name + ' ' + newMatchResult.team1Goals + ' - ' + newMatchResult.team2Goals + ' ' + team2Club.name
+                            });
+                        }
+
+                        if (relevantGame.autoProgressGT === true && relevantGame.Completion >= 50
+                            && typeof(currentMatchResult.autoProgressGT) !== 'undefined' && currentMatchResult.autoProgressGT === false){
+                            // half-time started
+                            pushSubscriptionService.pushToAllRegiseredUsers({
+                                text: 'Second half in ' + team1Club.name + ' ' + newMatchResult.team1Goals + ' - ' + newMatchResult.team2Goals + ' ' + team2Club.name
                             });
                         }
 
@@ -204,8 +220,7 @@ const self = module.exports = {
                                 console.log('[Automatic Updater] - Game has finished, for [' + team1Club.name + ' vs ' + team2Club.name + ']');
                                 const leagueId = match.league;
                                 pushSubscriptionService.pushToAllRegiseredUsers({
-                                    text: team1Club.name + ' vs ' + team2Club.name + ' finished now'
-                                });
+                                    text: 'Game finished in ' + team1Club.name + ' ' + newMatchResult.team1Goals + ' - ' + newMatchResult.team2Goals + ' ' + team2Club.name});
                                 console.log('[Automatic Updater] - Beginning to update user score, for [' + team1Club.name + ' vs ' + team2Club.name + ']');
                                 return userScoreService.updateUserScoreByMatchResult(newMatchResult, leagueId).then(function () {
                                     //console.log('[Automatic Updater] - Beginning to update leaderboard from the automatic updater');
@@ -235,7 +250,8 @@ const self = module.exports = {
             completion: relevantGame.Completion,
             active: relevantGame.Active,
             resultTime: new Date(),
-            matchId: matchId
+            matchId: matchId,
+            autoProgressGT: relevantGame.AutoProgressGT
         };
 
         // fix for half time
