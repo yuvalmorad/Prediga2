@@ -37,6 +37,10 @@ utils.general = (function(){
     };
 
     function isPredictionStrike(prediction, game) {
+        if (!prediction || !game || !game.team1 || !game.team2) {
+            return false;
+        }
+
         var team1 = game.team1;
         var team2 = game.team2;
 		var winner = prediction[GAME.BET_TYPES.WINNER.key];

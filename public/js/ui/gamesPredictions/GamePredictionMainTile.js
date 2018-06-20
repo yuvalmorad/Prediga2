@@ -87,6 +87,7 @@ component.GamePredictionMainTile = (function(){
                 dateStr,
                 gamePoints,
                 buttonBetweenScore,
+                strikeIcon,
                 timeBeforeGame = state.timeBeforeGame,
                 gameStatus = utils.general.getGameStatus(result),
                 className = "main";
@@ -117,12 +118,19 @@ component.GamePredictionMainTile = (function(){
                     dateStr = utils.general.getRunningGameFormat(result);
                     displayTeam1Goals = result[GAME.BET_TYPES.TEAM1_GOALS.key];
                     displayTeam2Goals = result[GAME.BET_TYPES.TEAM2_GOALS.key];
-                } else if (timeBeforeGame !== undefined) {
-                    //half hour before game or just started and no result yet
-                    dateStr = timeBeforeGame;
                 } else {
-                    //more than half hour before game
-                    dateStr = utils.general.formatHourMinutesTime(kickofftime);
+                    if (prediction && prediction[GAME.BET_TYPES.WINNER.key]) { //prediction exist
+                        var isStrike = utils.general.isPredictionStrike(prediction, game);
+						strikeIcon = re("div", {className: isStrike ? "strike-icon" : "no-strike-icon"}, "");
+                    }
+
+					if (timeBeforeGame !== undefined) {
+						//half hour before game or just started and no result yet
+						dateStr = timeBeforeGame;
+					} else {
+						//more than half hour before game
+						dateStr = utils.general.formatHourMinutesTime(kickofftime);
+					}
                 }
 
                 gameDate = re("div", {}, dateStr);
@@ -145,6 +153,7 @@ component.GamePredictionMainTile = (function(){
             if (randomGamePrediction && !buttonBetweenScore && !isDialogFormDisabled) {
                 //it is a dialog, simulator is not visible and dialog is not disabled
                 buttonBetweenScore = re("a", {className: "random-button", onClick: randomGamePrediction}, "Random");
+				strikeIcon = undefined;
             }
 
             return re("div", {className: className},
@@ -161,6 +170,7 @@ component.GamePredictionMainTile = (function(){
                         re("div", {className: "game-score"}, displayTeam1Goals !== undefined ? displayTeam1Goals : ""),
                         buttonBetweenScore,
                         gamePoints,
+						strikeIcon,
                         re("div", {className: "game-score"}, displayTeam2Goals !== undefined ? displayTeam2Goals : "")
                     ),
                     re("div", {className: "graphContainer"},
