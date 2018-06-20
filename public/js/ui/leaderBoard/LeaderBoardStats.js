@@ -28,22 +28,32 @@ component.LeaderBoardStats = (function(){
 			var user = utils.general.findItemInArrBy(leaders, "userId", userId);
 			var placesOverMatches = user.placesOverMatches || [];
 
-			var bestValue;
+			var bestValuesTemp = {};
+			var bestValueGap = 10;
 			var labels = placesOverMatches.map(function(value, index){
-				if (!bestValue) {
-					bestValue = {
+				var bestValueIndex = (Math.floor(index/bestValueGap) + 1) * bestValueGap;
+
+				if (!bestValuesTemp[bestValueIndex]) {
+					bestValuesTemp[bestValueIndex] = {
 						value: value,
 						index: index
-					}
+					};
 				} else {
-					if (value < bestValue.value) {
-						bestValue = {
+					if (value < bestValuesTemp[bestValueIndex].value) {
+						bestValuesTemp[bestValueIndex] = {
 							value: value,
 							index: index
 						}
 					}
 				}
-				return ""//index + 1;
+
+				return "";
+			});
+
+			var bestValues = {};
+
+			Object.keys(bestValuesTemp).map(function(key){
+				bestValues[bestValuesTemp[key].index] = bestValuesTemp[key].value;
 			});
 
 			if (placesOverMatches.length) {
@@ -67,13 +77,13 @@ component.LeaderBoardStats = (function(){
 						});
 					});
 				}).on('draw', function(data) {
-					if(data.type === 'point' && bestValue && data.index === bestValue.index) {
+					if(data.type === 'point' && bestValues[data.index] !== undefined) {
 
 						data.group.elem('text', {
 							x: data.x - 10,
 							y: data.y,
 							fontSize: '1rem'
-						}, 'ct-label ct-label-bestPos').text(bestValue.value);
+						}, 'ct-label ct-label-bestPos').text(bestValues[data.index]);
 					}
 				});
 			}

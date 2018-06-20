@@ -221,7 +221,7 @@ component.SimulatorPage = (function(){
                 ),
                 re("div", {className: "simulator-controls"},
 					re(Search, {onSearch: this.onSearch}),
-					re("button", {onClick: this.toggleSortByThisMatch, className: (sortByThisMatch ? "selected" : "")}, "This match"),
+					re("button", {onClick: this.toggleSortByThisMatch, className: (sortByThisMatch ? "selected" : "")}, "Match"),
 					re("button", {onClick: this.scrollToTop}, "#1"),
                     re("button", {onClick: this.scrollToMe}, "Me")
                 ),
