@@ -768,7 +768,7 @@
 			"_id": "5a21a7c1a3f89181074e9770",
 			"team1": "2a21a7c1a3f89181074e9774",
 			"team2": "2a21a7c1a3f89181074e9765",
-			"kickofftime": "2018-06-21T12:00:00.000Z",
+			"kickofftime": "2018-06-21T15:00:00.000Z",
 			"stadium": "Cosmos Arena, Samara",
 			"type": "Group stage | Round 2 | Groups C-D",
 			"league": "4a21a7c1a3f89181074e9762"
@@ -777,7 +777,7 @@
 			"_id": "5a21a7c1a3f89181074e9771",
 			"team1": "2a21a7c1a3f89181074e9772",
 			"team2": "2a21a7c1a3f89181074e9784",
-			"kickofftime": "2018-06-21T15:00:00.000Z",
+			"kickofftime": "2018-06-21T12:00:00.000Z",
 			"stadium": "Central Stadium, Yekaterinburg",
 			"type": "Group stage | Round 2 | Groups C-D",
 			"league": "4a21a7c1a3f89181074e9762"
@@ -930,7 +930,7 @@
 			"_id": "5a21a7c1a3f89181074e9782",
 			"team1": "2a21a7c1a3f89181074e9775",
 			"team2": "2a21a7c1a3f89181074e9782",
-			"kickofftime": "2018-06-23T15:00:00.000Z",
+			"kickofftime": "2018-06-23T18:00:00.000Z",
 			"stadium": "Rostov Arena, Rostov-on-Don",
 			"type": "Group stage | Round 2 | Groups F-G",
 			"league": "4a21a7c1a3f89181074e9762"
@@ -939,7 +939,7 @@
 			"_id": "5a21a7c1a3f89181074e9783",
 			"team1": "2a21a7c1a3f89181074e9787",
 			"team2": "2a21a7c1a3f89181074e9768",
-			"kickofftime": "2018-06-23T18:00:00.000Z",
+			"kickofftime": "2018-06-23T15:00:00.000Z",
 			"stadium": "Fisht Olympic Stadium, Sochi",
 			"type": "Group stage | Round 2 | Groups F-G",
 			"league": "4a21a7c1a3f89181074e9762"
