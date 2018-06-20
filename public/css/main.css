@@ -1751,10 +1751,16 @@ body,textarea {
     border: 1px solid #4A90E2;
     color: #4A90E2;
     border-radius: 4px;
+    margin-right: 3px;
 }
 
 .simulator-page .simulator-controls button:last-child {
-    margin-left: 3px;
+    margin-right: 0;
+}
+
+.simulator-page .simulator-controls button.selected {
+    background-color: #4A90E2;
+    color: #fff;
 }
 
 .simulator-page .search-component {

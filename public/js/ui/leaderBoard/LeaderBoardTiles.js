@@ -96,16 +96,13 @@ component.LeaderBoardTiles = (function(){
             return re(LeaderBoardTile, leaderBoardTileProps);
         },
 
-		getSortedLeaders: function() {
-			var props = this.props,
-				sortByStrike = props.sortByStrike,
-				leaders = props.leaders;
+		sortLeadersByThisMatch: function(leaders) {
+			return leaders.sort(function(leader1, leader2) {
+				return (leader2.scoreCurrentMatch || 0) - (leader1.scoreCurrentMatch || 0);
+			});
+		},
 
-			if (!sortByStrike) {
-				return leaders;
-			}
-
-			leaders = JSON.parse(JSON.stringify(leaders));
+		sortLeadersByStrike: function(leaders) {
 			leaders.sort(function(leader1, leader2) {
 				return leader2.strikes - leader1.strikes;
 			});
@@ -127,6 +124,23 @@ component.LeaderBoardTiles = (function(){
 			});
 
 			return leaders;
+		},
+
+		getSortedLeaders: function() {
+			var props = this.props,
+				sortByStrike = props.sortByStrike,
+				sortByThisMatch = props.sortByThisMatch,
+				leaders = props.leaders;
+
+			leaders = JSON.parse(JSON.stringify(leaders));
+
+			if (sortByThisMatch) {
+				return this.sortLeadersByThisMatch(leaders);
+			} else if (sortByStrike) {
+				return this.sortLeadersByStrike(leaders);
+			} else {
+				return leaders;
+			}
 		},
 
         getFilteredLeaders: function(leaders) {
