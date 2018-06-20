@@ -11,8 +11,8 @@ const utils = require('../utils/util');
 
 const self = module.exports = {
     resetLeaderboard: function (leagueId) {
-        return UserScore.remove({}).then(function () {
-            return UsersLeaderboard.remove({}).then(function () {
+        return UserScore.remove({leagueId: leagueId}).then(function () {
+            return UsersLeaderboard.remove({leagueId: leagueId}).then(function () {
                 return leagueService.byId(leagueId).then(function (league) {
                     return Promise.all([
                         matchService.byLeagueIds([leagueId]),

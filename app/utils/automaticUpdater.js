@@ -13,10 +13,10 @@ const userLeaderboardService = require("../services/usersLeaderboardService");
 
 const self = module.exports = {
     run: function (isFirstRun) {
-        //console.log('Automatic update (run job) wake up');
+        console.log('Automatic update (run job) wake up');
         return matchService.getNextMatch(-10).then(function (match) {
             if (!match) {
-                //console.log('No more matches in the future! going to sleep for one day.');
+                console.log('No more matches in the future! going to sleep for one day.');
                 schedule.scheduleJob(self.getNextDayDate(), function () {
                     self.run();
                 });
@@ -25,7 +25,7 @@ const self = module.exports = {
             if (isFirstRun) {
                 return self.getResultsJob();
             } else {
-                //console.log('[Automatic Updater] - Next automatic update at - ' + match.kickofftime);
+                console.log('[Automatic Updater] - Next automatic update at - ' + match.kickofftime);
                 schedule.scheduleJob(match.kickofftime, function () {
                     self.getResultsJob();
                 });
@@ -35,7 +35,7 @@ const self = module.exports = {
         });
     },
     getResultsJob: function (activeLeagues) {
-        //console.log('Automatic update (getResults Job) wake up');
+        console.log('Automatic update (getResults Job) wake up');
         return leagueService.getActiveLeagues(activeLeagues).then(function (leagues) {
             if (!leagues || leagues.length < 1) {
                 schedule.scheduleJob(self.getNextJobDate(), function () {
@@ -45,12 +45,12 @@ const self = module.exports = {
             }
             return self.getResults(leagues).then(function (hasInProgressGames) {
                 if (hasInProgressGames) {
-                    //console.log('[Automatic Updater] - There are more games in progress...');
+                    console.log('[Automatic Updater] - There are more games in progress...');
                     schedule.scheduleJob(self.getNextJobDate(), function () {
                         self.getResultsJob(leagues)
                     });
                 } else {
-                    //console.log('[Automatic Updater] - No games to update...');
+                    console.log('[Automatic Updater] - No games to update...');
                     schedule.scheduleJob(self.getNextJobDate(), function () {
                         self.run();
                     });
@@ -61,25 +61,25 @@ const self = module.exports = {
         });
     },
     getResults: function (activeLeagues) {
-        //console.log('[Automatic Updater] - Start to get results...');
+        console.log('[Automatic Updater] - Start to get results...');
         return self.getLatestData().then(function (htmlRawData) {
             if (!htmlRawData || htmlRawData.length < 1) {
-                //console.log('[Automatic Updater] - No content received from remote host');
+                console.log('[Automatic Updater] - No content received from remote host');
                 return Promise.resolve('getResultsJob');
             } else {
                 try {
-                    //console.log('[Automatic Updater] - Start to parse response...');
+                    console.log('[Automatic Updater] - Start to parse response...');
                     let soccerContent = self.parseResponse(htmlRawData);
                     return self.getRelevantGames(soccerContent, activeLeagues).then(function (relevantMatches) {
                         if (!relevantMatches || relevantMatches < 1) {
-                            // console.log('[Automatic Updater] - There are no relevant games.');
+                            console.log('[Automatic Updater] - There are no relevant games.');
                             return Promise.resolve(false);
                         }
-                        //console.log('[Automatic Updater] - ' + relevantMatches.length + ' relevant matches found...');
+                        console.log('[Automatic Updater] - ' + relevantMatches.length + ' relevant matches found...');
                         return self.updateMatchResults(relevantMatches);
                     });
                 } catch (err) {
-                    //console.log('[Automatic Updater] - Error with parsing result. ' + err);
+                    console.log('[Automatic Updater] - Error with parsing result. ' + err);
                     return Promise.resolve('getResultsJob'); // trying again.
                 }
             }
@@ -147,7 +147,7 @@ const self = module.exports = {
         const isActive = relevantGame.Active === true;
         if (!isActive && !isFinished) {
             // game not yet started
-            //console.log('[Automatic Updater] - Game is not yet started, for [' + relevantGame.Comps[0].Name + ' - ' + relevantGame.Comps[1].Name + ']');
+            console.log('[Automatic Updater] - Game is not yet started, for [' + relevantGame.Comps[0].Name + ' - ' + relevantGame.Comps[1].Name + ']');
             return Promise.resolve('getResultsJob'); // not relevant yet.
         }
 
@@ -163,18 +163,18 @@ const self = module.exports = {
 
             return matchService.findFirstMatchByTeamsStarted(team1, team2).then(function (match) {
                 if (!match || match === null) {
-                    //console.log('[Automatic Updater] - Game already finished, for [' + team1Club.name + ' vs ' + team2Club.name + ']');
+                    console.log('[Automatic Updater] - Game already finished, for [' + team1Club.name + ' vs ' + team2Club.name + ']');
                     return Promise.resolve('getResultsJob'); // not relevant anymore.
                 }
 
                 return matchResultService.byMatchId(match._id).then(function (currentMatchResult) {
-                    //console.log('[Automatic Updater] - Beginning to create new match result, for [' + team1Club.name + ' vs ' + team2Club.name + ']');
+                    console.log('[Automatic Updater] - Beginning to create new match result, for [' + team1Club.name + ' vs ' + team2Club.name + ']');
 
                     if (relevantGame.Active === true && !currentMatchResult) {
                         // this is the first update of match result.
-                        //console.log("[Automatic Updater] - sending push notification about game starts!");
+                        console.log("[Automatic Updater] - sending push notification about game starts!");
                         pushSubscriptionService.pushToAllRegiseredUsers({
-                            text: team1Club.name + ' vs ' + team2Club.name + ' started now'
+                            text: 'Game started ' + team1Club.name + ' vs ' + team2Club.name
                         });
                     }
                     if (isFinished && (currentMatchResult && currentMatchResult.active === false)) {
@@ -190,7 +190,23 @@ const self = module.exports = {
 
                         if (self.isGoalOccur(currentMatchResult, newMatchResult)) {
                             pushSubscriptionService.pushToAllRegiseredUsers({
-                                text: team1Club.name + ' (' + newMatchResult.team1Goals + ') - (' + newMatchResult.team2Goals + ') ' + team2Club.name
+                                text: 'Goal scored in ' + team1Club.name + ' ' + newMatchResult.team1Goals + ' - ' + newMatchResult.team2Goals + ' ' + team2Club.name
+                            });
+                        }
+                        // half-time alerts
+                        if (relevantGame.autoProgressGT === false && relevantGame.Completion === 50
+                         && typeof(currentMatchResult.autoProgressGT) !== 'undefined' && currentMatchResult.autoProgressGT === true){
+                            // half-time started
+                            pushSubscriptionService.pushToAllRegiseredUsers({
+                                text: 'Half time in ' + team1Club.name + ' ' + newMatchResult.team1Goals + ' - ' + newMatchResult.team2Goals + ' ' + team2Club.name
+                            });
+                        }
+
+                        if (relevantGame.autoProgressGT === true && relevantGame.Completion >= 50
+                            && typeof(currentMatchResult.autoProgressGT) !== 'undefined' && currentMatchResult.autoProgressGT === false){
+                            // half-time started
+                            pushSubscriptionService.pushToAllRegiseredUsers({
+                                text: 'Second half in ' + team1Club.name + ' ' + newMatchResult.team1Goals + ' - ' + newMatchResult.team2Goals + ' ' + team2Club.name
                             });
                         }
 
@@ -201,12 +217,11 @@ const self = module.exports = {
                             if (isFinished === false) {
                                 return Promise.resolve('getResultsJob'); // in progress
                             } else {
-                                //console.log('[Automatic Updater] - Game has finished, for [' + team1Club.name + ' vs ' + team2Club.name + ']');
+                                console.log('[Automatic Updater] - Game has finished, for [' + team1Club.name + ' vs ' + team2Club.name + ']');
                                 const leagueId = match.league;
                                 pushSubscriptionService.pushToAllRegiseredUsers({
-                                    text: team1Club.name + ' vs ' + team2Club.name + ' finished now'
-                                });
-                                //console.log('[Automatic Updater] - Beginning to update user score, for [' + team1Club.name + ' vs ' + team2Club.name + ']');
+                                    text: 'Game finished in ' + team1Club.name + ' ' + newMatchResult.team1Goals + ' - ' + newMatchResult.team2Goals + ' ' + team2Club.name});
+                                console.log('[Automatic Updater] - Beginning to update user score, for [' + team1Club.name + ' vs ' + team2Club.name + ']');
                                 return userScoreService.updateUserScoreByMatchResult(newMatchResult, leagueId).then(function () {
                                     //console.log('[Automatic Updater] - Beginning to update leaderboard from the automatic updater');
                                     return userLeaderboardService.updateLeaderboardByGameIds(leagueId, [newMatchResult.matchId]).then(function () {
@@ -235,7 +250,8 @@ const self = module.exports = {
             completion: relevantGame.Completion,
             active: relevantGame.Active,
             resultTime: new Date(),
-            matchId: matchId
+            matchId: matchId,
+            autoProgressGT: relevantGame.AutoProgressGT
         };
 
         // fix for half time

@@ -12,7 +12,8 @@ const matchResultSchema = mongoose.Schema({
 	completion: Number,
 	gameTime: Number,
 	active: Boolean,
-	resultTime: Date
+	resultTime: Date,
+    autoProgressGT: Boolean
 });
 
 matchResultSchema.options.toJSON = {
