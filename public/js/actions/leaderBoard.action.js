@@ -5,7 +5,10 @@ action.leaderBoard = (function(){
         loadLeaderBoard: loadLeaderBoard,
 
         UPDATE_LEADER_BOARD: "UPDATE_LEADER_BOARD",
-        updateLeaderBoard: updateLeaderBoard
+        updateLeaderBoard: updateLeaderBoard,
+
+        TOGGLE_FAVOURITE_USER: "TOGGLE_FAVOURITE_USER",
+		toggleFavouriteUser: toggleFavouriteUser
     };
 
     function loadLeaderBoard(groupId) {
@@ -25,7 +28,14 @@ action.leaderBoard = (function(){
         return {
             type: leaderBoard.UPDATE_LEADER_BOARD,
             leaders: leaders
-        }
+        };
+    }
+
+    function toggleFavouriteUser(userId) {
+		return {
+			type: leaderBoard.TOGGLE_FAVOURITE_USER,
+			userId: userId
+		}
     }
 
     return leaderBoard;

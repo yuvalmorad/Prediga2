@@ -1,6 +1,7 @@
 window.component = window.component || {};
 component.LeaderBoardTiles = (function(){
-    var LeaderBoardTile = component.LeaderBoardTile;
+    var LeaderBoardTile = component.LeaderBoardTile,
+		connect = ReactRedux.connect;
 
     function getBadgesByUserId(leaders) {
         var strikesMap = {}; //{strikesCount: [<userId>,<userId>,...]}
@@ -65,8 +66,14 @@ component.LeaderBoardTiles = (function(){
             this.badgesByUserId = getBadgesByUserId(leaders);
         },
 
+		onFavouriteToggle: function(userId, event) {
+			event.stopPropagation();
+			this.props.toggleFavouriteUser(userId);
+		},
+
         renderLeader: function(index, key) {
             var props = this.props,
+				favouriteUsersIds = props.favouriteUsersIds || [],
                 leader = this.filteredLeaders[index],
                 users = props.users,
                 authenticatedUserId = props.userId,
@@ -87,18 +94,34 @@ component.LeaderBoardTiles = (function(){
             var badgeName = this.badgesByUserId[userId];
 
             //adding selected league id to rerender tiles when selecting new league
-            var leaderBoardTileProps = {disableOpen: disableOpen, user: user, badgeName: badgeName, score: leader.score, trend: trend, borderColor: borderColor, description: description, additionalDescription: leader.additionalDescription, additionalDescription2: leader.additionalDescription2, scoreCurrentMatch: leader.scoreCurrentMatch, rank: leader.placeCurrent, key: userId + (props.selectedLeagueId || "") + (props.selectedGroupId || "")};
+            var leaderBoardTileProps = {onFavouriteToggle: this.onFavouriteToggle.bind(this, userId), disableOpen: disableOpen, user: user, badgeName: badgeName, score: leader.score, trend: trend, borderColor: borderColor, description: description, additionalDescription: leader.additionalDescription, additionalDescription2: leader.additionalDescription2, scoreCurrentMatch: leader.scoreCurrentMatch, rank: leader.placeCurrent, key: userId + (props.selectedLeagueId || "") + (props.selectedGroupId || "")};
 
             if (authenticatedUserId === userId) {
                 leaderBoardTileProps.isAuthenticatedUser = true;
-            }
+				leaderBoardTileProps.hideFavouriteIcon = true;
+            } else {
+            	if (favouriteUsersIds.indexOf(userId) >= 0) {
+					leaderBoardTileProps.isFavouriteUser = true;
+				}
+			}
 
             return re(LeaderBoardTile, leaderBoardTileProps);
         },
 
 		sortLeadersByThisMatch: function(leaders) {
 			return leaders.sort(function(leader1, leader2) {
-				return (leader2.scoreCurrentMatch || 0) - (leader1.scoreCurrentMatch || 0);
+				var scoreDiff = (leader2.scoreCurrentMatch || 0) - (leader1.scoreCurrentMatch || 0);
+				if (scoreDiff === 0) {
+					var placeCurrentDiff = (leader1.placeCurrent - leader2.placeCurrent);
+					if (placeCurrentDiff === 0) {
+						var placeBeforeLastGame1 = leader1.placeBeforeLastGame || 0;
+						var placeBeforeLastGame2 = leader2.placeBeforeLastGame || 0;
+						return ((leader1.placeCurrent - placeBeforeLastGame1) - (leader2.placeCurrent - placeBeforeLastGame2));
+					}
+
+					return placeCurrentDiff;
+				}
+				return scoreDiff;
 			});
 		},
 
@@ -146,7 +169,10 @@ component.LeaderBoardTiles = (function(){
         getFilteredLeaders: function(leaders) {
             var props = this.props,
 			    searchName = props.searchName || "",
-                users = props.users;
+                users = props.users,
+				filterByFavouriteUsers = props.filterByFavouriteUsers,
+				favouriteUsersIds = props.favouriteUsersIds,
+				authenticatedUserId = props.userId;
 
 			searchName = searchName.toLowerCase().trim();
 			var searchNames = searchName.split(",");
@@ -161,11 +187,16 @@ component.LeaderBoardTiles = (function(){
 			}
 
             return leaders.filter(function(leader){
-                var userId = leader.userId;
+				var userId = leader.userId;
 				var user = utils.general.findItemInArrBy(users, "_id", userId);
 				if (!user) {
-				    return false;
-                }
+					return false;
+				}
+
+            	if (filterByFavouriteUsers && authenticatedUserId !== userId && favouriteUsersIds.indexOf(userId) === -1) {
+					//filter by favourites is on + this is not me + this user is not in favourites -> remove
+					return false;
+				}
 
                 var userName = user.name || "";
 				userName = userName.toLowerCase();
@@ -239,7 +270,7 @@ component.LeaderBoardTiles = (function(){
         }
     });
 
-    return LeaderBoardTiles;
+	return LeaderBoardTiles;
 })();
 
 

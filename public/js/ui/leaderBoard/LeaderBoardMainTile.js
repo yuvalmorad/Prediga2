@@ -24,7 +24,10 @@ component.LeaderBoardMainTile = (function(){
                 rank: rank,
                 points: score,
                 badgeName: badgeName,
-                scoreCurrentMatch: scoreCurrentMatch
+                scoreCurrentMatch: scoreCurrentMatch,
+				onFavouriteToggle: props.onFavouriteToggle,
+				hideFavouriteIcon: props.hideFavouriteIcon,
+				isFavouriteUser: props.isFavouriteUser
             };
 
         if (!photo) {

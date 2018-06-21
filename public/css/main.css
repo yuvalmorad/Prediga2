@@ -1047,6 +1047,22 @@ body,textarea {
     text-align: center;
 }
 
+.tile .main.base > .right .favourite-btn {
+    font-family: "prediga";
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 0.9rem;
+    text-shadow: 0px 0px 1px #000;
+    color: #fff;
+    padding: 0.5rem;
+}
+
+.tile .main.base > .right .favourite-btn.selected {
+    color: #edc212;
+    text-shadow: none;
+}
+
 .tile .main.base > .right .points-current-match {
     margin-top: 0.5rem;
     background-color: #6ECE1A;
@@ -1228,6 +1244,11 @@ body,textarea {
 .leaderboard-controls button:last-child {
     margin-right: 0;
 }
+
+.leaderboard-controls button.prediga-icon {
+    font-family: "prediga";
+}
+
 .leader-board-stats {
     padding: 0 1rem;
     height: 12.5rem;
@@ -1582,7 +1603,7 @@ body,textarea {
 }
 
 .game-prediction-tile .strike-icon {
-    background-image: url(../images/badge1.png);
+    background-image: url(../images/is_strike.png);
 }
 
 .game-prediction-tile .no-strike-icon {
@@ -1669,7 +1690,7 @@ body,textarea {
 }
 
 .tile-dialog-container.GamePredictionTileDialog .main-button > div.strike {
-    background-image: url(../images/badge1.png);
+    background-image: url(../images/is_strike.png);
 }
 
 .tile-dialog-container.GamePredictionTileDialog .main-button > div.no-strike {
@@ -1761,6 +1782,10 @@ body,textarea {
 .simulator-page .simulator-controls button.selected {
     background-color: #4A90E2;
     color: #fff;
+}
+
+.simulator-page .simulator-controls button.prediga-icon {
+    font-family: "prediga";
 }
 
 .simulator-page .search-component {

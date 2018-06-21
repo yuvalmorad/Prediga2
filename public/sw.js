@@ -9,6 +9,7 @@ var cacheList = [
     "images/badge1.png",
     "images/badge2.png",
 	"images/no_strike.png",
+	"images/is_strike.png",
     "images/teamCategories/questions.png",
     "images/iconsMessage/emoji.png",
     "images/iconsMessage/flags.png",

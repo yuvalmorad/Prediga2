@@ -21,11 +21,15 @@ component.LeaderBoardStats = (function(){
 			leaderBoardService.getUserStats(userId, selectedLeagueId, selectedGroupId).then(function(res){
 				var data = res.data;
 				var state = Object.assign({}, data, {isLoading: false});
-				that.setState(state);
+				that.createUserPointsPie(state);
 			});
 
 			leaders = utils.general.getLeadersByLeagueId(leaders, selectedLeagueId);
 			var user = utils.general.findItemInArrBy(leaders, "userId", userId);
+			this.createUserProgressLineChart(user);
+		},
+
+		createUserProgressLineChart: function(user) {
 			var placesOverMatches = user.placesOverMatches || [];
 
 			var bestValuesTemp = {};
@@ -89,53 +93,40 @@ component.LeaderBoardStats = (function(){
 			}
 		},
 
+		createUserPointsPie: function(state) {
+        	var s12 = state["12"] || 0,
+				s10 = state["10"] || 0,
+				s8 = state["8"] || 0,
+				s6 = state["6"] || 0,
+				s4 = state["4"] || 0,
+				s2 = state["2"] || 0,
+				s0 = state["0"] || 0;
+
+			var data = {
+				labels: ['0 pts', '2 pts', '4 pts', '6 pts', '8 pts', '10 pts', '12 pts'],
+				series: [s0, s2, s4, s6, s8, s10, s12]
+			};
+
+			new Chartist.Bar(this.userPointsRef, data, {distributeSeries: true, axisY: {onlyInteger: true}});
+		},
+
 		assignUserProgressRef: function(userProgressRef) {
         	this.userProgressRef = userProgressRef;
 		},
 
+		assignUserPointsRef: function(userPointsRef) {
+        	this.userPointsRef = userPointsRef;
+		},
+
         render: function () {
-            var state = this.state,
-                isLoading = state.isLoading,
-				stats;
-
-            if (!isLoading) {
-				var total = state["total"] || 0,
-					s12 = state["12"] || 0,
-					s10 = state["10"] || 0,
-					s8 = state["8"] || 0,
-					s6 = state["6"] || 0,
-					s4 = state["4"] || 0,
-					s2 = state["2"] || 0,
-					s0 = state["0"] || 0;
-
-				stats = re("div", {},
-					re("div", {className: "sub-title"}, "Points Distribution"),
-					// TODO - should be generic distribution according to the object.keys.
-					re("div", {className: "stats-item"}, "12: " + getTimesString(s12) + getPercentageString(s12, total)),
-					re("div", {className: "stats-item"}, "10: " + getTimesString(s10) + getPercentageString(s10, total)),
-					re("div", {className: "stats-item"}, "8: " + getTimesString(s8) + getPercentageString(s8, total)),
-					re("div", {className: "stats-item"}, "6: " + getTimesString(s6) + getPercentageString(s6, total)),
-					re("div", {className: "stats-item"}, "4: " + getTimesString(s4) + getPercentageString(s4, total)),
-					re("div", {className: "stats-item"}, "2: " + getTimesString(s2) + getPercentageString(s2, total)),
-					re("div", {className: "stats-item"}, "0: " + getTimesString(s0) + getPercentageString(s0, total))
-				);
-            }
-
             return re("div", {className: "leader-board-stats"},
 				re("div", {className: "sub-title"}, "Position History:"),
 				re("div", {ref: this.assignUserProgressRef}),
-				stats
+				re("div", {className: "sub-title"}, "Points Distribution:"),
+				re("div", {ref: this.assignUserPointsRef})
             );
         }
     });
-
-    function getTimesString(value) {
-        return value === 1 ? "1 time" : value + " times";
-    }
-
-    function getPercentageString(value, total) {
-        return " ("+ (value / total * 100).toFixed(2) + "%)";
-    }
 
 	function mapStateToProps(state){
 		return {

@@ -10,8 +10,9 @@ component.BaseMainTile = (function(){
             rank = props.rank,
             points = props.points,
             badgeName = props.badgeName,
-            scoreCurrentMatch = props.scoreCurrentMatch;
-
+            scoreCurrentMatch = props.scoreCurrentMatch,
+			hideFavouriteIcon = props.hideFavouriteIcon,
+			isFavouriteUser = props.isFavouriteUser;
 
         var trendElement = null;
 
@@ -40,7 +41,6 @@ component.BaseMainTile = (function(){
             scoreCurrentMatchElem = re("div", {className: "points-current-match" + (scoreCurrentMatch === 0 ? " zero" : "")}, scoreCurrentMatch);
         }
 
-
         var imageElem = re("img", {src: imageSrc});
 
         return re("div", {className: "main base"},
@@ -62,7 +62,8 @@ component.BaseMainTile = (function(){
                 re("div", {className: "points-wrapper"},
                     re("div", {className: "points" + (points === undefined ? " hide" : "") }, points !== undefined ? points : ""),
                     scoreCurrentMatchElem
-                )
+                ),
+                (!hideFavouriteIcon && re("div", {className: "favourite-btn" + (isFavouriteUser ? " selected" : ""), onClick: props.onFavouriteToggle}, ""))
             )
         );
     };

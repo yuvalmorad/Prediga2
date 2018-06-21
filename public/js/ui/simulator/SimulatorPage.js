@@ -123,12 +123,17 @@ component.SimulatorPage = (function(){
                 predictionsSimulated: [], //{matchId: "", team1Goals: 1, ...}
                 selectedMatchId: this.props.match.params.gameId,
 				searchName: '',
-				sortByThisMatch: false
+				sortByThisMatch: false,
+				filterByFavouriteUsers: false
             };
         },
 
 		toggleSortByThisMatch: function() {
 			this.setState({sortByThisMatch: !this.state.sortByThisMatch});
+		},
+
+		toggleFilterByFavouriteUsers: function() {
+			this.setState({filterByFavouriteUsers: !this.state.filterByFavouriteUsers});
 		},
 
         componentDidMount: function() {
@@ -173,10 +178,12 @@ component.SimulatorPage = (function(){
                 props = this.props,
                 state = this.state,
 				sortByThisMatch = state.sortByThisMatch,
+				filterByFavouriteUsers = state.filterByFavouriteUsers,
 				searchName = state.searchName,
                 selectedMatchId = state.selectedMatchId,
                 predictionsSimulated = state.predictionsSimulated,
                 leaders = props.leaders,
+				favouriteUsersIds = props.favouriteUsersIds,
                 users = props.users,
                 matches = props.matches,
                 clubs = props.clubs,
@@ -222,10 +229,11 @@ component.SimulatorPage = (function(){
                 re("div", {className: "simulator-controls"},
 					re(Search, {onSearch: this.onSearch}),
 					re("button", {onClick: this.toggleSortByThisMatch, className: (sortByThisMatch ? "selected" : "")}, "Match"),
+					re("button", {onClick: this.toggleFilterByFavouriteUsers, className: ("prediga-icon" + (filterByFavouriteUsers ? " selected" : ""))}, ""),
 					re("button", {onClick: this.scrollToTop}, "#1"),
                     re("button", {onClick: this.scrollToMe}, "Me")
                 ),
-                re(LeaderBoardTiles, {ref: this.assignLeaderBoardTilesRef, leaders: leaders, users: users, selectedLeagueId: selectedLeagueId, disableOpen: true, userIdFocus: userId, userId: userId, selectedLeagueId: selectedLeagueId, selectedGroupId: selectedGroupId, searchName: searchName, sortByThisMatch: sortByThisMatch})
+                re(LeaderBoardTiles, {ref: this.assignLeaderBoardTilesRef, toggleFavouriteUser: props.toggleFavouriteUser, favouriteUsersIds: favouriteUsersIds, leaders: leaders, users: users, selectedLeagueId: selectedLeagueId, disableOpen: true, userIdFocus: userId, userId: userId, selectedLeagueId: selectedLeagueId, selectedGroupId: selectedGroupId, searchName: searchName, sortByThisMatch: sortByThisMatch, filterByFavouriteUsers: filterByFavouriteUsers})
             );
         }
     });
@@ -245,14 +253,16 @@ component.SimulatorPage = (function(){
             gamesPredictionsResults: state.gamesPredictions.results,
             gamesPredictionsStatus: state.gamesPredictions.status,
             selectedGroupId: state.groups.selectedGroupId,
-            groups: state.groups.groups
+            groups: state.groups.groups,
+			favouriteUsersIds: state.leaderBoard.favouriteUsersIds
         }
     }
 
     function mapDispatchToProps(dispatch) {
         return {
             loadSimulator: function(groupId){dispatch(action.simulator.loadSimulator(groupId))},
-            closeTileDialogAction: function(){dispatch(action.general.closeTileDialogAction());}
+            closeTileDialogAction: function(){dispatch(action.general.closeTileDialogAction());},
+			toggleFavouriteUser: function(userId){dispatch(action.leaderBoard.toggleFavouriteUser(userId))}
         }
     }
 
