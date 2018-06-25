@@ -22,7 +22,7 @@ const self = module.exports = {
 		return MatchResult.find({matchId: {$in: matchIds}});
 	},
 	byMatchIdsAndAndActiveStatus: function (matchIds, isActive) {
-		return MatchResult.find({matchId: {$in: matchIds}, active: isActive});
+		return MatchResult.find({matchId: {$in: matchIds}, active: isActive}).sort({'resultTime': 1});
 	},
 	byMatchId: function (matchId) {
 		return MatchResult.findOne({matchId: matchId});

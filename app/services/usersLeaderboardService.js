@@ -25,15 +25,15 @@ const self = module.exports = {
                             matchResultService.byMatchIdsAndAndActiveStatus(matchIds, false),
                             teamResultService.byTeamIds(teamIds)
                         ]).then(function (results) {
-                            self.updateAllUserScores(results, leagueId).then(function () {
-                                let combinedResults = utils.mergeArr(results);
-                                combinedResults.sort(self.compareResultsAsc);
-                                const gameIds = combinedResults.map(function (result) {
-                                    return result.matchId || result.teamId;
-                                });
-                                if (gameIds.length < 0) {
-                                    return Promise.resolve({});
-                                }
+                            let combinedResults = utils.mergeArr(results);
+                            combinedResults.sort(self.compareResultsAsc);
+                            const gameIds = combinedResults.map(function (result) {
+                                return result.matchId || result.teamId;
+                            });
+                            if (gameIds.length < 0) {
+                                return Promise.resolve({});
+                            }
+                            self.updateAllUserScores(combinedResults, leagueId).then(function () {
                                 return self.updateLeaderboardByGameIds(leagueId, gameIds).then(function () {
                                     //console.log('[Leaderboard] - Finish updateLeaderboardByGameIds');
                                     return Promise.resolve({});
@@ -45,23 +45,18 @@ const self = module.exports = {
             });
         });
     },
-    updateAllUserScores: function (results, leagueId) {
-        if (!results) {
+    updateAllUserScores: function (combinedResults, leagueId) {
+        if (!combinedResults) {
             return Promise.resolve();
         }
-        var matchResults = results[0];
-        const matchPromises = matchResults.map(function (matchResult) {
-            if (!matchResult.isActive){
-                return userScoreService.updateUserScoreByMatchResult(matchResult, leagueId);
+        const promises = combinedResults.map(function (result) {
+            if (!result._doc.hasOwnProperty("team")){
+                return userScoreService.updateUserScoreByMatchResult(result, leagueId);
             } else {
-                return Promise.resolve();
+                return userScoreService.updateUserScoreByTeamResult(result, leagueId);
             }
         });
-        var teamResults = results[1];
-        const teamPromises = teamResults.map(function (teamResult) {
-            return userScoreService.updateUserScoreByTeamResult(teamResult, leagueId);
-        });
-        return Promise.all(matchPromises, teamPromises);
+        return Promise.all(promises);
     },
     updateLeaderboardByGameIds: function (leagueId, gameIds) {
         return groupService.byLeagueId(leagueId).then(function (groups) {

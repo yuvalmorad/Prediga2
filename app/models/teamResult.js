@@ -5,7 +5,8 @@ const mongoose = require('mongoose');
 const teamResultSchema = mongoose.Schema({
 	teamId: String,
 	team: String,
-	type: String
+	type: String,
+    resultTime: Date
 });
 
 teamResultSchema.options.toJSON = {
