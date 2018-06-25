@@ -25,7 +25,7 @@ const self = module.exports = {
                             matchResultService.byMatchIdsAndAndActiveStatus(matchIds, false),
                             teamResultService.byTeamIds(teamIds)
                         ]).then(function (results) {
-                            self.updateAllUserScores(results[0], leagueId).then(function () {
+                            self.updateAllUserScores(results, leagueId).then(function () {
                                 let combinedResults = utils.mergeArr(results);
                                 combinedResults.sort(self.compareResultsAsc);
                                 const gameIds = combinedResults.map(function (result) {
@@ -45,16 +45,23 @@ const self = module.exports = {
             });
         });
     },
-    updateAllUserScores: function (matchResults, leagueId) {
-        if (!matchResults) {
+    updateAllUserScores: function (results, leagueId) {
+        if (!results) {
             return Promise.resolve();
         }
-        const promises = matchResults.map(function (matchResult) {
+        var matchResults = results[0];
+        const matchPromises = matchResults.map(function (matchResult) {
             if (!matchResult.isActive){
                 return userScoreService.updateUserScoreByMatchResult(matchResult, leagueId);
+            } else {
+                return Promise.resolve();
             }
         });
-        return Promise.all(promises);
+        var teamResults = results[1];
+        const teamPromises = teamResults.map(function (teamResult) {
+            return userScoreService.updateUserScoreByTeamResult(teamResult, leagueId);
+        });
+        return Promise.all(matchPromises, teamPromises);
     },
     updateLeaderboardByGameIds: function (leagueId, gameIds) {
         return groupService.byLeagueId(leagueId).then(function (groups) {

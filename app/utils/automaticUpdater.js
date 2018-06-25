@@ -194,7 +194,7 @@ const self = module.exports = {
                             });
                         }
                         // half-time alerts
-                        if (relevantGame.autoProgressGT === false && relevantGame.Completion === 50
+                        if (relevantGame.AutoProgressGT === false && relevantGame.Completion === 50
                          && typeof(currentMatchResult.autoProgressGT) !== 'undefined' && currentMatchResult.autoProgressGT === true){
                             // half-time started
                             pushSubscriptionService.pushToAllRegiseredUsers({
@@ -202,7 +202,7 @@ const self = module.exports = {
                             });
                         }
 
-                        if (relevantGame.autoProgressGT === true && relevantGame.Completion >= 50
+                        if (relevantGame.AutoProgressGT === true && relevantGame.Completion >= 50
                             && typeof(currentMatchResult.autoProgressGT) !== 'undefined' && currentMatchResult.autoProgressGT === false){
                             // half-time started
                             pushSubscriptionService.pushToAllRegiseredUsers({
