@@ -1081,8 +1081,8 @@
 		},
 		{
 			"_id": "5a21a7c1a3f89181074e9793",
-			"team1": "A1",
-			"team2": "B2",
+			"team1": "2a21a7c1a3f89181074e9766",
+			"team2": "2a21a7c1a3f89181074e9778",
 			"kickofftime": "2018-06-30T18:00:00.000Z",
 			"stadium": "Fisht Olympic Stadium, Sochi",
 			"type": "Round of 16 | part 1",
@@ -1090,8 +1090,8 @@
 		},
 		{
 			"_id": "5a21a7c1a3f89181074e9794",
-			"team1": "B1",
-			"team2": "A2",
+			"team1": "2a21a7c1a3f89181074e9781",
+			"team2": "2a21a7c1a3f89181074e9779",
 			"kickofftime": "2018-07-01T14:00:00.000Z",
 			"stadium": "Luzhniki Stadium, Moscow",
 			"type": "Round of 16 | part 2",

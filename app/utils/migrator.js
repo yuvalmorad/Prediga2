@@ -26,6 +26,7 @@ const self = module.exports = {
             //self.migrateTeamResults()
             //self.migrateMatches()
             //self.whoFill()
+            self.whenFill()
         ]).then(function (arr) {
             //console.log('[Init] - Migration finished');
         });
@@ -126,7 +127,7 @@ const self = module.exports = {
             //console.log(results);
         });
     },
-    whoFill: function () {
+    whoDidntFill: function () {
         Group.find({_id: utils.WORLD_CUP_GROUP}).then(function (groups) {
             var userIds = groups[0].users;
             var matchIds = ["5a21a7c1a3f89181074e9762", "5a21a7c1a3f89181074e9763", "5a21a7c1a3f89181074e9768", "5a21a7c1a3f89181074e9769"];
@@ -148,6 +149,31 @@ const self = module.exports = {
                         }
                     });
 
+                });
+            });
+        });
+    },
+    whenFill: function () {
+        Group.find({_id: utils.WORLD_CUP_GROUP}).then(function (groups) {
+
+            var userIds = groups[0].users;
+            User.find({_id: {$in: userIds}}).then(function (users) {
+                var matchIds = ["5a21a7c1a3f89181074e976c", "5a21a7c1a3f89181074e976d"];
+                var results = {};
+                MatchPrediction.find({groupId: groups[0]._id, userId: {$in: userIds}, matchId: {$in: matchIds}}).then(function (matchPredictions) {
+                    matchPredictions.forEach(function (matchPrediction) {
+                        if (matchPrediction.isRandom){
+                            var relevantUser = users.filter(function (aUser) {
+                               return aUser._id.toString() === matchPrediction.userId.toString();
+                            });
+                            if (!results.hasOwnProperty(relevantUser[0].name)){
+                                results[relevantUser[0].name] = [];
+                            }
+                            results[relevantUser[0].name].push(matchPrediction.matchId);
+                        }
+                    });
+
+                    console.log(results);
                 });
             });
         });
