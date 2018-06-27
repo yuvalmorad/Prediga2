@@ -38,7 +38,7 @@ component.GamePredictionMainTile = (function(){
             } else if (minutesBeforeKickoffTime < 0 && minutesBeforeKickoffTime > -100){ // -100, just in case some game has no result at all
                 //game already started
                 this.setState({
-                    timeBeforeGame: "Game Is Starting..."
+                    timeBeforeGame: "Game is starting..."
                 });
                 clearInterval(this.timer);
             } else {
