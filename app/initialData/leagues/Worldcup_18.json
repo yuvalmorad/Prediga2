@@ -84,7 +84,7 @@
 			"_id": "2a21a7c1a3f89181074e9764",
 			"name365": "קולומביה",
 			"name": "Colombia",
-			"shortName": "CU",
+			"shortName": "CO",
 			"colors": [
 				"yellow"
 			],
@@ -1072,8 +1072,8 @@
 		},
 		{
 			"_id": "5a21a7c1a3f89181074e9792",
-			"team1": "C1",
-			"team2": "D2",
+			"team1": "2a21a7c1a3f89181074e9774",
+			"team2": "2a21a7c1a3f89181074e9762",
 			"kickofftime": "2018-06-30T14:00:00.000Z",
 			"stadium": "Kazan Arena, Kazan",
 			"type": "Round of 16 | part 1",
@@ -1099,8 +1099,8 @@
 		},
 		{
 			"_id": "5a21a7c1a3f89181074e9795",
-			"team1": "D1",
-			"team2": "C2",
+			"team1": "2a21a7c1a3f89181074e9771",
+			"team2": "2a21a7c1a3f89181074e9772",
 			"kickofftime": "2018-07-01T18:00:00.000Z",
 			"stadium": "Nizhny Novograd Stadium, Nizhny Novograd",
 			"type": "Round of 16 | part 2",
@@ -1240,7 +1240,7 @@
 		},
 		{
 			"_id": "5a1342399017dfc4e2faf496",
-			"title": "3st place",
+			"title": "3rd place",
 			"type": "teamThird",
 			"deadline": "2018-06-14T15:00:00.002Z",
 			"league": "4a21a7c1a3f89181074e9762",

@@ -35,7 +35,7 @@ component.RulesPage = (function () {
 							re("div", {}, ["* First to score: ", getPointsStr(groupConfiguration, GAME.BET_TYPES.FIRST_TO_SCORE.key)]),
 							re("div", {}, ["* Bonus!! ",re("strong", {}, "1 strike"), " is awarded for getting all 12 points in a match."]),
 							re("br", {}),
-							re("div", {}, "For qualification matches that go into extra time (+30 min) as a result of a draw, the result at the end of extra time is matched against your prediction. The outcome from a penalty shootout is not counted.")
+							re("div", {}, "For qualification matches that go into extra time (+30 min) as a result of a draw, the result at the end of 90 minutes time is matched against your prediction. The outcome from a penalty shootout is not counted.")
 						)
 					)
 				),
