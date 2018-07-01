@@ -143,7 +143,7 @@ const self = module.exports = {
         return Promise.all(promises);
     },
     updateMatchResultsMapInner: function (relevantGame) {
-        const isFinished = relevantGame.Active === false && relevantGame.AutoProgressGT === false && relevantGame.Completion >= 100;
+        const isFinished = relevantGame.AutoProgressGT === false && relevantGame.Completion >= 100;
         const isActive = relevantGame.Active === true;
         if (!isActive && !isFinished) {
             // game not yet started
@@ -195,7 +195,7 @@ const self = module.exports = {
                         }
                         // half-time alerts
                         if (relevantGame.AutoProgressGT === false && relevantGame.Completion === 50
-                         && typeof(currentMatchResult.autoProgressGT) !== 'undefined' && currentMatchResult.autoProgressGT === true){
+                         && currentMatchResult !== null && typeof(currentMatchResult.autoProgressGT) !== 'undefined' && currentMatchResult.autoProgressGT === true){
                             // half-time started
                             pushSubscriptionService.pushToAllRegiseredUsers({
                                 text: 'Half time break | ' + team1Club.name + ' ' + newMatchResult.team1Goals + ' - ' + newMatchResult.team2Goals + ' ' + team2Club.name
@@ -203,11 +203,15 @@ const self = module.exports = {
                         }
 
                         if (relevantGame.AutoProgressGT === true && relevantGame.Completion >= 50
-                            && typeof(currentMatchResult.autoProgressGT) !== 'undefined' && currentMatchResult.autoProgressGT === false){
+                            && currentMatchResult !== null && typeof(currentMatchResult.autoProgressGT) !== 'undefined' && currentMatchResult.autoProgressGT === false){
                             // half-time started
                             pushSubscriptionService.pushToAllRegiseredUsers({
                                 text: 'Second half started | ' + team1Club.name + ' ' + newMatchResult.team1Goals + ' - ' + newMatchResult.team2Goals + ' ' + team2Club.name
                             });
+                        }
+
+                        if (newMatchResult.active && relevantGame.GT >= 100 && relevantGame.AutoProgressGT === true){
+                            newMatchResult.active = false;
                         }
 
                         // TODO - used in simulator screen, verify it is relevant for the user, he is in a group with this game

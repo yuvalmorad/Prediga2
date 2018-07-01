@@ -1144,8 +1144,8 @@
 		},
 		{
 			"_id": "5a21a7c1a3f89181074e9800",
-			"team1": "2a21a7c1a3f89181074e9774",
-			"team2": "2a21a7c1a3f89181074e9766",
+			"team1": "2a21a7c1a3f89181074e9766",
+			"team2": "2a21a7c1a3f89181074e9774",
 			"kickofftime": "2018-07-06T14:00:00.000Z",
 			"stadium": "Nizhny Novograd Stadium, Nizhny Novograd",
 			"type": "Quarter-finals",
@@ -1171,7 +1171,7 @@
 		},
 		{
 			"_id": "5a21a7c1a3f89181074e9803",
-			"team1": "W51",
+			"team1": "2a21a7c1a3f89181074e9779",
 			"team2": "W52",
 			"kickofftime": "2018-07-07T18:00:00.000Z",
 			"stadium": "Fisht Olympic Stadium, Sochi",
