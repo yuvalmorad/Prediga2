@@ -26,7 +26,7 @@ const self = module.exports = {
             //self.migrateTeamResults()
             //self.migrateMatches()
             //self.whoFill()
-            self.whenFill()
+            //self.whenFill()
         ]).then(function (arr) {
             //console.log('[Init] - Migration finished');
         });
@@ -158,7 +158,7 @@ const self = module.exports = {
 
             var userIds = groups[0].users;
             User.find({_id: {$in: userIds}}).then(function (users) {
-                var matchIds = ["5a21a7c1a3f89181074e976c", "5a21a7c1a3f89181074e976d"];
+                var matchIds = ["5a21a7c1a3f89181074e9793"];
                 var results = {};
                 MatchPrediction.find({groupId: groups[0]._id, userId: {$in: userIds}, matchId: {$in: matchIds}}).then(function (matchPredictions) {
                     matchPredictions.forEach(function (matchPrediction) {
