@@ -143,7 +143,7 @@ const self = module.exports = {
         return Promise.all(promises);
     },
     updateMatchResultsMapInner: function (relevantGame) {
-        const isFinished = relevantGame.AutoProgressGT === false && relevantGame.Completion >= 100;
+        let isFinished = relevantGame.AutoProgressGT === false && relevantGame.Completion >= 100;
         const isActive = relevantGame.Active === true;
         if (!isActive && !isFinished) {
             // game not yet started
@@ -177,6 +177,11 @@ const self = module.exports = {
                             text: 'Game started | ' + team1Club.name + ' vs ' + team2Club.name
                         });
                     }
+                    // end after 90 minutes.
+                    if (relevantGame.Active === true && relevantGame.GT >= 90 && relevantGame.AutoProgressGT === true
+                        && relevantGame.Completion < 90){
+                        isFinished = true;
+                    }
                     if (isFinished && (currentMatchResult && currentMatchResult.active === false)) {
                         return Promise.resolve('getResultsJob'); // not relevant anymore.
                     }
@@ -201,11 +206,6 @@ const self = module.exports = {
                                 text: 'Half time break | ' + team1Club.name + ' ' + newMatchResult.team1Goals + ' - ' + newMatchResult.team2Goals + ' ' + team2Club.name
                             });
                         }
-                        // end after 90 minutes.
-                        /*if (newMatchResult.active && relevantGame.GT >= 90 && relevantGame.AutoProgressGT === true
-                            && relevantGame.Completion < 90){
-                            newMatchResult.active = false;
-                        }*/
 
                         if (relevantGame.AutoProgressGT === true && relevantGame.Completion >= 50
                             && currentMatchResult !== null && typeof(currentMatchResult.autoProgressGT) !== 'undefined' && currentMatchResult.autoProgressGT === false){
@@ -219,13 +219,13 @@ const self = module.exports = {
                         socketIo.emit("matchResultUpdate", matchResultUpdate);
 
                         return matchResultService.updateMatchResult(newMatchResult).then(function () {
-                            if (isFinished === false) {
+                            if (newMatchResult.active === false) {
                                 return Promise.resolve('getResultsJob'); // in progress
                             } else {
                                 console.log('[Automatic Updater] - Game has finished, for [' + team1Club.name + ' vs ' + team2Club.name + ']');
                                 const leagueId = match.league;
-                                /*pushSubscriptionService.pushToAllRegiseredUsers({
-                                    text: 'Game finished | ' + team1Club.name + ' ' + newMatchResult.team1Goals + ' - ' + newMatchResult.team2Goals + ' ' + team2Club.name});*/
+                                pushSubscriptionService.pushToAllRegiseredUsers({
+                                    text: 'Game finished | ' + team1Club.name + ' ' + newMatchResult.team1Goals + ' - ' + newMatchResult.team2Goals + ' ' + team2Club.name});
                                 console.log('[Automatic Updater] - Beginning to update user score, for [' + team1Club.name + ' vs ' + team2Club.name + ']');
                                 return userScoreService.updateUserScoreByMatchResult(newMatchResult, leagueId).then(function () {
                                     //console.log('[Automatic Updater] - Beginning to update leaderboard from the automatic updater');
