@@ -201,6 +201,11 @@ const self = module.exports = {
                                 text: 'Half time break | ' + team1Club.name + ' ' + newMatchResult.team1Goals + ' - ' + newMatchResult.team2Goals + ' ' + team2Club.name
                             });
                         }
+                        // end after 90 minutes.
+                        if (newMatchResult.active && relevantGame.GT >= 90 && relevantGame.AutoProgressGT === true
+                            && relevantGame.Completion < 90){
+                            newMatchResult.active = false;
+                        }
 
                         if (relevantGame.AutoProgressGT === true && relevantGame.Completion >= 50
                             && currentMatchResult !== null && typeof(currentMatchResult.autoProgressGT) !== 'undefined' && currentMatchResult.autoProgressGT === false){
@@ -208,10 +213,6 @@ const self = module.exports = {
                             pushSubscriptionService.pushToAllRegiseredUsers({
                                 text: 'Second half started | ' + team1Club.name + ' ' + newMatchResult.team1Goals + ' - ' + newMatchResult.team2Goals + ' ' + team2Club.name
                             });
-                        }
-
-                        if (newMatchResult.active && relevantGame.GT >= 100 && relevantGame.AutoProgressGT === true){
-                            newMatchResult.active = false;
                         }
 
                         // TODO - used in simulator screen, verify it is relevant for the user, he is in a group with this game
