@@ -202,10 +202,10 @@ const self = module.exports = {
                             });
                         }
                         // end after 90 minutes.
-                        if (newMatchResult.active && relevantGame.GT >= 90 && relevantGame.AutoProgressGT === true
+                        /*if (newMatchResult.active && relevantGame.GT >= 90 && relevantGame.AutoProgressGT === true
                             && relevantGame.Completion < 90){
                             newMatchResult.active = false;
-                        }
+                        }*/
 
                         if (relevantGame.AutoProgressGT === true && relevantGame.Completion >= 50
                             && currentMatchResult !== null && typeof(currentMatchResult.autoProgressGT) !== 'undefined' && currentMatchResult.autoProgressGT === false){
