@@ -178,10 +178,10 @@ const self = module.exports = {
                         });
                     }
                     // end after 90 minutes.
-                    if (relevantGame.Active === true && relevantGame.GT >= 90 && relevantGame.AutoProgressGT === true
+                    /*if (relevantGame.Active === true && relevantGame.GT >= 90 && relevantGame.AutoProgressGT === true
                         && relevantGame.Completion < 90){
                         isFinished = true;
-                    }
+                    }*/
                     if (isFinished && (currentMatchResult && currentMatchResult.active === false)) {
                         return Promise.resolve('getResultsJob'); // not relevant anymore.
                     }
