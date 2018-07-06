@@ -9,11 +9,15 @@ const vapidKeys = {
     mailTo: process.env.WEB_PUSH_MAIL_TO
 };
 
-webpush.setVapidDetails(
-    vapidKeys.mailTo,
-    vapidKeys.publicKey,
-    vapidKeys.privateKey
-);
+try{
+    webpush.setVapidDetails(
+        vapidKeys.mailTo,
+        vapidKeys.publicKey,
+        vapidKeys.privateKey
+    );
+} catch (e) {
+
+}
 
 const self = module.exports = {
     pushAllSubscriptionsToSpecificUser: function (pushSubscriptionObj, pushObj) {
