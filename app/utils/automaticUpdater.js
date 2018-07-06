@@ -178,10 +178,10 @@ const self = module.exports = {
                         });
                     }
                     // end after 90 minutes.
-                    /*if (relevantGame.Active === true && relevantGame.GT >= 90 && relevantGame.AutoProgressGT === true
+                    if (relevantGame.Active === true && relevantGame.GT >= 90 && relevantGame.AutoProgressGT === true
                         && relevantGame.Completion < 90){
                         isFinished = true;
-                    }*/
+                    }
                     if (isFinished && (currentMatchResult && currentMatchResult.active === false)) {
                         return Promise.resolve('getResultsJob'); // not relevant anymore.
                     }
@@ -219,7 +219,7 @@ const self = module.exports = {
                         socketIo.emit("matchResultUpdate", matchResultUpdate);
 
                         return matchResultService.updateMatchResult(newMatchResult).then(function () {
-                            if (newMatchResult.active === false) {
+                            if (isFinished === false) {
                                 return Promise.resolve('getResultsJob'); // in progress
                             } else {
                                 console.log('[Automatic Updater] - Game has finished, for [' + team1Club.name + ' vs ' + team2Club.name + ']');
