@@ -179,7 +179,7 @@ const self = module.exports = {
                         });
                     }
                         
-                    if (isFinished && (currentMatchResult && currentMatchResult.active === false)) {
+                    if (isFinished && (currentMatchResult && currentMatchResult.active === false) || relevantGame.GT > 100) {
                         return Promise.resolve('getResultsJob'); // not relevant anymore.
                     }
 
