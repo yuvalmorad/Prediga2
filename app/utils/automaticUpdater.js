@@ -186,7 +186,7 @@ const self = module.exports = {
                         return Promise.resolve('getResultsJob'); // not relevant anymore.
                     }
 
-                    return self.calculateNewMatchResult(team1, team2, relevantGame, match._id).then(function (newMatchResult) {
+                    return self.calculateNewMatchResult(team1, team2, relevantGame, match._id, isFinished).then(function (newMatchResult) {
                         // send push notification to client
                         const matchResultUpdate = {
                             "matchResult": newMatchResult,
@@ -244,7 +244,7 @@ const self = module.exports = {
             });
         });
     },
-    calculateNewMatchResult: function (team1, team2, relevantGame, matchId) {
+    calculateNewMatchResult: function (team1, team2, relevantGame, matchId, isFinished) {
         const newMatchResult = {
             winner: 'Draw',
             team1Goals: relevantGame.Scrs[0],
@@ -253,7 +253,7 @@ const self = module.exports = {
             firstToScore: 'None', // will be calculated from the first event
             gameTime: relevantGame.GT,
             completion: relevantGame.Completion,
-            active: relevantGame.Active,
+            active: isFinished ? false : relevantGame.Active,
             resultTime: new Date(),
             matchId: matchId,
             autoProgressGT: relevantGame.AutoProgressGT
