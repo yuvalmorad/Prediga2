@@ -144,7 +144,7 @@ const self = module.exports = {
     },
     updateMatchResultsMapInner: function (relevantGame) {
         let isFinished = (relevantGame.AutoProgressGT === false && relevantGame.Completion >= 100) ||
-            (relevantGame.Active === true && relevantGame.GT >= 90 && relevantGame.Completion < 100);
+            (relevantGame.Active === true && relevantGame.GT >= 90 && relevantGame.Completion <= 100);
         const isActive = relevantGame.Active === true;
         if (!isActive && !isFinished) {
             // game not yet started

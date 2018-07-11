@@ -1199,7 +1199,7 @@
 		{
 			"_id": "5a21a7c1a3f89181074e9806",
 			"team1": "2a21a7c1a3f89181074e9770",
-			"team2": "L62",
+			"team2": "2a21a7c1a3f89181074e9773",
 			"kickofftime": "2018-07-14T14:00:00.000Z",
 			"stadium": "Krestovsky Stadium, Saint Petersburg",
 			"type": "3-4 place",
@@ -1208,7 +1208,7 @@
 		{
 			"_id": "5a21a7c1a3f89181074e9807",
 			"team1": "2a21a7c1a3f89181074e9774",
-			"team2": "W62",
+			"team2": "2a21a7c1a3f89181074e9771",
 			"kickofftime": "2018-07-15T15:00:00.000Z",
 			"stadium": "Luzhniki Stadium, Moscow",
 			"type": "Final",
