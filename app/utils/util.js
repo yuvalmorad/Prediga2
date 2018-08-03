@@ -4,7 +4,6 @@ module.exports = {
 	DEFAULT_GROUP: '5a3eac97d3ca76dbd12bf638',
 	MONKEY_GUNNER_USER_ID: '5a8739aee1697b0015445020',
     MONKEY_STRIKER_USER_ID: '5b26437c7d607d0015d54791',
-    WORLD_CUP_GROUP: '5af1f5094652f900152f6249',
 	MINUTES_BEFORE_START_MATCH_PROPERTY_NAME: 'minutesBeforeCloseMathPrediction',
 	LAST_PREDICTIONS_LIMIT_UI: 600,
 	MATCH_CONSTANTS: {
@@ -15,10 +14,6 @@ module.exports = {
 		upsert: true, setDefaultsOnInsert: false, isNew: true, new: true, returnNewDocument: true
 	},
 	AUTOMATIC_UPDATE_URL: 'http://365scores.sport5.co.il:3333?SID=1',
-	UPDATE_ISRAELI_LEAGUE_MATCHES_1: 'http://www.sport5.co.il/Ajax/GetCycleTeamGamesPopup.aspx?LSnum=7580',
-	UPDATE_ISRAELI_LEAGUE_MATCHES_2: 'http://www.sport5.co.il/Ajax/GetCycleTeamGamesPopup.aspx?LSnum=7581',
-	UPDATE_ENGLAND_LEAGUE_MATCHES: 'http://www.sport5.co.il/Ajax/GetCycleTeamGamesPopup.aspx?LSnum=5387',
-	UPDATE_SPAIN_LEAGUE_MATCHES: 'http://www.sport5.co.il/Ajax/GetCycleTeamGamesPopup.aspx?LSnum=6411',
 	USER_SETTINGS_KEYS: {
 		PUSH_NOTIFICATION: "PUSH_NOTIFICATION",
 		RANDOM_ALL: "RANDOM_ALL",

@@ -1,0 +1,486 @@
+{
+  "league": {
+    "_id": "3a21a7c1a3f89181074e9769",
+    "name": "England",
+    "logoPosition": "-56px -336px",
+    "year": "2018/2019",
+    "competition365": 7,
+    "syncResults365": true,
+    "updateUrl": "http://www.sport5.co.il/Ajax/GetCycleTeamGamesPopup.aspx?LSnum=8665",
+    "leagueFirstMatchDate": "2018-08-11T00:00:00.000Z",
+    "clubs": [
+      "1a21a7c1a3f89181074e9762",
+      "1a21a7c1a3f89181074e9763",
+      "1a21a7c1a3f89181074e9764",
+      "1a21a7c1a3f89181074e9765",
+      "1a21a7c1a3f89181074e9966",
+      "1a21a7c1a3f89181074e9767",
+      "1a21a7c1a3f89181074e9768",
+      "1a21a7c1a3f89181074e9769",
+      "1a21a7c1a3f89181074e9770",
+      "1a21a7c1a3f89181074e9771",
+      "1a21a7c1a3f89181074e9773",
+      "1a21a7c1a3f89181074e9774",
+      "1a21a7c1a3f89181074e9775",
+      "1a21a7c1a3f89181074e9776",
+      "1a21a7c1a3f89181074e9777",
+      "1a21a7c1a3f89181074e9779",
+      "1a21a7c1a3f89181074e9780",
+      "1a21a7c1a3f89181074e9782",
+      "1a21a7c1a3f89181074e9783",
+      "1a21a7c1a3f89181074e9784"
+    ],
+    "color": "#3d195b"
+  },
+  "clubs": [
+    {
+      "_id": "1a21a7c1a3f89181074e9762",
+      "name": "Arsenal",
+      "name365": "ארסנל",
+      "nameSport5": "ארסנל",
+      "shortName": "ARS",
+      "colors": [
+        "#AA0001"
+      ],
+      "buttonColors": [
+        "#AA0001",
+        "#FFFFFF"
+      ],
+      "graphColors": [
+        "#AA0001",
+        "#000000"
+      ],
+      "logoPosition": "0 0",
+      "sprite": "england",
+      "stadium": "Etihad Stadium"
+    },
+    {
+      "_id": "1a21a7c1a3f89181074e9763",
+      "name": "Leicester City",
+      "name365": "לסטר",
+      "nameSport5": "לסטר",
+      "shortName": "LES",
+      "colors": [
+        "#0659E4"
+      ],
+      "buttonColors": [
+        "#0659E4",
+        "#FFFFFF"
+      ],
+      "graphColors": [
+        "#0659E4",
+        "#000000"
+      ],
+      "logoPosition": "0 -224px",
+      "sprite": "england",
+      "stadium": "King Power Stadium"
+    },
+    {
+      "_id": "1a21a7c1a3f89181074e9764",
+      "name": "Bournemouth",
+      "name365": "בורנמות",
+      "nameSport5": "בורנמות'",
+      "shortName": "BOU",
+      "colors": [
+        "#DE000A",
+        "#000000"
+      ],
+      "buttonColors": [
+        "#DE000A",
+        "#FFFFFF"
+      ],
+      "graphColors": [
+        "#DE000A",
+        "#000000"
+      ],
+      "logoPosition": "-56px 0",
+      "sprite": "england",
+      "stadium": "Dean Court"
+    },
+    {
+      "_id": "1a21a7c1a3f89181074e9765",
+      "name": "Brighton",
+      "name365": "ברייטון",
+      "nameSport5": "ברייטון",
+      "shortName": "BRI",
+      "colors": [
+        "#1E01FF"
+      ],
+      "buttonColors": [
+        "#1E01FF",
+        "#FFFFFF"
+      ],
+      "graphColors": [
+        "#1E01FF",
+        "#000000"
+      ],
+      "logoPosition": "0 -56px",
+      "sprite": "england",
+      "stadium": "Falmer Stadium"
+    },
+    {
+      "_id": "1a21a7c1a3f89181074e9768",
+      "name": "Burnley",
+      "name365": "ברנלי",
+      "nameSport5": "ברנלי",
+      "shortName": "BUR",
+      "colors": [
+        "#599FEA",
+        "#990001"
+      ],
+      "buttonColors": [
+        "#990001",
+        "#FFFFFF"
+      ],
+      "graphColors": [
+        "#990001",
+        "#599FEA"
+      ],
+      "logoPosition": "-56px -56px",
+      "sprite": "england",
+      "stadium": "Turf Moor"
+    },
+    {
+      "_id": "1a21a7c1a3f89181074e9769",
+      "name": "Crystal Palace",
+      "name365": "קריסטל פאלאס",
+      "nameSport5": "קריסטל פאלאס",
+      "shortName": "CP",
+      "colors": [
+        "#4102FF",
+        "#DE000A"
+      ],
+      "buttonColors": [
+        "#4102FF",
+        "#FFFFFF"
+      ],
+      "graphColors": [
+        "#4102FF",
+        "#DE000A"
+      ],
+      "logoPosition": "-56px -112px",
+      "sprite": "england",
+      "stadium": "Selhurst Park"
+    },
+    {
+      "_id": "1a21a7c1a3f89181074e9770",
+      "name": "Huddersfield",
+      "name365": "האדרספילד",
+      "nameSport5": "האדרספילד",
+      "shortName": "HUD",
+      "colors": [
+        "#44B1FD"
+      ],
+      "buttonColors": [
+        "#44B1FD",
+        "#FFFFFF"
+      ],
+      "graphColors": [
+        "#44B1FD",
+        "#000000"
+      ],
+      "logoPosition": "-56px -168px",
+      "sprite": "england",
+      "stadium": "Kirklees Stadium"
+    },
+    {
+      "_id": "1a21a7c1a3f89181074e9771",
+      "name": "Everton",
+      "name365": "אברטון",
+      "nameSport5": "אברטון",
+      "shortName": "EVE",
+      "colors": [
+        "#0659E4"
+      ],
+      "buttonColors": [
+        "#0659E4",
+        "#FFFFFF"
+      ],
+      "graphColors": [
+        "#0659E4",
+        "#000000"
+      ],
+      "logoPosition": "0 -168px",
+      "sprite": "england",
+      "stadium": "Goodison Park"
+    },
+    {
+      "_id": "1a21a7c1a3f89181074e9772",
+      "name": "Stoke City",
+      "name365": "סטוק סיטי",
+      "nameSport5": "סטוק סיטי",
+      "shortName": "STO",
+      "colors": [
+        "#DE000A"
+      ],
+      "buttonColors": [
+        "#DE000A",
+        "#FFFFFF"
+      ],
+      "graphColors": [
+        "#DE000A",
+        "#000000"
+      ],
+      "logoPosition": "-56px -392px",
+      "sprite": "england",
+      "stadium": "bet365 Stadium"
+    },
+    {
+      "_id": "1a21a7c1a3f89181074e9774",
+      "name": "West Ham United",
+      "name365": "ווסטהאם",
+      "nameSport5": "ווסטהאם",
+      "shortName": "WHU",
+      "colors": [
+        "#44B1FD",
+        "#7C2838"
+      ],
+      "buttonColors": [
+        "#7C2838",
+        "#FFFFFF"
+      ],
+      "graphColors": [
+        "#7C2838",
+        "#44B1FD"
+      ],
+      "logoPosition": "0 -560px",
+      "sprite": "england",
+      "stadium": "London Stadium"
+    },
+    {
+      "_id": "1a21a7c1a3f89181074e9775",
+      "name": "Newcastle United",
+      "name365": "ניוקאסל",
+      "nameSport5": "ניוקאסל",
+      "shortName": "NEW",
+      "colors": [
+        "#000000"
+      ],
+      "buttonColors": [
+        "#000000",
+        "#FFFFFF"
+      ],
+      "graphColors": [
+        "#599FEA",
+        "#000000"
+      ],
+      "logoPosition": "0 -336px",
+      "sprite": "england",
+      "stadium": "St James' Park"
+    },
+    {
+      "_id": "1a21a7c1a3f89181074e9777",
+      "name": "Southampton",
+      "name365": "סאות'המפטון",
+      "nameSport5": "סאות'המפטון",
+      "shortName": "SOU",
+      "colors": [
+        "#000000",
+        "#DE000A"
+      ],
+      "buttonColors": [
+        "#DE000A",
+        "#FFFFFF"
+      ],
+      "graphColors": [
+        "#DE000A",
+        "#000000"
+      ],
+      "logoPosition": "0 -392px",
+      "sprite": "england",
+      "stadium": "St Mary's Stadium"
+    },
+    {
+      "_id": "1a21a7c1a3f89181074e9778",
+      "name": "Swansea City",
+      "name365": "סוונזי",
+      "nameSport5": "סוואנסי",
+      "shortName": "SWA",
+      "colors": [
+        "#000000"
+      ],
+      "buttonColors": [
+        "#000000",
+        "#FFFFFF"
+      ],
+      "graphColors": [
+        "#000000"
+      ],
+      "logoPosition": "0 -448px",
+      "sprite": "england",
+      "stadium": "Liberty Stadium"
+    },
+    {
+      "_id": "1a21a7c1a3f89181074e9779",
+      "name": "Watford",
+      "name365": "ווטפורד",
+      "nameSport5": "ווטפורד",
+      "shortName": "WAT",
+      "colors": [
+        "#FEFF59",
+        "#000000"
+      ],
+      "buttonColors": [
+        "#FEFF59",
+        "#000000"
+      ],
+      "graphColors": [
+        "#FEFF59",
+        "#000000"
+      ],
+      "logoPosition": "0 -504px",
+      "sprite": "england",
+      "stadium": "Vicarage Road"
+    },
+    {
+      "_id": "1a21a7c1a3f89181074e9781",
+      "name": "West Bromwich",
+      "name365": "ווסט ברומיץ'",
+      "nameSport5": "ווסט ברומיץ'",
+      "shortName": "WB",
+      "colors": [ "#0B008C"],
+      "buttonColors": ["#0B008C","#FFFFFF"],
+      "graphColors": ["#0B008C","#000000"],
+      "logoPosition": "-56px -504px",
+      "sprite": "england",
+      "stadium": "The Hawthorns"
+    },
+    {
+      "_id": "1a21a7c1a3f89181074e9782",
+      "name": "Wolverhampton Wanderers",
+      "name365": "וולבס",
+      "nameSport5": "וולבס",
+      "shortName": "WOV",
+      "colors": [ "Yellow"],
+      "buttonColors": ["Yellow","Black"],
+      "graphColors": ["Yellow","Black"],
+      "logoPosition": "-1px -1px",
+      "sprite": "england",
+      "stadium": "Molineux Stadium"
+    },
+    {
+      "_id": "1a21a7c1a3f89181074e9783",
+      "name": "Cardiff City",
+      "name365": "קארדיף",
+      "nameSport5": "קארדיף",
+      "shortName": "CAR",
+      "colors": [ "blue"],
+      "buttonColors": ["blue","red"],
+      "graphColors": ["blue","red"],
+      "logoPosition": "-1px -1px",
+      "sprite": "england",
+      "stadium": "Cardiff City Stadium"
+    },
+    {
+      "_id": "1a21a7c1a3f89181074e9784",
+      "name": "Fulham",
+      "name365": "פולהאם",
+      "nameSport5": "פולהאם",
+      "shortName": "FUL",
+      "colors": [ "black"],
+      "buttonColors": ["black","white"],
+      "graphColors": ["black","white"],
+      "logoPosition": "-1px -1px",
+      "sprite": "england",
+      "stadium": "Craven Cottage"
+    }
+  ],
+  "matches": [
+  ],
+  "teams": [
+    {
+      "_id": "5a1342399017dfc4e2faf4b4",
+      "title": "1st place",
+      "type": "teamWinner",
+      "deadline": "2019-05-01T00:00:00.000Z",
+      "league": "3a21a7c1a3f89181074e9769",
+      "options": [],
+      "resultTime": "2019-05-21T21:45:00.000Z",
+      "category": "9b1342399017dfc4e2faf4c1"
+    },
+    {
+      "_id": "5a1342399017dfc4e2faf4b5",
+      "title": "2nd place",
+      "type": "teamRunnerUp",
+      "deadline": "2019-05-01T00:00:00.001Z",
+      "league": "3a21a7c1a3f89181074e9769",
+      "options": [],
+      "resultTime": "2019-05-21T21:45:00.000Z",
+      "category": "9b1342399017dfc4e2faf4c1"
+    },
+    {
+      "_id": "5a1342399017dfc4e2faf4b6",
+      "title": "3rd place",
+      "type": "teamThird",
+      "deadline": "2019-05-01T00:00:00.002Z",
+      "league": "3a21a7c1a3f89181074e9769",
+      "options": [],
+      "resultTime": "2019-05-21T21:45:00.000Z",
+      "category": "9b1342399017dfc4e2faf4c1"
+    },
+    {
+      "_id": "5a1342399017dfc4e2faf4b7",
+      "title": "4th place",
+      "type": "teamForth",
+      "deadline": "2019-05-01T00:00:00.003Z",
+      "league": "3a21a7c1a3f89181074e9769",
+      "options": [],
+      "resultTime": "2019-05-21T21:45:00.000Z",
+      "category": "9b1342399017dfc4e2faf4c1"
+    },
+    {
+      "_id": "5a1342399017dfc4e2faf4c0",
+      "title": "Third last",
+      "type": "team2ndLast",
+      "deadline": "2019-05-01T00:00:00.004Z",
+      "league": "3a21a7c1a3f89181074e9769",
+      "options": [],
+      "resultTime": "2019-05-21T21:45:00.000Z",
+      "category": "9b1342399017dfc4e2faf4c2"
+    },
+    {
+      "_id": "5a1342399017dfc4e2faf4b8",
+      "title": "Second last",
+      "type": "team2ndLast",
+      "deadline": "2019-05-01T00:00:00.005Z",
+      "league": "3a21a7c1a3f89181074e9769",
+      "options": [],
+      "resultTime": "2019-05-21T21:45:00.000Z",
+      "category": "9b1342399017dfc4e2faf4c2"
+    },
+    {
+      "_id": "5a1342399017dfc4e2faf4b9",
+      "title": "Last place",
+      "type": "teamLast",
+      "deadline": "2019-05-01T00:00:00.006Z",
+      "league": "3a21a7c1a3f89181074e9769",
+      "options": [],
+      "resultTime": "2019-05-21T21:45:00.000Z",
+      "category": "9b1342399017dfc4e2faf4c2"
+    }
+  ],
+  "teamCategories": [
+    {
+      "_id": "9b1342399017dfc4e2faf4c1",
+      "league": "3a21a7c1a3f89181074e9769",
+      "title": "England Champions",
+      "description": "England champions",
+      "sprite": "questions.png",
+      "mSprite": "england_champions",
+      "iconPosition": "-360px 0"
+    },
+    {
+      "_id": "9b1342399017dfc4e2faf4c2",
+      "league": "3a21a7c1a3f89181074e9769",
+      "title": "England Relegation team",
+      "description": "England relegation",
+      "sprite": "questions.png",
+      "mSprite": "relegation",
+      "iconPosition": "-1296px 0"
+    }
+  ],
+  "matchResults": [
+  ],
+  "teamResults": [
+  ]
+}

@@ -5,7 +5,7 @@
 		"logoPosition": "0 -672px",
 		"year": "2018",
 		"competition365": 5930,
-		"syncResults365": true,
+		"syncResults365": false,
 		"clubs": [
 			"2a21a7c1a3f89181074e9762",
 			"2a21a7c1a3f89181074e9763",

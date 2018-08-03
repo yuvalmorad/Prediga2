@@ -18,7 +18,7 @@ module.exports = function (app, passport) {
 	automaticUpdater.run(true);
 	jobRunBeforeDeadlineService.run();
 	migrator.run();
-	//updateMatchesAutomatically.run();
+	updateMatchesAutomatically.run(true);
 
 	/********************************************
 	 * All routes mapping

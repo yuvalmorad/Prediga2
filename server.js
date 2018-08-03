@@ -19,8 +19,8 @@ let configDB = port !== 3000 ? process.env.MONGODB_URI : 'mongodb://localhost:27
 let clientFolder = port === 3000 ? (__dirname + "/public") : (__dirname + "/build");
 
 mongoose.connect(configDB, function (err) {
-    if (err) console.log('[Init] - Unable to connect to DB ' + err);
-    else console.log('[Init] - Connection to DB finished')
+    if (err) console.log('[Init] Unable to connect to DB ' + err);
+    else console.log('[Init] Connection to DB finished')
 }); // connect to our database
 let configFBPassport = port !== 3000 ? 'facebookAuth' : 'facebookAuth-local';
 let configGooglePassport = port !== 3000 ? 'googleAuth' : 'googleAuth-local';

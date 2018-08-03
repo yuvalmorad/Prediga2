@@ -16,11 +16,10 @@ const self = module.exports = {
 		return Promise.all([
 			groupConfigurationService.updateConfiguration(require('../initialData/configuration/groupConfiguration.json').defaultConfiguration),
 			groupService.updateGroup(require('../initialData/configuration/groups.json').defaultGroup),
-			self.updateLeagueData(require('../initialData/leagues/Worldcup_18.json')),
-			self.updateLeagueData(require('../initialData/leagues/Israel_17-18.json')),
-			self.updateLeagueData(require('../initialData/leagues/England_17-18.json')),
-			self.updateLeagueData(require('../initialData/leagues/Spain_17-18.json')),
-			self.updateLeagueData(require('../initialData/leagues/ChampionsLeague_17-18.json'))
+			self.updateLeagueData(require('../initialData/leagues/18-19/Spain_18-19.json')),
+			self.updateLeagueData(require('../initialData/leagues/18-19/England_18-19.json')),
+			self.updateLeagueData(require('../initialData/leagues/18-19/Israel_18-19')),
+			self.updateLeagueData(require('../initialData/leagues/18-19/Italy_18-19'))
 		]).then(function (arr) {
 			//console.log('[Init] - Update initial data finished');
 			return Promise.resolve({});

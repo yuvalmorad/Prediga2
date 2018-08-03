@@ -9,7 +9,9 @@ const leagueSchema = mongoose.Schema({
 	competition365: Number,
 	syncResults365: {type: Boolean, default: false},
 	clubs: [String],
-	color: String
+	color: String,
+	updateUrl: String,
+	leagueFirstMatchDate: Date
 });
 
 leagueSchema.options.toJSON = {

@@ -2,41 +2,51 @@ const schedule = require('node-schedule');
 const http = require('http');
 const jsdom = require("jsdom");
 const {JSDOM} = jsdom;
-const utils = require('./util');
 const MatchService = require('../services/matchService');
+const LeagueService = require('../services/leagueService');
 const clubService = require('../services/clubService');
-const onejan = new Date(new Date().getFullYear(), 0, 4);
 const self = module.exports = {
-	run: function () {
-		// self.runUpdate(utils.UPDATE_ISRAELI_LEAGUE_MATCHES_1, '5a21a7c1a3f89181074e9769'); // Israeli top league.
-		// self.runUpdate(utils.UPDATE_ISRAELI_LEAGUE_MATCHES_2, '5a21a7c1a3f89181074e9769'); // Israeli bottom league.
-		// self.runUpdate(utils.UPDATE_ENGLAND_LEAGUE_MATCHES, '3a21a7c1a3f89181074e9769'); // England
-		// self.runUpdate(utils.UPDATE_SPAIN_LEAGUE_MATCHES, '2a21a7c1a3f89181074e9769'); // Spain
-
-		// schedule for next day.
-		schedule.scheduleJob(self.getNextDayDate(), function () {
-			self.run();
-		});
-		return Promise.resolve({});
-	},
-	runUpdate: function (url, leagueId) {
-		return clubService.all().then(function (clubs) {
-			return self.getLatestData(url).then(function (htmlRawData) {
-				if (!htmlRawData || htmlRawData.length < 1) {
-					//console.log('[Automatic Match Updater] - No content received from remote host');
-					return Promise.resolve();
-				} else {
-					try {
-						//console.log('[Automatic Match Updater] - Start to parse response...');
-						let matches = self.parseResponse(htmlRawData, leagueId, clubs);
-						//console.log('[Automatic Match Updater] - ' + matches.length + ' relevant matches found...');
-						return MatchService.updateMatchesByTeamsAndType(matches);
-					} catch (err) {
-						console.log('[Automatic Match Updater] - Error with parsing result. ' + err);
-						return Promise.resolve();
-					}
-				}
+	run: function (isFirstRun) {
+		if (isFirstRun) {
+			return self.runUpdate();
+		} else {
+			schedule.scheduleJob(self.getNextDayDate(), function () {
+				self.run();
 			});
+			return Promise.resolve({});
+		}
+	},
+	runUpdate: function () {
+		return clubService.all().then(function (clubs) {
+			return self.runUpdateInner(clubs).then(function () {
+				schedule.scheduleJob(self.getNextDayDate(), function () {
+					self.run();
+				});
+				return Promise.resolve();
+			});
+		});
+	},
+	runUpdateInner: function(clubs){
+		return LeagueService.getActiveLeagues().then(function (leagues) {
+			const promises = leagues.map(function (league) {
+				return self.getLatestData(league.updateUrl).then(function (htmlRawData) {
+					if (!htmlRawData || htmlRawData.length < 1) {
+						//console.log('[Automatic Match Updater] - No content received from remote host');
+						return Promise.resolve();
+					} else {
+						try {
+							//console.log('[Automatic Match Updater] - Start to parse response...');
+							let matches = self.parseResponse(htmlRawData, league._id, clubs, league.leagueFirstMatchDate);
+							//console.log('[Automatic Match Updater] - ' + matches.length + ' relevant matches found...');
+							return MatchService.updateMatchesByTeamsAndType(matches);
+						} catch (err) {
+							console.log('[Automatic Match Updater] - Error with parsing result. ' + err);
+							return Promise.resolve();
+						}
+					}
+				});
+			});
+			return Promise.all(promises);
 		});
 	},
 	getLatestData: function (url) {
@@ -58,7 +68,7 @@ const self = module.exports = {
 			});
 		});
 	},
-	parseResponse: function (htmlRawData, leagueId, clubs) {
+	parseResponse: function (htmlRawData, leagueId, clubs, leagueFirstMatchDate) {
 		let matches = [];
 		const dom = new JSDOM(htmlRawData);
 		let allRows = dom.window.document.querySelectorAll('tr');
@@ -71,6 +81,7 @@ const self = module.exports = {
 				dateRaw: cells.item(2).textContent,
 				timeRaw: cells.item(3).textContent,
 				leagueId: leagueId,
+				leagueFirstMatchDate: leagueFirstMatchDate,
 				clubs: clubs,
 				matches: matches
 			});
@@ -108,7 +119,11 @@ const self = module.exports = {
 			return;
 		}
 
-		let roundText = "Week " + Math.ceil((((date - onejan) / 86400000) + onejan.getDay() + 1) / 7);
+		let weekId = Math.floor((((date - input.leagueFirstMatchDate) / 86400000) + input.leagueFirstMatchDate.getDay() + 1) / 7);
+		if (weekId < 1){
+			weekId = 1;
+		}
+		let roundText = "Week " + weekId;
 		let newMatch = {
 			team1: club1._id,
 			team2: club2._id,

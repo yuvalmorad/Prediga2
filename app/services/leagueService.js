@@ -9,11 +9,7 @@ const self = module.exports = {
 			}
 		);
 	},
-	getActiveLeagues: function (activeLeagues) {
-		if (activeLeagues) {
-			// caching it.
-			return Promise.resolve(activeLeagues);
-		}
+	getCompetitionIdForActiveLeagues: function () {
 		return League.find({syncResults365: true}).then(function (leagues) {
 			if (!leagues) {
 				return Promise.resolve([]);
@@ -22,6 +18,9 @@ const self = module.exports = {
 				return Promise.resolve(competitionIds);
 			}
 		});
+	},
+	getActiveLeagues: function () {
+		return League.find({syncResults365: true});
 	},
 	byClubIdAndLeagueIds: function (clubId, leagueIds) {
 		return League.find({_id: {$in: leagueIds, clubs: clubId}});
