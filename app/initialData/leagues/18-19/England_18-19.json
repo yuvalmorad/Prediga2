@@ -28,7 +28,12 @@
       "1a21a7c1a3f89181074e9780",
       "1a21a7c1a3f89181074e9782",
       "1a21a7c1a3f89181074e9783",
-      "1a21a7c1a3f89181074e9784"
+      "1a21a7c1a3f89181074e9784",
+      "1a21a7c1a3f89181074e9785",
+      "1a21a7c1a3f89181074e9786",
+      "1a21a7c1a3f89181074e9787",
+      "1a21a7c1a3f89181074e9788",
+      "1a21a7c1a3f89181074e9789"
     ],
     "color": "#3d195b"
   },
@@ -383,6 +388,111 @@
       "logoPosition": "-1px -1px",
       "sprite": "england",
       "stadium": "Craven Cottage"
+    },
+    {
+      "_id": "1a21a7c1a3f89181074e9785",
+      "name": "Tottenham Hotspur",
+      "name365": "טוטנהאם",
+      "nameSport5": "טוטנהאם",
+      "shortName": "TOT",
+      "colors": [
+        "#0A2555"
+      ],
+      "buttonColors": [
+        "#0A2555",
+        "#FFFFFF"
+      ],
+      "graphColors": [
+        "#0A2555",
+        "#000000"
+      ],
+      "logoPosition": "-784px 0",
+      "sprite": "champions",
+      "stadium": "Wembley Stadium, London"
+    },
+    {
+      "_id": "1a21a7c1a3f89181074e9786",
+      "name": "Manchester City",
+      "name365": "מנצ'סטר סיטי",
+      "nameSport5": "מנצ'סטר סיטי",
+      "shortName": "MC",
+      "colors": [
+        "#44B1FD"
+      ],
+      "buttonColors": [
+        "#44B1FD",
+        "#FFFFFF"
+      ],
+      "graphColors": [
+        "#44B1FD",
+        "#000000"
+      ],
+      "logoPosition": "-392px 0",
+      "sprite": "champions",
+      "stadium": "City of Manchester Stadium, Manchester"
+    },
+    {
+      "_id": "1a21a7c1a3f89181074e9787",
+      "name": "Liverpool",
+      "name365": "ליברפול",
+      "nameSport5": "ליברפול",
+      "shortName": "LIV",
+      "colors": [
+        "#990001"
+      ],
+      "buttonColors": [
+        "#990001",
+        "#FFFFFF"
+      ],
+      "graphColors": [
+        "#990001",
+        "#000000"
+      ],
+      "logoPosition": "-336px 0",
+      "sprite": "champions",
+      "stadium": "Anfield, Liverpool"
+    },
+    {
+      "_id": "1a21a7c1a3f89181074e9788",
+      "name": "Manchester United",
+      "name365": "מנצ'סטר יונייטד",
+      "nameSport5": "מנצ'סטר יונייטד",
+      "shortName": "MU",
+      "colors": [
+        "#DE000A"
+      ],
+      "buttonColors": [
+        "#DE000A",
+        "#FFFFFF"
+      ],
+      "graphColors": [
+        "#DE000A",
+        "#000000"
+      ],
+      "logoPosition": "-448px 0",
+      "sprite": "champions",
+      "stadium": "Old Trafford, Manchester"
+    },
+    {
+      "_id": "1a21a7c1a3f89181074e9789",
+      "name": "Chelsea",
+      "name365": "צ'לסי",
+      "nameSport5": "צ'לסי",
+      "shortName": "CHE",
+      "colors": [
+        "#0045B8"
+      ],
+      "buttonColors": [
+        "#0045B8",
+        "#FFFFFF"
+      ],
+      "graphColors": [
+        "#0045B8",
+        "#000000"
+      ],
+      "logoPosition": "-224px 0",
+      "sprite": "champions",
+      "stadium": "Stamford Bridge, London"
     }
   ],
   "matches": [

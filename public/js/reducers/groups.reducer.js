@@ -29,7 +29,7 @@ reducer.groups = function() {
         var selectedLeagueIdByGroupObj = getSelectedLeagueIdByGroupFromLocalStorage();
 
         var leagueId = selectedLeagueIdByGroupObj[selectedGroupId];
-        if (leagueId && !(selectedGroupId === INITIAL_PUPLIC_GROUP && leagueId === WORLD_CUP_LEAGUE_ID)) { //workaround to remove world cup league in Everyone group
+        if (leagueId) {
             //there was selected league id in this group -> return it
             return leagueId;
         } else {

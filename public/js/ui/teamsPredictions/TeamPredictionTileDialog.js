@@ -65,9 +65,11 @@ component.TeamPredictionTileDialog = (function(){
 
             if (prediction && prediction.team) {
                 selectedTeam = utils.general.findItemInArrBy(clubs, "_id", prediction.team);
-                selectedTeam.isDummySelection = prediction.isDummySelection;
-                borderColor = selectedTeam.colors[0];
-                borderSecondColor = selectedTeam.colors[1];
+                if (selectedTeam){
+					selectedTeam.isDummySelection = prediction.isDummySelection;
+					borderColor = selectedTeam.colors[0];
+					borderSecondColor = selectedTeam.colors[1];
+                }
             }
 
             var isDeadLine = this.isDeadLine();

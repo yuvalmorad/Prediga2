@@ -15,7 +15,7 @@ let session = require('express-session');
 let sslRedirect = require('heroku-ssl-redirect');
 let GroupService = require('./app/services/groupService');
 // configuration ===============================================================
-let configDB = port !== 3000 ? process.env.MONGODB_URI : 'mongodb://localhost:27017/prediga';
+let configDB = port !== 3000 ? process.env.MONGODB_URI : 'mongodb://localhost:27017/prediga2';
 let clientFolder = port === 3000 ? (__dirname + "/public") : (__dirname + "/build");
 
 mongoose.connect(configDB, function (err) {

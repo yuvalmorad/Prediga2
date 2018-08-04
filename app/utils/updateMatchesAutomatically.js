@@ -120,9 +120,6 @@ const self = module.exports = {
 		}
 
 		let weekId = Math.floor((((date - input.leagueFirstMatchDate) / 86400000) + input.leagueFirstMatchDate.getDay() + 1) / 7);
-		if (weekId < 1){
-			weekId = 1;
-		}
 		let roundText = "Week " + weekId;
 		let newMatch = {
 			team1: club1._id,

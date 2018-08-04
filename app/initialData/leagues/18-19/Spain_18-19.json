@@ -28,7 +28,10 @@
       "1a21a7c1a3f89181074e9880",
       "1a21a7c1a3f89181074e9882",
       "1a21a7c1a3f89181074e9883",
-      "1a21a7c1a3f89181074e9884"
+      "1a21a7c1a3f89181074e9884",
+      "1a21a7c1a3f89181074e9885",
+      "1a21a7c1a3f89181074e9886",
+      "1a21a7c1a3f89181074e9887"
     ],
     "color": "#951b80"
   },
@@ -394,6 +397,70 @@
       "logoPosition": "-1000 -1000px",
       "sprite": "spain",
       "stadium": "Aragon"
+    },
+    {
+      "_id": "1a21a7c1a3f89181074e9885",
+      "name": "Sevilla",
+      "name365": "סביליה",
+      "nameSport5": "סביליה",
+      "shortName": "SEV",
+      "colors": [
+        "#FF1716"
+      ],
+      "buttonColors": [
+        "#FF1716",
+        "#FFFFFF"
+      ],
+      "graphColors": [
+        "#FF1716",
+        "#000000"
+      ],
+      "logoPosition": "-672px 0",
+      "sprite": "champions",
+      "stadium": "Ramón Sánchez Pizjuán, Seville"
+    },
+    {
+      "_id": "1a21a7c1a3f89181074e9886",
+      "name": "Real Madrid",
+      "name365": "ריאל מדריד",
+      "nameSport5": "ריאל מדריד",
+      "shortName": "RM",
+      "colors": [
+        "#23A6BF"
+      ],
+      "buttonColors": [
+        "#23A6BF",
+        "#FFFFFF"
+      ],
+      "graphColors": [
+        "#23A6BF",
+        "#000000"
+      ],
+      "logoPosition": "-896px 0",
+      "sprite": "champions",
+      "stadium": "Santiago Bernabéu, Madrid"
+    },
+    {
+      "_id": "1a21a7c1a3f89181074e9887",
+      "name": "Barcelona",
+      "name365": "ברצלונה",
+      "nameSport5": "ברצלונה",
+      "shortName": "BAR",
+      "colors": [
+        "#09007A",
+        "#990001"
+      ],
+      "buttonColors": [
+        "#990001",
+        "#FFFFFF"
+      ],
+      "graphColors": [
+        "#990001",
+        "#000000"
+      ],
+      "logoPosition": "-840px 0",
+      "sprite": "champions",
+      "stadium": "Camp Nou, Barcelona"
     }
   ],
   "matches": [
