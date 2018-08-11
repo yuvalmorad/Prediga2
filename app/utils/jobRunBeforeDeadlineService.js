@@ -1,5 +1,4 @@
 const schedule = require('node-schedule');
-const utils = require("../utils/util");
 const matchService = require("../services/matchService");
 const groupService = require("../services/groupService");
 const userSettingsService = require('../services/userSettingsService');
@@ -63,9 +62,6 @@ const self = module.exports = {
             userSettingsService.getPushUsers().then(function (userAgreedToReceivePushNotifications) {
                 // iterating all groups (w/o everyone)
                 const promises = relevantGroups.map(function (relevantGroup) {
-                    if (relevantGroup._id.toString() === utils.DEFAULT_GROUP) {
-                        return Promise.resolve();
-                    }
                     // get group users.
                     const userInGroupPromises = relevantGroup.users.map(function (userInGroup) {
                         // is user fill prediction in the group?
