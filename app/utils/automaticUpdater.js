@@ -227,11 +227,7 @@ const self = module.exports = {
 								return userScoreService.updateUserScoreByMatchResult(newMatchResult, leagueId).then(function () {
 									//console.log('[Automatic Updater] - Beginning to update leaderboard from the automatic updater');
 									return userLeaderboardService.updateLeaderboardByGameIds(leagueId, [newMatchResult.matchId]).then(function () {
-										// TODO - How to know to emit the right leaderboard to the right user?
-										return userLeaderboardService.getLeaderboardWithNewRegisteredUsers(leagueId).then(function (leaderboards) {
-											socketIo.emit("leaderboardUpdate", leaderboards);
-											return Promise.resolve(false); // not relevant anymore.
-										});
+										return Promise.resolve(false); // not relevant anymore.
 									});
 								});
 							}
