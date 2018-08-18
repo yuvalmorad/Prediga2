@@ -4,10 +4,10 @@
     "name": "Italy",
     "logoPosition": "-56px -280px",
     "year": "2018/2019",
-    "competition365": 11,
+    "competition365": 17,
     "syncResults365": true,
     "updateUrl": "http://www.sport5.co.il/Ajax/GetCycleTeamGamesPopup.aspx?LSnum=8716",
-    "leagueFirstMatchDate": "2018-08-19T00:00:00.000Z",
+    "leagueFirstMatchDate": "2018-08-18T00:00:00.000Z",
     "clubs": [
       "4a21a7c1a3f89181074e9864",
       "4a21a7c1a3f89181074e9865",

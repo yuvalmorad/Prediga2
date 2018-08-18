@@ -144,7 +144,7 @@ const self = module.exports = {
 	},
 	updateMatchResultsMapInner: function (relevantGame) {
 		let isFinished = relevantGame.Active === false && relevantGame.AutoProgressGT === false && relevantGame.Completion >= 100;
-		if (relevantGame.Active === false && !isFinished) {
+		if (relevantGame.Active === false && isFinished === false) {
 			// game not yet started
 			console.log('[Automatic Updater] - Game is not yet started, for [' + relevantGame.Comps[0].Name + ' - ' + relevantGame.Comps[1].Name + ']');
 			return Promise.resolve('getResultsJob'); // not relevant yet.
@@ -167,9 +167,7 @@ const self = module.exports = {
 				}
 
 				return matchResultService.byMatchId(match._id).then(function (currentMatchResult) {
-					console.log('[Automatic Updater] - Beginning to create new match result, for [' + team1Club.name + ' vs ' + team2Club.name + ']');
-
-					if (isFinished && currentMatchResult && currentMatchResult.active === false) {
+					if (isFinished === true && currentMatchResult && currentMatchResult.active === false) {
 						// not relevant anymore, already updated as finished game
 						return Promise.resolve('getResultsJob');
 					}
@@ -181,7 +179,7 @@ const self = module.exports = {
 							text: 'Game started | ' + team1Club.name + ' vs ' + team2Club.name
 						});
 					}
-
+					console.log('[Automatic Updater] - Beginning to create new match result, for [' + team1Club.name + ' vs ' + team2Club.name + ']');
 					return self.calculateNewMatchResult(team1, team2, relevantGame, match._id, isFinished).then(function (newMatchResult) {
 						// send push notification to client
 						const matchResultUpdate = {
@@ -225,7 +223,7 @@ const self = module.exports = {
 								});
 								console.log('[Automatic Updater] - Beginning to update user score, for [' + team1Club.name + ' vs ' + team2Club.name + ']');
 								return userScoreService.updateUserScoreByMatchResult(newMatchResult, leagueId).then(function () {
-									//console.log('[Automatic Updater] - Beginning to update leaderboard from the automatic updater');
+									console.log('[Automatic Updater] - Beginning to update leaderboard from the automatic updater');
 									return userLeaderboardService.updateLeaderboardByGameIds(leagueId, [newMatchResult.matchId]).then(function () {
 										return Promise.resolve(false); // not relevant anymore.
 									});
