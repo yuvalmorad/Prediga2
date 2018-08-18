@@ -13,52 +13,6 @@ const userLeaderboardService = require("../services/usersLeaderboardService");
 
 const self = module.exports = {
 	run: function (isFirstRun) {
-		var newMatchResult1 = {
-			"_id": {
-				"$oid": "5b7710c31d392a9d1577211d"
-			},
-			"matchId": "5b6def5f1d392a9d156361e1",
-			"__v": 0,
-			"active": false,
-			"autoProgressGT": false,
-			"completion": 100,
-			"firstToScore": "None",
-			"gameTime": 90,
-			"goalDiff": 0,
-			"resultTime": {
-				"$date": "2018-08-17T20:04:12.019Z"
-			},
-			"team1Goals": 0,
-			"team2Goals": 0,
-			"winner": "Draw"
-		};
-		return userScoreService.updateUserScoreByMatchResult(newMatchResult1, '2a21a7c1a3f89181074e9769').then(function () {
-			var newMatchResult2 = {
-				"_id": {
-					"$oid": "5b772cfc1d392a9d1577659d"
-				},
-				"matchId": "5b6def5b1d392a9d15635a51",
-				"__v": 0,
-				"active": false,
-				"autoProgressGT": false,
-				"completion": 100,
-				"firstToScore": "1a21a7c1a3f89181074e9878",
-				"gameTime": 90,
-				"goalDiff": 3,
-				"resultTime": {
-					"$date": "2018-08-17T22:08:51.395Z"
-				},
-				"team1Goals": 0,
-				"team2Goals": 3,
-				"winner": "1a21a7c1a3f89181074e9878"
-			};
-			return userScoreService.updateUserScoreByMatchResult(newMatchResult2, '2a21a7c1a3f89181074e9769').then(function () {
-				return userLeaderboardService.updateLeaderboardByGameIds('2a21a7c1a3f89181074e9769', [newMatchResult1.matchId, newMatchResult2.matchId]).then(function () {
-					return Promise.resolve(false); // not relevant anymore.
-				});
-			});
-		});
-
 		console.log('[Automatic Updater] (run job) wake up');
 		return matchService.getNextMatch(-10).then(function (match) {
 			if (!match) {
