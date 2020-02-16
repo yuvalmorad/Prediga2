@@ -13,7 +13,7 @@ module.exports = {
 	updateSettings: {
 		upsert: true, setDefaultsOnInsert: false, isNew: true, new: true, returnNewDocument: true
 	},
-	AUTOMATIC_UPDATE_URL: 'http://365scores.sport5.co.il:3333?SID=1',
+	AUTOMATIC_UPDATE_URL: 'http://www.telesport.co.il/ajaxactions/sportlivepage.ashx?sportLive=updateGamesLive',
 	USER_SETTINGS_KEYS: {
 		PUSH_NOTIFICATION: "PUSH_NOTIFICATION",
 		RANDOM_ALL: "RANDOM_ALL",

@@ -12,8 +12,8 @@ const self = module.exports = {
 	},
 	findClubsBy365Name: function (relevantGame) {
 		return Promise.all([
-			self.by365Name(relevantGame.Comps[0].Name), // home
-			self.by365Name(relevantGame.Comps[1].Name), // away
+			self.by365Name(relevantGame.twoPVSI.p1_name), // home
+			self.by365Name(relevantGame.twoPVSI.p2_name), // away
 		]).then(function (arr) {
 			return {
 				team1: arr[0],

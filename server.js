@@ -18,13 +18,12 @@ let GroupService = require('./app/services/groupService');
 let configDB = port !== 3000 ? process.env.MONGODB_URI : 'mongodb://localhost:27017/prediga';
 let clientFolder = port === 3000 ? (__dirname + "/public") : (__dirname + "/build");
 
-mongoose.connect(configDB, function (err) {
+mongoose.connect(configDB, {useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false }, function (err) {
     if (err) console.log('[Init] Unable to connect to DB ' + err);
     else console.log('[Init] Connection to DB finished')
 }); // connect to our database
-let configFBPassport = port !== 3000 ? 'facebookAuth' : 'facebookAuth-local';
 let configGooglePassport = port !== 3000 ? 'googleAuth' : 'googleAuth-local';
-require('./config/passport')(passport, configFBPassport, configGooglePassport); // pass passport for configuration
+require('./config/passport')(passport, configGooglePassport); // pass passport for configuration
 
 // set up our express application
 app.use(sslRedirect()); // enable ssl redirect

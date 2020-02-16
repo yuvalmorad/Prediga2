@@ -1,0 +1,668 @@
+{
+	"league": {
+		"_id": "1a21a7c1a3f89181074e9769",
+		"name": "Champions",
+		"logoPosition": "-168px 0",
+		"year": "2019/2020",
+		"competition365": 572,
+		"syncResults365": true,
+		"leagueFirstMatchDate": "2020-02-18T20:00:00.000Z",
+		"clubs": [
+			"1a21a7c1a3f89181074e9961",
+			"1a21a7c1a3f89181074e9962",
+			"1a21a7c1a3f89181074e9963",
+			"1a21a7c1a3f89181074e9964",
+			"1a21a7c1a3f89181074e9965",
+			"1a21a7c1a3f89181074e9966",
+			"1a21a7c1a3f89181074e9967",
+			"1a21a7c1a3f89181074e9968",
+			"1a21a7c1a3f89181074e9969",
+			"1a21a7c1a3f89181074e9970",
+			"1a21a7c1a3f89181074e9971",
+			"1a21a7c1a3f89181074e9972",
+			"1a21a7c1a3f89181074e9973",
+			"1a21a7c1a3f89181074e9974",
+			"1a21a7c1a3f89181074e9975",
+			"1a21a7c1a3f89181074e9976"
+		],
+		"color": "#3d195b"
+	},
+	"clubs": [
+		{
+			"_id": "1a21a7c1a3f89181074e9961",
+			"name": "Atlético Madrid",
+			"name365": "אתלטיקו מדריד",
+			"nameSport5": "אתלטיקו מדריד",
+			"shortName": "AM",
+			"colors": [
+				"#AA0001"
+			],
+			"buttonColors": [
+				"#AA0001",
+				"#FFFFFF"
+			],
+			"graphColors": [
+				"#AA0001",
+				"#000000"
+			],
+			"logoPosition": "-56px 0",
+			"sprite": "spain",
+			"stadium": "Wanda Metropolitano"
+		},
+		{
+			"_id": "1a21a7c1a3f89181074e9962",
+			"name": "Liverpool",
+			"name365": "ליברפול",
+			"nameSport5": "ליברפול",
+			"shortName": "LIV",
+			"colors": [
+				"#990001"
+			],
+			"buttonColors": [
+				"#990001",
+				"#FFFFFF"
+			],
+			"graphColors": [
+				"#990001",
+				"#000000"
+			],
+			"logoPosition": "-336px 0",
+			"sprite": "champions",
+			"stadium": "Anfield, Liverpool"
+		},
+		{
+			"_id": "1a21a7c1a3f89181074e9963",
+			"name": "Borussia Dortmund",
+			"name365": "בורוסיה דורטמונד",
+			"nameSport5": "בורוסיה דורטמונד",
+			"shortName": "DOR",
+			"colors": [
+				"#FFF500",
+				"#000"
+			],
+			"buttonColors": [
+				"#000",
+				"#FFF500"
+			],
+			"graphColors": [
+				"#000",
+				"#FFF500"
+			],
+			"logoPosition": "",
+			"sprite": "champions",
+			"stadium": "Signal Iduna Park, Dortmund"
+		},
+		{
+			"_id": "1a21a7c1a3f89181074e9964",
+			"name": "Paris Saint-Germain",
+			"name365": "פריס סן-ז'רמן",
+			"nameSport5": "פריס סן-ז'רמן",
+			"shortName": "PSG",
+			"colors": [
+				"#7C2838",
+				"#0A2555"
+			],
+			"buttonColors": [
+				"#0A2555",
+				"#FFFFFF"
+			],
+			"graphColors": [
+				"#0A2555",
+				"#7C2838"
+			],
+			"logoPosition": "-504px 0",
+			"sprite": "champions",
+			"stadium": "Parc des Princes, Paris"
+		},
+		{
+			"_id": "1a21a7c1a3f89181074e9965",
+			"name": "Atalanta",
+			"name365": "אטאלנטה",
+			"nameSport5": "אטאלנטה",
+			"shortName": "ATA",
+			"colors": [
+				"blue"
+			],
+			"buttonColors": [
+				"blue",
+				"white"
+			],
+			"graphColors": [
+				"blue",
+				"white"
+			],
+			"logoPosition": "0",
+			"sprite": "italy",
+			"stadium": "Bergamo"
+		},
+		{
+			"_id": "1a21a7c1a3f89181074e9966",
+			"name": "Valencia",
+			"name365": "ולנסיה",
+			"nameSport5": "ולנסיה",
+			"shortName": "VAL",
+			"colors": [
+				"#FEDD22",
+				"#FF1716"
+			],
+			"buttonColors": [
+				"#000000",
+				"#FFFFFF"
+			],
+			"graphColors": [
+				"#FEDD22",
+				"#FF1716"
+			],
+			"logoPosition": "-56px -504px",
+			"sprite": "spain",
+			"stadium": "Mestalla"
+		},
+		{
+			"_id": "1a21a7c1a3f89181074e9967",
+			"name": "Tottenham Hotspur",
+			"name365": "טוטנהאם",
+			"nameSport5": "טוטנהאם",
+			"shortName": "TOT",
+			"colors": [
+				"#0A2555"
+			],
+			"buttonColors": [
+				"#0A2555",
+				"#FFFFFF"
+			],
+			"graphColors": [
+				"#0A2555",
+				"#000000"
+			],
+			"logoPosition": "-784px 0",
+			"sprite": "champions",
+			"stadium": "Wembley Stadium, London"
+		},
+		{
+			"_id": "1a21a7c1a3f89181074e9968",
+			"name": "RB Leipzig",
+			"name365": "ר.ב לייפציג",
+			"nameSport5": "ר.ב לייפציג",
+			"shortName": "￿LEI",
+			"colors": [
+				"red"
+			],
+			"buttonColors": [
+				"red",
+				"white"
+			],
+			"graphColors": [
+				"red"
+			],
+			"logoPosition": "",
+			"sprite": "champions",
+			"stadium": "Red Bull Arena, Leipzig"
+		},
+		{
+			"_id": "1a21a7c1a3f89181074e9969",
+			"name": "Chelsea",
+			"name365": "צ'לסי",
+			"nameSport5": "צ'לסי",
+			"shortName": "CHE",
+			"colors": [
+				"#0045B8"
+			],
+			"buttonColors": [
+				"#0045B8",
+				"#FFFFFF"
+			],
+			"graphColors": [
+				"#0045B8",
+				"#000000"
+			],
+			"logoPosition": "-224px 0",
+			"sprite": "champions",
+			"stadium": "Stamford Bridge, London"
+		},
+		{
+			"_id": "1a21a7c1a3f89181074e9970",
+			"name": "Bayern Munich",
+			"name365": "באיירן מינכן",
+			"nameSport5": "באיירן מינכן",
+			"shortName": "BAY",
+			"colors": [
+				"#FF1716"
+			],
+			"buttonColors": [
+				"#FF1716",
+				"#FFFFFF"
+			],
+			"graphColors": [
+				"#FF1716",
+				"#000000"
+			],
+			"logoPosition": "-56px 0",
+			"sprite": "champions",
+			"stadium": "Allianz Arena, Munich"
+		},
+		{
+			"_id": "1a21a7c1a3f89181074e9971",
+			"name": "Napoli",
+			"name365": "נאפולי",
+			"nameSport5": "נאפולי",
+			"shortName": "NAP",
+			"colors": [
+				"blue"
+			],
+			"buttonColors": [
+				"blue",
+				"white"
+			],
+			"graphColors": [
+				"blue",
+				"white"
+			],
+			"logoPosition": "0",
+			"sprite": "italy",
+			"stadium": "Napoli"
+		},
+		{
+			"_id": "1a21a7c1a3f89181074e9972",
+			"name": "Barcelona",
+			"name365": "ברצלונה",
+			"nameSport5": "ברצלונה",
+			"shortName": "BAR",
+			"colors": [
+				"#09007A",
+				"#990001"
+			],
+			"buttonColors": [
+				"#990001",
+				"#FFFFFF"
+			],
+			"graphColors": [
+				"#990001",
+				"#000000"
+			],
+			"logoPosition": "-840px 0",
+			"sprite": "champions",
+			"stadium": "Camp Nou, Barcelona"
+		},
+		{
+			"_id": "1a21a7c1a3f89181074e9973",
+			"name": "Lyon",
+			"name365": "ליון",
+			"nameSport5": "ליון",
+			"shortName": "LYO",
+			"colors": [
+				"blue"
+			],
+			"buttonColors": [
+				"blue",
+				"white"
+			],
+			"graphColors": [
+				"blue"
+			],
+			"logoPosition": "",
+			"sprite": "champions",
+			"stadium": "Lyon"
+		},
+		{
+			"_id": "1a21a7c1a3f89181074e9974",
+			"name": "Juventus",
+			"name365": "יובנטוס",
+			"nameSport5": "יובנטוס",
+			"shortName": "JUV",
+			"colors": [
+				"#000000"
+			],
+			"buttonColors": [
+				"#000000",
+				"#FFFFFF"
+			],
+			"graphColors": [
+				"#000000"
+			],
+			"logoPosition": "-280px 0",
+			"sprite": "champions",
+			"stadium": "Juventus Stadium, Turin"
+		},
+		{
+			"_id": "1a21a7c1a3f89181074e9975",
+			"name": "Real Madrid",
+			"name365": "ריאל מדריד",
+			"nameSport5": "ריאל מדריד",
+			"shortName": "RM",
+			"colors": [
+				"#23A6BF"
+			],
+			"buttonColors": [
+				"#23A6BF",
+				"#FFFFFF"
+			],
+			"graphColors": [
+				"#23A6BF",
+				"#000000"
+			],
+			"logoPosition": "-896px 0",
+			"sprite": "champions",
+			"stadium": "Santiago Bernabéu, Madrid"
+		},
+		{
+			"_id": "1a21a7c1a3f89181074e9976",
+			"name": "Manchester City",
+			"name365": "מנצ'סטר סיטי",
+			"nameSport5": "מנצ'סטר סיטי",
+			"shortName": "MC",
+			"colors": [
+				"#44B1FD"
+			],
+			"buttonColors": [
+				"#44B1FD",
+				"#FFFFFF"
+			],
+			"graphColors": [
+				"#44B1FD",
+				"#000000"
+			],
+			"logoPosition": "-392px 0",
+			"sprite": "champions",
+			"stadium": "City of Manchester Stadium, Manchester"
+		}
+	],
+	"matches": [
+		{
+			"_id": "1a21a7c1a3f89181074e9862",
+			"team1": "1a21a7c1a3f89181074e9961",
+			"team2": "1a21a7c1a3f89181074e9962",
+			"kickofftime": "2020-02-18T20:00:00.000Z",
+			"stadium": "Wanda Metropolitano Stadium",
+			"type": "Round of 16 - leg 1 (A)",
+			"league": "1a21a7c1a3f89181074e9769"
+		},
+		{
+			"_id": "1a21a7c1a3f89181074e9863",
+			"team1": "1a21a7c1a3f89181074e9962",
+			"team2": "1a21a7c1a3f89181074e9961",
+			"kickofftime": "2020-03-11T20:00:00.000Z",
+			"stadium": "Wembley Stadium, London",
+			"type": "Round of 16 - leg 2 (A)",
+			"league": "1a21a7c1a3f89181074e9769"
+		},
+		{
+			"_id": "1a21a7c1a3f89181074e9864",
+			"team1": "1a21a7c1a3f89181074e9963",
+			"team2": "1a21a7c1a3f89181074e9964",
+			"kickofftime": "2020-02-18T20:00:00.000Z",
+			"stadium": "Dortmund",
+			"type": "Round of 16 - leg 1 (A)",
+			"league": "1a21a7c1a3f89181074e9769"
+		},
+		{
+			"_id": "1a21a7c1a3f89181074e9865",
+			"team1": "1a21a7c1a3f89181074e9964",
+			"team2": "1a21a7c1a3f89181074e9963",
+			"kickofftime": "2020-03-11T20:00:00.000Z",
+			"stadium": "Paris",
+			"type": "Round of 16 - leg 2 (A)",
+			"league": "1a21a7c1a3f89181074e9769"
+		},
+		{
+			"_id": "1a21a7c1a3f89181074e9866",
+			"team1": "1a21a7c1a3f89181074e9965",
+			"team2": "1a21a7c1a3f89181074e9966",
+			"kickofftime": "2020-02-19T20:00:00.000Z",
+			"stadium": "Atalanta",
+			"type": "Round of 16 - leg 1 (A)",
+			"league": "1a21a7c1a3f89181074e9769"
+		},
+		{
+			"_id": "1a21a7c1a3f89181074e9867",
+			"team1": "1a21a7c1a3f89181074e9966",
+			"team2": "1a21a7c1a3f89181074e9965",
+			"kickofftime": "2020-03-10T20:00:00.000Z",
+			"stadium": "Valencia",
+			"type": "Round of 16 - leg 2 (A)",
+			"league": "1a21a7c1a3f89181074e9769"
+		},
+		{
+			"_id": "1a21a7c1a3f89181074e9868",
+			"team1": "1a21a7c1a3f89181074e9967",
+			"team2": "1a21a7c1a3f89181074e9968",
+			"kickofftime": "2020-02-19T20:00:00.000Z",
+			"stadium": "Tottenham",
+			"type": "Round of 16 - leg 1 (A)",
+			"league": "1a21a7c1a3f89181074e9769"
+		},
+		{
+			"_id": "1a21a7c1a3f89181074e9869",
+			"team1": "1a21a7c1a3f89181074e9968",
+			"team2": "1a21a7c1a3f89181074e9967",
+			"kickofftime": "2020-03-10T20:00:00.000Z",
+			"stadium": "Leipzig",
+			"type": "Round of 16 - leg 2 (A)",
+			"league": "1a21a7c1a3f89181074e9769"
+		},
+		{
+			"_id": "1a21a7c1a3f89181074e9870",
+			"team1": "1a21a7c1a3f89181074e9969",
+			"team2": "1a21a7c1a3f89181074e9970",
+			"kickofftime": "2020-02-25T20:00:00.000Z",
+			"stadium": "Chelsea",
+			"type": "Round of 16 - leg 1 (B)",
+			"league": "1a21a7c1a3f89181074e9769"
+		},
+		{
+			"_id": "1a21a7c1a3f89181074e9871",
+			"team1": "1a21a7c1a3f89181074e9970",
+			"team2": "1a21a7c1a3f89181074e9969",
+			"kickofftime": "2020-03-18T20:00:00.000Z",
+			"stadium": "Bayern",
+			"type": "Round of 16 - leg 2 (B)",
+			"league": "1a21a7c1a3f89181074e9769"
+		},
+		{
+			"_id": "1a21a7c1a3f89181074e9872",
+			"team1": "1a21a7c1a3f89181074e9971",
+			"team2": "1a21a7c1a3f89181074e9972",
+			"kickofftime": "2020-02-25T20:00:00.000Z",
+			"stadium": "Napoli",
+			"type": "Round of 16 - leg 1 (B)",
+			"league": "1a21a7c1a3f89181074e9769"
+		},
+		{
+			"_id": "1a21a7c1a3f89181074e9873",
+			"team1": "1a21a7c1a3f89181074e9972",
+			"team2": "1a21a7c1a3f89181074e9971",
+			"kickofftime": "2020-03-18T20:00:00.000Z",
+			"stadium": "Barcelona",
+			"type": "Round of 16 - leg 2 (B)",
+			"league": "1a21a7c1a3f89181074e9769"
+		},
+		{
+			"_id": "1a21a7c1a3f89181074e9874",
+			"team1": "1a21a7c1a3f89181074e9973",
+			"team2": "1a21a7c1a3f89181074e9974",
+			"kickofftime": "2020-02-26T20:00:00.000Z",
+			"stadium": "Lyon",
+			"type": "Round of 16 - leg 1 (B)",
+			"league": "1a21a7c1a3f89181074e9769"
+		},
+		{
+			"_id": "1a21a7c1a3f89181074e9875",
+			"team1": "1a21a7c1a3f89181074e9974",
+			"team2": "1a21a7c1a3f89181074e9973",
+			"kickofftime": "2020-03-17T20:00:00.000Z",
+			"stadium": "Juventus",
+			"type": "Round of 16 - leg 2 (B)",
+			"league": "1a21a7c1a3f89181074e9769"
+		},
+		{
+			"_id": "1a21a7c1a3f89181074e9876",
+			"team1": "1a21a7c1a3f89181074e9975",
+			"team2": "1a21a7c1a3f89181074e9976",
+			"kickofftime": "2020-02-26T20:00:00.000Z",
+			"stadium": "Allianz Arena, Munich",
+			"type": "Round of 16 - leg 1 (B)",
+			"league": "1a21a7c1a3f89181074e9769"
+		},
+		{
+			"_id": "1a21a7c1a3f89181074e9877",
+			"team1": "1a21a7c1a3f89181074e9976",
+			"team2": "1a21a7c1a3f89181074e9975",
+			"kickofftime": "2020-03-17T20:00:00.000Z",
+			"stadium": "Vodafone Park, Istanbul",
+			"type": "Round of 16 - leg 2 (B)",
+			"league": "1a21a7c1a3f89181074e9769"
+		},
+		{
+			"_id": "1a21a7c1a3f89181074e9878",
+			"team1": "?",
+			"team2": "?",
+			"kickofftime": "2020-04-07T19:00:00.000Z",
+			"stadium": "?",
+			"type": "Quarter-finals - leg 1",
+			"league": "1a21a7c1a3f89181074e9769"
+		},
+		{
+			"_id": "1a21a7c1a3f89181074e9879",
+			"team1": "?",
+			"team2": "?",
+			"kickofftime": "2020-04-07T19:00:00.000Z",
+			"stadium": "?",
+			"type": "Quarter-finals - leg 1",
+			"league": "1a21a7c1a3f89181074e9769"
+		},
+		{
+			"_id": "1a21a7c1a3f89181074e9880",
+			"team1": "?",
+			"team2": ">",
+			"kickofftime": "2020-04-08T19:00:00.000Z",
+			"stadium": "?",
+			"type": "Quarter-finals - leg 1",
+			"league": "1a21a7c1a3f89181074e9769"
+		},
+		{
+			"_id": "1a21a7c1a3f89181074e9881",
+			"team1": "?",
+			"team2": "?",
+			"kickofftime": "2020-04-08T19:00:00.000Z",
+			"stadium": "?",
+			"type": "Quarter-finals - leg 1",
+			"league": "1a21a7c1a3f89181074e9769"
+		},
+		{
+			"_id": "1a21a7c1a3f89181074e9882",
+			"team1": "?",
+			"team2": "?",
+			"kickofftime": "2020-04-14T19:00:00.000Z",
+			"stadium": "?",
+			"type": "Quarter-finals - leg 2",
+			"league": "1a21a7c1a3f89181074e9769"
+		},
+		{
+			"_id": "1a21a7c1a3f89181074e9883",
+			"team1": "?",
+			"team2": "?",
+			"kickofftime": "2020-04-14T19:00:00.000Z",
+			"stadium": "?",
+			"type": "Quarter-finals - leg 2",
+			"league": "1a21a7c1a3f89181074e9769"
+		},
+		{
+			"_id": "1a21a7c1a3f89181074e9884",
+			"team1": "?",
+			"team2": "?",
+			"kickofftime": "2020-04-14T19:00:00.000Z",
+			"stadium": "?",
+			"type": "Quarter-finals - leg 2",
+			"league": "1a21a7c1a3f89181074e9769"
+		},
+		{
+			"_id": "1a21a7c1a3f89181074e9885",
+			"team1": "?",
+			"team2": "?",
+			"kickofftime": "2020-04-14T19:00:00.000Z",
+			"stadium": "?",
+			"type": "Quarter-finals - leg 2",
+			"league": "1a21a7c1a3f89181074e9769"
+		},
+		{
+			"_id": "1a21a7c1a3f89181074e9886",
+			"team1": "?",
+			"team2": "?",
+			"kickofftime": "2020-04-28T19:00:00.000Z",
+			"stadium": "?",
+			"type": "Semi-finals - leg 1",
+			"league": "1a21a7c1a3f89181074e9769"
+		},
+		{
+			"_id": "1a21a7c1a3f89181074e9887",
+			"team1": "?",
+			"team2": "?",
+			"kickofftime": "2020-04-29T19:00:00.000Z",
+			"stadium": "?",
+			"type": "Semi-finals - leg 1",
+			"league": "1a21a7c1a3f89181074e9769"
+		},
+		{
+			"_id": "1a21a7c1a3f89181074e9888",
+			"team1": "?",
+			"team2": "?",
+			"kickofftime": "2020-05-05T19:00:00.000Z",
+			"stadium": "?",
+			"type": "Semi-finals - leg 2",
+			"league": "1a21a7c1a3f89181074e9769"
+		},
+		{
+			"_id": "1a21a7c1a3f89181074e9889",
+			"team1": "?",
+			"team2": "?",
+			"kickofftime": "2020-05-06T19:00:00.000Z",
+			"stadium": "?",
+			"type": "Semi-finals - leg 2",
+			"league": "1a21a7c1a3f89181074e9769"
+		},
+		{
+			"_id": "1a21a7c1a3f89181074e9890",
+			"team1": "?",
+			"team2": "?",
+			"kickofftime": "2020-05-30T20:00:00.000Z",
+			"stadium": "Ataturk, Istanbul",
+			"type": "Final",
+			"league": "1a21a7c1a3f89181074e9769"
+		}
+	],
+	"matchResults": [
+	],
+	"teams": [
+		{
+			"_id": "5a1342399017dfc4e2faf694",
+			"title": "1st place",
+			"type": "teamWinner",
+			"deadline": "2018-02-17T23:45:00.000Z",
+			"league": "1a21a7c1a3f89181074e9769",
+			"options": [],
+			"resultTime": "2018-05-26T21:45:00.000Z",
+			"category": "9b1342399017dfc4e2faf4d1"
+		}
+	],
+	"teamCategories": [
+		{
+			"_id": "9b1342399017dfc4e2faf4d1",
+			"league": "1a21a7c1a3f89181074e9769",
+			"title": "Champions League champions",
+			"description": "description about champions league",
+			"sprite": "questions.png",
+			"mSprite": "champions_league_finalist",
+			"iconPosition": "-288px 0"
+		},
+		{
+			"_id": "9b1342399017dfc4e2faf4d2",
+			"league": "1a21a7c1a3f89181074e9769",
+			"title": "Champions Semi Finalists",
+			"description": "description about champions semi finalists",
+			"sprite": "questions.png",
+			"mSprite": "champions_semi_finalist",
+			"iconPosition": "-1368px 0"
+		}
+	],
+	"teamResults": [
+	]
+}

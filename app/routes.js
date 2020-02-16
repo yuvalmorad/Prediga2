@@ -92,38 +92,6 @@ module.exports = function (app, passport) {
 			});
 		});
 
-	app.get('/auth/facebook',
-		passport.authenticate('facebook', {
-			authType: 'rerequest',
-			scope: ['email']
-		}));
-
-	app.get('/auth/facebook/callback',
-		passport.authenticate('facebook', {
-			successRedirect: '/',
-			failureRedirect: '/login'
-		}));
-
-	app.get('/auth/connect/facebook',
-		passport.authorize('facebook', {
-			authType: 'rerequest',
-			scope: ['email']
-		}));
-
-	app.get('/auth/connect/facebook/callback',
-		passport.authorize('facebook', {
-			successRedirect: '/',
-			failureRedirect: '/login'
-		}));
-
-	app.get('/auth/unlink/facebook', util.isLoggedIn, function (req, res) {
-		let user = req.user;
-		user.token = undefined;
-		user.save(function (err) {
-			res.redirect('/');
-		});
-	});
-
 	app.get('/auth/isLoggedIn', function (req, res) {
 		let isLoggedIn = req.isAuthenticated();
 		res.status(200).json({isLoggedIn: isLoggedIn});

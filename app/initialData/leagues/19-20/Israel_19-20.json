@@ -1,0 +1,450 @@
+{
+	"league": {
+		"_id": "5a21a7c1a3f89181074e9769",
+		"name": "Israel",
+		"logoPosition": "-784px 0",
+		"year": "2019/2020",
+		"competition365": 42,
+		"syncResults365": true,
+		"updateUrl": "http://www.sport5.co.il/Ajax/GetCycleTeamGamesPopup.aspx?LSnum=9943",
+		"leagueFirstMatchDate": "2018-08-25T00:00:00.000Z",
+		"clubs": [
+			"3a21a7c1a3f89181074e9769",
+			"3a21a7c1a3f89181074e9770",
+			"3a21a7c1a3f89181074e9771",
+			"3a21a7c1a3f89181074e9772",
+			"3a21a7c1a3f89181074e9773",
+			"3a21a7c1a3f89181074e9774",
+			"3a21a7c1a3f89181074e9775",
+			"3a21a7c1a3f89181074e9776",
+			"3a21a7c1a3f89181074e9777",
+			"3a21a7c1a3f89181074e9778",
+			"3a21a7c1a3f89181074e9779",
+			"3a21a7c1a3f89181074e9780",
+			"3a21a7c1a3f89181074e9781",
+			"3a21a7c1a3f89181074e9783",
+			"3a21a7c1a3f89181074e9784"
+		],
+		"color": "#3aaadc"
+	},
+	"clubs": [
+		{
+			"_id": "3a21a7c1a3f89181074e9769",
+			"name": "￿Ness Ziona",
+			"name365": "סקציית נס ציונה",
+			"nameSport5": "סקציית נס ציונה",
+			"shortName": "￿￿￿NES",
+			"colors": [
+				"#0636CA"
+			],
+			"buttonColors": [
+				"#0636CA",
+				"#fff"
+			],
+			"graphColors": [
+				"#0636CA"
+			],
+			"logoPosition": "",
+			"sprite": "israel",
+			"stadium": "Nes Ziona"
+		},
+		{
+			"_id": "3a21a7c1a3f89181074e9770",
+			"name": "Hapoel Haifa",
+			"name365": "הפועל חיפה",
+			"nameSport5": "הפועל חיפה",
+			"shortName": "HH",
+			"colors": [
+				"#EA0000",
+				"#000"
+			],
+			"buttonColors": [
+				"#EA0000",
+				"#000"
+			],
+			"graphColors": [
+				"#000",
+				"#EA0000"
+			],
+			"logoPosition": "-336px 0",
+			"sprite": "israel",
+			"stadium": "Sami Ofer Stadium"
+		},
+		{
+			"_id": "3a21a7c1a3f89181074e9771",
+			"name": "Maccabi Haifa",
+			"name365": "מכבי חיפה",
+			"nameSport5": "מכבי חיפה",
+			"shortName": "MH",
+			"colors": [
+				"#006723"
+			],
+			"buttonColors": [
+				"#006723",
+				"#fff"
+			],
+			"graphColors": [
+				"#006723"
+			],
+			"logoPosition": "-224px 0",
+			"sprite": "israel",
+			"stadium": "Sami Ofer Stadium"
+		},
+		{
+			"_id": "3a21a7c1a3f89181074e9772",
+			"name": "Bnei Yehuda",
+			"name365": "בני יהודה ת\"א",
+			"nameSport5": "בני יהודה",
+			"shortName": "BY",
+			"colors": [
+				"#F37620"
+			],
+			"buttonColors": [
+				"#F37620",
+				"#000"
+			],
+			"graphColors": [
+				"#F37620"
+			],
+			"logoPosition": "-616px 0",
+			"sprite": "israel",
+			"stadium": "Ha-Moshava"
+		},
+		{
+			"_id": "3a21a7c1a3f89181074e9773",
+			"name": "Maccabi Netanya",
+			"name365": "מכבי נתניה",
+			"nameSport5": "מכבי נתניה",
+			"shortName": "MN",
+			"colors": [
+				"#FFF500",
+				"#000"
+			],
+			"buttonColors": [
+				"#000",
+				"#FFF500"
+			],
+			"graphColors": [
+				"#000",
+				"#FFF500"
+			],
+			"logoPosition": "-672px 0",
+			"sprite": "israel",
+			"stadium": "Netanya"
+		},
+		{
+			"_id": "3a21a7c1a3f89181074e9774",
+			"name": "Hapoel Beer Sheva",
+			"name365": "הפועל באר שבע",
+			"nameSport5": "הפועל באר שבע",
+			"shortName": "HBS",
+			"colors": [
+				"#D30229"
+			],
+			"buttonColors": [
+				"#D30229",
+				"#000"
+			],
+			"graphColors": [
+				"#D30229"
+			],
+			"logoPosition": "-112px 0",
+			"sprite": "israel",
+			"stadium": "Toto Turner Stadium"
+		},
+		{
+			"_id": "3a21a7c1a3f89181074e9775",
+			"name": "Hapoel Kefar Sava",
+			"name365": "הפועל כפר סבא",
+			"nameSport5": "הפועל כפר סבא",
+			"shortName": "KFS",
+			"colors": [
+				"#FE1403"
+			],
+			"buttonColors": [
+				"#FE1403",
+				"#fff"
+			],
+			"graphColors": [
+				"#FE1403"
+			],
+			"logoPosition": "",
+			"sprite": "israel",
+			"stadium": "Kefar Sava"
+		},
+		{
+			"_id": "3a21a7c1a3f89181074e9776",
+			"name": "Kiryat Shmona",
+			"name365": "עירוני קרית שמונה",
+			"nameSport5": "הפועל קרית שמונה",
+			"shortName": "HKS",
+			"colors": [
+				"#5488D2"
+			],
+			"buttonColors": [
+				"#5488D2",
+				"#fff"
+			],
+			"graphColors": [
+				"#002F73",
+				"#5488D2"
+			],
+			"logoPosition": "-168px 0",
+			"sprite": "israel",
+			"stadium": "Kiryat Shmona Municipal"
+		},
+		{
+			"_id": "3a21a7c1a3f89181074e9777",
+			"name": "Beitar Jerusalem",
+			"name365": "בית\"ר ירושלים",
+			"nameSport5": "בית''ר ירושלים",
+			"shortName": "BJ",
+			"colors": [
+				"#FEF300",
+				"#000"
+			],
+			"buttonColors": [
+				"#FEF300",
+				"#000"
+			],
+			"graphColors": [
+				"#FEF300"
+			],
+			"logoPosition": "-392px 0",
+			"sprite": "israel",
+			"stadium": "Teddy Stadium"
+		},
+		{
+			"_id": "3a21a7c1a3f89181074e9778",
+			"name": "Maccabi Petach Tikva",
+			"name365": "מכבי פתח תקוה",
+			"nameSport5": "מכבי פתח תקווה",
+			"shortName": "MPT",
+			"colors": [
+				"#002F73"
+			],
+			"buttonColors": [
+				"#002F73",
+				"#fff"
+			],
+			"graphColors": [
+				"#002F73"
+			],
+			"logoPosition": "-560px 0",
+			"sprite": "israel",
+			"stadium": "Ha-Moshava"
+		},
+		{
+			"_id": "3a21a7c1a3f89181074e9779",
+			"name": "FC Ashdod",
+			"name365": "מ.ס. אשדוד",
+			"nameSport5": "מ.ס. אשדוד",
+			"shortName": "ASH",
+			"colors": [
+				"#E12E28",
+				"#F9E534"
+			],
+			"buttonColors": [
+				"#E12E28",
+				"#F9E534"
+			],
+			"graphColors": [
+				"#E12E28",
+				"#F9E534"
+			],
+			"logoPosition": "-56px 0",
+			"sprite": "israel",
+			"stadium": "Ashdod Stadium"
+		},
+		{
+			"_id": "3a21a7c1a3f89181074e9780",
+			"name": "Maccabi Tel Aviv",
+			"name365": "מכבי תל אביב",
+			"nameSport5": "מכבי תל אביב",
+			"shortName": "MTA",
+			"colors": [
+				"#FBD54C",
+				"#165DBE"
+			],
+			"buttonColors": [
+				"#FBD54C",
+				"#165DBE"
+			],
+			"graphColors": [
+				"#FBD54C"
+			],
+			"logoPosition": "0 0",
+			"sprite": "israel",
+			"stadium": "Netanya"
+		},
+		{
+			"_id": "3a21a7c1a3f89181074e9781",
+			"name": "Hapoel Raanana",
+			"name365": "הפועל רעננה",
+			"nameSport5": "הפועל רעננה",
+			"shortName": "HR",
+			"colors": [
+				"#000"
+			],
+			"buttonColors": [
+				"#000",
+				"#D30202"
+			],
+			"graphColors": [
+				"#000",
+				"#D30202"
+			],
+			"logoPosition": "-504px 0",
+			"sprite": "israel",
+			"stadium": "Netanya"
+		},
+		{
+			"_id": "3a21a7c1a3f89181074e9782",
+			"name": "Hapoel Akko",
+			"name365": "הפועל עכו",
+			"nameSport5": "הפועל עכו",
+			"shortName": "HA",
+			"colors": [
+				"#5488D2"
+			],
+			"buttonColors": [
+				"#5488D2",
+				"#fff"
+			],
+			"graphColors": [
+				"#5488D2"
+			],
+			"logoPosition": "-448px 0",
+			"sprite": "israel",
+			"stadium": "Acre Stadium"
+		},
+		{
+			"_id": "3a21a7c1a3f89181074e9783",
+			"name": "Hapoel Tel Aviv",
+			"name365": "הפועל תל אביב",
+			"nameSport5": "הפועל תל אביב",
+			"shortName": "HTA",
+			"colors": [
+				"red"
+			],
+			"buttonColors": [
+				"red",
+				"white"
+			],
+			"graphColors": [
+				"red"
+			],
+			"logoPosition": "-1px -1",
+			"sprite": "israel",
+			"stadium": "HaMoshava Stadium"
+		},
+		{
+			"_id": "3a21a7c1a3f89181074e9784",
+			"name": "Hapoel Hadera",
+			"name365": "הפועל חדרה",
+			"nameSport5": "הפועל חדרה",
+			"shortName": "HAD",
+			"colors": [
+				"red"
+			],
+			"buttonColors": [
+				"blue",
+				"red"
+			],
+			"graphColors": [
+				"blue"
+			],
+			"logoPosition": "-448px 0",
+			"sprite": "israel",
+			"stadium": "Netanya"
+		}
+	],
+	"matches": [
+	],
+	"teams": [
+		{
+			"_id": "5a1342399017dfc4e2faf4a8",
+			"title": "1st place",
+			"type": "teamWinner",
+			"deadline": "2019-05-10T00:00:00.001Z",
+			"league": "5a21a7c1a3f89181074e9769",
+			"options": [],
+			"resultTime": "2019-05-21T00:00:00.000Z",
+			"category": "9b1342399017dfc4e2faf4e1"
+		},
+		{
+			"_id": "5a1342399017dfc4e2faf4a9",
+			"title": "2nd place",
+			"type": "teamRunnerUp",
+			"deadline": "2019-05-10T00:00:00.002Z",
+			"league": "5a21a7c1a3f89181074e9769",
+			"options": [],
+			"resultTime": "2019-05-21T00:00:00.000Z",
+			"category": "9b1342399017dfc4e2faf4e1"
+		},
+		{
+			"_id": "5a1342399017dfc4e2faf4b0",
+			"title": "3rd place",
+			"type": "teamThird",
+			"deadline": "2019-05-10T00:00:00.003Z",
+			"league": "5a21a7c1a3f89181074e9769",
+			"options": [],
+			"resultTime": "2019-05-21T00:00:00.000Z",
+			"category": "9b1342399017dfc4e2faf4e1"
+		},
+		{
+			"_id": "5a1342399017dfc4e2faf4b1",
+			"title": "4th place",
+			"type": "teamForth",
+			"deadline": "2019-05-10T00:00:00.004Z",
+			"league": "5a21a7c1a3f89181074e9769",
+			"options": [],
+			"resultTime": "2019-05-21T00:00:00.000Z",
+			"category": "9b1342399017dfc4e2faf4e1"
+		},
+		{
+			"_id": "5a1342399017dfc4e2faf4b2",
+			"title": "Second last",
+			"type": "team2ndLast",
+			"deadline": "2019-05-10T00:00:00.005Z",
+			"league": "5a21a7c1a3f89181074e9769",
+			"options": [],
+			"resultTime": "2019-05-21T00:00:00.000Z",
+			"category": "9b1342399017dfc4e2faf4e2"
+		},
+		{
+			"_id": "5a1342399017dfc4e2faf4b3",
+			"title": "Last place",
+			"type": "teamLast",
+			"deadline": "2019-05-10T00:00:00.006Z",
+			"league": "5a21a7c1a3f89181074e9769",
+			"options": [],
+			"resultTime": "2019-05-21T00:00:00.000Z",
+			"category": "9b1342399017dfc4e2faf4e2"
+		}
+	],
+	"teamCategories": [
+		{
+			"_id": "9b1342399017dfc4e2faf4e1",
+			"league": "5a21a7c1a3f89181074e9769",
+			"title": "Israel Champions",
+			"description": "Israel champions",
+			"sprite": "questions.png",
+			"mSprite": "israel_champions",
+			"iconPosition": "-144px 0px"
+		},
+		{
+			"_id": "9b1342399017dfc4e2faf4e2",
+			"league": "5a21a7c1a3f89181074e9769",
+			"title": "Israel Relegation team",
+			"description": "Israel relegation",
+			"sprite": "questions.png",
+			"mSprite": "relegation",
+			"iconPosition": "-1296px 0"
+		}
+	],
+	"matchResults": [
+	],
+	"teamResults": [
+	]
+}

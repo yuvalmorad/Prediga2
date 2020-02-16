@@ -4,9 +4,9 @@
     "name": "Spain",
     "logoPosition": "-56px -280px",
     "year": "2018/2019",
-    "competition365": 11,
-    "syncResults365": false,
-    "updateUrl": "http://www.sport5.co.il/Ajax/GetCycleTeamGamesPopup.aspx?LSnum=8714",
+    "competition365": 248,
+    "syncResults365": true,
+    "updateUrl": "http://www.sport5.co.il/Ajax/GetCycleTeamGamesPopup.aspx?LSnum=9971",
     "leagueFirstMatchDate": "2018-08-19T00:00:00.000Z",
     "clubs": [
       "1a21a7c1a3f89181074e9863",
@@ -464,6 +464,15 @@
     }
   ],
   "matches": [
+	  {
+		  "_id": "2a21a7c1a3f89181074e9862",
+		  "team1": "1a21a7c1a3f89181074e9975",
+		  "team2": "1a21a7c1a3f89181074e9876",
+		  "kickofftime": "2020-02-16T23:00:00.000Z",
+		  "stadium": "Madrid",
+		  "type": "Week 78",
+		  "league": "2a21a7c1a3f89181074e9769"
+	  }
   ],
   "teams": [
     {

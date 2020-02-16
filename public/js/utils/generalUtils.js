@@ -189,7 +189,7 @@ utils.general = (function(){
 
     function getRunningGameFormat(result) {
         var gameTime = result.gameTime;
-        if (!result.AutoProgressGT && gameTime === 45) {
+        if (!result.status_name === "מחצית") {
             return "Half-Time";
         } else {
             return gameTime + "'";

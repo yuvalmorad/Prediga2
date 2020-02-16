@@ -16,10 +16,9 @@ const self = module.exports = {
 		return Promise.all([
 			groupConfigurationService.updateConfiguration(require('../initialData/configuration/groupConfiguration.json').defaultConfiguration),
 			groupService.updateGroup(require('../initialData/configuration/groups.json').defaultGroup),
-			self.updateLeagueData(require('../initialData/leagues/18-19/Spain_18-19.json')),
-			self.updateLeagueData(require('../initialData/leagues/18-19/England_18-19.json')),
-			self.updateLeagueData(require('../initialData/leagues/18-19/Israel_18-19')),
-			self.updateLeagueData(require('../initialData/leagues/18-19/Italy_18-19'))
+			self.updateLeagueData(require('../initialData/leagues/19-20/Champions.json')),
+			self.updateLeagueData(require('../initialData/leagues/19-20/Israel_19-20.json')),
+			self.updateLeagueData(require('../initialData/leagues/19-20/Spain_19-20.json'))
 		]).then(function (arr) {
 			//console.log('[Init] - Update initial data finished');
 			return Promise.resolve({});
@@ -39,7 +38,7 @@ const self = module.exports = {
 				UserScoreService.updateUserScoreByMatchResults(arr[4], arr[3]),
 				UserScoreService.updateUserScoreByTeamResults(arr[6], arr[5])
 			]).then(function (userScoreArr) {
-				self.conbineUserScoreAndRemoveDuplicates(userScoreArr).then(function (uniqueGameIds) {
+				self.combineUserScoreAndRemoveDuplicates(userScoreArr).then(function (uniqueGameIds) {
 					if (uniqueGameIds.length < 1) {
 						return Promise.resolve();
 					} else {
@@ -49,7 +48,7 @@ const self = module.exports = {
 			});
 		});
 	},
-	conbineUserScoreAndRemoveDuplicates: function (userScoreArr) {
+	combineUserScoreAndRemoveDuplicates: function (userScoreArr) {
 		let mergedScores = utils.mergeArr(userScoreArr);
 		let mergedScoresIds = UserScoreService.getGameIdArr(mergedScores);
 		let uniqueGameIds = [];

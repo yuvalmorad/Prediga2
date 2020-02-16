@@ -1,5 +1,4 @@
 // load all the things we need
-let FacebookStrategy = require('passport-facebook').Strategy;
 let GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 let BearerStrategy = require('passport-http-bearer').Strategy;
 // load up the user model
@@ -10,7 +9,7 @@ let util = require('../app/utils/util');
 // load the auth variables
 let configAuth = require('./auth'); // use this one for testing
 
-module.exports = function (passport, configFBPassport, configGooglePassport) {
+module.exports = function (passport, configGooglePassport) {
 
 	// =========================================================================
 	// passport session setup ==================================================
@@ -29,99 +28,6 @@ module.exports = function (passport, configFBPassport, configGooglePassport) {
 			done(err, user);
 		});
 	});
-
-	// =========================================================================
-	// FACEBOOK ================================================================
-	// =========================================================================
-	let fbStrategy = configAuth[configFBPassport];
-	passport.use(new FacebookStrategy(fbStrategy,
-		function (req, token, refreshToken, profile, done) {
-
-			// asynchronous
-			process.nextTick(function () {
-
-				let email = profile.id + '@google.com';
-				if (profile.emails && profile.emails.length > 0) {
-					email = (profile.emails[0].value || '').toLowerCase();
-				}
-
-				let photo = '';
-				if (profile.photos && profile.photos.length > 0 && profile.photos[0].value && profile.photos[0].value.length > 0) {
-					photo = profile.photos[0].value;
-				}
-
-				// check if the user is already logged in
-				if (!req.user) {
-					User.findOne({'profileId': profile.id}, function (err, user) {
-						if (err)
-							return done(err);
-
-						if (user) {
-
-							// if there is a user id already but no token (user was linked at one point and then removed)
-							if (!user.token) {
-								user.profileId = profile.id;
-								user.token = token;
-								user.name = profile.name.givenName + ' ' + profile.name.familyName;
-								user.email = email;
-								user.photo = photo;
-								user.save(function (err) {
-									if (err)
-										return done(err);
-									return done(null, user);
-								});
-							} else {
-								// updating
-								user.email = email;
-								user.photo = photo;
-								user.name = profile.name.givenName + ' ' + profile.name.familyName;
-								user.save(function (err) {
-									if (err)
-										return done(err);
-
-									return done(null, user);
-								});
-							}
-						} else {
-							// if there is no user, create them
-							let newUser = new User();
-
-							newUser.profileId = profile.id;
-							newUser.token = token;
-							newUser.name = profile.name.givenName + ' ' + profile.name.familyName;
-							newUser.email = email;
-							newUser.photo = photo;
-							newUser.save(function (err, newUser) {
-								if (err)
-									return done(err);
-
-								// adding the user to the default group
-								Group.findOneAndUpdate({_id: util.DEFAULT_GROUP}, {$addToSet: {users: newUser._id}}).then(function () {
-									return done(null, newUser);
-								});
-							});
-						}
-					});
-
-				} else {
-					// user already exists and is logged in, we have to link accounts
-					let user = req.user; // pull the user out of the session
-
-					user.profileId = profile.id;
-					user.token = token;
-					user.name = profile.name.givenName + ' ' + profile.name.familyName;
-					user.email = email;
-					user.photo = photo;
-					user.save(function (err) {
-						if (err)
-							return done(err);
-						return done(null, user);
-					});
-
-				}
-			});
-
-		}));
 
 	// =========================================================================
 	// Google ==================================================================
@@ -145,7 +51,7 @@ module.exports = function (passport, configFBPassport, configGooglePassport) {
 					photo = profile.photos[0].value;
 				}
 
-				let name = profile.displayName.length === 0 ? email.substr(0, email.indexOf('@')) : profile.displayName;
+				let name = profile.displayName ? profile.displayName : email.substr(0, email.indexOf('@'));
 
 				// check if the user is already logged in
 				if (!req.user) {

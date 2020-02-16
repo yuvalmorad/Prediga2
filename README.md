@@ -2,11 +2,12 @@
 Prediction game using MongoDB, ExpressJS, NodeJS, ReactJS
 
 ## Prerequisites
-1. Install mongodb: `https://docs.mongodb.com/manual/installation/`
-2. Run: `mongod.exe`
+1. brew tap mongodb/brew
+2. brew install mongodb-community@4.2 
+3. Install dependencies: `npm install`
 
-## Instructions
-1. Install: `npm install`
+## Lunch game
+1. brew services start mongodb-community@4.2
 2. Launch: `node server.js`
    * Put the following application arguments
    * WEB_PUSH_PUBLIC_KEY=BAdXhdGDgXJeJadxabiFhmlTyF17HrCsfyIj3XEhg1j-RmT2wXU3lHiBqPSKSotvtfejZlAaPywJ9E
@@ -22,10 +23,6 @@ Prediction game using MongoDB, ExpressJS, NodeJS, ReactJS
 4. Update roles: `db.users.update({"name": "Gilad Keinan"}, { $set: {"roles": ["admin"]}})` 
 5. To drop all content: `db.dropDatabase();`
 
-## Using Test Users
-- email: `nhrkrkbdms_1510943227@tfbnw.net`
-- password: `qwerasdfzxcv`
-
 ## Copy DB from heroku to localhost:
 - Get the config vars from Heroku with:  
  `heroku config --app <appname>`  
@@ -36,7 +33,6 @@ Find the `MONGOLAB_URI` value. It will be in the form of: `mongodb://<username>:
  mongodump will create the following directory to store the data: dump/<database>  
  Use the values from the config file:     
 `mongodump -h <url>:<port> -d <database> -u <username> -p <password>`  
-
 
 - Make sure your local instance of mongod is running.
 
