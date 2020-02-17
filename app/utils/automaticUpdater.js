@@ -94,7 +94,7 @@ const self = module.exports = {
             //resolve(mockResults);
 
             const options = {
-                hostname: 'http://www.telesport.co.il',
+                hostname: 'https://www.telesport.co.il',
                 port: 80,
                 path: '/ajaxactions/sportlivepage.ashx?sportLive=updateGamesLive',
                 method: 'GET'
