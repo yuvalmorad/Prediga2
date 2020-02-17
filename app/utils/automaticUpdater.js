@@ -92,7 +92,7 @@ const self = module.exports = {
     },
     getLatestData: function () {
         return new Promise(function (resolve, reject) {
-            resolve(JSON.stringify(mockResults));
+            //resolve(JSON.stringify(mockResults));
             https.get("https://www.telesport.co.il/ajaxactions/sportlivepage.ashx?sportLive=updateGamesLive", function (res) {
                 let str = '';
                 res.on('data', function (chunk) {
