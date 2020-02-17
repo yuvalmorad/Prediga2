@@ -18,7 +18,9 @@ const self = module.exports = {
 			groupService.updateGroup(require('../initialData/configuration/groups.json').defaultGroup),
 			self.updateLeagueData(require('../initialData/leagues/19-20/Champions.json')),
 			self.updateLeagueData(require('../initialData/leagues/19-20/Israel_19-20.json')),
-			self.updateLeagueData(require('../initialData/leagues/19-20/Spain_19-20.json'))
+			self.updateLeagueData(require('../initialData/leagues/19-20/Spain_19-20.json')),
+			self.updateLeagueData(require('../initialData/leagues/19-20/England_19-20.json')),
+			self.updateLeagueData(require('../initialData/leagues/19-20/Italy_19-20.json'))
 		]).then(function (arr) {
 			//console.log('[Init] - Update initial data finished');
 			return Promise.resolve({});
