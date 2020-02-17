@@ -69,6 +69,7 @@ const self = module.exports = {
             } else {
                 try {
                     console.log('[Automatic Updater] - Start to parse response...');
+                    soccerContent = JSON.parse(soccerContent);
                     return self.getRelevantGames(soccerContent, competitionIds).then(function (relevantMatches) {
                         if (!relevantMatches || relevantMatches < 1) {
                             console.log('[Automatic Updater] - There are no relevant games.');
@@ -91,26 +92,22 @@ const self = module.exports = {
     },
     getLatestData: function () {
         return new Promise(function (resolve, reject) {
-            resolve([]); // TODO
+            resolve(JSON.stringify(mockResults));
+            https.get("https://www.telesport.co.il/ajaxactions/sportlivepage.ashx?sportLive=updateGamesLive", function (res) {
+                let str = '';
+                res.on('data', function (chunk) {
+                    //console.log('BODY: ' + chunk);
+                    str += chunk;
+                });
 
-            /*const options = {
-                hostname: 'https://www.telesport.co.il',
-                port: 80,
-                path: '/ajaxactions/sportlivepage.ashx?sportLive=updateGamesLive',
-                method: 'GET'
-            };
+                res.on('end', function () {
+                    resolve(str);
+                });
 
-            const req = https.request(options, res => {
-                res.on('data', d => {
-                    resolve(d);
-                })
+                res.on('error', function (err) {
+                    resolve({});
+                });
             });
-
-            req.on('error', error => {
-                console.error(error)
-            });
-
-            req.end();*/
         });
     },
     getRelevantGames: function (soccerContent, competition365Arr) {
@@ -129,10 +126,10 @@ const self = module.exports = {
         return Promise.all(promises);
     },
     updateMatchResultsMapInner: function (relevantGame) {
-        let isFinished = relevantGame.active === false && relevantGame.minute >= 90;
+        let isFinished = relevantGame.active === false && relevantGame.status_name === 'הסתיים';
         if (relevantGame.active === false && isFinished === false) {
             // game not yet started
-            console.log('[Automatic Updater] - Game is not yet started, for [' + relevantGame.p1_name + ' - ' + relevantGame.p2_name + ']');
+            console.log('[Automatic Updater] - Game is not yet started, for [' + relevantGame.twoPVSI.p1_name + ' - ' + relevantGame.twoPVSI.p2_name + ']');
             return Promise.resolve('getResultsJob'); // not relevant yet.
         }
 
@@ -148,7 +145,7 @@ const self = module.exports = {
 
             return matchService.findFirstMatchByTeamsStarted(team1, team2).then(function (match) {
                 if (!match || match === null) {
-                    console.log('[Automatic Updater] - Game already finished, for [' + team1Club.name + ' vs ' + team2Club.name + ']');
+                    console.log('[Automatic Updater] - Game already finished or not exist, for [' + team1Club.name + ' vs ' + team2Club.name + ']');
                     return Promise.resolve('getResultsJob'); // not relevant anymore.
                 }
 
@@ -165,7 +162,7 @@ const self = module.exports = {
                             text: 'Game started | ' + team1Club.name + ' vs ' + team2Club.name
                         });
                     }
-                    console.log('[Automatic Updater] - Beginning to create new match result, for [' + team1Club.name + ' vs ' + team2Club.name + ']');
+                    console.log('[Automatic Updater] - update match result, for [' + team1Club.name + ' vs ' + team2Club.name + ']');
                     return self.calculateNewMatchResult(team1, team2, relevantGame, match._id, isFinished).then(function (newMatchResult) {
                         // send push notification to client
                         const matchResultUpdate = {
@@ -179,14 +176,14 @@ const self = module.exports = {
                             });
                         }
                         // half-time alerts
-                        if (relevantGame.status_name === "מחצית" && currentMatchResult.status_name !== "מחצית") {
+                        if (relevantGame.status_name === "מחצית" && currentMatchResult && currentMatchResult.status_name !== "מחצית") {
                             // half-time break
                             pushSubscriptionService.pushToAllRegiseredUsers({
                                 text: 'Half time break | ' + team1Club.name + ' ' + newMatchResult.team1Goals + ' - ' + newMatchResult.team2Goals + ' ' + team2Club.name
                             });
                         }
 
-                        if (relevantGame.status_name !== "מחצית" && currentMatchResult.status_name === "מחצית") {
+                        if (relevantGame.status_name !== "מחצית" && currentMatchResult && currentMatchResult.status_name === "מחצית") {
                             // half-time started
                             pushSubscriptionService.pushToAllRegiseredUsers({
                                 text: 'Second half started | ' + team1Club.name + ' ' + newMatchResult.team1Goals + ' - ' + newMatchResult.team2Goals + ' ' + team2Club.name
@@ -251,8 +248,8 @@ const self = module.exports = {
                 (!relevantGame.twoPVSI.p2_events || relevantGame.twoPVSI.p2_events.length < 1)) {
                 return Promise.resolve(newMatchResult);
             } else {
-                var p1Scored = -1;
-                var p2Scored = -1;
+                var p1Scored = 999;
+                var p2Scored = 999;
                 let p1GoalsEvents = relevantGame.twoPVSI.p1_events.filter(function (anEvent) {
                     return anEvent.type === 1;
                 });
@@ -260,15 +257,15 @@ const self = module.exports = {
                     return anEvent.type === 1;
                 });
                 if (p1GoalsEvents && p1GoalsEvents.length > 0) {
-                    p1Scored = p1GoalsEvents.extraParam;
+                    p1Scored = p1GoalsEvents[0].extraParam;
                 }
                 if (p2GoalsEvents && p2GoalsEvents.length > 0) {
-                    p2Scored = p2GoalsEvents.extraParam;
+                    p2Scored = p2GoalsEvents[0].extraParam;
                 }
 
                 if (p1Scored < p2Scored) {
                     newMatchResult.firstToScore = team1;
-                } else if (p1Scored < p2Scored) {
+                } else if (p2Scored < p1Scored) {
                     newMatchResult.firstToScore = team2;
                 }
                 return Promise.resolve(newMatchResult);

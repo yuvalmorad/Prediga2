@@ -8,28 +8,28 @@
 		"syncResults365": true,
 		"leagueFirstMatchDate": "2020-02-18T20:00:00.000Z",
 		"clubs": [
-			"1a21a7c1a3f89181074e9961",
-			"1a21a7c1a3f89181074e9962",
+			"1a21a7c1a3f89181074e9865",
+			"1a21a7c1a3f89181074e9787",
 			"1a21a7c1a3f89181074e9963",
 			"1a21a7c1a3f89181074e9964",
-			"1a21a7c1a3f89181074e9965",
-			"1a21a7c1a3f89181074e9966",
-			"1a21a7c1a3f89181074e9967",
+			"4a21a7c1a3f89181074e9864",
+			"1a21a7c1a3f89181074e9880",
+			"1a21a7c1a3f89181074e9785",
 			"1a21a7c1a3f89181074e9968",
-			"1a21a7c1a3f89181074e9969",
+			"1a21a7c1a3f89181074e9789",
 			"1a21a7c1a3f89181074e9970",
-			"1a21a7c1a3f89181074e9971",
-			"1a21a7c1a3f89181074e9972",
+			"4a21a7c1a3f89181074e9873",
+			"1a21a7c1a3f89181074e9887",
 			"1a21a7c1a3f89181074e9973",
-			"1a21a7c1a3f89181074e9974",
-			"1a21a7c1a3f89181074e9975",
-			"1a21a7c1a3f89181074e9976"
+			"4a21a7c1a3f89181074e9869",
+			"1a21a7c1a3f89181074e9886",
+			"1a21a7c1a3f89181074e9786"
 		],
 		"color": "#3d195b"
 	},
 	"clubs": [
 		{
-			"_id": "1a21a7c1a3f89181074e9961",
+			"_id": "1a21a7c1a3f89181074e9865",
 			"name": "Atlético Madrid",
 			"name365": "אתלטיקו מדריד",
 			"nameSport5": "אתלטיקו מדריד",
@@ -50,7 +50,7 @@
 			"stadium": "Wanda Metropolitano"
 		},
 		{
-			"_id": "1a21a7c1a3f89181074e9962",
+			"_id": "1a21a7c1a3f89181074e9787",
 			"name": "Liverpool",
 			"name365": "ליברפול",
 			"nameSport5": "ליברפול",
@@ -115,7 +115,7 @@
 			"stadium": "Parc des Princes, Paris"
 		},
 		{
-			"_id": "1a21a7c1a3f89181074e9965",
+			"_id": "4a21a7c1a3f89181074e9864",
 			"name": "Atalanta",
 			"name365": "אטאלנטה",
 			"nameSport5": "אטאלנטה",
@@ -136,7 +136,7 @@
 			"stadium": "Bergamo"
 		},
 		{
-			"_id": "1a21a7c1a3f89181074e9966",
+			"_id": "1a21a7c1a3f89181074e9880",
 			"name": "Valencia",
 			"name365": "ולנסיה",
 			"nameSport5": "ולנסיה",
@@ -158,7 +158,7 @@
 			"stadium": "Mestalla"
 		},
 		{
-			"_id": "1a21a7c1a3f89181074e9967",
+			"_id": "1a21a7c1a3f89181074e9785",
 			"name": "Tottenham Hotspur",
 			"name365": "טוטנהאם",
 			"nameSport5": "טוטנהאם",
@@ -199,7 +199,7 @@
 			"stadium": "Red Bull Arena, Leipzig"
 		},
 		{
-			"_id": "1a21a7c1a3f89181074e9969",
+			"_id": "1a21a7c1a3f89181074e9789",
 			"name": "Chelsea",
 			"name365": "צ'לסי",
 			"nameSport5": "צ'לסי",
@@ -241,7 +241,7 @@
 			"stadium": "Allianz Arena, Munich"
 		},
 		{
-			"_id": "1a21a7c1a3f89181074e9971",
+			"_id": "4a21a7c1a3f89181074e9873",
 			"name": "Napoli",
 			"name365": "נאפולי",
 			"nameSport5": "נאפולי",
@@ -262,7 +262,7 @@
 			"stadium": "Napoli"
 		},
 		{
-			"_id": "1a21a7c1a3f89181074e9972",
+			"_id": "1a21a7c1a3f89181074e9887",
 			"name": "Barcelona",
 			"name365": "ברצלונה",
 			"nameSport5": "ברצלונה",
@@ -304,7 +304,7 @@
 			"stadium": "Lyon"
 		},
 		{
-			"_id": "1a21a7c1a3f89181074e9974",
+			"_id": "4a21a7c1a3f89181074e9869",
 			"name": "Juventus",
 			"name365": "יובנטוס",
 			"nameSport5": "יובנטוס",
@@ -324,7 +324,7 @@
 			"stadium": "Juventus Stadium, Turin"
 		},
 		{
-			"_id": "1a21a7c1a3f89181074e9975",
+			"_id": "1a21a7c1a3f89181074e9886",
 			"name": "Real Madrid",
 			"name365": "ריאל מדריד",
 			"nameSport5": "ריאל מדריד",
@@ -345,7 +345,7 @@
 			"stadium": "Santiago Bernabéu, Madrid"
 		},
 		{
-			"_id": "1a21a7c1a3f89181074e9976",
+			"_id": "1a21a7c1a3f89181074e9786",
 			"name": "Manchester City",
 			"name365": "מנצ'סטר סיטי",
 			"nameSport5": "מנצ'סטר סיטי",
@@ -369,8 +369,8 @@
 	"matches": [
 		{
 			"_id": "1a21a7c1a3f89181074e9862",
-			"team1": "1a21a7c1a3f89181074e9961",
-			"team2": "1a21a7c1a3f89181074e9962",
+			"team1": "1a21a7c1a3f89181074e9865",
+			"team2": "1a21a7c1a3f89181074e9787",
 			"kickofftime": "2020-02-18T20:00:00.000Z",
 			"stadium": "Wanda Metropolitano Stadium",
 			"type": "Round of 16 - leg 1 (A)",
@@ -378,8 +378,8 @@
 		},
 		{
 			"_id": "1a21a7c1a3f89181074e9863",
-			"team1": "1a21a7c1a3f89181074e9962",
-			"team2": "1a21a7c1a3f89181074e9961",
+			"team1": "1a21a7c1a3f89181074e9787",
+			"team2": "1a21a7c1a3f89181074e9865",
 			"kickofftime": "2020-03-11T20:00:00.000Z",
 			"stadium": "Wembley Stadium, London",
 			"type": "Round of 16 - leg 2 (A)",
@@ -405,8 +405,8 @@
 		},
 		{
 			"_id": "1a21a7c1a3f89181074e9866",
-			"team1": "1a21a7c1a3f89181074e9965",
-			"team2": "1a21a7c1a3f89181074e9966",
+			"team1": "4a21a7c1a3f89181074e9864",
+			"team2": "1a21a7c1a3f89181074e9880",
 			"kickofftime": "2020-02-19T20:00:00.000Z",
 			"stadium": "Atalanta",
 			"type": "Round of 16 - leg 1 (A)",
@@ -414,8 +414,8 @@
 		},
 		{
 			"_id": "1a21a7c1a3f89181074e9867",
-			"team1": "1a21a7c1a3f89181074e9966",
-			"team2": "1a21a7c1a3f89181074e9965",
+			"team1": "1a21a7c1a3f89181074e9880",
+			"team2": "4a21a7c1a3f89181074e9864",
 			"kickofftime": "2020-03-10T20:00:00.000Z",
 			"stadium": "Valencia",
 			"type": "Round of 16 - leg 2 (A)",
@@ -423,7 +423,7 @@
 		},
 		{
 			"_id": "1a21a7c1a3f89181074e9868",
-			"team1": "1a21a7c1a3f89181074e9967",
+			"team1": "1a21a7c1a3f89181074e9785",
 			"team2": "1a21a7c1a3f89181074e9968",
 			"kickofftime": "2020-02-19T20:00:00.000Z",
 			"stadium": "Tottenham",
@@ -433,7 +433,7 @@
 		{
 			"_id": "1a21a7c1a3f89181074e9869",
 			"team1": "1a21a7c1a3f89181074e9968",
-			"team2": "1a21a7c1a3f89181074e9967",
+			"team2": "1a21a7c1a3f89181074e9785",
 			"kickofftime": "2020-03-10T20:00:00.000Z",
 			"stadium": "Leipzig",
 			"type": "Round of 16 - leg 2 (A)",
@@ -441,7 +441,7 @@
 		},
 		{
 			"_id": "1a21a7c1a3f89181074e9870",
-			"team1": "1a21a7c1a3f89181074e9969",
+			"team1": "1a21a7c1a3f89181074e9789",
 			"team2": "1a21a7c1a3f89181074e9970",
 			"kickofftime": "2020-02-25T20:00:00.000Z",
 			"stadium": "Chelsea",
@@ -451,7 +451,7 @@
 		{
 			"_id": "1a21a7c1a3f89181074e9871",
 			"team1": "1a21a7c1a3f89181074e9970",
-			"team2": "1a21a7c1a3f89181074e9969",
+			"team2": "1a21a7c1a3f89181074e9789",
 			"kickofftime": "2020-03-18T20:00:00.000Z",
 			"stadium": "Bayern",
 			"type": "Round of 16 - leg 2 (B)",
@@ -459,8 +459,8 @@
 		},
 		{
 			"_id": "1a21a7c1a3f89181074e9872",
-			"team1": "1a21a7c1a3f89181074e9971",
-			"team2": "1a21a7c1a3f89181074e9972",
+			"team1": "4a21a7c1a3f89181074e9873",
+			"team2": "1a21a7c1a3f89181074e9887",
 			"kickofftime": "2020-02-25T20:00:00.000Z",
 			"stadium": "Napoli",
 			"type": "Round of 16 - leg 1 (B)",
@@ -468,8 +468,8 @@
 		},
 		{
 			"_id": "1a21a7c1a3f89181074e9873",
-			"team1": "1a21a7c1a3f89181074e9972",
-			"team2": "1a21a7c1a3f89181074e9971",
+			"team1": "1a21a7c1a3f89181074e9887",
+			"team2": "4a21a7c1a3f89181074e9873",
 			"kickofftime": "2020-03-18T20:00:00.000Z",
 			"stadium": "Barcelona",
 			"type": "Round of 16 - leg 2 (B)",
@@ -478,7 +478,7 @@
 		{
 			"_id": "1a21a7c1a3f89181074e9874",
 			"team1": "1a21a7c1a3f89181074e9973",
-			"team2": "1a21a7c1a3f89181074e9974",
+			"team2": "4a21a7c1a3f89181074e9869",
 			"kickofftime": "2020-02-26T20:00:00.000Z",
 			"stadium": "Lyon",
 			"type": "Round of 16 - leg 1 (B)",
@@ -486,7 +486,7 @@
 		},
 		{
 			"_id": "1a21a7c1a3f89181074e9875",
-			"team1": "1a21a7c1a3f89181074e9974",
+			"team1": "4a21a7c1a3f89181074e9869",
 			"team2": "1a21a7c1a3f89181074e9973",
 			"kickofftime": "2020-03-17T20:00:00.000Z",
 			"stadium": "Juventus",
@@ -495,8 +495,8 @@
 		},
 		{
 			"_id": "1a21a7c1a3f89181074e9876",
-			"team1": "1a21a7c1a3f89181074e9975",
-			"team2": "1a21a7c1a3f89181074e9976",
+			"team1": "1a21a7c1a3f89181074e9886",
+			"team2": "1a21a7c1a3f89181074e9786",
 			"kickofftime": "2020-02-26T20:00:00.000Z",
 			"stadium": "Allianz Arena, Munich",
 			"type": "Round of 16 - leg 1 (B)",
@@ -504,8 +504,8 @@
 		},
 		{
 			"_id": "1a21a7c1a3f89181074e9877",
-			"team1": "1a21a7c1a3f89181074e9976",
-			"team2": "1a21a7c1a3f89181074e9975",
+			"team1": "1a21a7c1a3f89181074e9786",
+			"team2": "1a21a7c1a3f89181074e9886",
 			"kickofftime": "2020-03-17T20:00:00.000Z",
 			"stadium": "Vodafone Park, Istanbul",
 			"type": "Round of 16 - leg 2 (B)",

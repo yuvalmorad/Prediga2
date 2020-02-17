@@ -66,8 +66,8 @@ const self = module.exports = {
 		const startTime = new Date().setHours(new Date().getHours() - 10);
 		return Match.findOne({
 			kickofftime: {$gte: startTime},
-			team1: team1,
-			team2: team2
+			team1: team1.toString(),
+			team2: team2.toString()
 		}).sort({'kickofftime': -1}).limit(1);
 	},
 	filterIdsByMatchesAlreadyStarted: function (matchIds) {
