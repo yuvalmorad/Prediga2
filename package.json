@@ -36,6 +36,7 @@
 		"passport-local": "~1.0.0",
 		"passport-twitter": "~1.0.4",
 		"socket.io": "^2.0.4",
-		"web-push": "^3.2.5"
+		"web-push": "^3.2.5",
+		"node": "^11.15.0"
 	}
 }
