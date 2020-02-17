@@ -17,8 +17,8 @@ let GroupService = require('./app/services/groupService');
 // configuration ===============================================================
 let configDB = port !== 3000 ? process.env.MONGODB_URI : 'mongodb://localhost:27017/prediga';
 let clientFolder = port === 3000 ? (__dirname + "/public") : (__dirname + "/build");
-
-mongoose.connect(configDB, {useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false }, function (err) {
+console.log('using mongodb url -' + configDB);
+mongoose.connect(configDB, function (err) {
     if (err) console.log('[Init] Unable to connect to DB ' + err);
     else console.log('[Init] Connection to DB finished')
 }); // connect to our database
