@@ -13,6 +13,7 @@ const userLeaderboardService = require("../services/usersLeaderboardService");
 
 const self = module.exports = {
     run: function (isFirstRun) {
+        return; // not working yet...
         console.log('[Automatic Updater] (run job) wake up');
         return matchService.getNextMatch(-10).then(function (match) {
             if (!match) {
