@@ -7,10 +7,6 @@ var Server = require('karma').Server;
 
 var BUILD_FOLDER = "build";
 
-gulp.task('default', function() {
-    gulp.start( 'buildJS', 'minify-css', 'copyFolders');
-});
-
 gulp.task('uglify-error-debugging', function () {
 	return gulp.src('./public/index.html')
 	.pipe(usemin({
@@ -21,7 +17,7 @@ gulp.task('uglify-error-debugging', function () {
 	.pipe(gulp.dest(BUILD_FOLDER + '/'));
 });
 
-gulp.task('buildJS', function() {
+gulp.task('buildJS', function(done) {
     return gulp.src('./public/index.html')
         .pipe(usemin({
             js: [ uglify()],
@@ -32,14 +28,14 @@ gulp.task('buildJS', function() {
 
 });
 
-gulp.task('minify-css', function() {
+gulp.task('minify-css', function(done) {
     return gulp.src('./public/css/*.css')
         .pipe(cleanCSS(/*{compatibility: 'ie8'}*/))
 	    .on('error', function (err) { gutil.log(gutil.colors.red('[Error]'), err); })
         .pipe(gulp.dest(BUILD_FOLDER + '/css'));
 });
 
-gulp.task('copyFolders', function(){
+gulp.task('copyFolders', function(done){
     var foldersToCopy = ["fonts", "images", "config"];
     var res = foldersToCopy.map(function(folder){
         return gulp.src(['./public/' + folder + '/**/*'])
@@ -52,8 +48,14 @@ gulp.task('copyFolders', function(){
             .pipe(gulp.dest(BUILD_FOLDER))
     );
 
+    done();
     return res;
 });
+
+gulp.task('default', gulp.series(gulp.parallel('buildJS', 'minify-css', 'copyFolders'), function (done) {
+    // do something
+    done();
+}));
 
 // Run test once and exit
 gulp.task('test', function (done) {
