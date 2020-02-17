@@ -31,7 +31,7 @@
 		"node-schedule": "1.2.5",
 		"passport": "~0.3.2",
 		"passport-facebook": "~2.1.1",
-		"passport-google-oauth": "~1.0.0",
+		"passport-google-oauth": "2.0.0",
 		"passport-http-bearer": "^1.0.1",
 		"passport-local": "~1.0.0",
 		"passport-twitter": "~1.0.4",
