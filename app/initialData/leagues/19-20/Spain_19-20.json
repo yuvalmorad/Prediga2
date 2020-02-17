@@ -464,15 +464,6 @@
     }
   ],
   "matches": [
-	  {
-		  "_id": "2a21a7c1a3f89181074e9862",
-		  "team1": "1a21a7c1a3f89181074e9975",
-		  "team2": "1a21a7c1a3f89181074e9876",
-		  "kickofftime": "2020-02-16T23:00:00.000Z",
-		  "stadium": "Madrid",
-		  "type": "Week 78",
-		  "league": "2a21a7c1a3f89181074e9769"
-	  }
   ],
   "teams": [
     {

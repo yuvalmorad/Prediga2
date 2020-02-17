@@ -51,23 +51,25 @@ const self = module.exports = {
 	},
 	getLatestData: function (url) {
 		return new Promise(function (resolve, reject) {
-		    resolve(); // TODO
-		    /*
-			http.get(url, function (res) {
-				let str = '';
-				res.on('data', function (chunk) {
-					//console.log('BODY: ' + chunk);
-					str += chunk;
-				});
+		    if (url){
+                http.get(url, function (res) {
+                    let str = '';
+                    res.on('data', function (chunk) {
+                        //console.log('BODY: ' + chunk);
+                        str += chunk;
+                    });
 
-				res.on('end', function () {
-					resolve(str);
-				});
+                    res.on('end', function () {
+                        resolve(str);
+                    });
 
-				res.on('error', function (err) {
-					resolve({});
-				});
-			});*/
+                    res.on('error', function (err) {
+                        resolve({});
+                    });
+                });
+            } else {
+		        resolve({});
+            }
 		});
 	},
 	parseResponse: function (htmlRawData, leagueId, clubs, leagueFirstMatchDate) {
