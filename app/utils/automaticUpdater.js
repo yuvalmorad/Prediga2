@@ -13,7 +13,6 @@ const userLeaderboardService = require("../services/usersLeaderboardService");
 
 const self = module.exports = {
     run: function (isFirstRun) {
-        return; // not working yet...
         console.log('[Automatic Updater] (run job) wake up');
         return matchService.getNextMatch(-10).then(function (match) {
             if (!match) {
@@ -92,9 +91,9 @@ const self = module.exports = {
     },
     getLatestData: function () {
         return new Promise(function (resolve, reject) {
-            //resolve(mockResults);
+            resolve([]); // TODO
 
-            const options = {
+            /*const options = {
                 hostname: 'https://www.telesport.co.il',
                 port: 80,
                 path: '/ajaxactions/sportlivepage.ashx?sportLive=updateGamesLive',
@@ -111,7 +110,7 @@ const self = module.exports = {
                 console.error(error)
             });
 
-            req.end();
+            req.end();*/
         });
     },
     getRelevantGames: function (soccerContent, competition365Arr) {

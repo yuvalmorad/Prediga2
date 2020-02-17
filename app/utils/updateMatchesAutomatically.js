@@ -51,6 +51,8 @@ const self = module.exports = {
 	},
 	getLatestData: function (url) {
 		return new Promise(function (resolve, reject) {
+		    resolve(); // TODO
+		    /*
 			http.get(url, function (res) {
 				let str = '';
 				res.on('data', function (chunk) {
@@ -65,7 +67,7 @@ const self = module.exports = {
 				res.on('error', function (err) {
 					resolve({});
 				});
-			});
+			});*/
 		});
 	},
 	parseResponse: function (htmlRawData, leagueId, clubs, leagueFirstMatchDate) {
