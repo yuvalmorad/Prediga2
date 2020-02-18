@@ -436,7 +436,7 @@
         "#23A6BF",
         "#000000"
       ],
-      "logoPosition": "-715px -4px",
+      "logoPosition": "-672px 0px",
       "sprite": "champions",
       "stadium": "Santiago Bernabéu, Madrid"
     },
@@ -458,7 +458,7 @@
         "#990001",
         "#000000"
       ],
-      "logoPosition": "-62px -1px",
+      "logoPosition": "-57px 0px",
       "sprite": "champions",
       "stadium": "Camp Nou, Barcelona"
     }
