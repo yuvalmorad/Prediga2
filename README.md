@@ -31,4 +31,7 @@ then updates in utils.js the user ids.
 ## Copy DB from heroku to localhost:
 mongodump -h ds219839.mlab.com:19839 -d heroku_9tqmxnlw -u heroku_9tqmxnlw -p 70e71ikrg3cu3did8gbja5eokj  
 mongo localhost:27017/prediga --eval "db.dropDatabase()"  
-mongorestore -d prediga dump/heroku_9tqmxnlw  ß
+mongorestore -d prediga dump/heroku_9tqmxnlw
+
+## reset leaderboard
+/api/usersLeaderboard/reset/1a21a7c1a3f89181074e9769

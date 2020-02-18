@@ -116,6 +116,9 @@ const self = module.exports = {
             }
         }
         leaderboardItem.placesOverMatches.push(leaderboardItem.placeCurrent);
+        if (leaderboardItem._doc){
+            delete leaderboardItem._doc.__v;
+        }
 
         // update
         return UsersLeaderboard.findOneAndUpdate({
