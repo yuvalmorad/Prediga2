@@ -108,6 +108,16 @@ const self = module.exports = {
 		}
 		group.configurationId = configuration._id;
 		delete group.configuration;
+
+        // add default config not in UI -
+        configuration.teamInGroup = 8;
+        configuration.teamWinner = 24;
+        configuration.teamRunnerUp = 18;
+        configuration.teamThird = 12;
+        configuration.teamForth = 10;
+        configuration.teamLast = 12;
+        configuration.team2ndLast = 12;
+        configuration.minutesBeforeCloseMathPrediction = 5;
 		return configuration;
 	},
 	addUser: function (id, secret, userId) {

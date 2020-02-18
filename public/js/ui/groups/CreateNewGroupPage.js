@@ -107,8 +107,8 @@ component.CreateNewGroupPage = (function(){
                 secret: "",
                 configuration: {
                     winner: state.winPoints,
-                    team1Goals: state.winPoints,
-                    team2Goals: state.winPoints,
+                    team1Goals: state.goalsPoints,
+                    team2Goals: state.goalsPoints,
                     firstToScore: state.firstToScorePoints,
                     goalDiff: state.diffGoalsPoints
                 }
