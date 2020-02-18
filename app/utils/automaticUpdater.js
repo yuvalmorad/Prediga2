@@ -178,9 +178,9 @@ const self = module.exports = {
                         // half-time alerts
                         if (relevantGame.status_name === "מחצית" && currentMatchResult && currentMatchResult.status_name !== "מחצית") {
                             // half-time break
-                            /*pushSubscriptionService.pushToAllRegiseredUsers({
+                            pushSubscriptionService.pushToAllRegiseredUsers({
                                 text: 'Half time break | ' + team1Club.name + ' ' + newMatchResult.team1Goals + ' - ' + newMatchResult.team2Goals + ' ' + team2Club.name
-                            });*/
+                            });
                         }
 
                         if (relevantGame.status_name !== "מחצית" && currentMatchResult && currentMatchResult.status_name === "מחצית") {

@@ -12,7 +12,7 @@ const matchResultSchema = mongoose.Schema({
 	gameTime: Number,
 	active: Boolean,
 	resultTime: Date,
-    status_name: Boolean
+    status_name: String
 });
 
 matchResultSchema.options.toJSON = {
