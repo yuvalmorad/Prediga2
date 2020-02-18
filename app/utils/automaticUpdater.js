@@ -244,7 +244,7 @@ const self = module.exports = {
 
         // filter events for goals to calculate first to score
         if (newMatchResult.firstToScore === 'None' && (newMatchResult.team1Goals > 0 || newMatchResult.team2Goals > 0)) {
-            if ((!relevantGame.twoPVSI.p1_events || relevantGame.twoPVSI.p1_events.length < 1) ||
+            if ((!relevantGame.twoPVSI.p1_events || relevantGame.twoPVSI.p1_events.length < 1) &&
                 (!relevantGame.twoPVSI.p2_events || relevantGame.twoPVSI.p2_events.length < 1)) {
                 return Promise.resolve(newMatchResult);
             } else {
