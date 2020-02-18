@@ -42,8 +42,8 @@
       "colors": ["blue"],
       "buttonColors": ["blue","white"],
       "graphColors": ["blue","white"],
-      "logoPosition": "0",
-      "sprite": "italy",
+      "logoPosition": "-777px 0px",
+      "sprite": "champions",
       "stadium": "Bergamo"
     },
     {
@@ -107,8 +107,8 @@
       "colors": ["black"],
       "buttonColors": ["black","white"],
       "graphColors": ["black","white"],
-      "logoPosition": "0",
-      "sprite": "italy",
+      "logoPosition": "-300px -1px",
+      "sprite": "champions",
       "stadium": "Torino"
     },
     {
@@ -159,8 +159,8 @@
       "colors": ["blue"],
       "buttonColors": ["blue","white"],
       "graphColors": ["blue","white"],
-      "logoPosition": "0",
-      "sprite": "italy",
+      "logoPosition": "-536px 0px",
+      "sprite": "champions",
       "stadium": "Napoli"
     },
     {

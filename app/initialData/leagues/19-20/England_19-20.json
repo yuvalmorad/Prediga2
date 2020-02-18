@@ -406,7 +406,7 @@
         "#0A2555",
         "#000000"
       ],
-      "logoPosition": "-784px 0",
+      "logoPosition": "-833px 0px",
       "sprite": "champions",
       "stadium": "Wembley Stadium, London"
     },
@@ -427,7 +427,7 @@
         "#44B1FD",
         "#000000"
       ],
-      "logoPosition": "-392px 0",
+      "logoPosition": "-476px -1px",
       "sprite": "champions",
       "stadium": "City of Manchester Stadium, Manchester"
     },
@@ -448,8 +448,8 @@
         "#990001",
         "#000000"
       ],
-      "logoPosition": "-336px 0",
-      "sprite": "champions",
+		"logoPosition": "-359px -3px",
+		"sprite": "champions",
       "stadium": "Anfield, Liverpool"
     },
     {
@@ -490,7 +490,7 @@
         "#0045B8",
         "#000000"
       ],
-      "logoPosition": "-224px 0",
+      "logoPosition": "-240px -1px",
       "sprite": "champions",
       "stadium": "Stamford Bridge, London"
     }

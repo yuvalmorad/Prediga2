@@ -46,8 +46,8 @@
 				"#000000"
 			],
 			"logoPosition": "-56px 0",
-			"sprite": "spain",
-			"stadium": "Wanda Metropolitano"
+			"sprite": "champions",
+			"stadium": "Wanda Metropolitano, Madrid"
 		},
 		{
 			"_id": "1a21a7c1a3f89181074e9787",
@@ -66,7 +66,7 @@
 				"#990001",
 				"#000000"
 			],
-			"logoPosition": "-336px 0",
+			"logoPosition": "-359px -3px",
 			"sprite": "champions",
 			"stadium": "Anfield, Liverpool"
 		},
@@ -88,7 +88,7 @@
 				"#000",
 				"#FFF500"
 			],
-			"logoPosition": "",
+			"logoPosition": "-180px -2px",
 			"sprite": "champions",
 			"stadium": "Signal Iduna Park, Dortmund"
 		},
@@ -110,7 +110,7 @@
 				"#0A2555",
 				"#7C2838"
 			],
-			"logoPosition": "-504px 0",
+			"logoPosition": "-597px -1px",
 			"sprite": "champions",
 			"stadium": "Parc des Princes, Paris"
 		},
@@ -131,9 +131,9 @@
 				"blue",
 				"white"
 			],
-			"logoPosition": "0",
-			"sprite": "italy",
-			"stadium": "Bergamo"
+			"logoPosition": "-777px 0px",
+			"sprite": "champions",
+			"stadium": "Bergamo, Italy"
 		},
 		{
 			"_id": "1a21a7c1a3f89181074e9880",
@@ -154,8 +154,8 @@
 				"#FF1716"
 			],
 			"logoPosition": "-56px -504px",
-			"sprite": "spain",
-			"stadium": "Mestalla"
+			"sprite": "champions",
+			"stadium": "Mestalla, Valencia"
 		},
 		{
 			"_id": "1a21a7c1a3f89181074e9785",
@@ -174,7 +174,7 @@
 				"#0A2555",
 				"#000000"
 			],
-			"logoPosition": "-784px 0",
+			"logoPosition": "-833px 0px",
 			"sprite": "champions",
 			"stadium": "Wembley Stadium, London"
 		},
@@ -194,7 +194,7 @@
 			"graphColors": [
 				"red"
 			],
-			"logoPosition": "",
+			"logoPosition": "-656px -1px",
 			"sprite": "champions",
 			"stadium": "Red Bull Arena, Leipzig"
 		},
@@ -215,7 +215,7 @@
 				"#0045B8",
 				"#000000"
 			],
-			"logoPosition": "-224px 0",
+			"logoPosition": "-240px -1px",
 			"sprite": "champions",
 			"stadium": "Stamford Bridge, London"
 		},
@@ -236,7 +236,7 @@
 				"#FF1716",
 				"#000000"
 			],
-			"logoPosition": "-56px 0",
+			"logoPosition": "-121px -1px",
 			"sprite": "champions",
 			"stadium": "Allianz Arena, Munich"
 		},
@@ -257,8 +257,8 @@
 				"blue",
 				"white"
 			],
-			"logoPosition": "0",
-			"sprite": "italy",
+			"logoPosition": "-536px 0px",
+			"sprite": "champions",
 			"stadium": "Napoli"
 		},
 		{
@@ -279,7 +279,7 @@
 				"#990001",
 				"#000000"
 			],
-			"logoPosition": "-840px 0",
+			"logoPosition": "-62px -1px",
 			"sprite": "champions",
 			"stadium": "Camp Nou, Barcelona"
 		},
@@ -299,7 +299,7 @@
 			"graphColors": [
 				"blue"
 			],
-			"logoPosition": "",
+			"logoPosition": "-418px 0px",
 			"sprite": "champions",
 			"stadium": "Lyon"
 		},
@@ -319,7 +319,7 @@
 			"graphColors": [
 				"#000000"
 			],
-			"logoPosition": "-280px 0",
+			"logoPosition": "-300px -1px",
 			"sprite": "champions",
 			"stadium": "Juventus Stadium, Turin"
 		},
@@ -340,7 +340,7 @@
 				"#23A6BF",
 				"#000000"
 			],
-			"logoPosition": "-896px 0",
+			"logoPosition": "-715px -4px",
 			"sprite": "champions",
 			"stadium": "Santiago Bernabéu, Madrid"
 		},
@@ -361,7 +361,7 @@
 				"#44B1FD",
 				"#000000"
 			],
-			"logoPosition": "-392px 0",
+			"logoPosition": "-476px -1px",
 			"sprite": "champions",
 			"stadium": "City of Manchester Stadium, Manchester"
 		}
@@ -636,10 +636,10 @@
 			"_id": "5a1342399017dfc4e2faf694",
 			"title": "1st place",
 			"type": "teamWinner",
-			"deadline": "2020-03-01T23:45:00.000Z",
+			"deadline": "2020-02-18T20:00:00.000Z",
 			"league": "1a21a7c1a3f89181074e9769",
 			"options": [],
-			"resultTime": "2020-05-30T23:45:00.000Z",
+			"resultTime": "2020-06-01T12:00:00.000Z",
 			"category": "9b1342399017dfc4e2faf4d1"
 		}
 	],
