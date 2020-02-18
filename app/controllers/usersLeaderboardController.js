@@ -7,7 +7,7 @@ const groupService = require('../services/groupService');
 /**
  * Reset leaderboard
  */
-app.get('/reset/:leagueId', util.isAdmin, function (req, res) {
+app.get('/reset/:leagueId', util.isLoggedIn, function (req, res) {
     const leagueId = req.params.leagueId;
     return usersLeaderboardService.resetLeaderboard(leagueId).then(function () {
         console.log('finish reset');

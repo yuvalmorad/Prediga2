@@ -33,7 +33,7 @@
 			"name": "Atlético Madrid",
 			"name365": "אתלטיקו מדריד",
 			"nameSport5": "אתלטיקו מדריד",
-			"shortName": "AM",
+			"shortName": "ATM",
 			"colors": [
 				"#AA0001"
 			],
@@ -328,7 +328,7 @@
 			"name": "Real Madrid",
 			"name365": "ריאל מדריד",
 			"nameSport5": "ריאל מדריד",
-			"shortName": "RM",
+			"shortName": "REM",
 			"colors": [
 				"#23A6BF"
 			],
@@ -349,7 +349,7 @@
 			"name": "Manchester City",
 			"name365": "מנצ'סטר סיטי",
 			"nameSport5": "מנצ'סטר סיטי",
-			"shortName": "MC",
+			"shortName": "MAC",
 			"colors": [
 				"#44B1FD"
 			],
