@@ -33,8 +33,10 @@
       "1a21a7c1a3f89181074e9786",
       "1a21a7c1a3f89181074e9787",
       "1a21a7c1a3f89181074e9788",
-      "1a21a7c1a3f89181074e9789"
-    ],
+      "1a21a7c1a3f89181074e9789",
+		"1a21a7c1a3f89181074e9790",
+		"1a21a7c1a3f89181074e9791"
+	],
     "color": "#3d195b"
   },
   "clubs": [
@@ -83,7 +85,7 @@
     {
       "_id": "1a21a7c1a3f89181074e9764",
       "name": "Bournemouth",
-      "name365": "בורנמות",
+      "name365": "בורנמות'",
       "nameSport5": "בורנמות'",
       "shortName": "BOU",
       "colors": [
@@ -493,7 +495,49 @@
       "logoPosition": "-224px 0px",
       "sprite": "champions",
       "stadium": "Stamford Bridge, London"
-    }
+    },
+	  {
+		  "_id": "1a21a7c1a3f89181074e9790",
+		  "name": "Shefield United",
+		  "name365": "שפילד יונייטד",
+		  "nameSport5": "שפילד יונייטד",
+		  "shortName": "SHE",
+		  "colors": [
+			  "#0045B8"
+		  ],
+		  "buttonColors": [
+			  "#0045B8",
+			  "#FFFFFF"
+		  ],
+		  "graphColors": [
+			  "#0045B8",
+			  "#000000"
+		  ],
+		  "logoPosition": "-1px -1px",
+		  "sprite": "england",
+		  "stadium": "Shefield United"
+	  },
+	  {
+		  "_id": "1a21a7c1a3f89181074e9791",
+		  "name": "Aston Vila",
+		  "name365": "אסטון וילה",
+		  "nameSport5": "אסטון וילה",
+		  "shortName": "AST",
+		  "colors": [
+			  "#0045B8"
+		  ],
+		  "buttonColors": [
+			  "#0045B8",
+			  "#FFFFFF"
+		  ],
+		  "graphColors": [
+			  "#0045B8",
+			  "#000000"
+		  ],
+		  "logoPosition": "-1px -1px",
+		  "sprite": "england",
+		  "stadium": "Aston Vila"
+	  }
   ],
   "matches": [
 	  {
