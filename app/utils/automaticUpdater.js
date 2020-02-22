@@ -137,7 +137,7 @@ const self = module.exports = {
             let team1Club = clubsArr.team1;
             let team2Club = clubsArr.team2;
             if (!team1Club || team1Club === null || !team2Club || team2Club === null) {
-                console.log('[Automatic Updater] - Error to find clubs by 365 name');
+                console.log('[Automatic Updater] - Error to find clubs by 365 name. team1Club = ' + team1Club + ',team2Club= ' + team2Club);
                 return Promise.resolve('getResultsJob'); // try again.
             }
             const team1 = team1Club._id.toString();
