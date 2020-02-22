@@ -1,5 +1,5 @@
 const schedule = require('node-schedule');
-const https = require('https');
+var request = require('request');
 const mockResults = require('./mock');
 const socketIo = require('./socketIo');
 const utils = require('./util');
@@ -93,21 +93,16 @@ const self = module.exports = {
     getLatestData: function () {
         return new Promise(function (resolve, reject) {
             try {
-                //resolve(JSON.stringify(mockResults));
-                https.get("https://www.telesport.co.il/ajaxactions/sportlivepage.ashx?sportLive=updateGamesLive", function (res) {
-                    let str = '';
-                    res.on('data', function (chunk) {
-                        //console.log('BODY: ' + chunk);
-                        str += chunk;
-                    });
-
-                    res.on('end', function () {
-                        resolve(str);
-                    });
-
-                    res.on('error', function (err) {
+                request({
+                    uri : 'https://www.telesport.co.il/ajaxactions/sportlivepage.ashx?sportLive=updateGamesLive'
+                }, function (error, response, body) {
+                    if (!error && response.statusCode === 200) {
+                        console.log(body); // Print the google web page.
+                        resolve(body);
+                    }else{
+                        console.log(error);
                         resolve({});
-                    });
+                    }
                 });
             } catch (e) {
                 resolve({});
