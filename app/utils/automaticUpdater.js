@@ -92,22 +92,26 @@ const self = module.exports = {
     },
     getLatestData: function () {
         return new Promise(function (resolve, reject) {
-            //resolve(JSON.stringify(mockResults));
-            https.get("https://www.telesport.co.il/ajaxactions/sportlivepage.ashx?sportLive=updateGamesLive", function (res) {
-                let str = '';
-                res.on('data', function (chunk) {
-                    //console.log('BODY: ' + chunk);
-                    str += chunk;
-                });
+            try {
+                //resolve(JSON.stringify(mockResults));
+                https.get("https://www.telesport.co.il/ajaxactions/sportlivepage.ashx?sportLive=updateGamesLive", function (res) {
+                    let str = '';
+                    res.on('data', function (chunk) {
+                        //console.log('BODY: ' + chunk);
+                        str += chunk;
+                    });
 
-                res.on('end', function () {
-                    resolve(str);
-                });
+                    res.on('end', function () {
+                        resolve(str);
+                    });
 
-                res.on('error', function (err) {
-                    resolve({});
+                    res.on('error', function (err) {
+                        resolve({});
+                    });
                 });
-            });
+            } catch (e) {
+                resolve({});
+            }
         });
     },
     getRelevantGames: function (soccerContent, competition365Arr) {
