@@ -52,7 +52,7 @@ const self = module.exports = {
                 } else {
                     console.log('[Automatic Updater] - No games to update...');
                     schedule.scheduleJob(self.getNextJobDate(), function () {
-                        self.run();
+                        self.getResultsJob()
                     });
                 }
 
