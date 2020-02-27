@@ -20,7 +20,8 @@ const self = module.exports = {
 			self.updateLeagueData(require('../initialData/leagues/19-20/Israel_19-20.json')),
 			self.updateLeagueData(require('../initialData/leagues/19-20/Spain_19-20.json')),
 			self.updateLeagueData(require('../initialData/leagues/19-20/England_19-20.json')),
-			self.updateLeagueData(require('../initialData/leagues/19-20/Italy_19-20.json'))
+			self.updateLeagueData(require('../initialData/leagues/19-20/Italy_19-20.json')),
+			self.updateLeagueData(require('../initialData/leagues/19-20/Euro_20.json'))
 		]).then(function (arr) {
 			//console.log('[Init] - Update initial data finished');
 			return Promise.resolve({});
