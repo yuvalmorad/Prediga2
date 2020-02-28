@@ -497,54 +497,54 @@
 			"_id": "6a21a7c1a3f89181074e9001",
 			"team1": "6a21a7c1a3f89181074e9001",
 			"team2": "6a21a7c1a3f89181074e9002",
-			"kickofftime": "2020-06-12T21:00:00.000Z",
+			"kickofftime": "2020-06-12T19:00:00.000Z",
 			"stadium": "Stadio Olimpico, Rome",
-			"type": "Group stage | Round 1 | Day 12",
+			"type": "Group stage | Day 1",
 			"league": "6a21a7c1a3f89181074e9762"
 		},
 		{
 			"_id": "6a21a7c1a3f89181074e9002",
 			"team1": "6a21a7c1a3f89181074e9003",
 			"team2": "6a21a7c1a3f89181074e9004",
-			"kickofftime": "2020-06-13T15:00:00.000Z",
+			"kickofftime": "2020-06-13T13:00:00.000Z",
 			"stadium": "Olympic stadium, Baku",
-			"type": "Group stage | Round 1 | Day 13",
+			"type": "Group stage | Day 2",
 			"league": "6a21a7c1a3f89181074e9762"
 		},
 		{
 			"_id": "6a21a7c1a3f89181074e9003",
 			"team1": "6a21a7c1a3f89181074e9001",
 			"team2": "6a21a7c1a3f89181074e9003",
-			"kickofftime": "2020-06-17T18:00:00.000Z",
+			"kickofftime": "2020-06-17T16:00:00.000Z",
 			"stadium": "Olympic stadium, Baku",
-			"type": "Group stage | Round 2 | Day 17",
+			"type": "Group stage | Day 6",
 			"league": "6a21a7c1a3f89181074e9762"
 		},
 		{
 			"_id": "6a21a7c1a3f89181074e9004",
 			"team1": "6a21a7c1a3f89181074e9002",
 			"team2": "6a21a7c1a3f89181074e9004",
-			"kickofftime": "2020-06-17T21:00:00.000Z",
+			"kickofftime": "2020-06-17T19:00:00.000Z",
 			"stadium": "Stadio Olimpico, Rome",
-			"type": "Group stage | Round 2 | Day 17",
+			"type": "Group stage | Day 6",
 			"league": "6a21a7c1a3f89181074e9762"
 		},
 		{
 			"_id": "6a21a7c1a3f89181074e9005",
 			"team1": "6a21a7c1a3f89181074e9004",
 			"team2": "6a21a7c1a3f89181074e9001",
-			"kickofftime": "2020-06-21T18:00:00.000Z",
+			"kickofftime": "2020-06-21T16:00:00.000Z",
 			"stadium": "Olympic stadium, Baku",
-			"type": "Group stage | Round 3 | Day 21",
+			"type": "Group stage | Day 11",
 			"league": "6a21a7c1a3f89181074e9762"
 		},
 		{
 			"_id": "6a21a7c1a3f89181074e9006",
 			"team1": "6a21a7c1a3f89181074e9002",
 			"team2": "6a21a7c1a3f89181074e9003",
-			"kickofftime": "2020-06-21T18:00:00.000Z",
+			"kickofftime": "2020-06-21T16:00:00.000Z",
 			"stadium": "Stadio Olimpico, Rome",
-			"type": "Group stage | Round 3 | Day 21",
+			"type": "Group stage | Day 11",
 			"league": "6a21a7c1a3f89181074e9762"
 		},
 
@@ -553,54 +553,54 @@
 			"_id": "6a21a7c1a3f89181074e9007",
 			"team1": "6a21a7c1a3f89181074e9005",
 			"team2": "6a21a7c1a3f89181074e9006",
-			"kickofftime": "2020-06-13T18:00:00.000Z",
+			"kickofftime": "2020-06-13T16:00:00.000Z",
 			"stadium": "Parken Stadium, Copenhagen",
-			"type": "Group stage | Round 1 | Day 13",
+			"type": "Group stage | Day 2",
 			"league": "6a21a7c1a3f89181074e9762"
 		},
 		{
 			"_id": "6a21a7c1a3f89181074e9008",
 			"team1": "6a21a7c1a3f89181074e9007",
 			"team2": "6a21a7c1a3f89181074e9008",
-			"kickofftime": "2020-06-13T21:00:00.000Z",
+			"kickofftime": "2020-06-13T19:00:00.000Z",
 			"stadium": "Krestovsky Stadium, Saint Petersburg",
-			"type": "Group stage | Round 1 | Day 13",
+			"type": "Group stage | Day 2",
 			"league": "6a21a7c1a3f89181074e9762"
 		},
 		{
 			"_id": "6a21a7c1a3f89181074e9009",
 			"team1": "6a21a7c1a3f89181074e9006",
 			"team2": "6a21a7c1a3f89181074e9008",
-			"kickofftime": "2020-06-17T15:00:00.000Z",
+			"kickofftime": "2020-06-17T13:00:00.000Z",
 			"stadium": "Krestovsky Stadium, Saint Petersburg",
-			"type": "Group stage | Round 2 | Day 17",
+			"type": "Group stage | Day 6",
 			"league": "6a21a7c1a3f89181074e9762"
 		},
 		{
 			"_id": "6a21a7c1a3f89181074e9010",
 			"team1": "6a21a7c1a3f89181074e9005",
 			"team2": "6a21a7c1a3f89181074e9007",
-			"kickofftime": "2020-06-18T18:00:00.000Z",
+			"kickofftime": "2020-06-18T16:00:00.000Z",
 			"stadium": "Parken Stadium, Copenhagen",
-			"type": "Group stage | Round 2 | Day 18",
+			"type": "Group stage | Day 7",
 			"league": "6a21a7c1a3f89181074e9762"
 		},
 		{
 			"_id": "6a21a7c1a3f89181074e9011",
 			"team1": "6a21a7c1a3f89181074e9008",
 			"team2": "6a21a7c1a3f89181074e9005",
-			"kickofftime": "2020-06-22T21:00:00.000Z",
+			"kickofftime": "2020-06-22T19:00:00.000Z",
 			"stadium": "Parken Stadium, Copenhagen",
-			"type": "Group stage | Round 3 | Day 2",
+			"type": "Group stage | Day 12",
 			"league": "6a21a7c1a3f89181074e9762"
 		},
 		{
 			"_id": "6a21a7c1a3f89181074e9012",
 			"team1": "6a21a7c1a3f89181074e9006",
 			"team2": "6a21a7c1a3f89181074e9007",
-			"kickofftime": "2020-06-22T21:00:00.000Z",
+			"kickofftime": "2020-06-22T19:00:00.000Z",
 			"stadium": "Krestovsky Stadium, Saint Petersburg",
-			"type": "Group stage | Round 3 | Day 22",
+			"type": "Group stage | Day 12",
 			"league": "6a21a7c1a3f89181074e9762"
 		},
 
@@ -610,54 +610,54 @@
 			"_id": "6a21a7c1a3f89181074e9013",
 			"team1": "6a21a7c1a3f89181074e9011",
 			"team2": "6a21a7c1a3f89181074e9012",
-			"kickofftime": "2020-06-14T18:00:00.000Z",
+			"kickofftime": "2020-06-14T16:00:00.000Z",
 			"stadium": "Arena Națională, Bucharest",
-			"type": "Group stage | Round 1 | Day 14",
+			"type": "Group stage | Day 3",
 			"league": "6a21a7c1a3f89181074e9762"
 		},
 		{
 			"_id": "6a21a7c1a3f89181074e9014",
 			"team1": "6a21a7c1a3f89181074e9009",
 			"team2": "6a21a7c1a3f89181074e9010",
-			"kickofftime": "2020-06-14T21:00:00.000Z",
+			"kickofftime": "2020-06-14T19:00:00.000Z",
 			"stadium": "Johan Cruyff Arena, Amsterdam",
-			"type": "Group stage | Round 1 | Day 14",
+			"type": "Group stage | Day 3",
 			"league": "6a21a7c1a3f89181074e9762"
 		},
 		{
 			"_id": "6a21a7c1a3f89181074e915",
 			"team1": "6a21a7c1a3f89181074e9010",
 			"team2": "6a21a7c1a3f89181074e9012",
-			"kickofftime": "2020-06-18T15:00:00.000Z",
+			"kickofftime": "2020-06-18T13:00:00.000Z",
 			"stadium": "Arena Națională, Bucharest",
-			"type": "Group stage | Round 2 | Day 18",
+			"type": "Group stage | Day 7",
 			"league": "6a21a7c1a3f89181074e9762"
 		},
 		{
 			"_id": "6a21a7c1a3f89181074e9016",
 			"team1": "6a21a7c1a3f89181074e9009",
 			"team2": "6a21a7c1a3f89181074e9011",
-			"kickofftime": "2020-06-18T21:00:00.000Z",
+			"kickofftime": "2020-06-18T19:00:00.000Z",
 			"stadium": "Johan Cruyff Arena, Amsterdam",
-			"type": "Group stage | Round 2 | Day 18",
+			"type": "Group stage | Day 7",
 			"league": "6a21a7c1a3f89181074e9762"
 		},
 		{
 			"_id": "6a21a7c1a3f89181074e9017",
 			"team1": "6a21a7c1a3f89181074e9012",
 			"team2": "6a21a7c1a3f89181074e9009",
-			"kickofftime": "2020-06-20T18:00:00.000Z",
+			"kickofftime": "2020-06-22T16:00:00.000Z",
 			"stadium": "Johan Cruyff Arena, Amsterdam",
-			"type": "Group stage | Round 3 | Day 20",
+			"type": "Group stage | Day 12",
 			"league": "6a21a7c1a3f89181074e9762"
 		},
 		{
 			"_id": "6a21a7c1a3f89181074e9018",
 			"team1": "6a21a7c1a3f89181074e9010",
 			"team2": "6a21a7c1a3f89181074e9011",
-			"kickofftime": "2020-06-20T18:00:00.000Z",
+			"kickofftime": "2020-06-22T16:00:00.000Z",
 			"stadium": "Arena Națională, Bucharest",
-			"type": "Group stage | Round 3 | Day 20",
+			"type": "Group stage | Day 12",
 			"league": "6a21a7c1a3f89181074e9762"
 		},
 
@@ -668,54 +668,54 @@
 			"_id": "6a21a7c1a3f89181074e9019",
 			"team1": "6a21a7c1a3f89181074e9013",
 			"team2": "6a21a7c1a3f89181074e9014",
-			"kickofftime": "2020-06-14T15:00:00.000Z",
+			"kickofftime": "2020-06-14T13:00:00.000Z",
 			"stadium": "Wembley Stadium, London",
-			"type": "Group stage | Round 1 | Day 14",
+			"type": "Group stage | Day 3",
 			"league": "6a21a7c1a3f89181074e9762"
 		},
 		{
 			"_id": "6a21a7c1a3f89181074e9020",
 			"team1": "6a21a7c1a3f89181074e9015",
 			"team2": "6a21a7c1a3f89181074e9016",
-			"kickofftime": "2020-06-15T15:00:00.000Z",
+			"kickofftime": "2020-06-15T13:00:00.000Z",
 			"stadium": "Hampden Park, Glasgow",
-			"type": "Group stage | Round 1 | Day 15",
+			"type": "Group stage | Day 4",
 			"league": "6a21a7c1a3f89181074e9762"
 		},
 		{
 			"_id": "6a21a7c1a3f89181074e921",
 			"team1": "6a21a7c1a3f89181074e9014",
 			"team2": "6a21a7c1a3f89181074e9016",
-			"kickofftime": "2020-06-19T18:00:00.000Z",
+			"kickofftime": "2020-06-19T16:00:00.000Z",
 			"stadium": "Hampden Park, Glasgow",
-			"type": "Group stage | Round 2 | Day 19",
+			"type": "Group stage | Day 9",
 			"league": "6a21a7c1a3f89181074e9762"
 		},
 		{
 			"_id": "6a21a7c1a3f89181074e9022",
 			"team1": "6a21a7c1a3f89181074e9013",
 			"team2": "6a21a7c1a3f89181074e9015",
-			"kickofftime": "2020-06-19T21:00:00.000Z",
+			"kickofftime": "2020-06-19T19:00:00.000Z",
 			"stadium": "Wembley Stadium, London",
-			"type": "Group stage | Round 2 | Day 19",
+			"type": "Group stage | Day 9",
 			"league": "6a21a7c1a3f89181074e9762"
 		},
 		{
 			"_id": "6a21a7c1a3f89181074e9023",
 			"team1": "6a21a7c1a3f89181074e9014",
 			"team2": "6a21a7c1a3f89181074e9015",
-			"kickofftime": "2020-06-23T21:00:00.000Z",
+			"kickofftime": "2020-06-23T19:00:00.000Z",
 			"stadium": "Hampden Park, Glasgow",
-			"type": "Group stage | Round 3 | Day 23",
+			"type": "Group stage | Day 13",
 			"league": "6a21a7c1a3f89181074e9762"
 		},
 		{
 			"_id": "6a21a7c1a3f89181074e9024",
 			"team1": "6a21a7c1a3f89181074e9016",
 			"team2": "6a21a7c1a3f89181074e9013",
-			"kickofftime": "2020-06-23T21:00:00.000Z",
+			"kickofftime": "2020-06-23T19:00:00.000Z",
 			"stadium": "Wembley Stadium, London",
-			"type": "Group stage | Round 3 | Day 23",
+			"type": "Group stage | Day 13",
 			"league": "6a21a7c1a3f89181074e9762"
 		},
 
@@ -728,54 +728,54 @@
 			"_id": "6a21a7c1a3f89181074e9025",
 			"team1": "6a21a7c1a3f89181074e9019",
 			"team2": "6a21a7c1a3f89181074e9020",
-			"kickofftime": "2020-06-15T18:00:00.000Z",
+			"kickofftime": "2020-06-15T16:00:00.000Z",
 			"stadium": "Aviva Stadium, Dublin",
-			"type": "Group stage | Round 1 | Day 15",
+			"type": "Group stage | Day 4",
 			"league": "6a21a7c1a3f89181074e9762"
 		},
 		{
 			"_id": "6a21a7c1a3f89181074e9026",
 			"team1": "6a21a7c1a3f89181074e9017",
 			"team2": "6a21a7c1a3f89181074e9018",
-			"kickofftime": "2020-06-15T21:00:00.000Z",
+			"kickofftime": "2020-06-15T19:00:00.000Z",
 			"stadium": "San Mamés, Bilbao",
-			"type": "Group stage | Round 1 | Day 15",
+			"type": "Group stage | Day 4",
 			"league": "6a21a7c1a3f89181074e9762"
 		},
 		{
 			"_id": "6a21a7c1a3f89181074e927",
 			"team1": "6a21a7c1a3f89181074e9018",
 			"team2": "6a21a7c1a3f89181074e9020",
-			"kickofftime": "2020-06-19T15:00:00.000Z",
+			"kickofftime": "2020-06-19T13:00:00.000Z",
 			"stadium": "Aviva Stadium, Dublin",
-			"type": "Group stage | Round 2 | Day 19",
+			"type": "Group stage | Day 9",
 			"league": "6a21a7c1a3f89181074e9762"
 		},
 		{
 			"_id": "6a21a7c1a3f89181074e9028",
 			"team1": "6a21a7c1a3f89181074e9017",
 			"team2": "6a21a7c1a3f89181074e9019",
-			"kickofftime": "2020-06-20T21:00:00.000Z",
+			"kickofftime": "2020-06-20T19:00:00.000Z",
 			"stadium": "San Mamés, Bilbao",
-			"type": "Group stage | Round 2 | Day 20",
+			"type": "Group stage | Day 10",
 			"league": "6a21a7c1a3f89181074e9762"
 		},
 		{
 			"_id": "6a21a7c1a3f89181074e9029",
 			"team1": "6a21a7c1a3f89181074e9020",
 			"team2": "6a21a7c1a3f89181074e9017",
-			"kickofftime": "2020-06-24T18:00:00.000Z",
+			"kickofftime": "2020-06-24T16:00:00.000Z",
 			"stadium": "San Mamés, Bilbao",
-			"type": "Group stage | Round 3 | Day 24",
+			"type": "Group stage | Day 14",
 			"league": "6a21a7c1a3f89181074e9762"
 		},
 		{
 			"_id": "6a21a7c1a3f89181074e9030",
 			"team1": "6a21a7c1a3f89181074e9018",
 			"team2": "6a21a7c1a3f89181074e9019",
-			"kickofftime": "2020-06-24T18:00:00.000Z",
+			"kickofftime": "2020-06-24T16:00:00.000Z",
 			"stadium": "Aviva Stadium, Dublin",
-			"type": "Group stage | Round 3 | Day 24",
+			"type": "Group stage | Day 14",
 			"league": "6a21a7c1a3f89181074e9762"
 		},
 
@@ -785,54 +785,54 @@
 			"_id": "6a21a7c1a3f89181074e9031",
 			"team1": "6a21a7c1a3f89181074e9021",
 			"team2": "6a21a7c1a3f89181074e9022",
-			"kickofftime": "2020-06-16T18:00:00.000Z",
+			"kickofftime": "2020-06-16T16:00:00.000Z",
 			"stadium": "Puskás Aréna, Budapest",
-			"type": "Group stage | Round 1 | Day 16",
+			"type": "Group stage | Day 5",
 			"league": "6a21a7c1a3f89181074e9762"
 		},
 		{
 			"_id": "6a21a7c1a3f89181074e9032",
 			"team1": "6a21a7c1a3f89181074e9023",
 			"team2": "6a21a7c1a3f89181074e9024",
-			"kickofftime": "2020-06-16T21:00:00.000Z",
+			"kickofftime": "2020-06-16T19:00:00.000Z",
 			"stadium": "Allianz Arena, Munich",
-			"type": "Group stage | Round 1 | Day 16",
+			"type": "Group stage | Day 5",
 			"league": "6a21a7c1a3f89181074e9762"
 		},
 		{
 			"_id": "6a21a7c1a3f89181074e933",
 			"team1": "6a21a7c1a3f89181074e9021",
 			"team2": "6a21a7c1a3f89181074e9023",
-			"kickofftime": "2020-06-20T15:00:00.000Z",
+			"kickofftime": "2020-06-20T13:00:00.000Z",
 			"stadium": "Puskás Aréna, Budapest",
-			"type": "Group stage | Round 2 | Day 20",
+			"type": "Group stage | Day 10",
 			"league": "6a21a7c1a3f89181074e9762"
 		},
 		{
 			"_id": "6a21a7c1a3f89181074e9034",
 			"team1": "6a21a7c1a3f89181074e9022",
 			"team2": "6a21a7c1a3f89181074e9024",
-			"kickofftime": "2020-06-20T18:00:00.000Z",
+			"kickofftime": "2020-06-20T16:00:00.000Z",
 			"stadium": "Allianz Arena, Munich",
-			"type": "Group stage | Round 2 | Day 20",
+			"type": "Group stage | Day 10",
 			"league": "6a21a7c1a3f89181074e9762"
 		},
 		{
 			"_id": "6a21a7c1a3f89181074e9035",
 			"team1": "6a21a7c1a3f89181074e9022",
 			"team2": "6a21a7c1a3f89181074e9023",
-			"kickofftime": "2020-06-24T21:00:00.000Z",
+			"kickofftime": "2020-06-24T19:00:00.000Z",
 			"stadium": "Puskás Aréna, Budapest",
-			"type": "Group stage | Round 3 | Day 24",
+			"type": "Group stage | Day 14",
 			"league": "6a21a7c1a3f89181074e9762"
 		},
 		{
 			"_id": "6a21a7c1a3f89181074e9036",
 			"team1": "6a21a7c1a3f89181074e9024",
 			"team2": "6a21a7c1a3f89181074e9021",
-			"kickofftime": "2020-06-24T21:00:00.000Z",
+			"kickofftime": "2020-06-24T19:00:00.000Z",
 			"stadium": "Allianz Arena, Munich",
-			"type": "Group stage | Round 3 | Day 24",
+			"type": "Group stage | Day 14",
 			"league": "6a21a7c1a3f89181074e9762"
 		},
 
@@ -843,7 +843,7 @@
 			"_id": "6a21a7c1a3f89181074e9037",
 			"team1": "Runner-up A",
 			"team2": "Runner-up B",
-			"kickofftime": "2020-06-27T18:00:00.000Z",
+			"kickofftime": "2020-06-27T16:00:00.000Z",
 			"stadium": "Johan Cruyff Arena, Amsterdam",
 			"type": "Round of 16 | part 1",
 			"league": "6a21a7c1a3f89181074e9762"
@@ -852,7 +852,7 @@
 			"_id": "6a21a7c1a3f89181074e9038",
 			"team1": "Winner A",
 			"team2": "Runner-up C",
-			"kickofftime": "2020-06-27T21:00:00.000Z",
+			"kickofftime": "2020-06-27T19:00:00.000Z",
 			"stadium": "Wembley Stadium, London",
 			"type": "Round of 16 | part 1",
 			"league": "6a21a7c1a3f89181074e9762"
@@ -861,7 +861,7 @@
 			"_id": "6a21a7c1a3f89181074e9039",
 			"team1": "Winner C",
 			"team2": "3rd Group D/E/F",
-			"kickofftime": "2020-06-28T18:00:00.000Z",
+			"kickofftime": "2020-06-28T16:00:00.000Z",
 			"stadium": "Puskás Aréna, Budapest",
 			"type": "Round of 16 | part 2",
 			"league": "6a21a7c1a3f89181074e9762"
@@ -870,7 +870,7 @@
 			"_id": "6a21a7c1a3f89181074e9040",
 			"team1": "Winner Group B",
 			"team2": "3rd Group A/D/E/F",
-			"kickofftime": "2020-06-28T21:00:00.000Z",
+			"kickofftime": "2020-06-28T19:00:00.000Z",
 			"stadium": "San Mamés, Bilbao",
 			"type": "Round of 16 | part 2",
 			"league": "6a21a7c1a3f89181074e9762"
@@ -879,7 +879,7 @@
 			"_id": "6a21a7c1a3f89181074e9041",
 			"team1": "Runner-up Group D",
 			"team2": "Runner-up Group E",
-			"kickofftime": "2020-06-29T18:00:00.000Z",
+			"kickofftime": "2020-06-29T16:00:00.000Z",
 			"stadium": "Parken Stadium, Copenhagen",
 			"type": "Round of 16 | part 3",
 			"league": "6a21a7c1a3f89181074e9762"
@@ -888,7 +888,7 @@
 			"_id": "6a21a7c1a3f89181074e9042",
 			"team1": "Winner Group F",
 			"team2": "3rd Group A/B/C",
-			"kickofftime": "2020-06-29T21:00:00.000Z",
+			"kickofftime": "2020-06-29T19:00:00.000Z",
 			"stadium": "Arena Națională, Bucharest",
 			"type": "Round of 16 | part 3",
 			"league": "6a21a7c1a3f89181074e9762"
@@ -897,7 +897,7 @@
 			"_id": "6a21a7c1a3f89181074e9043",
 			"team1": "Winner Group D",
 			"team2": "Runner-up Group F",
-			"kickofftime": "2020-06-30T18:00:00.000Z",
+			"kickofftime": "2020-06-30T16:00:00.000Z",
 			"stadium": "Aviva Stadium, Dublin",
 			"type": "Round of 16 | part 4",
 			"league": "6a21a7c1a3f89181074e9762"
@@ -906,7 +906,7 @@
 			"_id": "6a21a7c1a3f89181074e9044",
 			"team1": "Winner Group E",
 			"team2": "3rd Group A/B/C/D",
-			"kickofftime": "2020-06-30T21:00:00.000Z",
+			"kickofftime": "2020-06-30T19:00:00.000Z",
 			"stadium": "Hampden Park, Glasgow",
 			"type": "Round of 16 | part 4",
 			"league": "6a21a7c1a3f89181074e9762"
@@ -921,7 +921,7 @@
 			"_id": "6a21a7c1a3f89181074e9045",
 			"team1": "Winner Match 41",
 			"team2": "Winner Match 42",
-			"kickofftime": "2020-07-03T18:00:00.000Z",
+			"kickofftime": "2020-07-03T16:00:00.000Z",
 			"stadium": "Krestovsky Stadium, Saint Petersburg",
 			"type": "Quarter-finals",
 			"league": "6a21a7c1a3f89181074e9762"
@@ -930,7 +930,7 @@
 			"_id": "6a21a7c1a3f89181074e9046",
 			"team1": "Winner Match 39",
 			"team2": "Winner Match 37",
-			"kickofftime": "2020-07-03T21:00:00.000Z",
+			"kickofftime": "2020-07-03T19:00:00.000Z",
 			"stadium": "Allianz Arena, Munich",
 			"type": "Quarter-finals",
 			"league": "6a21a7c1a3f89181074e9762"
@@ -939,7 +939,7 @@
 			"_id": "6a21a7c1a3f89181074e9047",
 			"team1": "Winner Match 40",
 			"team2": "Winner Match 38",
-			"kickofftime": "2020-07-04T18:00:00.000Z",
+			"kickofftime": "2020-07-04T16:00:00.000Z",
 			"stadium": "Olympic Stadium, Baku",
 			"type": "Quarter-finals",
 			"league": "6a21a7c1a3f89181074e9762"
@@ -948,7 +948,7 @@
 			"_id": "6a21a7c1a3f89181074e9048",
 			"team1": "Winner Match 43",
 			"team2": "Winner Match 44",
-			"kickofftime": "2020-07-04T21:00:00.000Z",
+			"kickofftime": "2020-07-04T19:00:00.000Z",
 			"stadium": "Stadio Olimpico, Rome",
 			"type": "Quarter-finals",
 			"league": "6a21a7c1a3f89181074e9762"
@@ -959,7 +959,7 @@
 			"_id": "6a21a7c1a3f89181074e9049",
 			"team1": "Winner Match 46",
 			"team2": "Winner Match 45",
-			"kickofftime": "2020-07-07T21:00:00.000Z",
+			"kickofftime": "2020-07-07T19:00:00.000Z",
 			"stadium": "Wembley Stadium, London",
 			"type": "Semi-finals",
 			"league": "6a21a7c1a3f89181074e9762"
@@ -968,7 +968,7 @@
 			"_id": "6a21a7c1a3f89181074e9050",
 			"team1": "Winner Match 48",
 			"team2": "Winner Match 47",
-			"kickofftime": "2020-07-08T21:00:00.000Z",
+			"kickofftime": "2020-07-08T19:00:00.000Z",
 			"stadium": "Wembley Stadium, London",
 			"type": "Semi-finals",
 			"league": "6a21a7c1a3f89181074e9762"
@@ -979,7 +979,7 @@
 			"_id": "6a21a7c1a3f89181074e9051",
 			"team1": "Winner Match 49",
 			"team2": "Winner Match 50",
-			"kickofftime": "2020-07-12T21:00:00.000Z",
+			"kickofftime": "2020-07-12T19:00:00.000Z",
 			"stadium": "Wembley Stadium, London",
 			"type": "Final",
 			"league": "6a21a7c1a3f89181074e9762"
@@ -992,7 +992,7 @@
 			"_id": "6a21a7c1a3f89181074e9001",
 			"title": "1st place",
 			"type": "teamWinner",
-			"deadline": "2020-06-12T18:00:00.000Z",
+			"deadline": "2020-06-12T16:00:00.000Z",
 			"league": "6a21a7c1a3f89181074e9762",
 			"options": [],
 			"resultTime": "2020-07-12T23:59:00.000Z",
@@ -1002,7 +1002,7 @@
 			"_id": "6a21a7c1a3f89181074e9002",
 			"title": "2nd place",
 			"type": "teamRunnerUp",
-			"deadline": "2020-06-12T18:00:00.000Z",
+			"deadline": "2020-06-12T16:00:00.000Z",
 			"league": "6a21a7c1a3f89181074e9762",
 			"options": [],
 			"resultTime": "2020-07-12T23:59:00.000Z",
@@ -1012,7 +1012,7 @@
 			"_id": "6a21a7c1a3f89181074e9003",
 			"title": "1st place Group A",
 			"type": "teamInGroup",
-			"deadline": "2020-06-12T18:00:00.000Z",
+			"deadline": "2020-06-12T16:00:00.000Z",
 			"league": "6a21a7c1a3f89181074e9762",
 			"options": [
 				"2a21a7c1a3f89181074e9789",
@@ -1027,7 +1027,7 @@
 			"_id": "6a21a7c1a3f89181074e9004",
 			"title": "2nd place Group A",
 			"type": "teamInGroup",
-			"deadline": "2020-06-12T18:00:00.000Z",
+			"deadline": "2020-06-12T16:00:00.000Z",
 			"league": "6a21a7c1a3f89181074e9762",
 			"options": [
 				"2a21a7c1a3f89181074e9789",
@@ -1042,7 +1042,7 @@
 			"_id": "6a21a7c1a3f89181074e9005",
 			"title": "1st place Group B",
 			"type": "teamInGroup",
-			"deadline": "2020-06-12T18:00:00.000Z",
+			"deadline": "2020-06-12T16:00:00.000Z",
 			"league": "6a21a7c1a3f89181074e9762",
 			"options": [
 				"2a21a7c1a3f89181074e9785",
@@ -1057,7 +1057,7 @@
 			"_id": "6a21a7c1a3f89181074e9006",
 			"title": "2nd place Group B",
 			"type": "teamInGroup",
-			"deadline": "2020-06-12T18:00:00.000Z",
+			"deadline": "2020-06-12T16:00:00.000Z",
 			"league": "6a21a7c1a3f89181074e9762",
 			"options": [
 				"2a21a7c1a3f89181074e9785",
@@ -1072,7 +1072,7 @@
 			"_id": "6a21a7c1a3f89181074e9007",
 			"title": "1st place Group C",
 			"type": "teamInGroup",
-			"deadline": "2020-06-12T18:00:00.000Z",
+			"deadline": "2020-06-12T16:00:00.000Z",
 			"league": "6a21a7c1a3f89181074e9762",
 			"options": [
 				"2a21a7c1a3f89181074e9784",
@@ -1087,7 +1087,7 @@
 			"_id": "6a21a7c1a3f89181074e9008",
 			"title": "2nd place Group C",
 			"type": "teamInGroup",
-			"deadline": "2020-06-12T18:00:00.000Z",
+			"deadline": "2020-06-12T16:00:00.000Z",
 			"league": "6a21a7c1a3f89181074e9762",
 			"options": [
 				"2a21a7c1a3f89181074e9784",
@@ -1102,7 +1102,7 @@
 			"_id": "6a21a7c1a3f89181074e9009",
 			"title": "1st place Group D",
 			"type": "teamInGroup",
-			"deadline": "2020-06-12T18:00:00.000Z",
+			"deadline": "2020-06-12T16:00:00.000Z",
 			"league": "6a21a7c1a3f89181074e9762",
 			"options": [
 				"2a21a7c1a3f89181074e9762",
@@ -1117,7 +1117,7 @@
 			"_id": "6a21a7c1a3f89181074e9010",
 			"title": "2nd place Group D",
 			"type": "teamInGroup",
-			"deadline": "2020-06-12T18:00:00.000Z",
+			"deadline": "2020-06-12T16:00:00.000Z",
 			"league": "6a21a7c1a3f89181074e9762",
 			"options": [
 				"2a21a7c1a3f89181074e9762",
@@ -1132,7 +1132,7 @@
 			"_id": "6a21a7c1a3f89181074e9011",
 			"title": "1st place Group E",
 			"type": "teamInGroup",
-			"deadline": "2020-06-12T18:00:00.000Z",
+			"deadline": "2020-06-12T16:00:00.000Z",
 			"league": "6a21a7c1a3f89181074e9762",
 			"options": [
 				"2a21a7c1a3f89181074e9763",
@@ -1147,7 +1147,7 @@
 			"_id": "6a21a7c1a3f89181074e9012",
 			"title": "2nd place Group E",
 			"type": "teamInGroup",
-			"deadline": "2020-06-12T18:00:00.000Z",
+			"deadline": "2020-06-12T16:00:00.000Z",
 			"league": "6a21a7c1a3f89181074e9762",
 			"options": [
 				"2a21a7c1a3f89181074e9763",
@@ -1162,7 +1162,7 @@
 			"_id": "6a21a7c1a3f89181074e9013",
 			"title": "1st place Group F",
 			"type": "teamInGroup",
-			"deadline": "2020-06-12T18:00:00.000Z",
+			"deadline": "2020-06-12T16:00:00.000Z",
 			"league": "6a21a7c1a3f89181074e9762",
 			"options": [
 				"2a21a7c1a3f89181074e9775",
@@ -1177,7 +1177,7 @@
 			"_id": "6a21a7c1a3f89181074e9014",
 			"title": "2nd place Group F",
 			"type": "teamInGroup",
-			"deadline": "2020-06-12T18:00:00.000Z",
+			"deadline": "2020-06-12T16:00:00.000Z",
 			"league": "6a21a7c1a3f89181074e9762",
 			"options": [
 				"2a21a7c1a3f89181074e9775",
