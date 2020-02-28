@@ -8,7 +8,9 @@ const self = module.exports = {
 			return Match.findOneAndUpdate({_id: match._id}, match, util.updateSettings).then(function (newMatch) {
 					return Promise.resolve(newMatch);
 				}
-			);
+			).catch(function (err) {
+                console.log(err);
+            });
 		});
 		return Promise.all(promises);
 	},
