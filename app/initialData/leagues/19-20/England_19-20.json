@@ -5,7 +5,7 @@
     "logoPosition": "-56px -336px",
     "year": "2019/2020",
     "competition365": 90,
-    "syncResults365": true,
+    "syncResults365": false,
     "updateUrl": "http://www.sport5.co.il/Ajax/GetCycleTeamGamesPopup.aspx?LSnum=9950",
     "leagueFirstMatchDate": "2018-08-11T00:00:00.000Z",
     "clubs": [
