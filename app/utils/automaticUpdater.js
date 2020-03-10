@@ -250,10 +250,10 @@ const self = module.exports = {
                 var p1Scored = 999;
                 var p2Scored = 999;
                 let p1GoalsEvents = relevantGame.twoPVSI.p1_events.filter(function (anEvent) {
-                    return anEvent.type === 1;
+                    return anEvent.type === 1 || anEvent.type === 3;
                 });
                 let p2GoalsEvents = relevantGame.twoPVSI.p2_events.filter(function (anEvent) {
-                    return anEvent.type === 1;
+                    return anEvent.type === 1 || anEvent.type === 3;
                 });
                 if (p1GoalsEvents && p1GoalsEvents.length > 0) {
                     p1Scored = p1GoalsEvents[0].extraParam;
