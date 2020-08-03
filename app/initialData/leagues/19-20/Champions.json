@@ -452,7 +452,7 @@
 			"_id": "1a21a7c1a3f89181074e9871",
 			"team1": "1a21a7c1a3f89181074e9970",
 			"team2": "1a21a7c1a3f89181074e9789",
-			"kickofftime": "2020-03-18T20:00:00.000Z",
+			"kickofftime": "2020-08-08T20:00:00.000Z",
 			"stadium": "Bayern",
 			"type": "Round of 16 - leg 2 (B)",
 			"league": "1a21a7c1a3f89181074e9769"
@@ -470,7 +470,7 @@
 			"_id": "1a21a7c1a3f89181074e9873",
 			"team1": "1a21a7c1a3f89181074e9887",
 			"team2": "4a21a7c1a3f89181074e9873",
-			"kickofftime": "2020-03-18T20:00:00.000Z",
+			"kickofftime": "2020-08-08T20:00:00.000Z",
 			"stadium": "Barcelona",
 			"type": "Round of 16 - leg 2 (B)",
 			"league": "1a21a7c1a3f89181074e9769"
@@ -488,7 +488,7 @@
 			"_id": "1a21a7c1a3f89181074e9875",
 			"team1": "4a21a7c1a3f89181074e9869",
 			"team2": "1a21a7c1a3f89181074e9973",
-			"kickofftime": "2020-03-17T20:00:00.000Z",
+			"kickofftime": "2020-08-07T20:00:00.000Z",
 			"stadium": "Juventus",
 			"type": "Round of 16 - leg 2 (B)",
 			"league": "1a21a7c1a3f89181074e9769"
@@ -506,26 +506,26 @@
 			"_id": "1a21a7c1a3f89181074e9877",
 			"team1": "1a21a7c1a3f89181074e9786",
 			"team2": "1a21a7c1a3f89181074e9886",
-			"kickofftime": "2020-03-17T20:00:00.000Z",
+			"kickofftime": "2020-08-07T19:00:00.000Z",
 			"stadium": "Vodafone Park, Istanbul",
 			"type": "Round of 16 - leg 2 (B)",
 			"league": "1a21a7c1a3f89181074e9769"
 		},
 		{
 			"_id": "1a21a7c1a3f89181074e9878",
-			"team1": "?",
-			"team2": "?",
-			"kickofftime": "2020-04-07T19:00:00.000Z",
-			"stadium": "?",
+			"team1": "4a21a7c1a3f89181074e9864",
+			"team2": "1a21a7c1a3f89181074e9964",
+			"kickofftime": "2020-08-12T19:00:00.000Z",
+			"stadium": "Lisbon",
 			"type": "Quarter-finals - leg 1",
 			"league": "1a21a7c1a3f89181074e9769"
 		},
 		{
 			"_id": "1a21a7c1a3f89181074e9879",
-			"team1": "?",
-			"team2": "?",
-			"kickofftime": "2020-04-07T19:00:00.000Z",
-			"stadium": "?",
+			"team1": "1a21a7c1a3f89181074e9968",
+			"team2": "1a21a7c1a3f89181074e9865",
+			"kickofftime": "2020-08-13T19:00:00.000Z",
+			"stadium": "Lisbon",
 			"type": "Quarter-finals - leg 1",
 			"league": "1a21a7c1a3f89181074e9769"
 		},
@@ -533,8 +533,8 @@
 			"_id": "1a21a7c1a3f89181074e9880",
 			"team1": "?",
 			"team2": ">",
-			"kickofftime": "2020-04-08T19:00:00.000Z",
-			"stadium": "?",
+			"kickofftime": "2020-08-14T19:00:00.000Z",
+			"stadium": "Lisbon",
 			"type": "Quarter-finals - leg 1",
 			"league": "1a21a7c1a3f89181074e9769"
 		},
@@ -542,53 +542,17 @@
 			"_id": "1a21a7c1a3f89181074e9881",
 			"team1": "?",
 			"team2": "?",
-			"kickofftime": "2020-04-08T19:00:00.000Z",
-			"stadium": "?",
+			"kickofftime": "2020-08-15T19:00:00.000Z",
+			"stadium": "Lisbon",
 			"type": "Quarter-finals - leg 1",
-			"league": "1a21a7c1a3f89181074e9769"
-		},
-		{
-			"_id": "1a21a7c1a3f89181074e9882",
-			"team1": "?",
-			"team2": "?",
-			"kickofftime": "2020-04-14T19:00:00.000Z",
-			"stadium": "?",
-			"type": "Quarter-finals - leg 2",
-			"league": "1a21a7c1a3f89181074e9769"
-		},
-		{
-			"_id": "1a21a7c1a3f89181074e9883",
-			"team1": "?",
-			"team2": "?",
-			"kickofftime": "2020-04-14T19:00:00.000Z",
-			"stadium": "?",
-			"type": "Quarter-finals - leg 2",
-			"league": "1a21a7c1a3f89181074e9769"
-		},
-		{
-			"_id": "1a21a7c1a3f89181074e9884",
-			"team1": "?",
-			"team2": "?",
-			"kickofftime": "2020-04-14T19:00:00.000Z",
-			"stadium": "?",
-			"type": "Quarter-finals - leg 2",
-			"league": "1a21a7c1a3f89181074e9769"
-		},
-		{
-			"_id": "1a21a7c1a3f89181074e9885",
-			"team1": "?",
-			"team2": "?",
-			"kickofftime": "2020-04-14T19:00:00.000Z",
-			"stadium": "?",
-			"type": "Quarter-finals - leg 2",
 			"league": "1a21a7c1a3f89181074e9769"
 		},
 		{
 			"_id": "1a21a7c1a3f89181074e9886",
 			"team1": "?",
 			"team2": "?",
-			"kickofftime": "2020-04-28T19:00:00.000Z",
-			"stadium": "?",
+			"kickofftime": "2020-08-18T19:00:00.000Z",
+			"stadium": "Lisbon",
 			"type": "Semi-finals - leg 1",
 			"league": "1a21a7c1a3f89181074e9769"
 		},
@@ -596,35 +560,17 @@
 			"_id": "1a21a7c1a3f89181074e9887",
 			"team1": "?",
 			"team2": "?",
-			"kickofftime": "2020-04-29T19:00:00.000Z",
-			"stadium": "?",
+			"kickofftime": "2020-08-19T19:00:00.000Z",
+			"stadium": "Lisbon",
 			"type": "Semi-finals - leg 1",
-			"league": "1a21a7c1a3f89181074e9769"
-		},
-		{
-			"_id": "1a21a7c1a3f89181074e9888",
-			"team1": "?",
-			"team2": "?",
-			"kickofftime": "2020-05-05T19:00:00.000Z",
-			"stadium": "?",
-			"type": "Semi-finals - leg 2",
-			"league": "1a21a7c1a3f89181074e9769"
-		},
-		{
-			"_id": "1a21a7c1a3f89181074e9889",
-			"team1": "?",
-			"team2": "?",
-			"kickofftime": "2020-05-06T19:00:00.000Z",
-			"stadium": "?",
-			"type": "Semi-finals - leg 2",
 			"league": "1a21a7c1a3f89181074e9769"
 		},
 		{
 			"_id": "1a21a7c1a3f89181074e9890",
 			"team1": "?",
 			"team2": "?",
-			"kickofftime": "2020-05-30T20:00:00.000Z",
-			"stadium": "Ataturk, Istanbul",
+			"kickofftime": "2020-08-23T19:00:00.000Z",
+			"stadium": "Lisbon",
 			"type": "Final",
 			"league": "1a21a7c1a3f89181074e9769"
 		}
