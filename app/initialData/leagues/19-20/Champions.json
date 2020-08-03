@@ -452,7 +452,7 @@
 			"_id": "1a21a7c1a3f89181074e9871",
 			"team1": "1a21a7c1a3f89181074e9970",
 			"team2": "1a21a7c1a3f89181074e9789",
-			"kickofftime": "2020-08-08T20:00:00.000Z",
+			"kickofftime": "2020-08-08T19:00:00.000Z",
 			"stadium": "Bayern",
 			"type": "Round of 16 - leg 2 (B)",
 			"league": "1a21a7c1a3f89181074e9769"
@@ -470,7 +470,7 @@
 			"_id": "1a21a7c1a3f89181074e9873",
 			"team1": "1a21a7c1a3f89181074e9887",
 			"team2": "4a21a7c1a3f89181074e9873",
-			"kickofftime": "2020-08-08T20:00:00.000Z",
+			"kickofftime": "2020-08-08T19:00:00.000Z",
 			"stadium": "Barcelona",
 			"type": "Round of 16 - leg 2 (B)",
 			"league": "1a21a7c1a3f89181074e9769"
@@ -488,7 +488,7 @@
 			"_id": "1a21a7c1a3f89181074e9875",
 			"team1": "4a21a7c1a3f89181074e9869",
 			"team2": "1a21a7c1a3f89181074e9973",
-			"kickofftime": "2020-08-07T20:00:00.000Z",
+			"kickofftime": "2020-08-07T19:00:00.000Z",
 			"stadium": "Juventus",
 			"type": "Round of 16 - leg 2 (B)",
 			"league": "1a21a7c1a3f89181074e9769"
