@@ -549,8 +549,8 @@
 		},
 		{
 			"_id": "1a21a7c1a3f89181074e9886",
-			"team1": "?",
-			"team2": "?",
+			"team1": "1a21a7c1a3f89181074e9968",
+			"team2": "1a21a7c1a3f89181074e9964",
 			"kickofftime": "2020-08-18T19:00:00.000Z",
 			"stadium": "Lisbon",
 			"type": "Semi-finals - leg 1",
@@ -559,7 +559,7 @@
 		{
 			"_id": "1a21a7c1a3f89181074e9887",
 			"team1": "?",
-			"team2": "?",
+			"team2": "1a21a7c1a3f89181074e9970",
 			"kickofftime": "2020-08-19T19:00:00.000Z",
 			"stadium": "Lisbon",
 			"type": "Semi-finals - leg 1",
