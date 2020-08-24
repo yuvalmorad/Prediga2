@@ -610,5 +610,11 @@
 		}
 	],
 	"teamResults": [
+		{
+			"teamId": "5a1342399017dfc4e2faf694",
+			"team": "1a21a7c1a3f89181074e9970",
+			"type": "teamWinner",
+			"resultTime": "2020-08-24T20:00:00.000Z"
+		}
 	]
 }
