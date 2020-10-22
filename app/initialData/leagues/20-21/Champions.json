@@ -800,11 +800,6 @@
 			"type": "Group G - leg 6",
 			"league": "1a21a7c1a3f89181074e9769"
 		},
-		// group H
-		// 1a21a7c1a3f89181074e1028 LEI
-		// 1a21a7c1a3f89181074e1029 MAN
-		// 1a21a7c1a3f89181074e1030 PSG
-		// 1a21a7c1a3f89181074e1031 BAS
 		{
 			"_id": "1a21a7c1a3f89181074e1071",
 			"team1": "1a21a7c1a3f89181074e1030",
