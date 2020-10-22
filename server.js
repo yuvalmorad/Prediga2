@@ -15,7 +15,6 @@ let session = require('express-session');
 let sslRedirect = require('heroku-ssl-redirect');
 let GroupService = require('./app/services/groupService');
 // configuration ===============================================================
-//var remoteAtlas = 'mongodb+srv://admin:EZhnhzKULVu1jAcs@cluster0.xp0co.mongodb.net/prediga?retryWrites=true&w=majority';
 let mongoURI = port !== 3000 ? process.env.MONGOLAB_BRONZE_URI : 'mongodb://localhost:27017/prediga';
 console.log('using mongodb url:' + mongoURI);
 mongoose
