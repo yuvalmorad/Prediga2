@@ -94,10 +94,10 @@ const self = module.exports = {
         return new Promise(function (resolve, reject) {
             try {
                 request({
-                    uri : 'https://www.telesport.co.il/ajaxactions/sportlivepage.ashx?sportLive=updateGamesLive'
+                    uri : utils.AUTOMATIC_UPDATE_URL
                 }, function (error, response, body) {
                     if (!error && response.statusCode === 200) {
-                        console.log(body); // Print the google web page.
+                        //console.log(body); // Print
                         resolve(body);
                     }else{
                         console.log(error);
@@ -132,7 +132,7 @@ const self = module.exports = {
             return Promise.resolve('getResultsJob'); // not relevant yet.
         }
 
-        return clubService.findClubsBy365Name(relevantGame).then(function (clubsArr) {
+        return clubService.findClubsBySport5Name.then(function (clubsArr) {
             let team1Club = clubsArr.team1;
             let team2Club = clubsArr.team2;
             if (!team1Club || team1Club === null || !team2Club || team2Club === null) {

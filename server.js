@@ -15,13 +15,14 @@ let session = require('express-session');
 let sslRedirect = require('heroku-ssl-redirect');
 let GroupService = require('./app/services/groupService');
 // configuration ===============================================================
-let configDB = port !== 3000 ? process.env.MONGOLAB_BRONZE_URI : 'mongodb://localhost:27017/prediga';
-let clientFolder = port === 3000 ? (__dirname + "/public") : (__dirname + "/build");
-console.log('using mongodb url -' + configDB);
-mongoose.connect(configDB, function (err) {
-    if (err) console.log('[Init] Unable to connect to DB ' + err);
-    else console.log('[Init] Connection to DB finished')
-}); // connect to our database
+//var remoteAtlas = 'mongodb+srv://admin:EZhnhzKULVu1jAcs@cluster0.xp0co.mongodb.net/prediga?retryWrites=true&w=majority';
+let mongoURI = port !== 3000 ? process.env.MONGOLAB_BRONZE_URI : 'mongodb://localhost:27017/prediga';
+console.log('using mongodb url:' + mongoURI);
+mongoose
+    .connect(mongoURI, {useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true})
+    .then(() => console.log('Database Connected'))
+    .catch(err => console.log(err));
+
 let configGooglePassport = port !== 3000 ? 'googleAuth' : 'googleAuth-local';
 require('./config/passport')(passport, configGooglePassport); // pass passport for configuration
 
@@ -31,6 +32,7 @@ app.use(morgan('dev')); // log every request to the console
 app.use(cookieParser()); // read cookies (needed for auth)
 app.use(bodyParser.json()); // get information from html forms
 app.use(bodyParser.urlencoded({extended: true}));
+let clientFolder = port === 3000 ? (__dirname + "/public") : (__dirname + "/build");
 app.use(express.static(clientFolder));
 
 // required for passport

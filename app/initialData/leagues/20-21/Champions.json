@@ -1,0 +1,953 @@
+{
+	"league": {
+		"_id": "1a21a7c1a3f89181074e9769",
+		"name": "Champions",
+		"logoPosition": "-896px 0px",
+		"year": "2020/2021",
+		"competition365": 62,
+		"syncResults365": true,
+		"leagueFirstMatchDate": "2020-10-21T20:00:00.000Z",
+		"clubs": [
+			"1a21a7c1a3f89181074e1000",
+			"1a21a7c1a3f89181074e1001",
+			"1a21a7c1a3f89181074e1002",
+			"1a21a7c1a3f89181074e1003",
+			"1a21a7c1a3f89181074e1004",
+			"1a21a7c1a3f89181074e1005",
+			"1a21a7c1a3f89181074e1006",
+			"1a21a7c1a3f89181074e1007",
+			"1a21a7c1a3f89181074e1008",
+			"1a21a7c1a3f89181074e1009",
+			"1a21a7c1a3f89181074e1010",
+			"1a21a7c1a3f89181074e1011",
+			"1a21a7c1a3f89181074e1012",
+			"1a21a7c1a3f89181074e1013",
+			"1a21a7c1a3f89181074e1014",
+			"1a21a7c1a3f89181074e1015",
+			"1a21a7c1a3f89181074e1016",
+			"1a21a7c1a3f89181074e1017",
+			"1a21a7c1a3f89181074e1018",
+			"1a21a7c1a3f89181074e1019",
+			"1a21a7c1a3f89181074e1020",
+			"1a21a7c1a3f89181074e1021",
+			"1a21a7c1a3f89181074e1022",
+			"1a21a7c1a3f89181074e1023",
+			"1a21a7c1a3f89181074e1024",
+			"1a21a7c1a3f89181074e1025",
+			"1a21a7c1a3f89181074e1026",
+			"1a21a7c1a3f89181074e1027",
+			"1a21a7c1a3f89181074e1028",
+			"1a21a7c1a3f89181074e1029",
+			"1a21a7c1a3f89181074e1030",
+			"1a21a7c1a3f89181074e1031"
+		],
+		"color": "#3d195b"
+	},
+	"matches": [
+		{
+			"_id": "1a21a7c1a3f89181074e1000",
+			"team1": "1a21a7c1a3f89181074e1002",
+			"team2": "1a21a7c1a3f89181074e1001",
+			"kickofftime": "2020-10-21T17:55:00.000Z",
+			"stadium": "Salzburg",
+			"type": "Group A - leg 1",
+			"league": "1a21a7c1a3f89181074e9769"
+		},
+		{
+			"_id": "1a21a7c1a3f89181074e1001",
+			"team1": "1a21a7c1a3f89181074e1000",
+			"team2": "1a21a7c1a3f89181074e1003",
+			"kickofftime": "2020-10-21T20:00:00.000Z",
+			"stadium": "Munich",
+			"type": "Group A - leg 1",
+			"league": "1a21a7c1a3f89181074e9769"
+		},
+		{
+			"_id": "1a21a7c1a3f89181074e1002",
+			"team1": "1a21a7c1a3f89181074e1001",
+			"team2": "1a21a7c1a3f89181074e1000",
+			"kickofftime": "2020-10-27T17:55:00.000Z",
+			"stadium": "Moscow",
+			"type": "Group A - leg 2",
+			"league": "1a21a7c1a3f89181074e9769"
+		},
+		{
+			"_id": "1a21a7c1a3f89181074e1003",
+			"team1": "1a21a7c1a3f89181074e1003",
+			"team2": "1a21a7c1a3f89181074e1002",
+			"kickofftime": "2020-10-27T20:00:00.000Z",
+			"stadium": "Madrid",
+			"type": "Group A - leg 2",
+			"league": "1a21a7c1a3f89181074e9769"
+		},
+		{
+			"_id": "1a21a7c1a3f89181074e1004",
+			"team1": "1a21a7c1a3f89181074e1001",
+			"team2": "1a21a7c1a3f89181074e1003",
+			"kickofftime": "2020-11-03T17:55:00.000Z",
+			"stadium": "Moscow",
+			"type": "Group A - leg 3",
+			"league": "1a21a7c1a3f89181074e9769"
+		},
+		{
+			"_id": "1a21a7c1a3f89181074e1005",
+			"team1": "1a21a7c1a3f89181074e1002",
+			"team2": "1a21a7c1a3f89181074e1000",
+			"kickofftime": "2020-11-03T20:00:00.000Z",
+			"stadium": "Salzburg",
+			"type": "Group A - leg 3",
+			"league": "1a21a7c1a3f89181074e9769"
+		},
+		{
+			"_id": "1a21a7c1a3f89181074e1006",
+			"team1": "1a21a7c1a3f89181074e1000",
+			"team2": "1a21a7c1a3f89181074e1002",
+			"kickofftime": "2020-11-25T20:00:00.000Z",
+			"stadium": "Munich",
+			"type": "Group A - leg 4",
+			"league": "1a21a7c1a3f89181074e9769"
+		},
+		{
+			"_id": "1a21a7c1a3f89181074e1007",
+			"team1": "1a21a7c1a3f89181074e1003",
+			"team2": "1a21a7c1a3f89181074e1001",
+			"kickofftime": "2020-11-25T20:00:00.000Z",
+			"stadium": "Madrid",
+			"type": "Group A - leg 4",
+			"league": "1a21a7c1a3f89181074e9769"
+		},
+		{
+			"_id": "1a21a7c1a3f89181074e1008",
+			"team1": "1a21a7c1a3f89181074e1001",
+			"team2": "1a21a7c1a3f89181074e1002",
+			"kickofftime": "2020-12-01T17:55:00.000Z",
+			"stadium": "Moscow",
+			"type": "Group A - leg 5",
+			"league": "1a21a7c1a3f89181074e9769"
+		},
+		{
+			"_id": "1a21a7c1a3f89181074e1009",
+			"team1": "1a21a7c1a3f89181074e1003",
+			"team2": "1a21a7c1a3f89181074e1000",
+			"kickofftime": "2020-12-01T20:00:00.000Z",
+			"stadium": "Madrid",
+			"type": "Group A - leg 5",
+			"league": "1a21a7c1a3f89181074e9769"
+		},
+		{
+			"_id": "1a21a7c1a3f89181074e1010",
+			"team1": "1a21a7c1a3f89181074e1000",
+			"team2": "1a21a7c1a3f89181074e1001",
+			"kickofftime": "2020-12-09T20:00:00.000Z",
+			"stadium": "Munich",
+			"type": "Group A - leg 6",
+			"league": "1a21a7c1a3f89181074e9769"
+		},
+		{
+			"_id": "1a21a7c1a3f89181074e1011",
+			"team1": "1a21a7c1a3f89181074e1002",
+			"team2": "1a21a7c1a3f89181074e1003",
+			"kickofftime": "2020-12-09T20:00:00.000Z",
+			"stadium": "Salzburg",
+			"type": "Group A - leg 6",
+			"league": "1a21a7c1a3f89181074e9769"
+		},
+		{
+			"_id": "1a21a7c1a3f89181074e1012",
+			"team1": "1a21a7c1a3f89181074e1007",
+			"team2": "1a21a7c1a3f89181074e1004",
+			"kickofftime": "2020-10-21T17:55:00.000Z",
+			"stadium": "Madrid",
+			"type": "Group B - leg 1",
+			"league": "1a21a7c1a3f89181074e9769"
+		},
+		{
+			"_id": "1a21a7c1a3f89181074e1013",
+			"team1": "1a21a7c1a3f89181074e1006",
+			"team2": "1a21a7c1a3f89181074e1005",
+			"kickofftime": "2020-10-21T20:00:00.000Z",
+			"stadium": "Milan",
+			"type": "Group B - leg 1",
+			"league": "1a21a7c1a3f89181074e9769"
+		},
+		{
+			"_id": "1a21a7c1a3f89181074e1014",
+			"team1": "1a21a7c1a3f89181074e1004",
+			"team2": "1a21a7c1a3f89181074e1006",
+			"kickofftime": "2020-10-27T17:55:00.000Z",
+			"stadium": "Kyiv",
+			"type": "Group B - leg 2",
+			"league": "1a21a7c1a3f89181074e9769"
+		},
+		{
+			"_id": "1a21a7c1a3f89181074e1015",
+			"team1": "1a21a7c1a3f89181074e1005",
+			"team2": "1a21a7c1a3f89181074e1007",
+			"kickofftime": "2020-10-27T20:00:00.000Z",
+			"stadium": "Monchengladbach",
+			"type": "Group B - leg 2",
+			"league": "1a21a7c1a3f89181074e9769"
+		},
+		{
+			"_id": "1a21a7c1a3f89181074e1016",
+			"team1": "1a21a7c1a3f89181074e1004",
+			"team2": "1a21a7c1a3f89181074e1005",
+			"kickofftime": "2020-11-03T17:55:00.000Z",
+			"stadium": "Kyiv",
+			"type": "Group B - leg 3",
+			"league": "1a21a7c1a3f89181074e9769"
+		},
+		{
+			"_id": "1a21a7c1a3f89181074e1017",
+			"team1": "1a21a7c1a3f89181074e1007",
+			"team2": "1a21a7c1a3f89181074e1006",
+			"kickofftime": "2020-11-03T20:00:00.000Z",
+			"stadium": "Madrid",
+			"type": "Group B - leg 3",
+			"league": "1a21a7c1a3f89181074e9769"
+		},
+		{
+			"_id": "1a21a7c1a3f89181074e1018",
+			"team1": "1a21a7c1a3f89181074e1005",
+			"team2": "1a21a7c1a3f89181074e1004",
+			"kickofftime": "2020-11-25T17:55:00.000Z",
+			"stadium": "Monchengladbach",
+			"type": "Group B - leg 4",
+			"league": "1a21a7c1a3f89181074e9769"
+		},
+		{
+			"_id": "1a21a7c1a3f89181074e1019",
+			"team1": "1a21a7c1a3f89181074e1003",
+			"team2": "1a21a7c1a3f89181074e1007",
+			"kickofftime": "2020-11-25T20:00:00.000Z",
+			"stadium": "Madrid",
+			"type": "Group B - leg 4",
+			"league": "1a21a7c1a3f89181074e9769"
+		},
+		{
+			"_id": "1a21a7c1a3f89181074e1020",
+			"team1": "1a21a7c1a3f89181074e1004",
+			"team2": "1a21a7c1a3f89181074e1007",
+			"kickofftime": "2020-12-01T17:55:00.000Z",
+			"stadium": "Kyiv",
+			"type": "Group B - leg 5",
+			"league": "1a21a7c1a3f89181074e9769"
+		},
+		{
+			"_id": "1a21a7c1a3f89181074e1021",
+			"team1": "1a21a7c1a3f89181074e1005",
+			"team2": "1a21a7c1a3f89181074e1006",
+			"kickofftime": "2020-12-01T20:00:00.000Z",
+			"stadium": "Monchengladbach",
+			"type": "Group B - leg 5",
+			"league": "1a21a7c1a3f89181074e9769"
+		},
+		{
+			"_id": "1a21a7c1a3f89181074e1022",
+			"team1": "1a21a7c1a3f89181074e1006",
+			"team2": "1a21a7c1a3f89181074e1004",
+			"kickofftime": "2020-12-09T20:00:00.000Z",
+			"stadium": "Milan",
+			"type": "Group B - leg 6",
+			"league": "1a21a7c1a3f89181074e9769"
+		},
+		{
+			"_id": "1a21a7c1a3f89181074e1023",
+			"team1": "1a21a7c1a3f89181074e1007",
+			"team2": "1a21a7c1a3f89181074e1005",
+			"kickofftime": "2020-12-09T20:00:00.000Z",
+			"stadium": "Madrid",
+			"type": "Group B - leg 6",
+			"league": "1a21a7c1a3f89181074e9769"
+		},
+		{
+			"_id": "1a21a7c1a3f89181074e1024",
+			"team1": "1a21a7c1a3f89181074e1009",
+			"team2": "1a21a7c1a3f89181074e1010",
+			"kickofftime": "2020-10-21T17:55:00.000Z",
+			"stadium": "Piraeus",
+			"type": "Group C - leg 1",
+			"league": "1a21a7c1a3f89181074e9769"
+		},
+		{
+			"_id": "1a21a7c1a3f89181074e1025",
+			"team1": "1a21a7c1a3f89181074e1008",
+			"team2": "1a21a7c1a3f89181074e1011",
+			"kickofftime": "2020-10-21T20:00:00.000Z",
+			"stadium": "Manchester",
+			"type": "Group C - leg 1",
+			"league": "1a21a7c1a3f89181074e9769"
+		},
+		{
+			"_id": "1a21a7c1a3f89181074e1026",
+			"team1": "1a21a7c1a3f89181074e1011",
+			"team2": "1a21a7c1a3f89181074e1009",
+			"kickofftime": "2020-10-27T20:00:00.000Z",
+			"stadium": "Porto",
+			"type": "Group C - leg 2",
+			"league": "1a21a7c1a3f89181074e9769"
+		},
+		{
+			"_id": "1a21a7c1a3f89181074e1027",
+			"team1": "1a21a7c1a3f89181074e1010",
+			"team2": "1a21a7c1a3f89181074e1008",
+			"kickofftime": "2020-10-27T20:00:00.000Z",
+			"stadium": "Marseille",
+			"type": "Group C - leg 2",
+			"league": "1a21a7c1a3f89181074e9769"
+		},
+		{
+			"_id": "1a21a7c1a3f89181074e1027",
+			"team1": "1a21a7c1a3f89181074e1008",
+			"team2": "1a21a7c1a3f89181074e1009",
+			"kickofftime": "2020-11-03T20:00:00.000Z",
+			"stadium": "Manchester",
+			"type": "Group C - leg 3",
+			"league": "1a21a7c1a3f89181074e9769"
+		},
+		{
+			"_id": "1a21a7c1a3f89181074e1028",
+			"team1": "1a21a7c1a3f89181074e1011",
+			"team2": "1a21a7c1a3f89181074e1010",
+			"kickofftime": "2020-11-03T20:00:00.000Z",
+			"stadium": "Porto",
+			"type": "Group C - leg 3",
+			"league": "1a21a7c1a3f89181074e9769"
+		},
+		{
+			"_id": "1a21a7c1a3f89181074e1029",
+			"team1": "1a21a7c1a3f89181074e1009",
+			"team2": "1a21a7c1a3f89181074e1008",
+			"kickofftime": "2020-11-25T17:55:00.000Z",
+			"stadium": "Piraeus",
+			"type": "Group C - leg 4",
+			"league": "1a21a7c1a3f89181074e9769"
+		},
+		{
+			"_id": "1a21a7c1a3f89181074e1030",
+			"team1": "1a21a7c1a3f89181074e1010",
+			"team2": "1a21a7c1a3f89181074e1011",
+			"kickofftime": "2020-11-25T20:00:00.000Z",
+			"stadium": "Marseille",
+			"type": "Group C - leg 4",
+			"league": "1a21a7c1a3f89181074e9769"
+		},
+		{
+			"_id": "1a21a7c1a3f89181074e1031",
+			"team1": "1a21a7c1a3f89181074e1010",
+			"team2": "1a21a7c1a3f89181074e1009",
+			"kickofftime": "2020-12-01T20:00:00.000Z",
+			"stadium": "Marseille",
+			"type": "Group C - leg 5",
+			"league": "1a21a7c1a3f89181074e9769"
+		},
+		{
+			"_id": "1a21a7c1a3f89181074e1032",
+			"team1": "1a21a7c1a3f89181074e1011",
+			"team2": "1a21a7c1a3f89181074e1008",
+			"kickofftime": "2020-12-01T20:00:00.000Z",
+			"stadium": "Porto",
+			"type": "Group C - leg 5",
+			"league": "1a21a7c1a3f89181074e9769"
+		},
+		{
+			"_id": "1a21a7c1a3f89181074e1033",
+			"team1": "1a21a7c1a3f89181074e1009",
+			"team2": "1a21a7c1a3f89181074e1011",
+			"kickofftime": "2020-12-09T20:00:00.000Z",
+			"stadium": "Piraeus",
+			"type": "Group C - leg 6",
+			"league": "1a21a7c1a3f89181074e9769"
+		},
+		{
+			"_id": "1a21a7c1a3f89181074e1034",
+			"team1": "1a21a7c1a3f89181074e1008",
+			"team2": "1a21a7c1a3f89181074e1010",
+			"kickofftime": "2020-12-09T20:00:00.000Z",
+			"stadium": "Manchester",
+			"type": "Group C - leg 6",
+			"league": "1a21a7c1a3f89181074e9769"
+		},
+		{
+			"_id": "1a21a7c1a3f89181074e1035",
+			"team1": "1a21a7c1a3f89181074e1014",
+			"team2": "1a21a7c1a3f89181074e1013",
+			"kickofftime": "2020-10-21T17:55:00.000Z",
+			"stadium": "Amsterdam",
+			"type": "Group D - leg 1",
+			"league": "1a21a7c1a3f89181074e9769"
+		},
+		{
+			"_id": "1a21a7c1a3f89181074e1036",
+			"team1": "1a21a7c1a3f89181074e1015",
+			"team2": "1a21a7c1a3f89181074e1011",
+			"kickofftime": "2020-10-21T20:00:00.000Z",
+			"stadium": "Herning",
+			"type": "Group D - leg 1",
+			"league": "1a21a7c1a3f89181074e9769"
+		},
+		{
+			"_id": "1a21a7c1a3f89181074e1037",
+			"team1": "1a21a7c1a3f89181074e1011",
+			"team2": "1a21a7c1a3f89181074e1014",
+			"kickofftime": "2020-10-27T20:00:00.000Z",
+			"stadium": "Bergamo",
+			"type": "Group D - leg 2",
+			"league": "1a21a7c1a3f89181074e9769"
+		},
+		{
+			"_id": "1a21a7c1a3f89181074e1038",
+			"team1": "1a21a7c1a3f89181074e1013",
+			"team2": "1a21a7c1a3f89181074e1015",
+			"kickofftime": "2020-10-27T20:00:00.000Z",
+			"stadium": "Liverpool",
+			"type": "Group D - leg 2",
+			"league": "1a21a7c1a3f89181074e9769"
+		},
+		{
+			"_id": "1a21a7c1a3f89181074e1039",
+			"team1": "1a21a7c1a3f89181074e1015",
+			"team2": "1a21a7c1a3f89181074e1014",
+			"kickofftime": "2020-11-03T20:00:00.000Z",
+			"stadium": "Herning",
+			"type": "Group D - leg 3",
+			"league": "1a21a7c1a3f89181074e9769"
+		},
+		{
+			"_id": "1a21a7c1a3f89181074e1040",
+			"team1": "1a21a7c1a3f89181074e1011",
+			"team2": "1a21a7c1a3f89181074e1013",
+			"kickofftime": "2020-11-03T20:00:00.000Z",
+			"stadium": "Bergamo",
+			"type": "Group D - leg 3",
+			"league": "1a21a7c1a3f89181074e9769"
+		},
+		{
+			"_id": "1a21a7c1a3f89181074e1041",
+			"team1": "1a21a7c1a3f89181074e1014",
+			"team2": "1a21a7c1a3f89181074e1015",
+			"kickofftime": "2020-11-25T20:00:00.000Z",
+			"stadium": "Amsterdam",
+			"type": "Group D - leg 4",
+			"league": "1a21a7c1a3f89181074e9769"
+		},
+		{
+			"_id": "1a21a7c1a3f89181074e1042",
+			"team1": "1a21a7c1a3f89181074e1013",
+			"team2": "1a21a7c1a3f89181074e1011",
+			"kickofftime": "2020-11-25T20:00:00.000Z",
+			"stadium": "Liverpool",
+			"type": "Group D - leg 4",
+			"league": "1a21a7c1a3f89181074e9769"
+		},
+		{
+			"_id": "1a21a7c1a3f89181074e1043",
+			"team1": "1a21a7c1a3f89181074e1013",
+			"team2": "1a21a7c1a3f89181074e1014",
+			"kickofftime": "2020-12-01T20:00:00.000Z",
+			"stadium": "Liverpool",
+			"type": "Group D - leg 5",
+			"league": "1a21a7c1a3f89181074e9769"
+		},
+		{
+			"_id": "1a21a7c1a3f89181074e1044",
+			"team1": "1a21a7c1a3f89181074e1011",
+			"team2": "1a21a7c1a3f89181074e1015",
+			"kickofftime": "2020-12-01T20:00:00.000Z",
+			"stadium": "Bergamo",
+			"type": "Group D - leg 5",
+			"league": "1a21a7c1a3f89181074e9769"
+		},
+		{
+			"_id": "1a21a7c1a3f89181074e1045",
+			"team1": "1a21a7c1a3f89181074e1014",
+			"team2": "1a21a7c1a3f89181074e1011",
+			"kickofftime": "2020-12-09T17:55:00.000Z",
+			"stadium": "Amsterdam",
+			"type": "Group D - leg 6",
+			"league": "1a21a7c1a3f89181074e9769"
+		},
+		{
+			"_id": "1a21a7c1a3f89181074e1046",
+			"team1": "1a21a7c1a3f89181074e1015",
+			"team2": "1a21a7c1a3f89181074e1013",
+			"kickofftime": "2020-12-09T17:55:00.000Z",
+			"stadium": "Herning",
+			"type": "Group D - leg 6",
+			"league": "1a21a7c1a3f89181074e9769"
+		},
+		{
+			"_id": "1a21a7c1a3f89181074e1047",
+			"team1": "1a21a7c1a3f89181074e1017",
+			"team2": "1a21a7c1a3f89181074e1016",
+			"kickofftime": "2020-10-20T17:55:00.000Z",
+			"stadium": "Rennes",
+			"type": "Group E - leg 1",
+			"league": "1a21a7c1a3f89181074e9769"
+		},
+		{
+			"_id": "1a21a7c1a3f89181074e1048",
+			"team1": "1a21a7c1a3f89181074e1019",
+			"team2": "1a21a7c1a3f89181074e1018",
+			"kickofftime": "2020-10-20T20:00:00.000Z",
+			"stadium": "London",
+			"type": "Group E - leg 1",
+			"league": "1a21a7c1a3f89181074e9769"
+		},
+		{
+			"_id": "1a21a7c1a3f89181074e1049",
+			"team1": "1a21a7c1a3f89181074e1016",
+			"team2": "1a21a7c1a3f89181074e1019",
+			"kickofftime": "2020-10-28T17:55:00.000Z",
+			"stadium": "Krasnodar",
+			"type": "Group E - leg 2",
+			"league": "1a21a7c1a3f89181074e9769"
+		},
+		{
+			"_id": "1a21a7c1a3f89181074e1050",
+			"team1": "1a21a7c1a3f89181074e1018",
+			"team2": "1a21a7c1a3f89181074e1017",
+			"kickofftime": "2020-10-28T20:00:00.000Z",
+			"stadium": "Seville",
+			"type": "Group E - leg 2",
+			"league": "1a21a7c1a3f89181074e9769"
+		},
+		{
+			"_id": "1a21a7c1a3f89181074e1051",
+			"team1": "1a21a7c1a3f89181074e1019",
+			"team2": "1a21a7c1a3f89181074e1017",
+			"kickofftime": "2020-11-04T20:00:00.000Z",
+			"stadium": "London",
+			"type": "Group E - leg 3",
+			"league": "1a21a7c1a3f89181074e9769"
+		},
+		{
+			"_id": "1a21a7c1a3f89181074e1052",
+			"team1": "1a21a7c1a3f89181074e1018",
+			"team2": "1a21a7c1a3f89181074e1016",
+			"kickofftime": "2020-11-04T20:00:00.000Z",
+			"stadium": "Seville",
+			"type": "Group E - leg 3",
+			"league": "1a21a7c1a3f89181074e9769"
+		},
+		{
+			"_id": "1a21a7c1a3f89181074e1053",
+			"team1": "1a21a7c1a3f89181074e1017",
+			"team2": "1a21a7c1a3f89181074e1019",
+			"kickofftime": "2020-11-24T17:55:00.000Z",
+			"stadium": "Rennes",
+			"type": "Group E - leg 4",
+			"league": "1a21a7c1a3f89181074e9769"
+		},
+		{
+			"_id": "1a21a7c1a3f89181074e1054",
+			"team1": "1a21a7c1a3f89181074e1016",
+			"team2": "1a21a7c1a3f89181074e1018",
+			"kickofftime": "2020-11-24T17:55:00.000Z",
+			"stadium": "Krasnodar",
+			"type": "Group E - leg 4",
+			"league": "1a21a7c1a3f89181074e9769"
+		},
+		{
+			"_id": "1a21a7c1a3f89181074e1055",
+			"team1": "1a21a7c1a3f89181074e1016",
+			"team2": "1a21a7c1a3f89181074e1017",
+			"kickofftime": "2020-12-02T17:55:00.000Z",
+			"stadium": "Krasnodar",
+			"type": "Group E - leg 5",
+			"league": "1a21a7c1a3f89181074e9769"
+		},
+		{
+			"_id": "1a21a7c1a3f89181074e1056",
+			"team1": "1a21a7c1a3f89181074e1018",
+			"team2": "1a21a7c1a3f89181074e1019",
+			"kickofftime": "2020-12-02T20:00:00.000Z",
+			"stadium": "Seville",
+			"type": "Group E - leg 5",
+			"league": "1a21a7c1a3f89181074e9769"
+		},
+		{
+			"_id": "1a21a7c1a3f89181074e1057",
+			"team1": "1a21a7c1a3f89181074e1017",
+			"team2": "1a21a7c1a3f89181074e1018",
+			"kickofftime": "2020-12-08T20:00:00.000Z",
+			"stadium": "Rennes",
+			"type": "Group E - leg 6",
+			"league": "1a21a7c1a3f89181074e9769"
+		},
+		{
+			"_id": "1a21a7c1a3f89181074e1058",
+			"team1": "1a21a7c1a3f89181074e1019",
+			"team2": "1a21a7c1a3f89181074e1016",
+			"kickofftime": "2020-12-08T20:00:00.000Z",
+			"stadium": "London",
+			"type": "Group E - leg 6",
+			"league": "1a21a7c1a3f89181074e9769"
+		},
+		{
+			"_id": "1a21a7c1a3f89181074e1047",
+			"team1": "1a21a7c1a3f89181074e1022",
+			"team2": "1a21a7c1a3f89181074e1021",
+			"kickofftime": "2020-10-20T17:55:00.000Z",
+			"stadium": "St. Petersburg",
+			"type": "Group F - leg 1",
+			"league": "1a21a7c1a3f89181074e9769"
+		},
+		{
+			"_id": "1a21a7c1a3f89181074e1048",
+			"team1": "1a21a7c1a3f89181074e1020",
+			"team2": "1a21a7c1a3f89181074e1023",
+			"kickofftime": "2020-10-20T20:00:00.000Z",
+			"stadium": "Rome",
+			"type": "Group F - leg 1",
+			"league": "1a21a7c1a3f89181074e9769"
+		},
+		{
+			"_id": "1a21a7c1a3f89181074e1049",
+			"team1": "1a21a7c1a3f89181074e1021",
+			"team2": "1a21a7c1a3f89181074e1020",
+			"kickofftime": "2020-10-28T20:00:00.000Z",
+			"stadium": "Bruges",
+			"type": "Group F - leg 2",
+			"league": "1a21a7c1a3f89181074e9769"
+		},
+		{
+			"_id": "1a21a7c1a3f89181074e1050",
+			"team1": "1a21a7c1a3f89181074e1023",
+			"team2": "1a21a7c1a3f89181074e1022",
+			"kickofftime": "2020-10-28T20:00:00.000Z",
+			"stadium": "Dortmund",
+			"type": "Group F - leg 2",
+			"league": "1a21a7c1a3f89181074e9769"
+		},
+		{
+			"_id": "1a21a7c1a3f89181074e1051",
+			"team1": "1a21a7c1a3f89181074e1022",
+			"team2": "1a21a7c1a3f89181074e1020",
+			"kickofftime": "2020-11-04T17:55:00.000Z",
+			"stadium": "St. Petersburg",
+			"type": "Group F - leg 3",
+			"league": "1a21a7c1a3f89181074e9769"
+		},
+		{
+			"_id": "1a21a7c1a3f89181074e1052",
+			"team1": "1a21a7c1a3f89181074e1021",
+			"team2": "1a21a7c1a3f89181074e1023",
+			"kickofftime": "2020-11-04T20:00:00.000Z",
+			"stadium": "Bruges",
+			"type": "Group F - leg 3",
+			"league": "1a21a7c1a3f89181074e9769"
+		},
+		{
+			"_id": "1a21a7c1a3f89181074e1053",
+			"team1": "1a21a7c1a3f89181074e1020",
+			"team2": "1a21a7c1a3f89181074e1022",
+			"kickofftime": "2020-11-24T20:00:00.000Z",
+			"stadium": "Rome",
+			"type": "Group F - leg 4",
+			"league": "1a21a7c1a3f89181074e9769"
+		},
+		{
+			"_id": "1a21a7c1a3f89181074e1054",
+			"team1": "1a21a7c1a3f89181074e1023",
+			"team2": "1a21a7c1a3f89181074e1021",
+			"kickofftime": "2020-11-24T20:00:00.000Z",
+			"stadium": "Dortmund",
+			"type": "Group F - leg 4",
+			"league": "1a21a7c1a3f89181074e9769"
+		},
+		{
+			"_id": "1a21a7c1a3f89181074e1055",
+			"team1": "1a21a7c1a3f89181074e1023",
+			"team2": "1a21a7c1a3f89181074e1020",
+			"kickofftime": "2020-12-02T20:00:00.000Z",
+			"stadium": "Dortmund",
+			"type": "Group F - leg 5",
+			"league": "1a21a7c1a3f89181074e9769"
+		},
+		{
+			"_id": "1a21a7c1a3f89181074e1056",
+			"team1": "1a21a7c1a3f89181074e1021",
+			"team2": "1a21a7c1a3f89181074e1022",
+			"kickofftime": "2020-12-02T20:00:00.000Z",
+			"stadium": "Bruges",
+			"type": "Group F - leg 5",
+			"league": "1a21a7c1a3f89181074e9769"
+		},
+		{
+			"_id": "1a21a7c1a3f89181074e1057",
+			"team1": "1a21a7c1a3f89181074e1020",
+			"team2": "1a21a7c1a3f89181074e1021",
+			"kickofftime": "2020-12-08T17:55:00.000Z",
+			"stadium": "Rome",
+			"type": "Group F - leg 6",
+			"league": "1a21a7c1a3f89181074e9769"
+		},
+		{
+			"_id": "1a21a7c1a3f89181074e1058",
+			"team1": "1a21a7c1a3f89181074e1022",
+			"team2": "1a21a7c1a3f89181074e1023",
+			"kickofftime": "2020-12-08T17:55:00.000Z",
+			"stadium": "St. Petersburg",
+			"type": "Group F - leg 6",
+			"league": "1a21a7c1a3f89181074e9769"
+		},
+		{
+			"_id": "1a21a7c1a3f89181074e1059",
+			"team1": "1a21a7c1a3f89181074e1026",
+			"team2": "1a21a7c1a3f89181074e1025",
+			"kickofftime": "2020-10-20T17:55:00.000Z",
+			"stadium": "Kyiv",
+			"type": "Group G - leg 1",
+			"league": "1a21a7c1a3f89181074e9769"
+		},
+		{
+			"_id": "1a21a7c1a3f89181074e1060",
+			"team1": "1a21a7c1a3f89181074e1024",
+			"team2": "1a21a7c1a3f89181074e1027",
+			"kickofftime": "2020-10-20T20:00:00.000Z",
+			"stadium": "Barcelona",
+			"type": "Group G - leg 1",
+			"league": "1a21a7c1a3f89181074e9769"
+		},
+		{
+			"_id": "1a21a7c1a3f89181074e1061",
+			"team1": "1a21a7c1a3f89181074e1027",
+			"team2": "1a21a7c1a3f89181074e1026",
+			"kickofftime": "2020-10-28T20:00:00.000Z",
+			"stadium": "Budapest",
+			"type": "Group G - leg 2",
+			"league": "1a21a7c1a3f89181074e9769"
+		},
+		{
+			"_id": "1a21a7c1a3f89181074e1062",
+			"team1": "1a21a7c1a3f89181074e1025",
+			"team2": "1a21a7c1a3f89181074e1024",
+			"kickofftime": "2020-10-28T20:00:00.000Z",
+			"stadium": "Turin",
+			"type": "Group G - leg 2",
+			"league": "1a21a7c1a3f89181074e9769"
+		},
+		{
+			"_id": "1a21a7c1a3f89181074e1063",
+			"team1": "1a21a7c1a3f89181074e1024",
+			"team2": "1a21a7c1a3f89181074e1026",
+			"kickofftime": "2020-11-04T20:00:00.000Z",
+			"stadium": "Barcelona",
+			"type": "Group G - leg 3",
+			"league": "1a21a7c1a3f89181074e9769"
+		},
+		{
+			"_id": "1a21a7c1a3f89181074e1064",
+			"team1": "1a21a7c1a3f89181074e1027",
+			"team2": "1a21a7c1a3f89181074e1025",
+			"kickofftime": "2020-11-04T20:00:00.000Z",
+			"stadium": "Budapest",
+			"type": "Group G - leg 3",
+			"league": "1a21a7c1a3f89181074e9769"
+		},
+		{
+			"_id": "1a21a7c1a3f89181074e1065",
+			"team1": "1a21a7c1a3f89181074e1026",
+			"team2": "1a21a7c1a3f89181074e1024",
+			"kickofftime": "2020-11-24T20:00:00.000Z",
+			"stadium": "Kyiv",
+			"type": "Group G - leg 4",
+			"league": "1a21a7c1a3f89181074e9769"
+		},
+		{
+			"_id": "1a21a7c1a3f89181074e1066",
+			"team1": "1a21a7c1a3f89181074e1025",
+			"team2": "1a21a7c1a3f89181074e1027",
+			"kickofftime": "2020-11-24T20:00:00.000Z",
+			"stadium": "Turin",
+			"type": "Group G - leg 4",
+			"league": "1a21a7c1a3f89181074e9769"
+		},
+		{
+			"_id": "1a21a7c1a3f89181074e1067",
+			"team1": "1a21a7c1a3f89181074e1025",
+			"team2": "1a21a7c1a3f89181074e1026",
+			"kickofftime": "2020-12-02T20:00:00.000Z",
+			"stadium": "Turin",
+			"type": "Group G - leg 5",
+			"league": "1a21a7c1a3f89181074e9769"
+		},
+		{
+			"_id": "1a21a7c1a3f89181074e1068",
+			"team1": "1a21a7c1a3f89181074e1027",
+			"team2": "1a21a7c1a3f89181074e1024",
+			"kickofftime": "2020-12-02T20:00:00.000Z",
+			"stadium": "Budapest",
+			"type": "Group G - leg 5",
+			"league": "1a21a7c1a3f89181074e9769"
+		},
+		{
+			"_id": "1a21a7c1a3f89181074e1069",
+			"team1": "1a21a7c1a3f89181074e1026",
+			"team2": "1a21a7c1a3f89181074e1027",
+			"kickofftime": "2020-12-08T20:00:00.000Z",
+			"stadium": "Kyiv",
+			"type": "Group G - leg 6",
+			"league": "1a21a7c1a3f89181074e9769"
+		},
+		{
+			"_id": "1a21a7c1a3f89181074e1070",
+			"team1": "1a21a7c1a3f89181074e1024",
+			"team2": "1a21a7c1a3f89181074e1025",
+			"kickofftime": "2020-12-08T20:00:00.000Z",
+			"stadium": "Barcelona",
+			"type": "Group G - leg 6",
+			"league": "1a21a7c1a3f89181074e9769"
+		},
+		// group H
+		// 1a21a7c1a3f89181074e1028 LEI
+		// 1a21a7c1a3f89181074e1029 MAN
+		// 1a21a7c1a3f89181074e1030 PSG
+		// 1a21a7c1a3f89181074e1031 BAS
+		{
+			"_id": "1a21a7c1a3f89181074e1071",
+			"team1": "1a21a7c1a3f89181074e1030",
+			"team2": "1a21a7c1a3f89181074e1029",
+			"kickofftime": "2020-10-20T17:55:00.000Z",
+			"stadium": "Paris",
+			"type": "Group H - leg 1",
+			"league": "1a21a7c1a3f89181074e9769"
+		},
+		{
+			"_id": "1a21a7c1a3f89181074e1072",
+			"team1": "1a21a7c1a3f89181074e1028",
+			"team2": "1a21a7c1a3f89181074e1031",
+			"kickofftime": "2020-10-20T20:00:00.000Z",
+			"stadium": "Leipzig",
+			"type": "Group H - leg 1",
+			"league": "1a21a7c1a3f89181074e9769"
+		},
+		{
+			"_id": "1a21a7c1a3f89181074e1073",
+			"team1": "1a21a7c1a3f89181074e1031",
+			"team2": "1a21a7c1a3f89181074e1030",
+			"kickofftime": "2020-10-28T17:55:00.000Z",
+			"stadium": "Istanbul",
+			"type": "Group H - leg 2",
+			"league": "1a21a7c1a3f89181074e9769"
+		},
+		{
+			"_id": "1a21a7c1a3f89181074e1074",
+			"team1": "1a21a7c1a3f89181074e1029",
+			"team2": "1a21a7c1a3f89181074e1028",
+			"kickofftime": "2020-10-28T20:00:00.000Z",
+			"stadium": "Manchester",
+			"type": "Group H - leg 2",
+			"league": "1a21a7c1a3f89181074e9769"
+		},
+		{
+			"_id": "1a21a7c1a3f89181074e1075",
+			"team1": "1a21a7c1a3f89181074e1031",
+			"team2": "1a21a7c1a3f89181074e1029",
+			"kickofftime": "2020-11-04T17:55:00.000Z",
+			"stadium": "Istanbul",
+			"type": "Group H - leg 3",
+			"league": "1a21a7c1a3f89181074e9769"
+		},
+		{
+			"_id": "1a21a7c1a3f89181074e1076",
+			"team1": "1a21a7c1a3f89181074e1028",
+			"team2": "1a21a7c1a3f89181074e1030",
+			"kickofftime": "2020-11-04T20:00:00.000Z",
+			"stadium": "Leipzig",
+			"type": "Group H - leg 3",
+			"league": "1a21a7c1a3f89181074e9769"
+		},
+		{
+			"_id": "1a21a7c1a3f89181074e1077",
+			"team1": "1a21a7c1a3f89181074e1030",
+			"team2": "1a21a7c1a3f89181074e1028",
+			"kickofftime": "2020-11-24T20:00:00.000Z",
+			"stadium": "Paris",
+			"type": "Group H - leg 4",
+			"league": "1a21a7c1a3f89181074e9769"
+		},
+		{
+			"_id": "1a21a7c1a3f89181074e1078",
+			"team1": "1a21a7c1a3f89181074e1029",
+			"team2": "1a21a7c1a3f89181074e1031",
+			"kickofftime": "2020-11-24T20:00:00.000Z",
+			"stadium": "Manchester",
+			"type": "Group H - leg 4",
+			"league": "1a21a7c1a3f89181074e9769"
+		},
+		{
+			"_id": "1a21a7c1a3f89181074e1079",
+			"team1": "1a21a7c1a3f89181074e1031",
+			"team2": "1a21a7c1a3f89181074e1028",
+			"kickofftime": "2020-12-02T17:55:00.000Z",
+			"stadium": "Istanbul",
+			"type": "Group H - leg 5",
+			"league": "1a21a7c1a3f89181074e9769"
+		},
+		{
+			"_id": "1a21a7c1a3f89181074e1080",
+			"team1": "1a21a7c1a3f89181074e1029",
+			"team2": "1a21a7c1a3f89181074e1030",
+			"kickofftime": "2020-12-02T20:00:00.000Z",
+			"stadium": "Manchester",
+			"type": "Group H - leg 5",
+			"league": "1a21a7c1a3f89181074e9769"
+		},
+		{
+			"_id": "1a21a7c1a3f89181074e1081",
+			"team1": "1a21a7c1a3f89181074e1030",
+			"team2": "1a21a7c1a3f89181074e1031",
+			"kickofftime": "2020-12-08T20:00:00.000Z",
+			"stadium": "Paris",
+			"type": "Group H - leg 6",
+			"league": "1a21a7c1a3f89181074e9769"
+		},
+		{
+			"_id": "1a21a7c1a3f89181074e1082",
+			"team1": "1a21a7c1a3f89181074e1028",
+			"team2": "1a21a7c1a3f89181074e1029",
+			"kickofftime": "2020-12-08T20:00:00.000Z",
+			"stadium": "Leipzig",
+			"type": "Group H - leg 6",
+			"league": "1a21a7c1a3f89181074e9769"
+		}
+	],
+	"matchResults": [
+	],
+	"teams": [
+		{
+			"_id": "5a1342399017dfc4e2faf694",
+			"title": "1st place",
+			"type": "teamWinner",
+			"deadline": "2021-05-01T20:00:00.000Z",
+			"league": "1a21a7c1a3f89181074e9769",
+			"options": [],
+			"resultTime": "2021-05-29T20:00:00.000Z",
+			"category": "9b1342399017dfc4e2faf4d1"
+		}
+	],
+	"teamCategories": [
+		{
+			"_id": "9b1342399017dfc4e2faf4d1",
+			"league": "1a21a7c1a3f89181074e9769",
+			"title": "Champions League champions",
+			"description": "description about champions league",
+			"sprite": "questions.png",
+			"mSprite": "champions_league_finalist",
+			"iconPosition": "-288px 0"
+		},
+		{
+			"_id": "9b1342399017dfc4e2faf4d2",
+			"league": "1a21a7c1a3f89181074e9769",
+			"title": "Champions Semi Finalists",
+			"description": "description about champions semi finalists",
+			"sprite": "questions.png",
+			"mSprite": "champions_semi_finalist",
+			"iconPosition": "-1368px 0"
+		}
+	],
+	"teamResults": [
+	]
+}

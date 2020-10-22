@@ -10,10 +10,10 @@ const self = module.exports = {
 
 		return Promise.all(promises);
 	},
-	findClubsBy365Name: function (relevantGame) {
+	findClubsBySport5Name: function (relevantGame) {
 		return Promise.all([
-			self.by365Name(relevantGame.twoPVSI.p1_name), // home
-			self.by365Name(relevantGame.twoPVSI.p2_name), // away
+			self.bySport5Name(relevantGame.twoPVSI.p1_name), // home
+			self.bySport5Name(relevantGame.twoPVSI.p2_name), // away
 		]).then(function (arr) {
 			return {
 				team1: arr[0],
@@ -42,7 +42,7 @@ const self = module.exports = {
 			}
 		);
 	},
-	by365Name: function (name) {
-		return Club.findOne({name365: name});
+    bySport5Name: function (name) {
+		return Club.findOne({nameSport5: name});
 	}
 };

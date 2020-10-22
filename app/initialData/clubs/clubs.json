@@ -1,0 +1,659 @@
+[
+	{
+		"_id": "1a21a7c1a3f89181074e1000",
+		"name": "Bayern Munich",
+		"nameSport5": "באיירן מינכן",
+		"shortName": "BAY",
+		"colors": [
+			"#FF1716"
+		],
+		"buttonColors": [
+			"#FF1716",
+			"#FFFFFF"
+		],
+		"graphColors": [
+			"#FF1716",
+			"#000000"
+		],
+		"logoPosition": "-112px 0px",
+		"sprite": "champions",
+		"stadium": "Allianz Arena, Munich"
+	},
+	{
+		"_id": "1a21a7c1a3f89181074e1001",
+		"name": "Lokomotiv Moscow",
+		"nameSport5": "לוקומוטיב מוסקבה",
+		"shortName": "LOK",
+		"colors": [
+			"black"
+		],
+		"buttonColors": [
+			"black",
+			"black"
+		],
+		"graphColors": [
+			"black",
+			"black"
+		],
+		"logoPosition": "",
+		"sprite": "champions",
+		"stadium": "Moscow"
+	},
+	{
+		"_id": "1a21a7c1a3f89181074e1002",
+		"name": "Red Bull Salzburg",
+		"nameSport5": "זלצבורג",
+		"shortName": "RBS",
+		"colors": [
+			"black"
+		],
+		"buttonColors": [
+			"black",
+			"black"
+		],
+		"graphColors": [
+			"black",
+			"black"
+		],
+		"logoPosition": "",
+		"sprite": "champions",
+		"stadium": "Salzburg"
+	},
+	{
+		"_id": "1a21a7c1a3f89181074e1003",
+		"name": "Atlético Madrid",
+		"nameSport5": "אתלטיקו מדריד",
+		"shortName": "ATM",
+		"colors": [
+			"#AA0001"
+		],
+		"buttonColors": [
+			"#AA0001",
+			"#FFFFFF"
+		],
+		"graphColors": [
+			"#AA0001",
+			"#000000"
+		],
+		"logoPosition": "-56px 0",
+		"sprite": "spain",
+		"stadium": "Wanda Metropolitano"
+	},
+	{
+		"_id": "1a21a7c1a3f89181074e1004",
+		"name": "Shakhtar Donetsk",
+		"nameSport5": "שחטאר דונייצק",
+		"shortName": "SHA",
+		"colors": [
+			"#FF5902",
+			"#000000"
+		],
+		"buttonColors": [
+			"#FF5902",
+			"#FFFFFF"
+		],
+		"graphColors": [
+			"#FF5902",
+			"#000000"
+		],
+		"logoPosition": "-728px 0",
+		"sprite": "champions",
+		"stadium": "Metalist Stadium, Kharkiv"
+	},
+	{
+		"_id": "1a21a7c1a3f89181074e1005",
+		"name": "Borussia Monchengladbach",
+		"nameSport5": "בורוסיה מנשנגלדבאך",
+		"shortName": "BM",
+		"colors": [
+			"black",
+			"black"
+		],
+		"buttonColors": [
+			"black",
+			"black"
+		],
+		"graphColors": [
+			"black",
+			"black"
+		],
+		"logoPosition": "",
+		"sprite": "champions",
+		"stadium": "Borussia Monchengladbach"
+	},
+	{
+		"_id": "1a21a7c1a3f89181074e1006",
+		"name": "Internazionale",
+		"nameSport5": "אינטר",
+		"shortName": "INT",
+		"colors": [
+			"blue"
+		],
+		"buttonColors": [
+			"blue",
+			"black"
+		],
+		"graphColors": [
+			"blue",
+			"black"
+		],
+		"logoPosition": "0",
+		"sprite": "italy",
+		"stadium": "Milano"
+	},
+	{
+		"_id": "1a21a7c1a3f89181074e1007",
+		"name": "Real Madrid",
+		"name365": "ריאל מדריד",
+		"nameSport5": "ריאל מדריד",
+		"shortName": "RM",
+		"colors": [
+			"#23A6BF"
+		],
+		"buttonColors": [
+			"#23A6BF",
+			"#FFFFFF"
+		],
+		"graphColors": [
+			"#23A6BF",
+			"#000000"
+		],
+		"logoPosition": "-672px 0px",
+		"sprite": "champions",
+		"stadium": "Santiago Bernabéu, Madrid"
+	},
+	{
+		"_id": "1a21a7c1a3f89181074e1008",
+		"name": "Manchester City",
+		"name365": "מנצ'סטר סיטי",
+		"nameSport5": "מנצ'סטר סיטי",
+		"shortName": "MC",
+		"colors": [
+			"#44B1FD"
+		],
+		"buttonColors": [
+			"#44B1FD",
+			"#FFFFFF"
+		],
+		"graphColors": [
+			"#44B1FD",
+			"#000000"
+		],
+		"logoPosition": "-392px 0",
+		"sprite": "champions",
+		"stadium": "City of Manchester Stadium, Manchester"
+	},
+	{
+		"_id": "1a21a7c1a3f89181074e1009",
+		"name": "Olympiacos",
+		"nameSport5": "אולימפיאקוס",
+		"shortName": "OLY",
+		"colors": [
+			"black"
+		],
+		"buttonColors": [
+			"black",
+			"black"
+		],
+		"graphColors": [
+			"black",
+			"black"
+		],
+		"logoPosition": "",
+		"sprite": "champions",
+		"stadium": "Olympiacos"
+	},
+	{
+		"_id": "1a21a7c1a3f89181074e1010",
+		"name": "Marseille",
+		"nameSport5": "מארסיי",
+		"shortName": "MAR",
+		"colors": [
+			"black"
+		],
+		"buttonColors": [
+			"black",
+			"black"
+		],
+		"graphColors": [
+			"black",
+			"black"
+		],
+		"logoPosition": "",
+		"sprite": "champions",
+		"stadium": "Marseille"
+	},
+	{
+		"_id": "1a21a7c1a3f89181074e1011",
+		"name": "Porto",
+		"name365": "פורטו",
+		"nameSport5": "פורטו",
+		"shortName": "POR",
+		"colors": [
+			"#1E01FF"
+		],
+		"buttonColors": [
+			"#1E01FF",
+			"#FFFFFF"
+		],
+		"graphColors": [
+			"#1E01FF",
+			"#000000"
+		],
+		"logoPosition": "-560px 0",
+		"sprite": "champions",
+		"stadium": "Estádio do Dragão, Porto"
+	},
+	{
+		"_id": "1a21a7c1a3f89181074e1012",
+		"name": "Atalanta",
+		"name365": "אטאלנטה",
+		"nameSport5": "אטאלנטה",
+		"shortName": "ATA",
+		"colors": [
+			"blue"
+		],
+		"buttonColors": [
+			"blue",
+			"white"
+		],
+		"graphColors": [
+			"blue",
+			"white"
+		],
+		"logoPosition": "0",
+		"sprite": "italy",
+		"stadium": "Bergamo"
+	},
+	{
+		"_id": "1a21a7c1a3f89181074e1013",
+		"name": "Liverpool",
+		"name365": "ליברפול",
+		"nameSport5": "ליברפול",
+		"shortName": "LIV",
+		"colors": [
+			"#990001"
+		],
+		"buttonColors": [
+			"#990001",
+			"#FFFFFF"
+		],
+		"graphColors": [
+			"#990001",
+			"#000000"
+		],
+		"logoPosition": "-336px 0px",
+		"sprite": "champions",
+		"stadium": "Anfield, Liverpool"
+	},
+	{
+		"_id": "1a21a7c1a3f89181074e1014",
+		"name": "Ajax",
+		"nameSport5": "אייאקס",
+		"shortName": "AJX",
+		"colors": [
+			"black"
+		],
+		"buttonColors": [
+			"black",
+			"black"
+		],
+		"graphColors": [
+			"black",
+			"black"
+		],
+		"logoPosition": "",
+		"sprite": "champions",
+		"stadium": "Ajax"
+	},
+	{
+		"_id": "1a21a7c1a3f89181074e1015",
+		"name": "Midtjylland",
+		"nameSport5": "מידטיילנד",
+		"shortName": "MID",
+		"colors": [
+			"black"
+		],
+		"buttonColors": [
+			"black",
+			"black"
+		],
+		"graphColors": [
+			"black",
+			"black"
+		],
+		"logoPosition": "",
+		"sprite": "champions",
+		"stadium": "Midtjylland"
+	},
+	{
+		"_id": "1a21a7c1a3f89181074e1016",
+		"name": "Krasnodar",
+		"nameSport5": "קרסנודאר",
+		"shortName": "KRA",
+		"colors": [
+			"black"
+		],
+		"buttonColors": [
+			"black",
+			"black"
+		],
+		"graphColors": [
+			"black",
+			"black"
+		],
+		"logoPosition": "",
+		"sprite": "champions",
+		"stadium": "Krasnodar"
+	},
+	{
+		"_id": "1a21a7c1a3f89181074e1017",
+		"name": "Rennes",
+		"nameSport5": "ראן",
+		"shortName": "REN",
+		"colors": [
+			"black"
+		],
+		"buttonColors": [
+			"black",
+			"black"
+		],
+		"graphColors": [
+			"black",
+			"black"
+		],
+		"logoPosition": "",
+		"sprite": "champions",
+		"stadium": "Rennes"
+	},
+	{
+		"_id": "1a21a7c1a3f89181074e1018",
+		"name": "Sevilla",
+		"name365": "סביליה",
+		"nameSport5": "סביליה",
+		"shortName": "SEV",
+		"colors": [
+			"#FF1716"
+		],
+		"buttonColors": [
+			"#FF1716",
+			"#FFFFFF"
+		],
+		"graphColors": [
+			"#FF1716",
+			"#000000"
+		],
+		"logoPosition": "-672px 0",
+		"sprite": "champions",
+		"stadium": "Ramón Sánchez Pizjuán, Seville"
+	},
+	{
+		"_id": "1a21a7c1a3f89181074e1019",
+		"name": "Chelsea",
+		"name365": "צ'לסי",
+		"nameSport5": "צ'לסי",
+		"shortName": "CHE",
+		"colors": [
+			"#0045B8"
+		],
+		"buttonColors": [
+			"#0045B8",
+			"#FFFFFF"
+		],
+		"graphColors": [
+			"#0045B8",
+			"#000000"
+		],
+		"logoPosition": "-224px 0",
+		"sprite": "champions",
+		"stadium": "Stamford Bridge, London"
+	},
+	{
+		"_id": "1a21a7c1a3f89181074e1020",
+		"name": "Lazio",
+		"name365": "לאציו",
+		"nameSport5": "לאציו",
+		"shortName": "LAZ",
+		"colors": [
+			"blue"
+		],
+		"buttonColors": [
+			"blue",
+			"white"
+		],
+		"graphColors": [
+			"blue",
+			"white"
+		],
+		"logoPosition": "0",
+		"sprite": "italy",
+		"stadium": "Rome"
+	},
+	{
+		"_id": "1a21a7c1a3f89181074e1021",
+		"name": "Club Brugge",
+		"nameSport5": "קלאב ברוז׳",
+		"shortName": "BRU",
+		"colors": [
+			"black"
+		],
+		"buttonColors": [
+			"black",
+			"black"
+		],
+		"graphColors": [
+			"black",
+			"black"
+		],
+		"logoPosition": "",
+		"sprite": "champions",
+		"stadium": "Club Brugge"
+	},
+	{
+		"_id": "1a21a7c1a3f89181074e1022",
+		"name": "Zenit Saint Petersburg",
+		"nameSport5": "זניט סט. פטרסבורג",
+		"shortName": "ZEN",
+		"colors": [
+			"black"
+		],
+		"buttonColors": [
+			"black",
+			"black"
+		],
+		"graphColors": [
+			"black",
+			"black"
+		],
+		"logoPosition": "",
+		"sprite": "champions",
+		"stadium": "Zenit Saint Petersburg"
+	},
+	{
+		"_id": "1a21a7c1a3f89181074e1023",
+		"name": "Borussia Dortmund",
+		"name365": "בורוסיה דורטמונד",
+		"nameSport5": "בורוסיה דורטמונד",
+		"shortName": "DOR",
+		"colors": [
+			"#FFF500",
+			"#000"
+		],
+		"buttonColors": [
+			"#000",
+			"#FFF500"
+		],
+		"graphColors": [
+			"#000",
+			"#FFF500"
+		],
+		"logoPosition": "-168px 0px",
+		"sprite": "champions",
+		"stadium": "Signal Iduna Park, Dortmund"
+	},
+	{
+		"_id": "1a21a7c1a3f89181074e1024",
+		"name": "Barcelona",
+		"name365": "ברצלונה",
+		"nameSport5": "ברצלונה",
+		"shortName": "BAR",
+		"colors": [
+			"#09007A",
+			"#990001"
+		],
+		"buttonColors": [
+			"#990001",
+			"#FFFFFF"
+		],
+		"graphColors": [
+			"#990001",
+			"#000000"
+		],
+		"logoPosition": "-840px 0",
+		"sprite": "champions",
+		"stadium": "Camp Nou, Barcelona"
+	},
+	{
+		"_id": "1a21a7c1a3f89181074e1025",
+		"name": "Juventus",
+		"name365": "יובנטוס",
+		"nameSport5": "יובנטוס",
+		"shortName": "JUV",
+		"colors": [
+			"#000000"
+		],
+		"buttonColors": [
+			"#000000",
+			"#FFFFFF"
+		],
+		"graphColors": [
+			"#000000"
+		],
+		"logoPosition": "-280px 0",
+		"sprite": "champions",
+		"stadium": "Juventus Stadium, Turin"
+	},
+	{
+		"_id": "1a21a7c1a3f89181074e1026",
+		"name": "Dynamo Kyiv",
+		"nameSport5": "דינמו קייב",
+		"shortName": "KYV",
+		"colors": [
+			"black"
+		],
+		"buttonColors": [
+			"black",
+			"black"
+		],
+		"graphColors": [
+			"black",
+			"black"
+		],
+		"logoPosition": "",
+		"sprite": "champions",
+		"stadium": "Dynamo Kyiv"
+	},
+	{
+		"_id": "1a21a7c1a3f89181074e1027",
+		"name": "Ferencvaros",
+		"nameSport5": "פרנצווארוש",
+		"shortName": "FRV",
+		"colors": [
+			"black"
+		],
+		"buttonColors": [
+			"black",
+			"black"
+		],
+		"graphColors": [
+			"black",
+			"black"
+		],
+		"logoPosition": "",
+		"sprite": "champions",
+		"stadium": "Ferencvaros"
+	},
+	{
+		"_id": "1a21a7c1a3f89181074e1028",
+		"name": "RB Leipzig",
+		"name365": "ר.ב לייפציג",
+		"nameSport5": "ר.ב לייפציג",
+		"shortName": "LEI",
+		"colors": [
+			"red"
+		],
+		"buttonColors": [
+			"red",
+			"white"
+		],
+		"graphColors": [
+			"red"
+		],
+		"logoPosition": "-615px 0px",
+		"sprite": "champions",
+		"stadium": "Red Bull Arena, Leipzig"
+	},
+	{
+		"_id": "1a21a7c1a3f89181074e1029",
+		"name": "Manchester United",
+		"name365": "מנצ'סטר יונייטד",
+		"nameSport5": "מנצ'סטר יונייטד",
+		"shortName": "MU",
+		"colors": [
+			"#DE000A"
+		],
+		"buttonColors": [
+			"#DE000A",
+			"#FFFFFF"
+		],
+		"graphColors": [
+			"#DE000A",
+			"#000000"
+		],
+		"logoPosition": "-448px 0",
+		"sprite": "champions",
+		"stadium": "Old Trafford, Manchester"
+	},
+	{
+		"_id": "1a21a7c1a3f89181074e1030",
+		"name": "Paris Saint-Germain",
+		"name365": "פאריס סן ז'רמן",
+		"nameSport5": "פריס סן-ז'רמן",
+		"shortName": "PSG",
+		"colors": [
+			"#7C2838",
+			"#0A2555"
+		],
+		"buttonColors": [
+			"#0A2555",
+			"#FFFFFF"
+		],
+		"graphColors": [
+			"#0A2555",
+			"#7C2838"
+		],
+		"logoPosition": "-561px 0px",
+		"sprite": "champions",
+		"stadium": "Parc des Princes, Paris"
+	},
+	{
+		"_id": "1a21a7c1a3f89181074e1031",
+		"name": "Istanbul Basaksehir",
+		"nameSport5": "בשקשהיר",
+		"shortName": "BSK",
+		"colors": [
+			"black"
+		],
+		"buttonColors": [
+			"black",
+			"black"
+		],
+		"graphColors": [
+			"black",
+			"black"
+		],
+		"logoPosition": "",
+		"sprite": "champions",
+		"stadium": "Istanbul Basaksehir"
+	}
+]

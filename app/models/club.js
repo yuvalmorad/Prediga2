@@ -4,7 +4,6 @@ const mongoose = require('mongoose');
 // define the schema for our clubs model
 const clubSchema = mongoose.Schema({
 	name: String,
-	name365: String,
 	nameSport5: String,
 	shortName: String,
 	colors: [String],

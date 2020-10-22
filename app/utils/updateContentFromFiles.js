@@ -16,12 +16,8 @@ const self = module.exports = {
 		return Promise.all([
 			groupConfigurationService.updateConfiguration(require('../initialData/configuration/groupConfiguration.json').defaultConfiguration),
 			groupService.updateGroup(require('../initialData/configuration/groups.json').defaultGroup),
-			self.updateLeagueData(require('../initialData/leagues/19-20/Champions.json')),
-			self.updateLeagueData(require('../initialData/leagues/19-20/Israel_19-20.json')),
-			self.updateLeagueData(require('../initialData/leagues/19-20/Spain_19-20.json')),
-			self.updateLeagueData(require('../initialData/leagues/19-20/England_19-20.json')),
-			self.updateLeagueData(require('../initialData/leagues/19-20/Italy_19-20.json')),
-			self.updateLeagueData(require('../initialData/leagues/19-20/Euro_20.json'))
+            ClubService.updateClubs(require('../initialData/clubs/clubs.json')),
+			self.updateLeagueData(require('../initialData/leagues/20-21/Champions.json'))
 		]).then(function (arr) {
 			//console.log('[Init] - Update initial data finished');
 			return Promise.resolve({});
@@ -30,7 +26,6 @@ const self = module.exports = {
 	updateLeagueData: function (leagueJson) {
 		return Promise.all([
 			LeagueService.updateLeague(leagueJson.league),
-			ClubService.updateClubs(leagueJson.clubs),
             TeamCategoryService.updateTeamsCategories(leagueJson.teamCategories),
 			MatchService.updateMatchesById(leagueJson.matches),
 			MatchResultService.updateMatchResults(leagueJson.matchResults),
