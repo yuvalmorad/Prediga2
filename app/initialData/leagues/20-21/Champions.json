@@ -50,7 +50,7 @@
 			"team2": "1a21a7c1a3f89181074e1001",
 			"kickofftime": "2020-10-21T17:55:00.000Z",
 			"stadium": "Salzburg",
-			"type": "Group A - leg 1",
+			"type": "leg 1 - Day 2",
 			"league": "1a21a7c1a3f89181074e9769"
 		},
 		{
@@ -59,7 +59,7 @@
 			"team2": "1a21a7c1a3f89181074e1003",
 			"kickofftime": "2020-10-21T20:00:00.000Z",
 			"stadium": "Munich",
-			"type": "Group A - leg 1",
+			"type": "leg 1 - Day 2",
 			"league": "1a21a7c1a3f89181074e9769"
 		},
 		{
@@ -68,7 +68,7 @@
 			"team2": "1a21a7c1a3f89181074e1000",
 			"kickofftime": "2020-10-27T17:55:00.000Z",
 			"stadium": "Moscow",
-			"type": "Group A - leg 2",
+			"type": "leg 2 - Day 1",
 			"league": "1a21a7c1a3f89181074e9769"
 		},
 		{
@@ -77,7 +77,7 @@
 			"team2": "1a21a7c1a3f89181074e1002",
 			"kickofftime": "2020-10-27T20:00:00.000Z",
 			"stadium": "Madrid",
-			"type": "Group A - leg 2",
+			"type": "leg 2 - Day 1",
 			"league": "1a21a7c1a3f89181074e9769"
 		},
 		{
@@ -86,7 +86,7 @@
 			"team2": "1a21a7c1a3f89181074e1003",
 			"kickofftime": "2020-11-03T17:55:00.000Z",
 			"stadium": "Moscow",
-			"type": "Group A - leg 3",
+			"type": "leg 3 - Day 1",
 			"league": "1a21a7c1a3f89181074e9769"
 		},
 		{
@@ -95,7 +95,7 @@
 			"team2": "1a21a7c1a3f89181074e1000",
 			"kickofftime": "2020-11-03T20:00:00.000Z",
 			"stadium": "Salzburg",
-			"type": "Group A - leg 3",
+			"type": "leg 3 - Day 1",
 			"league": "1a21a7c1a3f89181074e9769"
 		},
 		{
@@ -104,7 +104,7 @@
 			"team2": "1a21a7c1a3f89181074e1002",
 			"kickofftime": "2020-11-25T20:00:00.000Z",
 			"stadium": "Munich",
-			"type": "Group A - leg 4",
+			"type": "leg 4 - Day 2",
 			"league": "1a21a7c1a3f89181074e9769"
 		},
 		{
@@ -113,7 +113,7 @@
 			"team2": "1a21a7c1a3f89181074e1001",
 			"kickofftime": "2020-11-25T20:00:00.000Z",
 			"stadium": "Madrid",
-			"type": "Group A - leg 4",
+			"type": "leg 4 - Day 2",
 			"league": "1a21a7c1a3f89181074e9769"
 		},
 		{
@@ -122,7 +122,7 @@
 			"team2": "1a21a7c1a3f89181074e1002",
 			"kickofftime": "2020-12-01T17:55:00.000Z",
 			"stadium": "Moscow",
-			"type": "Group A - leg 5",
+			"type": "leg 5 - Day 1",
 			"league": "1a21a7c1a3f89181074e9769"
 		},
 		{
@@ -131,7 +131,7 @@
 			"team2": "1a21a7c1a3f89181074e1000",
 			"kickofftime": "2020-12-01T20:00:00.000Z",
 			"stadium": "Madrid",
-			"type": "Group A - leg 5",
+			"type": "leg 5 - Day 1",
 			"league": "1a21a7c1a3f89181074e9769"
 		},
 		{
@@ -140,7 +140,7 @@
 			"team2": "1a21a7c1a3f89181074e1001",
 			"kickofftime": "2020-12-09T20:00:00.000Z",
 			"stadium": "Munich",
-			"type": "Group A - leg 6",
+			"type": "leg 6 - Day 2",
 			"league": "1a21a7c1a3f89181074e9769"
 		},
 		{
@@ -149,7 +149,7 @@
 			"team2": "1a21a7c1a3f89181074e1003",
 			"kickofftime": "2020-12-09T20:00:00.000Z",
 			"stadium": "Salzburg",
-			"type": "Group A - leg 6",
+			"type": "leg 6 - Day 2",
 			"league": "1a21a7c1a3f89181074e9769"
 		},
 		{
@@ -158,7 +158,7 @@
 			"team2": "1a21a7c1a3f89181074e1004",
 			"kickofftime": "2020-10-21T17:55:00.000Z",
 			"stadium": "Madrid",
-			"type": "Group B - leg 1",
+			"type": "leg 1 - Day 2",
 			"league": "1a21a7c1a3f89181074e9769"
 		},
 		{
@@ -167,7 +167,7 @@
 			"team2": "1a21a7c1a3f89181074e1005",
 			"kickofftime": "2020-10-21T20:00:00.000Z",
 			"stadium": "Milan",
-			"type": "Group B - leg 1",
+			"type": "leg 1 - Day 2",
 			"league": "1a21a7c1a3f89181074e9769"
 		},
 		{
@@ -176,7 +176,7 @@
 			"team2": "1a21a7c1a3f89181074e1006",
 			"kickofftime": "2020-10-27T17:55:00.000Z",
 			"stadium": "Kyiv",
-			"type": "Group B - leg 2",
+			"type": "leg 2 - Day 1",
 			"league": "1a21a7c1a3f89181074e9769"
 		},
 		{
@@ -185,7 +185,7 @@
 			"team2": "1a21a7c1a3f89181074e1007",
 			"kickofftime": "2020-10-27T20:00:00.000Z",
 			"stadium": "Monchengladbach",
-			"type": "Group B - leg 2",
+			"type": "leg 2 - Day 1",
 			"league": "1a21a7c1a3f89181074e9769"
 		},
 		{
@@ -194,7 +194,7 @@
 			"team2": "1a21a7c1a3f89181074e1005",
 			"kickofftime": "2020-11-03T17:55:00.000Z",
 			"stadium": "Kyiv",
-			"type": "Group B - leg 3",
+			"type": "leg 3 - Day 1",
 			"league": "1a21a7c1a3f89181074e9769"
 		},
 		{
@@ -203,7 +203,7 @@
 			"team2": "1a21a7c1a3f89181074e1006",
 			"kickofftime": "2020-11-03T20:00:00.000Z",
 			"stadium": "Madrid",
-			"type": "Group B - leg 3",
+			"type": "leg 3 - Day 1",
 			"league": "1a21a7c1a3f89181074e9769"
 		},
 		{
@@ -212,7 +212,7 @@
 			"team2": "1a21a7c1a3f89181074e1004",
 			"kickofftime": "2020-11-25T17:55:00.000Z",
 			"stadium": "Monchengladbach",
-			"type": "Group B - leg 4",
+			"type": "leg 4 - Day 2",
 			"league": "1a21a7c1a3f89181074e9769"
 		},
 		{
@@ -221,7 +221,7 @@
 			"team2": "1a21a7c1a3f89181074e1007",
 			"kickofftime": "2020-11-25T20:00:00.000Z",
 			"stadium": "Madrid",
-			"type": "Group B - leg 4",
+			"type": "leg 4 - Day 2",
 			"league": "1a21a7c1a3f89181074e9769"
 		},
 		{
@@ -230,7 +230,7 @@
 			"team2": "1a21a7c1a3f89181074e1007",
 			"kickofftime": "2020-12-01T17:55:00.000Z",
 			"stadium": "Kyiv",
-			"type": "Group B - leg 5",
+			"type": "leg 5 - Day 1",
 			"league": "1a21a7c1a3f89181074e9769"
 		},
 		{
@@ -239,7 +239,7 @@
 			"team2": "1a21a7c1a3f89181074e1006",
 			"kickofftime": "2020-12-01T20:00:00.000Z",
 			"stadium": "Monchengladbach",
-			"type": "Group B - leg 5",
+			"type": "leg 5 - Day 1",
 			"league": "1a21a7c1a3f89181074e9769"
 		},
 		{
@@ -248,7 +248,7 @@
 			"team2": "1a21a7c1a3f89181074e1004",
 			"kickofftime": "2020-12-09T20:00:00.000Z",
 			"stadium": "Milan",
-			"type": "Group B - leg 6",
+			"type": "leg 6 - Day 2",
 			"league": "1a21a7c1a3f89181074e9769"
 		},
 		{
@@ -257,7 +257,7 @@
 			"team2": "1a21a7c1a3f89181074e1005",
 			"kickofftime": "2020-12-09T20:00:00.000Z",
 			"stadium": "Madrid",
-			"type": "Group B - leg 6",
+			"type": "leg 6 - Day 2",
 			"league": "1a21a7c1a3f89181074e9769"
 		},
 		{
@@ -266,7 +266,7 @@
 			"team2": "1a21a7c1a3f89181074e1010",
 			"kickofftime": "2020-10-21T17:55:00.000Z",
 			"stadium": "Piraeus",
-			"type": "Group C - leg 1",
+			"type": "leg 1 - Day 2",
 			"league": "1a21a7c1a3f89181074e9769"
 		},
 		{
@@ -275,7 +275,7 @@
 			"team2": "1a21a7c1a3f89181074e1011",
 			"kickofftime": "2020-10-21T20:00:00.000Z",
 			"stadium": "Manchester",
-			"type": "Group C - leg 1",
+			"type": "leg 1 - Day 2",
 			"league": "1a21a7c1a3f89181074e9769"
 		},
 		{
@@ -284,7 +284,7 @@
 			"team2": "1a21a7c1a3f89181074e1009",
 			"kickofftime": "2020-10-27T20:00:00.000Z",
 			"stadium": "Porto",
-			"type": "Group C - leg 2",
+			"type": "leg 2 - Day 1",
 			"league": "1a21a7c1a3f89181074e9769"
 		},
 		{
@@ -293,7 +293,7 @@
 			"team2": "1a21a7c1a3f89181074e1008",
 			"kickofftime": "2020-10-27T20:00:00.000Z",
 			"stadium": "Marseille",
-			"type": "Group C - leg 2",
+			"type": "leg 2 - Day 1",
 			"league": "1a21a7c1a3f89181074e9769"
 		},
 		{
@@ -302,7 +302,7 @@
 			"team2": "1a21a7c1a3f89181074e1009",
 			"kickofftime": "2020-11-03T20:00:00.000Z",
 			"stadium": "Manchester",
-			"type": "Group C - leg 3",
+			"type": "leg 3 - Day 1",
 			"league": "1a21a7c1a3f89181074e9769"
 		},
 		{
@@ -311,7 +311,7 @@
 			"team2": "1a21a7c1a3f89181074e1010",
 			"kickofftime": "2020-11-03T20:00:00.000Z",
 			"stadium": "Porto",
-			"type": "Group C - leg 3",
+			"type": "leg 3 - Day 1",
 			"league": "1a21a7c1a3f89181074e9769"
 		},
 		{
@@ -320,7 +320,7 @@
 			"team2": "1a21a7c1a3f89181074e1008",
 			"kickofftime": "2020-11-25T17:55:00.000Z",
 			"stadium": "Piraeus",
-			"type": "Group C - leg 4",
+			"type": "leg 4 - Day 2",
 			"league": "1a21a7c1a3f89181074e9769"
 		},
 		{
@@ -329,7 +329,7 @@
 			"team2": "1a21a7c1a3f89181074e1011",
 			"kickofftime": "2020-11-25T20:00:00.000Z",
 			"stadium": "Marseille",
-			"type": "Group C - leg 4",
+			"type": "leg 4 - Day 2",
 			"league": "1a21a7c1a3f89181074e9769"
 		},
 		{
@@ -338,7 +338,7 @@
 			"team2": "1a21a7c1a3f89181074e1009",
 			"kickofftime": "2020-12-01T20:00:00.000Z",
 			"stadium": "Marseille",
-			"type": "Group C - leg 5",
+			"type": "leg 5 - Day 1",
 			"league": "1a21a7c1a3f89181074e9769"
 		},
 		{
@@ -347,7 +347,7 @@
 			"team2": "1a21a7c1a3f89181074e1008",
 			"kickofftime": "2020-12-01T20:00:00.000Z",
 			"stadium": "Porto",
-			"type": "Group C - leg 5",
+			"type": "leg 5 - Day 1",
 			"league": "1a21a7c1a3f89181074e9769"
 		},
 		{
@@ -356,7 +356,7 @@
 			"team2": "1a21a7c1a3f89181074e1011",
 			"kickofftime": "2020-12-09T20:00:00.000Z",
 			"stadium": "Piraeus",
-			"type": "Group C - leg 6",
+			"type": "leg 6 - Day 2",
 			"league": "1a21a7c1a3f89181074e9769"
 		},
 		{
@@ -365,7 +365,7 @@
 			"team2": "1a21a7c1a3f89181074e1010",
 			"kickofftime": "2020-12-09T20:00:00.000Z",
 			"stadium": "Manchester",
-			"type": "Group C - leg 6",
+			"type": "leg 6 - Day 2",
 			"league": "1a21a7c1a3f89181074e9769"
 		},
 		{
@@ -374,7 +374,7 @@
 			"team2": "1a21a7c1a3f89181074e1013",
 			"kickofftime": "2020-10-21T17:55:00.000Z",
 			"stadium": "Amsterdam",
-			"type": "Group D - leg 1",
+			"type": "leg 1 - Day 2",
 			"league": "1a21a7c1a3f89181074e9769"
 		},
 		{
@@ -383,7 +383,7 @@
 			"team2": "1a21a7c1a3f89181074e1011",
 			"kickofftime": "2020-10-21T20:00:00.000Z",
 			"stadium": "Herning",
-			"type": "Group D - leg 1",
+			"type": "leg 1 - Day 2",
 			"league": "1a21a7c1a3f89181074e9769"
 		},
 		{
@@ -392,7 +392,7 @@
 			"team2": "1a21a7c1a3f89181074e1014",
 			"kickofftime": "2020-10-27T20:00:00.000Z",
 			"stadium": "Bergamo",
-			"type": "Group D - leg 2",
+			"type": "leg 2 - Day 1",
 			"league": "1a21a7c1a3f89181074e9769"
 		},
 		{
@@ -401,7 +401,7 @@
 			"team2": "1a21a7c1a3f89181074e1015",
 			"kickofftime": "2020-10-27T20:00:00.000Z",
 			"stadium": "Liverpool",
-			"type": "Group D - leg 2",
+			"type": "leg 2 - Day 1",
 			"league": "1a21a7c1a3f89181074e9769"
 		},
 		{
@@ -410,7 +410,7 @@
 			"team2": "1a21a7c1a3f89181074e1014",
 			"kickofftime": "2020-11-03T20:00:00.000Z",
 			"stadium": "Herning",
-			"type": "Group D - leg 3",
+			"type": "leg 3 - Day 1",
 			"league": "1a21a7c1a3f89181074e9769"
 		},
 		{
@@ -419,7 +419,7 @@
 			"team2": "1a21a7c1a3f89181074e1013",
 			"kickofftime": "2020-11-03T20:00:00.000Z",
 			"stadium": "Bergamo",
-			"type": "Group D - leg 3",
+			"type": "leg 3 - Day 1",
 			"league": "1a21a7c1a3f89181074e9769"
 		},
 		{
@@ -428,7 +428,7 @@
 			"team2": "1a21a7c1a3f89181074e1015",
 			"kickofftime": "2020-11-25T20:00:00.000Z",
 			"stadium": "Amsterdam",
-			"type": "Group D - leg 4",
+			"type": "leg 4 - Day 2",
 			"league": "1a21a7c1a3f89181074e9769"
 		},
 		{
@@ -437,7 +437,7 @@
 			"team2": "1a21a7c1a3f89181074e1011",
 			"kickofftime": "2020-11-25T20:00:00.000Z",
 			"stadium": "Liverpool",
-			"type": "Group D - leg 4",
+			"type": "leg 4 - Day 2",
 			"league": "1a21a7c1a3f89181074e9769"
 		},
 		{
@@ -446,7 +446,7 @@
 			"team2": "1a21a7c1a3f89181074e1014",
 			"kickofftime": "2020-12-01T20:00:00.000Z",
 			"stadium": "Liverpool",
-			"type": "Group D - leg 5",
+			"type": "leg 5 - Day 1",
 			"league": "1a21a7c1a3f89181074e9769"
 		},
 		{
@@ -455,7 +455,7 @@
 			"team2": "1a21a7c1a3f89181074e1015",
 			"kickofftime": "2020-12-01T20:00:00.000Z",
 			"stadium": "Bergamo",
-			"type": "Group D - leg 5",
+			"type": "leg 5 - Day 1",
 			"league": "1a21a7c1a3f89181074e9769"
 		},
 		{
@@ -464,7 +464,7 @@
 			"team2": "1a21a7c1a3f89181074e1011",
 			"kickofftime": "2020-12-09T17:55:00.000Z",
 			"stadium": "Amsterdam",
-			"type": "Group D - leg 6",
+			"type": "leg 6 - Day 2",
 			"league": "1a21a7c1a3f89181074e9769"
 		},
 		{
@@ -473,7 +473,7 @@
 			"team2": "1a21a7c1a3f89181074e1013",
 			"kickofftime": "2020-12-09T17:55:00.000Z",
 			"stadium": "Herning",
-			"type": "Group D - leg 6",
+			"type": "leg 6 - Day 2",
 			"league": "1a21a7c1a3f89181074e9769"
 		},
 		{
@@ -482,7 +482,7 @@
 			"team2": "1a21a7c1a3f89181074e1016",
 			"kickofftime": "2020-10-20T17:55:00.000Z",
 			"stadium": "Rennes",
-			"type": "Group E - leg 1",
+			"type": "leg 1 - Day 1",
 			"league": "1a21a7c1a3f89181074e9769"
 		},
 		{
@@ -491,7 +491,7 @@
 			"team2": "1a21a7c1a3f89181074e1018",
 			"kickofftime": "2020-10-20T20:00:00.000Z",
 			"stadium": "London",
-			"type": "Group E - leg 1",
+			"type": "leg 1 - Day 1",
 			"league": "1a21a7c1a3f89181074e9769"
 		},
 		{
@@ -500,7 +500,7 @@
 			"team2": "1a21a7c1a3f89181074e1019",
 			"kickofftime": "2020-10-28T17:55:00.000Z",
 			"stadium": "Krasnodar",
-			"type": "Group E - leg 2",
+			"type": "leg 2 - Day 2",
 			"league": "1a21a7c1a3f89181074e9769"
 		},
 		{
@@ -509,7 +509,7 @@
 			"team2": "1a21a7c1a3f89181074e1017",
 			"kickofftime": "2020-10-28T20:00:00.000Z",
 			"stadium": "Seville",
-			"type": "Group E - leg 2",
+			"type": "leg 2 - Day 2",
 			"league": "1a21a7c1a3f89181074e9769"
 		},
 		{
@@ -518,7 +518,7 @@
 			"team2": "1a21a7c1a3f89181074e1017",
 			"kickofftime": "2020-11-04T20:00:00.000Z",
 			"stadium": "London",
-			"type": "Group E - leg 3",
+			"type": "leg 3 - Day 2",
 			"league": "1a21a7c1a3f89181074e9769"
 		},
 		{
@@ -527,7 +527,7 @@
 			"team2": "1a21a7c1a3f89181074e1016",
 			"kickofftime": "2020-11-04T20:00:00.000Z",
 			"stadium": "Seville",
-			"type": "Group E - leg 3",
+			"type": "leg 3 - Day 2",
 			"league": "1a21a7c1a3f89181074e9769"
 		},
 		{
@@ -536,7 +536,7 @@
 			"team2": "1a21a7c1a3f89181074e1019",
 			"kickofftime": "2020-11-24T17:55:00.000Z",
 			"stadium": "Rennes",
-			"type": "Group E - leg 4",
+			"type": "leg 4 - Day 1",
 			"league": "1a21a7c1a3f89181074e9769"
 		},
 		{
@@ -545,7 +545,7 @@
 			"team2": "1a21a7c1a3f89181074e1018",
 			"kickofftime": "2020-11-24T17:55:00.000Z",
 			"stadium": "Krasnodar",
-			"type": "Group E - leg 4",
+			"type": "leg 4 - Day 1",
 			"league": "1a21a7c1a3f89181074e9769"
 		},
 		{
@@ -554,7 +554,7 @@
 			"team2": "1a21a7c1a3f89181074e1017",
 			"kickofftime": "2020-12-02T17:55:00.000Z",
 			"stadium": "Krasnodar",
-			"type": "Group E - leg 5",
+			"type": "leg 5 - Day 2",
 			"league": "1a21a7c1a3f89181074e9769"
 		},
 		{
@@ -563,7 +563,7 @@
 			"team2": "1a21a7c1a3f89181074e1019",
 			"kickofftime": "2020-12-02T20:00:00.000Z",
 			"stadium": "Seville",
-			"type": "Group E - leg 5",
+			"type": "leg 5 - Day 2",
 			"league": "1a21a7c1a3f89181074e9769"
 		},
 		{
@@ -572,7 +572,7 @@
 			"team2": "1a21a7c1a3f89181074e1018",
 			"kickofftime": "2020-12-08T20:00:00.000Z",
 			"stadium": "Rennes",
-			"type": "Group E - leg 6",
+			"type": "leg 6 - Day 1",
 			"league": "1a21a7c1a3f89181074e9769"
 		},
 		{
@@ -581,7 +581,7 @@
 			"team2": "1a21a7c1a3f89181074e1016",
 			"kickofftime": "2020-12-08T20:00:00.000Z",
 			"stadium": "London",
-			"type": "Group E - leg 6",
+			"type": "leg 6 - Day 1",
 			"league": "1a21a7c1a3f89181074e9769"
 		},
 		{
@@ -590,7 +590,7 @@
 			"team2": "1a21a7c1a3f89181074e1021",
 			"kickofftime": "2020-10-20T17:55:00.000Z",
 			"stadium": "St. Petersburg",
-			"type": "Group F - leg 1",
+			"type": "leg 1 - Day 1",
 			"league": "1a21a7c1a3f89181074e9769"
 		},
 		{
@@ -599,7 +599,7 @@
 			"team2": "1a21a7c1a3f89181074e1023",
 			"kickofftime": "2020-10-20T20:00:00.000Z",
 			"stadium": "Rome",
-			"type": "Group F - leg 1",
+			"type": "leg 1 - Day 1",
 			"league": "1a21a7c1a3f89181074e9769"
 		},
 		{
@@ -608,7 +608,7 @@
 			"team2": "1a21a7c1a3f89181074e1020",
 			"kickofftime": "2020-10-28T20:00:00.000Z",
 			"stadium": "Bruges",
-			"type": "Group F - leg 2",
+			"type": "leg 2 - Day 2",
 			"league": "1a21a7c1a3f89181074e9769"
 		},
 		{
@@ -617,7 +617,7 @@
 			"team2": "1a21a7c1a3f89181074e1022",
 			"kickofftime": "2020-10-28T20:00:00.000Z",
 			"stadium": "Dortmund",
-			"type": "Group F - leg 2",
+			"type": "leg 2 - Day 2",
 			"league": "1a21a7c1a3f89181074e9769"
 		},
 		{
@@ -626,7 +626,7 @@
 			"team2": "1a21a7c1a3f89181074e1020",
 			"kickofftime": "2020-11-04T17:55:00.000Z",
 			"stadium": "St. Petersburg",
-			"type": "Group F - leg 3",
+			"type": "leg 3 - Day 2",
 			"league": "1a21a7c1a3f89181074e9769"
 		},
 		{
@@ -635,7 +635,7 @@
 			"team2": "1a21a7c1a3f89181074e1023",
 			"kickofftime": "2020-11-04T20:00:00.000Z",
 			"stadium": "Bruges",
-			"type": "Group F - leg 3",
+			"type": "leg 3 - Day 2",
 			"league": "1a21a7c1a3f89181074e9769"
 		},
 		{
@@ -644,7 +644,7 @@
 			"team2": "1a21a7c1a3f89181074e1022",
 			"kickofftime": "2020-11-24T20:00:00.000Z",
 			"stadium": "Rome",
-			"type": "Group F - leg 4",
+			"type": "leg 4 - Day 1",
 			"league": "1a21a7c1a3f89181074e9769"
 		},
 		{
@@ -653,7 +653,7 @@
 			"team2": "1a21a7c1a3f89181074e1021",
 			"kickofftime": "2020-11-24T20:00:00.000Z",
 			"stadium": "Dortmund",
-			"type": "Group F - leg 4",
+			"type": "leg 4 - Day 1",
 			"league": "1a21a7c1a3f89181074e9769"
 		},
 		{
@@ -662,7 +662,7 @@
 			"team2": "1a21a7c1a3f89181074e1020",
 			"kickofftime": "2020-12-02T20:00:00.000Z",
 			"stadium": "Dortmund",
-			"type": "Group F - leg 5",
+			"type": "leg 5 - Day 2",
 			"league": "1a21a7c1a3f89181074e9769"
 		},
 		{
@@ -671,7 +671,7 @@
 			"team2": "1a21a7c1a3f89181074e1022",
 			"kickofftime": "2020-12-02T20:00:00.000Z",
 			"stadium": "Bruges",
-			"type": "Group F - leg 5",
+			"type": "leg 5 - Day 2",
 			"league": "1a21a7c1a3f89181074e9769"
 		},
 		{
@@ -680,7 +680,7 @@
 			"team2": "1a21a7c1a3f89181074e1021",
 			"kickofftime": "2020-12-08T17:55:00.000Z",
 			"stadium": "Rome",
-			"type": "Group F - leg 6",
+			"type": "leg 6 - Day 1",
 			"league": "1a21a7c1a3f89181074e9769"
 		},
 		{
@@ -689,7 +689,7 @@
 			"team2": "1a21a7c1a3f89181074e1023",
 			"kickofftime": "2020-12-08T17:55:00.000Z",
 			"stadium": "St. Petersburg",
-			"type": "Group F - leg 6",
+			"type": "leg 6 - Day 1",
 			"league": "1a21a7c1a3f89181074e9769"
 		},
 		{
@@ -698,7 +698,7 @@
 			"team2": "1a21a7c1a3f89181074e1025",
 			"kickofftime": "2020-10-20T17:55:00.000Z",
 			"stadium": "Kyiv",
-			"type": "Group G - leg 1",
+			"type": "leg 1 - Day 1",
 			"league": "1a21a7c1a3f89181074e9769"
 		},
 		{
@@ -707,7 +707,7 @@
 			"team2": "1a21a7c1a3f89181074e1027",
 			"kickofftime": "2020-10-20T20:00:00.000Z",
 			"stadium": "Barcelona",
-			"type": "Group G - leg 1",
+			"type": "leg 1 - Day 1",
 			"league": "1a21a7c1a3f89181074e9769"
 		},
 		{
@@ -716,7 +716,7 @@
 			"team2": "1a21a7c1a3f89181074e1026",
 			"kickofftime": "2020-10-28T20:00:00.000Z",
 			"stadium": "Budapest",
-			"type": "Group G - leg 2",
+			"type": "leg 2 - Day 2",
 			"league": "1a21a7c1a3f89181074e9769"
 		},
 		{
@@ -725,7 +725,7 @@
 			"team2": "1a21a7c1a3f89181074e1024",
 			"kickofftime": "2020-10-28T20:00:00.000Z",
 			"stadium": "Turin",
-			"type": "Group G - leg 2",
+			"type": "leg 2 - Day 2",
 			"league": "1a21a7c1a3f89181074e9769"
 		},
 		{
@@ -734,7 +734,7 @@
 			"team2": "1a21a7c1a3f89181074e1026",
 			"kickofftime": "2020-11-04T20:00:00.000Z",
 			"stadium": "Barcelona",
-			"type": "Group G - leg 3",
+			"type": "leg 3 - Day 2",
 			"league": "1a21a7c1a3f89181074e9769"
 		},
 		{
@@ -743,7 +743,7 @@
 			"team2": "1a21a7c1a3f89181074e1025",
 			"kickofftime": "2020-11-04T20:00:00.000Z",
 			"stadium": "Budapest",
-			"type": "Group G - leg 3",
+			"type": "leg 3 - Day 2",
 			"league": "1a21a7c1a3f89181074e9769"
 		},
 		{
@@ -752,7 +752,7 @@
 			"team2": "1a21a7c1a3f89181074e1024",
 			"kickofftime": "2020-11-24T20:00:00.000Z",
 			"stadium": "Kyiv",
-			"type": "Group G - leg 4",
+			"type": "leg 4 - Day 1",
 			"league": "1a21a7c1a3f89181074e9769"
 		},
 		{
@@ -761,7 +761,7 @@
 			"team2": "1a21a7c1a3f89181074e1027",
 			"kickofftime": "2020-11-24T20:00:00.000Z",
 			"stadium": "Turin",
-			"type": "Group G - leg 4",
+			"type": "leg 4 - Day 1",
 			"league": "1a21a7c1a3f89181074e9769"
 		},
 		{
@@ -770,7 +770,7 @@
 			"team2": "1a21a7c1a3f89181074e1026",
 			"kickofftime": "2020-12-02T20:00:00.000Z",
 			"stadium": "Turin",
-			"type": "Group G - leg 5",
+			"type": "leg 5 - Day 2",
 			"league": "1a21a7c1a3f89181074e9769"
 		},
 		{
@@ -779,7 +779,7 @@
 			"team2": "1a21a7c1a3f89181074e1024",
 			"kickofftime": "2020-12-02T20:00:00.000Z",
 			"stadium": "Budapest",
-			"type": "Group G - leg 5",
+			"type": "leg 5 - Day 2",
 			"league": "1a21a7c1a3f89181074e9769"
 		},
 		{
@@ -788,7 +788,7 @@
 			"team2": "1a21a7c1a3f89181074e1027",
 			"kickofftime": "2020-12-08T20:00:00.000Z",
 			"stadium": "Kyiv",
-			"type": "Group G - leg 6",
+			"type": "leg 6 - Day 1",
 			"league": "1a21a7c1a3f89181074e9769"
 		},
 		{
@@ -797,7 +797,7 @@
 			"team2": "1a21a7c1a3f89181074e1025",
 			"kickofftime": "2020-12-08T20:00:00.000Z",
 			"stadium": "Barcelona",
-			"type": "Group G - leg 6",
+			"type": "leg 6 - Day 1",
 			"league": "1a21a7c1a3f89181074e9769"
 		},
 		{
@@ -806,7 +806,7 @@
 			"team2": "1a21a7c1a3f89181074e1029",
 			"kickofftime": "2020-10-20T17:55:00.000Z",
 			"stadium": "Paris",
-			"type": "Group H - leg 1",
+			"type": "leg 1 - Day 1",
 			"league": "1a21a7c1a3f89181074e9769"
 		},
 		{
@@ -815,7 +815,7 @@
 			"team2": "1a21a7c1a3f89181074e1031",
 			"kickofftime": "2020-10-20T20:00:00.000Z",
 			"stadium": "Leipzig",
-			"type": "Group H - leg 1",
+			"type": "leg 1 - Day 1",
 			"league": "1a21a7c1a3f89181074e9769"
 		},
 		{
@@ -824,7 +824,7 @@
 			"team2": "1a21a7c1a3f89181074e1030",
 			"kickofftime": "2020-10-28T17:55:00.000Z",
 			"stadium": "Istanbul",
-			"type": "Group H - leg 2",
+			"type": "leg 2 - Day 2",
 			"league": "1a21a7c1a3f89181074e9769"
 		},
 		{
@@ -833,7 +833,7 @@
 			"team2": "1a21a7c1a3f89181074e1028",
 			"kickofftime": "2020-10-28T20:00:00.000Z",
 			"stadium": "Manchester",
-			"type": "Group H - leg 2",
+			"type": "leg 2 - Day 2",
 			"league": "1a21a7c1a3f89181074e9769"
 		},
 		{
@@ -842,7 +842,7 @@
 			"team2": "1a21a7c1a3f89181074e1029",
 			"kickofftime": "2020-11-04T17:55:00.000Z",
 			"stadium": "Istanbul",
-			"type": "Group H - leg 3",
+			"type": "leg 3 - Day 2",
 			"league": "1a21a7c1a3f89181074e9769"
 		},
 		{
@@ -851,7 +851,7 @@
 			"team2": "1a21a7c1a3f89181074e1030",
 			"kickofftime": "2020-11-04T20:00:00.000Z",
 			"stadium": "Leipzig",
-			"type": "Group H - leg 3",
+			"type": "leg 3 - Day 2",
 			"league": "1a21a7c1a3f89181074e9769"
 		},
 		{
@@ -860,7 +860,7 @@
 			"team2": "1a21a7c1a3f89181074e1028",
 			"kickofftime": "2020-11-24T20:00:00.000Z",
 			"stadium": "Paris",
-			"type": "Group H - leg 4",
+			"type": "leg 4 - Day 1",
 			"league": "1a21a7c1a3f89181074e9769"
 		},
 		{
@@ -869,7 +869,7 @@
 			"team2": "1a21a7c1a3f89181074e1031",
 			"kickofftime": "2020-11-24T20:00:00.000Z",
 			"stadium": "Manchester",
-			"type": "Group H - leg 4",
+			"type": "leg 4 - Day 1",
 			"league": "1a21a7c1a3f89181074e9769"
 		},
 		{
@@ -878,7 +878,7 @@
 			"team2": "1a21a7c1a3f89181074e1028",
 			"kickofftime": "2020-12-02T17:55:00.000Z",
 			"stadium": "Istanbul",
-			"type": "Group H - leg 5",
+			"type": "leg 5 - Day 2",
 			"league": "1a21a7c1a3f89181074e9769"
 		},
 		{
@@ -887,7 +887,7 @@
 			"team2": "1a21a7c1a3f89181074e1030",
 			"kickofftime": "2020-12-02T20:00:00.000Z",
 			"stadium": "Manchester",
-			"type": "Group H - leg 5",
+			"type": "leg 5 - Day 2",
 			"league": "1a21a7c1a3f89181074e9769"
 		},
 		{
@@ -896,7 +896,7 @@
 			"team2": "1a21a7c1a3f89181074e1031",
 			"kickofftime": "2020-12-08T20:00:00.000Z",
 			"stadium": "Paris",
-			"type": "Group H - leg 6",
+			"type": "leg 6 - Day 1",
 			"league": "1a21a7c1a3f89181074e9769"
 		},
 		{
@@ -905,7 +905,7 @@
 			"team2": "1a21a7c1a3f89181074e1029",
 			"kickofftime": "2020-12-08T20:00:00.000Z",
 			"stadium": "Leipzig",
-			"type": "Group H - leg 6",
+			"type": "leg 6 - Day 1",
 			"league": "1a21a7c1a3f89181074e9769"
 		}
 	],
