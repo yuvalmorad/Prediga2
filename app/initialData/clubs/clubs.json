@@ -15,8 +15,8 @@
 			"#FF1716",
 			"#000000"
 		],
-		"logoPosition": "-61px -122px",
-		"sprite": "champions",
+		"logoPosition": "-58px -113px",
+		"sprite": "champions_2",
 		"stadium": "Allianz Arena, Munich"
 	},
 	{
@@ -35,8 +35,8 @@
 			"black",
 			"black"
 		],
-		"logoPosition": "0px -543px",
-		"sprite": "champions",
+		"logoPosition": "0px -504px",
+		"sprite": "champions_2",
 		"stadium": "Moscow"
 	},
 	{
@@ -55,8 +55,8 @@
 			"black",
 			"black"
 		],
-		"logoPosition": "0px -785px",
-		"sprite": "champions",
+		"logoPosition": "0px -727px",
+		"sprite": "champions_2",
 		"stadium": "Salzburg"
 	},
 	{
@@ -75,8 +75,8 @@
 			"#AA0001",
 			"#000000"
 		],
-		"logoPosition": "0px -61px",
-		"sprite": "champions",
+		"logoPosition": "0px -55px",
+		"sprite": "champions_2",
 		"stadium": "Wanda Metropolitano"
 	},
 	{
@@ -96,8 +96,8 @@
 			"#FF5902",
 			"#000000"
 		],
-		"logoPosition": "-62px -843px",
-		"sprite": "champions",
+		"logoPosition": "-56px -786px",
+		"sprite": "champions_2",
 		"stadium": "Metalist Stadium, Kharkiv"
 	},
 	{
@@ -117,8 +117,8 @@
 			"black",
 			"black"
 		],
-		"logoPosition": "-62px -182px",
-		"sprite": "champions",
+		"logoPosition": "-57px -166px",
+		"sprite": "champions_2",
 		"stadium": "Borussia Monchengladbach"
 	},
 	{
@@ -137,8 +137,8 @@
 			"blue",
 			"black"
 		],
-		"logoPosition": "-2px -422px",
-		"sprite": "champions",
+		"logoPosition": "0px -392px",
+		"sprite": "champions_2",
 		"stadium": "Milano"
 	},
 	{
@@ -158,8 +158,8 @@
 			"#23A6BF",
 			"#000000"
 		],
-		"logoPosition": "-62px -722px",
-		"sprite": "champions",
+		"logoPosition": "-57px -674px",
+		"sprite": "champions_2",
 		"stadium": "Santiago Bernabéu, Madrid"
 	},
 	{
@@ -179,8 +179,8 @@
 			"#44B1FD",
 			"#000000"
 		],
-		"logoPosition": "-62px -542px",
-		"sprite": "champions",
+		"logoPosition": "-57px -503px",
+		"sprite": "champions_2",
 		"stadium": "City of Manchester Stadium, Manchester"
 	},
 	{
@@ -199,8 +199,8 @@
 			"black",
 			"black"
 		],
-		"logoPosition": "-62px -601px",
-		"sprite": "champions",
+		"logoPosition": "-57px -561px",
+		"sprite": "champions_2",
 		"stadium": "Olympiacos"
 	},
 	{
@@ -219,8 +219,8 @@
 			"black",
 			"black"
 		],
-		"logoPosition": "0px -663px",
-		"sprite": "champions",
+		"logoPosition": "0px -616px",
+		"sprite": "champions_2",
 		"stadium": "Marseille"
 	},
 	{
@@ -240,8 +240,8 @@
 			"#1E01FF",
 			"#000000"
 		],
-		"logoPosition": "-62px -1px",
-		"sprite": "champions",
+		"logoPosition": "-57px -1px",
+		"sprite": "champions_2",
 		"stadium": "Estádio do Dragão, Porto"
 	},
 	{
@@ -261,8 +261,8 @@
 			"blue",
 			"white"
 		],
-		"logoPosition": "-62px -779px",
-		"sprite": "champions",
+		"logoPosition": "-57px -728px",
+		"sprite": "champions_2",
 		"stadium": "Bergamo"
 	},
 	{
@@ -282,8 +282,8 @@
 			"#990001",
 			"#000000"
 		],
-		"logoPosition": "-62px -485px",
-		"sprite": "champions",
+		"logoPosition": "-58px -449px",
+		"sprite": "champions_2",
 		"stadium": "Anfield, Liverpool"
 	},
 	{
@@ -303,7 +303,7 @@
 			"black"
 		],
 		"logoPosition": "",
-		"sprite": "champions",
+		"sprite": "champions_2",
 		"stadium": "Ajax"
 	},
 	{
@@ -322,8 +322,8 @@
 			"black",
 			"black"
 		],
-		"logoPosition": "-2px -361px",
-		"sprite": "champions",
+		"logoPosition": "0px -336px",
+		"sprite": "champions_2",
 		"stadium": "Midtjylland"
 	},
 	{
@@ -342,8 +342,8 @@
 			"black",
 			"black"
 		],
-		"logoPosition": "-62px -301px",
-		"sprite": "champions",
+		"logoPosition": "-57px -279px",
+		"sprite": "champions_2",
 		"stadium": "Krasnodar"
 	},
 	{
@@ -362,8 +362,8 @@
 			"black",
 			"black"
 		],
-		"logoPosition": "-2px -901px",
-		"sprite": "champions",
+		"logoPosition": "1px -840px",
+		"sprite": "champions_2",
 		"stadium": "Rennes"
 	},
 	{
@@ -383,8 +383,8 @@
 			"#FF1716",
 			"#000000"
 		],
-		"logoPosition": "0px -842px",
-		"sprite": "champions",
+		"logoPosition": "0px -783px",
+		"sprite": "champions_2",
 		"stadium": "Ramón Sánchez Pizjuán, Seville"
 	},
 	{
@@ -404,8 +404,8 @@
 			"#0045B8",
 			"#000000"
 		],
-		"logoPosition": "-1px -241px",
-		"sprite": "champions",
+		"logoPosition": "-1px -223px",
+		"sprite": "champions_2",
 		"stadium": "Stamford Bridge, London"
 	},
 	{
@@ -425,8 +425,8 @@
 			"blue",
 			"white"
 		],
-		"logoPosition": "-1px -481px",
-		"sprite": "champions",
+		"logoPosition": "-1px -448px",
+		"sprite": "champions_2",
 		"stadium": "Rome"
 	},
 	{
@@ -445,8 +445,8 @@
 			"black",
 			"black"
 		],
-		"logoPosition": "-62px -242px",
-		"sprite": "champions",
+		"logoPosition": "-57px -224px",
+		"sprite": "champions_2",
 		"stadium": "Club Brugge"
 	},
 	{
@@ -465,8 +465,8 @@
 			"black",
 			"black"
 		],
-		"logoPosition": "-62px -901px",
-		"sprite": "champions",
+		"logoPosition": "-57px -845px",
+		"sprite": "champions_2",
 		"stadium": "Zenit Saint Petersburg"
 	},
 	{
@@ -487,8 +487,8 @@
 			"#000",
 			"#FFF500"
 		],
-		"logoPosition": "0px -183px",
-		"sprite": "champions",
+		"logoPosition": "0px -167px",
+		"sprite": "champions_2",
 		"stadium": "Signal Iduna Park, Dortmund"
 	},
 	{
@@ -509,8 +509,8 @@
 			"#990001",
 			"#000000"
 		],
-		"logoPosition": "-62px -60px",
-		"sprite": "champions",
+		"logoPosition": "-57px -55px",
+		"sprite": "champions_2",
 		"stadium": "Camp Nou, Barcelona"
 	},
 	{
@@ -529,15 +529,15 @@
 		"graphColors": [
 			"#000000"
 		],
-		"logoPosition": "-63px -421px",
-		"sprite": "champions",
+		"logoPosition": "-57px -393px",
+		"sprite": "champions_2",
 		"stadium": "Juventus Stadium, Turin"
 	},
 	{
 		"_id": "1a21a7c1a3f89181074e1026",
 		"name": "Dynamo Kyiv",
 		"nameSport5": "דינמו קייב",
-		"shortName": "KYV",
+		"shortName": "DYK",
 		"colors": [
 			"black"
 		],
@@ -549,8 +549,8 @@
 			"black",
 			"black"
 		],
-		"logoPosition": "-2px -302px",
-		"sprite": "champions",
+		"logoPosition": "-2px -279px",
+		"sprite": "champions_2",
 		"stadium": "Dynamo Kyiv"
 	},
 	{
@@ -569,8 +569,8 @@
 			"black",
 			"black"
 		],
-		"logoPosition": "-62px -361px",
-		"sprite": "champions",
+		"logoPosition": "-57px -337px",
+		"sprite": "champions_2",
 		"stadium": "Ferencvaros"
 	},
 	{
@@ -589,8 +589,8 @@
 		"graphColors": [
 			"red"
 		],
-		"logoPosition": "-1px -720px",
-		"sprite": "champions",
+		"logoPosition": "-1px -672px",
+		"sprite": "champions_2",
 		"stadium": "Red Bull Arena, Leipzig"
 	},
 	{
@@ -610,8 +610,8 @@
 			"#DE000A",
 			"#000000"
 		],
-		"logoPosition": "-1px -602px",
-		"sprite": "champions",
+		"logoPosition": "-1px -561px",
+		"sprite": "champions_2",
 		"stadium": "Old Trafford, Manchester"
 	},
 	{
@@ -632,8 +632,8 @@
 			"#0A2555",
 			"#7C2838"
 		],
-		"logoPosition": "-62px -662px",
-		"sprite": "champions",
+		"logoPosition": "-58px -617px",
+		"sprite": "champions_2",
 		"stadium": "Parc des Princes, Paris"
 	},
 	{
@@ -652,8 +652,8 @@
 			"black",
 			"black"
 		],
-		"logoPosition": "0px -122px",
-		"sprite": "champions",
+		"logoPosition": "0px -111px",
+		"sprite": "champions_2",
 		"stadium": "Istanbul Basaksehir"
 	}
 ]

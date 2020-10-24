@@ -913,7 +913,7 @@
 	],
 	"teams": [
 		{
-			"_id": "5a1342399017dfc4e2faf694",
+			"_id": "9b1342399017dfc4e2faf4d1",
 			"title": "1st place",
 			"type": "teamWinner",
 			"deadline": "2021-05-01T20:00:00.000Z",
@@ -921,6 +921,256 @@
 			"options": [],
 			"resultTime": "2021-05-29T20:00:00.000Z",
 			"category": "9b1342399017dfc4e2faf4d1"
+		},
+		{
+			"_id": "9b1342399017dfc4e2faf4d2",
+			"title": "2nd place",
+			"type": "teamRunnerUp",
+			"deadline": "2021-05-01T20:00:00.000Z",
+			"league": "1a21a7c1a3f89181074e9769",
+			"options": [],
+			"resultTime": "2021-05-29T20:00:00.000Z",
+			"category": "9b1342399017dfc4e2faf4d2"
+		},
+		{
+			"_id": "9b1342399017dfc4e2faf4d3",
+			"title": "1st place Group A",
+			"type": "teamInGroup",
+			"deadline": "2020-11-01T15:00:00.004Z",
+			"league": "1a21a7c1a3f89181074e9769",
+			"options": [
+				"1a21a7c1a3f89181074e1000",
+				"1a21a7c1a3f89181074e1001",
+				"1a21a7c1a3f89181074e1002",
+				"1a21a7c1a3f89181074e1003"
+			],
+			"resultTime": "2021-01-01T15:00:00.004Z",
+			"category": "9b1342399017dfc4e2faf4d3"
+		},
+		{
+			"_id": "9b1342399017dfc4e2faf4d4",
+			"title": "2nd place Group A",
+			"type": "teamInGroup",
+			"deadline": "2020-11-01T15:00:00.004Z",
+			"league": "1a21a7c1a3f89181074e9769",
+			"options": [
+				"1a21a7c1a3f89181074e1000",
+				"1a21a7c1a3f89181074e1001",
+				"1a21a7c1a3f89181074e1002",
+				"1a21a7c1a3f89181074e1003"
+			],
+			"resultTime": "2021-01-01T15:00:00.004Z",
+			"category": "9b1342399017dfc4e2faf4d3"
+		},
+		{
+			"_id": "9b1342399017dfc4e2faf4d5",
+			"title": "1st place Group B",
+			"type": "teamInGroup",
+			"deadline": "2020-11-01T15:00:00.004Z",
+			"league": "1a21a7c1a3f89181074e9769",
+			"options": [
+				"1a21a7c1a3f89181074e1004",
+				"1a21a7c1a3f89181074e1005",
+				"1a21a7c1a3f89181074e1006",
+				"1a21a7c1a3f89181074e1007"
+			],
+			"resultTime": "2021-01-01T15:00:00.004Z",
+			"category": "9b1342399017dfc4e2faf4d4"
+		},
+		{
+			"_id": "9b1342399017dfc4e2faf4d6",
+			"title": "2nd place Group B",
+			"type": "teamInGroup",
+			"deadline": "2020-11-01T15:00:00.004Z",
+			"league": "1a21a7c1a3f89181074e9769",
+			"options": [
+				"1a21a7c1a3f89181074e1004",
+				"1a21a7c1a3f89181074e1005",
+				"1a21a7c1a3f89181074e1006",
+				"1a21a7c1a3f89181074e1007"
+			],
+			"resultTime": "2021-01-01T15:00:00.004Z",
+			"category": "9b1342399017dfc4e2faf4d4"
+		},
+		{
+			"_id": "9b1342399017dfc4e2faf4d7",
+			"title": "1st place Group C",
+			"type": "teamInGroup",
+			"deadline": "2020-11-01T15:00:00.004Z",
+			"league": "1a21a7c1a3f89181074e9769",
+			"options": [
+				"1a21a7c1a3f89181074e1008",
+				"1a21a7c1a3f89181074e1009",
+				"1a21a7c1a3f89181074e1010",
+				"1a21a7c1a3f89181074e1011"
+			],
+			"resultTime": "2021-01-01T15:00:00.004Z",
+			"category": "9b1342399017dfc4e2faf4d5"
+		},
+		{
+			"_id": "9b1342399017dfc4e2faf4d8",
+			"title": "2nd place Group C",
+			"type": "teamInGroup",
+			"deadline": "2020-11-01T15:00:00.004Z",
+			"league": "1a21a7c1a3f89181074e9769",
+			"options": [
+				"1a21a7c1a3f89181074e1008",
+				"1a21a7c1a3f89181074e1009",
+				"1a21a7c1a3f89181074e1010",
+				"1a21a7c1a3f89181074e1011"
+			],
+			"resultTime": "2021-01-01T15:00:00.004Z",
+			"category": "9b1342399017dfc4e2faf4d5"
+		},
+		{
+			"_id": "9b1342399017dfc4e2faf4d9",
+			"title": "1st place Group D",
+			"type": "teamInGroup",
+			"deadline": "2020-11-01T15:00:00.004Z",
+			"league": "1a21a7c1a3f89181074e9769",
+			"options": [
+				"1a21a7c1a3f89181074e1012",
+				"1a21a7c1a3f89181074e1013",
+				"1a21a7c1a3f89181074e1014",
+				"1a21a7c1a3f89181074e1015"
+			],
+			"resultTime": "2021-01-01T15:00:00.004Z",
+			"category": "9b1342399017dfc4e2faf4d6"
+		},
+		{
+			"_id": "9b1342399017dfc4e2faf4e0",
+			"title": "2nd place Group D",
+			"type": "teamInGroup",
+			"deadline": "2020-11-01T15:00:00.004Z",
+			"league": "1a21a7c1a3f89181074e9769",
+			"options": [
+				"1a21a7c1a3f89181074e1012",
+				"1a21a7c1a3f89181074e1013",
+				"1a21a7c1a3f89181074e1014",
+				"1a21a7c1a3f89181074e1015"
+			],
+			"resultTime": "2021-01-01T15:00:00.004Z",
+			"category": "9b1342399017dfc4e2faf4d6"
+		},
+		{
+			"_id": "9b1342399017dfc4e2faf4e1",
+			"title": "1st place Group E",
+			"type": "teamInGroup",
+			"deadline": "2020-11-01T15:00:00.004Z",
+			"league": "1a21a7c1a3f89181074e9769",
+			"options": [
+				"1a21a7c1a3f89181074e1016",
+				"1a21a7c1a3f89181074e1017",
+				"1a21a7c1a3f89181074e1018",
+				"1a21a7c1a3f89181074e1019"
+			],
+			"resultTime": "2021-01-01T15:00:00.004Z",
+			"category": "9b1342399017dfc4e2faf4d7"
+		},
+		{
+			"_id": "9b1342399017dfc4e2faf4e2",
+			"title": "2nd place Group E",
+			"type": "teamInGroup",
+			"deadline": "2020-11-01T15:00:00.004Z",
+			"league": "1a21a7c1a3f89181074e9769",
+			"options": [
+				"1a21a7c1a3f89181074e1016",
+				"1a21a7c1a3f89181074e1017",
+				"1a21a7c1a3f89181074e1018",
+				"1a21a7c1a3f89181074e1019"
+			],
+			"resultTime": "2021-01-01T15:00:00.004Z",
+			"category": "9b1342399017dfc4e2faf4d7"
+		},
+		{
+			"_id": "9b1342399017dfc4e2faf4e3",
+			"title": "1st place Group F",
+			"type": "teamInGroup",
+			"deadline": "2020-11-01T15:00:00.004Z",
+			"league": "1a21a7c1a3f89181074e9769",
+			"options": [
+				"1a21a7c1a3f89181074e1020",
+				"1a21a7c1a3f89181074e1021",
+				"1a21a7c1a3f89181074e1022",
+				"1a21a7c1a3f89181074e1023"
+			],
+			"resultTime": "2021-01-01T15:00:00.004Z",
+			"category": "9b1342399017dfc4e2faf4d8"
+		},
+		{
+			"_id": "9b1342399017dfc4e2faf4e4",
+			"title": "2nd place Group F",
+			"type": "teamInGroup",
+			"deadline": "2020-11-01T15:00:00.004Z",
+			"league": "1a21a7c1a3f89181074e9769",
+			"options": [
+				"1a21a7c1a3f89181074e1020",
+				"1a21a7c1a3f89181074e1021",
+				"1a21a7c1a3f89181074e1022",
+				"1a21a7c1a3f89181074e1023"
+			],
+			"resultTime": "2021-01-01T15:00:00.004Z",
+			"category": "9b1342399017dfc4e2faf4d8"
+		},
+		{
+			"_id": "9b1342399017dfc4e2faf4e5",
+			"title": "1st place Group G",
+			"type": "teamInGroup",
+			"deadline": "2020-11-01T15:00:00.004Z",
+			"league": "1a21a7c1a3f89181074e9769",
+			"options": [
+				"1a21a7c1a3f89181074e1024",
+				"1a21a7c1a3f89181074e1025",
+				"1a21a7c1a3f89181074e1026",
+				"1a21a7c1a3f89181074e1027"
+			],
+			"resultTime": "2021-01-01T15:00:00.004Z",
+			"category": "9b1342399017dfc4e2faf4d9"
+		},
+		{
+			"_id": "9b1342399017dfc4e2faf4e6",
+			"title": "2nd place Group G",
+			"type": "teamInGroup",
+			"deadline": "2020-11-01T15:00:00.004Z",
+			"league": "1a21a7c1a3f89181074e9769",
+			"options": [
+				"1a21a7c1a3f89181074e1024",
+				"1a21a7c1a3f89181074e1025",
+				"1a21a7c1a3f89181074e1026",
+				"1a21a7c1a3f89181074e1027"
+			],
+			"resultTime": "2021-01-01T15:00:00.004Z",
+			"category": "9b1342399017dfc4e2faf4d9"
+		},
+		{
+			"_id": "9b1342399017dfc4e2faf4e7",
+			"title": "1st place Group H",
+			"type": "teamInGroup",
+			"deadline": "2018-06-14T15:00:00.018Z",
+			"league": "1a21a7c1a3f89181074e9769",
+			"options": [
+				"1a21a7c1a3f89181074e1028",
+				"1a21a7c1a3f89181074e1029",
+				"1a21a7c1a3f89181074e1030",
+				"1a21a7c1a3f89181074e1031"
+			],
+			"resultTime": "2021-01-01T15:00:00.004Z",
+			"category": "9b1342399017dfc4e2faf4e0"
+		},
+		{
+			"_id": "9b1342399017dfc4e2faf4e8",
+			"title": "2nd place Group H",
+			"type": "teamInGroup",
+			"deadline": "2018-06-14T15:00:00.019Z",
+			"league": "1a21a7c1a3f89181074e9769",
+			"options": [
+				"1a21a7c1a3f89181074e1028",
+				"1a21a7c1a3f89181074e1029",
+				"1a21a7c1a3f89181074e1030",
+				"1a21a7c1a3f89181074e1031"
+			],
+			"resultTime": "2021-01-01T15:00:00.004Z",
+			"category": "9b1342399017dfc4e2faf4e0"
 		}
 	],
 	"teamCategories": [
@@ -941,6 +1191,78 @@
 			"sprite": "questions.png",
 			"mSprite": "champions_semi_finalist",
 			"iconPosition": "-1368px 0"
+		},
+		{
+			"_id": "9b1342399017dfc4e2faf4d3",
+			"league": "1a21a7c1a3f89181074e9769",
+			"title": "Group A Finalists",
+			"description": "Group A finalists",
+			"sprite": "questions.png",
+			"mSprite": "worlcup_A",
+			"iconPosition": "-504px 0"
+		},
+		{
+			"_id": "9b1342399017dfc4e2faf4d4",
+			"league": "1a21a7c1a3f89181074e9769",
+			"title": "Group B Finalists",
+			"description": "Group B finalists",
+			"sprite": "questions.png",
+			"mSprite": "worlcup_B",
+			"iconPosition": "-576px 0"
+		},
+		{
+			"_id": "9b1342399017dfc4e2faf4d5",
+			"league": "1a21a7c1a3f89181074e9769",
+			"title": "Group C Finalists",
+			"description": "Group C finalists",
+			"sprite": "questions.png",
+			"mSprite": "worlcup_C",
+			"iconPosition": "-648px 0"
+		},
+		{
+			"_id": "9b1342399017dfc4e2faf4d6",
+			"league": "1a21a7c1a3f89181074e9769",
+			"title": "Group D Finalists",
+			"description": "Group D finalists",
+			"sprite": "questions.png",
+			"mSprite": "worlcup_D",
+			"iconPosition": "-720px 0"
+		},
+		{
+			"_id": "9b1342399017dfc4e2faf4d7",
+			"league": "1a21a7c1a3f89181074e9769",
+			"title": "Group E Finalists",
+			"description": "Group E finalists",
+			"sprite": "questions.png",
+			"mSprite": "worlcup_E",
+			"iconPosition": "-792px 0"
+		},
+		{
+			"_id": "9b1342399017dfc4e2faf4d8",
+			"league": "1a21a7c1a3f89181074e9769",
+			"title": "Group F Finalists",
+			"description": "Group F finalists",
+			"sprite": "questions.png",
+			"mSprite": "worlcup_F",
+			"iconPosition": "-864px 0"
+		},
+		{
+			"_id": "9b1342399017dfc4e2faf4d9",
+			"league": "1a21a7c1a3f89181074e9769",
+			"title": "Group G Finalists",
+			"description": "Group G finalists",
+			"sprite": "questions.png",
+			"mSprite": "worlcup_G",
+			"iconPosition": "-936px 0"
+		},
+		{
+			"_id": "9b1342399017dfc4e2faf4e0",
+			"league": "1a21a7c1a3f89181074e9769",
+			"title": "Group H Finalists",
+			"description": "Group H finalists",
+			"sprite": "questions.png",
+			"mSprite": "worlcup_G",
+			"iconPosition": "-1008px 0"
 		}
 	],
 	"teamResults": [
