@@ -1178,7 +1178,7 @@
 			"_id": "9b1342399017dfc4e2faf4d1",
 			"league": "1a21a7c1a3f89181074e9769",
 			"title": "Champions League champions",
-			"description": "description about champions league",
+			"description": "1st place",
 			"sprite": "questions.png",
 			"mSprite": "champions_league_finalist",
 			"iconPosition": "-288px 0"
@@ -1187,7 +1187,7 @@
 			"_id": "9b1342399017dfc4e2faf4d2",
 			"league": "1a21a7c1a3f89181074e9769",
 			"title": "Champions Semi Finalists",
-			"description": "description about champions semi finalists",
+			"description": "2nd place",
 			"sprite": "questions.png",
 			"mSprite": "champions_semi_finalist",
 			"iconPosition": "-1368px 0"
