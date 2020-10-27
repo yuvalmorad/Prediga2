@@ -15,6 +15,11 @@ const self = module.exports = {
 				return Promise.resolve([]);
 			} else {
 				const competitionIds = self.getCompetitionIds(leagues);
+				// special fix for 2020-2021 champions
+                for (var i=64; i<= 71; i++){
+                    competitionIds.push(i);
+                }
+
 				return Promise.resolve(competitionIds);
 			}
 		});

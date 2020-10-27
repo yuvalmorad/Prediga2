@@ -136,7 +136,7 @@ const self = module.exports = {
             return Promise.resolve('getResultsJob'); // not relevant yet.
         }
 
-        return clubService.findClubsBySport5Name.then(function (clubsArr) {
+        return clubService.findClubsBySport5Name(relevantGame).then(function (clubsArr) {
             let team1Club = clubsArr.team1;
             let team2Club = clubsArr.team2;
             if (!team1Club || team1Club === null || !team2Club || team2Club === null) {
