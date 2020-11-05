@@ -50,14 +50,10 @@ const self = module.exports = {
                         self.getResultsJob()
                     });
                 } else {
-                    matchService.getNextMatch(-10).then(function (match) {
-                        console.log('[Automatic Updater] - Next automatic update at - ' + match.kickofftime);
-                        schedule.scheduleJob(match.kickofftime, function () {
-                            self.getResultsJob();
-                        });
-
-                        return Promise.resolve({});
-                    })
+                    console.log('[Automatic Updater] - No games to update...');
+                    schedule.scheduleJob(self.getNextJobDate(), function () {
+                        self.run();
+                    });
                 }
 
                 return Promise.resolve({});
