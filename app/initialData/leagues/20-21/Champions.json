@@ -957,6 +957,30 @@
 			"active": false,
 			"resultTime": "2020-11-03T21:00:00.000Z",
 			"status_name": "הסתיים"
+		},
+		{
+			"matchId": "1a21a7c1a3f89181074e1054",
+			"winner": "1a21a7c1a3f89181074e1019",
+			"team1Goals": 1,
+			"team2Goals": 2,
+			"goalDiff": 1,
+			"firstToScore": "1a21a7c1a3f89181074e1019",
+			"gameTime": 90,
+			"active": false,
+			"resultTime": "2020-11-24T17:55:00.000Z",
+			"status_name": "הסתיים"
+		},
+		{
+			"matchId": "1a21a7c1a3f89181074e1055",
+			"winner": "1a21a7c1a3f89181074e1018",
+			"team1Goals": 1,
+			"team2Goals": 2,
+			"goalDiff": 1,
+			"firstToScore": "1a21a7c1a3f89181074e1018",
+			"gameTime": 90,
+			"active": false,
+			"resultTime": "2020-11-24T17:55:00.000Z",
+			"status_name": "הסתיים"
 		}
 	],
 	"teams": [
