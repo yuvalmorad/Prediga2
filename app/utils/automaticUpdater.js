@@ -28,7 +28,7 @@ const self = module.exports = {
                 console.log('[Automatic Updater] - Next automatic update at - ' + match.kickofftime);
                 // if already pass the update now, otherwise schedule:
                 const now = new Date();
-                if (now <= match.kickofftime){
+                if (now >= match.kickofftime){
                     console.log('kickofftime already pass [' + match.kickofftime + '] triggering the update now');
                     self.getResultsJob();
                 } else {
