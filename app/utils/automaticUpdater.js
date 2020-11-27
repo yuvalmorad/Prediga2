@@ -26,9 +26,17 @@ const self = module.exports = {
                 return self.getResultsJob();
             } else {
                 console.log('[Automatic Updater] - Next automatic update at - ' + match.kickofftime);
-                schedule.scheduleJob(match.kickofftime, function () {
+                // if already pass the update now, otherwise schedule:
+                const now = new Date();
+                if (now <= match.kickofftime){
+                    console.log('kickofftime already pass [' + match.kickofftime + '] triggering the update now');
                     self.getResultsJob();
-                });
+                } else {
+                    console.log('kickofftime didnt pass yet [' + match.kickofftime + '] scheduling the update. now = [' + now + ']');
+                    schedule.scheduleJob(match.kickofftime, function () {
+                        self.getResultsJob();
+                    });
+                }
 
                 return Promise.resolve({});
             }
