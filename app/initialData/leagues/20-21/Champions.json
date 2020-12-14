@@ -1558,5 +1558,101 @@
 		}
 	],
 	"teamResults": [
+		{
+			"teamId": "9b1342399017dfc4e2faf4d3",
+			"team": "1a21a7c1a3f89181074e1000",
+			"type": "teamInGroup",
+			"resultTime": "2020-12-14T20:00:00.000Z"
+		},
+		{
+			"teamId": "9b1342399017dfc4e2faf4d4",
+			"team": "1a21a7c1a3f89181074e1003",
+			"type": "teamInGroup",
+			"resultTime": "2020-12-14T20:00:00.000Z"
+		},
+		{
+			"teamId": "9b1342399017dfc4e2faf4d5",
+			"team": "1a21a7c1a3f89181074e1007",
+			"type": "teamInGroup",
+			"resultTime": "2020-12-14T20:00:00.000Z"
+		},
+		{
+			"teamId": "9b1342399017dfc4e2faf4d6",
+			"team": "1a21a7c1a3f89181074e1005",
+			"type": "teamInGroup",
+			"resultTime": "2020-12-14T20:00:00.000Z"
+		},
+		{
+			"teamId": "9b1342399017dfc4e2faf4d7",
+			"team": "1a21a7c1a3f89181074e1008",
+			"type": "teamInGroup",
+			"resultTime": "2020-12-14T20:00:00.000Z"
+		},
+		{
+			"teamId": "9b1342399017dfc4e2faf4d8",
+			"team": "1a21a7c1a3f89181074e1011",
+			"type": "teamInGroup",
+			"resultTime": "2020-12-14T20:00:00.000Z"
+		},
+		{
+			"teamId": "9b1342399017dfc4e2faf4d9",
+			"team": "1a21a7c1a3f89181074e1013",
+			"type": "teamInGroup",
+			"resultTime": "2020-12-14T20:00:00.000Z"
+		},
+		{
+			"teamId": "9b1342399017dfc4e2faf4e0",
+			"team": "1a21a7c1a3f89181074e1012",
+			"type": "teamInGroup",
+			"resultTime": "2020-12-14T20:00:00.000Z"
+		},
+		{
+			"teamId": "9b1342399017dfc4e2faf4e1",
+			"team": "1a21a7c1a3f89181074e1019",
+			"type": "teamInGroup",
+			"resultTime": "2020-12-14T20:00:00.000Z"
+		},
+		{
+			"teamId": "9b1342399017dfc4e2faf4e2",
+			"team": "1a21a7c1a3f89181074e1018",
+			"type": "teamInGroup",
+			"resultTime": "2020-12-14T20:00:00.000Z"
+		},
+		{
+			"teamId": "9b1342399017dfc4e2faf4e3",
+			"team": "1a21a7c1a3f89181074e1023",
+			"type": "teamInGroup",
+			"resultTime": "2020-12-14T20:00:00.000Z"
+		},
+		{
+			"teamId": "9b1342399017dfc4e2faf4e4",
+			"team": "1a21a7c1a3f89181074e1020",
+			"type": "teamInGroup",
+			"resultTime": "2020-12-14T20:00:00.000Z"
+		},
+		{
+			"teamId": "9b1342399017dfc4e2faf4e5",
+			"team": "1a21a7c1a3f89181074e1025",
+			"type": "teamInGroup",
+			"resultTime": "2020-12-14T20:00:00.000Z"
+		},
+		{
+			"teamId": "9b1342399017dfc4e2faf4e6",
+			"team": "1a21a7c1a3f89181074e1024",
+			"type": "teamInGroup",
+			"resultTime": "2020-12-14T20:00:00.000Z"
+		},
+		{
+			"teamId": "9b1342399017dfc4e2faf4e7",
+			"team": "1a21a7c1a3f89181074e1030",
+			"type": "teamInGroup",
+			"resultTime": "2020-12-14T20:00:00.000Z"
+		},
+		{
+			"teamId": "9b1342399017dfc4e2faf4e8",
+			"team": "1a21a7c1a3f89181074e1028",
+			"type": "teamInGroup",
+			"resultTime": "2020-12-14T20:00:00.000Z"
+		}
 	]
 }
