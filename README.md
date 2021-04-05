@@ -1,5 +1,5 @@
 # PrediGa v2.0
-Prediction game using MongoDB, ExpressJS, NodeJS, ReactJS
+Prediction Game using MongoDB, ExpressJS, NodeJS, ReactJS
 
 ## Prerequisites
 1. brew tap mongodb/brew
